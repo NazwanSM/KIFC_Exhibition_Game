@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'core/theme/kifc_theme.dart';
-import 'features/welcome/welcome_screen.dart';
+import 'features/game/exhibition_game.dart';
 
 class KifcApp extends StatelessWidget {
   const KifcApp({super.key});
@@ -12,7 +12,8 @@ class KifcApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Fire Prevention Challenge',
       theme: KifcTheme.light(),
-      home: const WelcomeScreen(),
+      themeAnimationDuration: Duration.zero,
+      home: const ExhibitionGame(),
     );
   }
 }

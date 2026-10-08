@@ -20,6 +20,18 @@ flutter pub get
 flutter run -d chrome
 ```
 
+## Web preview
+
+The latest `main` branch is published automatically through GitHub Pages:
+
+https://nazwansm.github.io/KIFC_Exhibition_Game/
+
+For a local browser preview:
+
+```powershell
+flutter run -d web-server --web-port 8080
+```
+
 For an attached Android device or emulator:
 
 ```powershell
