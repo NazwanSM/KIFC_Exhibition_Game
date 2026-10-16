@@ -16,10 +16,14 @@ abstract final class KifcTheme {
   static const warmPanel = Color(0xFFE1D8C2);
   static const success = Color(0xFFE4EFD9);
   static const warning = Color(0xFFFFEDC9);
+  static const answerCorrect = Color(0xFF2D6751);
+  static const answerIncorrect = Color(0xFF923F32);
+  static const answerIncorrectDeep = Color(0xFF672D26);
 
   static ThemeData light() {
     return ThemeData(
       useMaterial3: true,
+      fontFamily: 'Archivo',
       scaffoldBackgroundColor: paper,
       colorScheme: ColorScheme.fromSeed(
         seedColor: mossGreen,
@@ -29,7 +33,7 @@ abstract final class KifcTheme {
       textTheme: const TextTheme(
         headlineLarge: TextStyle(
           color: ink,
-          fontWeight: FontWeight.w700,
+          fontWeight: FontWeight.w800,
           letterSpacing: -0.8,
         ),
         bodyLarge: TextStyle(color: ink, height: 1.4),

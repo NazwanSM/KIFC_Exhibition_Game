@@ -4,7 +4,8 @@ Offline, portrait Android touchscreen game for the KIFC Exhibition Room, Zone 1.
 
 The implementation follows the approved Terms of Reference: bilingual content,
 four short educational levels, score, and automatic reset for consecutive
-visitors. The current screen is a technical shell while the Figma UI is reviewed.
+visitors. The current preview includes the four chapters, photographic scenes,
+drag-and-drop fire-triangle assembly and an interactive element-reduction demo.
 
 ## Targets
 
@@ -25,6 +26,19 @@ flutter run -d chrome
 The latest `main` branch is published automatically through GitHub Pages:
 
 https://nazwansm.github.io/KIFC_Exhibition_Game/
+
+The revised UI and Indonesian script are reviewed separately:
+
+- Source branch: `preview/revisi-ui-2026-10-16`
+- Preview site: https://nazwansm.github.io/KIFC_Exhibition_Game_Preview/
+- Deployment repository: https://github.com/NazwanSM/KIFC_Exhibition_Game_Preview
+
+The preview repository has its own GitHub Pages workflow. It checks out this
+source branch and builds with `/KIFC_Exhibition_Game_Preview/` as the base path.
+To publish another revision after pushing this branch, run **Deploy isolated KIFC
+preview** from the deployment repository's Actions tab. Its `source_ref` input
+accepts this branch or a specific source commit. Publishing the preview does not
+require merging into `main` or changing the original Pages configuration.
 
 For a local browser preview:
 

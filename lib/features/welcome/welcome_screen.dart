@@ -210,12 +210,12 @@ class _Welcome extends StatelessWidget {
                   Text(
                     english
                         ? 'Fire Prevention\nChallenge'
-                        : 'Tantangan\nPencegahan Karhutla',
+                        : 'Tantangan\nCegah Karhutla',
                     style: const TextStyle(
                       color: Colors.white,
-                      fontSize: 39,
+                      fontFamily: 'ArchivoBlack',
+                      fontSize: 35,
                       height: 1.1,
-                      fontWeight: FontWeight.w700,
                       letterSpacing: -1.3,
                     ),
                   ),
@@ -712,28 +712,39 @@ class _PartnerMarks extends StatelessWidget {
     'assets/images/logos/04-manggala-agni.jpeg',
   ];
   @override
-  Widget build(BuildContext context) => SizedBox(
-    height: 29,
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: _logos
-          .map(
-            (asset) => Expanded(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5),
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    color: dark
-                        ? Colors.white.withValues(alpha: .92)
-                        : Colors.transparent,
-                    borderRadius: BorderRadius.circular(2),
-                  ),
-                  child: Image.asset(asset, fit: BoxFit.contain),
+  Widget build(BuildContext context) => Center(
+    child: Container(
+      width: 246,
+      height: 44,
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(24),
+        border: Border.all(
+          color: dark ? Colors.white.withValues(alpha: .48) : KifcTheme.line,
+        ),
+        boxShadow: dark
+            ? <BoxShadow>[
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: .12),
+                  blurRadius: 14,
+                  offset: const Offset(0, 4),
                 ),
+              ]
+            : const <BoxShadow>[],
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: _logos
+            .map(
+              (asset) => SizedBox(
+                width: 38,
+                height: 30,
+                child: Image.asset(asset, fit: BoxFit.contain),
               ),
-            ),
-          )
-          .toList(),
+            )
+            .toList(),
+      ),
     ),
   );
 }
