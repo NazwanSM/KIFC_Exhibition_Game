@@ -2369,11 +2369,11 @@ class _Primary extends StatelessWidget {
     child: ElevatedButton.icon(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        backgroundColor: large ? KifcTheme.amber : KifcTheme.forest800,
+        backgroundColor: KifcTheme.forest800,
         disabledBackgroundColor: dark
             ? KifcTheme.forest800.withValues(alpha: .88)
             : KifcTheme.warmPanel,
-        foregroundColor: large ? KifcTheme.forest950 : Colors.white,
+        foregroundColor: Colors.white,
         disabledForegroundColor: dark ? Colors.white : KifcTheme.mutedInk,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(KifcTheme.controlRadius),

@@ -25,7 +25,7 @@ Layout ini bersifat sementara. Persentase layar membantu mengelompokkan kontrol,
 
 ## Aturan layout sementara
 
-- Tombol mulai pada pembuka memakai tinggi 72 unit acuan, teks 21, dan ikon 28. Warna amber dengan teks hijau tua membuat ajakan lebih terlihat di atas foto; jarak ke percakapan maskot 8. Proporsi ini menggantikan percobaan tinggi 92 yang terasa terlalu kosong. Seluruh permukaan dapat disentuh dan tetap memiliki jarak dari bawah layar. Bukti tambahan: `build/review-start-button-balanced/`.
+- Tombol mulai pada pembuka memakai tinggi 72 unit acuan, teks 21, dan ikon 28; jarak ke percakapan maskot 8. Warna kembali hijau tua dengan teks putih setelah pemilik proyek tidak menyukai percobaan amber. Proporsi ini menggantikan percobaan tinggi 92 yang terasa terlalu kosong. Seluruh permukaan dapat disentuh dan tetap memiliki jarak dari bawah layar. Bukti proporsi: `build/review-start-button-balanced/` (warna pada bukti tersebut masih percobaan amber).
 
 - Aktif pada viewport dengan lebar minimal 600 dan tinggi minimal 900 unit layout. Pengujian sasaran: 720×1280 dan 1080×1920 portrait.
 - Gunakan referensi 411×731 yang sudah diuji, diskalakan seragam agar tinggi kelompok normal sekitar 70% tinggi viewport; batasi lebar hingga 90% jika ruang lebih sempit.
