@@ -639,7 +639,7 @@ class _WelcomePage extends StatelessWidget {
                               ? 'Hello! Discover how fires start and what we can do to protect the forest.'
                               : 'Halo! Yuk, kenali penyebab kebakaran dan cari tahu cara menjaga hutan dari api.',
                         ),
-                        const SizedBox(height: 12),
+                        const SizedBox(height: 8),
                         _Primary(
                           label: locale == AppLocale.english
                               ? 'Start Challenge'
@@ -2365,15 +2365,15 @@ class _Primary extends StatelessWidget {
   @override
   Widget build(BuildContext context) => SizedBox(
     width: double.infinity,
-    height: large ? 92 : 46,
+    height: large ? 72 : 46,
     child: ElevatedButton.icon(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        backgroundColor: KifcTheme.forest800,
+        backgroundColor: large ? KifcTheme.amber : KifcTheme.forest800,
         disabledBackgroundColor: dark
             ? KifcTheme.forest800.withValues(alpha: .88)
             : KifcTheme.warmPanel,
-        foregroundColor: Colors.white,
+        foregroundColor: large ? KifcTheme.forest950 : Colors.white,
         disabledForegroundColor: dark ? Colors.white : KifcTheme.mutedInk,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
@@ -2385,7 +2385,7 @@ class _Primary extends StatelessWidget {
           : Icon(icon, size: large ? 28 : null),
       label: Text(
         label,
-        style: TextStyle(fontWeight: FontWeight.w700, fontSize: large ? 18 : null),
+        style: TextStyle(fontWeight: FontWeight.w700, fontSize: large ? 21 : null),
       ),
     ),
   );
