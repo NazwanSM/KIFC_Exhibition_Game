@@ -691,7 +691,7 @@ class _RiskPage extends StatelessWidget {
       title: english
           ? 'Where could fire start more easily?'
           : 'Di mana api lebih mudah muncul?',
-      edgeFeedback: answer != null && !solved,
+      edgeFeedback: answer != null,
       subtitle: english
           ? 'Choose the condition with the highest fire risk.'
           : 'Dari tiga kondisi ini, mana yang paling mudah terbakar?',
@@ -1222,7 +1222,7 @@ class _CauseQuiz extends StatelessWidget {
       title: english
           ? 'What most likely triggered this risk?'
           : 'Apa penyebabnya?',
-      edgeFeedback: answered && !correct,
+      edgeFeedback: answered,
       subtitle: english
           ? 'Read the situation, then choose where the trigger came from.'
           : 'Baca situasinya. Apakah api dipicu aktivitas manusia atau faktor alam?',
@@ -1328,7 +1328,7 @@ class _StopDecision extends StatelessWidget {
       english: english,
       eyebrow: english ? 'CHAPTER 4 / MAKE A CHOICE' : 'BABAK 4 / PILIH TINDAKAN',
       title: english ? 'Stop the spread.' : 'Batasi rambatan api.',
-      edgeFeedback: answer != null && !solved,
+      edgeFeedback: answer != null,
       subtitle: english
           ? 'Which action should trained personnel take?'
           : 'Apa yang bisa dilakukan petugas terlatih agar api tidak terus menjalar?',
@@ -1382,7 +1382,6 @@ class _StopDecision extends StatelessWidget {
                               ? 'Not quite. Think about what keeps the fire from reaching more material. You get one more try.'
                               : 'Belum tepat. Pikirkan tindakan yang membuat api sulit mencapai bahan lain. Kamu masih punya satu kesempatan lagi.')),
             ),
-            if (solved) const SizedBox(height: 8),
           ],
           if (preparing)
             _Primary(
@@ -2538,55 +2537,13 @@ class _Feedback extends StatelessWidget {
   final bool ok;
   final String text;
   @override
-  Widget build(BuildContext context) => !ok
-      ? _MascotWrongFeedback(text: text)
-      : TweenAnimationBuilder<double>(
-    duration: _motionDuration(context, const Duration(milliseconds: 240)),
-    curve: Curves.easeOutCubic,
-    tween: Tween<double>(begin: .94, end: 1),
-    builder: (context, scale, child) =>
-        Transform.scale(scale: scale, child: child),
-    child: Container(
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        gradient: _answerGradient(ok),
-        borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
-        border: Border.all(
-          color: ok ? KifcTheme.answerCorrect : KifcTheme.answerIncorrect,
-        ),
-        boxShadow: <BoxShadow>[
-          BoxShadow(
-            color: (ok ? KifcTheme.forest950 : KifcTheme.answerIncorrectDeep)
-                .withValues(alpha: .13),
-            offset: const Offset(0, 3),
-            blurRadius: 10,
-          ),
-        ],
-      ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          GameMascot(pose: ok ? MascotPose.success : MascotPose.hintSafety, height: 46),
-          const SizedBox(width: 8),
-          Expanded(
-            child: Text(
-              text,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 13,
-                height: 1.25,
-              ),
-            ),
-          ),
-        ],
-      ),
-    ),
-  );
+  Widget build(BuildContext context) => _MascotFeedback(text: text, ok: ok);
 }
 
-class _MascotWrongFeedback extends StatelessWidget {
-  const _MascotWrongFeedback({required this.text});
+class _MascotFeedback extends StatelessWidget {
+  const _MascotFeedback({required this.text, required this.ok});
   final String text;
+  final bool ok;
 
   @override
   Widget build(BuildContext context) {
@@ -2600,7 +2557,8 @@ class _MascotWrongFeedback extends StatelessWidget {
         Positioned(
           // Use the PNG's transparent side margin to sit close to the edge
           // while preserving the complete silhouette and both hands.
-          left: -40,
+          left: ok ? null : -40,
+          right: ok ? -24 : null,
           bottom: 0,
           width: mascotWidth,
           height: imageHeight * .57,
@@ -2612,16 +2570,16 @@ class _MascotWrongFeedback extends StatelessWidget {
               maxWidth: mascotWidth,
               minHeight: imageHeight,
               maxHeight: imageHeight,
-              child: GameMascot(pose: MascotPose.hintSafety, height: imageHeight),
+              child: GameMascot(pose: ok ? MascotPose.success : MascotPose.hintSafety, height: imageHeight),
             ),
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(left: mascotWidth - 40, top: 8, bottom: 16),
+          padding: EdgeInsets.only(left: ok ? 0 : mascotWidth - 40, right: ok ? mascotWidth - 24 : 0, top: 8, bottom: 16),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              ClipPath(
+              if (!ok) ClipPath(
                 clipper: _SpeechTail(),
                 child: const ColoredBox(color: KifcTheme.paper, child: SizedBox(width: 10, height: 18)),
               ),
@@ -2631,9 +2589,16 @@ class _MascotWrongFeedback extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: KifcTheme.paper,
                     borderRadius: BorderRadius.circular(18),
-                    border: Border.all(color: KifcTheme.answerIncorrect.withValues(alpha: .45)),
+                    border: Border.all(color: (ok ? KifcTheme.answerCorrect : KifcTheme.answerIncorrect).withValues(alpha: .45)),
                   ),
                   child: Text(text, style: const TextStyle(color: KifcTheme.ink, fontSize: 13, height: 1.25)),
+                ),
+              ),
+              if (ok) RotatedBox(
+                quarterTurns: 2,
+                child: ClipPath(
+                  clipper: _SpeechTail(),
+                  child: const ColoredBox(color: KifcTheme.paper, child: SizedBox(width: 10, height: 18)),
                 ),
               ),
             ],

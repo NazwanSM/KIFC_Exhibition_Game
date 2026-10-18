@@ -261,6 +261,7 @@ class GameFlow {
       await capture('risk-reveal');
     } else {
       await tap(text('Tanaman kering di dekat sumber api', 'Dry vegetation with an ignition source'));
+      await capture('risk-correct');
     }
     await advance('cause-quiz', milliseconds: wrongCause ? 4700 : 2200);
     expect(
@@ -280,6 +281,7 @@ class GameFlow {
         findsOneWidget,
         reason: 'Every answer shows feedback before the automatic move',
       );
+      if (!wrongCause && index == 3) await capture('cause-correct');
       await advance('cause feedback ${index + 1}');
     }
     expect(find.byKey(const ValueKey('decision-separateFuel')), findsOneWidget);

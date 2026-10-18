@@ -92,6 +92,8 @@ Gunakan status: `Siap`, `Dikerjakan`, `Menunggu prasyarat`, `Ditinjau`, atau `Se
 
 ## REV-04 — Maskot sebagai pendamping dan pemberi petunjuk
 
+**Penyempurnaan feedback benar:** pose success tampil besar di kanan bawah, dengan balon percakapan di kiri. Ukuran dan crop mengikuti feedback salah: kedua sisi maskot utuh, potongan pinggang menempel tepi bawah layar. Berlaku pada jawaban benar pemilihan risiko, kuis penyebab, dan keputusan pencegahan. Bukti visual: `build/review-correct-mascot/`.
+
 **Penyempurnaan feedback salah:** maskot hint_safety tampil besar di kiri bawah dengan crop setengah badan, disertai balon percakapan di sebelahnya. Berlaku pada hint pertama, penjelasan salah kedua, dan jawaban salah kuis penyebab. Area jawaban menyesuaikan ruang feedback; teks dan pilihan tidak saling menutupi. Bukti visual: `build/review-mascot-feedback/`. Tes kasus salah pada keempat situasi penyebab mencakup kedua bahasa pada ukuran 360×640.
 
 **Perbaikan crop:** seluruh lebar PNG dipertahankan agar kedua tangan dan sisi tubuh tidak terpotong. Batas potongan pinggang ditempelkan ke tepi bawah viewport pada feedback salah. Bukti lanjutan: `build/review-mascot-edge/`. Tes layout memeriksa posisi bawah crop dan lebar gambar terhadap area crop.
