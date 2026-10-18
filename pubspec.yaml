@@ -51,6 +51,7 @@ flutter:
 
   uses-material-design: true
   assets:
+    - assets/images/mascot/
     - assets/images/field/
     - assets/images/logos/
     - assets/images/forest/kereng-bangkirai.jpg

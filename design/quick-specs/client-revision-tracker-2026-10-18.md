@@ -2,12 +2,13 @@
 
 Tanggal: 18 Oktober 2026  
 Sumber: catatan pertemuan klien dan klarifikasi pemilik proyek dalam percakapan.  
-Cakupan saat ini: pencatatan revisi dan kriteria selesai. Implementasi belum dimulai.
+Cakupan saat ini: pencatatan revisi, implementasi, dan bukti pemeriksaan per tiket.
 
 ## Ringkasan progres
 
-- Tiket selesai: **1/10** (REV-02).
-- Tiket siap dikerjakan: **8**.
+- Tiket selesai: **4/10** (REV-02, REV-04, REV-06, REV-07).
+- Tiket ditinjau: **0**.
+- Tiket siap dikerjakan: **5** (REV-01, REV-03, REV-05, REV-08, REV-09).
 - Tiket menunggu prasyarat: **1** (REV-10, verifikasi setelah implementasi).
 - Klarifikasi kebutuhan utama: selesai. Keputusan teknis dan desain yang masih terbuka tercatat pada tiket terkait.
 
@@ -18,12 +19,12 @@ Gunakan status: `Siap`, `Dikerjakan`, `Menunggu prasyarat`, `Ditinjau`, atau `Se
 | REV-01 | Alur otomatis dan kesempatan kedua | Siap | Hasil kajian REV-02; petunjuk dari REV-04 |
 | REV-02 | Tukar babak 1–2 dan kaji alur keseluruhan | Selesai | — |
 | REV-03 | Tambahkan bahasa Korea | Siap | Struktur konten REV-02; naskah sementara REV-08 |
-| REV-04 | Maskot sebagai pendamping dan pemberi petunjuk | Siap | Aset logo Manggala Agni yang sesuai |
+| REV-04 | Maskot sebagai pendamping dan pemberi petunjuk | Selesai | Empat pose dari pemilik proyek |
 | REV-05 | Tambahkan pattern pada latar | Siap | — |
-| REV-06 | Ubah tampilan tiga unsur api | Siap | Kajian REV-02 |
-| REV-07 | Jadikan pengenalan karhutla sebagai penjelasan | Siap | REV-02, REV-04, REV-08 |
+| REV-06 | Ubah tampilan tiga unsur api | Selesai | Kajian REV-02 |
+| REV-07 | Jadikan pengenalan karhutla sebagai penjelasan | Selesai | REV-02, REV-04; naskah sementara REV-08 |
 | REV-08 | Kelola naskah sementara dan materi klien | Siap | Materi klien untuk finalisasi saja |
-| REV-09 | Naikkan tombol utama halaman pembuka | Siap | — |
+| REV-09 | Posisi tombol pembuka dan kenyamanan jangkauan TV besar | Siap | — |
 | REV-10 | Verifikasi seluruh revisi | Menunggu prasyarat | REV-01 sampai REV-09 |
 
 ## Keputusan yang sudah dikonfirmasi
@@ -91,12 +92,14 @@ Gunakan status: `Siap`, `Dikerjakan`, `Menunggu prasyarat`, `Ditinjau`, atau `Se
 
 **Tujuan:** memberi penjelasan dan bantuan melalui karakter yang berasal dari identitas Manggala Agni.
 
-- [ ] Temukan dan pastikan aset logo Manggala Agni yang akan menjadi acuan.
-- [ ] Buat konsep maskot melalui generasi gambar berdasarkan logo tersebut; pilih desain yang konsisten dengan identitasnya.
-- [ ] Siapkan ekspresi atau pose yang diperlukan untuk menjelaskan, memberi petunjuk, dan memberi feedback.
-- [ ] Integrasikan maskot dengan teks percakapan pada penjelasan dan kondisi salah yang relevan.
-- [ ] Pastikan maskot tidak menutupi pilihan, foto, teks, atau area sentuh.
-- [ ] Simpan aset untuk penggunaan offline dan catat asal serta proses pembuatannya sesuai aturan aset proyek.
+- [x] Temukan dan pastikan aset logo Manggala Agni yang akan menjadi acuan.
+- [x] Buat konsep maskot melalui generasi gambar berdasarkan logo tersebut; pilih desain yang konsisten dengan identitasnya.
+- [x] Siapkan ekspresi atau pose yang diperlukan untuk menjelaskan, memberi petunjuk, dan memberi feedback.
+- [x] Integrasikan maskot dengan teks percakapan pada penjelasan dan kondisi salah yang relevan.
+- [x] Pastikan maskot tidak menutupi pilihan, foto, teks, atau area sentuh.
+- [x] Simpan aset untuk penggunaan offline dan catat asal serta proses pembuatannya sesuai aturan aset proyek.
+
+**Bukti:** empat PNG dari pemilik proyek terdaftar di pubspec; pose welcome pada pembuka, presenting pada kartu karhutla dan segitiga api, hint_safety pada feedback salah, success pada feedback benar dan penutup. Maskot berada dalam layout, tanpa overlay pada kontrol. Seluruh 12 tes lulus (Indonesia/Inggris, 360×640 dan 411×731); analisis Flutter tanpa masalah. Uji kenyamanan fisik TV besar ada pada REV-09. Petunjuk khusus percobaan kedua mengikuti REV-01; Korea mengikuti REV-03. Penilaian visual langsung pada perangkat tetap bagian REV-10.
 
 **Kriteria selesai:** maskot tampil konsisten dan membantu pemain memahami materi atau langkah berikutnya; teks dapat dibaca dalam tiga bahasa.
 
@@ -117,12 +120,21 @@ Gunakan status: `Siap`, `Dikerjakan`, `Menunggu prasyarat`, `Ditinjau`, atau `Se
 
 **Tujuan:** mengajarkan panas, bahan bakar, dan oksigen dengan bentuk yang lebih bebas, sambil mempertahankan aktivitasnya.
 
-- [ ] Eksplorasi penyajian seperti daftar, kartu, atau susunan lain; tidak wajib memakai tiga titik segitiga.
-- [ ] Pertahankan aktivitas menyusun atau melengkapi tiga unsur dan demo mengurangi unsur.
-- [ ] Pastikan pemain memahami bahwa ketiganya merupakan unsur yang diperlukan untuk terjadinya api, bukan sekadar tiga penyebab yang berdiri sendiri.
-- [ ] Sesuaikan instruksi dan feedback dengan bentuk interaksi yang dipilih serta aturan REV-01.
-- [ ] Pertahankan demo pengurangan unsur sebagai eksplorasi tanpa penilaian benar/salah.
-- [ ] Pertahankan ketepatan materi: oksigen ada di udara; angin bukan syarat terjadinya api; pembatasan oksigen di lahan terbuka memiliki keterbatasan.
+- [x] Eksplorasi penyajian seperti daftar, kartu, atau susunan lain; tidak wajib memakai tiga titik segitiga.
+- [x] Pertahankan aktivitas menyusun atau melengkapi tiga unsur dan demo mengurangi unsur.
+- [x] Pastikan pemain memahami bahwa ketiganya merupakan unsur yang diperlukan untuk terjadinya api, bukan sekadar tiga penyebab yang berdiri sendiri.
+- [x] Sesuaikan instruksi dan feedback dengan bentuk interaksi yang dipilih; kesempatan kedua tetap dilacak pada REV-01.
+- [x] Pertahankan demo pengurangan unsur sebagai eksplorasi tanpa penilaian benar/salah.
+- [x] Pertahankan ketepatan materi: oksigen ada di udara; angin bukan syarat terjadinya api; pembatasan oksigen di lahan terbuka memiliki keterbatasan.
+
+**Bukti:** tiga kartu sejajar menggantikan titik dan garis segitiga pada panel bersama. Api ditampilkan di atas deretan kartu, tanpa tertutup target drop. Drag-and-drop, penolakan foto yang salah, penyelesaian susunan, serta tiga pilihan demo tanpa penilaian lulus tes pada kedua bahasa dan ukuran portrait. Aturan tampilan di AGENTS.md sudah diselaraskan.
+
+**Hasil peninjauan visual lanjutan:** selesai. Bukti ada di `build/review-rev06-07/` (tangkapan layar nyata dari perjalanan widget pada dua bahasa dan dua ukuran portrait).
+
+- [x] Seimbangkan ruang pada aktivitas: kartu, area sentuh, dan tombol lanjut kini berada dalam satu kelompok terpusat (`groupFooter`), sehingga tidak ada ruang kosong besar di antara aktivitas dan tombol. Kajian zona jangkauan fisik tetap di REV-09.
+- [x] Satukan penjelasan segitiga api dengan maskot dalam komposisi percakapan yang jelas (maskot, ekor balon, dan kartu teks menyatu); istilah serta peran masing-masing unsur dipertahankan.
+- [x] Perhalus efek nyala: lingkaran oranye padat diganti gradien radial yang memudar ke transparan, sehingga cahaya menyatu dengan foto di belakang api.
+- [x] Pastikan petunjuk panas tetap membedakan pengeringan oleh matahari dari sumber penyulut; kalimat ini kini berada pada layar penjelasan yang dilalui alur aktif, dan intro lama bukan bagian dari alur.
 
 **Kriteria selesai:** aktivitas menyusun dan mengurangi unsur tetap bisa dimainkan, konsep tiga unsur dipahami tanpa bergantung pada bentuk segitiga, dan respons visual mengikuti keadaan unsur.
 
@@ -132,11 +144,20 @@ Gunakan status: `Siap`, `Dikerjakan`, `Menunggu prasyarat`, `Ditinjau`, atau `Se
 
 **Tujuan:** pengunjung mendapat penjelasan karhutla dari maskot tanpa harus menyelesaikan aktivitas pada bagian ini.
 
-- [ ] Ganti interaksi mengamati atau memilih objek pada bagian “Apa itu karhutla?” dengan materi penjelasan.
-- [ ] Sajikan penjelasan melalui maskot dan teks yang runtut serta alami.
-- [ ] Tentukan pembagian materi: satu halaman atau beberapa bagian pendek, sesuai panjang naskah dan hasil kajian alur.
-- [ ] Tentukan cara melanjutkan yang memberi cukup waktu membaca dan tetap sesuai tujuan alur yang lebih lancar.
-- [ ] Pastikan definisi, konteks hutan/lahan, serta kaitan dengan aktivitas sebelumnya tersampaikan.
+- [x] Ganti interaksi mengamati atau memilih objek pada bagian “Apa itu karhutla?” dengan materi penjelasan.
+- [x] Sajikan penjelasan melalui maskot dan teks yang runtut serta alami.
+- [x] Tentukan pembagian materi: tiga kartu pendek dengan satu gagasan per kartu.
+- [x] Tentukan cara melanjutkan yang memberi cukup waktu membaca: tombol manual pada setiap kartu.
+- [x] Pastikan definisi, konteks hutan/lahan, serta kaitan dengan aktivitas sebelumnya tersampaikan.
+
+**Bukti:** definisi, dampak, dan pencegahan tampil sebagai percakapan bersama maskot. Tidak ada hotspot atau soal pada rangkaian bacaan. Setiap kartu memiliki ID tetap untuk penggantian narasi klien. Tes memeriksa ketiga kartu secara berurutan, lalu soal risiko yang terpisah. Seluruh 12 tes lulus; analisis Flutter tanpa masalah. Naskah final klien tetap menunggu di REV-08.
+
+**Hasil peninjauan visual dan alur lanjutan:** selesai.
+
+- [x] Perbaiki tombol Kembali: dari kartu kedua/ketiga kembali ke kartu sebelumnya; dari kartu pertama kembali ke demo. Perpindahan ini dikendalikan indeks kartu dan diuji ulang.
+- [x] Hubungkan kartu bacaan dan maskot secara visual (balon dan ekor percakapan), dengan jarak dan skala yang konsisten pada layar kecil dan besar.
+- [x] Hindari subjudul generik berulang: setiap kartu kini punya kalimat pengantar sendiri, dan kartu pertama menghubungkan dengan tiga unsur api yang baru dimainkan.
+- [x] Periksa ulang tampilan setelah perbaikan; seluruh 12 tes lulus dan tangkapan layar baru sudah ditinjau pada dua bahasa dan dua ukuran portrait.
 
 **Kriteria selesai:** tidak ada kuis atau aktivitas memilih pada bagian pengenalan ini; penjelasan terbaca dengan nyaman dan terhubung ke babak berikutnya.
 
@@ -157,17 +178,21 @@ Gunakan status: `Siap`, `Dikerjakan`, `Menunggu prasyarat`, `Ditinjau`, atau `Se
 
 **Status materi klien:** menunggu; tidak menghalangi penyusunan naskah sementara. Tiket ini belum boleh ditutup hanya karena naskah sementara selesai.
 
-## REV-09 — Naikkan tombol utama halaman pembuka
+## REV-09 — Posisi tombol pembuka dan kenyamanan jangkauan TV besar
 
-**Tujuan:** tombol utama mudah ditemukan dan dijangkau pengguna TV touchscreen portrait.
+**Tujuan:** tombol pembuka dan seluruh interaksi utama mudah ditemukan serta dijangkau pengguna TV touchscreen portrait berukuran besar, tanpa harus sering meraih ujung atas atau bawah layar.
 
 - [ ] Tinjau posisi tombol terhadap judul, pemilih bahasa, dan konten pembuka.
 - [ ] Pindahkan tombol ke area yang lebih tinggi dan mudah terlihat tanpa perlu menggulir halaman.
 - [ ] Pastikan ukuran area sentuh dan jarak antarkontrol nyaman digunakan.
 - [ ] Periksa dengan teks Indonesia, Inggris, dan Korea.
 - [ ] Validasi keterjangkauan pada perangkat pameran saat tersedia; catat jika pemeriksaan baru dilakukan melalui emulator.
+- [ ] Kaji seluruh sesi: posisi pilihan jawaban, tombol kartu penjelasan, navigasi kembali, area drag-and-drop, dan objek tantangan akhir.
+- [ ] Catat ukuran fisik TV, orientasi, tinggi pemasangan, dan posisi berdiri pengguna sebelum menentukan zona sentuh yang nyaman; resolusi saja tidak menunjukkan keterjangkauan fisik.
+- [ ] Letakkan interaksi yang sering digunakan dalam zona jangkauan nyaman dan kurangi perpindahan tangan berulang antara ujung atas dan bawah.
+- [ ] Uji sesi lengkap pada TV besar dengan pengguna yang memiliki tinggi badan berbeda; catat titik yang memerlukan membungkuk, berjinjit, atau merentangkan tangan berlebihan.
 
-**Kriteria selesai:** tombol terlihat utuh pada tampilan awal dan mudah dikenali sebagai langkah memulai. Posisi akhirnya ditentukan berdasarkan komposisi layar serta jangkauan pengguna, bukan angka posisi yang diasumsikan sekarang.
+**Kriteria selesai:** tombol terlihat utuh pada tampilan awal dan mudah dikenali sebagai langkah memulai. Interaksi utama sepanjang sesi nyaman dijangkau pada ukuran dan tinggi pemasangan TV sasaran. Catat bukti uji, perubahan posisi, serta batas pemeriksaan; pemeriksaan emulator belum membuktikan kenyamanan fisik pada TV.
 
 ## REV-10 — Verifikasi seluruh revisi
 
@@ -202,3 +227,4 @@ Urutan ini merupakan saran pengerjaan, bukan penetapan tanggal atau estimasi dur
 | Tanggal | Perubahan |
 |---|---|
 | 2026-10-18 | Tracker dibuat dari sembilan revisi klien dan klarifikasi pemilik proyek; ditambahkan tiket verifikasi. Belum ada perubahan kode aplikasi. |
+| 2026-10-18 | REV-06 dan REV-07 ditutup: komposisi aktivitas dan maskot diperbaiki, efek nyala diperhalus, petunjuk panas dipindah ke layar aktif, dan navigasi Kembali kartu diperbaiki. Analisis Flutter bersih, seluruh 12 tes lulus, tangkapan layar baru ditinjau pada dua bahasa dan dua ukuran portrait. |

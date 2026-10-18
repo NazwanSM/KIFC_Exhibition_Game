@@ -1,6 +1,8 @@
 import 'dart:io';
+import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fire_prevention_challenge/core/theme/kifc_theme.dart';
@@ -45,6 +47,21 @@ class GameFlow {
   final bool english;
   final Size size;
   final clock = ControlledStopwatch();
+  Future<void> capture(String stage) async {
+    if (Platform.environment['KIFC_CAPTURE'] != '1') return;
+    final boundary = tester.renderObject<RenderRepaintBoundary>(
+      find.byKey(const ValueKey('review-capture')),
+    );
+    await tester.runAsync(() async {
+      final shot = await boundary.toImage(pixelRatio: 1);
+      final bytes = await shot.toByteData(format: ui.ImageByteFormat.png);
+      final dir = Directory('build/review-rev06-07');
+      await dir.create(recursive: true);
+      await File('${dir.path}/${english ? 'en' : 'id'}-${size.width.toInt()}-$stage.png')
+          .writeAsBytes(bytes!.buffer.asUint8List());
+      shot.dispose();
+    });
+  }
   String text(String id, String en) => english ? en : id;
   Finder type(String name) =>
       find.byWidgetPredicate((widget) => widget.runtimeType.toString() == name);
@@ -78,7 +95,10 @@ class GameFlow {
       MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: KifcTheme.light(),
-        home: ExhibitionGame(stopwatchFactory: () => clock),
+        home: RepaintBoundary(
+          key: const ValueKey('review-capture'),
+          child: ExhibitionGame(stopwatchFactory: () => clock),
+        ),
       ),
     );
     await tester.runAsync(() async {
@@ -89,6 +109,14 @@ class GameFlow {
         final path = file.path.replaceAll(String.fromCharCode(92), '/');
         if (RegExp(r'\.(png|jpe?g)$').hasMatch(path)) {
           await precacheImage(AssetImage(path), context);
+        }
+      }
+      if (Platform.environment['KIFC_CAPTURE'] == '1') {
+        for (final pose in ['welcome', 'presenting', 'hint_safety', 'success']) {
+          await precacheImage(
+            ResizeImage(AssetImage('assets/images/mascot/manggala_agni_$pose.png'), width: 320),
+            context,
+          );
         }
       }
     });
@@ -105,7 +133,14 @@ class GameFlow {
 
   Future<void> toDecision({bool wrongCause = false}) async {
     await tap(text('Mulai Tantangan', 'Start Challenge'));
+    await capture('assembly');
     final trianglePanelSize = tester.getSize(type('_FireScene'));
+    final water = type('_DraggablePiece').at(1);
+    final heatSlot = type('_DropSlot').first;
+    await tester.drag(water, tester.getCenter(heatSlot) - tester.getCenter(water));
+    await pump();
+    expect(find.textContaining(text('Foto ini belum cocok', 'Try another element')), findsOneWidget);
+    expect(find.byKey(const ValueKey('fire')), findsNothing);
     final scrims = find.byWidgetPredicate(
       (w) => w is SizedBox && w.height == 42 && w.child is DecoratedBox,
     );
@@ -138,6 +173,7 @@ class GameFlow {
       }
     }
     await tap(text('Kenali Segitiga Api', 'Learn About the Fire Triangle'));
+    await capture('fire-explanation');
     await tap(text('Coba Kurangi Satu Unsur', 'Try Reducing an Element'));
     expect(
       tester.getSize(type('_FireScene')),
@@ -172,6 +208,7 @@ class GameFlow {
       await pump();
       check('triangle demo ${demo.$1}');
       expect(find.text(demo.$2), findsOneWidget);
+      await capture('demo-${demo.$1 == text('Panas', 'Heat') ? 'heat' : demo.$1 == text('Bahan bakar', 'Fuel') ? 'fuel' : 'oxygen'}');
       expect(
         type('_AnswerMark'),
         findsNothing,
@@ -183,9 +220,19 @@ class GameFlow {
         reason: 'Reducing an element changes the flame, not the panel size',
       );
     }
-    await tap(text('Kenali Penyebabnya', 'Trace the Trigger'));
+    await tap(text('Pahami Karhutla', 'Understand Forest Fires'));
+    expect(find.byKey(const ValueKey('karhutla-definition')), findsOneWidget);
+    await capture('karhutla-definition');
+    expect(type('_Hotspot'), findsNothing);
     await tap(text('Lanjut', 'Continue'));
+    expect(find.byKey(const ValueKey('karhutla-impact')), findsOneWidget);
+    await tap(text('Kembali', 'Back'));
+    expect(find.byKey(const ValueKey('karhutla-definition')), findsOneWidget);
     await tap(text('Lanjut', 'Continue'));
+    await capture('karhutla-impact');
+    await tap(text('Lanjut', 'Continue'));
+    expect(find.byKey(const ValueKey('karhutla-prevention')), findsOneWidget);
+    await capture('karhutla-prevention');
     await tap(text('Lihat Risikonya', 'See the Risk'));
     await tap(text('Hutan basah', 'Wet forest'));
     await tap(
@@ -194,7 +241,7 @@ class GameFlow {
         'Dry vegetation with an ignition source',
       ),
     );
-    await tap(text('Lihat Segitiga Api', 'See the Fire Triangle'));
+    await tap(text('Kenali Penyebabnya', 'Explore the Causes'));
     for (var index = 0; index < 4; index++) {
       await tap(
         index == 2 || (wrongCause && index == 0)
@@ -251,6 +298,15 @@ class GameFlow {
   }
 
   Future<void> finalChallenge() async {
+    // Mascot images can evict final-grid images from the shared image cache.
+    // Let real image decoding finish before advancing the fake test clock.
+    await tester.runAsync(() async {
+      final context = tester.element(find.byType(ExhibitionGame));
+      for (final file in Directory('assets/images/field').listSync().whereType<File>()) {
+        final path = file.path.replaceAll(String.fromCharCode(92), '/');
+        await precacheImage(AssetImage(path), context);
+      }
+    });
     await tester.tap(find.byKey(const ValueKey('open-final')));
     await pump();
     await pump();
@@ -327,7 +383,7 @@ void main() {
 
     await tester.tap(find.text('Kenali Segitiga Api'));
     await tester.pump(const Duration(milliseconds: 400));
-    expect(find.text('Mengapa api bisa menyala?'), findsOneWidget);
+    expect(find.text('Tiga unsur, satu api.'), findsOneWidget);
   });
   for (final english in [false, true]) {
     for (final size in [const Size(411, 731), const Size(360, 640)]) {

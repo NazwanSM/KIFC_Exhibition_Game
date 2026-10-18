@@ -8,6 +8,7 @@ import '../../core/localization/app_locale.dart';
 import '../../core/theme/kifc_theme.dart';
 import 'widgets/environment_motion.dart';
 import 'widgets/game_photo.dart';
+import 'widgets/game_mascot.dart';
 
 const _fireCardAspectRatio = 1.8;
 
@@ -268,7 +269,13 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
           if (_karhutlaCardIndex < 2) _karhutlaCardIndex++;
         }),
         onComplete: () => _go(_Page.risk),
-        onBack: () => _go(_Page.breakTriangle),
+        onBack: () {
+          if (_karhutlaCardIndex > 0) {
+            setState(() => _karhutlaCardIndex--);
+          } else {
+            _go(_Page.breakTriangle);
+          }
+        },
       ),
       _Page.causeIntro => _CauseIntro(
         english: _en,
@@ -497,7 +504,9 @@ class _WelcomePage extends StatelessWidget {
                     height: 1.3,
                   ),
                 ),
-                const Spacer(),
+                const Expanded(
+                  child: Center(child: GameMascot(pose: MascotPose.welcome, height: 130)),
+                ),
                 Text(
                   locale == AppLocale.english
                       ? '4 chapters • around 3 minutes • no sound needed'
@@ -670,12 +679,57 @@ class _RiskPage extends StatelessWidget {
       ],
     ),
     footer: _Primary(
-      label: english ? 'See the Fire Triangle' : 'Lihat Segitiga Api',
+      label: english ? 'Explore the Causes' : 'Kenali Penyebabnya',
       onPressed: answer == _RiskOption.dryVegetationWithIgnition
           ? onContinue
           : null,
     ),
   );
+}
+
+class _MascotDialogue extends StatelessWidget {
+  const _MascotDialogue({required this.text, this.compact = false});
+  final String text;
+  final bool compact;
+
+  @override
+  Widget build(BuildContext context) => Row(
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+      SizedBox(
+        width: compact ? 78 : 94,
+        child: GameMascot(pose: MascotPose.presenting, height: compact ? 124 : 170),
+      ),
+      // The speech tail connects the ranger with the reading card.
+      ClipPath(
+        clipper: _SpeechTail(),
+        child: const ColoredBox(color: KifcTheme.paper, child: SizedBox(width: 10, height: 18)),
+      ),
+      Expanded(
+        child: Container(
+          padding: EdgeInsets.all(compact ? 12 : 16),
+          decoration: BoxDecoration(
+            color: KifcTheme.paper,
+            borderRadius: BorderRadius.circular(18),
+            border: Border.all(color: KifcTheme.line),
+          ),
+          child: Text(text, style: TextStyle(color: KifcTheme.ink, fontSize: compact ? 13 : 14, height: 1.4)),
+        ),
+      ),
+    ],
+  );
+}
+
+class _SpeechTail extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) => Path()
+    ..moveTo(size.width, 0)
+    ..lineTo(0, size.height / 2)
+    ..lineTo(size.width, size.height)
+    ..close();
+
+  @override
+  bool shouldReclip(_SpeechTail oldClipper) => false;
 }
 
 class _KarhutlaCards extends StatelessWidget {
@@ -688,18 +742,74 @@ class _KarhutlaCards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Working narrative: replace content by stable ID when client copy arrives.
+    // Each card keeps one idea, and its own lead-in line so the subtitles do
+    // not repeat the same generic sentence.
     final cards = english
-        ? [('What is a forest fire?', 'An uncontrolled fire can spread through vegetation and land.'), ('Why does it matter?', 'It can harm forests, land, wildlife, and nearby communities.'), ('Prevent it early.', 'Recognising risk before there is a flame helps prevent a larger fire.')]
-        : [('Apa itu karhutla?', 'Karhutla adalah kebakaran hutan dan lahan yang dapat menjalar tanpa terkendali.'), ('Mengapa perlu dicegah?', 'Karhutla dapat merusak hutan, lahan, satwa, dan membahayakan warga di sekitarnya.'), ('Cegah sebelum membesar.', 'Mengenali risiko sebelum api muncul membantu mencegah kebakaran yang lebih besar.')];
+        ? [
+            (
+              'karhutla-definition',
+              'What is a forest fire?',
+              'A forest or land fire burns vegetation such as grass, leaves, and trees. When it spreads out of control, it can reach nearby areas.',
+              'You have seen how fire starts. What happens when it spreads?',
+            ),
+            (
+              'karhutla-impact',
+              'Why does it matter?',
+              'Fire can damage habitats, and smoke can affect nearby communities. Preventing fires helps protect both forests and people.',
+              'A fire harms more than the trees in its path.',
+            ),
+            (
+              'karhutla-prevention',
+              'Prevent it early.',
+              'Dry vegetation is easier to ignite when a source of heat is nearby. Keep ignition sources away. If you see a fire, keep your distance and alert trained personnel.',
+              'Most forest fires can be stopped before they grow.',
+            ),
+          ]
+        : [
+            (
+              'karhutla-definition',
+              'Apa itu karhutla?',
+              'Karhutla adalah kebakaran hutan dan lahan. Api membakar rumput, daun, atau pepohonan dan bisa menjalar ke sekitarnya jika tidak terkendali.',
+              'Tadi kamu melihat api menyala. Bagaimana jika api itu menjalar?',
+            ),
+            (
+              'karhutla-impact',
+              'Mengapa perlu dicegah?',
+              'Api bisa merusak tempat hidup satwa, sementara asapnya mengganggu warga. Mencegah karhutla berarti menjaga hutan sekaligus melindungi kehidupan di sekitarnya.',
+              'Api tidak hanya membakar pepohonan di jalurnya.',
+            ),
+            (
+              'karhutla-prevention',
+              'Cegah sebelum membesar.',
+              'Tanaman kering lebih mudah tersulut jika ada sumber api di dekatnya. Jauhkan sumber api dari bahan kering. Jika melihat kebakaran, jaga jarak dan laporkan kepada petugas.',
+              'Sebagian besar karhutla bisa dicegah sebelum membesar.',
+            ),
+          ];
     final card = cards[index];
     return _DarkStage(
       chapter: 2,
       english: english,
       eyebrow: english ? 'CHAPTER 2 / FOREST FIRE' : 'BABAK 2 / KARHUTLA',
-      title: card.$1,
-      subtitle: card.$2,
+      title: card.$2,
+      subtitle: card.$4,
+      groupFooter: true,
       onBack: onBack,
-      body: _PhotoCard(label: '${index + 1}/3', tone: const Color(0x80553B2B), asset: 'assets/images/field/dry-landscape.jpg'),
+      body: Column(
+        key: ValueKey(card.$1),
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            _MascotDialogue(text: card.$3),
+            const SizedBox(height: 18),
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+              for (var i = 0; i < cards.length; i++)
+                Container(margin: const EdgeInsets.symmetric(horizontal: 3), width: i == index ? 24 : 7, height: 7,
+                  decoration: BoxDecoration(color: i == index ? KifcTheme.amber : Colors.white38, borderRadius: BorderRadius.circular(4))),
+              const SizedBox(width: 10),
+              Text('${index + 1}/3', style: const TextStyle(color: Colors.white70)),
+            ]),
+          ],
+      ),
       footer: _Primary(label: index == 2 ? (english ? 'See the Risk' : 'Lihat Risikonya') : (english ? 'Continue' : 'Lanjut'), dark: true, onPressed: index == 2 ? onComplete : onAdvance),
     );
   }
@@ -831,7 +941,10 @@ class _TriangleBuild extends StatelessWidget {
                 : 'Seret foto dari bawah ke tempat yang cocok.'),
       onBack: onBack,
       onRestart: onRestart,
+      groupFooter: true,
+      bodyScrollable: false,
       body: Column(
+        mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           _FireScene(
             active: pieces.keys.toSet(),
@@ -889,12 +1002,22 @@ class _TriangleExplanation extends StatelessWidget {
     chapter: 1,
     english: english,
     eyebrow: english ? 'CHAPTER 1 / FIRE TRIANGLE' : 'BABAK 1 / SEGITIGA API',
-    title: english ? 'Why did the fire start?' : 'Mengapa api bisa menyala?',
-    subtitle: english
-        ? 'Heat, fuel, and oxygen are the three elements that keep a fire burning. Together, they are known as the fire triangle.'
-        : 'Panas, bahan bakar, dan oksigen adalah tiga unsur yang membuat api terus menyala. Ketiganya dikenal sebagai segitiga api.',
+    title: english ? 'Three elements, one fire.' : 'Tiga unsur, satu api.',
+    bodyScrollable: false,
+    subtitle: english ? 'Together, they form the fire triangle.' : 'Ketiganya dikenal sebagai segitiga api.',
     onBack: onBack,
-    body: _FireScene(active: _FireSlot.values.toSet(), english: english),
+    body: Column(
+      children: [
+        Expanded(child: Center(child: _MascotDialogue(
+          compact: true,
+          text: english
+              ? 'Heat ignites fuel such as dry wood. Oxygen from the air keeps it burning. Sunlight can dry vegetation, but it still needs an ignition source to catch fire.'
+              : 'Panas menyulut bahan bakar, seperti kayu kering. Oksigen dari udara membantu api terus menyala. Matahari bisa mengeringkan tanaman, tetapi api tetap perlu sumber penyulut.',
+        ))),
+        const SizedBox(height: 10),
+        _FireScene(active: _FireSlot.values.toSet(), english: english),
+      ],
+    ),
     footer: _Primary(
       label: english ? 'Try Reducing an Element' : 'Coba Kurangi Satu Unsur',
       onPressed: onContinue,
@@ -962,14 +1085,16 @@ class _BreakTriangle extends StatelessWidget {
         : 'Pilih unsur yang ingin dikurangi, lalu amati apinya. Kamu bisa mencoba ketiganya.',
     onBack: onBack,
     bodyScrollable: false,
+    groupFooter: true,
     body: Column(
+      mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         _FireScene(
           active: _FireSlot.values.toSet(),
           english: english,
           reduced: selected,
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: 6),
         Row(
           children: <Widget>[
             for (final slot in _FireSlot.values) ...<Widget>[
@@ -985,7 +1110,7 @@ class _BreakTriangle extends StatelessWidget {
             ],
           ],
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: 6),
         Container(
           key: const ValueKey<String>('triangle-demo-explanation'),
           width: double.infinity,
@@ -1016,7 +1141,7 @@ class _BreakTriangle extends StatelessWidget {
       ],
     ),
     footer: _Primary(
-      label: english ? 'Trace the Trigger' : 'Kenali Penyebabnya',
+      label: english ? 'Understand Forest Fires' : 'Pahami Karhutla',
       onPressed: selected == null ? null : onContinue,
     ),
   );
@@ -1712,6 +1837,7 @@ class _ClosingPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: <Widget>[
+                        Flexible(child: GameMascot(pose: MascotPose.success, height: compact ? 78 : 105)),
                         _Eyebrow(
                           text: english
                               ? 'THANK YOU FOR PLAYING'
@@ -1843,6 +1969,7 @@ class _DarkStage extends StatelessWidget {
     required this.body,
     required this.footer,
     required this.onBack,
+    this.groupFooter = false,
   });
   final int chapter;
   final bool english;
@@ -1852,6 +1979,7 @@ class _DarkStage extends StatelessWidget {
   final Widget body;
   final Widget footer;
   final VoidCallback onBack;
+  final bool groupFooter;
   @override
   Widget build(BuildContext context) {
     final compact = MediaQuery.sizeOf(context).height < 680;
@@ -1892,9 +2020,13 @@ class _DarkStage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: compact ? 12 : 20),
-              Expanded(child: body),
-              SizedBox(height: compact ? 10 : 16),
-              footer,
+              if (groupFooter)
+                Expanded(child: Center(child: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.stretch, children: [body, const SizedBox(height: 20), footer])))
+              else ...[
+                Expanded(child: body),
+                SizedBox(height: compact ? 10 : 16),
+                footer,
+              ],
             ],
           ),
         ),
@@ -1917,6 +2049,7 @@ class _LightStage extends StatelessWidget {
     this.trailing,
     this.bodyScrollable = true,
     this.backLabel,
+    this.groupFooter = false,
   });
   final int chapter;
   final bool english;
@@ -1930,6 +2063,7 @@ class _LightStage extends StatelessWidget {
   final Widget? trailing;
   final bool bodyScrollable;
   final String? backLabel;
+  final bool groupFooter;
   @override
   Widget build(BuildContext context) {
     final compact = MediaQuery.sizeOf(context).height < 680;
@@ -1973,6 +2107,9 @@ class _LightStage extends StatelessWidget {
                 ),
               ],
               SizedBox(height: compact ? 10 : 16),
+              if (groupFooter)
+                Expanded(child: Center(child: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.stretch, children: [body, const SizedBox(height: 16), footer])))
+              else ...[
               Expanded(
                 child: bodyScrollable
                     ? SingleChildScrollView(child: body)
@@ -1980,6 +2117,7 @@ class _LightStage extends StatelessWidget {
               ),
               SizedBox(height: compact ? 9 : 14),
               footer,
+              ],
             ],
           ),
         ),
@@ -2675,10 +2813,7 @@ class _Feedback extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Icon(
-            ok ? Icons.check_circle_rounded : Icons.cancel_rounded,
-            color: Colors.white,
-          ),
+          GameMascot(pose: ok ? MascotPose.success : MascotPose.hintSafety, height: 46),
           const SizedBox(width: 8),
           Expanded(
             child: Text(
@@ -3026,16 +3161,13 @@ class _FireScene extends StatelessWidget {
           final compact = height < 220;
           final nodeWidth = math.min(122.0, bounds.maxWidth * .31);
           final nodeHeight = nodeWidth / _fireCardAspectRatio;
+          // A shared row teaches the three factors without a triangle diagram.
           final centers = <_FireSlot, Offset>{
-            _FireSlot.heat: Offset(bounds.maxWidth / 2, 12 + nodeHeight / 2),
-            _FireSlot.fuel: Offset(
-              12 + nodeWidth / 2,
-              height - 12 - nodeHeight / 2,
-            ),
-            _FireSlot.oxygen: Offset(
-              bounds.maxWidth - 12 - nodeWidth / 2,
-              height - 12 - nodeHeight / 2,
-            ),
+            for (final slot in _FireSlot.values)
+              slot: Offset(
+                bounds.maxWidth * (slot.index + .5) / 3,
+                height - 12 - nodeHeight / 2,
+              ),
           };
           final visible = active.where((slot) => slot != reduced).toSet();
           final flameSize = compact ? math.min(82.0, height * .47) : 132.0;
@@ -3048,32 +3180,27 @@ class _FireScene extends StatelessWidget {
                 alignment: Alignment.bottomCenter,
               ),
               const ColoredBox(color: Color(0x7D152D23)),
-              CustomPaint(
-                painter: _TriangleLinks(centers: centers, active: visible),
-              ),
               Align(
-                alignment: const Alignment(0, .5),
+                alignment: const Alignment(0, -.5),
                 child: AnimatedContainer(
                   duration: _motionDuration(
                     context,
                     const Duration(milliseconds: 450),
                   ),
-                  width: flameSize,
-                  height: flameSize * .6,
+                  width: flameSize * 1.6,
+                  height: flameSize * 1.6,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    boxShadow: <BoxShadow>[
-                      BoxShadow(
-                        color: Color.fromRGBO(
-                          255,
-                          125,
-                          32,
-                          visible.length * .09,
-                        ),
-                        blurRadius: 30,
-                        spreadRadius: 5,
-                      ),
-                    ],
+                    // A soft halo instead of a solid disc, so the light blends
+                    // into the photo behind the flame.
+                    gradient: RadialGradient(
+                      colors: <Color>[
+                        Color.fromRGBO(255, 152, 56, visible.length * .12),
+                        Color.fromRGBO(255, 125, 32, visible.length * .05),
+                        const Color(0x00FF7D20),
+                      ],
+                      stops: const <double>[0, .45, 1],
+                    ),
                   ),
                 ),
               ),
@@ -3097,7 +3224,7 @@ class _FireScene extends StatelessWidget {
               ),
               Positioned(
                 left: (bounds.maxWidth - flameSize) / 2,
-                bottom: compact ? 20 : 28,
+                top: 10,
                 width: flameSize,
                 height: flameSize,
                 child: AnimatedSwitcher(
@@ -3136,35 +3263,6 @@ class _FireScene extends StatelessWidget {
       ),
     ),
   );
-}
-
-class _TriangleLinks extends CustomPainter {
-  const _TriangleLinks({required this.centers, required this.active});
-  final Map<_FireSlot, Offset> centers;
-  final Set<_FireSlot> active;
-  @override
-  void paint(Canvas canvas, Size size) {
-    for (final pair in const <(_FireSlot, _FireSlot)>[
-      (_FireSlot.heat, _FireSlot.fuel),
-      (_FireSlot.fuel, _FireSlot.oxygen),
-      (_FireSlot.oxygen, _FireSlot.heat),
-    ]) {
-      final joined = active.contains(pair.$1) && active.contains(pair.$2);
-      canvas.drawLine(
-        centers[pair.$1]!,
-        centers[pair.$2]!,
-        Paint()
-          ..strokeWidth = joined ? 2 : 1.4
-          ..color = joined ? KifcTheme.amber : Colors.white54,
-      );
-    }
-  }
-
-  @override
-  bool shouldRepaint(covariant _TriangleLinks old) =>
-      old.active.length != active.length ||
-      !old.active.containsAll(active) ||
-      old.centers[_FireSlot.fuel] != centers[_FireSlot.fuel];
 }
 
 class _LivingFlame extends StatelessWidget {

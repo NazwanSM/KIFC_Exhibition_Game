@@ -2,6 +2,7 @@
 
 | File | Source | Use | License / attribution |
 | --- | --- | --- | --- |
+| `assets/images/mascot/manggala_agni_*.png` | Generated with GPT and supplied by the project owner, 18 October 2026 | Welcome, educational explanation, hints/safety, and success/closing poses | User-supplied generated assets based on the owner's mascot and Manggala Agni logo references; no separate license supplied. Original PNGs preserved. |
 | `assets/images/forest/kereng-bangkirai.jpg` | [Unsplash — Kereng Bangkirai, Sebangau](https://unsplash.com/photos/green-trees-on-gray-soil-Jsh7I8k3gso) | Welcome and learning photo panels | Unsplash License; retain this record for exhibition credits. |
 | `assets/images/logos/*` | Provided by the project owner | Partner marks | Official files supplied for this project. |
 | `assets/fonts/Archivo-*.ttf` | [Google Fonts — Archivo](https://github.com/google/fonts/tree/main/ofl/archivo) | Main application typeface, bundled for Android and web | SIL Open Font License 1.1; see `assets/fonts/Archivo-OFL.txt`. |
