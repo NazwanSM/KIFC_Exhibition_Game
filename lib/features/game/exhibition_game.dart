@@ -645,6 +645,7 @@ class _WelcomePage extends StatelessWidget {
                               ? 'Start Challenge'
                               : 'Mulai Tantangan',
                           icon: Icons.play_arrow_rounded,
+                          large: true,
                           onPressed: onStart,
                         ),
                       ],
@@ -2354,15 +2355,17 @@ class _Primary extends StatelessWidget {
     this.icon,
     required this.onPressed,
     this.dark = false,
+    this.large = false,
   });
   final String label;
   final IconData? icon;
   final VoidCallback? onPressed;
   final bool dark;
+  final bool large;
   @override
   Widget build(BuildContext context) => SizedBox(
     width: double.infinity,
-    height: 46,
+    height: large ? 92 : 46,
     child: ElevatedButton.icon(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
@@ -2377,8 +2380,13 @@ class _Primary extends StatelessWidget {
         ),
         elevation: 0,
       ),
-      icon: icon == null ? const SizedBox.shrink() : Icon(icon),
-      label: Text(label, style: const TextStyle(fontWeight: FontWeight.w700)),
+      icon: icon == null
+          ? const SizedBox.shrink()
+          : Icon(icon, size: large ? 28 : null),
+      label: Text(
+        label,
+        style: TextStyle(fontWeight: FontWeight.w700, fontSize: large ? 18 : null),
+      ),
     ),
   );
 }

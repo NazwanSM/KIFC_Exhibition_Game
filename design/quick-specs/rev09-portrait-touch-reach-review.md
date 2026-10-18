@@ -25,6 +25,8 @@ Layout ini bersifat sementara. Persentase layar membantu mengelompokkan kontrol,
 
 ## Aturan layout sementara
 
+- Tombol mulai pada pembuka memakai tinggi 92 unit acuan (dua kali tombol utama biasa), dengan teks 18 dan ikon 28. Seluruh permukaan dapat disentuh. Tombol tetap satu kelompok dengan percakapan maskot, dengan jarak bawah layar. Bukti tambahan: `build/review-start-button/`.
+
 - Aktif pada viewport dengan lebar minimal 600 dan tinggi minimal 900 unit layout. Pengujian sasaran: 720×1280 dan 1080×1920 portrait.
 - Gunakan referensi 411×731 yang sudah diuji, diskalakan seragam agar tinggi kelompok normal sekitar 70% tinggi viewport; batasi lebar hingga 90% jika ruang lebih sempit.
 - Pada dua rasio 9:16 yang diuji, kelompok normal berada pada rentang tinggi 15–85%. Ini zona pemeriksaan geometri, bukan klaim jangkauan fisik.
