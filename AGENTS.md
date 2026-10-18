@@ -6,6 +6,7 @@
 - Visitors stand close enough to read and interact with the screen directly.
 - Do not treat the interface as distant signage or sacrifice useful wording solely to make it readable from far away.
 - Prioritize comfortable close-range reading, clear touch targets, natural instructions, and feedback that can be understood during play.
+- For large portrait viewports, keep shared stage controls in the centered `TouchscreenArea` instead of spreading them to the panel edges. The 70% height is provisional until panel dimensions and mounting height are known. Backgrounds still fill the display; cropped feedback mascots must reach the physical bottom. Do not equate viewport tests with physical reach validation.
 
 ## Indonesian copy rules
 

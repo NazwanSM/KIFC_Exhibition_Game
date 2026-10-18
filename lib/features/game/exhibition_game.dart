@@ -9,6 +9,7 @@ import '../../core/theme/kifc_theme.dart';
 import 'widgets/environment_motion.dart';
 import 'widgets/game_photo.dart';
 import 'widgets/game_mascot.dart';
+import 'widgets/touchscreen_area.dart';
 
 const _fireCardAspectRatio = 1.8;
 
@@ -594,7 +595,7 @@ class _WelcomePage extends StatelessWidget {
       fit: StackFit.expand,
       children: <Widget>[
         const _Photo(tone: Color(0x9B0C2B1F)),
-        SafeArea(
+        TouchscreenArea(
           child: Padding(
             padding: const EdgeInsets.fromLTRB(24, 14, 24, 24),
             child: Column(
@@ -645,16 +646,6 @@ class _WelcomePage extends StatelessWidget {
                               : 'Mulai Tantangan',
                           icon: Icons.play_arrow_rounded,
                           onPressed: onStart,
-                        ),
-                        const SizedBox(height: 12),
-                        Text(
-                          locale == AppLocale.english
-                              ? '4 chapters • around 3 minutes • no sound needed'
-                              : '4 babak • sekitar 3 menit • bisa dimainkan tanpa suara',
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 12,
-                          ),
                         ),
                       ],
                     ),
@@ -1735,7 +1726,7 @@ class _ClosingPage extends StatelessWidget {
               ),
             ),
           ),
-          SafeArea(
+          TouchscreenArea(
             child: Padding(
               padding: const EdgeInsets.fromLTRB(24, 14, 24, 20),
               child: Column(
@@ -1907,7 +1898,7 @@ class _DarkStage extends StatelessWidget {
     final compact = MediaQuery.sizeOf(context).height < 680;
     return Scaffold(
       backgroundColor: KifcTheme.forest950,
-      body: SafeArea(
+      body: TouchscreenArea(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(24, 14, 24, 22),
           child: Column(
@@ -1993,7 +1984,7 @@ class _LightStage extends StatelessWidget {
     final compact = MediaQuery.sizeOf(context).height < 680;
     return Scaffold(
       backgroundColor: KifcTheme.paper,
-      body: SafeArea(
+      body: TouchscreenArea(
         bottom: !edgeFeedback,
         child: Padding(
           padding: EdgeInsets.fromLTRB(24, 14, 24, edgeFeedback ? 0 : 20),
@@ -2606,7 +2597,9 @@ class _MascotFeedback extends StatelessWidget {
     final mascotWidth = MediaQuery.sizeOf(context).width < 380 ? 160.0 : 194.0;
     final imageHeight = mascotWidth * 4 / 3;
     return ConstrainedBox(
-    constraints: const BoxConstraints(minHeight: 150),
+    constraints: BoxConstraints(
+      minHeight: TouchscreenArea.isCenteredOf(context) ? 230 : 150,
+    ),
     child: Stack(
       clipBehavior: Clip.none,
       children: [

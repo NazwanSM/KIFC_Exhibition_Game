@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 import 'dart:ui' as ui;
 
@@ -49,6 +50,13 @@ class GameFlow {
   final clock = ControlledStopwatch();
   Future<void> capture(String stage) async {
     if (Platform.environment['KIFC_CAPTURE'] != '1') return;
+    // Large photo sets can evict resized mascot images. Wait for the currently
+    // visible providers to decode before recording visual review evidence.
+    await tester.runAsync(() async {
+      for (final element in find.byType(Image).evaluate()) {
+        await precacheImage((element.widget as Image).image, element);
+      }
+    });
     // A timer may just have replaced the page. Render the completed transition,
     // rather than saving the outgoing frame under the incoming page's name.
     await tester.pump(const Duration(milliseconds: 400));
@@ -64,12 +72,32 @@ class GameFlow {
       await dir.create(recursive: true);
       await File('${dir.path}/${english ? 'en' : 'id'}-${size.width.toInt()}-$stage.png')
           .writeAsBytes(bytes!.buffer.asUint8List());
+      final targets = <Map<String, Object>>[];
+      for (final element in touchTargets.evaluate()) {
+        final finder = find.byElementPredicate((e) => e == element);
+        final rect = tester.getRect(finder);
+        final labels = tester.widgetList<Text>(find.descendant(
+          of: finder, matching: find.byType(Text),
+        )).map((text) => text.data ?? '').join(' / ');
+        targets.add({
+          'label': labels,
+          'centerY': rect.center.dy / size.height,
+          'width': rect.width,
+          'height': rect.height,
+        });
+      }
+      await File('${dir.path}/${english ? 'en' : 'id'}-${size.width.toInt()}-$stage.json')
+          .writeAsString(jsonEncode(targets));
       shot.dispose();
     });
   }
   String text(String id, String en) => english ? en : id;
   Finder type(String name) =>
       find.byWidgetPredicate((widget) => widget.runtimeType.toString() == name);
+  Finder get touchTargets => find.byWidgetPredicate((widget) =>
+      widget is ButtonStyleButton && widget.onPressed != null ||
+      widget is InkWell && widget.onTap != null ||
+      widget is Draggable);
   Future<void> pump([int milliseconds = 400]) async {
     await tester.pump();
     await tester.pump(Duration(milliseconds: milliseconds));
@@ -77,6 +105,16 @@ class GameFlow {
   }
 
   void check(String stage) {
+    if (size.height >= 900) {
+      for (final element in touchTargets.evaluate()) {
+        final rect = tester.getRect(find.byElementPredicate((e) => e == element));
+        expect(rect.center.dy,
+            inInclusiveRange(size.height * .15, size.height * .85),
+            reason: 'Touch controls must stay in the central area: $stage');
+        expect(rect.shortestSide, greaterThanOrEqualTo(44),
+            reason: 'Touch controls need a usable target on the TV: $stage');
+      }
+    }
     final crop = find.byKey(const ValueKey('feedback-mascot-crop'));
     if (crop.evaluate().isNotEmpty) {
       final cropRect = tester.getRect(crop);
@@ -148,6 +186,11 @@ class GameFlow {
   }
 
   Future<void> tap(String label) async {
+    if (size.height >= 900) {
+      final rect = tester.getRect(find.text(label).first);
+      expect(rect.center.dy, inInclusiveRange(size.height * .15, size.height * .85),
+          reason: 'Navigation must stay away from panel edges: $label');
+    }
     await tester.tap(find.text(label).first);
     await pump();
     check(label);
@@ -337,6 +380,7 @@ class GameFlow {
     expect(find.text('10'), findsOneWidget);
     expect(clock.isRunning, isTrue);
     check('final start');
+    await capture('final-challenge');
   }
 
   Future<void> token(String name) async {
@@ -354,6 +398,7 @@ class GameFlow {
     expect(find.text('0'), findsOneWidget);
     await pump(450);
     check('score');
+    await capture('score');
   }
 }
 
@@ -480,7 +525,7 @@ void main() {
     expect(find.text('Tiga unsur, satu api.'), findsNothing);
   });
   for (final english in [false, true]) {
-    for (final size in [const Size(411, 731), const Size(360, 640)]) {
+    for (final size in [const Size(411, 731), const Size(360, 640), const Size(720, 1280), const Size(1080, 1920)]) {
       testWidgets('Bilingual complete flow and scoring $english $size', (
         tester,
       ) async {
@@ -544,7 +589,7 @@ void main() {
         await flow.token('dryVegetation');
         await flow.token('dryVegetation');
         await flow.token('cigarette');
-        if (size.width == 411) {
+        if (size.width != 360) {
           await flow.token('unmanagedFire');
           await flow.token('dryWood');
           if (unsafe) {

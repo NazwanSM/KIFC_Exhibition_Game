@@ -8,7 +8,8 @@ Cakupan saat ini: pencatatan revisi, implementasi, dan bukti pemeriksaan per tik
 
 - Tiket selesai: **5/10** (REV-01, REV-02, REV-04, REV-06, REV-07).
 - Tiket ditinjau: **0**.
-- Tiket siap dikerjakan: **4** (REV-03, REV-05, REV-08, REV-09).
+- Tiket sedang dikerjakan: **1** (REV-09; layout sementara, menunggu validasi perangkat).
+- Tiket siap dikerjakan: **3** (REV-03, REV-05, REV-08).
 - Tiket menunggu prasyarat: **1** (REV-10, verifikasi setelah implementasi).
 - Klarifikasi kebutuhan utama: selesai. Keputusan teknis dan desain yang masih terbuka tercatat pada tiket terkait.
 
@@ -24,7 +25,7 @@ Gunakan status: `Siap`, `Dikerjakan`, `Menunggu prasyarat`, `Ditinjau`, atau `Se
 | REV-06 | Ubah tampilan tiga unsur api | Selesai | Kajian REV-02 |
 | REV-07 | Jadikan pengenalan karhutla sebagai penjelasan | Selesai | REV-02, REV-04; naskah sementara REV-08 |
 | REV-08 | Kelola naskah sementara dan materi klien | Siap | Materi klien untuk finalisasi saja |
-| REV-09 | Posisi tombol pembuka dan kenyamanan jangkauan TV besar | Siap | — |
+| REV-09 | Posisi tombol pembuka dan kenyamanan jangkauan TV besar | Dikerjakan | Validasi TV fisik; Korea pada REV-03 |
 | REV-10 | Verifikasi seluruh revisi | Menunggu prasyarat | REV-01 sampai REV-09 |
 
 ## Keputusan yang sudah dikonfirmasi
@@ -192,16 +193,18 @@ Gunakan status: `Siap`, `Dikerjakan`, `Menunggu prasyarat`, `Ditinjau`, atau `Se
 
 **Kemajuan awal:** tombol mulai sudah dikelompokkan dengan percakapan maskot di pembuka sehingga mengikuti ajakan bermain. Tampilan diperiksa pada 360×640 dan 411×731. Ini belum menutup tiket: kajian seluruh kontrol, bahasa Korea, dan pengujian jangkauan pada TV fisik masih diperlukan.
 
+**Kajian lanjutan:** pemilik proyek memastikan TV portrait dan meminta interaksi lebih terpusat; ukuran panel serta tinggi pemasangan belum diketahui. Layout layar besar memakai kelompok konten yang diskalakan proporsional ke area tengah, dengan tinggi acuan 70% viewport. Latar tetap penuh. Maskot feedback tetap menempel tepi bawah, sementara teks petunjuk dinaikkan. Keterangan jumlah babak, perkiraan durasi, dan tanpa suara di pembuka dihapus dalam kedua bahasa. Audit dan batas validasi: [kajian REV-09](rev09-portrait-touch-reach-review.md). Bukti per layar di `build/review-rev09/`.
+
 **Tujuan:** tombol pembuka dan seluruh interaksi utama mudah ditemukan serta dijangkau pengguna TV touchscreen portrait berukuran besar, tanpa harus sering meraih ujung atas atau bawah layar.
 
-- [ ] Tinjau posisi tombol terhadap judul, pemilih bahasa, dan konten pembuka.
-- [ ] Pindahkan tombol ke area yang lebih tinggi dan mudah terlihat tanpa perlu menggulir halaman.
+- [x] Tinjau posisi tombol terhadap judul, pemilih bahasa, dan konten pembuka.
+- [x] Pindahkan tombol ke area yang lebih tinggi dan mudah terlihat tanpa perlu menggulir halaman.
 - [ ] Pastikan ukuran area sentuh dan jarak antarkontrol nyaman digunakan.
 - [ ] Periksa dengan teks Indonesia, Inggris, dan Korea.
 - [ ] Validasi keterjangkauan pada perangkat pameran saat tersedia; catat jika pemeriksaan baru dilakukan melalui emulator.
-- [ ] Kaji seluruh sesi: posisi pilihan jawaban, tombol kartu penjelasan, navigasi kembali, area drag-and-drop, dan objek tantangan akhir.
+- [x] Kaji seluruh sesi: posisi pilihan jawaban, tombol kartu penjelasan, navigasi kembali, area drag-and-drop, dan objek tantangan akhir.
 - [ ] Catat ukuran fisik TV, orientasi, tinggi pemasangan, dan posisi berdiri pengguna sebelum menentukan zona sentuh yang nyaman; resolusi saja tidak menunjukkan keterjangkauan fisik.
-- [ ] Letakkan interaksi yang sering digunakan dalam zona jangkauan nyaman dan kurangi perpindahan tangan berulang antara ujung atas dan bawah.
+- [x] Terapkan zona interaksi tengah sementara untuk mengurangi perpindahan tangan antara ujung atas dan bawah; kenyamanan fisiknya belum dikonfirmasi.
 - [ ] Uji sesi lengkap pada TV besar dengan pengguna yang memiliki tinggi badan berbeda; catat titik yang memerlukan membungkuk, berjinjit, atau merentangkan tangan berlebihan.
 
 **Kriteria selesai:** tombol terlihat utuh pada tampilan awal dan mudah dikenali sebagai langkah memulai. Interaksi utama sepanjang sesi nyaman dijangkau pada ukuran dan tinggi pemasangan TV sasaran. Catat bukti uji, perubahan posisi, serta batas pemeriksaan; pemeriksaan emulator belum membuktikan kenyamanan fisik pada TV.
