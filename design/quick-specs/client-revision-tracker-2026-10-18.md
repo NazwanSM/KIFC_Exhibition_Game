@@ -6,9 +6,9 @@ Cakupan saat ini: pencatatan revisi, implementasi, dan bukti pemeriksaan per tik
 
 ## Ringkasan progres
 
-- Tiket selesai: **4/10** (REV-02, REV-04, REV-06, REV-07).
+- Tiket selesai: **5/10** (REV-01, REV-02, REV-04, REV-06, REV-07).
 - Tiket ditinjau: **0**.
-- Tiket siap dikerjakan: **5** (REV-01, REV-03, REV-05, REV-08, REV-09).
+- Tiket siap dikerjakan: **4** (REV-03, REV-05, REV-08, REV-09).
 - Tiket menunggu prasyarat: **1** (REV-10, verifikasi setelah implementasi).
 - Klarifikasi kebutuhan utama: selesai. Keputusan teknis dan desain yang masih terbuka tercatat pada tiket terkait.
 
@@ -16,7 +16,7 @@ Gunakan status: `Siap`, `Dikerjakan`, `Menunggu prasyarat`, `Ditinjau`, atau `Se
 
 | ID | Tiket | Status | Bergantung pada |
 |---|---|---|---|
-| REV-01 | Alur otomatis dan kesempatan kedua | Siap | Hasil kajian REV-02; petunjuk dari REV-04 |
+| REV-01 | Alur otomatis dan kesempatan kedua | Selesai | Hasil kajian REV-02; petunjuk dari REV-04 |
 | REV-02 | Tukar babak 1–2 dan kaji alur keseluruhan | Selesai | — |
 | REV-03 | Tambahkan bahasa Korea | Siap | Struktur konten REV-02; naskah sementara REV-08 |
 | REV-04 | Maskot sebagai pendamping dan pemberi petunjuk | Selesai | Empat pose dari pemilik proyek |
@@ -42,18 +42,20 @@ Gunakan status: `Siap`, `Dikerjakan`, `Menunggu prasyarat`, `Ditinjau`, atau `Se
 
 **Tujuan:** mengurangi ketukan yang hanya berfungsi memindahkan layar, sambil memberi waktu untuk memahami feedback.
 
-- [ ] Petakan setiap layar: aktivitas, penjelasan, feedback, dan perpindahan ke layar berikutnya.
-- [ ] Hapus kebutuhan menekan tombol perantara seperti “Lihat Risikonya” ketika aktivitas sudah selesai.
-- [ ] Setelah jawaban benar atau aktivitas selesai, tampilkan feedback yang sesuai lalu lanjut otomatis.
-- [ ] Pada soal lebih dari dua pilihan: salah pertama → maskot memberi petunjuk → satu percobaan tambahan.
-- [ ] Jika percobaan kedua salah: tampilkan jawaban benar dan alasannya, kemudian lanjut otomatis.
-- [ ] Pada soal dua pilihan: salah → jelaskan kesalahan dan jawaban sebenarnya → lanjut otomatis tanpa mengulang.
-- [ ] Cegah ketukan berulang, pengiriman jawaban ganda, dan perpindahan layar ganda saat feedback tampil.
-- [ ] Tetapkan dan dokumentasikan pengaruh kesempatan kedua terhadap skor sebelum mengubah perhitungan.
+- [x] Petakan setiap layar: aktivitas, penjelasan, feedback, dan perpindahan ke layar berikutnya.
+- [x] Hapus kebutuhan menekan tombol perantara ketika aktivitas sudah selesai; kartu bacaan tetap memakai kontrol manual.
+- [x] Setelah jawaban benar atau aktivitas selesai, tampilkan feedback yang sesuai lalu lanjut otomatis.
+- [x] Pada soal lebih dari dua pilihan: salah pertama → maskot memberi petunjuk → satu percobaan tambahan.
+- [x] Jika percobaan kedua salah: tampilkan jawaban benar dan alasannya, kemudian lanjut otomatis.
+- [x] Pada soal dua pilihan: salah → jelaskan kesalahan dan jawaban sebenarnya → lanjut otomatis tanpa mengulang.
+- [x] Cegah ketukan berulang, pengiriman jawaban ganda, dan perpindahan layar ganda saat feedback tampil.
+- [x] Tetapkan dan dokumentasikan pengaruh kesempatan kedua terhadap skor sebelum mengubah perhitungan.
 
 **Kriteria selesai:** tidak perlu mengetuk tombol tambahan setelah aktivitas selesai; urutan feedback dan percobaan sesuai keputusan di atas; penjelasan terbaca sebelum layar berpindah; timer perpindahan berhenti ketika pemain keluar dari layar atau sesi diulang.
 
-**Masih perlu diputuskan saat kajian:** durasi feedback; perpindahan pada halaman penjelasan panjang; penerapan aturan pada drag-and-drop; perlakuan tantangan akhir bertimer yang memiliki banyak objek. Tantangan akhir tidak otomatis dianggap soal pilihan ganda biasa.
+**Keputusan implementasi:** feedback singkat 2 detik, pembukaan jawaban setelah salah kedua 4,5 detik. Durasi membaca tetap berlaku ketika animasi dimatikan. Halaman bacaan manual; susun unsur lanjut setelah tiga unsur lengkap; demo lanjut setelah ketiga unsur dicoba; tantangan akhir tetap 10 detik tanpa percobaan ulang. Jawaban benar pada percobaan kedua bernilai penuh, tanpa menambah maksimum 9 poin. Kembali membuka aktivitas terkait dalam keadaan dapat dimainkan; timer lama dibatalkan dan skor aktivitas dihitung ulang agar tidak terakumulasi dua kali.
+
+**Bukti:** 15 tes regresi mencakup kedua bahasa dan dua ukuran portrait, salah pertama/kedua, benar pada kesempatan kedua, ketukan duplikat, reset saat perpindahan tertunda, kunjungan balik, dan mode kurangi animasi. Tangkapan layar di `build/review-rev01/` ditinjau untuk penyelesaian susunan, penyelesaian demo, hint risiko, pembukaan jawaban risiko, dan pembukaan tindakan aman. Pilihan risiko yang belum dijawab memakai warna netral. Uji jangkauan fisik TV dan kecepatan membaca pengunjung tetap memerlukan playtest pada REV-09/REV-10.
 
 ## REV-02 — Tukar babak 1–2 dan kaji alur keseluruhan
 

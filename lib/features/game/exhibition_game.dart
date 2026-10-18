@@ -24,6 +24,52 @@ String _points(num value, bool english) {
   return english ? text : text.replaceAll('.', ',');
 }
 
+typedef _CauseScenario = ({String text, bool human, String photo, String reason});
+
+/// Four trigger situations for Chapter 3. Lightning is the only natural one.
+List<_CauseScenario> _causeScenarios(bool english) => <_CauseScenario>[
+  (
+    text: english
+        ? 'Vegetation is burned to clear land while conditions are dry.'
+        : 'Tanaman dibakar untuk membuka lahan saat cuaca kering.',
+    human: true,
+    photo: 'assets/images/field/fire-klaten.jpg',
+    reason: english
+        ? 'Burning vegetation to clear land is a human activity.'
+        : 'Membakar tanaman untuk membuka lahan bisa membuat api merambat ke sekitarnya.',
+  ),
+  (
+    text: english
+        ? 'A lit cigarette butt is thrown into dry grass.'
+        : 'Puntung rokok yang masih menyala dibuang ke rerumputan kering.',
+    human: true,
+    photo: 'assets/images/field/cigarette-leaves.jpg',
+    reason: english
+        ? 'A lit cigarette carries heat that can ignite dry vegetation.'
+        : 'Bara pada puntung rokok bisa menyulut rumput kering di sekitarnya.',
+  ),
+  (
+    text: english
+        ? 'Lightning strikes very dry vegetation.'
+        : 'Petir menyambar tanaman yang sudah kering.',
+    human: false,
+    photo: 'assets/images/field/lightning-forest.jpg',
+    reason: english
+        ? 'Lightning is a natural ignition source that can ignite dry vegetation.'
+        : 'Sambaran petir membawa panas yang bisa menyulut tanaman kering.',
+  ),
+  (
+    text: english
+        ? 'A small fire is left unattended near dry land.'
+        : 'Api kecil dibiarkan tanpa pengawasan di dekat lahan kering.',
+    human: true,
+    photo: 'assets/images/field/small-campfire.jpg',
+    reason: english
+        ? 'Leaving a fire unattended is a human action that can allow it to spread.'
+        : 'Api yang dibiarkan menyala bisa merambat ke bahan kering di sekitarnya.',
+  ),
+];
+
 class ExhibitionGame extends StatefulWidget {
   const ExhibitionGame({super.key, this.stopwatchFactory = Stopwatch.new});
   final Stopwatch Function() stopwatchFactory;
@@ -35,19 +81,27 @@ class ExhibitionGame extends StatefulWidget {
 class _ExhibitionGameState extends State<ExhibitionGame> {
   AppLocale _locale = AppLocale.indonesian;
   _Page _page = _Page.welcome;
-  final Set<_LandCue> _observed = <_LandCue>{};
   _RiskOption? _riskAnswer;
+  int _riskWrong = 0;
+  bool _riskRevealed = false;
   final Map<_FireSlot, _FirePiece> _triangle = <_FireSlot, _FirePiece>{};
   bool? _lastDropCorrect;
+  final Set<_FireSlot> _breakTried = <_FireSlot>{};
   _FireSlot? _breakChoice;
   int _causeIndex = 0;
   int _causePoints = 0;
   bool? _causeChoice;
   _PreventionAction? _stopAnswer;
+  int _stopWrong = 0;
+  bool _stopRevealed = false;
   int _karhutlaCardIndex = 0;
   final Set<_RiskToken> _finalFound = <_RiskToken>{};
   int _seconds = 10;
   Timer? _timer;
+  // One shared timer moves the visitor on after feedback. Every explicit
+  // navigation and reset bumps the token so a pending move never fires twice.
+  Timer? _autoAdvance;
+  int _advanceToken = 0;
   Timer? _resetTimer;
   late final Stopwatch _finalClock = widget.stopwatchFactory();
   bool _preparingFinal = false;
@@ -66,6 +120,7 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
   @override
   void dispose() {
     _timer?.cancel();
+    _autoAdvance?.cancel();
     _resetTimer?.cancel();
     _finalClock.stop();
     super.dispose();
@@ -76,13 +131,57 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
   void _go(_Page page) {
     _preparationTicket++;
     _timer?.cancel();
+    _autoAdvance?.cancel();
+    _advanceToken++;
     _finalClock.stop();
     _resetTimer?.cancel();
     setState(() {
+      // Revisiting an activity starts that activity again. A cancelled
+      // feedback timer must never leave a returning visitor on locked input.
+      if (page != _page) {
+        switch (page) {
+          case _Page.triangleBuild:
+            _triangle.clear();
+            _lastDropCorrect = null;
+          case _Page.breakTriangle:
+            _breakTried.clear();
+            _breakChoice = null;
+          case _Page.risk:
+            _riskAnswer = null;
+            _riskWrong = 0;
+            _riskRevealed = false;
+          case _Page.causeQuiz:
+            _causeIndex = 0;
+            _causePoints = 0;
+            _causeChoice = null;
+          case _Page.stopDecision:
+            _stopAnswer = null;
+            _stopWrong = 0;
+            _stopRevealed = false;
+          default:
+            break;
+        }
+      }
       _page = page;
       _preparingFinal = false;
     });
     if (_endPage) _resetInactivity();
+  }
+
+  /// Runs [action] after feedback has had time to be read, unless the visitor
+  /// navigates away or the session restarts first. Long feedback carries the
+  /// correct answer and its reason, so it stays on screen longer.
+  void _scheduleAdvance(VoidCallback action, {required bool long}) {
+    _autoAdvance?.cancel();
+    final token = ++_advanceToken;
+    _autoAdvance = Timer(
+      // Reading time remains available when decorative motion is disabled.
+      Duration(milliseconds: long ? 4500 : 2000),
+      () {
+        if (!mounted || token != _advanceToken) return;
+        action();
+      },
+    );
   }
 
   void _resetInactivity() {
@@ -105,19 +204,25 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
   void _restart() {
     _preparationTicket++;
     _timer?.cancel();
+    _autoAdvance?.cancel();
+    _advanceToken++;
     _resetTimer?.cancel();
     _finalClock.stop();
     setState(() {
       _page = _Page.welcome;
-      _observed.clear();
       _riskAnswer = null;
+      _riskWrong = 0;
+      _riskRevealed = false;
       _triangle.clear();
       _lastDropCorrect = null;
+      _breakTried.clear();
       _breakChoice = null;
       _causeIndex = 0;
       _causePoints = 0;
       _causeChoice = null;
       _stopAnswer = null;
+      _stopWrong = 0;
+      _stopRevealed = false;
       _karhutlaCardIndex = 0;
       _finalFound.clear();
       _seconds = 10;
@@ -133,24 +238,87 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
       _lastDropCorrect = correct;
       if (correct) _triangle[slot] = piece;
     });
+    if (_triangle.length == 3) {
+      _scheduleAdvance(() => _go(_Page.triangleExplanation), long: false);
+    }
   }
 
-  void _resetTriangle() => setState(() {
-    _triangle.clear();
-    _lastDropCorrect = null;
-    _breakChoice = null;
-  });
+  void _resetTriangle() {
+    // Rebuilding cancels a pending automatic move so it cannot fire twice.
+    _autoAdvance?.cancel();
+    _advanceToken++;
+    setState(() {
+      _triangle.clear();
+      _lastDropCorrect = null;
+      _breakChoice = null;
+      _breakTried.clear();
+    });
+  }
+
+  void _chooseBreak(_FireSlot slot) {
+    if (_breakTried.contains(slot)) return;
+    setState(() {
+      _breakChoice = slot;
+      _breakTried.add(slot);
+    });
+    // The demo is unscored; it moves on once all three elements are explored.
+    if (_breakTried.length == _FireSlot.values.length) {
+      _scheduleAdvance(() => _go(_Page.karhutlaCards), long: false);
+    }
+  }
+
+  void _chooseRisk(_RiskOption option) {
+    if (_riskRevealed || _riskAnswer == option ||
+        _riskAnswer == _RiskOption.dryVegetationWithIgnition) {
+      return;
+    }
+    final correct = option == _RiskOption.dryVegetationWithIgnition;
+    setState(() {
+      _riskAnswer = option;
+      if (!correct) _riskWrong++;
+      if (_riskWrong >= 2) _riskRevealed = true;
+    });
+    if (correct) {
+      _scheduleAdvance(() => _go(_Page.causeQuiz), long: false);
+    } else if (_riskRevealed) {
+      _scheduleAdvance(() => _go(_Page.causeQuiz), long: true);
+    }
+  }
 
   void _chooseCause(bool humanCause) {
-    if (_causeChoice == null) setState(() => _causeChoice = humanCause);
+    if (_causeChoice != null) return;
+    final scenarios = _causeScenarios(_en);
+    final lastScenario = _causeIndex == scenarios.length - 1;
+    setState(() {
+      _causeChoice = humanCause;
+      if (humanCause == scenarios[_causeIndex].human) _causePoints++;
+    });
+    _scheduleAdvance(() {
+      if (lastScenario) {
+        _go(_Page.stopDecision);
+      } else {
+        setState(() {
+          _causeIndex++;
+          _causeChoice = null;
+        });
+      }
+    }, long: false);
   }
 
-  void _advanceCause(bool correct) {
+  void _chooseStop(_PreventionAction action) {
+    if (_stopRevealed || _stopAnswer == action || _stopAnswer?.correct == true) {
+      return;
+    }
     setState(() {
-      if (correct) _causePoints++;
-      _causeIndex++;
-      _causeChoice = null;
+      _stopAnswer = action;
+      if (!action.correct) _stopWrong++;
+      if (_stopWrong >= 2) _stopRevealed = true;
     });
+    if (action.correct) {
+      _scheduleAdvance(_openFinal, long: false);
+    } else if (_stopRevealed) {
+      _scheduleAdvance(_openFinal, long: true);
+    }
   }
 
   Future<void> _openFinal() async {
@@ -211,7 +379,7 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
 
   void _playAgain() {
     _restart();
-    _go(_Page.observe);
+    _go(_Page.triangleBuild);
   }
 
   @override
@@ -222,31 +390,18 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
         onLocale: (locale) => setState(() => _locale = locale),
         onStart: () => _go(_Page.triangleBuild),
       ),
-      _Page.observe => _ObservePage(
-        english: _en,
-        observed: _observed,
-        onObserve: (cue) => setState(() => _observed.add(cue)),
-        onContinue: () => _go(_Page.risk),
-        onBack: _restart,
-      ),
       _Page.risk => _RiskPage(
         english: _en,
         answer: _riskAnswer,
-        onAnswer: (answer) => setState(() => _riskAnswer = answer),
-        onContinue: () => _go(_Page.causeQuiz),
+        wrongAttempts: _riskWrong,
+        onAnswer: _chooseRisk,
         onBack: () => _go(_Page.karhutlaCards),
-      ),
-      _Page.triangleIntro => _TriangleIntro(
-        english: _en,
-        onStart: () => _go(_Page.triangleBuild),
-        onBack: () => _go(_Page.risk),
       ),
       _Page.triangleBuild => _TriangleBuild(
         english: _en,
         pieces: _triangle,
         lastDropCorrect: _lastDropCorrect,
         onDrop: _dropPiece,
-        onContinue: () => _go(_Page.triangleExplanation),
         onBack: _restart,
         onRestart: _resetTriangle,
       ),
@@ -258,8 +413,8 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
       _Page.breakTriangle => _BreakTriangle(
         english: _en,
         selected: _breakChoice,
-        onSelect: (slot) => setState(() => _breakChoice = slot),
-        onContinue: () => _go(_Page.karhutlaCards),
+        tried: _breakTried,
+        onSelect: _chooseBreak,
         onBack: () => _go(_Page.triangleBuild),
       ),
       _Page.karhutlaCards => _KarhutlaCards(
@@ -277,34 +432,19 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
           }
         },
       ),
-      _Page.causeIntro => _CauseIntro(
-        english: _en,
-        onStart: () => _go(_Page.causeQuiz),
-        onBack: () => _go(_Page.breakTriangle),
-      ),
       _Page.causeQuiz => _CauseQuiz(
         english: _en,
         index: _causeIndex,
-        points: _causePoints,
         choice: _causeChoice,
         onChoose: _chooseCause,
-        onNext: _advanceCause,
-        onFinish: () => _go(_Page.stopDecision),
         onBack: () => _go(_Page.risk),
-      ),
-      _Page.stopIntro => _StopIntro(
-        english: _en,
-        onStart: () => _go(_Page.stopDecision),
-        onBack: () => _go(_Page.causeQuiz),
       ),
       _Page.stopDecision => _StopDecision(
         english: _en,
         answer: _stopAnswer,
+        wrongAttempts: _stopWrong,
         preparing: _preparingFinal,
-        onAnswer: (answer) {
-          if (_stopAnswer == null) setState(() => _stopAnswer = answer);
-        },
-        onContinue: _openFinal,
+        onAnswer: _chooseStop,
         onBack: () => _go(_Page.causeQuiz),
       ),
       _Page.finalChallenge => _FinalChallenge(
@@ -373,10 +513,7 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
           ),
           Positioned.fill(
             child: AmbientFog(
-              dark:
-                  _page == _Page.welcome ||
-                  _page == _Page.observe ||
-                  _page == _Page.closing,
+              dark: _page == _Page.welcome || _page == _Page.closing,
             ),
           ),
         ],
@@ -387,23 +524,17 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
 
 enum _Page {
   welcome,
-  observe,
   risk,
-  triangleIntro,
   triangleBuild,
   triangleExplanation,
   breakTriangle,
   karhutlaCards,
-  causeIntro,
   causeQuiz,
-  stopIntro,
   stopDecision,
   finalChallenge,
   score,
   closing,
 }
-
-enum _LandCue { sunlight, vegetation, air }
 
 enum _FireSlot { heat, fuel, oxygen }
 
@@ -530,161 +661,112 @@ class _WelcomePage extends StatelessWidget {
   );
 }
 
-class _ObservePage extends StatelessWidget {
-  const _ObservePage({
-    required this.english,
-    required this.observed,
-    required this.onObserve,
-    required this.onContinue,
-    required this.onBack,
-  });
-  final bool english;
-  final Set<_LandCue> observed;
-  final ValueChanged<_LandCue> onObserve;
-  final VoidCallback onContinue;
-  final VoidCallback onBack;
-  @override
-  Widget build(BuildContext context) => _DarkStage(
-    chapter: 1,
-    english: english,
-    eyebrow: english
-        ? 'CHAPTER 1 / READ THE LANDSCAPE'
-        : 'BABAK 1 / KENALI KONDISI HUTAN',
-    title: english ? 'What is a forest fire?' : 'Apa itu karhutla?',
-    subtitle: english
-        ? 'An uncontrolled fire can spread through vegetation and land, harming nature and communities. Touch the three clues below.'
-        : 'Karhutla adalah kebakaran hutan dan lahan. Api yang tak terkendali bisa merusak lingkungan dan membahayakan warga. Sentuh tiga petunjuk di bawah.',
-    onBack: onBack,
-    body: _LandscapePanel(
-      dry: observed.length == 3,
-      english: english,
-      children: <Widget>[
-        _Hotspot(
-          cue: _LandCue.sunlight,
-          selected: observed.contains(_LandCue.sunlight),
-          label: english ? 'Sun · heat' : 'Matahari · panas',
-          alignment: const Alignment(.68, -.46),
-          onTap: () => onObserve(_LandCue.sunlight),
-        ),
-        _Hotspot(
-          cue: _LandCue.vegetation,
-          selected: observed.contains(_LandCue.vegetation),
-          label: english ? 'Vegetation · fuel' : 'Vegetasi · bahan bakar',
-          alignment: const Alignment(-.60, .08),
-          onTap: () => onObserve(_LandCue.vegetation),
-        ),
-        _Hotspot(
-          cue: _LandCue.air,
-          selected: observed.contains(_LandCue.air),
-          label: english ? 'Air · oxygen' : 'Udara · oksigen',
-          alignment: const Alignment(.58, .65),
-          onTap: () => onObserve(_LandCue.air),
-        ),
-      ],
-    ),
-    footer: Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: <Widget>[
-        Text(
-          observed.length == 3
-              ? (english
-                    ? 'With an ignition source, dry fuel can catch fire and spread.'
-                    : 'Bahan kering mudah terbakar jika terkena sumber api. Dari situ, api bisa menjalar ke sekitarnya.')
-              : '${observed.length}/3 ${english ? 'clues explored' : 'petunjuk sudah dibuka'}',
-          style: const TextStyle(
-            color: Colors.white70,
-            fontSize: 12,
-            height: 1.25,
-          ),
-        ),
-        const SizedBox(height: 10),
-        _Primary(
-          label: observed.length == 3
-              ? (english ? 'See the Risk' : 'Lihat Risikonya')
-              : (english ? 'Find 3 Clues' : 'Temukan 3 Petunjuk'),
-          dark: true,
-          onPressed: observed.length == 3 ? onContinue : null,
-        ),
-      ],
-    ),
-  );
-}
-
 class _RiskPage extends StatelessWidget {
   const _RiskPage({
     required this.english,
     required this.answer,
+    required this.wrongAttempts,
     required this.onAnswer,
-    required this.onContinue,
     required this.onBack,
   });
   final bool english;
   final _RiskOption? answer;
+  final int wrongAttempts;
   final ValueChanged<_RiskOption> onAnswer;
-  final VoidCallback onContinue;
   final VoidCallback onBack;
+
+  static const _RiskOption _correct = _RiskOption.dryVegetationWithIgnition;
+
   @override
-  Widget build(BuildContext context) => _LightStage(
-    chapter: 1,
-    english: english,
-    eyebrow: english
-        ? 'CHAPTER 1 / SCAN THE RISK'
-        : 'BABAK 1 / KENALI RISIKONYA',
-    title: english
-        ? 'Where could fire start more easily?'
-        : 'Di mana api lebih mudah muncul?',
-    subtitle: english
-        ? 'Choose the condition with the highest fire risk.'
-        : 'Dari tiga kondisi ini, mana yang paling mudah terbakar?',
-    onBack: onBack,
-    bodyScrollable: false,
-    body: Column(
-      children: <Widget>[
-        _RiskCard(
-          option: _RiskOption.wetForest,
-          english: english,
-          selected: answer == _RiskOption.wetForest,
-          correct: false,
-          onTap: () => onAnswer(_RiskOption.wetForest),
-        ),
-        const SizedBox(height: 8),
-        _RiskCard(
-          option: _RiskOption.dryVegetationWithIgnition,
-          english: english,
-          selected: answer == _RiskOption.dryVegetationWithIgnition,
-          correct: true,
-          onTap: () => onAnswer(_RiskOption.dryVegetationWithIgnition),
-        ),
-        const SizedBox(height: 8),
-        _RiskCard(
-          option: _RiskOption.wetGrassland,
-          english: english,
-          selected: answer == _RiskOption.wetGrassland,
-          correct: false,
-          onTap: () => onAnswer(_RiskOption.wetGrassland),
-        ),
-        if (answer != null) ...<Widget>[
-          const SizedBox(height: 10),
-          _Feedback(
-            ok: answer == _RiskOption.dryVegetationWithIgnition,
-            text: answer == _RiskOption.dryVegetationWithIgnition
-                ? (english
-                      ? 'That’s right. Dry fuel plus a spark or heat source raises the risk quickly.'
-                      : 'Bahan kering mudah tersulut jika ada sumber api di dekatnya. Kondisi ini paling berisiko.')
-                : (english
-                      ? 'Try again. Look for dry fuel and something that can ignite it.'
-                      : 'Coba perhatikan lagi. Cari bahan yang kering dan sumber api yang bisa menyulutnya.'),
+  Widget build(BuildContext context) {
+    final solved = answer == _correct;
+    final revealed = solved || wrongAttempts >= 2;
+    final locked = revealed;
+    return _LightStage(
+      chapter: 2,
+      english: english,
+      eyebrow: english
+          ? 'CHAPTER 2 / SCAN THE RISK'
+          : 'BABAK 2 / KENALI RISIKONYA',
+      title: english
+          ? 'Where could fire start more easily?'
+          : 'Di mana api lebih mudah muncul?',
+      subtitle: english
+          ? 'Choose the condition with the highest fire risk.'
+          : 'Dari tiga kondisi ini, mana yang paling mudah terbakar?',
+      onBack: onBack,
+      bodyScrollable: false,
+      body: Column(
+        children: <Widget>[
+          _RiskCard(
+            option: _RiskOption.wetForest,
+            english: english,
+            selected: answer == _RiskOption.wetForest,
+            correct: false,
+            onTap: locked ? null : () => onAnswer(_RiskOption.wetForest),
+          ),
+          const SizedBox(height: 8),
+          _RiskCard(
+            option: _correct,
+            english: english,
+            selected: revealed,
+            correct: true,
+            onTap: locked ? null : () => onAnswer(_correct),
+          ),
+          const SizedBox(height: 8),
+          _RiskCard(
+            option: _RiskOption.wetGrassland,
+            english: english,
+            selected: answer == _RiskOption.wetGrassland,
+            correct: false,
+            onTap: locked ? null : () => onAnswer(_RiskOption.wetGrassland),
           ),
         ],
-      ],
-    ),
-    footer: _Primary(
-      label: english ? 'Explore the Causes' : 'Kenali Penyebabnya',
-      onPressed: answer == _RiskOption.dryVegetationWithIgnition
-          ? onContinue
-          : null,
-    ),
-  );
+      ),
+      footer: _footer(
+        solved: solved,
+        revealed: revealed,
+        answered: answer != null,
+      ),
+    );
+  }
+
+  Widget _footer({
+    required bool solved,
+    required bool revealed,
+    required bool answered,
+  }) {
+    if (!answered) {
+      return Text(
+        english
+            ? 'Choose the answer that fits the situation best.'
+            : 'Pilih salah satu jawaban untuk melihat penjelasannya.',
+        style: const TextStyle(color: KifcTheme.mutedInk, fontSize: 12),
+      );
+    }
+    if (solved) {
+      return _Feedback(
+        ok: true,
+        text: english
+            ? 'That’s right. Dry fuel plus a spark or heat source raises the risk quickly.'
+            : 'Bahan kering mudah tersulut jika ada sumber api di dekatnya. Kondisi ini paling berisiko.',
+      );
+    }
+    if (!revealed) {
+      return _Feedback(
+        ok: false,
+        text: english
+            ? 'Not quite. Look for dry fuel and something that can ignite it. You get one more try.'
+            : 'Belum tepat. Cari bahan yang kering dan sumber api yang bisa menyulutnya. Kamu masih punya satu kesempatan lagi.',
+      );
+    }
+    return _Feedback(
+      ok: false,
+      text: english
+          ? 'The riskiest condition is dry vegetation with an ignition source. Dry fuel catches fire easily when heat is nearby.'
+          : 'Kondisi paling berisiko adalah tanaman kering di dekat sumber api. Bahan kering mudah tersulut oleh panas.',
+    );
+  }
 }
 
 class _MascotDialogue extends StatelessWidget {
@@ -838,70 +920,12 @@ extension _RiskOptionCopy on _RiskOption {
   };
 }
 
-class _TriangleIntro extends StatefulWidget {
-  const _TriangleIntro({
-    required this.english,
-    required this.onStart,
-    required this.onBack,
-  });
-  final bool english;
-  final VoidCallback onStart;
-  final VoidCallback onBack;
-
-  @override
-  State<_TriangleIntro> createState() => _TriangleIntroState();
-}
-
-class _TriangleIntroState extends State<_TriangleIntro> {
-  int _shown = 0;
-  Timer? _reveal;
-
-  @override
-  void initState() {
-    super.initState();
-    _reveal = Timer.periodic(const Duration(milliseconds: 780), (timer) {
-      if (!mounted) return;
-      setState(() => _shown++);
-      if (_shown == 3) timer.cancel();
-    });
-  }
-
-  @override
-  void dispose() {
-    _reveal?.cancel();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) => _LightStage(
-    chapter: 2,
-    english: widget.english,
-    eyebrow: widget.english
-        ? 'CHAPTER 2 / THREE ELEMENTS'
-        : 'BABAK 2 / TIGA UNSUR API',
-    title: widget.english ? 'Meet the fire triangle.' : 'Kenali segitiga api.',
-    subtitle: widget.english
-        ? 'Fire needs enough heat, fuel, and oxygen from the air to keep burning.'
-        : 'Api perlu panas yang cukup, bahan bakar, dan oksigen dari udara. Ketiganya disebut segitiga api. Matahari bisa mengeringkan tanaman, tetapi api tetap perlu sumber penyulut.',
-    onBack: widget.onBack,
-    body: _FireScene(
-      active: _FireSlot.values.take(_shown).toSet(),
-      english: widget.english,
-    ),
-    footer: _Primary(
-      label: widget.english ? 'Build It Yourself' : 'Sekarang Coba Susun',
-      onPressed: _shown == 3 ? widget.onStart : null,
-    ),
-  );
-}
-
 class _TriangleBuild extends StatelessWidget {
   const _TriangleBuild({
     required this.english,
     required this.pieces,
     required this.lastDropCorrect,
     required this.onDrop,
-    required this.onContinue,
     required this.onBack,
     required this.onRestart,
   });
@@ -909,7 +933,6 @@ class _TriangleBuild extends StatelessWidget {
   final Map<_FireSlot, _FirePiece> pieces;
   final bool? lastDropCorrect;
   final void Function(_FireSlot, _FirePiece) onDrop;
-  final VoidCallback onContinue;
   final VoidCallback onBack;
   final VoidCallback onRestart;
   @override
@@ -979,10 +1002,13 @@ class _TriangleBuild extends StatelessWidget {
           ),
         ],
       ),
-      footer: _Primary(
-        label: english ? 'Learn About the Fire Triangle' : 'Kenali Segitiga Api',
-        onPressed: complete ? onContinue : null,
-      ),
+      footer: complete
+          ? _AutoNote(
+              text: english
+                  ? 'The fire is burning. Moving on to the fire triangle…'
+                  : 'Api menyala. Lanjut ke segitiga api…',
+            )
+          : const SizedBox.shrink(),
     );
   }
 }
@@ -1029,14 +1055,14 @@ class _BreakTriangle extends StatelessWidget {
   const _BreakTriangle({
     required this.english,
     required this.selected,
+    required this.tried,
     required this.onSelect,
-    required this.onContinue,
     required this.onBack,
   });
   final bool english;
   final _FireSlot? selected;
+  final Set<_FireSlot> tried;
   final ValueChanged<_FireSlot> onSelect;
-  final VoidCallback onContinue;
   final VoidCallback onBack;
 
   (String, String) get explanation => switch (selected) {
@@ -1140,45 +1166,20 @@ class _BreakTriangle extends StatelessWidget {
         ),
       ],
     ),
-    footer: _Primary(
-      label: english ? 'Understand Forest Fires' : 'Pahami Karhutla',
-      onPressed: selected == null ? null : onContinue,
-    ),
-  );
-}
-
-class _CauseIntro extends StatelessWidget {
-  const _CauseIntro({
-    required this.english,
-    required this.onStart,
-    required this.onBack,
-  });
-  final bool english;
-  final VoidCallback onStart;
-  final VoidCallback onBack;
-  @override
-  Widget build(BuildContext context) => _LightStage(
-    chapter: 3,
-    english: english,
-    eyebrow: english
-        ? 'CHAPTER 3 / TRACE THE TRIGGER'
-        : 'BABAK 3 / KENALI PENYEBABNYA',
-    title: english ? 'Follow the clues.' : 'Apa yang bisa memicu api?',
-    subtitle: english
-        ? 'Look closely, then decide whether the trigger comes from people or nature.'
-        : 'Ada kebakaran yang dipicu aktivitas manusia, ada juga yang dipicu alam. Yuk, kenali lewat empat situasi berikut.',
-    onBack: onBack,
-    body: _PhotoCard(
-      label: english
-          ? 'Dry vegetation in the landscape'
-          : 'Rumput dan tanaman kering di lahan terbuka',
-      tone: const Color(0x80553B2B),
-      asset: 'assets/images/field/dry-landscape.jpg',
-    ),
-    footer: _Primary(
-      label: english ? 'Start Looking' : 'Lihat Situasinya',
-      onPressed: onStart,
-    ),
+    footer: tried.length == _FireSlot.values.length
+        ? _AutoNote(
+            text: english
+                ? 'You tried all three elements. Next, see how fires start in the field.'
+                : 'Ketiga unsur sudah kamu coba. Sekarang kita lihat bagaimana karhutla bisa terjadi.',
+          )
+        : Text(
+            '${tried.length}/3 ${english ? 'elements tried' : 'unsur sudah dicoba'}',
+            style: const TextStyle(
+              color: KifcTheme.mutedInk,
+              fontSize: 12,
+              height: 1.25,
+            ),
+          ),
   );
 }
 
@@ -1186,142 +1187,25 @@ class _CauseQuiz extends StatelessWidget {
   const _CauseQuiz({
     required this.english,
     required this.index,
-    required this.points,
     required this.choice,
     required this.onChoose,
-    required this.onNext,
-    required this.onFinish,
     required this.onBack,
   });
   final bool english;
   final int index;
-  final int points;
   final bool? choice;
   final ValueChanged<bool> onChoose;
-  final ValueChanged<bool> onNext;
-  final VoidCallback onFinish;
   final VoidCallback onBack;
   @override
   Widget build(BuildContext context) {
-    final scenarios = <(String, bool, String)>[
-      (
-        english
-            ? 'Vegetation is burned to clear land while conditions are dry.'
-            : 'Tanaman dibakar untuk membuka lahan saat cuaca kering.',
-        true,
-        'assets/images/field/fire-klaten.jpg',
-      ),
-      (
-        english
-            ? 'A lit cigarette butt is thrown into dry grass.'
-            : 'Puntung rokok yang masih menyala dibuang ke rerumputan kering.',
-        true,
-        'assets/images/field/cigarette-leaves.jpg',
-      ),
-      (
-        english
-            ? 'Lightning strikes very dry vegetation.'
-            : 'Petir menyambar tanaman yang sudah kering.',
-        false,
-        'assets/images/field/lightning-forest.jpg',
-      ),
-      (
-        english
-            ? 'A small fire is left unattended near dry land.'
-            : 'Api kecil dibiarkan tanpa pengawasan di dekat lahan kering.',
-        true,
-        'assets/images/field/small-campfire.jpg',
-      ),
-    ];
-    if (index >= scenarios.length) {
-      return _LightStage(
-        chapter: 3,
-        english: english,
-        eyebrow: english ? 'CHAPTER 3 / COMPLETE' : 'BABAK 3 / SELESAI',
-        title: english ? 'Causes reviewed.' : 'Sudah kenal penyebabnya?',
-        subtitle: english
-            ? '$points of 4 answers were on target.'
-            : 'Kamu menjawab benar $points dari 4 situasi.',
-        onBack: onBack,
-        bodyScrollable: false,
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Container(
-              padding: const EdgeInsets.all(18),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
-                border: Border.all(color: KifcTheme.line),
-              ),
-              child: Row(
-                children: <Widget>[
-                  Container(
-                    width: 54,
-                    height: 54,
-                    alignment: Alignment.center,
-                    decoration: const BoxDecoration(
-                      color: KifcTheme.success,
-                      shape: BoxShape.circle,
-                    ),
-                    child: Icon(
-                      Icons.fact_check_outlined,
-                      color: KifcTheme.forest800,
-                      size: 27,
-                    ),
-                  ),
-                  const SizedBox(width: 14),
-                  Expanded(
-                    child: Text(
-                      english
-                          ? 'Four situations reviewed'
-                          : 'Keempat situasi sudah kamu pelajari',
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 14),
-            _Feedback(
-              ok: true,
-              text: english
-                  ? 'Risk can come from people or nature. The best prevention happens before there is a flame.'
-                  : 'Kebakaran bisa dipicu manusia maupun alam. Mengenali penyebabnya membantu kita mencegah kebakaran dan membatasi rambatan api.',
-            ),
-          ],
-        ),
-        footer: _Primary(
-          label: english ? 'Move to Prevention' : 'Coba Batasi Rambatannya',
-          onPressed: onFinish,
-        ),
-      );
-    }
+    final scenarios = _causeScenarios(english);
     final scenario = scenarios[index];
     final answered = choice != null;
-    final correct = choice == scenario.$2;
-    final reason = switch (index) {
-      0 =>
-        english
-            ? 'Burning vegetation to clear land is a human activity.'
-            : 'Membakar tanaman untuk membuka lahan bisa membuat api merambat ke sekitarnya.',
-      1 =>
-        english
-            ? 'A lit cigarette carries heat that can ignite dry vegetation.'
-            : 'Bara pada puntung rokok bisa menyulut rumput kering di sekitarnya.',
-      2 =>
-        english
-            ? 'Lightning is a natural ignition source that can ignite dry vegetation.'
-            : 'Sambaran petir membawa panas yang bisa menyulut tanaman kering.',
-      _ =>
-        english
-            ? 'Leaving a fire unattended is a human action that can allow it to spread.'
-            : 'Api yang dibiarkan menyala bisa merambat ke bahan kering di sekitarnya.',
-    };
+    final correct = choice == scenario.human;
+    final lastScenario = index == scenarios.length - 1;
+    final summary = english
+        ? 'Risk can come from people or nature. The best prevention happens before there is a flame.'
+        : 'Kebakaran bisa dipicu manusia maupun alam. Mencegahnya lebih baik daripada memadamkannya.';
     return _LightStage(
       chapter: 3,
       english: english,
@@ -1338,9 +1222,9 @@ class _CauseQuiz extends StatelessWidget {
       body: Column(
         children: <Widget>[
           _ScenarioCard(
-            label: scenario.$1,
+            label: scenario.text,
             index: index + 1,
-            photo: scenario.$3,
+            photo: scenario.photo,
             english: english,
           ),
           const SizedBox(height: 14),
@@ -1360,26 +1244,15 @@ class _CauseQuiz extends StatelessWidget {
         ],
       ),
       footer: answered
-          ? Column(
-              children: <Widget>[
-                _Feedback(
-                  ok: correct,
-                  text: english
-                      ? (correct
-                            ? 'Correct. $reason'
-                            : 'The answer is ${scenario.$2 ? 'human activity.' : 'a natural factor.'} $reason')
-                      : (correct
-                            ? reason
-                            : 'Yang ini dipicu ${scenario.$2 ? 'aktivitas manusia' : 'faktor alam'}. $reason'),
-                ),
-                const SizedBox(height: 8),
-                _Primary(
-                  label: index == scenarios.length - 1
-                      ? (english ? 'See Your Result' : 'Lihat Hasil Babak')
-                      : (english ? 'Next Clue' : 'Situasi Berikutnya'),
-                  onPressed: () => onNext(correct),
-                ),
-              ],
+          ? _Feedback(
+              ok: correct,
+              text: english
+                  ? (correct
+                        ? 'Correct. ${scenario.reason}${lastScenario ? ' $summary' : ''}'
+                        : 'The answer is ${scenario.human ? 'human activity.' : 'a natural factor.'} ${scenario.reason}${lastScenario ? ' $summary' : ''}')
+                  : (correct
+                        ? '${scenario.reason}${lastScenario ? ' $summary' : ''}'
+                        : 'Yang ini dipicu ${scenario.human ? 'aktivitas manusia' : 'faktor alam'}. ${scenario.reason}${lastScenario ? ' $summary' : ''}'),
             )
           : Text(
               english
@@ -1417,116 +1290,99 @@ extension _PreventionCopy on _PreventionAction {
   };
 }
 
-class _StopIntro extends StatelessWidget {
-  const _StopIntro({
-    required this.english,
-    required this.onStart,
-    required this.onBack,
-  });
-  final bool english;
-  final VoidCallback onStart;
-  final VoidCallback onBack;
-  @override
-  Widget build(BuildContext context) => _LightStage(
-    chapter: 4,
-    english: english,
-    eyebrow: english
-        ? 'CHAPTER 4 / STOP THE SPREAD'
-        : 'BABAK 4 / BATASI RAMBATAN',
-    title: english ? 'Fire can spread.' : 'Api bisa menjalar.',
-    subtitle: english
-        ? 'Watch the fire follow a path through nearby dry vegetation.'
-        : 'Lihat bagaimana api berpindah ke rumput dan tanaman kering di dekatnya.',
-    onBack: onBack,
-    bodyScrollable: false,
-    body: Center(
-      child: AspectRatio(
-        aspectRatio: 1400 / 933,
-        child: _SpreadScene(english: english, height: double.infinity),
-      ),
-    ),
-    footer: _Primary(
-      label: english ? 'Choose a Safe Action' : 'Pilih Tindakan Aman',
-      onPressed: onStart,
-    ),
-  );
-}
-
 class _StopDecision extends StatelessWidget {
   const _StopDecision({
     required this.english,
     required this.answer,
+    required this.wrongAttempts,
     required this.preparing,
     required this.onAnswer,
-    required this.onContinue,
     required this.onBack,
   });
   final bool english;
   final _PreventionAction? answer;
+  final int wrongAttempts;
   final bool preparing;
   final ValueChanged<_PreventionAction> onAnswer;
-  final VoidCallback onContinue;
   final VoidCallback onBack;
+
+  static const _PreventionAction _correct = _PreventionAction.separateFuel;
+
   @override
-  Widget build(BuildContext context) => _LightStage(
-    chapter: 4,
-    english: english,
-    eyebrow: english ? 'CHAPTER 4 / MAKE A CHOICE' : 'BABAK 4 / PILIH TINDAKAN',
-    title: english ? 'Stop the spread.' : 'Batasi rambatan api.',
-    subtitle: english
-        ? 'Which action should trained personnel take?'
-        : 'Apa yang bisa dilakukan petugas terlatih agar api tidak terus menjalar?',
-    onBack: onBack,
-    bodyScrollable: false,
-    body: LayoutBuilder(
-      builder: (context, bounds) {
-        final sceneHeight = math.min(
-          174.0,
-          math.max(48.0, bounds.maxHeight - 152),
-        );
-        return Column(
-          children: <Widget>[
-            _SpreadScene(
-              english: english,
-              height: sceneHeight,
-              action: answer,
-              decision: true,
-            ),
-            const SizedBox(height: 8),
-            ..._PreventionAction.values.map(
-              (action) => Padding(
-                padding: const EdgeInsets.only(bottom: 4),
-                child: _ChoiceButton(
-                  key: ValueKey('decision-${action.name}'),
-                  height: 44,
-                  label: action.label(english),
-                  selected: answer == action,
-                  error: answer == action && !action.correct,
-                  onTap: answer == null ? () => onAnswer(action) : null,
+  Widget build(BuildContext context) {
+    final solved = answer == _correct;
+    final revealed = solved || wrongAttempts >= 2;
+    final locked = revealed;
+    return _LightStage(
+      chapter: 4,
+      english: english,
+      eyebrow: english ? 'CHAPTER 4 / MAKE A CHOICE' : 'BABAK 4 / PILIH TINDAKAN',
+      title: english ? 'Stop the spread.' : 'Batasi rambatan api.',
+      subtitle: english
+          ? 'Which action should trained personnel take?'
+          : 'Apa yang bisa dilakukan petugas terlatih agar api tidak terus menjalar?',
+      onBack: onBack,
+      bodyScrollable: false,
+      body: LayoutBuilder(
+        builder: (context, bounds) {
+          final sceneHeight = math.min(
+            174.0,
+            math.max(48.0, bounds.maxHeight - 152),
+          );
+          return Column(
+            children: <Widget>[
+              _SpreadScene(
+                english: english,
+                height: sceneHeight,
+                action: answer,
+                decision: true,
+              ),
+              const SizedBox(height: 8),
+              ..._PreventionAction.values.map(
+                (action) => Padding(
+                  padding: const EdgeInsets.only(bottom: 4),
+                  child: _ChoiceButton(
+                    key: ValueKey('decision-${action.name}'),
+                    height: 44,
+                    label: action.label(english),
+                    selected: action == _correct ? revealed : answer == action,
+                    error: answer == action && !action.correct,
+                    onTap: locked ? null : () => onAnswer(action),
+                  ),
                 ),
               ),
+            ],
+          );
+        },
+      ),
+      footer: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          if (answer != null) ...<Widget>[
+            _Feedback(
+              ok: solved,
+              text: solved
+                  ? _correct.feedback(english)
+                  : (revealed
+                        ? (english
+                              ? 'The safe action is to separate the fuel. ${_correct.feedback(english)}'
+                              : 'Tindakan aman adalah memisahkan bahan bakar. ${_correct.feedback(english)}')
+                        : (english
+                              ? 'Not quite. Think about what keeps the fire from reaching more material. You get one more try.'
+                              : 'Belum tepat. Pikirkan tindakan yang membuat api sulit mencapai bahan lain. Kamu masih punya satu kesempatan lagi.')),
             ),
+            const SizedBox(height: 8),
           ],
-        );
-      },
-    ),
-    footer: Column(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        if (answer != null) ...<Widget>[
-          _Feedback(ok: answer!.correct, text: answer!.feedback(english)),
-          const SizedBox(height: 8),
+          if (preparing)
+            _Primary(
+              key: const ValueKey('open-final'),
+              label: english ? 'Preparing challenge…' : 'Menyiapkan tantangan…',
+              onPressed: null,
+            ),
         ],
-        _Primary(
-          key: const ValueKey('open-final'),
-          label: preparing
-              ? (english ? 'Preparing challenge…' : 'Menyiapkan tantangan…')
-              : (english ? 'Final Challenge' : 'Tantangan Akhir'),
-          onPressed: answer == null || preparing ? null : onContinue,
-        ),
-      ],
-    ),
-  );
+      ),
+    );
+  }
 }
 
 class _FinalChallenge extends StatelessWidget {
@@ -2132,15 +1988,11 @@ class _LiquidGlass extends StatelessWidget {
     this.borderRadius = const BorderRadius.all(Radius.circular(16)),
     this.tint = const Color(0x24FFFFFF),
     this.padding,
-    this.borderColor,
-    this.borderWidth = 1,
   });
   final Widget child;
   final BorderRadius borderRadius;
   final Color tint;
   final EdgeInsetsGeometry? padding;
-  final Color? borderColor;
-  final double borderWidth;
 
   @override
   Widget build(BuildContext context) => ClipRRect(
@@ -2153,8 +2005,7 @@ class _LiquidGlass extends StatelessWidget {
           color: tint,
           borderRadius: borderRadius,
           border: Border.all(
-            color: borderColor ?? Colors.white.withValues(alpha: .4),
-            width: borderWidth,
+            color: Colors.white.withValues(alpha: .4),
           ),
           boxShadow: <BoxShadow>[
             BoxShadow(
@@ -2515,90 +2366,6 @@ class _Photo extends StatelessWidget {
   );
 }
 
-class _LandscapePanel extends StatelessWidget {
-  const _LandscapePanel({
-    required this.dry,
-    required this.english,
-    required this.children,
-  });
-  final bool dry;
-  final bool english;
-  final List<Widget> children;
-  @override
-  Widget build(BuildContext context) => ClipRRect(
-    borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
-    child: Stack(
-      fit: StackFit.expand,
-      children: <Widget>[
-        const _Photo(tone: Colors.transparent),
-        AnimatedSwitcher(
-          duration: _motionDuration(context, const Duration(milliseconds: 700)),
-          child: dry
-              ? _SpreadScene(english: english, height: double.infinity)
-              : const SizedBox.expand(),
-        ),
-        AnimatedContainer(
-          duration: _motionDuration(context, const Duration(milliseconds: 450)),
-          curve: Curves.easeOutCubic,
-          color: dry ? Colors.transparent : const Color(0x550C2B1F),
-        ),
-        ...children,
-      ],
-    ),
-  );
-}
-
-class _Hotspot extends StatelessWidget {
-  const _Hotspot({
-    required this.cue,
-    required this.selected,
-    required this.label,
-    required this.alignment,
-    required this.onTap,
-  });
-  final _LandCue cue;
-  final bool selected;
-  final String label;
-  final Alignment alignment;
-  final VoidCallback onTap;
-  @override
-  Widget build(BuildContext context) => Align(
-    alignment: alignment,
-    child: AnimatedScale(
-      duration: _motionDuration(context, const Duration(milliseconds: 180)),
-      curve: Curves.easeOutBack,
-      scale: selected ? 1.025 : 1,
-      child: _LiquidGlass(
-        borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
-        tint: selected
-            ? KifcTheme.forest800.withValues(alpha: .94)
-            : Colors.white.withValues(alpha: .12),
-        borderColor: selected
-            ? Colors.white70
-            : Colors.white.withValues(alpha: .4),
-        borderWidth: selected ? 2 : 1,
-        child: TextButton.icon(
-          onPressed: onTap,
-          style: TextButton.styleFrom(
-            backgroundColor: Colors.transparent,
-            foregroundColor: Colors.white,
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
-            ),
-          ),
-          icon: Icon(
-            selected ? Icons.check_circle_rounded : Icons.circle_outlined,
-            color: Colors.white,
-            size: 17,
-          ),
-          label: Text(label, style: const TextStyle(fontSize: 12)),
-        ),
-      ),
-    ),
-  );
-}
-
 class _RiskCard extends StatelessWidget {
   const _RiskCard({
     required this.option,
@@ -2611,14 +2378,14 @@ class _RiskCard extends StatelessWidget {
   final bool english;
   final bool selected;
   final bool correct;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
   @override
   Widget build(BuildContext context) => AnimatedScale(
     duration: _motionDuration(context, const Duration(milliseconds: 180)),
     curve: Curves.easeOutBack,
     scale: selected ? 1.01 : 1,
     child: Material(
-      color: KifcTheme.forest800,
+      color: Colors.white,
       borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
       child: InkWell(
         onTap: onTap,
@@ -2652,8 +2419,8 @@ class _RiskCard extends StatelessWidget {
               Expanded(
                 child: Text(
                   option.label(english),
-                  style: const TextStyle(
-                    color: Colors.white,
+                  style: TextStyle(
+                    color: selected ? Colors.white : KifcTheme.ink,
                     fontSize: 13,
                     fontWeight: FontWeight.w600,
                   ),
@@ -2667,38 +2434,6 @@ class _RiskCard extends StatelessWidget {
           ),
         ),
       ),
-    ),
-  );
-}
-
-class _PhotoCard extends StatelessWidget {
-  const _PhotoCard({
-    required this.label,
-    required this.tone,
-    this.asset = 'assets/images/forest/kereng-bangkirai.jpg',
-  });
-  final String label;
-  final Color tone;
-  final String asset;
-  @override
-  Widget build(BuildContext context) => SizedBox(
-    height: 175,
-    child: Stack(
-      fit: StackFit.expand,
-      children: <Widget>[
-        GamePhoto(asset),
-        ColoredBox(color: tone),
-        Padding(
-          padding: const EdgeInsets.all(14),
-          child: Align(
-            alignment: Alignment.topLeft,
-            child: Text(
-              label,
-              style: const TextStyle(color: Colors.white, fontSize: 13),
-            ),
-          ),
-        ),
-      ],
     ),
   );
 }
@@ -2827,6 +2562,38 @@ class _Feedback extends StatelessWidget {
           ),
         ],
       ),
+    ),
+  );
+}
+
+class _AutoNote extends StatelessWidget {
+  const _AutoNote({required this.text});
+  final String text;
+
+  @override
+  Widget build(BuildContext context) => Container(
+    width: double.infinity,
+    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
+    decoration: BoxDecoration(
+      gradient: _answerGradient(true),
+      borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
+      border: Border.all(color: KifcTheme.answerCorrect),
+    ),
+    child: Row(
+      children: <Widget>[
+        const Icon(Icons.check_circle_rounded, color: Colors.white, size: 16),
+        const SizedBox(width: 8),
+        Expanded(
+          child: Text(
+            text,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 12,
+              height: 1.2,
+            ),
+          ),
+        ),
+      ],
     ),
   );
 }

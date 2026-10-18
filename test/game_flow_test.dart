@@ -55,7 +55,9 @@ class GameFlow {
     await tester.runAsync(() async {
       final shot = await boundary.toImage(pixelRatio: 1);
       final bytes = await shot.toByteData(format: ui.ImageByteFormat.png);
-      final dir = Directory('build/review-rev06-07');
+      final dir = Directory(
+        Platform.environment['KIFC_CAPTURE_DIR'] ?? 'build/review-rev01',
+      );
       await dir.create(recursive: true);
       await File('${dir.path}/${english ? 'en' : 'id'}-${size.width.toInt()}-$stage.png')
           .writeAsBytes(bytes!.buffer.asUint8List());
@@ -86,6 +88,13 @@ class GameFlow {
         reason: '$stage must fit without scroll at $size',
       );
     }
+  }
+
+  /// Waits out the automatic move that follows feedback, then checks the
+  /// screen it lands on. Short feedback advances after about 2 seconds.
+  Future<void> advance(String stage, {int milliseconds = 2200}) async {
+    await pump(milliseconds);
+    check(stage);
   }
 
   Future<void> launch() async {
@@ -157,22 +166,15 @@ class GameFlow {
       await pump();
       check('triangle drop ${pair.$1}');
     }
-    if (!english && size.width == 411) {
-      await tap('Ulangi');
-      expect(find.text('Susun tiga unsur api.'), findsOneWidget);
-      expect(find.text('Mulai Tantangan'), findsNothing);
-      for (final pair in [(0, 0), (2, 1), (4, 2)]) {
-        final card = type('_DraggablePiece').at(pair.$1);
-        final slot = type('_DropSlot').at(pair.$2);
-        await tester.drag(
-          card,
-          tester.getCenter(slot) - tester.getCenter(card),
-        );
-        await pump();
-        check('repeat triangle');
-      }
-    }
-    await tap(text('Kenali Segitiga Api', 'Learn About the Fire Triangle'));
+    // Completing the elements shows short feedback and moves on by itself;
+    // there is no intermediate button to press.
+    expect(
+      find.textContaining(text('Api menyala. Lanjut', 'The fire is burning')),
+      findsOneWidget,
+    );
+    await capture('triangle-complete');
+    await advance('fire-explanation');
+    expect(find.text(text('Tiga unsur, satu api.', 'Three elements, one fire.')), findsOneWidget);
     await capture('fire-explanation');
     await tap(text('Coba Kurangi Satu Unsur', 'Try Reducing an Element'));
     expect(
@@ -187,17 +189,11 @@ class GameFlow {
       ),
       (
         text('Bahan bakar', 'Fuel'),
-        text(
-          'Beri jarak agar api sulit menjalar.',
-          'Gaps interrupt the spread.',
-        ),
+        text('Beri jarak agar api sulit menjalar.', 'Gaps interrupt the spread.'),
       ),
       (
         text('Oksigen', 'Oxygen'),
-        text(
-          'Api perlu oksigen dari udara.',
-          'Fire needs oxygen from the air.',
-        ),
+        text('Api perlu oksigen dari udara.', 'Fire needs oxygen from the air.'),
       ),
     ]) {
       final tab = find.descendant(
@@ -220,10 +216,15 @@ class GameFlow {
         reason: 'Reducing an element changes the flame, not the panel size',
       );
     }
-    await tap(text('Pahami Karhutla', 'Understand Forest Fires'));
+    // The demo is unscored and only moves on once all three elements are tried.
+    expect(
+      find.textContaining(text('sudah kamu coba', 'You tried all three')),
+      findsOneWidget,
+    );
+    await capture('demo-complete');
+    await advance('karhutla');
     expect(find.byKey(const ValueKey('karhutla-definition')), findsOneWidget);
     await capture('karhutla-definition');
-    expect(type('_Hotspot'), findsNothing);
     await tap(text('Lanjut', 'Continue'));
     expect(find.byKey(const ValueKey('karhutla-impact')), findsOneWidget);
     await tap(text('Kembali', 'Back'));
@@ -234,28 +235,43 @@ class GameFlow {
     expect(find.byKey(const ValueKey('karhutla-prevention')), findsOneWidget);
     await capture('karhutla-prevention');
     await tap(text('Lihat Risikonya', 'See the Risk'));
+    // One wrong pick earns a mascot hint and a single extra attempt.
     await tap(text('Hutan basah', 'Wet forest'));
-    await tap(
-      text(
-        'Tanaman kering di dekat sumber api',
-        'Dry vegetation with an ignition source',
-      ),
+    await tap(text('Hutan basah', 'Wet forest'));
+    expect(
+      find.textContaining(text('satu kesempatan lagi', 'one more try')),
+      findsOneWidget,
     );
-    await tap(text('Kenali Penyebabnya', 'Explore the Causes'));
+    await capture('risk-hint');
+    if (wrongCause) {
+      await tap(text('Padang rumput basah', 'Wet grassland'));
+      expect(tester.widgetList(type('_RiskCard')).every((w) => (w as dynamic).onTap == null), isTrue);
+      await capture('risk-reveal');
+    } else {
+      await tap(text('Tanaman kering di dekat sumber api', 'Dry vegetation with an ignition source'));
+    }
+    await advance('cause-quiz', milliseconds: wrongCause ? 4700 : 2200);
+    expect(
+      find.text(text('Apa penyebabnya?', 'What most likely triggered this risk?')),
+      findsOneWidget,
+    );
     for (var index = 0; index < 4; index++) {
       await tap(
         index == 2 || (wrongCause && index == 0)
             ? text('Faktor alam', 'Natural factor')
             : text('Aktivitas manusia', 'Human activity'),
       );
-      await tap(
-        index == 3
-            ? text('Lihat Hasil Babak', 'See Your Result')
-            : text('Situasi Berikutnya', 'Next Clue'),
+      expect(
+        find.byWidgetPredicate(
+          (w) => w.runtimeType.toString() == '_Feedback',
+        ),
+        findsOneWidget,
+        reason: 'Every answer shows feedback before the automatic move',
       );
+      await advance('cause feedback ${index + 1}');
     }
-    await tap(text('Coba Batasi Rambatannya', 'Move to Prevention'));
-    await pump(4200);
+    expect(find.byKey(const ValueKey('decision-separateFuel')), findsOneWidget);
+    await pump(4000);
     final waiting = tester.widget<FireSpreadVisual>(
       find.byType(FireSpreadVisual),
     );
@@ -287,16 +303,10 @@ class GameFlow {
       name == 'separateFuel' ? lessThanOrEqualTo(.43) : 1,
       reason: 'A fuel break prevents further spread; unsafe choices do not',
     );
-    final selected = tester
-        .widgetList(type('_ChoiceButton'))
-        .where((w) => (w as dynamic).selected as bool);
-    expect(selected, hasLength(1));
-    expect(
-      (tester.widget(find.byKey(ValueKey('decision-$name'))) as dynamic).error,
-      name != 'separateFuel',
-    );
   }
 
+  /// Prepares the final challenge. The safe answer already scheduled the move,
+  /// so this only has to let the pending timer and the pre-cache finish.
   Future<void> finalChallenge() async {
     // Mascot images can evict final-grid images from the shared image cache.
     // Let real image decoding finish before advancing the fake test clock.
@@ -307,9 +317,8 @@ class GameFlow {
         await precacheImage(AssetImage(path), context);
       }
     });
-    await tester.tap(find.byKey(const ValueKey('open-final')));
-    await pump();
-    await pump();
+    await pump(5000);
+    await pump(800);
     expect(find.text('10'), findsOneWidget);
     expect(clock.isRunning, isTrue);
     check('final start');
@@ -336,6 +345,41 @@ class GameFlow {
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   setUpAll(loadGameFonts);
+  testWidgets('reduced motion preserves time to read feedback', (tester) async {
+    tester.platformDispatcher.accessibilityFeaturesTestValue =
+        FakeAccessibilityFeatures(disableAnimations: true);
+    addTearDown(() {
+      tester.platformDispatcher.clearAccessibilityFeaturesTestValue();
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
+    });
+    final flow = GameFlow(tester, english: false, size: const Size(360, 640));
+    await flow.launch();
+    await flow.toDecision();
+    await tester.pumpWidget(const SizedBox.shrink());
+  });
+  testWidgets('back navigation reopens playable activities', (tester) async {
+    addTearDown(() {
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
+    });
+    final flow = GameFlow(tester, english: false, size: const Size(360, 640));
+    await flow.launch();
+    await flow.toDecision();
+    await flow.tap('Kembali');
+    final cause = tester.widgetList(flow.type('_ChoiceButton'));
+    expect(cause.every((w) => (w as dynamic).onTap != null), isTrue);
+    await flow.tap('Kembali');
+    final risks = tester.widgetList(flow.type('_RiskCard'));
+    expect(risks.every((w) => (w as dynamic).onTap != null), isTrue);
+    await flow.tap('Kembali');
+    await flow.tap('Kembali');
+    await flow.tap('Kembali');
+    await flow.tap('Kembali');
+    expect(find.text('Kurangi satu unsur.'), findsOneWidget);
+    expect(tester.widgetList(flow.type('_ChoiceButton')).every((w) => (w as dynamic).onTap != null), isTrue);
+    await tester.pumpWidget(const SizedBox.shrink());
+  });
   testWidgets('starts chapter one by assembling the three fire elements', (
     tester,
   ) async {
@@ -381,9 +425,44 @@ void main() {
       await tester.pump(const Duration(milliseconds: 400));
     }
 
-    await tester.tap(find.text('Kenali Segitiga Api'));
-    await tester.pump(const Duration(milliseconds: 400));
+    // No button press: feedback is shown, then the flow continues on its own.
+    await tester.pump(const Duration(milliseconds: 2600));
+    await tester.pump();
     expect(find.text('Tiga unsur, satu api.'), findsOneWidget);
+  });
+  testWidgets('rebuilding cancels the pending automatic move', (tester) async {
+    tester.view.devicePixelRatio = 1;
+    tester.view.physicalSize = const Size(411, 731);
+    addTearDown(() {
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
+    });
+    await tester.pumpWidget(
+      MaterialApp(theme: KifcTheme.light(), home: const ExhibitionGame()),
+    );
+    await tester.tap(find.text('Mulai Tantangan'));
+    await tester.pump(const Duration(milliseconds: 400));
+    Finder type(String name) => find.byWidgetPredicate(
+      (widget) => widget.runtimeType.toString() == name,
+    );
+    for (final pair in [(0, 0), (2, 1), (4, 2)]) {
+      final card = type('_DraggablePiece').at(pair.$1);
+      final slot = type('_DropSlot').at(pair.$2);
+      await tester.drag(card, tester.getCenter(slot) - tester.getCenter(card));
+      await tester.pump(const Duration(milliseconds: 400));
+    }
+
+    // The automatic move is pending. Rebuilding must call it off.
+    await tester.pump(const Duration(milliseconds: 1000));
+    await tester.tap(find.text('Ulangi'));
+    await tester.pump();
+    expect(find.text('Susun tiga unsur api.'), findsOneWidget);
+
+    // Well past the automatic delay, the screen must not have changed.
+    await tester.pump(const Duration(milliseconds: 4000));
+    await tester.pump();
+    expect(find.text('Susun tiga unsur api.'), findsOneWidget);
+    expect(find.text('Tiga unsur, satu api.'), findsNothing);
   });
   for (final english in [false, true]) {
     for (final size in [const Size(411, 731), const Size(360, 640)]) {
@@ -398,20 +477,54 @@ void main() {
         await flow.launch();
         await flow.toDecision();
         final unsafe = !english && size.width == 411;
-        await flow.choose(unsafe ? 'approach' : 'separateFuel');
-        // The first choice stays locked; a different unsafe option never becomes selected with it.
-        expect(
-          (tester.widget(find.byKey(const ValueKey('decision-addFuel')))
-                  as dynamic)
-              .onTap,
-          isNull,
-        );
-        expect(
-          (tester.widget(find.byKey(const ValueKey('decision-addFuel')))
-                  as dynamic)
-              .selected,
-          isFalse,
-        );
+        if (unsafe) {
+          // A first wrong attempt still allows one more try.
+          await flow.choose('approach');
+          expect(
+            (tester.widget(find.byKey(const ValueKey('decision-addFuel')))
+                    as dynamic)
+                .onTap,
+            isNotNull,
+            reason: 'A first wrong answer keeps one extra attempt open',
+          );
+          expect(
+            (tester.widget(find.byKey(const ValueKey('decision-addFuel')))
+                    as dynamic)
+                .error,
+            isFalse,
+          );
+          // A second wrong attempt reveals the safe action and locks input.
+          await flow.choose('addFuel');
+          expect(
+            find.textContaining(flow.text('Tindakan aman', 'The safe action')),
+            findsOneWidget,
+          );
+          expect(
+            (tester.widget(find.byKey(const ValueKey('decision-separateFuel')))
+                    as dynamic)
+                .selected,
+            isTrue,
+          );
+          expect(
+            (tester.widget(find.byKey(const ValueKey('decision-addFuel')))
+                    as dynamic)
+                .onTap,
+            isNull,
+          );
+          await flow.capture('stop-reveal');
+        } else {
+          if (size.width == 360) {
+            await flow.choose('approach');
+          }
+          await flow.choose('separateFuel');
+          expect(
+            (tester.widget(find.byKey(const ValueKey('decision-addFuel')))
+                    as dynamic)
+                .onTap,
+            isNull,
+            reason: 'The correct answer locks the remaining options',
+          );
+        }
         await flow.finalChallenge();
         await flow.token('dryVegetation');
         await flow.token('dryVegetation');
@@ -475,9 +588,11 @@ void main() {
             );
             await flow.pump(2000);
             expect(find.text('Explore the Exhibition'), findsOneWidget);
+            // Playing again starts a fresh session at Chapter 1, not the old
+            // landscape page.
             await flow.tap('Play Again');
-            expect(find.text('What is a forest fire?'), findsOneWidget);
-            expect(find.text('0/3 clues explored'), findsOneWidget);
+            expect(find.text('Build the fire triangle.'), findsOneWidget);
+            expect(find.text('Start Challenge'), findsNothing);
           } else {
             await flow.pump(1100);
             expect(find.text('Mulai Tantangan'), findsOneWidget);
@@ -503,7 +618,16 @@ void main() {
         );
         await flow.launch();
         await flow.toDecision(wrongCause: true);
+        // First wrong attempt: the mascot hint must fit.
         await flow.choose('addFuel');
+        // Second wrong attempt: the revealed answer must fit as well.
+        await flow.choose('approach');
+        expect(
+          find.textContaining(
+            flow.text('Tindakan aman adalah', 'The safe action is'),
+          ),
+          findsOneWidget,
+        );
         await tester.pumpWidget(const SizedBox.shrink());
         await tester.pump();
       },
