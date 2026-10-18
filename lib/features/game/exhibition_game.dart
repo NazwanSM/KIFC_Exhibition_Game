@@ -217,7 +217,7 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
       _Page.welcome => _WelcomePage(
         locale: _locale,
         onLocale: (locale) => setState(() => _locale = locale),
-        onStart: () => _go(_Page.observe),
+        onStart: () => _go(_Page.triangleBuild),
       ),
       _Page.observe => _ObservePage(
         english: _en,
@@ -244,7 +244,7 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
         lastDropCorrect: _lastDropCorrect,
         onDrop: _dropPiece,
         onContinue: () => _go(_Page.breakTriangle),
-        onBack: () => _go(_Page.triangleIntro),
+        onBack: _restart,
         onRestart: _resetTriangle,
       ),
       _Page.breakTriangle => _BreakTriangle(

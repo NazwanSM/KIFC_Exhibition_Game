@@ -308,6 +308,27 @@ class GameFlow {
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   setUpAll(loadGameFonts);
+  testWidgets('starts chapter one by assembling the three fire elements', (
+    tester,
+  ) async {
+    tester.view.devicePixelRatio = 1;
+    tester.view.physicalSize = const Size(411, 731);
+    addTearDown(() {
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
+    });
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: KifcTheme.light(),
+        home: const ExhibitionGame(),
+      ),
+    );
+    await tester.tap(find.text('Mulai Tantangan'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 400));
+
+    expect(find.text('Susun tiga unsur api.'), findsOneWidget);
+  });
   for (final english in [false, true]) {
     for (final size in [const Size(411, 731), const Size(360, 640)]) {
       testWidgets('Bilingual complete flow and scoring $english $size', (
