@@ -1235,7 +1235,7 @@ class _CauseQuiz extends StatelessWidget {
             photo: scenario.photo,
             english: english,
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 6),
           _ChoiceButton(
             height: 44,
             label: english ? 'Human activity' : 'Aktivitas manusia',
@@ -2590,7 +2590,7 @@ class _MascotWrongFeedback extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mascotWidth = MediaQuery.sizeOf(context).width < 380 ? 128.0 : 154.0;
+    final mascotWidth = MediaQuery.sizeOf(context).width < 380 ? 160.0 : 194.0;
     final imageHeight = mascotWidth * 4 / 3;
     return ConstrainedBox(
     constraints: const BoxConstraints(minHeight: 150),
@@ -2598,7 +2598,9 @@ class _MascotWrongFeedback extends StatelessWidget {
       clipBehavior: Clip.none,
       children: [
         Positioned(
-          left: -24,
+          // Use the PNG's transparent side margin to sit close to the edge
+          // while preserving the complete silhouette and both hands.
+          left: -40,
           bottom: 0,
           width: mascotWidth,
           height: imageHeight * .57,
@@ -2615,7 +2617,7 @@ class _MascotWrongFeedback extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(left: mascotWidth - 24, top: 8, bottom: 16),
+          padding: EdgeInsets.only(left: mascotWidth - 40, top: 8, bottom: 16),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
