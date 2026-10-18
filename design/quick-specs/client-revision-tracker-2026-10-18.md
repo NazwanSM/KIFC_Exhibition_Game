@@ -69,7 +69,7 @@ Gunakan status: `Siap`, `Dikerjakan`, `Menunggu prasyarat`, `Ditinjau`, atau `Se
 
 **Kriteria selesai:** pertukaran babak tercapai, instruksi awal cukup untuk bermain, dan setiap aktivitas memiliki pengantar serta penjelasan yang relevan. Babak 3–4 tetap tersambung dengan susunan baru.
 
-**Keputusan alur:** aktivitas tiga unsur api menjadi pembuka Babak 1, kemudian diikuti penjelasan dan demo pengurangan unsur. Babak 2 menjelaskan karhutla lewat 2–3 kartu pendek yang dikendalikan pemain, lalu berlanjut ke soal risiko. Layar pengantar yang hanya meminta pemain menekan tombol untuk masuk ke aktivitas berikutnya digabungkan atau dihapus. Naskah setiap kartu bersifat sementara sampai narasi klien tersedia. Lihat [spesifikasi alur](../../docs/superpowers/specs/2026-10-18-revised-exhibition-flow-design.md).
+**Keputusan alur:** aktivitas tiga unsur api menjadi pembuka Babak 1, kemudian diikuti kartu penjelasan segitiga api dan demo pengurangan unsur. Babak 2 menjelaskan karhutla lewat 2–3 kartu pendek yang dikendalikan pemain, lalu berlanjut ke soal risiko. Layar pengantar yang hanya meminta pemain menekan tombol untuk masuk ke aktivitas berikutnya digabungkan atau dihapus. Naskah setiap kartu bersifat sementara sampai narasi klien tersedia. Lihat [spesifikasi alur](../../docs/superpowers/specs/2026-10-18-revised-exhibition-flow-design.md).
 
 ## REV-03 — Tambahkan bahasa Korea
 

@@ -13,6 +13,7 @@ Menyusun ulang pengalaman permainan agar pengunjung mencoba konsep tiga unsur ap
 - Aplikasi tetap terdiri dari empat babak dan ditujukan untuk TV touchscreen portrait tanpa suara.
 - Babak 2 lama menjadi Babak 1. Babak 1 lama menjadi Babak 2.
 - Aktivitas menyusun tiga unsur api dan demo mengurangi unsur tetap ada. Bentuk visualnya tidak lagi diwajibkan sebagai segitiga.
+- Istilah dan makna **segitiga api** dijelaskan dalam Babak 1, setelah pemain berhasil menyusun ketiga unsur. Istilahnya tetap digunakan meskipun susunan visual berbentuk kartu atau daftar.
 - Definisi karhutla tidak lagi memakai aktivitas hotspot. Materi ditampilkan dalam 2–3 kartu pendek dengan maskot dan tombol `Lanjut`.
 - Setelah pemain menyelesaikan aktivitas atau menjawab benar, feedback singkat kemudian membawa pemain maju otomatis. Tombol yang hanya berfungsi sebagai pintu masuk ke aktivitas berikutnya dihilangkan.
 - Naskah yang dipakai sebelum materi klien tersedia harus ditandai sebagai sementara dan dapat diganti tanpa mengubah struktur layar.
@@ -33,8 +34,9 @@ Halaman pembuka tetap memilih bahasa dan memulai sesi. Indikator menyatakan empa
 ### Babak 1 — Tiga unsur api
 
 1. **Susun unsur api.** Pemain langsung menerima instruksi singkat untuk menempatkan panas, bahan bakar, dan oksigen pada susunan kartu/daftar. Petunjuk interaksi ada pada layar yang sama; tidak ada layar “kenali segitiga api” sebelumnya.
-2. **Hasil susunan.** Setelah tiga unsur lengkap, api terlihat menyala dan muncul feedback singkat secara otomatis. Maskot menjelaskan bahwa ketiga unsur memungkinkan api terus menyala. Layar ini menggantikan pengantar konsep yang sebelumnya muncul sebelum aktivitas.
-3. **Kurangi satu unsur.** Pemain bebas memilih panas, bahan bakar, atau oksigen untuk melihat cara kerja pencegahan. Aktivitas ini tetap demo tanpa benar/salah dan tidak diberi skor. Setelah pengunjung memilih atau setelah jeda yang sesuai implementasi, alur dapat berlanjut ke Babak 2 tanpa tombol “Kenali Penyebabnya”.
+2. **Hasil susunan.** Setelah tiga unsur lengkap, api terlihat menyala dan muncul feedback singkat secara otomatis.
+3. **Penjelasan segitiga api.** Maskot menjelaskan bahwa panas, bahan bakar, dan oksigen adalah tiga unsur yang membuat api dapat menyala serta terus membakar. Ketiganya dikenal sebagai *segitiga api*, walaupun pengalaman ini menyajikannya sebagai kartu atau daftar. Pengunjung menekan `Lanjut` setelah membaca kartu singkat ini.
+4. **Kurangi satu unsur.** Pemain bebas memilih panas, bahan bakar, atau oksigen untuk melihat cara kerja pencegahan. Aktivitas ini tetap demo tanpa benar/salah dan tidak diberi skor. Setelah pengunjung memilih atau setelah jeda yang sesuai implementasi, alur dapat berlanjut ke Babak 2 tanpa tombol “Kenali Penyebabnya”.
 
 Babak ini memenuhi prinsip “main dahulu, lalu penjelasan”: pemain sudah melihat api terbentuk sebelum istilah dan mekanismenya diterangkan.
 
@@ -64,7 +66,7 @@ Setiap kartu hanya menyampaikan satu gagasan dan menggunakan tombol `Lanjut` yan
 
 | Keadaan saat ini | Perlakuan baru | Alasan |
 |---|---|---|
-| Pengenalan tiga unsur api | Menjadi hasil susunan setelah aktivitas Babak 1 | Pemain mendapat konteks dari apa yang baru dilakukan. |
+| Pengenalan tiga unsur api | Menjadi kartu penjelasan “segitiga api” setelah hasil susunan Babak 1 | Pemain mendapat konteks dari apa yang baru dilakukan, tetapi istilah teknisnya tetap diajarkan. |
 | Tombol menuju risiko dan tiga unsur | Dihilangkan; perpindahan terjadi setelah feedback | Tidak menambah informasi atau pilihan pemain. |
 | Pengantar penyebab dan tombol “Lihat Situasinya” | Digabung ke situasi penyebab pertama | Instruksi dan aktivitas dapat tampil bersama. |
 | Ringkasan penyebab | Digabung ke feedback situasi terakhir | Pesan tetap tersampaikan tanpa halaman transisi. |
@@ -84,7 +86,7 @@ Sebelum narasi klien diterima, setiap kartu dan feedback memakai naskah kerja si
 
 ## Kriteria penerimaan REV-02
 
-- Babak 1 mengawali sesi dengan aktivitas tiga unsur api, lalu memberi penjelasan konsep dan demo pengurangan unsur.
+- Babak 1 mengawali sesi dengan aktivitas tiga unsur api, lalu memberi kartu penjelasan segitiga api dan demo pengurangan unsur.
 - Babak 2 menyediakan 2–3 kartu penjelasan karhutla yang dikendalikan pengunjung, kemudian aktivitas memilih kondisi berisiko.
 - Tidak ada layar pembuka atau tombol khusus yang hanya dibutuhkan untuk memasuki aktivitas penyebab atau pilihan tindakan aman.
 - Setiap aktivitas memiliki instruksi yang cukup di layar aktifnya.
@@ -104,3 +106,4 @@ Sebelum narasi klien diterima, setiap kartu dan feedback memakai naskah kerja si
 |---|---|
 | 2026-10-18 | Disetujui menukar Babak 1 dan Babak 2, lalu merapikan seluruh flow agar tidak menggantung. |
 | 2026-10-18 | Disetujui mengganti penjelasan karhutla dengan beberapa kartu pendek; naskah final akan diselaraskan dengan narasi klien. |
+| 2026-10-18 | Disetujui menjelaskan konsep segitiga api dalam Babak 1, setelah pemain menyusun tiga unsur. |
