@@ -696,9 +696,12 @@ class _RiskPage extends StatelessWidget {
           : 'Dari tiga kondisi ini, mana yang paling mudah terbakar?',
       onBack: onBack,
       bodyScrollable: false,
-      body: Column(
+      body: LayoutBuilder(builder: (context, bounds) {
+        final cardHeight = ((bounds.maxHeight - 16) / 3).clamp(52.0, 72.0);
+        return Column(
         children: <Widget>[
           _RiskCard(
+            height: cardHeight,
             option: _RiskOption.wetForest,
             english: english,
             selected: answer == _RiskOption.wetForest,
@@ -708,6 +711,7 @@ class _RiskPage extends StatelessWidget {
           const SizedBox(height: 8),
           _RiskCard(
             option: _correct,
+            height: cardHeight,
             english: english,
             selected: revealed,
             correct: true,
@@ -716,13 +720,15 @@ class _RiskPage extends StatelessWidget {
           const SizedBox(height: 8),
           _RiskCard(
             option: _RiskOption.wetGrassland,
+            height: cardHeight,
             english: english,
             selected: answer == _RiskOption.wetGrassland,
             correct: false,
             onTap: locked ? null : () => onAnswer(_RiskOption.wetGrassland),
           ),
         ],
-      ),
+      );
+      }),
       footer: _footer(
         solved: solved,
         revealed: revealed,
@@ -1227,15 +1233,17 @@ class _CauseQuiz extends StatelessWidget {
             photo: scenario.photo,
             english: english,
           ),
-          const SizedBox(height: 14),
+          const SizedBox(height: 8),
           _ChoiceButton(
+            height: 44,
             label: english ? 'Human activity' : 'Aktivitas manusia',
             selected: choice == true,
             error: answered && choice == true && !correct,
             onTap: answered ? null : () => onChoose(true),
           ),
-          const SizedBox(height: 9),
+          const SizedBox(height: 6),
           _ChoiceButton(
+            height: 44,
             label: english ? 'Natural factor' : 'Faktor alam',
             selected: choice == false,
             error: answered && choice == false && !correct,
@@ -2373,12 +2381,14 @@ class _RiskCard extends StatelessWidget {
     required this.selected,
     required this.correct,
     required this.onTap,
+    this.height = 72,
   });
   final _RiskOption option;
   final bool english;
   final bool selected;
   final bool correct;
   final VoidCallback? onTap;
+  final double height;
   @override
   Widget build(BuildContext context) => AnimatedScale(
     duration: _motionDuration(context, const Duration(milliseconds: 180)),
@@ -2391,7 +2401,7 @@ class _RiskCard extends StatelessWidget {
         onTap: onTap,
         borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
         child: Container(
-          height: 72,
+          height: height,
           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
           decoration: BoxDecoration(
             gradient: selected ? _answerGradient(correct) : null,
@@ -2522,7 +2532,9 @@ class _Feedback extends StatelessWidget {
   final bool ok;
   final String text;
   @override
-  Widget build(BuildContext context) => TweenAnimationBuilder<double>(
+  Widget build(BuildContext context) => !ok
+      ? _MascotWrongFeedback(text: text)
+      : TweenAnimationBuilder<double>(
     duration: _motionDuration(context, const Duration(milliseconds: 240)),
     curve: Curves.easeOutCubic,
     tween: Tween<double>(begin: .94, end: 1),
@@ -2562,6 +2574,60 @@ class _Feedback extends StatelessWidget {
           ),
         ],
       ),
+    ),
+  );
+}
+
+class _MascotWrongFeedback extends StatelessWidget {
+  const _MascotWrongFeedback({required this.text});
+  final String text;
+
+  @override
+  Widget build(BuildContext context) => ConstrainedBox(
+    constraints: const BoxConstraints(minHeight: 150),
+    child: Stack(
+      clipBehavior: Clip.none,
+      children: [
+        Positioned(
+          left: 0,
+          bottom: 0,
+          width: 108,
+          height: 150,
+          child: ClipRect(
+            child: OverflowBox(
+              alignment: Alignment.topCenter,
+              minWidth: 190,
+              maxWidth: 190,
+              minHeight: 270,
+              maxHeight: 270,
+              child: const GameMascot(pose: MascotPose.hintSafety, height: 270),
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 96, top: 8, bottom: 12),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              ClipPath(
+                clipper: _SpeechTail(),
+                child: const ColoredBox(color: KifcTheme.paper, child: SizedBox(width: 10, height: 18)),
+              ),
+              Expanded(
+                child: Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: KifcTheme.paper,
+                    borderRadius: BorderRadius.circular(18),
+                    border: Border.all(color: KifcTheme.answerIncorrect.withValues(alpha: .45)),
+                  ),
+                  child: Text(text, style: const TextStyle(color: KifcTheme.ink, fontSize: 13, height: 1.25)),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
     ),
   );
 }

@@ -49,6 +49,9 @@ class GameFlow {
   final clock = ControlledStopwatch();
   Future<void> capture(String stage) async {
     if (Platform.environment['KIFC_CAPTURE'] != '1') return;
+    // A timer may just have replaced the page. Render the completed transition,
+    // rather than saving the outgoing frame under the incoming page's name.
+    await tester.pump(const Duration(milliseconds: 400));
     final boundary = tester.renderObject<RenderRepaintBoundary>(
       find.byKey(const ValueKey('review-capture')),
     );
@@ -257,7 +260,7 @@ class GameFlow {
     );
     for (var index = 0; index < 4; index++) {
       await tap(
-        index == 2 || (wrongCause && index == 0)
+        (index == 2) != wrongCause
             ? text('Faktor alam', 'Natural factor')
             : text('Aktivitas manusia', 'Human activity'),
       );
