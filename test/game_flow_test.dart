@@ -144,6 +144,7 @@ class GameFlow {
     await pump();
     if (english) await tap('English');
     check('welcome');
+    await capture('welcome');
   }
 
   Future<void> tap(String label) async {
@@ -587,10 +588,12 @@ void main() {
           );
         } else if (size.width == 411) {
           await flow.tap('Closing Message');
+          await flow.capture('closing');
           await flow.tap('Explore the Exhibition');
           expect(find.text('Start Challenge'), findsOneWidget);
         } else {
           await flow.tap(flow.text('Selesai', 'Closing Message'));
+          await flow.capture('closing');
           await flow.pump(14000);
           expect(
             find.text(flow.text('Jelajahi Pameran', 'Explore the Exhibition')),

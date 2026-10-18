@@ -92,6 +92,8 @@ Gunakan status: `Siap`, `Dikerjakan`, `Menunggu prasyarat`, `Ditinjau`, atau `Se
 
 ## REV-04 — Maskot sebagai pendamping dan pemberi petunjuk
 
+**Pembuka dan penutup:** maskot diperbesar dan disatukan dengan balon percakapan di area tengah. Pembuka memakai pose welcome di kiri untuk menyapa serta mengajak bermain; tombol mulai tepat di bawah percakapan. Penutup memakai pose success di kanan untuk berterima kasih dan mengingatkan tindakan pencegahan. Paragraf lama diganti agar pesan tidak berulang, seluruh badan dan logo tetap utuh tanpa pencerminan. Bukti visual: `build/review-host-conversation/`.
+
 **Penyempurnaan feedback benar:** pose success tampil besar di kanan bawah, dengan balon percakapan di kiri. Ukuran dan crop mengikuti feedback salah: kedua sisi maskot utuh, potongan pinggang menempel tepi bawah layar. Berlaku pada jawaban benar pemilihan risiko, kuis penyebab, dan keputusan pencegahan. Bukti visual: `build/review-correct-mascot/`.
 
 **Penyempurnaan feedback salah:** maskot hint_safety tampil besar di kiri bawah dengan crop setengah badan, disertai balon percakapan di sebelahnya. Berlaku pada hint pertama, penjelasan salah kedua, dan jawaban salah kuis penyebab. Area jawaban menyesuaikan ruang feedback; teks dan pilihan tidak saling menutupi. Bukti visual: `build/review-mascot-feedback/`. Tes kasus salah pada keempat situasi penyebab mencakup kedua bahasa pada ukuran 360×640.
@@ -187,6 +189,8 @@ Gunakan status: `Siap`, `Dikerjakan`, `Menunggu prasyarat`, `Ditinjau`, atau `Se
 **Status materi klien:** menunggu; tidak menghalangi penyusunan naskah sementara. Tiket ini belum boleh ditutup hanya karena naskah sementara selesai.
 
 ## REV-09 — Posisi tombol pembuka dan kenyamanan jangkauan TV besar
+
+**Kemajuan awal:** tombol mulai sudah dikelompokkan dengan percakapan maskot di pembuka sehingga mengikuti ajakan bermain. Tampilan diperiksa pada 360×640 dan 411×731. Ini belum menutup tiket: kajian seluruh kontrol, bahasa Korea, dan pengujian jangkauan pada TV fisik masih diperlukan.
 
 **Tujuan:** tombol pembuka dan seluruh interaksi utama mudah ditemukan serta dijangkau pengguna TV touchscreen portrait berukuran besar, tanpa harus sering meraih ujung atas atau bawah layar.
 

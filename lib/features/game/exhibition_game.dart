@@ -609,48 +609,56 @@ class _WelcomePage extends StatelessWidget {
                       ? 'Calm waterways · protected vegetation'
                       : 'Hutan gambut dan aliran air',
                 ),
-                const Spacer(),
-                const Text(
-                  'KIFC EXHIBITION ROOM / MANGGALA AGNI',
-                  style: TextStyle(color: Colors.white70, fontSize: 10),
-                ),
-                const SizedBox(height: 10),
-                const Text(
-                  'Fire Prevention\nChallenge',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontFamily: 'ArchivoBlack',
-                    fontSize: 36,
-                    height: 1.08,
+                Expanded(
+                  child: Center(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        const Text(
+                          'KIFC EXHIBITION ROOM / MANGGALA AGNI',
+                          style: TextStyle(color: Colors.white70, fontSize: 10),
+                        ),
+                        const SizedBox(height: 10),
+                        const Text(
+                          'Fire Prevention\nChallenge',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'ArchivoBlack',
+                            fontSize: 36,
+                            height: 1.08,
+                          ),
+                        ),
+                        const SizedBox(height: 11),
+                        _HostConversation(
+                          key: const ValueKey('welcome-conversation'),
+                          pose: MascotPose.welcome,
+                          mascotOnRight: false,
+                          text: locale == AppLocale.english
+                              ? 'Hello! Discover how fires start and what we can do to protect the forest.'
+                              : 'Halo! Yuk, kenali penyebab kebakaran dan cari tahu cara menjaga hutan dari api.',
+                        ),
+                        const SizedBox(height: 12),
+                        _Primary(
+                          label: locale == AppLocale.english
+                              ? 'Start Challenge'
+                              : 'Mulai Tantangan',
+                          icon: Icons.play_arrow_rounded,
+                          onPressed: onStart,
+                        ),
+                        const SizedBox(height: 12),
+                        Text(
+                          locale == AppLocale.english
+                              ? '4 chapters • around 3 minutes • no sound needed'
+                              : '4 babak • sekitar 3 menit • bisa dimainkan tanpa suara',
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 12,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                const SizedBox(height: 11),
-                Text(
-                  locale == AppLocale.english
-                      ? 'Read the landscape, spot the trigger, and stop risk before it grows.'
-                      : 'Kenali penyebab kebakaran dan cari tahu cara menjaga hutan dari api.',
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 15,
-                    height: 1.3,
-                  ),
-                ),
-                const Expanded(
-                  child: Center(child: GameMascot(pose: MascotPose.welcome, height: 130)),
-                ),
-                Text(
-                  locale == AppLocale.english
-                      ? '4 chapters • around 3 minutes • no sound needed'
-                      : '4 babak • sekitar 3 menit • bisa dimainkan tanpa suara',
-                  style: const TextStyle(color: Colors.white, fontSize: 12),
-                ),
-                const SizedBox(height: 12),
-                _Primary(
-                  label: locale == AppLocale.english
-                      ? 'Start Challenge'
-                      : 'Mulai Tantangan',
-                  icon: Icons.play_arrow_rounded,
-                  onPressed: onStart,
                 ),
               ],
             ),
@@ -659,6 +667,63 @@ class _WelcomePage extends StatelessWidget {
       ],
     ),
   );
+}
+
+/// A host and its message form one group on the opening and closing screens.
+/// Keep the sprite intact; its chest logo must never be mirrored.
+class _HostConversation extends StatelessWidget {
+  const _HostConversation({
+    super.key,
+    required this.pose,
+    required this.mascotOnRight,
+    required this.text,
+  });
+
+  final MascotPose pose;
+  final bool mascotOnRight;
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    final height = MediaQuery.sizeOf(context).height < 680 ? 180.0 : 220.0;
+    final mascot = SizedBox(
+      width: height * .75,
+      child: GameMascot(pose: pose, height: height),
+    );
+    final tail = ClipPath(
+      clipper: _SpeechTail(),
+      child: const ColoredBox(
+        color: KifcTheme.paper,
+        child: SizedBox(width: 10, height: 18),
+      ),
+    );
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        if (!mascotOnRight) mascot,
+        if (!mascotOnRight) tail,
+        Expanded(
+          child: Container(
+            padding: const EdgeInsets.all(14),
+            decoration: BoxDecoration(
+              color: KifcTheme.paper,
+              borderRadius: BorderRadius.circular(18),
+            ),
+            child: Text(
+              text,
+              style: const TextStyle(
+                color: KifcTheme.ink,
+                fontSize: 14,
+                height: 1.35,
+              ),
+            ),
+          ),
+        ),
+        if (mascotOnRight) RotatedBox(quarterTurns: 2, child: tail),
+        if (mascotOnRight) mascot,
+      ],
+    );
+  }
 }
 
 class _RiskPage extends StatelessWidget {
@@ -1701,15 +1766,8 @@ class _ClosingPage extends StatelessWidget {
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Flexible(child: GameMascot(pose: MascotPose.success, height: compact ? 78 : 105)),
-                        _Eyebrow(
-                          text: english
-                              ? 'THANK YOU FOR PLAYING'
-                              : 'TERIMA KASIH SUDAH BERMAIN',
-                          dark: true,
-                        ),
                         Text(
                           english
                               ? 'Protect forests.\nProtect lives.'
@@ -1723,15 +1781,13 @@ class _ClosingPage extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 12),
-                        Text(
-                          english
-                              ? 'Keep ignition sources away from dry vegetation. If you see a fire, alert trained personnel.'
-                              : 'Mulai dari hal sederhana: jauhkan sumber api dari bahan kering. Jika melihat kebakaran, segera laporkan kepada petugas.',
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 14,
-                            height: 1.4,
-                          ),
+                        _HostConversation(
+                          key: const ValueKey('closing-conversation'),
+                          pose: MascotPose.success,
+                          mascotOnRight: true,
+                          text: english
+                              ? 'Thanks for playing! Keep fire away from dry vegetation. If you see a fire, report it to trained personnel.'
+                              : 'Terima kasih sudah bermain! Jauhkan sumber api dari bahan kering. Jika melihat kebakaran, segera laporkan kepada petugas.',
                         ),
                         SizedBox(height: compact ? 18 : 24),
                         const Divider(color: Colors.white24, height: 1),
