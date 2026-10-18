@@ -105,43 +105,7 @@ class GameFlow {
 
   Future<void> toDecision({bool wrongCause = false}) async {
     await tap(text('Mulai Tantangan', 'Start Challenge'));
-    expect(
-      find.textContaining(
-        text(
-          'Karhutla adalah kebakaran hutan dan lahan.',
-          'An uncontrolled fire',
-        ),
-      ),
-      findsOneWidget,
-    );
-    for (final label
-        in english
-            ? ['Sun · heat', 'Vegetation · fuel', 'Air · oxygen']
-            : [
-                'Matahari · panas',
-                'Vegetasi · bahan bakar',
-                'Udara · oksigen',
-              ]) {
-      await tap(label);
-    }
-    await tap(text('Lihat Risikonya', 'See the Risk'));
-    await tap(text('Hutan basah', 'Wet forest'));
-    await tap(
-      text(
-        'Tanaman kering di dekat sumber api',
-        'Dry vegetation with an ignition source',
-      ),
-    );
-    await tap(text('Lihat Segitiga Api', 'See the Fire Triangle'));
-    await pump(2600);
-    check('triangle intro');
     final trianglePanelSize = tester.getSize(type('_FireScene'));
-    await tap(text('Sekarang Coba Susun', 'Build It Yourself'));
-    expect(
-      tester.getSize(type('_FireScene')),
-      trianglePanelSize,
-      reason: 'The chapter 2 panel keeps its size between pages',
-    );
     final scrims = find.byWidgetPredicate(
       (w) => w is SizedBox && w.height == 42 && w.child is DecoratedBox,
     );
@@ -173,7 +137,8 @@ class GameFlow {
         check('repeat triangle');
       }
     }
-    await tap(text('Coba Kurangi Unsurnya', 'Find a Prevention Step'));
+    await tap(text('Kenali Segitiga Api', 'Learn About the Fire Triangle'));
+    await tap(text('Coba Kurangi Satu Unsur', 'Try Reducing an Element'));
     expect(
       tester.getSize(type('_FireScene')),
       trianglePanelSize,
@@ -219,7 +184,17 @@ class GameFlow {
       );
     }
     await tap(text('Kenali Penyebabnya', 'Trace the Trigger'));
-    await tap(text('Lihat Situasinya', 'Start Looking'));
+    await tap(text('Lanjut', 'Continue'));
+    await tap(text('Lanjut', 'Continue'));
+    await tap(text('Lihat Risikonya', 'See the Risk'));
+    await tap(text('Hutan basah', 'Wet forest'));
+    await tap(
+      text(
+        'Tanaman kering di dekat sumber api',
+        'Dry vegetation with an ignition source',
+      ),
+    );
+    await tap(text('Lihat Segitiga Api', 'See the Fire Triangle'));
     for (var index = 0; index < 4; index++) {
       await tap(
         index == 2 || (wrongCause && index == 0)
@@ -233,9 +208,6 @@ class GameFlow {
       );
     }
     await tap(text('Coba Batasi Rambatannya', 'Move to Prevention'));
-    await pump(2400);
-    check('spread introduction');
-    await tap(text('Pilih Tindakan Aman', 'Choose a Safe Action'));
     await pump(4200);
     final waiting = tester.widget<FireSpreadVisual>(
       find.byType(FireSpreadVisual),
@@ -328,6 +300,34 @@ void main() {
     await tester.pump(const Duration(milliseconds: 400));
 
     expect(find.text('Susun tiga unsur api.'), findsOneWidget);
+  });
+  testWidgets('explains the fire triangle after the three elements are placed', (
+    tester,
+  ) async {
+    tester.view.devicePixelRatio = 1;
+    tester.view.physicalSize = const Size(411, 731);
+    addTearDown(() {
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
+    });
+    await tester.pumpWidget(
+      MaterialApp(theme: KifcTheme.light(), home: const ExhibitionGame()),
+    );
+    await tester.tap(find.text('Mulai Tantangan'));
+    await tester.pump(const Duration(milliseconds: 400));
+    Finder type(String name) => find.byWidgetPredicate(
+      (widget) => widget.runtimeType.toString() == name,
+    );
+    for (final pair in [(0, 0), (2, 1), (4, 2)]) {
+      final card = type('_DraggablePiece').at(pair.$1);
+      final slot = type('_DropSlot').at(pair.$2);
+      await tester.drag(card, tester.getCenter(slot) - tester.getCenter(card));
+      await tester.pump(const Duration(milliseconds: 400));
+    }
+
+    await tester.tap(find.text('Kenali Segitiga Api'));
+    await tester.pump(const Duration(milliseconds: 400));
+    expect(find.text('Mengapa api bisa menyala?'), findsOneWidget);
   });
   for (final english in [false, true]) {
     for (final size in [const Size(411, 731), const Size(360, 640)]) {

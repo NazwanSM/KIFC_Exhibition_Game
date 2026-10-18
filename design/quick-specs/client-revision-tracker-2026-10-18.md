@@ -6,8 +6,7 @@ Cakupan saat ini: pencatatan revisi dan kriteria selesai. Implementasi belum dim
 
 ## Ringkasan progres
 
-- Tiket selesai: **0/10**.
-- Tiket ditinjau: **1/10** (REV-02: spesifikasi dan rencana implementasi siap ditinjau).
+- Tiket selesai: **1/10** (REV-02).
 - Tiket siap dikerjakan: **8**.
 - Tiket menunggu prasyarat: **1** (REV-10, verifikasi setelah implementasi).
 - Klarifikasi kebutuhan utama: selesai. Keputusan teknis dan desain yang masih terbuka tercatat pada tiket terkait.
@@ -17,7 +16,7 @@ Gunakan status: `Siap`, `Dikerjakan`, `Menunggu prasyarat`, `Ditinjau`, atau `Se
 | ID | Tiket | Status | Bergantung pada |
 |---|---|---|---|
 | REV-01 | Alur otomatis dan kesempatan kedua | Siap | Hasil kajian REV-02; petunjuk dari REV-04 |
-| REV-02 | Tukar babak 1–2 dan kaji alur keseluruhan | Ditinjau | — |
+| REV-02 | Tukar babak 1–2 dan kaji alur keseluruhan | Selesai | — |
 | REV-03 | Tambahkan bahasa Korea | Siap | Struktur konten REV-02; naskah sementara REV-08 |
 | REV-04 | Maskot sebagai pendamping dan pemberi petunjuk | Siap | Aset logo Manggala Agni yang sesuai |
 | REV-05 | Tambahkan pattern pada latar | Siap | — |
@@ -70,6 +69,8 @@ Gunakan status: `Siap`, `Dikerjakan`, `Menunggu prasyarat`, `Ditinjau`, atau `Se
 **Kriteria selesai:** pertukaran babak tercapai, instruksi awal cukup untuk bermain, dan setiap aktivitas memiliki pengantar serta penjelasan yang relevan. Babak 3–4 tetap tersambung dengan susunan baru.
 
 **Keputusan alur:** aktivitas tiga unsur api menjadi pembuka Babak 1, kemudian diikuti kartu penjelasan segitiga api dan demo pengurangan unsur. Babak 2 menjelaskan karhutla lewat 2–3 kartu pendek yang dikendalikan pemain, lalu berlanjut ke soal risiko. Layar pengantar yang hanya meminta pemain menekan tombol untuk masuk ke aktivitas berikutnya digabungkan atau dihapus. Naskah setiap kartu bersifat sementara sampai narasi klien tersedia. Lihat [spesifikasi alur](../../docs/superpowers/specs/2026-10-18-revised-exhibition-flow-design.md) dan [rencana implementasi](../../docs/superpowers/plans/2026-10-18-revised-exhibition-flow.md).
+
+**Bukti implementasi:** alur baru diuji dalam Bahasa Indonesia dan Inggris pada 360×640 serta 411×731. `flutter analyze --no-pub` dan `flutter test test/game_flow_test.dart --no-pub` lulus pada 18 Oktober 2026. Perpindahan otomatis serta kesempatan kedua dilanjutkan pada REV-01.
 
 ## REV-03 — Tambahkan bahasa Korea
 

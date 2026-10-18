@@ -43,6 +43,7 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
   int _causePoints = 0;
   bool? _causeChoice;
   _PreventionAction? _stopAnswer;
+  int _karhutlaCardIndex = 0;
   final Set<_RiskToken> _finalFound = <_RiskToken>{};
   int _seconds = 10;
   Timer? _timer;
@@ -116,6 +117,7 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
       _causePoints = 0;
       _causeChoice = null;
       _stopAnswer = null;
+      _karhutlaCardIndex = 0;
       _finalFound.clear();
       _seconds = 10;
       _preparingFinal = false;
@@ -230,8 +232,8 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
         english: _en,
         answer: _riskAnswer,
         onAnswer: (answer) => setState(() => _riskAnswer = answer),
-        onContinue: () => _go(_Page.triangleIntro),
-        onBack: () => _go(_Page.observe),
+        onContinue: () => _go(_Page.causeQuiz),
+        onBack: () => _go(_Page.karhutlaCards),
       ),
       _Page.triangleIntro => _TriangleIntro(
         english: _en,
@@ -243,16 +245,30 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
         pieces: _triangle,
         lastDropCorrect: _lastDropCorrect,
         onDrop: _dropPiece,
-        onContinue: () => _go(_Page.breakTriangle),
+        onContinue: () => _go(_Page.triangleExplanation),
         onBack: _restart,
         onRestart: _resetTriangle,
+      ),
+      _Page.triangleExplanation => _TriangleExplanation(
+        english: _en,
+        onContinue: () => _go(_Page.breakTriangle),
+        onBack: () => _go(_Page.triangleBuild),
       ),
       _Page.breakTriangle => _BreakTriangle(
         english: _en,
         selected: _breakChoice,
         onSelect: (slot) => setState(() => _breakChoice = slot),
-        onContinue: () => _go(_Page.causeIntro),
+        onContinue: () => _go(_Page.karhutlaCards),
         onBack: () => _go(_Page.triangleBuild),
+      ),
+      _Page.karhutlaCards => _KarhutlaCards(
+        english: _en,
+        index: _karhutlaCardIndex,
+        onAdvance: () => setState(() {
+          if (_karhutlaCardIndex < 2) _karhutlaCardIndex++;
+        }),
+        onComplete: () => _go(_Page.risk),
+        onBack: () => _go(_Page.breakTriangle),
       ),
       _Page.causeIntro => _CauseIntro(
         english: _en,
@@ -266,8 +282,8 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
         choice: _causeChoice,
         onChoose: _chooseCause,
         onNext: _advanceCause,
-        onFinish: () => _go(_Page.stopIntro),
-        onBack: () => _go(_Page.causeIntro),
+        onFinish: () => _go(_Page.stopDecision),
+        onBack: () => _go(_Page.risk),
       ),
       _Page.stopIntro => _StopIntro(
         english: _en,
@@ -282,7 +298,7 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
           if (_stopAnswer == null) setState(() => _stopAnswer = answer);
         },
         onContinue: _openFinal,
-        onBack: () => _go(_Page.stopIntro),
+        onBack: () => _go(_Page.causeQuiz),
       ),
       _Page.finalChallenge => _FinalChallenge(
         english: _en,
@@ -368,7 +384,9 @@ enum _Page {
   risk,
   triangleIntro,
   triangleBuild,
+  triangleExplanation,
   breakTriangle,
+  karhutlaCards,
   causeIntro,
   causeQuiz,
   stopIntro,
@@ -660,6 +678,33 @@ class _RiskPage extends StatelessWidget {
   );
 }
 
+class _KarhutlaCards extends StatelessWidget {
+  const _KarhutlaCards({required this.english, required this.index, required this.onAdvance, required this.onComplete, required this.onBack});
+  final bool english;
+  final int index;
+  final VoidCallback onAdvance;
+  final VoidCallback onComplete;
+  final VoidCallback onBack;
+
+  @override
+  Widget build(BuildContext context) {
+    final cards = english
+        ? [('What is a forest fire?', 'An uncontrolled fire can spread through vegetation and land.'), ('Why does it matter?', 'It can harm forests, land, wildlife, and nearby communities.'), ('Prevent it early.', 'Recognising risk before there is a flame helps prevent a larger fire.')]
+        : [('Apa itu karhutla?', 'Karhutla adalah kebakaran hutan dan lahan yang dapat menjalar tanpa terkendali.'), ('Mengapa perlu dicegah?', 'Karhutla dapat merusak hutan, lahan, satwa, dan membahayakan warga di sekitarnya.'), ('Cegah sebelum membesar.', 'Mengenali risiko sebelum api muncul membantu mencegah kebakaran yang lebih besar.')];
+    final card = cards[index];
+    return _DarkStage(
+      chapter: 2,
+      english: english,
+      eyebrow: english ? 'CHAPTER 2 / FOREST FIRE' : 'BABAK 2 / KARHUTLA',
+      title: card.$1,
+      subtitle: card.$2,
+      onBack: onBack,
+      body: _PhotoCard(label: '${index + 1}/3', tone: const Color(0x80553B2B), asset: 'assets/images/field/dry-landscape.jpg'),
+      footer: _Primary(label: index == 2 ? (english ? 'See the Risk' : 'Lihat Risikonya') : (english ? 'Continue' : 'Lanjut'), dark: true, onPressed: index == 2 ? onComplete : onAdvance),
+    );
+  }
+}
+
 enum _RiskOption { wetForest, dryVegetationWithIgnition, wetGrassland }
 
 extension _RiskOptionVisual on _RiskOption {
@@ -761,11 +806,11 @@ class _TriangleBuild extends StatelessWidget {
   Widget build(BuildContext context) {
     final complete = pieces.length == 3;
     return _LightStage(
-      chapter: 2,
+      chapter: 1,
       english: english,
       eyebrow: english
-          ? 'CHAPTER 2 / PUT IT TOGETHER'
-          : 'BABAK 2 / SATUKAN TIGA UNSUR',
+          ? 'CHAPTER 1 / PUT IT TOGETHER'
+          : 'BABAK 1 / SATUKAN TIGA UNSUR',
       title: complete
           ? (english ? 'The fire has started.' : 'Api mulai menyala.')
           : (english ? 'Build the fire triangle.' : 'Susun tiga unsur api.'),
@@ -783,7 +828,7 @@ class _TriangleBuild extends StatelessWidget {
                 : 'Foto ini belum cocok di sini. Coba tempat lain atau pilih foto lainnya.')
           : (english
                 ? 'Drag each photo to its element.'
-                : 'Seret foto dari bawah ke tempat yang cocok pada segitiga.'),
+                : 'Seret foto dari bawah ke tempat yang cocok.'),
       onBack: onBack,
       onRestart: onRestart,
       body: Column(
@@ -822,11 +867,39 @@ class _TriangleBuild extends StatelessWidget {
         ],
       ),
       footer: _Primary(
-        label: english ? 'Find a Prevention Step' : 'Coba Kurangi Unsurnya',
+        label: english ? 'Learn About the Fire Triangle' : 'Kenali Segitiga Api',
         onPressed: complete ? onContinue : null,
       ),
     );
   }
+}
+
+class _TriangleExplanation extends StatelessWidget {
+  const _TriangleExplanation({
+    required this.english,
+    required this.onContinue,
+    required this.onBack,
+  });
+  final bool english;
+  final VoidCallback onContinue;
+  final VoidCallback onBack;
+
+  @override
+  Widget build(BuildContext context) => _LightStage(
+    chapter: 1,
+    english: english,
+    eyebrow: english ? 'CHAPTER 1 / FIRE TRIANGLE' : 'BABAK 1 / SEGITIGA API',
+    title: english ? 'Why did the fire start?' : 'Mengapa api bisa menyala?',
+    subtitle: english
+        ? 'Heat, fuel, and oxygen are the three elements that keep a fire burning. Together, they are known as the fire triangle.'
+        : 'Panas, bahan bakar, dan oksigen adalah tiga unsur yang membuat api terus menyala. Ketiganya dikenal sebagai segitiga api.',
+    onBack: onBack,
+    body: _FireScene(active: _FireSlot.values.toSet(), english: english),
+    footer: _Primary(
+      label: english ? 'Try Reducing an Element' : 'Coba Kurangi Satu Unsur',
+      onPressed: onContinue,
+    ),
+  );
 }
 
 class _BreakTriangle extends StatelessWidget {
@@ -878,11 +951,11 @@ class _BreakTriangle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => _LightStage(
-    chapter: 2,
+    chapter: 1,
     english: english,
     eyebrow: english
-        ? 'CHAPTER 2 / INTERACTIVE DEMO'
-        : 'BABAK 2 / DEMO INTERAKTIF',
+        ? 'CHAPTER 1 / INTERACTIVE DEMO'
+        : 'BABAK 1 / DEMO INTERAKTIF',
     title: english ? 'Reduce one element.' : 'Kurangi satu unsur.',
     subtitle: english
         ? 'Touch an element and watch the flame change. You can try all three.'
