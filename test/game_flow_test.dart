@@ -77,6 +77,15 @@ class GameFlow {
   }
 
   void check(String stage) {
+    final crop = find.byKey(const ValueKey('feedback-mascot-crop'));
+    if (crop.evaluate().isNotEmpty) {
+      final cropRect = tester.getRect(crop);
+      expect(cropRect.bottom, closeTo(size.height, .5),
+          reason: 'The half-body crop must end at the screen edge: $stage');
+      final picture = find.descendant(of: crop, matching: find.byType(Image));
+      expect(tester.getSize(picture).width, lessThanOrEqualTo(cropRect.width + .5),
+          reason: 'The crop must preserve both sides of the mascot: $stage');
+    }
     expect(
       tester.takeException(),
       isNull,

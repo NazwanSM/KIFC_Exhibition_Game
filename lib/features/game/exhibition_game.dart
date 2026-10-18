@@ -691,6 +691,7 @@ class _RiskPage extends StatelessWidget {
       title: english
           ? 'Where could fire start more easily?'
           : 'Di mana api lebih mudah muncul?',
+      edgeFeedback: answer != null && !solved,
       subtitle: english
           ? 'Choose the condition with the highest fire risk.'
           : 'Dari tiga kondisi ini, mana yang paling mudah terbakar?',
@@ -1221,6 +1222,7 @@ class _CauseQuiz extends StatelessWidget {
       title: english
           ? 'What most likely triggered this risk?'
           : 'Apa penyebabnya?',
+      edgeFeedback: answered && !correct,
       subtitle: english
           ? 'Read the situation, then choose where the trigger came from.'
           : 'Baca situasinya. Apakah api dipicu aktivitas manusia atau faktor alam?',
@@ -1326,6 +1328,7 @@ class _StopDecision extends StatelessWidget {
       english: english,
       eyebrow: english ? 'CHAPTER 4 / MAKE A CHOICE' : 'BABAK 4 / PILIH TINDAKAN',
       title: english ? 'Stop the spread.' : 'Batasi rambatan api.',
+      edgeFeedback: answer != null && !solved,
       subtitle: english
           ? 'Which action should trained personnel take?'
           : 'Apa yang bisa dilakukan petugas terlatih agar api tidak terus menjalar?',
@@ -1379,7 +1382,7 @@ class _StopDecision extends StatelessWidget {
                               ? 'Not quite. Think about what keeps the fire from reaching more material. You get one more try.'
                               : 'Belum tepat. Pikirkan tindakan yang membuat api sulit mencapai bahan lain. Kamu masih punya satu kesempatan lagi.')),
             ),
-            const SizedBox(height: 8),
+            if (solved) const SizedBox(height: 8),
           ],
           if (preparing)
             _Primary(
@@ -1914,6 +1917,7 @@ class _LightStage extends StatelessWidget {
     this.bodyScrollable = true,
     this.backLabel,
     this.groupFooter = false,
+    this.edgeFeedback = false,
   });
   final int chapter;
   final bool english;
@@ -1928,14 +1932,16 @@ class _LightStage extends StatelessWidget {
   final bool bodyScrollable;
   final String? backLabel;
   final bool groupFooter;
+  final bool edgeFeedback;
   @override
   Widget build(BuildContext context) {
     final compact = MediaQuery.sizeOf(context).height < 680;
     return Scaffold(
       backgroundColor: KifcTheme.paper,
       body: SafeArea(
+        bottom: !edgeFeedback,
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(24, 14, 24, 20),
+          padding: EdgeInsets.fromLTRB(24, 14, 24, edgeFeedback ? 0 : 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
@@ -2583,29 +2589,33 @@ class _MascotWrongFeedback extends StatelessWidget {
   final String text;
 
   @override
-  Widget build(BuildContext context) => ConstrainedBox(
+  Widget build(BuildContext context) {
+    final mascotWidth = MediaQuery.sizeOf(context).width < 380 ? 128.0 : 154.0;
+    final imageHeight = mascotWidth * 4 / 3;
+    return ConstrainedBox(
     constraints: const BoxConstraints(minHeight: 150),
     child: Stack(
       clipBehavior: Clip.none,
       children: [
         Positioned(
-          left: 0,
+          left: -24,
           bottom: 0,
-          width: 108,
-          height: 150,
+          width: mascotWidth,
+          height: imageHeight * .57,
           child: ClipRect(
+            key: const ValueKey('feedback-mascot-crop'),
             child: OverflowBox(
               alignment: Alignment.topCenter,
-              minWidth: 190,
-              maxWidth: 190,
-              minHeight: 270,
-              maxHeight: 270,
-              child: const GameMascot(pose: MascotPose.hintSafety, height: 270),
+              minWidth: mascotWidth,
+              maxWidth: mascotWidth,
+              minHeight: imageHeight,
+              maxHeight: imageHeight,
+              child: GameMascot(pose: MascotPose.hintSafety, height: imageHeight),
             ),
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 96, top: 8, bottom: 12),
+          padding: EdgeInsets.only(left: mascotWidth - 24, top: 8, bottom: 16),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -2630,6 +2640,7 @@ class _MascotWrongFeedback extends StatelessWidget {
       ],
     ),
   );
+  }
 }
 
 class _AutoNote extends StatelessWidget {
