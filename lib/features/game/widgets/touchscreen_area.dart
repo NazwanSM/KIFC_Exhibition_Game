@@ -25,7 +25,7 @@ class TouchscreenArea extends StatelessWidget {
         const design = Size(411, 731);
         final scale = math.min(
           bounds.maxWidth * .9 / design.width,
-          bounds.maxHeight * .7 / design.height,
+          bounds.maxHeight * .84 / design.height,
         );
         final top = (bounds.maxHeight - design.height * scale) / 2;
         // Feedback artwork may reach the panel bottom, so its waist crop never
@@ -51,7 +51,12 @@ class TouchscreenArea extends StatelessWidget {
                       padding: EdgeInsets.zero,
                       viewPadding: EdgeInsets.zero,
                     ),
-                    child: _CenteredTouchscreen(child: child),
+                    child: _CenteredTouchscreen(
+                      child: Padding(
+                        padding: EdgeInsets.only(bottom: bottom ? 24 : 0),
+                        child: child,
+                      ),
+                    ),
                   ),
                 ),
               ),
