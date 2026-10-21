@@ -2,11 +2,13 @@
 
 | File | Source | Use | License / attribution |
 | --- | --- | --- | --- |
+| `lib/features/game/widgets/terrain_backdrop.dart` | Original procedural contour motif created for this project, 19 October 2026 | Static background on cream and dark-green game stages; drawn locally and available offline | Original project artwork; no external asset or third-party source. Decorative contours do not represent geographic data. |
 | `assets/images/mascot/manggala_agni_*.png` | Generated with GPT and supplied by the project owner, 18 October 2026 | Welcome, educational explanation, hints/safety, and success/closing poses | User-supplied generated assets based on the owner's mascot and Manggala Agni logo references; no separate license supplied. Original PNGs preserved. |
 | `assets/images/forest/kereng-bangkirai.jpg` | [Unsplash — Kereng Bangkirai, Sebangau](https://unsplash.com/photos/green-trees-on-gray-soil-Jsh7I8k3gso) | Welcome and learning photo panels | Unsplash License; retain this record for exhibition credits. |
 | `assets/images/logos/*` | Provided by the project owner | Partner marks | Official files supplied for this project. |
 | `assets/fonts/Archivo-*.ttf` | [Google Fonts — Archivo](https://github.com/google/fonts/tree/main/ofl/archivo) | Main application typeface, bundled for Android and web | SIL Open Font License 1.1; see `assets/fonts/Archivo-OFL.txt`. |
 | `assets/fonts/ArchivoBlack-Regular.ttf` | [Google Fonts — Archivo Black](https://github.com/google/fonts/tree/main/ofl/archivoblack) | Large opening titles | SIL Open Font License 1.1; see `assets/fonts/ArchivoBlack-OFL.txt`. |
+| `assets/fonts/NotoSansKR-Variable.ttf` | [Google Fonts — Noto Sans KR](https://github.com/google/fonts/tree/main/ofl/notosanskr) | Bundled Korean Hangul font for the Korean interface; used offline | SIL Open Font License 1.1; copyright Adobe 2014–2021; see `assets/fonts/NotoSansKR-OFL.txt`. |
 | `assets/images/field/dry-landscape.jpg` | [VANSEp AWAN — Baluran, East Java](https://unsplash.com/photos/leafless-tree-on-brown-grass-field-xuRE8JcuzKk) | Dry grassland background for risk, triangle and spread simulation; no visitors in the scene | Unsplash License; Indonesian savanna, not peatland. Downloaded at 1400 px wide. |
 | `assets/images/field/fire-klaten.jpg` | [krisna azie — Klaten](https://unsplash.com/photos/a-close-up-of-a-fire-burning-in-a-forest-WFhFVGE4-0U) | Fire detail in cause and prevention scenes | Unsplash License; Indonesian location. |
 | `assets/images/field/sunlit-grass.jpg` | [Liana S — dry grass at sunset](https://unsplash.com/photos/sunlight-filters-through-dry-grass-at-sunset-j1-Vda0tMBY) | Sunlight / heat cue; separate from the dry-fuel photograph | Unsplash License. |

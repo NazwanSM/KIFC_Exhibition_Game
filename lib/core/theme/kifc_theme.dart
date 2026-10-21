@@ -20,6 +20,13 @@ abstract final class KifcTheme {
   static const answerIncorrect = Color(0xFF923F32);
   static const answerIncorrectDeep = Color(0xFF672D26);
 
+  static const primaryGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: <Color>[answerCorrect, answerCorrect, Color(0xFF285D49)],
+    stops: <double>[0, .7, 1],
+  );
+
   static ThemeData light() {
     return ThemeData(
       useMaterial3: true,

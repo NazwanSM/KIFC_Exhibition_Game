@@ -9,6 +9,14 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:fire_prevention_challenge/core/theme/kifc_theme.dart';
 import 'package:fire_prevention_challenge/features/game/exhibition_game.dart';
 import 'package:fire_prevention_challenge/features/game/widgets/environment_motion.dart';
+import 'package:fire_prevention_challenge/features/game/widgets/game_mascot.dart';
+
+String renderedTextByKey(WidgetTester tester, String key) => tester
+    .widget<Text>(find.descendant(
+      of: find.byKey(ValueKey(key)),
+      matching: find.byType(Text),
+    ))
+    .data!;
 
 class ControlledStopwatch extends Stopwatch {
   Duration _time = Duration.zero;
@@ -389,7 +397,9 @@ class GameFlow {
     check('risk $name');
   }
 
-  Future<void> finish() async {
+  Future<void> finish({bool? perfect}) async {
+    final grid = find.byKey(const ValueKey('final-selection-grid'));
+    final gridRect = tester.getRect(grid);
     clock.advance(const Duration(seconds: 9));
     await pump(100);
     expect(find.text('1'), findsOneWidget);
@@ -397,6 +407,16 @@ class GameFlow {
     await pump(100);
     expect(find.text('0'), findsOneWidget);
     await pump(450);
+    check('final review');
+    expect(find.byKey(const ValueKey('final-review-continue')), findsOneWidget);
+    expect(tester.getRect(grid), gridRect);
+    if (perfect != null) {
+      expect(tester.widget<GameMascot>(find.byType(GameMascot)).pose,
+          perfect ? MascotPose.success : MascotPose.hintSafety);
+    }
+    await capture('final-review');
+    await tester.tap(find.byKey(const ValueKey('final-review-continue')));
+    await pump();
     check('score');
     await capture('score');
   }
@@ -405,6 +425,138 @@ class GameFlow {
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   setUpAll(loadGameFonts);
+  for (final english in [false, true]) {
+    testWidgets('final choices stay neutral until time expires ($english)', (
+      tester,
+    ) async {
+      addTearDown(() {
+        tester.view.resetPhysicalSize();
+        tester.view.resetDevicePixelRatio();
+      });
+      final flow = GameFlow(tester, english: english, size: const Size(360, 640));
+      await flow.launch();
+      await flow.toDecision();
+      await flow.choose('separateFuel');
+      await flow.finalChallenge();
+      expect(find.byKey(const ValueKey('final-raw-score')), findsNothing);
+      await flow.token('dryVegetation');
+      await flow.token('dryVegetation');
+      expect(find.text(flow.text('0 gambar dipilih', '0 images selected')), findsOneWidget);
+      await flow.token('dryVegetation');
+      await flow.token('rain');
+      expect(find.text(flow.text('2 gambar dipilih', '2 images selected')), findsOneWidget);
+      final grid = find.byKey(const ValueKey('final-selection-grid'));
+      final gridRect = tester.getRect(grid);
+      expect(find.descendant(of: grid, matching: find.byIcon(Icons.check_rounded)), findsNothing);
+      expect(find.descendant(of: grid, matching: find.byIcon(Icons.close_rounded)), findsNothing);
+      await flow.capture('final-neutral-selection');
+
+      // The deadline itself locks selection, even before the next timer tick.
+      flow.clock.advance(const Duration(seconds: 10));
+      await tester.tap(find.byKey(const ValueKey('risk-dryWood')));
+      await flow.pump(100);
+      await flow.pump(450);
+      await flow.pump(400);
+      flow.check('final review mixed');
+      expect(tester.getRect(grid), gridRect,
+          reason: 'Review reveals results on the same board without moving it');
+      expect(find.text(flow.text('1 benar · 1 salah · 3 terlewat', '1 correct · 1 incorrect · 3 missed')), findsOneWidget);
+      expect(find.byKey(const ValueKey('final-correct-count')), findsNothing);
+      final message = renderedTextByKey(tester, 'final-review-message');
+      expect(message, contains(english ? 'dry vegetation' : 'Tanaman kering'));
+      expect(message, contains(english ? 'Rain' : 'Hujan'));
+      expect(tester.widget<GameMascot>(find.byType(GameMascot)).pose, MascotPose.hintSafety);
+      for (final card in tester.widgetList(flow.type('_RiskTokenCard'))) {
+        expect((card as dynamic).onTap, isNull);
+      }
+      await flow.capture('final-review-mixed');
+      await flow.pump(6000);
+      expect(find.byKey(const ValueKey('final-review-continue')), findsOneWidget);
+      await tester.tap(find.byKey(const ValueKey('final-review-continue')));
+      await flow.pump();
+      expect(renderedTextByKey(tester, 'total-score'), '8');
+      await tester.pumpWidget(const SizedBox.shrink());
+    });
+  }
+  for (final reduced in [false, true]) {
+    testWidgets('countdown ring follows remaining time (reduced=$reduced)', (
+      tester,
+    ) async {
+      tester.platformDispatcher.accessibilityFeaturesTestValue =
+          FakeAccessibilityFeatures(disableAnimations: reduced);
+      addTearDown(() {
+        tester.platformDispatcher.clearAccessibilityFeaturesTestValue();
+        tester.view.resetPhysicalSize();
+        tester.view.resetDevicePixelRatio();
+      });
+      final flow = GameFlow(tester, english: false, size: const Size(411, 731));
+      await flow.launch();
+      await flow.toDecision();
+      await flow.choose('separateFuel');
+      await flow.finalChallenge();
+      final ring = find.byKey(const ValueKey('final-countdown-progress'));
+      expect(ring, findsOneWidget);
+      double value() => tester.widget<CircularProgressIndicator>(ring).value!;
+      Color? color() => tester.widget<CircularProgressIndicator>(ring).color;
+      expect(value(), 1);
+      expect(color(), KifcTheme.answerCorrect);
+
+      flow.clock.advance(const Duration(seconds: 4));
+      await flow.pump(120);
+      await flow.pump(120);
+      expect(find.text('6'), findsOneWidget);
+      expect(color(), KifcTheme.answerCorrect);
+
+      flow.clock.advance(const Duration(seconds: 1));
+      await flow.pump(120);
+      await flow.pump(120);
+      expect(value(), closeTo(.5, .001));
+      expect(find.text('5'), findsOneWidget);
+      expect(color(), KifcTheme.amber);
+      if (!reduced) await flow.capture('countdown-half');
+
+      flow.clock.advance(const Duration(seconds: 1));
+      await flow.pump(120);
+      await flow.pump(120);
+      expect(find.text('4'), findsOneWidget);
+      expect(color(), KifcTheme.amber);
+
+      flow.clock.advance(const Duration(seconds: 1));
+      await flow.pump(120);
+      await flow.pump(120);
+      expect(find.text('3'), findsOneWidget);
+      expect(color(), KifcTheme.answerIncorrect);
+      if (!reduced) await flow.capture('countdown-three-seconds');
+
+      flow.clock.advance(const Duration(milliseconds: 500));
+      await flow.pump(120);
+      await flow.pump(120);
+      expect(value(), closeTo(.25, .001));
+      expect(find.text('3'), findsOneWidget);
+
+      flow.clock.advance(const Duration(milliseconds: 500));
+      await flow.pump(120);
+      await flow.pump(120);
+      expect(value(), closeTo(.2, .001));
+      expect(find.text('2'), findsOneWidget);
+      if (!reduced) await flow.capture('countdown-two-seconds');
+
+      flow.clock.advance(const Duration(seconds: 2));
+      await flow.pump(100);
+      expect(value(), 0);
+      expect(find.text('0'), findsOneWidget);
+      expect(color(), KifcTheme.answerIncorrect);
+      await flow.pump(450);
+      expect(find.byKey(const ValueKey('final-review-continue')), findsOneWidget);
+      expect(find.text('0 benar · 0 salah · 4 terlewat'), findsOneWidget);
+      expect(renderedTextByKey(tester, 'final-review-message'),
+          startsWith('Belum ada gambar yang dipilih.'));
+      await tester.tap(find.byKey(const ValueKey('final-review-continue')));
+      await flow.pump();
+      expect(find.byKey(const ValueKey('total-score')), findsOneWidget);
+      await tester.pumpWidget(const SizedBox.shrink());
+    });
+  }
   testWidgets('reduced motion preserves time to read feedback', (tester) async {
     tester.platformDispatcher.accessibilityFeaturesTestValue =
         FakeAccessibilityFeatures(disableAnimations: true);
@@ -588,6 +740,7 @@ void main() {
         await flow.finalChallenge();
         await flow.token('dryVegetation');
         await flow.token('dryVegetation');
+        await flow.token('dryVegetation');
         await flow.token('cigarette');
         if (size.width != 360) {
           await flow.token('unmanagedFire');
@@ -597,17 +750,12 @@ void main() {
             await flow.token('healthyVegetation');
           }
         }
-        final raw = unsafe || size.width == 360 ? 2 : 4;
-        expect(
-          find.text(
-            flow.text(
-              '$raw/4 poin · ${unsafe ? 2 : 0} pilihan salah',
-              '$raw/4 points · 0 incorrect',
-            ),
-          ),
-          findsOneWidget,
-        );
-        await flow.finish();
+        expect(find.byKey(const ValueKey('final-raw-score')), findsNothing);
+        expect(find.text(flow.text(
+          '${unsafe ? 6 : size.width == 360 ? 2 : 4} gambar dipilih',
+          '${size.width == 360 ? 2 : 4} images selected',
+        )), findsOneWidget);
+        await flow.finish(perfect: !unsafe && size.width != 360);
         final expected = unsafe
             ? '7,5'
             : size.width == 360
@@ -615,8 +763,7 @@ void main() {
             : '9';
         expect(find.byKey(const ValueKey('total-score')), findsOneWidget);
         expect(
-          (tester.widget(find.byKey(const ValueKey('total-score'))) as Text)
-              .data,
+          renderedTextByKey(tester, 'total-score'),
           expected,
         );
         if (size.width == 411 && !english) {

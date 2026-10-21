@@ -49,10 +49,14 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    AppCopy.locale = _locale;
     if (_screen == _Screen.welcome) {
       return _Welcome(
         locale: _locale,
-        onLocale: (locale) => setState(() => _locale = locale),
+        onLocale: (locale) => setState(() {
+          _locale = locale;
+          AppCopy.locale = locale;
+        }),
         onStart: () => setState(() => _screen = _Screen.learn),
       );
     }
@@ -178,7 +182,7 @@ class _Welcome extends StatelessWidget {
                     size: 38,
                   ),
                   const SizedBox(height: 10),
-                  Text(
+                  LocalizedText(
                     english
                         ? 'Indonesian peat swamp forest\nMorning light, still water, dense vegetation'
                         : 'Hutan rawa gambut Indonesia\nCahaya pagi, air tenang, vegetasi rapat',
@@ -194,7 +198,7 @@ class _Welcome extends StatelessWidget {
                     children: <Widget>[
                       Container(width: 20, height: 2, color: KifcTheme.amber),
                       const SizedBox(width: 8),
-                      Text(
+                      LocalizedText(
                         english
                             ? 'EXPLORE FORESTS & PEATLANDS'
                             : 'JELAJAHI HUTAN & GAMBUT',
@@ -207,7 +211,7 @@ class _Welcome extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 16),
-                  Text(
+                  LocalizedText(
                     english
                         ? 'Fire Prevention\nChallenge'
                         : 'Tantangan\nCegah Karhutla',
@@ -220,7 +224,7 @@ class _Welcome extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  Text(
+                  LocalizedText(
                     english
                         ? 'Arrange the three elements of fire, then discover how to protect forest and land from fire.'
                         : 'Susun tiga unsur api, lalu temukan cara melindungi hutan dan lahan dari kebakaran.',
@@ -238,7 +242,7 @@ class _Welcome extends StatelessWidget {
                     onPressed: onStart,
                   ),
                   const SizedBox(height: 12),
-                  Text(
+                  LocalizedText(
                     english ? 'Tap to begin' : 'Ketuk untuk memulai',
                     textAlign: TextAlign.center,
                     style: const TextStyle(color: Colors.white, fontSize: 13),
@@ -279,7 +283,7 @@ class _Learn extends StatelessWidget {
               onPressed: onBack,
             ),
             const SizedBox(height: 16),
-            Text(
+            LocalizedText(
               english
                   ? 'Three elements. One\nchallenge.'
                   : 'Tiga unsur. Satu\ntantangan.',
@@ -290,7 +294,7 @@ class _Learn extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 10),
-            Text(
+            LocalizedText(
               english
                   ? 'Discover what keeps fire burning. Choose, match, then learn how to prevent it.'
                   : 'Kenali unsur yang membuat api menyala. Pilih, cocokkan, lalu pelajari pencegahannya.',
@@ -328,7 +332,7 @@ class _Learn extends StatelessWidget {
                   : 'Lengkapi Segitiga Api.',
             ),
             const Spacer(),
-            Text(
+            LocalizedText(
               english
                   ? 'No sound needed. All instructions appear on screen.'
                   : 'Tanpa suara. Semua instruksi tampil di layar.',
@@ -423,7 +427,7 @@ class _Game extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 17),
-              Text(
+              LocalizedText(
                 english ? 'Build the Fire Triangle' : 'Bangun Segitiga Api',
                 style: const TextStyle(
                   fontSize: 28,
@@ -432,7 +436,7 @@ class _Game extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 6),
-              Text(
+              LocalizedText(
                 english
                     ? 'Choose objects that keep a fire burning.'
                     : 'Pilih objek yang membuat api tetap menyala.',
@@ -464,7 +468,7 @@ class _Game extends StatelessWidget {
               const SizedBox(height: 13),
               Row(
                 children: <Widget>[
-                  Text(
+                  LocalizedText(
                     english ? 'Choose an object' : 'Pilih objek',
                     style: const TextStyle(
                       fontWeight: FontWeight.w700,
@@ -472,7 +476,7 @@ class _Game extends StatelessWidget {
                     ),
                   ),
                   const Spacer(),
-                  Text(
+                  LocalizedText(
                     english ? 'ENGLISH' : 'INDONESIA',
                     style: const TextStyle(
                       fontSize: 8,
@@ -517,7 +521,7 @@ class _Game extends StatelessWidget {
                   ),
                   const SizedBox(width: 7),
                   Expanded(
-                    child: Text(
+                    child: LocalizedText(
                       english
                           ? 'Wind brings air that contains oxygen.'
                           : 'Angin membawa udara yang mengandung oksigen.',
@@ -565,7 +569,7 @@ class _Complete extends StatelessWidget {
                   size: 25,
                 ),
                 const SizedBox(width: 7),
-                Text(
+                LocalizedText(
                   english ? 'Correct' : 'Benar',
                   style: const TextStyle(fontWeight: FontWeight.w700),
                 ),
@@ -574,7 +578,7 @@ class _Complete extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 25),
-            Text(
+            LocalizedText(
               english ? 'Fire Triangle Complete' : 'Segitiga Api Lengkap',
               style: const TextStyle(
                 fontSize: 29,
@@ -583,7 +587,7 @@ class _Complete extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 9),
-            Text(
+            LocalizedText(
               english
                   ? 'Fire needs heat, fuel, and oxygen. Reducing any one of them helps prevent fire.'
                   : 'Api membutuhkan panas, bahan bakar, dan oksigen. Mengurangi salah satunya membantu mencegah kebakaran.',
@@ -687,7 +691,7 @@ class _PhotoPanel extends StatelessWidget {
             left: 13,
             right: 13,
             bottom: 12,
-            child: Text(
+            child: LocalizedText(
               title,
               style: const TextStyle(
                 color: Colors.white,
@@ -780,7 +784,7 @@ class _LanguageSwitch extends StatelessWidget {
                         : null,
                     borderRadius: BorderRadius.circular(4),
                   ),
-                  child: Text(
+                  child: LocalizedText(
                     candidate.label,
                     style: TextStyle(
                       color: locale == candidate ? KifcTheme.ink : Colors.white,
@@ -816,7 +820,7 @@ class _Instruction extends StatelessWidget {
     ),
     child: Row(
       children: <Widget>[
-        Text(
+        LocalizedText(
           number,
           style: const TextStyle(color: KifcTheme.mutedInk, fontSize: 12),
         ),
@@ -832,7 +836,7 @@ class _Instruction extends StatelessWidget {
         ),
         const SizedBox(width: 13),
         Expanded(
-          child: Text(
+          child: LocalizedText(
             text,
             style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 15),
           ),
@@ -863,7 +867,7 @@ class _OutlineAction extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
       ),
       icon: Icon(icon, size: 18),
-      label: Text(
+      label: LocalizedText(
         label,
         style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
       ),
@@ -894,7 +898,7 @@ class _Progress extends StatelessWidget {
             color: index < value ? KifcTheme.forest800 : KifcTheme.warmPanel,
           ),
         ),
-        Text(
+        LocalizedText(
           '$value/3',
           style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w700),
         ),
@@ -946,7 +950,7 @@ class _Slot extends StatelessWidget {
                 children: <Widget>[
                   Icon(element.icon, size: 16, color: KifcTheme.forest800),
                   const SizedBox(width: 4),
-                  Text(
+                  LocalizedText(
                     '${element.index + 1}'.padLeft(2, '0'),
                     style: const TextStyle(
                       fontSize: 9,
@@ -964,7 +968,7 @@ class _Slot extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 5),
-              Text(
+              LocalizedText(
                 element.title(english),
                 style: const TextStyle(
                   fontWeight: FontWeight.w700,
@@ -980,7 +984,7 @@ class _Slot extends StatelessWidget {
                   color: KifcTheme.warmPanel,
                 ),
                 const SizedBox(height: 5),
-                Text(
+                LocalizedText(
                   choice!.label(english),
                   style: const TextStyle(
                     fontSize: 12,
@@ -988,7 +992,7 @@ class _Slot extends StatelessWidget {
                   ),
                 ),
               ] else
-                Text(
+                LocalizedText(
                   element.description(english),
                   style: const TextStyle(
                     fontSize: 11,
@@ -1022,7 +1026,7 @@ class _Hint extends StatelessWidget {
         Icon(icon, size: 20, color: KifcTheme.forest800),
         const SizedBox(width: 9),
         Expanded(
-          child: Text(
+          child: LocalizedText(
             text,
             style: const TextStyle(
               fontSize: 13,
@@ -1089,7 +1093,7 @@ class _ChoiceTile extends StatelessWidget {
                     borderRadius: BorderRadius.circular(3),
                   ),
                   child: const Center(
-                    child: Text(
+                    child: LocalizedText(
                       'PHOTO',
                       style: TextStyle(
                         fontSize: 7,
@@ -1112,7 +1116,7 @@ class _ChoiceTile extends StatelessWidget {
               ],
             ),
             const Spacer(),
-            Text(
+            LocalizedText(
               choice.label(english),
               style: const TextStyle(
                 fontSize: 12,
@@ -1141,19 +1145,27 @@ class _PrimaryButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) => SizedBox(
     height: 48,
-    child: ElevatedButton.icon(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        elevation: 0,
-        foregroundColor: Colors.white,
-        backgroundColor: dark ? const Color(0xC80C2B1F) : KifcTheme.forest800,
-        side: const BorderSide(color: KifcTheme.amber, width: 2),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
+    child: DecoratedBox(
+      decoration: BoxDecoration(
+        gradient: KifcTheme.primaryGradient,
+        borderRadius: BorderRadius.circular(6),
       ),
-      icon: Icon(icon, size: 20),
-      label: Text(
-        label,
-        style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
+      child: ElevatedButton.icon(
+        onPressed: onPressed,
+        style: ElevatedButton.styleFrom(
+          elevation: 0,
+          foregroundColor: Colors.white,
+          backgroundColor: Colors.transparent,
+          surfaceTintColor: Colors.transparent,
+          shadowColor: Colors.transparent,
+          side: const BorderSide(color: KifcTheme.amber, width: 2),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
+        ),
+        icon: Icon(icon, size: 20),
+        label: LocalizedText(
+          label,
+          style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
+        ),
       ),
     ),
   );
@@ -1179,7 +1191,7 @@ class _SecondaryButton extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
       ),
       icon: Icon(icon, size: 18),
-      label: Text(label, style: const TextStyle(fontWeight: FontWeight.w600)),
+      label: LocalizedText(label, style: const TextStyle(fontWeight: FontWeight.w600)),
     ),
   );
 }

@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:math' as math;
 import 'dart:ui' show ImageFilter;
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/localization/app_locale.dart';
@@ -10,6 +11,7 @@ import 'widgets/environment_motion.dart';
 import 'widgets/game_photo.dart';
 import 'widgets/game_mascot.dart';
 import 'widgets/touchscreen_area.dart';
+import 'widgets/terrain_backdrop.dart';
 
 const _fireCardAspectRatio = 1.8;
 
@@ -22,7 +24,9 @@ String _points(num value, bool english) {
   final text = value == value.roundToDouble()
       ? value.toInt().toString()
       : value.toStringAsFixed(2).replaceFirst(RegExp(r'0$'), '');
-  return english ? text : text.replaceAll('.', ',');
+  return english || AppCopy.locale == AppLocale.korean
+      ? text
+      : text.replaceAll('.', ',');
 }
 
 typedef _CauseScenario = ({String text, bool human, String photo, String reason});
@@ -98,6 +102,7 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
   int _karhutlaCardIndex = 0;
   final Set<_RiskToken> _finalFound = <_RiskToken>{};
   int _seconds = 10;
+  final ValueNotifier<double> _finalProgress = ValueNotifier(1);
   Timer? _timer;
   // One shared timer moves the visitor on after feedback. Every explicit
   // navigation and reset bumps the token so a pending move never fires twice.
@@ -124,6 +129,7 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
     _autoAdvance?.cancel();
     _resetTimer?.cancel();
     _finalClock.stop();
+    _finalProgress.dispose();
     super.dispose();
   }
 
@@ -227,6 +233,7 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
       _karhutlaCardIndex = 0;
       _finalFound.clear();
       _seconds = 10;
+      _finalProgress.value = 1;
       _preparingFinal = false;
       _idleSeconds = 15;
     });
@@ -340,6 +347,7 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
     setState(() {
       _page = _Page.finalChallenge;
       _seconds = 10;
+      _finalProgress.value = 1;
       _finalFound.clear();
       _preparingFinal = false;
     });
@@ -364,13 +372,19 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
         timer.cancel();
         return;
       }
-      final remaining = math.max(0, 10 - _finalClock.elapsed.inSeconds);
+      final remainingExact = math.max(
+        0.0,
+        10 - _finalClock.elapsed.inMicroseconds / Duration.microsecondsPerSecond,
+      );
+      // Update only the ring between integer ticks, using the scoring clock.
+      _finalProgress.value = remainingExact / 10;
+      final remaining = remainingExact.ceil();
       if (remaining != _seconds) setState(() => _seconds = remaining);
       if (remaining == 0) {
         timer.cancel();
         _finalClock.stop();
         _timer = Timer(const Duration(milliseconds: 420), () {
-          if (mounted && _page == _Page.finalChallenge) _go(_Page.score);
+          if (mounted && _page == _Page.finalChallenge) _go(_Page.finalReview);
         });
       }
     });
@@ -385,10 +399,14 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
 
   @override
   Widget build(BuildContext context) {
+    AppCopy.locale = _locale;
     final page = switch (_page) {
       _Page.welcome => _WelcomePage(
         locale: _locale,
-        onLocale: (locale) => setState(() => _locale = locale),
+        onLocale: (locale) => setState(() {
+          _locale = locale;
+          AppCopy.locale = locale;
+        }),
         onStart: () => _go(_Page.triangleBuild),
       ),
       _Page.risk => _RiskPage(
@@ -451,16 +469,29 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
       _Page.finalChallenge => _FinalChallenge(
         english: _en,
         seconds: _seconds,
+        timerProgress: _finalProgress,
         found: _finalFound,
         onTap: (token) {
-          if (_seconds > 0 && !_finalFound.contains(token)) {
-            setState(() => _finalFound.add(token));
+          if (_seconds > 0 && _finalClock.elapsed < const Duration(seconds: 10)) {
+            setState(() {
+              if (!_finalFound.remove(token)) _finalFound.add(token);
+            });
           }
         },
         onBack: () {
           _timer?.cancel();
           _go(_Page.stopDecision);
         },
+      ),
+      _Page.finalReview => _FinalChallenge(
+        english: _en,
+        seconds: 0,
+        timerProgress: _finalProgress,
+        found: _finalFound,
+        reviewed: true,
+        onTap: null,
+        onContinue: () => _go(_Page.score),
+        onBack: _restart,
       ),
       _Page.score => _ScorePage(
         english: _en,
@@ -510,11 +541,9 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
                 child: SlideTransition(position: slide, child: child),
               );
             },
-            child: KeyedSubtree(key: ValueKey(_page), child: page),
-          ),
-          Positioned.fill(
-            child: AmbientFog(
-              dark: _page == _Page.welcome || _page == _Page.closing,
+            child: KeyedSubtree(
+              key: ValueKey(_page == _Page.finalReview ? _Page.finalChallenge : _page),
+              child: page,
             ),
           ),
         ],
@@ -533,6 +562,7 @@ enum _Page {
   causeQuiz,
   stopDecision,
   finalChallenge,
+  finalReview,
   score,
   closing,
 }
@@ -616,12 +646,12 @@ class _WelcomePage extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        const Text(
+                        const LocalizedText(
                           'KIFC EXHIBITION ROOM / MANGGALA AGNI',
                           style: TextStyle(color: Colors.white70, fontSize: 10),
                         ),
                         const SizedBox(height: 10),
-                        const Text(
+                        const LocalizedText(
                           'Fire Prevention\nChallenge',
                           style: TextStyle(
                             color: Colors.white,
@@ -701,7 +731,7 @@ class _HostConversation extends StatelessWidget {
               color: KifcTheme.paper,
               borderRadius: BorderRadius.circular(18),
             ),
-            child: Text(
+            child: LocalizedText(
               text,
               style: const TextStyle(
                 color: KifcTheme.ink,
@@ -801,7 +831,7 @@ class _RiskPage extends StatelessWidget {
     required bool answered,
   }) {
     if (!answered) {
-      return Text(
+      return LocalizedText(
         english
             ? 'Choose the answer that fits the situation best.'
             : 'Pilih salah satu jawaban untuk melihat penjelasannya.',
@@ -859,7 +889,7 @@ class _MascotDialogue extends StatelessWidget {
             borderRadius: BorderRadius.circular(18),
             border: Border.all(color: KifcTheme.line),
           ),
-          child: Text(text, style: TextStyle(color: KifcTheme.ink, fontSize: compact ? 13 : 14, height: 1.4)),
+          child: LocalizedText(text, style: TextStyle(color: KifcTheme.ink, fontSize: compact ? 13 : 14, height: 1.4)),
         ),
       ),
     ],
@@ -952,7 +982,7 @@ class _KarhutlaCards extends StatelessWidget {
                 Container(margin: const EdgeInsets.symmetric(horizontal: 3), width: i == index ? 24 : 7, height: 7,
                   decoration: BoxDecoration(color: i == index ? KifcTheme.amber : Colors.white38, borderRadius: BorderRadius.circular(4))),
               const SizedBox(width: 10),
-              Text('${index + 1}/3', style: const TextStyle(color: Colors.white70)),
+              LocalizedText('${index + 1}/3', style: const TextStyle(color: Colors.white70)),
             ]),
           ],
       ),
@@ -1213,7 +1243,7 @@ class _BreakTriangle extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text(
+              LocalizedText(
                 explanation.$1,
                 style: const TextStyle(
                   fontSize: 13,
@@ -1221,7 +1251,7 @@ class _BreakTriangle extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 5),
-              Text(
+              LocalizedText(
                 explanation.$2,
                 style: const TextStyle(fontSize: 12, height: 1.3),
               ),
@@ -1236,7 +1266,7 @@ class _BreakTriangle extends StatelessWidget {
                 ? 'You tried all three elements. Next, see how fires start in the field.'
                 : 'Ketiga unsur sudah kamu coba. Sekarang kita lihat bagaimana karhutla bisa terjadi.',
           )
-        : Text(
+        : LocalizedText(
             '${tried.length}/3 ${english ? 'elements tried' : 'unsur sudah dicoba'}',
             style: const TextStyle(
               color: KifcTheme.mutedInk,
@@ -1321,7 +1351,7 @@ class _CauseQuiz extends StatelessWidget {
                         ? '${scenario.reason}${lastScenario ? ' $summary' : ''}'
                         : 'Yang ini dipicu ${scenario.human ? 'aktivitas manusia' : 'faktor alam'}. ${scenario.reason}${lastScenario ? ' $summary' : ''}'),
             )
-          : Text(
+          : LocalizedText(
               english
                   ? 'Choose the answer that fits the situation best.'
                   : 'Pilih salah satu jawaban untuk melihat penjelasannya.',
@@ -1456,20 +1486,29 @@ class _FinalChallenge extends StatelessWidget {
   const _FinalChallenge({
     required this.english,
     required this.seconds,
+    required this.timerProgress,
     required this.found,
     required this.onTap,
     required this.onBack,
+    this.reviewed = false,
+    this.onContinue,
   });
   final bool english;
   final int seconds;
+  final ValueListenable<double> timerProgress;
   final Set<_RiskToken> found;
-  final ValueChanged<_RiskToken> onTap;
+  final ValueChanged<_RiskToken>? onTap;
   final VoidCallback onBack;
+  final bool reviewed;
+  final VoidCallback? onContinue;
+
   @override
   Widget build(BuildContext context) {
-    final correct = found.where((item) => item.risk).length;
+    final compact = MediaQuery.sizeOf(context).height < 680;
+    final correct = found.where((token) => token.risk).length;
     final wrong = found.length - correct;
-    final net = math.max(0, correct - wrong);
+    final missed =
+        _RiskToken.values.where((token) => token.risk).length - correct;
     return _LightStage(
       chapter: 4,
       english: english,
@@ -1477,23 +1516,53 @@ class _FinalChallenge extends StatelessWidget {
           ? 'CHAPTER 4 / FINAL CHALLENGE'
           : 'BABAK 4 / TANTANGAN AKHIR',
       title: english ? 'Spot the fire risks.' : 'Temukan risiko kebakaran.',
-      subtitle: english
-          ? 'Choose only risky objects or conditions. Correct +1, incorrect −1.'
-          : 'Sentuh gambar yang bisa memicu atau memperbesar kebakaran. Benar +1, salah −1.',
+      subtitle: reviewed
+          ? (english
+                ? 'Time’s up. Review your choices and the risks you missed.'
+                : 'Waktu habis. Cermati pilihanmu dan risiko yang masih terlewat.')
+          : (english
+                ? 'Choose the fire risks. Tap again to change your selection.'
+                : 'Pilih gambar berisiko. Ketuk lagi untuk membatalkan pilihan.'),
       onBack: onBack,
-      trailing: _TimerChip(seconds: seconds, english: english),
+      backLabel: reviewed ? (english ? 'Home' : 'Beranda') : null,
+      trailing: reviewed
+          ? SizedBox(
+              width: 58,
+              height: 58,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Icon(
+                    Icons.check_rounded,
+                    color: KifcTheme.forest800,
+                    size: 24,
+                  ),
+                  LocalizedText(
+                    english ? 'Complete' : 'Selesai',
+                    style: const TextStyle(fontSize: 10),
+                  ),
+                ],
+              ),
+            )
+          : _TimerChip(
+              seconds: seconds,
+              english: english,
+              progress: timerProgress,
+            ),
       bodyScrollable: false,
       body: LayoutBuilder(
         builder: (context, bounds) {
+          // Reserve the host's space during play too, so the board stays put.
           final cardHeight = math.min(
             112.0,
-            math.max(52.0, (bounds.maxHeight - 51) / 2),
+            math.max(52.0, (bounds.maxHeight - (compact ? 140 : 160)) / 2),
           );
           return Column(
-            children: <Widget>[
+            children: [
               SizedBox(
                 height: cardHeight * 2 + 8,
                 child: GridView.count(
+                  key: const ValueKey('final-selection-grid'),
                   crossAxisCount: 3,
                   mainAxisSpacing: 8,
                   crossAxisSpacing: 8,
@@ -1506,28 +1575,164 @@ class _FinalChallenge extends StatelessWidget {
                           token: token,
                           english: english,
                           found: found.contains(token),
-                          onTap: () => onTap(token),
+                          revealed: reviewed,
+                          onTap: !reviewed && seconds > 0
+                              ? () => onTap?.call(token)
+                              : null,
                         ),
                       )
                       .toList(),
                 ),
               ),
               const SizedBox(height: 10),
-              Text(
-                english
-                    ? '$net/4 points · $wrong incorrect'
-                    : '$net/4 poin · $wrong pilihan salah',
-                key: const ValueKey('final-raw-score'),
-                style: const TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w700,
+              LocalizedText(
+                reviewed
+                    ? (english
+                          ? '$correct correct · $wrong incorrect · $missed missed'
+                          : '$correct benar · $wrong salah · $missed terlewat')
+                    : (english
+                          ? '${found.length} images selected'
+                          : '${found.length} gambar dipilih'),
+                key: ValueKey(
+                  reviewed ? 'final-review-summary' : 'final-selection-count',
                 ),
+                style: const TextStyle(
+                  fontSize: 13,
+                  height: 1.3,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              Expanded(
+                child: reviewed
+                    ? _FinalReviewDialogue(english: english, found: found)
+                    : const SizedBox.shrink(),
               ),
             ],
           );
         },
       ),
-      footer: _SafetyNote(english: english),
+      footer: reviewed
+          ? _Primary(
+              key: const ValueKey('final-review-continue'),
+              label: english ? 'See Overall Result' : 'Lihat Hasil Akhir',
+              onPressed: onContinue,
+            )
+          : SizedBox(
+              height: 46,
+              child: Center(child: _SafetyNote(english: english)),
+            ),
+    );
+  }
+}
+
+class _FinalReviewDialogue extends StatelessWidget {
+  const _FinalReviewDialogue({required this.english, required this.found});
+  final bool english;
+  final Set<_RiskToken> found;
+
+  String get _message {
+    final correct = found.where((token) => token.risk).toList();
+    final wrong = found.where((token) => !token.risk).toList();
+    if (found.isEmpty) {
+      return english
+          ? 'No images were selected. Look at the four risks marked above.'
+          : 'Belum ada gambar yang dipilih. Perhatikan empat risiko yang kutandai di atas.';
+    }
+    if (correct.length == 4 && wrong.isEmpty) {
+      return english
+          ? 'You found all four risks. Keep ignition sources away from dry plants and wood.'
+          : 'Keempat risiko sudah kamu temukan. Jauhkan sumber api dari tanaman dan kayu kering.';
+    }
+    if (wrong.isNotEmpty) {
+      final lead = correct.length == 1
+          ? (english
+                ? 'You spotted ${correct.single.label(true).toLowerCase()}. '
+                : '${correct.single.label(false)} sudah kamu temukan. ')
+          : '';
+      final correction = wrong.length == 2
+          ? (english
+                ? 'Rain and wet forest are not risks in these examples.'
+                : 'Hujan dan hutan basah bukan risiko pada contoh ini.')
+          : wrong.single == _RiskToken.rain
+          ? (english
+                ? 'Rain does not start a fire.'
+                : 'Hujan bukan pemicu api.')
+          : (english
+                ? 'Wet forest is harder to ignite.'
+                : 'Hutan basah lebih sulit terbakar.');
+      final missed = correct.length < 4
+          ? (english
+                ? ' Check the missed risks too.'
+                : ' Lihat juga risiko yang terlewat.')
+          : '';
+      return '$lead$correction$missed';
+    }
+    final missed = _RiskToken.values.firstWhere(
+      (token) => token.risk && !found.contains(token),
+    );
+    return switch (missed) {
+      _RiskToken.cigarette =>
+        english
+            ? 'A cigarette that is still lit can ignite dry fuel. That is one of the risks you missed.'
+            : 'Puntung yang masih menyala bisa menyulut bahan kering. Itu salah satu risiko yang terlewat.',
+      _RiskToken.unmanagedFire =>
+        english
+            ? 'Uncontrolled fire can spread. Look at the image you have not selected.'
+            : 'Api yang tidak terkendali dapat merambat. Perhatikan gambar yang belum kamu pilih.',
+      _ =>
+        english
+            ? 'Dry plants and wood can burn easily. Look at the missed risks marked above.'
+            : 'Tanaman dan kayu kering mudah terbakar. Cermati juga risiko yang kutandai di atas.',
+    };
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final perfect = found.length == 4 && found.every((token) => token.risk);
+    return LayoutBuilder(
+      builder: (context, bounds) {
+        final height = math.min(
+          MediaQuery.sizeOf(context).height < 680 ? 112.0 : 136.0,
+          bounds.maxHeight,
+        );
+        final mascot = SizedBox(
+          width: height * .75,
+          child: GameMascot(
+            pose: perfect ? MascotPose.success : MascotPose.hintSafety,
+            height: height,
+          ),
+        );
+        final tail = ClipPath(
+          clipper: _SpeechTail(),
+          child: const ColoredBox(
+            color: KifcTheme.paper,
+            child: SizedBox(width: 8, height: 16),
+          ),
+        );
+        return Row(
+          children: [
+            if (!perfect) mascot,
+            if (!perfect) tail,
+            Expanded(
+              child: Container(
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: KifcTheme.paper,
+                  borderRadius: BorderRadius.circular(16),
+                  border: Border.all(color: KifcTheme.line),
+                ),
+                child: LocalizedText(
+                  _message,
+                  key: const ValueKey('final-review-message'),
+                  style: const TextStyle(fontSize: 13, height: 1.3),
+                ),
+              ),
+            ),
+            if (perfect) RotatedBox(quarterTurns: 2, child: tail),
+            if (perfect) mascot,
+          ],
+        );
+      },
     );
   }
 }
@@ -1616,7 +1821,7 @@ class _ScorePage extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: <Widget>[
-              Text(
+              LocalizedText(
                 _points(total, english),
                 key: const ValueKey('total-score'),
                 style: const TextStyle(
@@ -1628,7 +1833,7 @@ class _ScorePage extends StatelessWidget {
               const SizedBox(width: 10),
               Padding(
                 padding: const EdgeInsets.only(bottom: 5),
-                child: Text(
+                child: LocalizedText(
                   english ? '/ 9 points' : '/ 9 poin',
                   style: const TextStyle(fontSize: 15),
                 ),
@@ -1653,14 +1858,14 @@ class _ScorePage extends StatelessWidget {
           label: english ? 'Final challenge bonus' : 'Bonus tantangan akhir',
           score: '${_points(bonus, english)}/1',
         ),
-        Text(
+        LocalizedText(
           english
               ? '$finalRaw/4 challenge points → +${_points(bonus, english)} bonus'
               : '$finalRaw/4 poin di babak akhir = ${_points(bonus, english)} poin bonus',
           style: const TextStyle(fontSize: 11, color: KifcTheme.mutedInk),
         ),
         const SizedBox(height: 12),
-        Text(
+        LocalizedText(
           english
               ? 'Keep ignition sources away from dry fuel. Report signs of fire and follow trained personnel.'
               : 'Jauhkan sumber api dari bahan yang mudah terbakar. Jika melihat kebakaran, laporkan dan ikuti arahan petugas.',
@@ -1744,7 +1949,7 @@ class _ClosingPage extends StatelessWidget {
                         dark: true,
                       ),
                       const Spacer(),
-                      Text(
+                      LocalizedText(
                         english ? 'CHALLENGE COMPLETE' : 'TANTANGAN SELESAI',
                         style: const TextStyle(
                           color: Colors.white,
@@ -1760,7 +1965,7 @@ class _ClosingPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Text(
+                        LocalizedText(
                           english
                               ? 'Protect forests.\nProtect lives.'
                               : 'Jaga hutan,\njaga kehidupan.',
@@ -1784,7 +1989,7 @@ class _ClosingPage extends StatelessWidget {
                         SizedBox(height: compact ? 18 : 24),
                         const Divider(color: Colors.white24, height: 1),
                         const SizedBox(height: 12),
-                        const Text(
+                        const LocalizedText(
                           'Korea–Indonesia Forest Cooperation Center',
                           style: TextStyle(
                             color: Colors.white,
@@ -1794,7 +1999,7 @@ class _ClosingPage extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 5),
-                        Text(
+                        LocalizedText(
                           english
                               ? 'Cooperation, knowledge and innovation for forest and land fire prevention.'
                               : 'Kerja sama, pengetahuan, dan inovasi untuk mencegah kebakaran hutan dan lahan.',
@@ -1821,7 +2026,7 @@ class _ClosingPage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      child: Text(
+                      child: LocalizedText(
                         english ? 'Play Again' : 'Main Lagi',
                         style: const TextStyle(fontWeight: FontWeight.w700),
                       ),
@@ -1861,7 +2066,7 @@ class _IdleNotice extends StatelessWidget {
   final int seconds;
   final bool dark;
   @override
-  Widget build(BuildContext context) => Text(
+  Widget build(BuildContext context) => LocalizedText(
     english
         ? 'Returns home after $seconds seconds without interaction.'
         : 'Layar kembali ke awal dalam $seconds detik jika tidak disentuh.',
@@ -1899,49 +2104,52 @@ class _DarkStage extends StatelessWidget {
     final compact = MediaQuery.sizeOf(context).height < 680;
     return Scaffold(
       backgroundColor: KifcTheme.forest950,
-      body: TouchscreenArea(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(24, 14, 24, 22),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              const _PartnerHeader(dark: true),
-              SizedBox(height: compact ? 9 : 17),
-              _TopBar(
-                chapter: chapter,
-                english: english,
-                dark: true,
-                onBack: onBack,
-              ),
-              SizedBox(height: compact ? 9 : 14),
-              _Eyebrow(text: eyebrow, dark: true),
-              Text(
-                title,
-                style: TextStyle(
-                  color: Colors.white,
-                  height: 1.08,
-                  fontSize: compact ? 26 : 29,
-                  fontWeight: FontWeight.w800,
+      body: TerrainBackdrop(
+        dark: true,
+        child: TouchscreenArea(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(24, 14, 24, 22),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                const _PartnerHeader(dark: true),
+                SizedBox(height: compact ? 9 : 17),
+                _TopBar(
+                  chapter: chapter,
+                  english: english,
+                  dark: true,
+                  onBack: onBack,
                 ),
-              ),
-              const SizedBox(height: 5),
-              Text(
-                subtitle,
-                style: TextStyle(
-                  color: Colors.white70,
-                  fontSize: compact ? 13 : 14,
-                  height: 1.25,
+                SizedBox(height: compact ? 9 : 14),
+                _Eyebrow(text: eyebrow, dark: true),
+                LocalizedText(
+                  title,
+                  style: TextStyle(
+                    color: Colors.white,
+                    height: 1.08,
+                    fontSize: compact ? 26 : 29,
+                    fontWeight: FontWeight.w800,
+                  ),
                 ),
-              ),
-              SizedBox(height: compact ? 12 : 20),
-              if (groupFooter)
-                Expanded(child: Center(child: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.stretch, children: [body, const SizedBox(height: 20), footer])))
-              else ...[
-                Expanded(child: body),
-                SizedBox(height: compact ? 10 : 16),
-                footer,
+                const SizedBox(height: 5),
+                LocalizedText(
+                  subtitle,
+                  style: TextStyle(
+                    color: Colors.white70,
+                    fontSize: compact ? 13 : 14,
+                    height: 1.25,
+                  ),
+                ),
+                SizedBox(height: compact ? 12 : 20),
+                if (groupFooter)
+                  Expanded(child: Center(child: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.stretch, children: [body, const SizedBox(height: 20), footer])))
+                else ...[
+                  Expanded(child: body),
+                  SizedBox(height: compact ? 10 : 16),
+                  footer,
+                ],
               ],
-            ],
+            ),
           ),
         ),
       ),
@@ -1985,57 +2193,59 @@ class _LightStage extends StatelessWidget {
     final compact = MediaQuery.sizeOf(context).height < 680;
     return Scaffold(
       backgroundColor: KifcTheme.paper,
-      body: TouchscreenArea(
-        bottom: !edgeFeedback,
-        child: Padding(
-          padding: EdgeInsets.fromLTRB(24, 14, 24, edgeFeedback ? 0 : 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              const _PartnerHeader(),
-              SizedBox(height: compact ? 9 : 15),
-              _TopBar(
-                chapter: chapter,
-                english: english,
-                onBack: onBack,
-                backLabel: backLabel,
-                onRestart: onRestart,
-                trailing: trailing,
-              ),
-              SizedBox(height: compact ? 9 : 15),
-              _Eyebrow(text: eyebrow),
-              Text(
-                title,
-                style: TextStyle(
-                  fontSize: compact ? 26 : 29,
-                  height: 1.07,
-                  fontWeight: FontWeight.w800,
+      body: TerrainBackdrop(
+        child: TouchscreenArea(
+          bottom: !edgeFeedback,
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(24, 14, 24, edgeFeedback ? 0 : 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                const _PartnerHeader(),
+                SizedBox(height: compact ? 9 : 15),
+                _TopBar(
+                  chapter: chapter,
+                  english: english,
+                  onBack: onBack,
+                  backLabel: backLabel,
+                  onRestart: onRestart,
+                  trailing: trailing,
                 ),
-              ),
-              if (subtitle.isNotEmpty) ...<Widget>[
-                const SizedBox(height: 6),
-                Text(
-                  subtitle,
+                SizedBox(height: compact ? 9 : 15),
+                _Eyebrow(text: eyebrow),
+                LocalizedText(
+                  title,
                   style: TextStyle(
-                    color: KifcTheme.mutedInk,
-                    fontSize: compact ? 13 : 14,
-                    height: 1.25,
+                    fontSize: compact ? 26 : 29,
+                    height: 1.07,
+                    fontWeight: FontWeight.w800,
                   ),
                 ),
+                if (subtitle.isNotEmpty) ...<Widget>[
+                  const SizedBox(height: 6),
+                  LocalizedText(
+                    subtitle,
+                    style: TextStyle(
+                      color: KifcTheme.mutedInk,
+                      fontSize: compact ? 13 : 14,
+                      height: 1.25,
+                    ),
+                  ),
+                ],
+                SizedBox(height: compact ? 10 : 16),
+                if (groupFooter)
+                  Expanded(child: Center(child: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.stretch, children: [body, const SizedBox(height: 16), footer])))
+                else ...[
+                Expanded(
+                  child: bodyScrollable
+                      ? SingleChildScrollView(child: body)
+                      : body,
+                ),
+                SizedBox(height: compact ? 9 : 14),
+                footer,
+                ],
               ],
-              SizedBox(height: compact ? 10 : 16),
-              if (groupFooter)
-                Expanded(child: Center(child: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.stretch, children: [body, const SizedBox(height: 16), footer])))
-              else ...[
-              Expanded(
-                child: bodyScrollable
-                    ? SingleChildScrollView(child: body)
-                    : body,
-              ),
-              SizedBox(height: compact ? 9 : 14),
-              footer,
-              ],
-            ],
+            ),
           ),
         ),
       ),
@@ -2128,7 +2338,7 @@ class _LanguagePicker extends StatelessWidget {
                           KifcTheme.controlRadius,
                         ),
                       ),
-                      child: Text(
+                      child: LocalizedText(
                         candidate.label,
                         style: const TextStyle(
                           color: Colors.white,
@@ -2155,7 +2365,7 @@ class _LanguagePicker extends StatelessWidget {
             ),
             const SizedBox(width: 6),
             Flexible(
-              child: Text(
+              child: LocalizedText(
                 contextLabel,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
@@ -2289,7 +2499,7 @@ class _ChapterProgress extends StatelessWidget {
               : (dark ? Colors.white30 : KifcTheme.line),
         ),
       ),
-      Text(
+      LocalizedText(
         english ? 'CHAPTER $chapter/4' : 'BABAK $chapter/4',
         style: TextStyle(
           color: dark ? Colors.white70 : KifcTheme.mutedInk,
@@ -2307,7 +2517,7 @@ class _Eyebrow extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Padding(
     padding: const EdgeInsets.only(bottom: 7),
-    child: Text(
+    child: LocalizedText(
       text,
       style: TextStyle(
         color: dark ? Colors.white70 : KifcTheme.mutedInk,
@@ -2343,7 +2553,7 @@ class _SmallButton extends StatelessWidget {
         ),
       ),
       icon: Icon(icon, size: 16),
-      label: Text(label, style: const TextStyle(fontSize: 12)),
+      label: LocalizedText(label, style: const TextStyle(fontSize: 12)),
     ),
   );
 }
@@ -2366,26 +2576,34 @@ class _Primary extends StatelessWidget {
   Widget build(BuildContext context) => SizedBox(
     width: double.infinity,
     height: large ? 72 : 46,
-    child: ElevatedButton.icon(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        backgroundColor: KifcTheme.forest800,
-        disabledBackgroundColor: dark
-            ? KifcTheme.forest800.withValues(alpha: .88)
-            : KifcTheme.warmPanel,
-        foregroundColor: Colors.white,
-        disabledForegroundColor: dark ? Colors.white : KifcTheme.mutedInk,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
-        ),
-        elevation: 0,
+    child: DecoratedBox(
+      decoration: BoxDecoration(
+        gradient: onPressed == null ? null : KifcTheme.primaryGradient,
+        borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
       ),
-      icon: icon == null
-          ? const SizedBox.shrink()
-          : Icon(icon, size: large ? 28 : null),
-      label: Text(
-        label,
-        style: TextStyle(fontWeight: FontWeight.w700, fontSize: large ? 21 : null),
+      child: ElevatedButton.icon(
+        onPressed: onPressed,
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.transparent,
+          surfaceTintColor: Colors.transparent,
+          shadowColor: Colors.transparent,
+          disabledBackgroundColor: dark
+              ? KifcTheme.forest800.withValues(alpha: .88)
+              : KifcTheme.warmPanel,
+          foregroundColor: Colors.white,
+          disabledForegroundColor: dark ? Colors.white : KifcTheme.mutedInk,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
+          ),
+          elevation: 0,
+        ),
+        icon: icon == null
+            ? const SizedBox.shrink()
+            : Icon(icon, size: large ? 28 : null),
+        label: LocalizedText(
+          label,
+          style: TextStyle(fontWeight: FontWeight.w700, fontSize: large ? 21 : null),
+        ),
       ),
     ),
   );
@@ -2413,7 +2631,7 @@ class _Secondary extends StatelessWidget {
           borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
         ),
       ),
-      child: Text(label, style: const TextStyle(fontWeight: FontWeight.w700)),
+      child: LocalizedText(label, style: const TextStyle(fontWeight: FontWeight.w700)),
     ),
   );
 }
@@ -2487,7 +2705,7 @@ class _RiskCard extends StatelessWidget {
               ),
               const SizedBox(width: 12),
               Expanded(
-                child: Text(
+                child: LocalizedText(
                   option.label(english),
                   style: TextStyle(
                     color: selected ? Colors.white : KifcTheme.ink,
@@ -2541,7 +2759,7 @@ class _ScenarioCard extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text(
+              LocalizedText(
                 english ? 'FIELD SITUATION $index' : 'SITUASI $index',
                 style: const TextStyle(
                   color: KifcTheme.mutedInk,
@@ -2551,7 +2769,7 @@ class _ScenarioCard extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 5),
-              Text(
+              LocalizedText(
                 label,
                 style: const TextStyle(
                   fontSize: 14,
@@ -2567,13 +2785,17 @@ class _ScenarioCard extends StatelessWidget {
   );
 }
 
-LinearGradient _answerGradient(bool correct) => LinearGradient(
-  begin: Alignment.topLeft,
-  end: Alignment.bottomRight,
-  colors: correct
-      ? const <Color>[KifcTheme.answerCorrect, KifcTheme.forest800]
-      : const <Color>[KifcTheme.answerIncorrect, KifcTheme.answerIncorrectDeep],
-);
+LinearGradient _answerGradient(bool correct) => correct
+    ? const LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        colors: <Color>[KifcTheme.answerCorrect, KifcTheme.forest800],
+      )
+    : const LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        colors: <Color>[KifcTheme.answerIncorrect, KifcTheme.answerIncorrectDeep],
+      );
 
 class _AnswerMark extends StatelessWidget {
   const _AnswerMark({required this.correct});
@@ -2648,7 +2870,7 @@ class _MascotFeedback extends StatelessWidget {
                     borderRadius: BorderRadius.circular(18),
                     border: Border.all(color: (ok ? KifcTheme.answerCorrect : KifcTheme.answerIncorrect).withValues(alpha: .45)),
                   ),
-                  child: Text(text, style: const TextStyle(color: KifcTheme.ink, fontSize: 13, height: 1.25)),
+                  child: LocalizedText(text, style: const TextStyle(color: KifcTheme.ink, fontSize: 13, height: 1.25)),
                 ),
               ),
               if (ok) RotatedBox(
@@ -2685,7 +2907,7 @@ class _AutoNote extends StatelessWidget {
         const Icon(Icons.check_circle_rounded, color: Colors.white, size: 16),
         const SizedBox(width: 8),
         Expanded(
-          child: Text(
+          child: LocalizedText(
             text,
             style: const TextStyle(
               color: Colors.white,
@@ -2760,7 +2982,7 @@ class _ChoiceButton extends StatelessWidget {
           children: <Widget>[
             if (graded) const SizedBox(width: 26),
             Expanded(
-              child: Text(
+              child: LocalizedText(
                 label,
                 textAlign: TextAlign.center,
                 maxLines: 2,
@@ -2905,7 +3127,7 @@ class _SpreadSceneState extends State<_SpreadScene>
                 left: 10,
                 right: 10,
                 top: 9,
-                child: Text(
+                child: LocalizedText(
                   caption,
                   maxLines: 2,
                   style: const TextStyle(
@@ -2932,7 +3154,7 @@ class _SpreadSceneState extends State<_SpreadScene>
                       color: const Color(0xE6263B2C),
                       borderRadius: BorderRadius.circular(5),
                     ),
-                    child: Text(
+                    child: LocalizedText(
                       widget.english ? 'BREAK' : 'SEKAT',
                       style: const TextStyle(
                         color: Colors.white,
@@ -3076,7 +3298,7 @@ class _FireScene extends StatelessWidget {
                 left: 12,
                 top: 12,
                 width: math.max(48, (bounds.maxWidth - nodeWidth) / 2 - 24),
-                child: Text(
+                child: LocalizedText(
                   reduced == null
                       ? '${active.length}/3 ${english ? 'elements' : 'unsur'}'
                       : (english
@@ -3183,7 +3405,7 @@ class _DropSlot extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(
+                    LocalizedText(
                       slot.title(english),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
@@ -3194,7 +3416,7 @@ class _DropSlot extends StatelessWidget {
                       ),
                     ),
                     if (!filled && onDrop != null)
-                      Text(
+                      LocalizedText(
                         english ? 'Drop here' : 'Taruh di sini',
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
@@ -3329,7 +3551,7 @@ class _PieceCard extends StatelessWidget {
             alignment: Alignment.bottomLeft,
             child: Padding(
               padding: const EdgeInsets.all(7),
-              child: Text(
+              child: LocalizedText(
                 piece.label(english),
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
@@ -3356,29 +3578,35 @@ class _RiskTokenCard extends StatelessWidget {
     required this.english,
     required this.found,
     required this.onTap,
+    this.revealed = false,
   });
   final _RiskToken token;
   final bool english;
   final bool found;
-  final VoidCallback onTap;
+  final bool revealed;
+  final VoidCallback? onTap;
+  bool get _missed => revealed && !found && token.risk;
+  Color get _markerColor => !revealed || _missed
+      ? KifcTheme.amber
+      : token.risk
+      ? KifcTheme.answerCorrect
+      : KifcTheme.answerIncorrect;
   @override
   Widget build(BuildContext context) => AnimatedScale(
     duration: _motionDuration(context, const Duration(milliseconds: 180)),
     curve: Curves.easeOutBack,
-    scale: found ? 1.035 : 1,
+    scale: found && !revealed ? 1.015 : 1,
     child: InkWell(
       key: ValueKey('risk-${token.name}'),
-      onTap: found ? null : onTap,
+      onTap: onTap,
       borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
       child: SizedBox(
         width: 104,
         height: 100,
         child: _PhotoFrame(
           border: Border.all(
-            color: found
-                ? (token.risk ? KifcTheme.forest800 : Colors.redAccent)
-                : KifcTheme.line,
-            width: found ? 2 : 1,
+            color: found || _missed ? _markerColor : KifcTheme.line,
+            width: found || _missed ? 2 : 1,
           ),
           child: Stack(
             fit: StackFit.expand,
@@ -3398,27 +3626,33 @@ class _RiskTokenCard extends StatelessWidget {
                   ),
                 ),
               ),
-              if (found)
+              if (found || _missed)
                 Positioned(
                   right: 6,
                   top: 6,
                   child: Semantics(
-                    label: token.risk
+                    label: AppCopy.translate(!revealed
+                        ? (english ? 'Selected' : 'Dipilih')
+                        : _missed
+                        ? (english ? 'Missed risk' : 'Risiko terlewat')
+                        : token.risk
                         ? (english ? 'Correct risk' : 'Benar, ini berisiko')
-                        : (english
-                              ? 'Not a risk'
-                              : 'Gambar ini tidak berisiko'),
+                        : (english ? 'Not a risk' : 'Gambar ini tidak berisiko')),
                     child: Container(
                       width: 23,
                       height: 23,
                       decoration: BoxDecoration(
-                        color: token.risk
-                            ? KifcTheme.forest800
-                            : const Color(0xFFA13B28),
+                        color: !revealed ? KifcTheme.forest950 : _markerColor,
                         shape: BoxShape.circle,
                       ),
                       child: Icon(
-                        token.risk ? Icons.check_rounded : Icons.close_rounded,
+                        !revealed
+                            ? Icons.radio_button_checked
+                            : _missed
+                            ? Icons.remove_rounded
+                            : token.risk
+                            ? Icons.check_rounded
+                            : Icons.close_rounded,
                         color: Colors.white,
                         size: 17,
                       ),
@@ -3429,7 +3663,7 @@ class _RiskTokenCard extends StatelessWidget {
                 alignment: Alignment.bottomCenter,
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(5, 8, 5, 10),
-                  child: Text(
+                  child: LocalizedText(
                     token.label(english),
                     textAlign: TextAlign.center,
                     maxLines: 2,
@@ -3452,9 +3686,19 @@ class _RiskTokenCard extends StatelessWidget {
 }
 
 class _TimerChip extends StatelessWidget {
-  const _TimerChip({required this.seconds, required this.english});
+  const _TimerChip({
+    required this.seconds,
+    required this.english,
+    required this.progress,
+  });
   final int seconds;
   final bool english;
+  final ValueListenable<double> progress;
+  Color get _color => seconds <= 3
+      ? KifcTheme.answerIncorrect
+      : seconds <= 5
+      ? KifcTheme.amber
+      : KifcTheme.answerCorrect;
   @override
   Widget build(BuildContext context) => SizedBox(
     width: 58,
@@ -3462,39 +3706,67 @@ class _TimerChip extends StatelessWidget {
     child: _LiquidGlass(
       borderRadius: BorderRadius.circular(999),
       tint: Colors.white.withValues(alpha: .45),
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          border: Border.all(color: KifcTheme.amber, width: 2),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            AnimatedSwitcher(
-              duration: _motionDuration(
-                context,
-                const Duration(milliseconds: 160),
-              ),
-              transitionBuilder: (child, animation) => ScaleTransition(
-                scale: animation,
-                child: FadeTransition(opacity: animation, child: child),
-              ),
-              child: Text(
-                '$seconds',
-                key: ValueKey(seconds),
-                style: const TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.w700,
-                  height: .9,
+      child: Stack(
+        fit: StackFit.expand,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(2),
+            child: ValueListenableBuilder<double>(
+              valueListenable: progress,
+              builder: (context, fraction, _) => TweenAnimationBuilder<double>(
+                tween: Tween(begin: 1, end: fraction),
+                duration: fraction == 0
+                    ? Duration.zero
+                    : _motionDuration(context, const Duration(milliseconds: 100)),
+                curve: Curves.linear,
+                builder: (context, value, _) => CircularProgressIndicator(
+                  key: const ValueKey('final-countdown-progress'),
+                  value: value,
+                  strokeWidth: 3.5,
+                  backgroundColor: _color.withValues(alpha: .13),
+                  color: _color,
+                  semanticsLabel: AppCopy.translate(
+                    english ? 'Time remaining' : 'Sisa waktu',
+                  ),
+                  semanticsValue: AppCopy.translate(
+                    english ? '$seconds seconds' : '$seconds detik',
+                  ),
                 ),
               ),
             ),
-            Text(
-              english ? 'sec' : 'detik',
-              style: const TextStyle(fontSize: 8),
+          ),
+          Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                AnimatedSwitcher(
+                  duration: _motionDuration(
+                    context,
+                    const Duration(milliseconds: 160),
+                  ),
+                  transitionBuilder: (child, animation) => ScaleTransition(
+                    scale: animation,
+                    child: FadeTransition(opacity: animation, child: child),
+                  ),
+                  child: LocalizedText(
+                    '$seconds',
+                    key: ValueKey(seconds),
+                    style: const TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.w700,
+                      height: .9,
+                    ),
+                  ),
+                ),
+                LocalizedText(
+                  english ? 'sec' : 'detik',
+                  style: const TextStyle(fontSize: 8),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     ),
   );
@@ -3509,9 +3781,9 @@ class _ScoreRow extends StatelessWidget {
     padding: const EdgeInsets.symmetric(vertical: 6),
     child: Row(
       children: <Widget>[
-        Text(label, style: const TextStyle(fontWeight: FontWeight.w600)),
+        LocalizedText(label, style: const TextStyle(fontWeight: FontWeight.w600)),
         const Spacer(),
-        Text(score, style: const TextStyle(fontWeight: FontWeight.w700)),
+        LocalizedText(score, style: const TextStyle(fontWeight: FontWeight.w700)),
       ],
     ),
   );
@@ -3527,7 +3799,7 @@ class _SafetyNote extends StatelessWidget {
       Icon(Icons.info_outline, size: 17, color: KifcTheme.forest800),
       SizedBox(width: 7),
       Expanded(
-        child: Text(
+        child: LocalizedText(
           english
               ? 'Do not approach a real fire. Report it and follow trained personnel.'
               : 'Jika melihat kebakaran, jaga jarak. Laporkan kepada petugas dan ikuti arahannya.',
