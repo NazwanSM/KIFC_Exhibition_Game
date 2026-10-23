@@ -204,6 +204,77 @@ class LocalizedText extends StatelessWidget {
 }
 
 const Map<String, String> _korean = <String, String>{
+  // KIFC-10: impacts, neutral selection and timed review.
+  'How Do Forest Fires Affect Peatland Ecosystems?':
+      '산림 화재는 이탄지 생태계에 어떤 영향을 줄까요?',
+  'Apa Saja Dampak Kebakaran Hutan pada Ekosistem Gambut?':
+      '산림 화재는 이탄지 생태계에 어떤 영향을 줄까요?',
+  'Choose all the relevant impacts.': '해당하는 영향을 모두 골라 보세요.',
+  'Pilih semua dampak yang sesuai.': '해당하는 영향을 모두 골라 보세요.',
+  'Time’s up. Review your choices and the impacts you missed.':
+      '시간이 끝났어요. 선택한 답과 놓친 영향을 확인해 보세요.',
+  'Waktu habis. Cermati pilihanmu dan dampak yang masih terlewat.':
+      '시간이 끝났어요. 선택한 답과 놓친 영향을 확인해 보세요.',
+  'Photo credits': '사진 출처',
+  'Kredit foto': '사진 출처',
+  'Close': '닫기',
+  'Tutup': '닫기',
+  'Haze': '연무',
+  'Kabut asap': '연무',
+  'Ecosystem damage': '생태계 훼손',
+  'Kerusakan ekosistem': '생태계 훼손',
+  'High carbon emissions': '많은 탄소 배출',
+  'Emisi karbon tinggi': '많은 탄소 배출',
+  'Lower ground surface (subsidence)': '지표면 높이 감소 (지반 침하)',
+  'Penurunan tinggi permukaan tanah atau subsidens': '지표면 높이 감소 (지반 침하)',
+  'Improved air quality': '대기 질 개선',
+  'Peningkatan kualitas udara': '대기 질 개선',
+  'Increased carbon stored in peat soil': '이탄 토양의 탄소 저장량 증가',
+  'Peningkatan cadangan karbon dalam tanah gambut': '이탄 토양의 탄소 저장량 증가',
+  'Impact challenge bonus': '영향 찾기 보너스',
+  'Bonus mengenali dampak': '영향 찾기 보너스',
+  'Missed impact': '놓친 영향',
+  'Dampak terlewat': '놓친 영향',
+  'Correct impact': '맞아요. 화재의 영향이에요',
+  'Benar, ini dampak kebakaran': '맞아요. 화재의 영향이에요',
+  'Not a fire impact': '화재의 영향이 아니에요',
+  'Bukan dampak kebakaran': '화재의 영향이 아니에요',
+  'No impacts were selected. The four impacts are haze, ecosystem damage, high carbon emissions, and subsidence.':
+      '선택한 영향이 없어요. 네 가지 영향은 연무, 생태계 훼손, 많은 탄소 배출, 지반 침하예요.',
+  'Belum ada dampak yang dipilih. Empat dampaknya adalah kabut asap, kerusakan ekosistem, emisi karbon tinggi, dan subsidens.':
+      '선택한 영향이 없어요. 네 가지 영향은 연무, 생태계 훼손, 많은 탄소 배출, 지반 침하예요.',
+  'You found all four impacts. Fire damages ecosystems and releases carbon stored in peat.':
+      '네 가지 영향을 모두 찾았어요. 화재는 생태계를 훼손하고 이탄에 저장된 탄소를 방출해요.',
+  'Keempat dampak sudah kamu temukan. Kebakaran merusak ekosistem dan melepaskan karbon yang tersimpan dalam gambut.':
+      '네 가지 영향을 모두 찾았어요. 화재는 생태계를 훼손하고 이탄에 저장된 탄소를 방출해요.',
+  'Fire worsens air quality and reduces peat carbon stores. Neither improvement is an impact of fire.':
+      '화재는 대기 질을 악화시키고 이탄의 탄소 저장량을 줄여요. 두 가지 증가나 개선은 화재의 영향이 아니에요.',
+  'Kebakaran memperburuk kualitas udara dan mengurangi cadangan karbon gambut. Kedua peningkatan itu bukan dampaknya.':
+      '화재는 대기 질을 악화시키고 이탄의 탄소 저장량을 줄여요. 두 가지 증가나 개선은 화재의 영향이 아니에요.',
+  'Smoke worsens air quality. Cleaner air is not an impact of fire. Check the missed impacts too.':
+      '연기는 대기 질을 악화시켜요. 더 깨끗한 공기는 화재의 영향이 아니에요. 놓친 영향도 확인해 보세요.',
+  'Asap memperburuk kualitas udara. Udara yang lebih bersih bukan dampak kebakaran. Cermati juga dampak yang terlewat.':
+      '연기는 대기 질을 악화시켜요. 더 깨끗한 공기는 화재의 영향이 아니에요. 놓친 영향도 확인해 보세요.',
+  'Fire releases stored carbon, so peat carbon stores decrease. Check the missed impacts too.':
+      '화재로 저장된 탄소가 방출되면 이탄의 탄소 저장량이 줄어들어요. 놓친 영향도 확인해 보세요.',
+  'Kebakaran melepaskan karbon yang tersimpan, sehingga cadangan karbon gambut berkurang. Cermati juga dampak yang terlewat.':
+      '화재로 저장된 탄소가 방출되면 이탄의 탄소 저장량이 줄어들어요. 놓친 영향도 확인해 보세요.',
+  'Smoke from peat fires creates haze and worsens air quality. This impact was missed.':
+      '이탄 화재의 연기는 연무를 만들고 대기 질을 악화시켜요. 이 영향을 놓쳤어요.',
+  'Asap kebakaran gambut menimbulkan kabut asap dan memperburuk kualitas udara. Dampak ini masih terlewat.':
+      '이탄 화재의 연기는 연무를 만들고 대기 질을 악화시켜요. 이 영향을 놓쳤어요.',
+  'Fire damages vegetation and habitats in peatland ecosystems. This impact was missed.':
+      '화재는 이탄지 생태계의 식물과 서식지를 훼손해요. 이 영향을 놓쳤어요.',
+  'Kebakaran merusak vegetasi dan habitat pada ekosistem gambut. Dampak ini masih terlewat.':
+      '화재는 이탄지 생태계의 식물과 서식지를 훼손해요. 이 영향을 놓쳤어요.',
+  'Burning peat releases stored carbon into the atmosphere. This impact was missed.':
+      '이탄이 타면 저장된 탄소가 대기로 방출돼요. 이 영향을 놓쳤어요.',
+  'Gambut yang terbakar melepaskan karbon tersimpan ke atmosfer. Dampak ini masih terlewat.':
+      '이탄이 타면 저장된 탄소가 대기로 방출돼요. 이 영향을 놓쳤어요.',
+  'Loss of peat can lower the ground surface. This is called subsidence, another impact to recognize.':
+      '이탄층이 사라지면 지표면이 낮아질 수 있어요. 이것을 지반 침하라고 해요.',
+  'Hilangnya lapisan gambut dapat menurunkan permukaan tanah. Inilah subsidens, salah satu dampak yang perlu dikenali.':
+      '이탄층이 사라지면 지표면이 낮아질 수 있어요. 이것을 지반 침하라고 해요.',
   'Sentuh di mana saja untuk lanjut.': '화면 어디든 터치하면 계속해요.',
   'Tap anywhere to continue.': '화면 어디든 터치하면 계속해요.',
   'Api Dapat Muncul Saat Tiga Unsur Bertemu': '세 요소가 만나면 불이 날 수 있어요',

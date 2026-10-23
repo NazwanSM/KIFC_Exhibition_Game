@@ -16,6 +16,7 @@ Future<void> launchScreen(
   required AppLocale locale,
   required String page,
   int? cardIndex,
+  Stopwatch Function()? stopwatchFactory,
 }) async {
   tester.view.devicePixelRatio = 1;
   tester.view.physicalSize = size;
@@ -31,6 +32,7 @@ Future<void> launchScreen(
           initialLocale: locale,
           initialPage: page,
           initialCardIndex: cardIndex,
+          stopwatchFactory: stopwatchFactory ?? Stopwatch.new,
         ),
       ),
     ),

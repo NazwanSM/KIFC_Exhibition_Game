@@ -460,12 +460,12 @@ class GameFlow {
     await tester.runAsync(() async {
       final context = tester.element(find.byType(ExhibitionGame));
       for (final path in const [
-        'assets/images/field/dry-leaf-litter.jpg',
-        'assets/images/field/cigarette-leaves.jpg',
+        'assets/images/field/haze-sumatra-nasa.jpg',
+        'assets/images/field/peat-fire-selangor.jpg',
         'assets/images/field/fire-klaten.jpg',
         'assets/images/forest/kereng-bangkirai.jpg',
-        'assets/images/field/dry-wood-client.jpg',
-        'assets/images/field/rain-splash.jpg',
+        'assets/images/field/peat-subsidence-nara.jpg',
+        'assets/images/field/oxygen-canopy.jpg',
       ]) {
         await precacheImage(AssetImage(path), context);
       }
@@ -486,14 +486,14 @@ class GameFlow {
       await pump(20);
     }
     await pump(800);
-    expect(find.text('10'), findsOneWidget);
+    expect(find.text('30'), findsOneWidget);
     expect(clock.isRunning, isTrue);
     check('final start');
     await capture('final-challenge');
   }
 
   Future<void> token(String name) async {
-    await tester.tap(find.byKey(ValueKey('risk-$name')), warnIfMissed: false);
+    await tester.tap(find.byKey(ValueKey('impact-$name')), warnIfMissed: false);
     await pump(30);
     check('risk $name');
   }
@@ -501,7 +501,7 @@ class GameFlow {
   Future<void> finish({bool? perfect}) async {
     final grid = find.byKey(const ValueKey('final-selection-grid'));
     final gridRect = tester.getRect(grid);
-    clock.advance(const Duration(seconds: 9));
+    clock.advance(const Duration(seconds: 29));
     await pump(100);
     expect(find.text('1'), findsOneWidget);
     clock.advance(const Duration(seconds: 1));
@@ -546,14 +546,14 @@ void main() {
       await flow.choose('separateFuel');
       await flow.finalChallenge();
       expect(find.byKey(const ValueKey('final-raw-score')), findsNothing);
-      await flow.token('dryVegetation');
-      await flow.token('dryVegetation');
+      await flow.token('haze');
+      await flow.token('haze');
       expect(
         find.text(flow.text('0 gambar dipilih', '0 images selected')),
         findsOneWidget,
       );
-      await flow.token('dryVegetation');
-      await flow.token('rain');
+      await flow.token('haze');
+      await flow.token('carbonStorage');
       expect(
         find.text(flow.text('2 gambar dipilih', '2 images selected')),
         findsOneWidget,
@@ -571,8 +571,8 @@ void main() {
       await flow.capture('final-neutral-selection');
 
       // The deadline itself locks selection, even before the next timer tick.
-      flow.clock.advance(const Duration(seconds: 10));
-      await tester.tap(find.byKey(const ValueKey('risk-dryWood')));
+      flow.clock.advance(const Duration(seconds: 30));
+      await tester.tap(find.byKey(const ValueKey('impact-subsidence')));
       await flow.pump(100);
       await flow.pump(450);
       await flow.pump(400);
@@ -593,13 +593,19 @@ void main() {
       );
       expect(find.byKey(const ValueKey('final-correct-count')), findsNothing);
       final message = renderedTextByKey(tester, 'final-review-message');
-      expect(message, contains(english ? 'dry vegetation' : 'Tanaman kering'));
-      expect(message, contains(english ? 'Rain' : 'Hujan'));
+      expect(
+        message,
+        contains(
+          english
+              ? 'peat carbon stores decrease'
+              : 'cadangan karbon gambut berkurang',
+        ),
+      );
       expect(
         tester.widget<GameMascot>(find.byType(GameMascot)).pose,
         MascotPose.hintSafety,
       );
-      for (final card in tester.widgetList(flow.type('_RiskTokenCard'))) {
+      for (final card in tester.widgetList(flow.type('_ImpactTokenCard'))) {
         expect((card as dynamic).onTap, isNull);
       }
       await flow.capture('final-review-mixed');
@@ -637,47 +643,47 @@ void main() {
       expect(value(), 1);
       expect(color(), KifcTheme.answerCorrect);
 
-      flow.clock.advance(const Duration(seconds: 4));
+      flow.clock.advance(const Duration(seconds: 14));
       await flow.pump(120);
       await flow.pump(120);
-      expect(find.text('6'), findsOneWidget);
+      expect(find.text('16'), findsOneWidget);
       expect(color(), KifcTheme.answerCorrect);
 
       flow.clock.advance(const Duration(seconds: 1));
       await flow.pump(120);
       await flow.pump(120);
       expect(value(), closeTo(.5, .001));
-      expect(find.text('5'), findsOneWidget);
+      expect(find.text('15'), findsOneWidget);
       expect(color(), KifcTheme.amber);
       if (!reduced) await flow.capture('countdown-half');
 
-      flow.clock.advance(const Duration(seconds: 1));
+      flow.clock.advance(const Duration(seconds: 3));
       await flow.pump(120);
       await flow.pump(120);
-      expect(find.text('4'), findsOneWidget);
+      expect(find.text('12'), findsOneWidget);
       expect(color(), KifcTheme.amber);
 
-      flow.clock.advance(const Duration(seconds: 1));
+      flow.clock.advance(const Duration(seconds: 3));
       await flow.pump(120);
       await flow.pump(120);
-      expect(find.text('3'), findsOneWidget);
+      expect(find.text('9'), findsOneWidget);
       expect(color(), KifcTheme.answerIncorrect);
       if (!reduced) await flow.capture('countdown-three-seconds');
 
-      flow.clock.advance(const Duration(milliseconds: 500));
+      flow.clock.advance(const Duration(milliseconds: 1500));
       await flow.pump(120);
       await flow.pump(120);
       expect(value(), closeTo(.25, .001));
-      expect(find.text('3'), findsOneWidget);
+      expect(find.text('8'), findsOneWidget);
 
-      flow.clock.advance(const Duration(milliseconds: 500));
+      flow.clock.advance(const Duration(milliseconds: 1500));
       await flow.pump(120);
       await flow.pump(120);
       expect(value(), closeTo(.2, .001));
-      expect(find.text('2'), findsOneWidget);
+      expect(find.text('6'), findsOneWidget);
       if (!reduced) await flow.capture('countdown-two-seconds');
 
-      flow.clock.advance(const Duration(seconds: 2));
+      flow.clock.advance(const Duration(seconds: 6));
       await flow.pump(100);
       expect(value(), 0);
       expect(find.text('0'), findsOneWidget);
@@ -690,7 +696,7 @@ void main() {
       expect(find.text('0 benar · 0 salah · 4 terlewat'), findsOneWidget);
       expect(
         renderedTextByKey(tester, 'final-review-message'),
-        startsWith('Belum ada gambar yang dipilih.'),
+        startsWith('Belum ada dampak yang dipilih.'),
       );
       await tester.tap(find.byKey(const ValueKey('final-review-continue')));
       await flow.pump();
@@ -893,16 +899,16 @@ void main() {
           );
         }
         await flow.finalChallenge();
-        await flow.token('dryVegetation');
-        await flow.token('dryVegetation');
-        await flow.token('dryVegetation');
-        await flow.token('cigarette');
+        await flow.token('haze');
+        await flow.token('haze');
+        await flow.token('haze');
+        await flow.token('ecosystemDamage');
         if (size.width != 360) {
-          await flow.token('unmanagedFire');
-          await flow.token('dryWood');
+          await flow.token('carbonEmissions');
+          await flow.token('subsidence');
           if (unsafe) {
-            await flow.token('rain');
-            await flow.token('healthyVegetation');
+            await flow.token('carbonStorage');
+            await flow.token('cleanAir');
           }
         }
         expect(find.byKey(const ValueKey('final-raw-score')), findsNothing);

@@ -15,6 +15,7 @@ import 'widgets/touchscreen_area.dart';
 import 'widgets/terrain_backdrop.dart';
 
 const _fireCardAspectRatio = 1.8;
+const finalChallengeSeconds = 30;
 
 Duration _motionDuration(BuildContext context, Duration duration) =>
     MediaQuery.maybeOf(context)?.disableAnimations == true
@@ -116,8 +117,8 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
   int _stopWrong = 0;
   bool _stopRevealed = false;
   int _karhutlaCardIndex = 0;
-  final Set<_RiskToken> _finalFound = <_RiskToken>{};
-  int _seconds = 10;
+  final Set<_ImpactToken> _finalFound = <_ImpactToken>{};
+  int _seconds = finalChallengeSeconds;
   final ValueNotifier<double> _finalProgress = ValueNotifier(1);
   Timer? _timer;
   // One shared timer moves the visitor on after feedback. Every explicit
@@ -152,8 +153,8 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
   int get _trianglePoints => _triangle.length;
   int get _finalRaw => math.max(
     0,
-    _finalFound.where((item) => item.risk).length -
-        _finalFound.where((item) => !item.risk).length,
+    _finalFound.where((item) => item.impact).length -
+        _finalFound.where((item) => !item.impact).length,
   );
   double get _finalBonus => _finalRaw / 4;
 
@@ -272,7 +273,7 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
       _stopRevealed = false;
       _karhutlaCardIndex = 0;
       _finalFound.clear();
-      _seconds = 10;
+      _seconds = finalChallengeSeconds;
       _finalProgress.value = 1;
       _preparingFinal = false;
       _idleSeconds = 15;
@@ -406,7 +407,7 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
     final ticket = ++_preparationTicket;
     setState(() => _preparingFinal = true);
     await Future.wait(
-      _RiskToken.values.map(
+      _ImpactToken.values.map(
         (token) => precacheImage(AssetImage(token.photo), context),
       ),
     );
@@ -418,7 +419,7 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
     _timer?.cancel();
     setState(() {
       _page = _Page.finalChallenge;
-      _seconds = 10;
+      _seconds = finalChallengeSeconds;
       _finalProgress.value = 1;
       _finalFound.clear();
       _preparingFinal = false;
@@ -446,11 +447,11 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
       }
       final remainingExact = math.max(
         0.0,
-        10 -
+        finalChallengeSeconds -
             _finalClock.elapsed.inMicroseconds / Duration.microsecondsPerSecond,
       );
       // Update only the ring between integer ticks, using the scoring clock.
-      _finalProgress.value = remainingExact / 10;
+      _finalProgress.value = remainingExact / finalChallengeSeconds;
       final remaining = remainingExact.ceil();
       if (remaining != _seconds) setState(() => _seconds = remaining);
       if (remaining == 0) {
@@ -550,7 +551,8 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
         found: _finalFound,
         onTap: (token) {
           if (_seconds > 0 &&
-              _finalClock.elapsed < const Duration(seconds: 10)) {
+              _finalClock.elapsed <
+                  const Duration(seconds: finalChallengeSeconds)) {
             setState(() {
               if (!_finalFound.remove(token)) _finalFound.add(token);
             });
@@ -1883,8 +1885,8 @@ class _FinalChallenge extends StatelessWidget {
   final bool english;
   final int seconds;
   final ValueListenable<double> timerProgress;
-  final Set<_RiskToken> found;
-  final ValueChanged<_RiskToken>? onTap;
+  final Set<_ImpactToken> found;
+  final ValueChanged<_ImpactToken>? onTap;
   final VoidCallback onBack;
   final bool reviewed;
   final VoidCallback? onContinue;
@@ -1892,43 +1894,57 @@ class _FinalChallenge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final compact = MediaQuery.sizeOf(context).height < 680;
-    final correct = found.where((token) => token.risk).length;
+    final correct = found.where((token) => token.impact).length;
     final wrong = found.length - correct;
     final missed =
-        _RiskToken.values.where((token) => token.risk).length - correct;
+        _ImpactToken.values.where((token) => token.impact).length - correct;
     return _LightStage(
       chapter: 4,
       english: english,
       eyebrow: english
           ? 'CHAPTER 4 / FINAL CHALLENGE'
           : 'BABAK 4 / TANTANGAN AKHIR',
-      title: english ? 'Spot the fire risks.' : 'Temukan risiko kebakaran.',
-      subtitle: reviewed
-          ? (english
-                ? 'Time’s up. Review your choices and the risks you missed.'
-                : 'Waktu habis. Cermati pilihanmu dan risiko yang masih terlewat.')
-          : (english
-                ? 'Choose the fire risks. Tap again to change your selection.'
-                : 'Pilih gambar berisiko. Ketuk lagi untuk membatalkan pilihan.'),
+      title: english
+          ? 'How Do Forest Fires Affect Peatland Ecosystems?'
+          : 'Apa Saja Dampak Kebakaran Hutan pada Ekosistem Gambut?',
+      titleFontSize: compact ? 21 : 24,
+      subtitle: english
+          ? 'Choose all the relevant impacts.'
+          : 'Pilih semua dampak yang sesuai.',
       onBack: onBack,
       backLabel: reviewed ? (english ? 'Home' : 'Beranda') : null,
       trailing: reviewed
           ? SizedBox(
               width: 58,
               height: 58,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Icon(
-                    Icons.check_rounded,
-                    color: KifcTheme.forest800,
-                    size: 24,
+              child: IconButton(
+                key: const ValueKey('impact-photo-credits'),
+                tooltip: AppCopy.translate(
+                  english ? 'Photo credits' : 'Kredit foto',
+                ),
+                onPressed: () => showDialog<void>(
+                  context: context,
+                  builder: (context) => AlertDialog(
+                    title: LocalizedText(
+                      english ? 'Photo credits' : 'Kredit foto',
+                    ),
+                    content: const SingleChildScrollView(
+                      child: SelectableText(
+                        'Kabut asap / Smoke: NASA Earth Observatory, Jeff Schmaltz & Adam Voiland. Sumatra, 2015. NASA media guidelines.\nhttps://science.nasa.gov/earth/earth-observatory/smoke-over-sumatra-86762/\n\n'
+                        'Gambut terbakar / Burning peat: Tan Yi Han, Selangor, 2013. CC BY-SA 3.0. Resized; display crop and color filter.\nhttps://commons.wikimedia.org/wiki/File:Peat_fire_in_Selangor,_Malaysia_on_5_June_2013.JPG\nhttps://creativecommons.org/licenses/by-sa/3.0/\n\n'
+                        'Tanah amblas / Collapsed ground: US National Archives, NAID285717. Red Lake Agency, 1935. Public domain (US federal work).\nhttps://catalog.archives.gov/id/285717\n\n'
+                        'Api / Fire: krisna azie, Unsplash. Kanopi / Canopy: Francesco Ungaro, Unsplash. Hutan / Forest: Kereng Bangkirai, project image credits.',
+                      ),
+                    ),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(context),
+                        child: LocalizedText(english ? 'Close' : 'Tutup'),
+                      ),
+                    ],
                   ),
-                  LocalizedText(
-                    english ? 'Complete' : 'Selesai',
-                    style: const TextStyle(fontSize: 10),
-                  ),
-                ],
+                ),
+                icon: const Icon(Icons.info_outline),
               ),
             )
           : _TimerChip(
@@ -1956,9 +1972,9 @@ class _FinalChallenge extends StatelessWidget {
                   childAspectRatio: ((bounds.maxWidth - 16) / 3) / cardHeight,
                   physics: const NeverScrollableScrollPhysics(),
                   padding: EdgeInsets.zero,
-                  children: _RiskToken.values
+                  children: _ImpactToken.values
                       .map(
-                        (token) => _RiskTokenCard(
+                        (token) => _ImpactTokenCard(
                           token: token,
                           english: english,
                           found: found.contains(token),
@@ -2015,67 +2031,62 @@ class _FinalChallenge extends StatelessWidget {
 class _FinalReviewDialogue extends StatelessWidget {
   const _FinalReviewDialogue({required this.english, required this.found});
   final bool english;
-  final Set<_RiskToken> found;
+  final Set<_ImpactToken> found;
 
   String get _message {
-    final correct = found.where((token) => token.risk).toList();
-    final wrong = found.where((token) => !token.risk).toList();
+    final correct = found.where((token) => token.impact).toList();
+    final wrong = found.where((token) => !token.impact).toList();
     if (found.isEmpty) {
       return english
-          ? 'No images were selected. Look at the four risks marked above.'
-          : 'Belum ada gambar yang dipilih. Perhatikan empat risiko yang kutandai di atas.';
+          ? 'No impacts were selected. The four impacts are haze, ecosystem damage, high carbon emissions, and subsidence.'
+          : 'Belum ada dampak yang dipilih. Empat dampaknya adalah kabut asap, kerusakan ekosistem, emisi karbon tinggi, dan subsidens.';
     }
     if (correct.length == 4 && wrong.isEmpty) {
       return english
-          ? 'You found all four risks. Keep ignition sources away from dry plants and wood.'
-          : 'Keempat risiko sudah kamu temukan. Jauhkan sumber api dari tanaman dan kayu kering.';
+          ? 'You found all four impacts. Fire damages ecosystems and releases carbon stored in peat.'
+          : 'Keempat dampak sudah kamu temukan. Kebakaran merusak ekosistem dan melepaskan karbon yang tersimpan dalam gambut.';
     }
-    if (wrong.isNotEmpty) {
-      final lead = correct.length == 1
-          ? (english
-                ? 'You spotted ${correct.single.label(true).toLowerCase()}. '
-                : '${correct.single.label(false)} sudah kamu temukan. ')
-          : '';
-      final correction = wrong.length == 2
-          ? (english
-                ? 'Rain and wet forest are not risks in these examples.'
-                : 'Hujan dan hutan basah bukan risiko pada contoh ini.')
-          : wrong.single == _RiskToken.rain
-          ? (english
-                ? 'Rain does not start a fire.'
-                : 'Hujan bukan pemicu api.')
-          : (english
-                ? 'Wet forest is harder to ignite.'
-                : 'Hutan basah lebih sulit terbakar.');
-      final missed = correct.length < 4
-          ? (english
-                ? ' Check the missed risks too.'
-                : ' Lihat juga risiko yang terlewat.')
-          : '';
-      return '$lead$correction$missed';
+    if (wrong.length == 2) {
+      return english
+          ? 'Fire worsens air quality and reduces peat carbon stores. Neither improvement is an impact of fire.'
+          : 'Kebakaran memperburuk kualitas udara dan mengurangi cadangan karbon gambut. Kedua peningkatan itu bukan dampaknya.';
     }
-    final missed = _RiskToken.values.firstWhere(
-      (token) => token.risk && !found.contains(token),
+    if (wrong.contains(_ImpactToken.cleanAir)) {
+      return english
+          ? 'Smoke worsens air quality. Cleaner air is not an impact of fire. Check the missed impacts too.'
+          : 'Asap memperburuk kualitas udara. Udara yang lebih bersih bukan dampak kebakaran. Cermati juga dampak yang terlewat.';
+    }
+    if (wrong.contains(_ImpactToken.carbonStorage)) {
+      return english
+          ? 'Fire releases stored carbon, so peat carbon stores decrease. Check the missed impacts too.'
+          : 'Kebakaran melepaskan karbon yang tersimpan, sehingga cadangan karbon gambut berkurang. Cermati juga dampak yang terlewat.';
+    }
+    final missed = _ImpactToken.values.firstWhere(
+      (token) => token.impact && !found.contains(token),
     );
     return switch (missed) {
-      _RiskToken.cigarette =>
+      _ImpactToken.haze =>
         english
-            ? 'A cigarette that is still lit can ignite dry fuel. That is one of the risks you missed.'
-            : 'Puntung yang masih menyala bisa menyulut bahan kering. Itu salah satu risiko yang terlewat.',
-      _RiskToken.unmanagedFire =>
+            ? 'Smoke from peat fires creates haze and worsens air quality. This impact was missed.'
+            : 'Asap kebakaran gambut menimbulkan kabut asap dan memperburuk kualitas udara. Dampak ini masih terlewat.',
+      _ImpactToken.ecosystemDamage =>
         english
-            ? 'Uncontrolled fire can spread. Look at the image you have not selected.'
-            : 'Api yang tidak terkendali dapat merambat. Perhatikan gambar yang belum kamu pilih.',
+            ? 'Fire damages vegetation and habitats in peatland ecosystems. This impact was missed.'
+            : 'Kebakaran merusak vegetasi dan habitat pada ekosistem gambut. Dampak ini masih terlewat.',
+      _ImpactToken.carbonEmissions =>
+        english
+            ? 'Burning peat releases stored carbon into the atmosphere. This impact was missed.'
+            : 'Gambut yang terbakar melepaskan karbon tersimpan ke atmosfer. Dampak ini masih terlewat.',
       _ =>
         english
-            ? 'Dry plants and wood can burn easily. Look at the missed risks marked above.'
-            : 'Tanaman dan kayu kering mudah terbakar. Cermati juga risiko yang kutandai di atas.',
+            ? 'Loss of peat can lower the ground surface. This is called subsidence, another impact to recognize.'
+            : 'Hilangnya lapisan gambut dapat menurunkan permukaan tanah. Inilah subsidens, salah satu dampak yang perlu dikenali.',
     };
   }
 
   @override
   Widget build(BuildContext context) {
-    final perfect = found.length == 4 && found.every((token) => token.risk);
+    final perfect = found.length == 4 && found.every((token) => token.impact);
     return LayoutBuilder(
       builder: (context, bounds) {
         final height = math.min(
@@ -2124,38 +2135,42 @@ class _FinalReviewDialogue extends StatelessWidget {
   }
 }
 
-enum _RiskToken {
-  dryVegetation,
-  cigarette,
-  unmanagedFire,
-  healthyVegetation,
-  dryWood,
-  rain,
+enum _ImpactToken {
+  haze,
+  ecosystemDamage,
+  carbonEmissions,
+  subsidence,
+  cleanAir,
+  carbonStorage,
 }
 
-extension _RiskTokenCopy on _RiskToken {
-  bool get risk => switch (this) {
-    _RiskToken.dryVegetation ||
-    _RiskToken.cigarette ||
-    _RiskToken.unmanagedFire ||
-    _RiskToken.dryWood => true,
-    _ => false,
-  };
+extension _ImpactTokenCopy on _ImpactToken {
+  bool get impact => index < 4;
   String label(bool en) => switch (this) {
-    _RiskToken.dryVegetation => en ? 'Dry vegetation' : 'Tanaman kering',
-    _RiskToken.cigarette => en ? 'Cigarette butt' : 'Puntung menyala',
-    _RiskToken.unmanagedFire => en ? 'Uncontrolled fire' : 'Api tak terkendali',
-    _RiskToken.healthyVegetation => en ? 'Healthy vegetation' : 'Hutan basah',
-    _RiskToken.dryWood => en ? 'Dry wood' : 'Kayu kering',
-    _RiskToken.rain => en ? 'Rain' : 'Hujan',
+    _ImpactToken.haze => en ? 'Haze' : 'Kabut asap',
+    _ImpactToken.ecosystemDamage =>
+      en ? 'Ecosystem damage' : 'Kerusakan ekosistem',
+    _ImpactToken.carbonEmissions =>
+      en ? 'High carbon emissions' : 'Emisi karbon tinggi',
+    _ImpactToken.subsidence =>
+      en
+          ? 'Lower ground surface (subsidence)'
+          : 'Penurunan tinggi permukaan tanah atau subsidens',
+    _ImpactToken.cleanAir =>
+      en ? 'Improved air quality' : 'Peningkatan kualitas udara',
+    _ImpactToken.carbonStorage =>
+      en
+          ? 'Increased carbon stored in peat soil'
+          : 'Peningkatan cadangan karbon dalam tanah gambut',
   };
   String get photo => switch (this) {
-    _RiskToken.dryVegetation => 'assets/images/field/dry-leaf-litter.jpg',
-    _RiskToken.cigarette => 'assets/images/field/cigarette-leaves.jpg',
-    _RiskToken.unmanagedFire => 'assets/images/field/fire-klaten.jpg',
-    _RiskToken.healthyVegetation => 'assets/images/forest/kereng-bangkirai.jpg',
-    _RiskToken.dryWood => 'assets/images/field/dry-wood-client.jpg',
-    _RiskToken.rain => 'assets/images/field/rain-splash.jpg',
+    _ImpactToken.haze => 'assets/images/field/haze-sumatra-nasa.jpg',
+    _ImpactToken.ecosystemDamage =>
+      'assets/images/field/peat-fire-selangor.jpg',
+    _ImpactToken.carbonEmissions => 'assets/images/field/fire-klaten.jpg',
+    _ImpactToken.subsidence => 'assets/images/field/peat-subsidence-nara.jpg',
+    _ImpactToken.cleanAir => 'assets/images/field/oxygen-canopy.jpg',
+    _ImpactToken.carbonStorage => 'assets/images/forest/kereng-bangkirai.jpg',
   };
 }
 
@@ -2242,7 +2257,7 @@ class _ScorePage extends StatelessWidget {
           score: '$decision/1',
         ),
         _ScoreRow(
-          label: english ? 'Final challenge bonus' : 'Bonus tantangan akhir',
+          label: english ? 'Impact challenge bonus' : 'Bonus mengenali dampak',
           score: '${_points(bonus, english)}/1',
         ),
         LocalizedText(
@@ -4185,23 +4200,23 @@ class _PieceCard extends StatelessWidget {
   );
 }
 
-class _RiskTokenCard extends StatelessWidget {
-  const _RiskTokenCard({
+class _ImpactTokenCard extends StatelessWidget {
+  const _ImpactTokenCard({
     required this.token,
     required this.english,
     required this.found,
     required this.onTap,
     this.revealed = false,
   });
-  final _RiskToken token;
+  final _ImpactToken token;
   final bool english;
   final bool found;
   final bool revealed;
   final VoidCallback? onTap;
-  bool get _missed => revealed && !found && token.risk;
+  bool get _missed => revealed && !found && token.impact;
   Color get _markerColor => !revealed || _missed
       ? KifcTheme.amber
-      : token.risk
+      : token.impact
       ? KifcTheme.answerCorrect
       : KifcTheme.answerIncorrect;
   @override
@@ -4210,7 +4225,7 @@ class _RiskTokenCard extends StatelessWidget {
     curve: Curves.easeOutBack,
     scale: found && !revealed ? 1.015 : 1,
     child: InkWell(
-      key: ValueKey('risk-${token.name}'),
+      key: ValueKey('impact-${token.name}'),
       onTap: onTap,
       borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
       child: SizedBox(
@@ -4224,7 +4239,7 @@ class _RiskTokenCard extends StatelessWidget {
           child: Stack(
             fit: StackFit.expand,
             children: <Widget>[
-              GamePhoto(token.photo),
+              GamePhoto(token.photo, forestTone: true),
               const DecoratedBox(
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
@@ -4248,12 +4263,14 @@ class _RiskTokenCard extends StatelessWidget {
                       !revealed
                           ? (english ? 'Selected' : 'Dipilih')
                           : _missed
-                          ? (english ? 'Missed risk' : 'Risiko terlewat')
-                          : token.risk
-                          ? (english ? 'Correct risk' : 'Benar, ini berisiko')
+                          ? (english ? 'Missed impact' : 'Dampak terlewat')
+                          : token.impact
+                          ? (english
+                                ? 'Correct impact'
+                                : 'Benar, ini dampak kebakaran')
                           : (english
-                                ? 'Not a risk'
-                                : 'Gambar ini tidak berisiko'),
+                                ? 'Not a fire impact'
+                                : 'Bukan dampak kebakaran'),
                     ),
                     child: Container(
                       width: 23,
@@ -4267,7 +4284,7 @@ class _RiskTokenCard extends StatelessWidget {
                             ? Icons.radio_button_checked
                             : _missed
                             ? Icons.remove_rounded
-                            : token.risk
+                            : token.impact
                             ? Icons.check_rounded
                             : Icons.close_rounded,
                         color: Colors.white,
@@ -4283,7 +4300,7 @@ class _RiskTokenCard extends StatelessWidget {
                   child: LocalizedText(
                     token.label(english),
                     textAlign: TextAlign.center,
-                    maxLines: 2,
+                    maxLines: 5,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
                       color: Colors.white,
@@ -4311,9 +4328,9 @@ class _TimerChip extends StatelessWidget {
   final int seconds;
   final bool english;
   final ValueListenable<double> progress;
-  Color get _color => seconds <= 3
+  Color get _color => seconds <= finalChallengeSeconds * .3
       ? KifcTheme.answerIncorrect
-      : seconds <= 5
+      : seconds <= finalChallengeSeconds * .5
       ? KifcTheme.amber
       : KifcTheme.answerCorrect;
   @override

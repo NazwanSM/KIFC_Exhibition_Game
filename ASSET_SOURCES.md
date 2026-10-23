@@ -63,3 +63,16 @@ ffmpeg -ss OFFSET -t 6 -i assets/animations/237888.mp4 -an -vf "fps=15,crop=640:
 ```
 
 The older landscape loop stays in the separate fuel-break simulation outside Chapter 1. The four Chapter 1 screens all use ForestFireSimulation and the new237888 recording. Existing documentary forest photograph is cropped uniformly to place ground immediately behind the bottom element row.
+
+
+## KIFC-10 impact photographs, 24 October 2026
+
+All three derivatives are offline JPEG assets. The app applies a uniform cover crop and mild forest color filter; no generated content was added. In-game photo credits are available through the information button on the impact review screen.
+
+| Asset | Creator and source | License and changes |
+|---|---|---|
+| `assets/images/field/haze-sumatra-nasa.jpg` | NASA Earth Observatory, Jeff Schmaltz (LANCE MODIS Rapid Response) and Adam Voiland. Sumatra, 4 October 2015. [Smoke over Sumatra](https://science.nasa.gov/earth/earth-observatory/smoke-over-sumatra-86762/); [source image](https://assets.science.nasa.gov/content/dam/science/esd/eo/images/imagerecords/86000/86762/sumatra_tmo_2015277.jpg) | NASA media use under [NASA guidelines](https://www.nasa.gov/nasa-brand-center/images-and-media/), credited without implying endorsement. JPEG 720×480. |
+| `assets/images/field/peat-fire-selangor.jpg` | Tan Yi Han (CheekyDreamer), 5 June 2013, Raja Musa Forest Reserve, Selangor, Malaysia. [Wikimedia source and license](https://commons.wikimedia.org/wiki/File:Peat_fire_in_Selangor,_Malaysia_on_5_June_2013.JPG) | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/). Resized to 1100×825 and recompressed (quality87); crop/filter at display. This derivative remains CC BY-SA 3.0. |
+| `assets/images/field/peat-subsidence-nara.jpg` | US Department of the Interior, Bureau of Indian Affairs, Red Lake Agency, 1935; individual photographer unknown. National Archives NAID285717. [NARA record](https://catalog.archives.gov/id/285717); [Wikimedia reproduction](https://commons.wikimedia.org/wiki/File:Roadway_undermined_by_a_peat_fire_-_NARA_-_285717.jpg) | Public domain, US federal government work. Resized to 1100×637 and recompressed (quality87). Historical US example of ground undermined by a peat fire, not a photograph of an Indonesian site. |
+
+The emissions choice reuses `fire-klaten.jpg` (krisna azie, Unsplash) as fire context; the photo does not depict visible carbon molecules. The two decoys reuse `oxygen-canopy.jpg` (Francesco Ungaro, Unsplash) and `forest/kereng-bangkirai.jpg` (existing project source). Their presence is not a claim that burning peat improves air quality or increases carbon stores; the timed review explicitly corrects both statements.
