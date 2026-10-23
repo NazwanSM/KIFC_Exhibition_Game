@@ -33,7 +33,7 @@ Tracker ini mencatat pekerjaan baru dari dokumen KIFC. **KIFC-01 sampai 08 serta
 | KIFC-09 | Karakteristik kebakaran ekosistem gambut | Menunggu keputusan | D-04 dan tindak lanjut materi KIFC |
 | KIFC-10 | Tantangan mengenali dampak kebakaran | Ditinjau | Implementasi/foto/3 bahasa/60 render tersedia; 30 detik sementara dan skor lama menunggu D-06/D-07 |
 | KIFC-11 | Layar hasil akhir | Ditinjau sebagian | Pesan penutup terpasang; aturan skor menunggu X-01 |
-| KIFC-G01 | Variasi interaksi, transisi, dan respons sentuhan | Siap | Penerapan sesuai tujuan tiap layar |
+| KIFC-G01 | Variasi interaksi, transisi, dan respons sentuhan | Ditinjau | Pemetaan interaksi dan pembatalan timer diverifikasi;191 tes lulus |
 | KIFC-G02 | Animasi dan latar bergerak | Ditinjau sebagian | Video pemilik, fallback, reduced motion dan offline diuji; profil TV fisik menunggu D-09 |
 | KIFC-G03 | Pengayaan visual seluruh layar | Ditinjau | Audit per layar,33 render inset serta APK offline; overflow Android diperbaiki |
 | KIFC-G04 | Musik, suara alam, efek suara, dan kontrol audio | Perlu kajian | D-08, aset, dan kemampuan perangkat |
@@ -324,10 +324,10 @@ Analisis bersih, **151 tes lulus**, dan **60 render** empat keadaan × tiga baha
 
 **Sumber:** catatan tambahan paragraf 1.
 
-- [ ] **KIFC-G01.01** Petakan variasi interaksi sesuai tujuan tiap layar agar permainan tidak monoton; pertahankan layar definisi/penjelasan sebagai bacaan kecuali ada keputusan baru.
-- [ ] **KIFC-G01.02** Tambahkan/perhalus transisi antarhalaman yang membantu pemain memahami perpindahan.
-- [ ] **KIFC-G01.03** Berikan respons visual pada sentuhan tombol, pemilihan jawaban, drag-and-drop, dan penyelesaian tantangan.
-- [ ] **KIFC-G01.04** Jaga respons tetap cepat dan cegah input atau transisi ganda. Bedakan penanda “dipilih” dari penanda “benar” pada tantangan yang menunda penilaian.
+- [x] **KIFC-G01.01** Petakan variasi interaksi sesuai tujuan tiap layar agar permainan tidak monoton; pertahankan layar definisi/penjelasan sebagai bacaan kecuali ada keputusan baru.
+- [x] **KIFC-G01.02** Tambahkan/perhalus transisi antarhalaman yang membantu pemain memahami perpindahan.
+- [x] **KIFC-G01.03** Berikan respons visual pada sentuhan tombol, pemilihan jawaban, drag-and-drop, dan penyelesaian tantangan.
+- [x] **KIFC-G01.04** Jaga respons tetap cepat dan cegah input atau transisi ganda. Bedakan penanda “dipilih” dari penanda “benar” pada tantangan yang menunda penilaian.
 
 **Kriteria penerimaan:** ada respons yang dapat diamati untuk tiap tindakan utama tanpa memperlambat alur atau membocorkan kunci.
 
@@ -481,4 +481,6 @@ Empat keadaan layar direvisi tanpa mengubah urutan. Panel diperbesar, dropzone d
 
 - `2f13709` — KIFC-09, persiapan: [usulan konkret dua format, naskah kartu, syarat lanjut dan konsekuensi skor](../../docs/client-revisions/2026-10-23/kifc-09-format-proposal.md) siap. Belum diterapkan; D-04/D-07 memerlukan keputusan klien. Urutan dan materi aktif tetap dipertahankan.
 
-- KIFC-G03 — audit seluruh layar dan perbaikan overflow Android akibat cutout.33 render inset tiga bahasa dan APK offline tersedia; [audit visual serta bukti](../../docs/client-revisions/2026-10-23/kifc-g03-visual-audit.md). Preset kartu, urutan dan interaksi dipertahankan.
+- `01f2693` — KIFC-G03: audit seluruh layar dan perbaikan overflow Android akibat cutout.33 render inset tiga bahasa dan APK offline tersedia; [audit visual serta bukti](../../docs/client-revisions/2026-10-23/kifc-g03-visual-audit.md). Preset kartu, urutan dan interaksi dipertahankan.
+
+- KIFC-G01 — pemetaan variasi interaksi, transisi, respons sentuhan dan penguncian/pembatalan callback selesai diaudit terhadap implementasi.191 tes lulus; [rincian interaksi dan bukti](../../docs/client-revisions/2026-10-23/kifc-g01-interaction-review.md). Status Ditinjau.
