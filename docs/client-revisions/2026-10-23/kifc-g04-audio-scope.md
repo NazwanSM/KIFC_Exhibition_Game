@@ -1,6 +1,6 @@
 # KIFC-G04 — Cakupan audio untuk keputusan
 
-Draf24Oktober2026, belum diimplementasikan. Permintaan dokumen baru mencakup musik, suara alam, efek, volume dan mute. Keputusan langsung pemilik sebelumnya: “Untuk suara sepertinya kita lakukan nanti saja karena perlu development dan cost yang bertambah”. Karena cakupan/biaya belum dibahas ulang, permainan tetap tanpa suara. Tidak ada voice-over maskot atau aset berbayar yang ditambahkan.
+Draf24Oktober 2026, belum diimplementasikan. Permintaan dokumen baru mencakup musik, suara alam, efek, volume dan mute. Keputusan langsung pemilik sebelumnya: “Untuk suara sepertinya kita lakukan nanti saja karena perlu development dan cost yang bertambah”. Karena cakupan/biaya belum dibahas ulang, permainan tetap tanpa suara. Tidak ada voice-over maskot atau aset berbayar yang ditambahkan.
 
 ## Paket yang dapat dipilih
 

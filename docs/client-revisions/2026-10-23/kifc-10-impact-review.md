@@ -4,7 +4,7 @@ Implementasi lokal 24 Oktober 2026. Urutan layar dipertahankan. Naskah pertanyaa
 
 Pilihan dapat dibatalkan dan tetap netral selama countdown. Setelah waktu habis, grid tetap di tempatnya; hasil menandai pilihan benar, salah, dan dampak terlewat. Maskot memberi penjelasan sesuai hasil. Foto diberi crop dan filter seragam, dengan sumber/lisensi di ASSET_SOURCES.md serta tombol informasi pada ulasan.
 
-Durasi vendor sementara **30 detik**, dimulai setelah foto selesai dimuat dan transisi tampil selesai. Lingkaran mengikuti stopwatch yang sama dengan batas input. Hijau >15 detik, kuning 15–10, merah ≤9; input terkunci tepat pada deadline. D-06 masih menunggu uji membaca pada TV fisik. Aturan skor lama dipertahankan: +1 benar, −1 salah, minimum0; bonus hasil/4, maksimum keseluruhan9. Label bonus kini menyebut dampak; finalisasi aturan KIFC-11 menunggu keputusan KIFC-09/D-07.
+Durasi vendor sementara **30 detik**, dimulai setelah foto selesai dimuat dan transisi tampil selesai. Lingkaran mengikuti stopwatch yang sama dengan batas input. Hijau >15 detik, kuning 15–10, merah ≤9; input terkunci tepat pada deadline. D-06 masih menunggu uji membaca pada TV fisik. Aturan skor lama dipertahankan: +1 benar, −1 salah, minimum 0; bonus hasil/4, maksimum keseluruhan9. Label bonus kini menyebut dampak; finalisasi aturan KIFC-11 menunggu keputusan KIFC-09/D-07.
 
 ## Bukti tampilan
 
@@ -27,4 +27,4 @@ Browser Edge aktual 1890×1042 CSS px: [bermain](../../../build/review-kifc-10/b
 - Server web direstart penuh setelah aset ditambahkan. Manifest, HTTP200 dan SHA-256 ketiga foto diperiksa dalam `web-assets.json`.
 - `tool/review.dart` adalah entry point bukti browser terpisah pada8081, memakai komponen produksi. Aplikasi normal pada8080 tetap mulai dari pembuka; tidak ada perubahan urutan produksi.
 
-Batas bukti: resolusi viewport bukan ukuran/jangkauan fisik TV42inci. Belum ada uji TV fisik, APK terbaru, pengukuran performa perangkat, push atau deployment. Foto subsidens adalah contoh historis AS, foto kerusakan ekosistem dari Malaysia, citra asap dari Sumatra; bukan dokumentasi satu lokasi KIFC. Status **Ditinjau**, D-06/D-07 tetap terbuka.
+Batas bukti: resolusi viewport bukan ukuran/jangkauan fisik TV 42 inci. Belum ada uji TV fisik, APK terbaru, pengukuran performa perangkat, push atau deployment. Foto subsidens adalah contoh historis AS, foto kerusakan ekosistem dari Malaysia, citra asap dari Sumatra; bukan dokumentasi satu lokasi KIFC. Status **Ditinjau**, D-06/D-07 tetap terbuka.

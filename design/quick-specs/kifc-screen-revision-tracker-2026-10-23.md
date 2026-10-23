@@ -15,12 +15,12 @@ Tracker ini mencatat pekerjaan baru dari dokumen KIFC. **KIFC-01 sampai 08 serta
 - `G` menandai pekerjaan lintas game; `X` menandai integrasi, bahasa, dan verifikasi. `D` menandai keputusan yang belum tersedia.
 - Centang subpekerjaan setelah implementasi dan pemeriksaan yang relevan. Tutup tiket setelah kriteria penerimaannya terpenuhi dan bukti dicatat. Jangan mencentang implementasi hanya karena rancangan atau asetnya sudah disiapkan.
 - Untuk setiap tiket, isi log di akhir file dengan commit, hasil pemeriksaan, lokasi screenshot/rekaman, serta keterbatasannya. Pemeriksaan viewport/emulator tidak membuktikan kenyamanan jangkauan TV fisik.
-- Cakupan: **18 kelompok pekerjaan; 9 Ditinjau, 1 Ditinjau sebagian, 0 Selesai, 8 lainnya belum ditutup berdasarkan bukti implementasi**. Sebagian permintaan melanjutkan fitur yang sudah ada; keberadaannya tetap perlu diperiksa terhadap kebutuhan baru.
+- Cakupan: **18 kelompok pekerjaan; 12 Ditinjau, 3 Ditinjau sebagian, 3 Menunggu keputusan, 0 Selesai/disahkan klien**. Sebagian permintaan melanjutkan fitur yang sudah ada; keberadaannya tetap perlu diperiksa terhadap kebutuhan baru.
 - Sesuai permintaan pemilik proyek, setiap revisi disertai screenshot beberapa ukuran portrait, terutama simulasi TV Full HD 1080×1920 dan 4K 2160×3840. Catat bahasa, sumber gambar, dan batas pemeriksaannya; jangan menyebut render viewport sebagai foto TV fisik.
 
 ## Daftar pekerjaan per layar
 
-| ID | Layar atau cakupan | Status awal | Ketergantungan utama |
+| ID | Layar atau cakupan | Status terkini | Ketergantungan utama |
 |---|---|---|---|
 | KIFC-01 | Tampilan awal | Ditinjau | Implementasi dan 16 screenshot siap; penilaian pemilik serta TV fisik menunggu |
 | KIFC-02 | Menyusun tiga unsur api | Ditinjau | Tiga slot dipertahankan; aset dan layout baru siap ditinjau; 60 render dan tes tersedia |
@@ -39,7 +39,7 @@ Tracker ini mencatat pekerjaan baru dari dokumen KIFC. **KIFC-01 sampai 08 serta
 | KIFC-G04 | Musik, suara alam, efek suara, dan kontrol audio | Menunggu keputusan | Usulan paket A/B/C siap; audio ditunda sesuai arahan langsung pemilik, D-08/D-09 |
 | KIFC-X01 | Alur, penomoran babak, dan perhitungan skor | Menunggu keputusan | D-03, D-04, D-07, D-11 |
 | KIFC-X02 | Naskah tiga bahasa dan konsistensi istilah | Ditinjau | Inventaris/glosarium serta alur Korea diperiksa; validasi klien/penutur dan materi09 menunggu |
-| KIFC-X03 | Verifikasi, perangkat, dan rilis | Siap | Bertahap per fitur; uji akhir setelah integrasi |
+| KIFC-X03 | Verifikasi, perangkat, dan rilis | Ditinjau sebagian |191 tes, analisis bersih, APK/44 aset/Android offline dan bukti siap; TV fisik/09/rilis menunggu |
 
 ## KIFC-01 Tampilan awal
 
@@ -271,7 +271,7 @@ Analisis bersih, **151 tes lulus**, dan **60 render** empat keadaan × tiga baha
 
 ## KIFC-10 Tantangan mengenali dampak kebakaran
 
-**Sumber:** bagian 10, screenshot 10. **Pemetaan saat ini:** `_FinalChallenge`, `_RiskToken`, `_FinalReviewDialogue`, timer dan ulasan tantangan akhir.
+**Sumber:** bagian 10, screenshot 10. **Pemetaan saat ini:** `_FinalChallenge`, `_ImpactToken`, `_FinalReviewDialogue`, timer dan ulasan tantangan akhir.
 
 - [x] **KIFC-10.01** Ganti fokus tantangan dari **risiko kebakaran** menjadi **dampak kebakaran hutan, khususnya ekosistem gambut**.
 - [x] **KIFC-10.02** Ganti pertanyaan dan instruksi dengan naskah berikut.
@@ -375,7 +375,7 @@ Bagian ini adalah pekerjaan turunan dari perubahan konten, bukan kutipan permint
 ### KIFC-X01 Alur dan skor
 
 - [ ] **KIFC-X01.01** Tetapkan alur setelah keputusan simulasi KIFC-04 dan format KIFC-09 tersedia. Urutan bagian DOCX adalah urutan identifikasi layar, bukan bukti bahwa layar lain harus dihapus.
-- [ ] **KIFC-X01.02** Konfirmasikan nasib kuis penyebab manusia/alam di **Babak 3**, yang tidak mempunyai bagian revisi dalam DOCX ini. Jangan menghapus, mengganti, atau melewatinya hanya karena tidak tercantum.
+- [x] **KIFC-X01.02** Konfirmasikan nasib kuis penyebab manusia/alam di **Babak 3**, yang tidak mempunyai bagian revisi dalam DOCX ini. Jangan menghapus, mengganti, atau melewatinya hanya karena tidak tercantum.
 - [ ] **KIFC-X01.03** Selaraskan nomor babak, indikator progres, pengantar, label tombol, navigasi kembali, ulang sesi, dan akhir permainan.
 - [ ] **KIFC-X01.04** Putuskan aturan skor setelah layar “Memilih tindakan aman” diganti informasi/kuis gambut. Saat ini total maksimum 9 berasal dari susun unsur 3, penyebab 4, tindakan 1, dan bonus akhir 1; jangan mempertahankan atau mengubah maksimum itu tanpa pemetaan baru.
 - [ ] **KIFC-X01.05** Tinjau bonus serta penalti tantangan dampak. Ada empat jawaban benar, tetapi aturan benar +1/salah −1, minimum 0, dan bonus skor/4 merupakan keputusan lama, bukan aturan baru yang tertulis dalam DOCX.
@@ -397,12 +397,12 @@ Bagian ini adalah pekerjaan turunan dari perubahan konten, bukan kutipan permint
 
 ### KIFC-X03 Verifikasi dan rilis
 
-- [ ] **KIFC-X03.01** Buat matriks cakupan untuk 11 layar, layar yang tetap ada seperti Babak 3, serta audio/animasi lintas layar.
+- [x] **KIFC-X03.01** Buat matriks cakupan untuk 11 layar, layar yang tetap ada seperti Babak 3, serta audio/animasi lintas layar.
 - [ ] **KIFC-X03.02** Uji alur lengkap ketiga bahasa: susun benar/salah, retry, tiga kartu bacaan, kuis gambut, format karakteristik terpilih, tantangan dampak, ulasan, hasil, dan ulang sesi.
-- [ ] **KIFC-X03.03** Uji timer/feedback panjang, tidak adanya input ganda, pembatalan pilihan, perpindahan otomatis/manual yang disepakati, tombol kembali, serta reset tanpa skor/audio/animasi tersisa.
+- [x] **KIFC-X03.03** Uji timer/feedback panjang, tidak adanya input ganda, pembatalan pilihan, perpindahan otomatis/manual yang disepakati, tombol kembali, serta reset tanpa skor/audio/animasi tersisa.
 - [ ] **KIFC-X03.04** Periksa crop, ukuran teks, maskot, visual baru, animasi, dan tombol pada viewport portrait; lakukan uji sentuhan langsung pada TV 42 inci setelah perangkat dan pemasangan diketahui.
 - [ ] **KIFC-X03.05** Uji APK offline serta web, termasuk media/audio lokal, kontrol volume/mute, dan performa. Emulator merupakan bukti fungsional awal, bukan tolok ukur tunggal performa TV.
-- [ ] **KIFC-X03.06** Jalankan analisis Flutter dan tes regresi yang relevan; simpan hasil dan screenshot/rekaman setiap layar yang berubah.
+- [x] **KIFC-X03.06** Jalankan analisis Flutter dan tes regresi yang relevan; simpan hasil dan screenshot/rekaman setiap layar yang berubah.
 - [ ] **KIFC-X03.07** Setelah pemeriksaan, siapkan build/deployment berikutnya sesuai instruksi rilis; verifikasi commit yang terdeploy, aset, dan site yang tepat.
 
 **Kriteria penerimaan:** ada bukti per tiket serta satu sesi terpadu tanpa penghalang; batas uji fisik, materi yang masih sementara, dan isu terbuka dilaporkan jelas.
@@ -485,4 +485,6 @@ Empat keadaan layar direvisi tanpa mengubah urutan. Panel diperbesar, dropzone d
 
 - `ca92786` — KIFC-G01: pemetaan variasi interaksi, transisi, respons sentuhan dan penguncian/pembatalan callback selesai diaudit terhadap implementasi.191 tes lulus; [rincian interaksi dan bukti](../../docs/client-revisions/2026-10-23/kifc-g01-interaction-review.md). Status Ditinjau.
 
-- KIFC-G04, persiapan — [cakupan konkret paket audio dan kriteria uji](../../docs/client-revisions/2026-10-23/kifc-g04-audio-scope.md) siap; tidak mengaktifkan suara sebelum D-08. Keputusan penundaan suara dari pemilik tetap berlaku.
+- `105e32b` — KIFC-G04, persiapan: [cakupan konkret paket audio dan kriteria uji](../../docs/client-revisions/2026-10-23/kifc-g04-audio-scope.md) siap; tidak mengaktifkan suara sebelum D-08. Keputusan penundaan suara dari pemilik tetap berlaku.
+
+- KIFC-X03 —191 tes Flutter dan1 tes pemeriksa APK lulus, analisis bersih, APK debug/44 aset terverifikasi, smoke Android offline serta matriks cakupan siap. [Verifikasi integrasi, screenshot dan batas hasil](../../docs/client-revisions/2026-10-23/kifc-x03-integration-review.md). KIFC11: label dampak sudah diperbarui; rumus dan waktu baca TV tetap menunggu keputusan/uji. Tidak ada push/deployment.

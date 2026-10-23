@@ -1,6 +1,6 @@
 # KIFC-09 — Usulan format untuk keputusan klien
 
-Draf vendor24Oktober2026. **Belum diterapkan ke permainan.** Dokumen klien menyebut materi akan ditindaklanjuti dan mengizinkan usulan vendor. Tidak ada perubahan urutan layar.
+Draf vendor24Oktober 2026. **Belum diterapkan ke permainan.** Dokumen klien menyebut materi akan ditindaklanjuti dan mengizinkan usulan vendor. Tidak ada perubahan urutan layar.
 
 ## Materi tetap dari klien
 
@@ -14,7 +14,7 @@ Semua pernyataan benar, sehingga tidak tepat dijadikan tiga pilihan tunggal yang
 
 ## Pilihan A — Tiga kartu informasi sentuh (rekomendasi vendor)
 
-Satu layar pada posisi layar “Batasi rambatan api” saat ini, sesudah Babak3 dan sebelum tantangan dampak. Judul tetap, ilustrasi/foto gambut tetap pada area atas; tiga kartu sejajar menjadi pengendali. Menyentuh kartu membuka satu penjelasan pendek dan respons visual pada area yang sama. Tidak membuat tiga halaman tambahan. Maskot membimbing dari sisi penjelasan.
+Satu layar pada posisi layar “Batasi rambatan api” saat ini, sesudah Babak 3 dan sebelum tantangan dampak. Judul tetap, ilustrasi/foto gambut tetap pada area atas; tiga kartu sejajar menjadi pengendali. Menyentuh kartu membuka satu penjelasan pendek dan respons visual pada area yang sama. Tidak membuat tiga halaman tambahan. Maskot membimbing dari sisi penjelasan.
 
 | Kartu | Draf penjelasan pendek vendor | Respons visual yang dapat memakai aset yang sudah ada |
 |---|---|---|
@@ -28,7 +28,7 @@ Dampak skor jika disetujui: poin “Memilih tindakan aman” tidak lagi ada. Usu
 
 ## Pilihan B — Kuis pilihan jamak
 
-Tetap satu layar pada posisi yang sama. Pemain memilih semua ciri yang benar. Tiga informasi wajib di atas menjadi kunci benar; agar kuis bermakna perlu dua pengecoh baru yang aman dan disetujui klien, penjelasan tiap pengecoh, aturan retry serta penilaian. Jangan menulis pengecoh seolah fakta. Pilihan netral selama menjawab, penilaian setelah tombol periksa. Skema skor dapat mempertahankan maksimum9 bila babak ini bernilai1, tetapi aturan perolehan poin/penalti tetap harus diputuskan pada D-07.
+Tetap satu layar pada posisi yang sama. Pemain memilih semua ciri yang benar. Tiga informasi wajib di atas menjadi kunci benar; agar kuis bermakna perlu dua pengecoh baru yang aman dan disetujui klien, penjelasan tiap pengecoh, aturan retry serta penilaian. Jangan menulis pengecoh seolah fakta. Pilihan netral selama menjawab, penilaian setelah tombol periksa. Skema skor dapat mempertahankan maksimum 9 bila babak ini bernilai1, tetapi aturan perolehan poin/penalti tetap harus diputuskan pada D-07.
 
 Pilihan ini membutuhkan lebih banyak naskah dan pengujian dibanding A. Tidak dibuat otomatis karena materi pengecoh dan aturan belum diberikan.
 
@@ -37,4 +37,4 @@ Pilihan ini membutuhkan lebih banyak naskah dan pengujian dibanding A. Tidak dib
 - D-04: A atau B; persetujuan naskah detail, syarat lanjut, dan aset.
 - D-07: layar informatif tanpa skor atau kuis bernilai; maksimum dan kategori hasil setelah pemetaan baru.
 
-Selama menunggu, layar tindakan aman dan maksimum9 tetap berjalan seperti sebelumnya. Semua persiapan yang tidak mengubah keputusan konten sudah dicatat. Tidak ada screenshot implementasi09 karena layar pengganti memang belum dibuat.
+Selama menunggu, layar tindakan aman dan maksimum 9 tetap berjalan seperti sebelumnya. Semua persiapan yang tidak mengubah keputusan konten sudah dicatat. Tidak ada screenshot implementasi09 karena layar pengganti memang belum dibuat.
