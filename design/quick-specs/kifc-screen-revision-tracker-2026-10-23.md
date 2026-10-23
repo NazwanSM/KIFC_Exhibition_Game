@@ -34,7 +34,7 @@ Tracker ini mencatat pekerjaan baru dari dokumen KIFC. **KIFC-01 sampai 08 serta
 | KIFC-10 | Tantangan mengenali dampak kebakaran | Ditinjau | Implementasi/foto/3 bahasa/60 render tersedia; 30 detik sementara dan skor lama menunggu D-06/D-07 |
 | KIFC-11 | Layar hasil akhir | Ditinjau sebagian | Pesan penutup terpasang; aturan skor menunggu X-01 |
 | KIFC-G01 | Variasi interaksi, transisi, dan respons sentuhan | Siap | Penerapan sesuai tujuan tiap layar |
-| KIFC-G02 | Animasi dan latar bergerak | Perlu kajian | D-08, aset, dan anggaran performa |
+| KIFC-G02 | Animasi dan latar bergerak | Ditinjau sebagian | Video pemilik, fallback, reduced motion dan offline diuji; profil TV fisik menunggu D-09 |
 | KIFC-G03 | Pengayaan visual seluruh layar | Siap | Materi tiap layar dan keterbacaan |
 | KIFC-G04 | Musik, suara alam, efek suara, dan kontrol audio | Perlu kajian | D-08, aset, dan kemampuan perangkat |
 | KIFC-X01 | Alur, penomoran babak, dan perhitungan skor | Menunggu keputusan | D-03, D-04, D-07, D-11 |
@@ -335,11 +335,11 @@ Analisis bersih, **151 tes lulus**, dan **60 render** empat keadaan × tiga baha
 
 **Sumber:** catatan tambahan paragraf 2.
 
-- [ ] **KIFC-G02.01** Usulkan bagian yang memperoleh manfaat dari gerakan; bedakan animasi pembelajaran dari dekorasi.
-- [ ] **KIFC-G02.02** Kajilah animasi 3D **atau** video sebagai kandidat latar pada bagian yang sesuai; dokumen meminta pertimbangan, bukan mewajibkan keduanya atau seluruh layar memakai video.
+- [x] **KIFC-G02.01** Usulkan bagian yang memperoleh manfaat dari gerakan; bedakan animasi pembelajaran dari dekorasi.
+- [x] **KIFC-G02.02** Kajilah animasi 3D **atau** video sebagai kandidat latar pada bagian yang sesuai; dokumen meminta pertimbangan, bukan mewajibkan keduanya atau seluruh layar memakai video.
 - [ ] **KIFC-G02.03** Catat aset, ukuran file, ketersediaan offline, dukungan perangkat, dan hasil ukur performa sebelum memilih pendekatan.
-- [ ] **KIFC-G02.04** Pastikan gerakan halus dan tidak mengganggu keterbacaan teks; sediakan tampilan statis yang layak bila gerakan dikurangi atau pemutaran gagal.
-- [ ] **KIFC-G02.05** Bahas D-08 sebelum menghidupkan kembali efek dekoratif terus-menerus. Fog sebelumnya diminta dihapus karena tidak terlihat dan performa emulator pernah dikeluhkan.
+- [x] **KIFC-G02.04** Pastikan gerakan halus dan tidak mengganggu keterbacaan teks; sediakan tampilan statis yang layak bila gerakan dikurangi atau pemutaran gagal.
+- [x] **KIFC-G02.05** Bahas D-08 sebelum menghidupkan kembali efek dekoratif terus-menerus. Fog sebelumnya diminta dihapus karena tidak terlihat dan performa emulator pernah dikeluhkan.
 
 **Kriteria penerimaan:** arah gerakan disepakati, media berjalan pada perangkat sasaran, teks tetap jelas, dan tidak muncul penurunan respons sentuhan yang mengganggu.
 
@@ -473,4 +473,6 @@ Empat keadaan layar direvisi tanpa mengubah urutan. Panel diperbesar, dropzone d
 ### Commit dan bukti 24 Oktober
 
 - `2f17fc2` — checkpoint revisi terdahulu yang semula belum di-commit, termasuk empat layar Babak1 sesuai mockup. 170 tes lulus; [bukti Babak1](../../docs/client-revisions/2026-10-23/chapter1-mockup-review-2026-10-24.md). Commit ini sengaja mengelompokkan akumulasi lama; tiket berikutnya dicatat terpisah.
-- KIFC-10 — enam dampak/foto, terjemahan, ulasan, bonus berlabel dampak, dan timer30 detik sementara diterapkan. 185 tes lulus; [60 render, verifikasi dan batas bukti](../../docs/client-revisions/2026-10-23/kifc-10-impact-review.md). KIFC-10.05 tetap terbuka untuk durasi final pada TV fisik; D-07 tetap terbuka untuk aturan akhir.
+- `2f2cb9b` — KIFC-10: enam dampak/foto, terjemahan, ulasan, bonus berlabel dampak, dan timer30 detik sementara diterapkan. 185 tes lulus; [60 render, verifikasi dan batas bukti](../../docs/client-revisions/2026-10-23/kifc-10-impact-review.md). KIFC-10.05 tetap terbuka untuk durasi final pada TV fisik; D-07 tetap terbuka untuk aturan akhir.
+
+- KIFC-G02 — audit gerakan dan fallback poster saat rekaman gagal dimuat.20 tes terarah lulus, analisis bersih, [bukti15 kombinasi ukuran/bahasa dan fallback](../../docs/client-revisions/2026-10-23/kifc-g02-motion-review.md). G02.03 masih menunggu pengukuran performa TV; tidak ada fog/audio baru.

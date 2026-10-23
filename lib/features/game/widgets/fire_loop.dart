@@ -70,6 +70,17 @@ class _FireLoopState extends State<FireLoop> with WidgetsBindingObserver {
                 filterQuality: FilterQuality.medium,
                 gaplessPlayback: true,
                 excludeFromSemantics: true,
+                // A missing/unsupported recording must not replace the lesson
+                // with a red error tile. Its keyed still uses the same framing.
+                errorBuilder: reduced
+                    ? null
+                    : (context, error, stackTrace) => Image.asset(
+                        widget.poster,
+                        fit: BoxFit.contain,
+                        alignment: Alignment.bottomCenter,
+                        filterQuality: FilterQuality.medium,
+                        excludeFromSemantics: true,
+                      ),
               ),
             ),
           ),
