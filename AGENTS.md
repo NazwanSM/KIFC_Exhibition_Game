@@ -1,5 +1,10 @@
 # KIFC Fire Prevention Challenge
 
+## Weekly progress reports
+
+- Before preparing a weekly report, read `docs/weekly-reports/README.md` and the finalized Indonesian and English PDFs in `docs/weekly-reports/week-01/`. These user-supplied final reports are the primary reference for subsequent reports and supersede earlier drafts.
+- Preserve the finalized reference PDFs. Verify each new reporting period against project conversations, Git history, revision tracking, and recorded checks; do not carry forward completion claims or dates without evidence.
+
 ## Exhibition interaction context
 
 - This application runs on a portrait Android TV touchscreen at an exhibition.
@@ -7,6 +12,14 @@
 - Do not treat the interface as distant signage or sacrifice useful wording solely to make it readable from far away.
 - Prioritize comfortable close-range reading, clear touch targets, natural instructions, and feedback that can be understood during play.
 - For large portrait viewports, keep shared stage controls in the centered `TouchscreenArea` instead of spreading them to the panel edges. The 84% height is provisional until panel dimensions and mounting height are known; reserve bottom space for controls rather than shrinking the entire interface excessively. Backgrounds still fill the display; cropped feedback mascots must reach the physical bottom. Do not equate viewport tests with physical reach validation.
+
+## Visual evidence for each client revision
+
+- The project owner requests screenshots for every revision, across multiple portrait viewport sizes, with particular attention to the 42-inch exhibition TV.
+- Capture the actual Flutter UI, inspect the images, and give the owner clickable screenshot links or previews. Include 1080x1920 and 2160x3840 TV simulations, with smaller portrait comparisons; check all three languages when text or layout changes.
+- Record the screenshot source and viewport dimensions. Label widget renders, browser screenshots, emulator captures, and photographs of physical hardware accurately. Screen resolution alone does not prove physical reach on a 42-inch TV.
+- Keep an evidence index per revision. Preserve existing screenshot folders when rebuilding; avoid cleaning away review artifacts.
+- After adding image files, fully restart the Flutter web server and verify each new asset in its served manifest and HTTP responses. Hot restart alone can leave the running web asset bundle stale; passing widget renders does not verify browser asset delivery.
 
 ## Indonesian copy rules
 
@@ -29,6 +42,11 @@
 - Animate meaningful changes gently: each newly placed fire element changes the scene, and visible flame appears only when heat, fuel, and oxygen are all present. Reducing an element makes the flame recede.
 - Bundle every visual needed at runtime for offline Android use. Record photographer or creator, source URL, and license in `ASSET_SOURCES.md`; do not introduce paid assets without telling the project owner.
 - Fill photo cards edge to edge using uniform zoom and cropping (`BoxFit.cover`), with a suitable focal point for each subject. Preserve native proportions: never stretch width and height independently. The owner prefers cropped, full-bleed photos over contain/letterboxing; do not add empty side bands or a dark mat to preserve the whole source image.
-- Present Chapter 1 fire elements as three equally ranked cards in one row, without triangle vertices or connector lines. Retain the term fire triangle in the concept explanation. Keep the shared panel at 190 logical pixels across assembly, explanation, and reduction; reducing an element changes the flame and card state, never the panel dimensions. Element cards and draggable choices keep the same 1.8:1 aspect ratio.
+- Present Chapter 1 fire elements as three equally ranked cards in one row, without triangle vertices or connector lines. Retain the term fire triangle in the concept explanation. Following the 24 October mockups, keep the shared panel at 248 logical pixels (216 on compact viewports) across assembly, explanation, and reduction; reducing an element changes the flame and card state, never the panel dimensions. Element cards and draggable choices keep the same 1.8:1 aspect ratio.
+- In the Chapter 1 assembly activity, empty placeholders have no element/category labels. Any distinct valid fire element may fill any empty placeholder; there are no hidden category positions. Reveal the chosen element's category only after placement. Decoys and duplicates never count toward completion. Use a large half-body feedback mascot at the viewport bottom with its reading bubble raised above the edge.
 - Chapter 2 karhutla is a reading sequence with a mascot and short speech cards, advanced manually. Do not add hotspots, quizzes, or required object selection to these explanation cards. The separate risk question follows the reading sequence.
 - Use a clearly readable air cue for oxygen, and explain that oxygen is present in air. A windsock represents moving air; it is not a visible photograph of oxygen and does not imply wind is required for a fire.
+
+## Revision commits
+
+- Commit each completed revision ticket separately and record the commit hash in the revision tracker. Preserve unrelated owner files and weekly reports. The initial October24 checkpoint groups the earlier uncommitted screen work; later tickets must remain separate.

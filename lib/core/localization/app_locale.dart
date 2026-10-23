@@ -134,7 +134,15 @@ abstract final class AppCopy {
   }
 
   static TextStyle? koreanStyle(TextStyle? style) => locale == AppLocale.korean
-      ? (style ?? const TextStyle()).copyWith(fontFamily: 'NotoSansKR')
+      ? (style ?? const TextStyle()).copyWith(
+          fontFamily: 'NotoSansKR',
+          fontVariations: [
+            FontVariation(
+              'wght',
+              (style?.fontWeight ?? FontWeight.w400).value.toDouble(),
+            ),
+          ],
+        )
       : style;
 }
 
@@ -196,6 +204,61 @@ class LocalizedText extends StatelessWidget {
 }
 
 const Map<String, String> _korean = <String, String>{
+  'Sentuh di mana saja untuk lanjut.': '화면 어디든 터치하면 계속해요.',
+  'Tap anywhere to continue.': '화면 어디든 터치하면 계속해요.',
+  'Api Dapat Muncul Saat Tiga Unsur Bertemu': '세 요소가 만나면 불이 날 수 있어요',
+  'Fire Can Start When Three Elements Meet': '세 요소가 만나면 불이 날 수 있어요',
+  'Kebakaran dapat terjadi di mana saja jika panas yang cukup, bahan bakar, dan oksigen bertemu.':
+      '충분한 열, 연료, 산소가 만나면 어디서든 불이 날 수 있어요.',
+  'Fire can occur anywhere when sufficient heat, fuel, and oxygen meet.':
+      '충분한 열, 연료, 산소가 만나면 어디서든 불이 날 수 있어요.',
+  'Kebakaran dapat terjadi ketika panas yang cukup, bahan bakar, dan oksigen bertemu. Aktivitas manusia dapat mempertemukan ketiga unsur tersebut. Karena itu, pencegahan penting dilakukan agar kebakaran tidak terjadi.':
+      '충분한 열, 연료, 산소가 만나면 불이 날 수 있어요. 사람의 활동으로 이 세 요소가 한곳에 모일 수 있어요. 그래서 불이 나지 않도록 미리 예방하는 것이 중요해요.',
+  'Fire can occur when sufficient heat, fuel, and oxygen meet. Human activity can bring these three elements together. Prevention helps keep a fire from starting.':
+      '충분한 열, 연료, 산소가 만나면 불이 날 수 있어요. 사람의 활동으로 이 세 요소가 한곳에 모일 수 있어요. 그래서 불이 나지 않도록 미리 예방하는 것이 중요해요.',
+  'Choose three elements.': '불의 세 요소를 고르세요.',
+  'Pilih tiga unsur api.': '불의 세 요소를 고르세요.',
+  'Drag the right photos into the empty spaces.': '알맞은 사진 세 장을 빈칸으로 드래그하세요.',
+  'Seret tiga foto yang tepat ke tempat kosong.': '알맞은 사진 세 장을 빈칸으로 드래그하세요.',
+  'This photo is already in place. Try another photo.':
+      '이미 놓은 사진이에요. 다른 사진을 골라보세요.',
+  'Foto ini sudah terpasang. Coba foto lain.': '이미 놓은 사진이에요. 다른 사진을 골라보세요.',
+  'Sparks': '불꽃',
+  'Percikan api': '불꽃',
+  'Stone': '돌',
+  'Batu': '돌',
+  'Drag each photo to the matching element.': '각 사진을 알맞은 요소로 드래그하세요.',
+  'Seret setiap foto ke unsur yang sesuai.': '각 사진을 알맞은 요소로 드래그하세요.',
+  'Find all three elements to start the fire.': '불이 붙는 데 필요한 세 가지 요소를 찾아보세요.',
+  'Temukan ketiga unsur agar api menyala.': '불이 붙는 데 필요한 세 가지 요소를 찾아보세요.',
+  'That fits. Find the remaining elements.': '잘 맞혔어요. 나머지 요소도 찾아보세요.',
+  'Sudah cocok. Temukan unsur lainnya.': '잘 맞혔어요. 나머지 요소도 찾아보세요.',
+  'Water is not one of the elements of the fire triangle.':
+      '물은 불의 삼요소 중 하나가 아니에요.',
+  'Air bukan salah satu unsur dalam Segitiga Api.': '물은 불의 삼요소 중 하나가 아니에요.',
+  'Rain is not one of the elements of the fire triangle.':
+      '비는 불의 삼요소 중 하나가 아니에요.',
+  'Hujan bukan salah satu unsur dalam Segitiga Api.': '비는 불의 삼요소 중 하나가 아니에요.',
+  'Stone is not an element of the fire triangle.': '돌은 불의 삼요소에 해당하지 않아요.',
+  'Batu bukan unsur yang dicari dalam Segitiga Api.': '돌은 불의 삼요소에 해당하지 않아요.',
+  'Sparks carry heat. Place them in Heat.': '불꽃은 열을 내요. 열 칸에 놓아보세요.',
+  'Percikan api membawa panas. Letakkan pada unsur Panas.':
+      '불꽃은 열을 내요. 열 칸에 놓아보세요.',
+  'Dry wood is fuel. Place it in Fuel.': '마른 나무는 연료예요. 연료 칸에 놓아보세요.',
+  'Kayu kering menjadi bahan bakar. Letakkan pada unsur Bahan bakar.':
+      '마른 나무는 연료예요. 연료 칸에 놓아보세요.',
+  'Oxygen is present in air, even without wind. Place it in Oxygen.':
+      '바람이 불지 않아도 공기에는 산소가 있어요. 산소 칸에 놓아보세요.',
+  'Oksigen ada dalam udara, meski tidak ada angin. Letakkan pada unsur Oksigen.':
+      '바람이 불지 않아도 공기에는 산소가 있어요. 산소 칸에 놓아보세요.',
+  'Correct! Fire can start when sufficient heat, fuel, and oxygen meet. These three elements form the fire triangle. Reducing any one of them can help control fire.':
+      '맞아요! 충분한 열과 연료, 산소가 만나면 불이 붙을 수 있어요. 이 세 가지를 불의 삼요소라고 해요. 그중 하나를 줄이면 불을 통제하는 데 도움이 돼요.',
+  'Tepat! Api dapat menyala ketika panas yang cukup, bahan bakar, dan oksigen bertemu. Ketiga unsur ini disebut Segitiga Api. Mengurangi salah satu unsur dapat membantu mengendalikan api.':
+      '맞아요! 충분한 열과 연료, 산소가 만나면 불이 붙을 수 있어요. 이 세 가지를 불의 삼요소라고 해요. 그중 하나를 줄이면 불을 통제하는 데 도움이 돼요.',
+  'Choose one answer.': '답을 하나 골라 보세요.',
+  'Pilih satu jawaban.': '답을 하나 골라 보세요.',
+  'Fire beneath the ground': '땅속에서 타는 불',
+  'Api di bawah permukaan tanah': '땅속에서 타는 불',
   'KIFC EXHIBITION ROOM / MANGGALA AGNI': 'KIFC 전시관 / 망갈라 아그니',
   'Calm waterways · protected vegetation': '고요한 수로와 보호받는 숲',
   'Hutan gambut dan aliran air': '이탄지 숲과 물길',
@@ -208,6 +271,40 @@ const Map<String, String> _korean = <String, String>{
   'Mulai Tantangan': '도전 시작',
   'Tap to begin': '눌러서 시작하기',
   'Ketuk untuk memulai': '눌러서 시작하기',
+  'CHAPTER 2 / PEAT SWAMP FOREST': '2장 / 이탄습지 숲',
+  'BABAK 2 / HUTAN RAWA GAMBUT': '2장 / 이탄습지 숲',
+  'In which type of forest can fire smolder beneath the ground surface, making it difficult to extinguish?':
+      '어느 유형의 숲에서 불이 땅속 아래에서 연소되어 진압하기 어려울까요?',
+  'Pada jenis hutan manakah kebakaran dapat membara di bawah permukaan tanah sehingga sulit dipadamkan?':
+      '어느 유형의 숲에서 불이 땅속 아래에서 연소되어 진압하기 어려울까요?',
+  'Choose the forest type that has a peat layer.': '이탄층이 있는 숲 유형을 선택하세요.',
+  'Pilih jenis hutan yang memiliki lapisan gambut.': '이탄층이 있는 숲 유형을 선택하세요.',
+  'A. Hutan mangrove': 'A. 맹그로브 숲',
+  'A. Mangrove forest': 'A. 맹그로브 숲',
+  'B. Hutan rawa gambut': 'B. 이탄습지 숲',
+  'B. Peat swamp forest': 'B. 이탄습지 숲',
+  'C. Hutan pada tanah mineral': 'C. 광질토양 숲',
+  'C. Forest on mineral soil': 'C. 광질토양 숲',
+  'Hutan mangrove': '맹그로브 숲',
+  'Mangrove forest': '맹그로브 숲',
+  'Hutan rawa gambut': '이탄습지 숲',
+  'Peat swamp forest': '이탄습지 숲',
+  'Hutan pada tanah mineral': '광질토양 숲',
+  'Forest on mineral soil': '광질토양 숲',
+  'Start Quiz': '퀴즈 시작',
+  'Mulai Kuis': '퀴즈 시작',
+  'Tepat! Kebakaran di hutan rawa gambut yang mengering sulit dipadamkan karena api dapat membara di bawah permukaan tanah. Bara sulit terdeteksi dan dapat memicu api kembali meskipun api di permukaan sudah padam.':
+      '맞아요! 메마른 이탄습지 숲의 화재는 불씨가 지표면 아래에서 타들어 갈 수 있어 진압하기 어려워요. 땅속의 불씨는 발견하기 어렵고, 지표면의 불이 꺼진 뒤에도 다시 불길을 일으킬 수 있어요.',
+  'Correct! Fires in dried-out peat swamp forests are difficult to extinguish because fire can smolder beneath the ground surface. Embers are hard to detect and can rekindle flames even after the surface fire is out.':
+      '맞아요! 메마른 이탄습지 숲의 화재는 불씨가 지표면 아래에서 타들어 갈 수 있어 진압하기 어려워요. 땅속의 불씨는 발견하기 어렵고, 지표면의 불이 꺼진 뒤에도 다시 불길을 일으킬 수 있어요.',
+  'Belum tepat. Coba ingat jenis hutan yang memiliki lapisan tanah organik tebal. Api dapat membara di dalam lapisan tersebut sehingga sulit dipadamkan.':
+      '아직 아니에요. 유기물 토양층이 두껍게 쌓인 숲 유형을 떠올려 보세요. 불길이 그 층 안에서 타들어가 진압하기 어려워요.',
+  'Not quite. Think about the forest type with a thick organic soil layer. Fire can smolder inside that layer, making it difficult to extinguish.':
+      '아직 아니에요. 유기물 토양층이 두껍게 쌓인 숲 유형을 떠올려 보세요. 불길이 그 층 안에서 타들어가 진압하기 어려워요.',
+  'Jawaban yang tepat adalah hutan rawa gambut. Api dapat membara di dalam lapisan tanah organik tebal di bawah permukaan sehingga sulit dipadamkan.':
+      '정답은 이탄습지 숲이에요. 지표면 아래 두꺼운 유기물 층에서 불씨가 타들어 갈 수 있어 진압하기 어려워요.',
+  'The correct answer is peat swamp forest. Fire can smolder beneath the ground in thick organic soil, making it hard to extinguish.':
+      '정답은 이탄습지 숲이에요. 지표면 아래 두꺼운 유기물 층에서 불씨가 타들어 갈 수 있어 진압하기 어려워요.',
   'CHAPTER 2 / SCAN THE RISK': '2장 / 위험 살펴보기',
   'BABAK 2 / KENALI RISIKONYA': '2장 / 위험 살펴보기',
   'Where could fire start more easily?': '어디에서 불이 더 쉽게 날까요?',
@@ -224,6 +321,30 @@ const Map<String, String> _korean = <String, String>{
       '아직 아니에요. 마른 연료와 불을 붙일 수 있는 원인을 찾아보세요. 한 번 더 선택할 수 있어요.',
   'Belum tepat. Cari bahan yang kering dan sumber api yang bisa menyulutnya. Kamu masih punya satu kesempatan lagi.':
       '아직 아니에요. 마른 연료와 불을 붙일 수 있는 원인을 찾아보세요. 한 번 더 선택할 수 있어요.',
+  'Tapi, Apa Itu Kebakaran Hutan?': '산불이란 무엇일까요?',
+  'What Is a Forest Fire?': '산불이란 무엇일까요?',
+  'Mengapa Kebakaran Hutan Bisa Terjadi?': '산불은 왜 일어날까요?',
+  'Why Do Forest Fires Happen?': '산불은 왜 일어날까요?',
+  'Kebakaran hutan dapat terjadi ketika tiga unsur api bertemu.':
+      '불의 세 요소가 만나면 산불이 발생할 수 있어요.',
+  'A forest fire can occur when the three elements of fire meet.':
+      '불의 세 요소가 만나면 산불이 발생할 수 있어요.',
+  'Mengapa Kebakaran Hutan Perlu Kita Cegah?': '산불을 왜 예방해야 할까요?',
+  'Why Must We Prevent Forest Fires?': '산불을 왜 예방해야 할까요?',
+  'Kebakaran hutan adalah peristiwa terbakarnya vegetasi dan bahan organik di kawasan hutan, dengan api yang menyebar secara bebas dan tidak terkendali.':
+      '산불은 산림에서 식생과 유기물이 타는 현상으로, 불길이 자유롭고 통제할 수 없게 번져 나가는 것을 말해요.',
+  'A forest fire is the burning of vegetation and organic matter in a forest area, with flames spreading freely and uncontrollably.':
+      '산불은 산림에서 식생과 유기물이 타는 현상으로, 불길이 자유롭고 통제할 수 없게 번져 나가는 것을 말해요.',
+  'Kebakaran hutan dapat terjadi ketika panas yang cukup, bahan bakar, dan oksigen bertemu dalam kondisi yang memungkinkan api menyala. Aktivitas manusia dapat mempertemukan ketiga unsur tersebut sehingga meningkatkan risiko kebakaran.':
+      '산불은 충분한 열, 연료, 산소가 불이 붙을 수 있는 조건에서 만날 때 발생해요. 사람의 활동은 이 세 요소를 만나게 하여 산불 위험을 높일 수 있어요.',
+  'A forest fire can occur when sufficient heat, fuel, and oxygen meet under conditions that allow fire to ignite. Human activities can bring these three elements together, increasing the risk of fire.':
+      '산불은 충분한 열, 연료, 산소가 불이 붙을 수 있는 조건에서 만날 때 발생해요. 사람의 활동은 이 세 요소를 만나게 하여 산불 위험을 높일 수 있어요.',
+  'Kebakaran hutan merusak lingkungan dan menimbulkan kerugian ekologis, ekonomi, sosial budaya, serta politik. Kerusakan tersebut mengganggu kemampuan hutan untuk menjalankan fungsinya dengan baik.':
+      '산불은 환경을 파괴하고 생태적, 경제적, 사회문화적, 정치적 피해를 일으켜요. 이러한 피해는 숲이 제 기능을 제대로 수행하는 능력을 방해해요.',
+  'Forest fires damage the environment and cause ecological, economic, socio-cultural, and political losses. Such damage disrupts the forest’s ability to perform its functions properly.':
+      '산불은 환경을 파괴하고 생태적, 경제적, 사회문화적, 정치적 피해를 일으켜요. 이러한 피해는 숲이 제 기능을 제대로 수행하는 능력을 방해해요.',
+  'Mencegah Kebakaran Lebih Baik daripada Memadamkan.': '화재 예방이 진압보다 낫습니다.',
+  'Preventing Fires Is Better Than Fighting Them.': '화재 예방이 진압보다 낫습니다.',
   'What is a forest fire?': '산불이란 무엇일까요?',
   'Apa itu karhutla?': '산불이란 무엇일까요?',
   'Why does it matter?': '왜 예방해야 할까요?',

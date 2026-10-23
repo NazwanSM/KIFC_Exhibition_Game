@@ -11,7 +11,8 @@ class TouchscreenArea extends StatelessWidget {
   final bool bottom;
 
   static bool isCenteredOf(BuildContext context) =>
-      context.dependOnInheritedWidgetOfExactType<_CenteredTouchscreen>() != null;
+      context.dependOnInheritedWidgetOfExactType<_CenteredTouchscreen>() !=
+      null;
 
   @override
   Widget build(BuildContext context) => SafeArea(

@@ -93,4 +93,48 @@ void main() {
       }
     }
   });
+
+  test(
+    'translates Chapter 2 reading cards and closing score banner to Korean',
+    () {
+      expect(
+        AppCopy.translate('Tapi, Apa Itu Kebakaran Hutan?'),
+        '산불이란 무엇일까요?',
+      );
+      expect(AppCopy.translate('What Is a Forest Fire?'), '산불이란 무엇일까요?');
+      expect(
+        AppCopy.translate('Mengapa Kebakaran Hutan Bisa Terjadi?'),
+        '산불은 왜 일어날까요?',
+      );
+      expect(AppCopy.translate('Why Do Forest Fires Happen?'), '산불은 왜 일어날까요?');
+      expect(
+        AppCopy.translate(
+          'Kebakaran hutan dapat terjadi ketika tiga unsur api bertemu.',
+        ),
+        '불의 세 요소가 만나면 산불이 발생할 수 있어요.',
+      );
+      expect(
+        AppCopy.translate(
+          'A forest fire can occur when the three elements of fire meet.',
+        ),
+        '불의 세 요소가 만나면 산불이 발생할 수 있어요.',
+      );
+      expect(
+        AppCopy.translate('Mengapa Kebakaran Hutan Perlu Kita Cegah?'),
+        '산불을 왜 예방해야 할까요?',
+      );
+      expect(
+        AppCopy.translate('Why Must We Prevent Forest Fires?'),
+        '산불을 왜 예방해야 할까요?',
+      );
+      expect(
+        AppCopy.translate('Mencegah Kebakaran Lebih Baik daripada Memadamkan.'),
+        '화재 예방이 진압보다 낫습니다.',
+      );
+      expect(
+        AppCopy.translate('Preventing Fires Is Better Than Fighting Them.'),
+        '화재 예방이 진압보다 낫습니다.',
+      );
+    },
+  );
 }

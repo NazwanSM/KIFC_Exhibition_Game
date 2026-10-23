@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'dart:math' as math;
-import 'dart:ui' show ImageFilter;
+import 'dart:ui' show FontVariation, ImageFilter;
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import '../../core/localization/app_locale.dart';
 import '../../core/theme/kifc_theme.dart';
 import 'widgets/environment_motion.dart';
+import 'widgets/forest_fire_simulation.dart';
 import 'widgets/game_photo.dart';
 import 'widgets/game_mascot.dart';
 import 'widgets/touchscreen_area.dart';
@@ -29,7 +30,12 @@ String _points(num value, bool english) {
       : text.replaceAll('.', ',');
 }
 
-typedef _CauseScenario = ({String text, bool human, String photo, String reason});
+typedef _CauseScenario = ({
+  String text,
+  bool human,
+  String photo,
+  String reason,
+});
 
 /// Four trigger situations for Chapter 3. Lightning is the only natural one.
 List<_CauseScenario> _causeScenarios(bool english) => <_CauseScenario>[
@@ -76,8 +82,17 @@ List<_CauseScenario> _causeScenarios(bool english) => <_CauseScenario>[
 ];
 
 class ExhibitionGame extends StatefulWidget {
-  const ExhibitionGame({super.key, this.stopwatchFactory = Stopwatch.new});
+  const ExhibitionGame({
+    super.key,
+    this.stopwatchFactory = Stopwatch.new,
+    this.initialPage,
+    this.initialCardIndex,
+    this.initialLocale,
+  });
   final Stopwatch Function() stopwatchFactory;
+  final String? initialPage;
+  final int? initialCardIndex;
+  final AppLocale? initialLocale;
 
   @override
   State<ExhibitionGame> createState() => _ExhibitionGameState();
@@ -91,6 +106,7 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
   bool _riskRevealed = false;
   final Map<_FireSlot, _FirePiece> _triangle = <_FireSlot, _FirePiece>{};
   bool? _lastDropCorrect;
+  _FirePiece? _lastDroppedPiece;
   final Set<_FireSlot> _breakTried = <_FireSlot>{};
   _FireSlot? _breakChoice;
   int _causeIndex = 0;
@@ -113,6 +129,24 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
   bool _preparingFinal = false;
   int _preparationTicket = 0;
   int _idleSeconds = 15;
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.initialLocale != null) {
+      _locale = widget.initialLocale!;
+      AppCopy.locale = widget.initialLocale!;
+    }
+    if (widget.initialPage != null) {
+      _page = _Page.values.firstWhere(
+        (p) => p.name == widget.initialPage,
+        orElse: () => _Page.welcome,
+      );
+    }
+    if (widget.initialCardIndex != null) {
+      _karhutlaCardIndex = widget.initialCardIndex!;
+    }
+  }
 
   bool get _en => _locale == AppLocale.english;
   int get _trianglePoints => _triangle.length;
@@ -150,6 +184,7 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
           case _Page.triangleBuild:
             _triangle.clear();
             _lastDropCorrect = null;
+            _lastDroppedPiece = null;
           case _Page.breakTriangle:
             _breakTried.clear();
             _breakChoice = null;
@@ -178,12 +213,16 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
   /// Runs [action] after feedback has had time to be read, unless the visitor
   /// navigates away or the session restarts first. Long feedback carries the
   /// correct answer and its reason, so it stays on screen longer.
-  void _scheduleAdvance(VoidCallback action, {required bool long}) {
+  void _scheduleAdvance(
+    VoidCallback action, {
+    required bool long,
+    Duration? readingTime,
+  }) {
     _autoAdvance?.cancel();
     final token = ++_advanceToken;
     _autoAdvance = Timer(
       // Reading time remains available when decorative motion is disabled.
-      Duration(milliseconds: long ? 4500 : 2000),
+      readingTime ?? Duration(milliseconds: long ? 4500 : 2000),
       () {
         if (!mounted || token != _advanceToken) return;
         action();
@@ -222,6 +261,7 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
       _riskRevealed = false;
       _triangle.clear();
       _lastDropCorrect = null;
+      _lastDroppedPiece = null;
       _breakTried.clear();
       _breakChoice = null;
       _causeIndex = 0;
@@ -242,12 +282,17 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
   void _dropPiece(_FireSlot slot, _FirePiece piece) {
     if (_triangle.containsKey(slot)) return;
     setState(() {
-      final correct = piece.slot == slot;
+      final correct = piece.slot != null && !_triangle.values.contains(piece);
       _lastDropCorrect = correct;
+      _lastDroppedPiece = piece;
       if (correct) _triangle[slot] = piece;
     });
     if (_triangle.length == 3) {
-      _scheduleAdvance(() => _go(_Page.triangleExplanation), long: false);
+      _scheduleAdvance(
+        () => _go(_Page.triangleExplanation),
+        long: true,
+        readingTime: const Duration(seconds: 14),
+      );
     }
   }
 
@@ -258,38 +303,63 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
     setState(() {
       _triangle.clear();
       _lastDropCorrect = null;
+      _lastDroppedPiece = null;
       _breakChoice = null;
       _breakTried.clear();
     });
   }
 
+  void _continueAssembly() {
+    if (_page != _Page.triangleBuild || _triangle.length != 3) return;
+    _go(_Page.triangleExplanation);
+  }
+
   void _chooseBreak(_FireSlot slot) {
-    if (_breakTried.contains(slot)) return;
+    if (_breakChoice == slot) return;
     setState(() {
       _breakChoice = slot;
       _breakTried.add(slot);
     });
     // The demo is unscored; it moves on once all three elements are explored.
     if (_breakTried.length == _FireSlot.values.length) {
-      _scheduleAdvance(() => _go(_Page.karhutlaCards), long: false);
+      _scheduleAdvance(
+        () => _go(_Page.karhutlaCards),
+        long: false,
+        readingTime: const Duration(milliseconds: 2600),
+      );
     }
   }
 
   void _chooseRisk(_RiskOption option) {
-    if (_riskRevealed || _riskAnswer == option ||
-        _riskAnswer == _RiskOption.dryVegetationWithIgnition) {
+    if (_riskRevealed ||
+        _riskAnswer == option ||
+        _riskAnswer == _RiskOption.peatSwamp) {
       return;
     }
-    final correct = option == _RiskOption.dryVegetationWithIgnition;
+    final correct = option == _RiskOption.peatSwamp;
     setState(() {
       _riskAnswer = option;
       if (!correct) _riskWrong++;
       if (_riskWrong >= 2) _riskRevealed = true;
     });
     if (correct) {
-      _scheduleAdvance(() => _go(_Page.causeQuiz), long: false);
+      _scheduleAdvance(
+        () => _go(_Page.causeQuiz),
+        long: true,
+        readingTime: const Duration(seconds: 18),
+      );
     } else if (_riskRevealed) {
-      _scheduleAdvance(() => _go(_Page.causeQuiz), long: true);
+      _scheduleAdvance(
+        () => _go(_Page.causeQuiz),
+        long: true,
+        readingTime: const Duration(seconds: 12),
+      );
+    }
+  }
+
+  void _continueRisk() {
+    if (_page == _Page.risk && _riskAnswer == _RiskOption.peatSwamp) {
+      _go(_Page.causeQuiz);
     }
   }
 
@@ -314,7 +384,9 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
   }
 
   void _chooseStop(_PreventionAction action) {
-    if (_stopRevealed || _stopAnswer == action || _stopAnswer?.correct == true) {
+    if (_stopRevealed ||
+        _stopAnswer == action ||
+        _stopAnswer?.correct == true) {
       return;
     }
     setState(() {
@@ -374,7 +446,8 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
       }
       final remainingExact = math.max(
         0.0,
-        10 - _finalClock.elapsed.inMicroseconds / Duration.microsecondsPerSecond,
+        10 -
+            _finalClock.elapsed.inMicroseconds / Duration.microsecondsPerSecond,
       );
       // Update only the ring between integer ticks, using the scoring clock.
       _finalProgress.value = remainingExact / 10;
@@ -414,18 +487,22 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
         answer: _riskAnswer,
         wrongAttempts: _riskWrong,
         onAnswer: _chooseRisk,
+        onContinue: _continueRisk,
         onBack: () => _go(_Page.karhutlaCards),
       ),
       _Page.triangleBuild => _TriangleBuild(
         english: _en,
         pieces: _triangle,
         lastDropCorrect: _lastDropCorrect,
+        lastPiece: _lastDroppedPiece,
         onDrop: _dropPiece,
         onBack: _restart,
         onRestart: _resetTriangle,
+        onContinue: _continueAssembly,
       ),
       _Page.triangleExplanation => _TriangleExplanation(
         english: _en,
+        pieces: _triangle,
         onContinue: () => _go(_Page.breakTriangle),
         onBack: () => _go(_Page.triangleBuild),
       ),
@@ -472,7 +549,8 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
         timerProgress: _finalProgress,
         found: _finalFound,
         onTap: (token) {
-          if (_seconds > 0 && _finalClock.elapsed < const Duration(seconds: 10)) {
+          if (_seconds > 0 &&
+              _finalClock.elapsed < const Duration(seconds: 10)) {
             setState(() {
               if (!_finalFound.remove(token)) _finalFound.add(token);
             });
@@ -542,7 +620,9 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
               );
             },
             child: KeyedSubtree(
-              key: ValueKey(_page == _Page.finalReview ? _Page.finalChallenge : _page),
+              key: ValueKey(
+                _page == _Page.finalReview ? _Page.finalChallenge : _page,
+              ),
               child: page,
             ),
           ),
@@ -569,7 +649,7 @@ enum _Page {
 
 enum _FireSlot { heat, fuel, oxygen }
 
-enum _FirePiece { heat, fuel, oxygen, water, rain, cold }
+enum _FirePiece { heat, fuel, oxygen, water, rain, stone }
 
 extension _FireCopy on _FireSlot {
   String title(bool en) => switch (this) {
@@ -578,9 +658,9 @@ extension _FireCopy on _FireSlot {
     _FireSlot.oxygen => en ? 'Oxygen' : 'Oksigen',
   };
   String get photo => switch (this) {
-    _FireSlot.heat => 'assets/images/field/sunlit-grass.jpg',
+    _FireSlot.heat => 'assets/images/field/ignition-sparks.jpg',
     _FireSlot.fuel => 'assets/images/field/dry-wood-client.jpg',
-    _FireSlot.oxygen => 'assets/images/field/oxygen-air.jpg',
+    _FireSlot.oxygen => 'assets/images/field/oxygen-canopy.jpg',
   };
 }
 
@@ -592,20 +672,38 @@ extension _PieceCopy on _FirePiece {
     _ => null,
   };
   String label(bool en) => switch (this) {
-    _FirePiece.heat => en ? 'Sun heat' : 'Panas matahari',
+    _FirePiece.heat => en ? 'Sparks' : 'Percikan api',
     _FirePiece.fuel => en ? 'Dry wood' : 'Kayu kering',
     _FirePiece.oxygen => en ? 'Oxygen from air' : 'Oksigen dari udara',
     _FirePiece.water => en ? 'Water' : 'Air',
     _FirePiece.rain => en ? 'Rain' : 'Hujan',
-    _FirePiece.cold => en ? 'Cold air' : 'Udara dingin',
+    _FirePiece.stone => en ? 'Stone' : 'Batu',
+  };
+  String wrongPlacement(bool en) => switch (this) {
+    _FirePiece.water =>
+      en
+          ? 'Water is not one of the elements of the fire triangle.'
+          : 'Air bukan salah satu unsur dalam Segitiga Api.',
+    _FirePiece.rain =>
+      en
+          ? 'Rain is not one of the elements of the fire triangle.'
+          : 'Hujan bukan salah satu unsur dalam Segitiga Api.',
+    _FirePiece.stone =>
+      en
+          ? 'Stone is not an element of the fire triangle.'
+          : 'Batu bukan unsur yang dicari dalam Segitiga Api.',
+    _ =>
+      en
+          ? 'This photo is already in place. Try another photo.'
+          : 'Foto ini sudah terpasang. Coba foto lain.',
   };
   String get photo => switch (this) {
-    _FirePiece.heat => 'assets/images/field/sunlit-grass.jpg',
+    _FirePiece.heat => 'assets/images/field/ignition-sparks.jpg',
     _FirePiece.fuel => 'assets/images/field/dry-wood-client.jpg',
-    _FirePiece.oxygen => 'assets/images/field/oxygen-air.jpg',
+    _FirePiece.oxygen => 'assets/images/field/oxygen-canopy.jpg',
     _FirePiece.water => 'assets/images/field/water-surface.jpg',
     _FirePiece.rain => 'assets/images/field/rain-splash.jpg',
-    _FirePiece.cold => 'assets/images/field/cool-mist.jpg',
+    _FirePiece.stone => 'assets/images/field/stone-pebbles.jpg',
   };
 }
 
@@ -624,69 +722,155 @@ class _WelcomePage extends StatelessWidget {
     body: Stack(
       fit: StackFit.expand,
       children: <Widget>[
-        const _Photo(tone: Color(0x9B0C2B1F)),
-        TouchscreenArea(
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(24, 14, 24, 24),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                const _PartnerHeader(dark: true),
-                const SizedBox(height: 14),
-                _LanguagePicker(
-                  locale: locale,
-                  onChanged: onLocale,
-                  contextLabel: locale == AppLocale.english
-                      ? 'Calm waterways · protected vegetation'
-                      : 'Hutan gambut dan aliran air',
-                ),
-                Expanded(
-                  child: Center(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        const LocalizedText(
-                          'KIFC EXHIBITION ROOM / MANGGALA AGNI',
-                          style: TextStyle(color: Colors.white70, fontSize: 10),
-                        ),
-                        const SizedBox(height: 10),
-                        const LocalizedText(
-                          'Fire Prevention\nChallenge',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: 'ArchivoBlack',
-                            fontSize: 36,
-                            height: 1.08,
-                          ),
-                        ),
-                        const SizedBox(height: 11),
-                        _HostConversation(
-                          key: const ValueKey('welcome-conversation'),
-                          pose: MascotPose.welcome,
-                          mascotOnRight: false,
-                          text: locale == AppLocale.english
-                              ? 'Hello! Discover how fires start and what we can do to protect the forest.'
-                              : 'Halo! Yuk, kenali penyebab kebakaran dan cari tahu cara menjaga hutan dari api.',
-                        ),
-                        const SizedBox(height: 8),
-                        _Primary(
-                          label: locale == AppLocale.english
-                              ? 'Start Challenge'
-                              : 'Mulai Tantangan',
-                          icon: Icons.play_arrow_rounded,
-                          large: true,
-                          onPressed: onStart,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+        const _Photo(tone: Color(0x380C2B1F)),
+        const DecoratedBox(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              stops: [0, .18, .36, .58, .83, 1],
+              colors: [
+                Color(0x000C2B1F),
+                Color(0x100C2B1F),
+                Color(0x820C2B1F),
+                Color(0x700C2B1F),
+                Color(0x180C2B1F),
+                Color(0x000C2B1F),
               ],
             ),
           ),
         ),
+        TouchscreenArea(
+          child: LayoutBuilder(
+            builder: (context, bounds) {
+              final compact = bounds.maxHeight < 680;
+              return Padding(
+                padding: const EdgeInsets.fromLTRB(24, 14, 24, 24),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    const _PartnerHeader(dark: true),
+                    const SizedBox(height: 14),
+                    _LanguagePicker(
+                      locale: locale,
+                      onChanged: onLocale,
+                      contextLabel: locale == AppLocale.english
+                          ? 'Calm waterways · protected vegetation'
+                          : 'Hutan gambut dan aliran air',
+                    ),
+                    Expanded(
+                      child: Center(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            const LocalizedText(
+                              'KIFC EXHIBITION ROOM / MANGGALA AGNI',
+                              style: TextStyle(
+                                color: Color(0xDEFFFFFF),
+                                fontSize: 9,
+                                fontWeight: FontWeight.w600,
+                                letterSpacing: .8,
+                              ),
+                            ),
+                            const SizedBox(height: 8),
+                            LocalizedText(
+                              key: const ValueKey('welcome-title'),
+                              'Fire Prevention\nChallenge',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: 'ArchivoBlack',
+                                fontSize: compact ? 34 : 38,
+                                fontWeight: FontWeight.w800,
+                                letterSpacing: -.8,
+                                height: 1.06,
+                                shadows: const [
+                                  Shadow(
+                                    color: Colors.black26,
+                                    offset: Offset(0, 2),
+                                    blurRadius: 8,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(height: compact ? 18 : 24),
+                            _HostConversation(
+                              key: const ValueKey('welcome-conversation'),
+                              opening: true,
+                              height: compact ? 180 : 216,
+                              pose: MascotPose.welcome,
+                              mascotOnRight: false,
+                              text: locale == AppLocale.english
+                                  ? 'Hello! Discover how fires start and what we can do to protect the forest.'
+                                  : 'Halo! Yuk, kenali penyebab kebakaran dan cari tahu cara menjaga hutan dari api.',
+                            ),
+                            SizedBox(height: compact ? 16 : 20),
+                            _WelcomeStartButton(
+                              label: locale == AppLocale.english
+                                  ? 'Start Challenge'
+                                  : 'Mulai Tantangan',
+                              onPressed: onStart,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+        ),
       ],
+    ),
+  );
+}
+
+class _WelcomeStartButton extends StatefulWidget {
+  const _WelcomeStartButton({required this.label, required this.onPressed});
+
+  final String label;
+  final VoidCallback onPressed;
+
+  @override
+  State<_WelcomeStartButton> createState() => _WelcomeStartButtonState();
+}
+
+class _WelcomeStartButtonState extends State<_WelcomeStartButton> {
+  bool _pressed = false;
+
+  void _setPressed(bool value) {
+    if (_pressed != value) setState(() => _pressed = value);
+  }
+
+  @override
+  Widget build(BuildContext context) => Listener(
+    onPointerDown: (_) => _setPressed(true),
+    onPointerUp: (_) => _setPressed(false),
+    onPointerCancel: (_) => _setPressed(false),
+    child: AnimatedScale(
+      key: const ValueKey('welcome-start-feedback'),
+      scale: _pressed ? .98 : 1,
+      duration: _motionDuration(context, const Duration(milliseconds: 100)),
+      curve: Curves.easeOut,
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
+          boxShadow: const [
+            BoxShadow(
+              color: Color(0x290C2B1F),
+              blurRadius: 18,
+              offset: Offset(0, 6),
+            ),
+          ],
+        ),
+        child: _Primary(
+          label: widget.label,
+          icon: Icons.play_arrow_rounded,
+          large: true,
+          onPressed: widget.onPressed,
+        ),
+      ),
     ),
   );
 }
@@ -699,17 +883,23 @@ class _HostConversation extends StatelessWidget {
     required this.pose,
     required this.mascotOnRight,
     required this.text,
+    this.opening = false,
+    this.height,
   });
 
   final MascotPose pose;
   final bool mascotOnRight;
   final String text;
+  final bool opening;
+  final double? height;
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.sizeOf(context).height < 680 ? 180.0 : 220.0;
+    final height =
+        this.height ??
+        (MediaQuery.sizeOf(context).height < 680 ? 180.0 : 220.0);
     final mascot = SizedBox(
-      width: height * .75,
+      width: height * (opening ? .62 : .75),
       child: GameMascot(pose: pose, height: height),
     );
     final tail = ClipPath(
@@ -726,17 +916,29 @@ class _HostConversation extends StatelessWidget {
         if (!mascotOnRight) tail,
         Expanded(
           child: Container(
-            padding: const EdgeInsets.all(14),
+            padding: EdgeInsets.all(opening ? 17 : 14),
             decoration: BoxDecoration(
               color: KifcTheme.paper,
-              borderRadius: BorderRadius.circular(18),
+              borderRadius: BorderRadius.circular(opening ? 20 : 18),
+              border: opening
+                  ? Border.all(color: const Color(0xFFE2E6DA))
+                  : null,
+              boxShadow: opening
+                  ? const [
+                      BoxShadow(
+                        color: Color(0x180C2B1F),
+                        blurRadius: 16,
+                        offset: Offset(0, 5),
+                      ),
+                    ]
+                  : null,
             ),
             child: LocalizedText(
               text,
-              style: const TextStyle(
+              style: TextStyle(
                 color: KifcTheme.ink,
                 fontSize: 14,
-                height: 1.35,
+                height: opening ? 1.4 : 1.35,
               ),
             ),
           ),
@@ -755,51 +957,54 @@ class _RiskPage extends StatelessWidget {
     required this.wrongAttempts,
     required this.onAnswer,
     required this.onBack,
+    required this.onContinue,
   });
   final bool english;
   final _RiskOption? answer;
   final int wrongAttempts;
   final ValueChanged<_RiskOption> onAnswer;
   final VoidCallback onBack;
+  final VoidCallback onContinue;
 
-  static const _RiskOption _correct = _RiskOption.dryVegetationWithIgnition;
+  static const _RiskOption _correct = _RiskOption.peatSwamp;
 
   @override
   Widget build(BuildContext context) {
+    final compact = MediaQuery.sizeOf(context).height < 680;
     final solved = answer == _correct;
     final revealed = solved || wrongAttempts >= 2;
     final locked = revealed;
-    return _LightStage(
+    final stage = _LightStage(
       chapter: 2,
       english: english,
       eyebrow: english
-          ? 'CHAPTER 2 / SCAN THE RISK'
-          : 'BABAK 2 / KENALI RISIKONYA',
+          ? 'CHAPTER 2 / PEAT SWAMP FOREST'
+          : 'BABAK 2 / HUTAN RAWA GAMBUT',
       title: english
-          ? 'Where could fire start more easily?'
-          : 'Di mana api lebih mudah muncul?',
+          ? 'In which type of forest can fire smolder beneath the ground surface, making it difficult to extinguish?'
+          : 'Pada jenis hutan manakah kebakaran dapat membara di bawah permukaan tanah sehingga sulit dipadamkan?',
+      titleFontSize: compact ? 17 : 22,
       edgeFeedback: answer != null,
       subtitle: english
-          ? 'Choose the condition with the highest fire risk.'
-          : 'Dari tiga kondisi ini, mana yang paling mudah terbakar?',
+          ? 'Choose the forest type that has a peat layer.'
+          : 'Pilih jenis hutan yang memiliki lapisan gambut.',
       onBack: onBack,
       bodyScrollable: false,
-      body: LayoutBuilder(builder: (context, bounds) {
-        final cardHeight = ((bounds.maxHeight - 16) / 3).clamp(52.0, 72.0);
-        return Column(
+      footerGap: compact ? 4 : 14,
+      body: Column(
         children: <Widget>[
           _RiskCard(
-            height: cardHeight,
-            option: _RiskOption.wetForest,
+            height: 72,
+            option: _RiskOption.mangrove,
             english: english,
-            selected: answer == _RiskOption.wetForest,
+            selected: answer == _RiskOption.mangrove,
             correct: false,
-            onTap: locked ? null : () => onAnswer(_RiskOption.wetForest),
+            onTap: locked ? null : () => onAnswer(_RiskOption.mangrove),
           ),
           const SizedBox(height: 8),
           _RiskCard(
             option: _correct,
-            height: cardHeight,
+            height: 72,
             english: english,
             selected: revealed,
             correct: true,
@@ -807,21 +1012,34 @@ class _RiskPage extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           _RiskCard(
-            option: _RiskOption.wetGrassland,
-            height: cardHeight,
+            option: _RiskOption.mineralSoil,
+            height: 72,
             english: english,
-            selected: answer == _RiskOption.wetGrassland,
+            selected: answer == _RiskOption.mineralSoil,
             correct: false,
-            onTap: locked ? null : () => onAnswer(_RiskOption.wetGrassland),
+            onTap: locked ? null : () => onAnswer(_RiskOption.mineralSoil),
           ),
         ],
-      );
-      }),
+      ),
       footer: _footer(
         solved: solved,
         revealed: revealed,
         answered: answer != null,
       ),
+    );
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        stage,
+        if (solved)
+          Positioned.fill(
+            child: GestureDetector(
+              behavior: HitTestBehavior.opaque,
+              onTap: onContinue,
+              child: const SizedBox.expand(),
+            ),
+          ),
+      ],
     );
   }
 
@@ -832,64 +1050,74 @@ class _RiskPage extends StatelessWidget {
   }) {
     if (!answered) {
       return LocalizedText(
-        english
-            ? 'Choose the answer that fits the situation best.'
-            : 'Pilih salah satu jawaban untuk melihat penjelasannya.',
+        english ? 'Choose one answer.' : 'Pilih satu jawaban.',
         style: const TextStyle(color: KifcTheme.mutedInk, fontSize: 12),
       );
     }
     if (solved) {
       return _Feedback(
         ok: true,
+        longMessage: true,
         text: english
-            ? 'That’s right. Dry fuel plus a spark or heat source raises the risk quickly.'
-            : 'Bahan kering mudah tersulut jika ada sumber api di dekatnya. Kondisi ini paling berisiko.',
+            ? 'Correct! Fires in dried-out peat swamp forests are difficult to extinguish because fire can smolder beneath the ground surface. Embers are hard to detect and can rekindle flames even after the surface fire is out.'
+            : 'Tepat! Kebakaran di hutan rawa gambut yang mengering sulit dipadamkan karena api dapat membara di bawah permukaan tanah. Bara sulit terdeteksi dan dapat memicu api kembali meskipun api di permukaan sudah padam.',
       );
     }
     if (!revealed) {
       return _Feedback(
         ok: false,
+        longMessage: true,
         text: english
-            ? 'Not quite. Look for dry fuel and something that can ignite it. You get one more try.'
-            : 'Belum tepat. Cari bahan yang kering dan sumber api yang bisa menyulutnya. Kamu masih punya satu kesempatan lagi.',
+            ? 'Not quite. Think about the forest type with a thick organic soil layer. Fire can smolder inside that layer, making it difficult to extinguish.'
+            : 'Belum tepat. Coba ingat jenis hutan yang memiliki lapisan tanah organik tebal. Api dapat membara di dalam lapisan tersebut sehingga sulit dipadamkan.',
       );
     }
     return _Feedback(
       ok: false,
+      longMessage: true,
       text: english
-          ? 'The riskiest condition is dry vegetation with an ignition source. Dry fuel catches fire easily when heat is nearby.'
-          : 'Kondisi paling berisiko adalah tanaman kering di dekat sumber api. Bahan kering mudah tersulut oleh panas.',
+          ? 'The correct answer is peat swamp forest. Fire can smolder beneath the ground in thick organic soil, making it hard to extinguish.'
+          : 'Jawaban yang tepat adalah hutan rawa gambut. Api dapat membara di dalam lapisan tanah organik tebal di bawah permukaan sehingga sulit dipadamkan.',
     );
   }
 }
 
 class _MascotDialogue extends StatelessWidget {
-  const _MascotDialogue({required this.text, this.compact = false});
+  const _MascotDialogue({required this.text});
   final String text;
-  final bool compact;
 
   @override
   Widget build(BuildContext context) => Row(
     crossAxisAlignment: CrossAxisAlignment.center,
     children: [
       SizedBox(
-        width: compact ? 78 : 94,
-        child: GameMascot(pose: MascotPose.presenting, height: compact ? 124 : 170),
+        width: 94,
+        child: GameMascot(pose: MascotPose.presenting, height: 170),
       ),
       // The speech tail connects the ranger with the reading card.
       ClipPath(
         clipper: _SpeechTail(),
-        child: const ColoredBox(color: KifcTheme.paper, child: SizedBox(width: 10, height: 18)),
+        child: const ColoredBox(
+          color: KifcTheme.paper,
+          child: SizedBox(width: 10, height: 18),
+        ),
       ),
       Expanded(
         child: Container(
-          padding: EdgeInsets.all(compact ? 12 : 16),
+          padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
             color: KifcTheme.paper,
             borderRadius: BorderRadius.circular(18),
             border: Border.all(color: KifcTheme.line),
           ),
-          child: LocalizedText(text, style: TextStyle(color: KifcTheme.ink, fontSize: compact ? 13 : 14, height: 1.4)),
+          child: LocalizedText(
+            text,
+            style: const TextStyle(
+              color: KifcTheme.ink,
+              fontSize: 14,
+              height: 1.4,
+            ),
+          ),
         ),
       ),
     ],
@@ -909,7 +1137,13 @@ class _SpeechTail extends CustomClipper<Path> {
 }
 
 class _KarhutlaCards extends StatelessWidget {
-  const _KarhutlaCards({required this.english, required this.index, required this.onAdvance, required this.onComplete, required this.onBack});
+  const _KarhutlaCards({
+    required this.english,
+    required this.index,
+    required this.onAdvance,
+    required this.onComplete,
+    required this.onBack,
+  });
   final bool english;
   final int index;
   final VoidCallback onAdvance;
@@ -925,40 +1159,40 @@ class _KarhutlaCards extends StatelessWidget {
         ? [
             (
               'karhutla-definition',
-              'What is a forest fire?',
-              'A forest or land fire burns vegetation such as grass, leaves, and trees. When it spreads out of control, it can reach nearby areas.',
+              'What Is a Forest Fire?',
+              'A forest fire is the burning of vegetation and organic matter in a forest area, with flames spreading freely and uncontrollably.',
               'You have seen how fire starts. What happens when it spreads?',
             ),
             (
-              'karhutla-impact',
-              'Why does it matter?',
-              'Fire can damage habitats, and smoke can affect nearby communities. Preventing fires helps protect both forests and people.',
-              'A fire harms more than the trees in its path.',
+              'karhutla-cause',
+              'Why Do Forest Fires Happen?',
+              'A forest fire can occur when sufficient heat, fuel, and oxygen meet under conditions that allow fire to ignite. Human activities can bring these three elements together, increasing the risk of fire.',
+              'A forest fire can occur when the three elements of fire meet.',
             ),
             (
               'karhutla-prevention',
-              'Prevent it early.',
-              'Dry vegetation is easier to ignite when a source of heat is nearby. Keep ignition sources away. If you see a fire, keep your distance and alert trained personnel.',
+              'Why Must We Prevent Forest Fires?',
+              'Forest fires damage the environment and cause ecological, economic, socio-cultural, and political losses. Such damage disrupts the forest’s ability to perform its functions properly.',
               'Most forest fires can be stopped before they grow.',
             ),
           ]
         : [
             (
               'karhutla-definition',
-              'Apa itu karhutla?',
-              'Karhutla adalah kebakaran hutan dan lahan. Api membakar rumput, daun, atau pepohonan dan bisa menjalar ke sekitarnya jika tidak terkendali.',
+              'Tapi, Apa Itu Kebakaran Hutan?',
+              'Kebakaran hutan adalah peristiwa terbakarnya vegetasi dan bahan organik di kawasan hutan, dengan api yang menyebar secara bebas dan tidak terkendali.',
               'Tadi kamu melihat api menyala. Bagaimana jika api itu menjalar?',
             ),
             (
-              'karhutla-impact',
-              'Mengapa perlu dicegah?',
-              'Api bisa merusak tempat hidup satwa, sementara asapnya mengganggu warga. Mencegah karhutla berarti menjaga hutan sekaligus melindungi kehidupan di sekitarnya.',
-              'Api tidak hanya membakar pepohonan di jalurnya.',
+              'karhutla-cause',
+              'Mengapa Kebakaran Hutan Bisa Terjadi?',
+              'Kebakaran hutan dapat terjadi ketika panas yang cukup, bahan bakar, dan oksigen bertemu dalam kondisi yang memungkinkan api menyala. Aktivitas manusia dapat mempertemukan ketiga unsur tersebut sehingga meningkatkan risiko kebakaran.',
+              'Kebakaran hutan dapat terjadi ketika tiga unsur api bertemu.',
             ),
             (
               'karhutla-prevention',
-              'Cegah sebelum membesar.',
-              'Tanaman kering lebih mudah tersulut jika ada sumber api di dekatnya. Jauhkan sumber api dari bahan kering. Jika melihat kebakaran, jaga jarak dan laporkan kepada petugas.',
+              'Mengapa Kebakaran Hutan Perlu Kita Cegah?',
+              'Kebakaran hutan merusak lingkungan dan menimbulkan kerugian ekologis, ekonomi, sosial budaya, serta politik. Kerusakan tersebut mengganggu kemampuan hutan untuk menjalankan fungsinya dengan baik.',
               'Sebagian besar karhutla bisa dicegah sebelum membesar.',
             ),
           ];
@@ -973,44 +1207,61 @@ class _KarhutlaCards extends StatelessWidget {
       onBack: onBack,
       body: Column(
         key: ValueKey(card.$1),
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            _MascotDialogue(text: card.$3),
-            const SizedBox(height: 18),
-            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          _MascotDialogue(text: card.$3),
+          const SizedBox(height: 18),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
               for (var i = 0; i < cards.length; i++)
-                Container(margin: const EdgeInsets.symmetric(horizontal: 3), width: i == index ? 24 : 7, height: 7,
-                  decoration: BoxDecoration(color: i == index ? KifcTheme.amber : Colors.white38, borderRadius: BorderRadius.circular(4))),
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 3),
+                  width: i == index ? 24 : 7,
+                  height: 7,
+                  decoration: BoxDecoration(
+                    color: i == index ? KifcTheme.amber : Colors.white38,
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                ),
               const SizedBox(width: 10),
-              LocalizedText('${index + 1}/3', style: const TextStyle(color: Colors.white70)),
-            ]),
-          ],
+              LocalizedText(
+                '${index + 1}/3',
+                style: const TextStyle(color: Colors.white70),
+              ),
+            ],
+          ),
+        ],
       ),
-      footer: _Primary(label: index == 2 ? (english ? 'See the Risk' : 'Lihat Risikonya') : (english ? 'Continue' : 'Lanjut'), dark: true, onPressed: index == 2 ? onComplete : onAdvance),
+      footer: _Primary(
+        label: index == 2
+            ? (english ? 'Start Quiz' : 'Mulai Kuis')
+            : (english ? 'Continue' : 'Lanjut'),
+        dark: true,
+        onPressed: index == 2 ? onComplete : onAdvance,
+      ),
     );
   }
 }
 
-enum _RiskOption { wetForest, dryVegetationWithIgnition, wetGrassland }
+enum _RiskOption { mangrove, peatSwamp, mineralSoil }
 
 extension _RiskOptionVisual on _RiskOption {
   String get photo => switch (this) {
-    _RiskOption.wetForest => 'assets/images/forest/kereng-bangkirai.jpg',
-    _RiskOption.dryVegetationWithIgnition =>
-      'assets/images/field/dry-landscape.jpg',
-    _RiskOption.wetGrassland => 'assets/images/field/wet-grass.jpg',
+    _RiskOption.mangrove => 'assets/images/field/mangrove-nusa-lembongan.jpg',
+    _RiskOption.peatSwamp => 'assets/images/forest/kereng-bangkirai.jpg',
+    _RiskOption.mineralSoil => 'assets/images/field/rainforest-kalimantan.jpg',
   };
 }
 
 extension _RiskOptionCopy on _RiskOption {
   String label(bool english) => switch (this) {
-    _RiskOption.wetForest => english ? 'Wet forest' : 'Hutan basah',
-    _RiskOption.dryVegetationWithIgnition =>
-      english
-          ? 'Dry vegetation with an ignition source'
-          : 'Tanaman kering di dekat sumber api',
-    _RiskOption.wetGrassland =>
-      english ? 'Wet grassland' : 'Padang rumput basah',
+    _RiskOption.mangrove =>
+      english ? 'A. Mangrove forest' : 'A. Hutan mangrove',
+    _RiskOption.peatSwamp =>
+      english ? 'B. Peat swamp forest' : 'B. Hutan rawa gambut',
+    _RiskOption.mineralSoil =>
+      english ? 'C. Forest on mineral soil' : 'C. Hutan pada tanah mineral',
   };
 }
 
@@ -1019,92 +1270,225 @@ class _TriangleBuild extends StatelessWidget {
     required this.english,
     required this.pieces,
     required this.lastDropCorrect,
+    required this.lastPiece,
     required this.onDrop,
     required this.onBack,
     required this.onRestart,
+    required this.onContinue,
   });
   final bool english;
   final Map<_FireSlot, _FirePiece> pieces;
   final bool? lastDropCorrect;
+  final _FirePiece? lastPiece;
   final void Function(_FireSlot, _FirePiece) onDrop;
   final VoidCallback onBack;
   final VoidCallback onRestart;
+  final VoidCallback onContinue;
   @override
   Widget build(BuildContext context) {
     final complete = pieces.length == 3;
-    return _LightStage(
+    final compact = MediaQuery.sizeOf(context).height < 680;
+    final message = complete
+        ? (english
+              ? 'Correct! Fire can start when sufficient heat, fuel, and oxygen meet. These three elements form the fire triangle. Reducing any one of them can help control fire.'
+              : 'Tepat! Api dapat menyala ketika panas yang cukup, bahan bakar, dan oksigen bertemu. Ketiga unsur ini disebut Segitiga Api. Mengurangi salah satu unsur dapat membantu mengendalikan api.')
+        : lastDropCorrect == false && lastPiece != null
+        ? lastPiece!.wrongPlacement(english)
+        : lastDropCorrect == true
+        ? (english
+              ? 'That fits. Find the remaining elements.'
+              : 'Sudah cocok. Temukan unsur lainnya.')
+        : (english
+              ? 'Find all three elements to start the fire.'
+              : 'Temukan ketiga unsur agar api menyala.');
+    final stage = _LightStage(
       chapter: 1,
       english: english,
       eyebrow: english
           ? 'CHAPTER 1 / PUT IT TOGETHER'
           : 'BABAK 1 / SATUKAN TIGA UNSUR',
-      title: complete
-          ? (english ? 'The fire has started.' : 'Api mulai menyala.')
-          : (english ? 'Build the fire triangle.' : 'Susun tiga unsur api.'),
-      subtitle: complete
-          ? (english
-                ? 'All three elements are now together.'
-                : 'Ketiga unsur sudah lengkap. Dengan panas yang cukup untuk menyulut bahan bakar, api bisa menyala.')
-          : lastDropCorrect == true
-          ? (english
-                ? 'That fits. Find the next element.'
-                : 'Sudah cocok. Lanjutkan dengan foto lainnya.')
-          : lastDropCorrect == false
-          ? (english
-                ? 'Try another element for that card.'
-                : 'Foto ini belum cocok di sini. Coba tempat lain atau pilih foto lainnya.')
-          : (english
-                ? 'Drag each photo to its element.'
-                : 'Seret foto dari bawah ke tempat yang cocok.'),
+      title: english ? 'Choose three elements.' : 'Pilih tiga unsur api.',
+      titleFontSize: compact ? 22 : 26,
+      subtitle: english
+          ? 'Drag the right photos into the empty spaces.'
+          : 'Seret tiga foto yang tepat ke tempat kosong.',
       onBack: onBack,
       onRestart: onRestart,
-      groupFooter: true,
+      groupFooter: false,
+      expandFooter: complete,
+      edgeFeedback: true,
       bodyScrollable: false,
+      footerGap: compact ? 4 : 12,
       body: Column(
         mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
+        children: [
           _FireScene(
-            active: pieces.keys.toSet(),
+            active: pieces.values.map((piece) => piece.slot!).toSet(),
+            placements: pieces,
             english: english,
             onDrop: onDrop,
           ),
-          const SizedBox(height: 12),
-          GridView.count(
-            crossAxisCount: 3,
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            mainAxisSpacing: 8,
-            crossAxisSpacing: 8,
-            childAspectRatio: _fireCardAspectRatio,
-            children:
-                const <_FirePiece>[
-                      _FirePiece.heat,
-                      _FirePiece.water,
-                      _FirePiece.fuel,
-                      _FirePiece.rain,
-                      _FirePiece.oxygen,
-                      _FirePiece.cold,
-                    ]
-                    .map(
-                      (piece) => _DraggablePiece(
-                        piece: piece,
-                        english: english,
-                        used: pieces.values.contains(piece),
-                      ),
-                    )
-                    .toList(),
-          ),
+          if (!complete) ...[
+            const SizedBox(height: 8),
+            GridView.count(
+              crossAxisCount: 3,
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              mainAxisSpacing: 8,
+              crossAxisSpacing: 8,
+              childAspectRatio: _fireCardAspectRatio,
+              children:
+                  const [
+                        _FirePiece.heat,
+                        _FirePiece.water,
+                        _FirePiece.fuel,
+                        _FirePiece.rain,
+                        _FirePiece.oxygen,
+                        _FirePiece.stone,
+                      ]
+                      .map(
+                        (piece) => _DraggablePiece(
+                          piece: piece,
+                          english: english,
+                          used: pieces.values.contains(piece),
+                        ),
+                      )
+                      .toList(),
+            ),
+          ],
         ],
       ),
-      footer: complete
-          ? _AutoNote(
-              text: english
-                  ? 'The fire is burning. Moving on to the fire triangle…'
-                  : 'Api menyala. Lanjut ke segitiga api…',
-            )
-          : const SizedBox.shrink(),
+      footer: _AssemblyFeedback(
+        english: english,
+        text: message,
+        complete: complete,
+        incorrect: lastDropCorrect == false,
+      ),
+    );
+    return GestureDetector(
+      key: const ValueKey('assembly-continue-anywhere'),
+      behavior: HitTestBehavior.opaque,
+      onTap: complete ? onContinue : null,
+      child: stage,
     );
   }
+}
+
+class _AssemblyFeedback extends StatelessWidget {
+  const _AssemblyFeedback({
+    required this.text,
+    required this.complete,
+    required this.incorrect,
+    required this.english,
+  });
+  final String text;
+  final bool complete;
+  final bool incorrect;
+  final bool english;
+  @override
+  Widget build(BuildContext context) => Semantics(
+    liveRegion: true,
+    child: complete
+        ? _AssemblyCompletionFeedback(text: text, english: english)
+        : _MascotFeedback(
+            text: text,
+            ok: complete,
+            longMessage: true,
+            assembly: true,
+            neutral: !complete && !incorrect,
+            pose: complete
+                ? MascotPose.success
+                : incorrect
+                ? MascotPose.hintSafety
+                : MascotPose.presenting,
+          ),
+  );
+}
+
+class _AssemblyCompletionFeedback extends StatelessWidget {
+  const _AssemblyCompletionFeedback({
+    required this.text,
+    this.pose = MascotPose.success,
+    this.onContinue,
+    this.english = false,
+  });
+  final String text;
+  final MascotPose pose;
+  final VoidCallback? onContinue;
+  final bool english;
+
+  @override
+  Widget build(BuildContext context) => Column(
+    crossAxisAlignment: CrossAxisAlignment.stretch,
+    children: [
+      Container(
+        key: const ValueKey('feedback-message'),
+        padding: const EdgeInsets.all(12),
+        decoration: BoxDecoration(
+          color: KifcTheme.paper,
+          borderRadius: BorderRadius.circular(18),
+          border: Border.all(
+            color: KifcTheme.answerCorrect.withValues(alpha: .45),
+          ),
+        ),
+        child: LocalizedText(
+          text,
+          style: const TextStyle(fontSize: 13, height: 1.25),
+        ),
+      ),
+      const SizedBox(height: 8),
+      Expanded(
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            // Grow into the remaining space without overlapping the explanation.
+            final width = math.min(
+              220.0,
+              math.min(
+                constraints.maxWidth * (onContinue == null ? .72 : .42),
+                constraints.maxHeight / .76,
+              ),
+            );
+            final imageHeight = width * 4 / 3;
+            final mascot = Align(
+              alignment: Alignment.bottomRight,
+              child: SizedBox(
+                width: width,
+                height: imageHeight * .57,
+                child: ClipRect(
+                  key: const ValueKey('feedback-mascot-crop'),
+                  child: OverflowBox(
+                    alignment: Alignment.topCenter,
+                    minWidth: width,
+                    maxWidth: width,
+                    minHeight: imageHeight,
+                    maxHeight: imageHeight,
+                    child: GameMascot(pose: pose, height: imageHeight),
+                  ),
+                ),
+              ),
+            );
+            if (onContinue == null) return mascot;
+            return Stack(
+              children: [
+                mascot,
+                Positioned(
+                  left: 0,
+                  top: 4,
+                  width: constraints.maxWidth * .56,
+                  child: _Primary(
+                    label: english
+                        ? 'Try Reducing an Element'
+                        : 'Coba Kurangi Satu Unsur',
+                    onPressed: onContinue!,
+                  ),
+                ),
+              ],
+            );
+          },
+        ),
+      ),
+    ],
+  );
 }
 
 class _TriangleExplanation extends StatelessWidget {
@@ -1112,35 +1496,42 @@ class _TriangleExplanation extends StatelessWidget {
     required this.english,
     required this.onContinue,
     required this.onBack,
+    required this.pieces,
   });
   final bool english;
   final VoidCallback onContinue;
   final VoidCallback onBack;
+  final Map<_FireSlot, _FirePiece> pieces;
 
   @override
   Widget build(BuildContext context) => _LightStage(
     chapter: 1,
     english: english,
     eyebrow: english ? 'CHAPTER 1 / FIRE TRIANGLE' : 'BABAK 1 / SEGITIGA API',
-    title: english ? 'Three elements, one fire.' : 'Tiga unsur, satu api.',
+    title: english
+        ? 'Fire Can Start When Three Elements Meet'
+        : 'Api Dapat Muncul Saat Tiga Unsur Bertemu',
+    titleFontSize: MediaQuery.sizeOf(context).height < 680 ? 20 : 24,
     bodyScrollable: false,
-    subtitle: english ? 'Together, they form the fire triangle.' : 'Ketiganya dikenal sebagai segitiga api.',
+    subtitle: english
+        ? 'Fire can occur anywhere when sufficient heat, fuel, and oxygen meet.'
+        : 'Kebakaran dapat terjadi di mana saja jika panas yang cukup, bahan bakar, dan oksigen bertemu.',
     onBack: onBack,
-    body: Column(
-      children: [
-        Expanded(child: Center(child: _MascotDialogue(
-          compact: true,
-          text: english
-              ? 'Heat ignites fuel such as dry wood. Oxygen from the air keeps it burning. Sunlight can dry vegetation, but it still needs an ignition source to catch fire.'
-              : 'Panas menyulut bahan bakar, seperti kayu kering. Oksigen dari udara membantu api terus menyala. Matahari bisa mengeringkan tanaman, tetapi api tetap perlu sumber penyulut.',
-        ))),
-        const SizedBox(height: 10),
-        _FireScene(active: _FireSlot.values.toSet(), english: english),
-      ],
+    edgeFeedback: true,
+    expandFooter: true,
+    footerGap: 12,
+    body: _FireScene(
+      active: _FireSlot.values.toSet(),
+      placements: pieces.isEmpty ? null : pieces,
+      english: english,
     ),
-    footer: _Primary(
-      label: english ? 'Try Reducing an Element' : 'Coba Kurangi Satu Unsur',
-      onPressed: onContinue,
+    footer: _AssemblyCompletionFeedback(
+      english: english,
+      pose: MascotPose.presenting,
+      onContinue: onContinue,
+      text: english
+          ? 'Fire can occur when sufficient heat, fuel, and oxygen meet. Human activity can bring these three elements together. Prevention helps keep a fire from starting.'
+          : 'Kebakaran dapat terjadi ketika panas yang cukup, bahan bakar, dan oksigen bertemu. Aktivitas manusia dapat mempertemukan ketiga unsur tersebut. Karena itu, pencegahan penting dilakukan agar kebakaran tidak terjadi.',
     ),
   );
 }
@@ -1205,7 +1596,7 @@ class _BreakTriangle extends StatelessWidget {
         : 'Pilih unsur yang ingin dikurangi, lalu amati apinya. Kamu bisa mencoba ketiganya.',
     onBack: onBack,
     bodyScrollable: false,
-    groupFooter: true,
+    topAligned: true,
     body: Column(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
@@ -1260,20 +1651,14 @@ class _BreakTriangle extends StatelessWidget {
         ),
       ],
     ),
-    footer: tried.length == _FireSlot.values.length
-        ? _AutoNote(
-            text: english
-                ? 'You tried all three elements. Next, see how fires start in the field.'
-                : 'Ketiga unsur sudah kamu coba. Sekarang kita lihat bagaimana karhutla bisa terjadi.',
-          )
-        : LocalizedText(
-            '${tried.length}/3 ${english ? 'elements tried' : 'unsur sudah dicoba'}',
-            style: const TextStyle(
-              color: KifcTheme.mutedInk,
-              fontSize: 12,
-              height: 1.25,
-            ),
-          ),
+    footer: LocalizedText(
+      '${tried.length}/3 ${english ? 'elements tried' : 'unsur sudah dicoba'}',
+      style: const TextStyle(
+        color: KifcTheme.mutedInk,
+        fontSize: 12,
+        height: 1.25,
+      ),
+    ),
   );
 }
 
@@ -1413,7 +1798,9 @@ class _StopDecision extends StatelessWidget {
     return _LightStage(
       chapter: 4,
       english: english,
-      eyebrow: english ? 'CHAPTER 4 / MAKE A CHOICE' : 'BABAK 4 / PILIH TINDAKAN',
+      eyebrow: english
+          ? 'CHAPTER 4 / MAKE A CHOICE'
+          : 'BABAK 4 / PILIH TINDAKAN',
       title: english ? 'Stop the spread.' : 'Batasi rambatan api.',
       edgeFeedback: answer != null,
       subtitle: english
@@ -1864,12 +2251,38 @@ class _ScorePage extends StatelessWidget {
               : '$finalRaw/4 poin di babak akhir = ${_points(bonus, english)} poin bonus',
           style: const TextStyle(fontSize: 11, color: KifcTheme.mutedInk),
         ),
-        const SizedBox(height: 12),
-        LocalizedText(
-          english
-              ? 'Keep ignition sources away from dry fuel. Report signs of fire and follow trained personnel.'
-              : 'Jauhkan sumber api dari bahan yang mudah terbakar. Jika melihat kebakaran, laporkan dan ikuti arahan petugas.',
-          style: const TextStyle(fontSize: 13, height: 1.3),
+        const SizedBox(height: 10),
+        Container(
+          key: const ValueKey('score-closing-banner'),
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+          decoration: BoxDecoration(
+            color: const Color(0x120C2B1F),
+            borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
+            border: Border.all(color: const Color(0x240C2B1F)),
+          ),
+          child: Row(
+            children: <Widget>[
+              const Icon(
+                Icons.shield_outlined,
+                size: 18,
+                color: KifcTheme.forest800,
+              ),
+              const SizedBox(width: 8),
+              Expanded(
+                child: LocalizedText(
+                  english
+                      ? 'Preventing Fires Is Better Than Fighting Them.'
+                      : 'Mencegah Kebakaran Lebih Baik daripada Memadamkan.',
+                  style: const TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w700,
+                    color: KifcTheme.forest800,
+                    height: 1.25,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ],
     ),
@@ -2142,7 +2555,15 @@ class _DarkStage extends StatelessWidget {
                 ),
                 SizedBox(height: compact ? 12 : 20),
                 if (groupFooter)
-                  Expanded(child: Center(child: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.stretch, children: [body, const SizedBox(height: 20), footer])))
+                  Expanded(
+                    child: Center(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [body, const SizedBox(height: 20), footer],
+                      ),
+                    ),
+                  )
                 else ...[
                   Expanded(child: body),
                   SizedBox(height: compact ? 10 : 16),
@@ -2173,6 +2594,10 @@ class _LightStage extends StatelessWidget {
     this.backLabel,
     this.groupFooter = false,
     this.edgeFeedback = false,
+    this.expandFooter = false,
+    this.topAligned = false,
+    this.titleFontSize,
+    this.footerGap,
   });
   final int chapter;
   final bool english;
@@ -2188,6 +2613,10 @@ class _LightStage extends StatelessWidget {
   final String? backLabel;
   final bool groupFooter;
   final bool edgeFeedback;
+  final bool expandFooter;
+  final bool topAligned;
+  final double? titleFontSize;
+  final double? footerGap;
   @override
   Widget build(BuildContext context) {
     final compact = MediaQuery.sizeOf(context).height < 680;
@@ -2197,7 +2626,12 @@ class _LightStage extends StatelessWidget {
         child: TouchscreenArea(
           bottom: !edgeFeedback,
           child: Padding(
-            padding: EdgeInsets.fromLTRB(24, 14, 24, edgeFeedback ? 0 : 20),
+            padding: EdgeInsets.fromLTRB(
+              chapter == 1 ? 18 : 24,
+              14,
+              chapter == 1 ? 18 : 24,
+              edgeFeedback ? 0 : 20,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
@@ -2216,7 +2650,7 @@ class _LightStage extends StatelessWidget {
                 LocalizedText(
                   title,
                   style: TextStyle(
-                    fontSize: compact ? 26 : 29,
+                    fontSize: titleFontSize ?? (compact ? 26 : 29),
                     height: 1.07,
                     fontWeight: FontWeight.w800,
                   ),
@@ -2233,16 +2667,37 @@ class _LightStage extends StatelessWidget {
                   ),
                 ],
                 SizedBox(height: compact ? 10 : 16),
-                if (groupFooter)
-                  Expanded(child: Center(child: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.stretch, children: [body, const SizedBox(height: 16), footer])))
-                else ...[
-                Expanded(
-                  child: bodyScrollable
-                      ? SingleChildScrollView(child: body)
-                      : body,
-                ),
-                SizedBox(height: compact ? 9 : 14),
-                footer,
+                if (topAligned) ...[
+                  body,
+                  SizedBox(height: footerGap ?? 12),
+                  footer,
+                  const Spacer(),
+                ] else if (groupFooter)
+                  Expanded(
+                    child: Center(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          body,
+                          SizedBox(height: footerGap ?? 16),
+                          footer,
+                        ],
+                      ),
+                    ),
+                  )
+                else if (expandFooter) ...[
+                  body,
+                  SizedBox(height: footerGap ?? 12),
+                  Expanded(child: footer),
+                ] else ...[
+                  Expanded(
+                    child: bodyScrollable
+                        ? SingleChildScrollView(child: body)
+                        : body,
+                  ),
+                  SizedBox(height: footerGap ?? (compact ? 9 : 14)),
+                  footer,
                 ],
               ],
             ),
@@ -2275,9 +2730,7 @@ class _LiquidGlass extends StatelessWidget {
         decoration: BoxDecoration(
           color: tint,
           borderRadius: borderRadius,
-          border: Border.all(
-            color: Colors.white.withValues(alpha: .4),
-          ),
+          border: Border.all(color: Colors.white.withValues(alpha: .4)),
           boxShadow: <BoxShadow>[
             BoxShadow(
               color: Colors.black.withValues(alpha: .12),
@@ -2338,12 +2791,26 @@ class _LanguagePicker extends StatelessWidget {
                           KifcTheme.controlRadius,
                         ),
                       ),
-                      child: LocalizedText(
-                        candidate.label,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 13,
-                          fontWeight: FontWeight.w700,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 6),
+                        child: FittedBox(
+                          fit: BoxFit.scaleDown,
+                          child: LocalizedText(
+                            candidate.label,
+                            maxLines: 1,
+                            softWrap: false,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 13,
+                              fontWeight: FontWeight.w700,
+                              fontFamily: candidate == AppLocale.korean
+                                  ? 'NotoSansKR'
+                                  : null,
+                              fontVariations: candidate == AppLocale.korean
+                                  ? const [FontVariation('wght', 700)]
+                                  : null,
+                            ),
+                          ),
                         ),
                       ),
                     ),
@@ -2602,7 +3069,10 @@ class _Primary extends StatelessWidget {
             : Icon(icon, size: large ? 28 : null),
         label: LocalizedText(
           label,
-          style: TextStyle(fontWeight: FontWeight.w700, fontSize: large ? 21 : null),
+          style: TextStyle(
+            fontWeight: FontWeight.w700,
+            fontSize: large ? 21 : null,
+          ),
         ),
       ),
     ),
@@ -2631,7 +3101,10 @@ class _Secondary extends StatelessWidget {
           borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
         ),
       ),
-      child: LocalizedText(label, style: const TextStyle(fontWeight: FontWeight.w700)),
+      child: LocalizedText(
+        label,
+        style: const TextStyle(fontWeight: FontWeight.w700),
+      ),
     ),
   );
 }
@@ -2794,7 +3267,10 @@ LinearGradient _answerGradient(bool correct) => correct
     : const LinearGradient(
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
-        colors: <Color>[KifcTheme.answerIncorrect, KifcTheme.answerIncorrectDeep],
+        colors: <Color>[
+          KifcTheme.answerIncorrect,
+          KifcTheme.answerIncorrectDeep,
+        ],
       );
 
 class _AnswerMark extends StatelessWidget {
@@ -2810,115 +3286,157 @@ class _AnswerMark extends StatelessWidget {
 }
 
 class _Feedback extends StatelessWidget {
-  const _Feedback({required this.ok, required this.text});
+  const _Feedback({
+    required this.ok,
+    required this.text,
+    this.longMessage = false,
+  });
   final bool ok;
   final String text;
+  final bool longMessage;
   @override
-  Widget build(BuildContext context) => _MascotFeedback(text: text, ok: ok);
+  Widget build(BuildContext context) =>
+      _MascotFeedback(text: text, ok: ok, longMessage: longMessage);
 }
 
 class _MascotFeedback extends StatelessWidget {
-  const _MascotFeedback({required this.text, required this.ok});
+  const _MascotFeedback({
+    required this.text,
+    required this.ok,
+    this.longMessage = false,
+    this.assembly = false,
+    this.pose,
+    this.neutral = false,
+  });
   final String text;
   final bool ok;
+  final bool longMessage;
+  final bool assembly;
+  final MascotPose? pose;
+  final bool neutral;
 
   @override
   Widget build(BuildContext context) {
-    final mascotWidth = MediaQuery.sizeOf(context).width < 380 ? 160.0 : 194.0;
+    final viewport = MediaQuery.sizeOf(context);
+    final dense = longMessage && viewport.height < 900;
+    // Lift only the reading bubble; the cropped mascot still meets the panel.
+    final readingBottom = assembly
+        ? 16.0
+        : !longMessage
+        ? 16.0
+        : TouchscreenArea.isCenteredOf(context)
+        ? 72.0
+        : viewport.height < 680
+        ? 20.0
+        : 48.0;
+    // Long quiz feedback shares a row with the mascot; preserve answer sizes.
+    final mascotWidth = assembly
+        ? (viewport.height < 680 ? 128.0 : 150.0)
+        : dense && ok
+        ? (viewport.height < 680 ? 112.0 : 160.0)
+        : viewport.width < 380
+        ? 160.0
+        : 194.0;
     final imageHeight = mascotWidth * 4 / 3;
+    final leftInset = assembly && pose == MascotPose.presenting ? 16.0 : 40.0;
     return ConstrainedBox(
-    constraints: BoxConstraints(
-      minHeight: TouchscreenArea.isCenteredOf(context) ? 230 : 150,
-    ),
-    child: Stack(
-      clipBehavior: Clip.none,
-      children: [
-        Positioned(
-          // Use the PNG's transparent side margin to sit close to the edge
-          // while preserving the complete silhouette and both hands.
-          left: ok ? null : -40,
-          right: ok ? -24 : null,
-          bottom: 0,
-          width: mascotWidth,
-          height: imageHeight * .57,
-          child: ClipRect(
-            key: const ValueKey('feedback-mascot-crop'),
-            child: OverflowBox(
-              alignment: Alignment.topCenter,
-              minWidth: mascotWidth,
-              maxWidth: mascotWidth,
-              minHeight: imageHeight,
-              maxHeight: imageHeight,
-              child: GameMascot(pose: ok ? MascotPose.success : MascotPose.hintSafety, height: imageHeight),
+      constraints: BoxConstraints(
+        minHeight: assembly
+            ? (viewport.height < 680 ? 96 : 104)
+            : TouchscreenArea.isCenteredOf(context)
+            ? 230
+            : 150,
+      ),
+      child: Stack(
+        alignment: longMessage ? Alignment.bottomCenter : Alignment.topLeft,
+        clipBehavior: Clip.none,
+        children: [
+          Positioned(
+            // Use the PNG's transparent side margin to sit close to the edge
+            // while preserving the complete silhouette and both hands.
+            left: ok ? null : -leftInset,
+            right: ok ? -24 : null,
+            bottom: 0,
+            width: mascotWidth,
+            height: imageHeight * .57,
+            child: ClipRect(
+              key: const ValueKey('feedback-mascot-crop'),
+              child: OverflowBox(
+                alignment: Alignment.topCenter,
+                minWidth: mascotWidth,
+                maxWidth: mascotWidth,
+                minHeight: imageHeight,
+                maxHeight: imageHeight,
+                child: GameMascot(
+                  pose:
+                      pose ?? (ok ? MascotPose.success : MascotPose.hintSafety),
+                  height: imageHeight,
+                ),
+              ),
             ),
           ),
-        ),
-        Padding(
-          padding: EdgeInsets.only(left: ok ? 0 : mascotWidth - 40, right: ok ? mascotWidth - 24 : 0, top: 8, bottom: 16),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              if (!ok) ClipPath(
-                clipper: _SpeechTail(),
-                child: const ColoredBox(color: KifcTheme.paper, child: SizedBox(width: 10, height: 18)),
-              ),
-              Expanded(
-                child: Container(
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: KifcTheme.paper,
-                    borderRadius: BorderRadius.circular(18),
-                    border: Border.all(color: (ok ? KifcTheme.answerCorrect : KifcTheme.answerIncorrect).withValues(alpha: .45)),
+          Padding(
+            padding: EdgeInsets.only(
+              left: ok ? 0 : mascotWidth - leftInset,
+              right: !ok ? 0 : mascotWidth - 24,
+              top: dense ? 0 : 8,
+              bottom: readingBottom,
+            ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                if (!ok)
+                  ClipPath(
+                    clipper: _SpeechTail(),
+                    child: const ColoredBox(
+                      color: KifcTheme.paper,
+                      child: SizedBox(width: 10, height: 18),
+                    ),
                   ),
-                  child: LocalizedText(text, style: const TextStyle(color: KifcTheme.ink, fontSize: 13, height: 1.25)),
+                Expanded(
+                  child: Container(
+                    key: const ValueKey('feedback-message'),
+                    padding: EdgeInsets.all(dense ? 8 : 10),
+                    decoration: BoxDecoration(
+                      color: KifcTheme.paper,
+                      borderRadius: BorderRadius.circular(18),
+                      border: Border.all(
+                        color: neutral
+                            ? KifcTheme.line
+                            : (ok
+                                      ? KifcTheme.answerCorrect
+                                      : KifcTheme.answerIncorrect)
+                                  .withValues(alpha: .45),
+                      ),
+                    ),
+                    child: LocalizedText(
+                      text,
+                      style: const TextStyle(
+                        color: KifcTheme.ink,
+                        fontSize: 13,
+                        height: 1.25,
+                      ),
+                    ),
+                  ),
                 ),
-              ),
-              if (ok) RotatedBox(
-                quarterTurns: 2,
-                child: ClipPath(
-                  clipper: _SpeechTail(),
-                  child: const ColoredBox(color: KifcTheme.paper, child: SizedBox(width: 10, height: 18)),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ],
-    ),
-  );
-  }
-}
-
-class _AutoNote extends StatelessWidget {
-  const _AutoNote({required this.text});
-  final String text;
-
-  @override
-  Widget build(BuildContext context) => Container(
-    width: double.infinity,
-    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
-    decoration: BoxDecoration(
-      gradient: _answerGradient(true),
-      borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
-      border: Border.all(color: KifcTheme.answerCorrect),
-    ),
-    child: Row(
-      children: <Widget>[
-        const Icon(Icons.check_circle_rounded, color: Colors.white, size: 16),
-        const SizedBox(width: 8),
-        Expanded(
-          child: LocalizedText(
-            text,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 12,
-              height: 1.2,
+                if (ok)
+                  RotatedBox(
+                    quarterTurns: 2,
+                    child: ClipPath(
+                      clipper: _SpeechTail(),
+                      child: const ColoredBox(
+                        color: KifcTheme.paper,
+                        child: SizedBox(width: 10, height: 18),
+                      ),
+                    ),
+                  ),
+              ],
             ),
           ),
-        ),
-      ],
-    ),
-  );
+        ],
+      ),
+    );
+  }
 }
 
 class _ChoiceButton extends StatelessWidget {
@@ -3234,21 +3752,24 @@ class _FireScene extends StatelessWidget {
     required this.active,
     required this.english,
     this.onDrop,
+    this.placements,
     this.reduced,
   });
   final Set<_FireSlot> active;
+  final Map<_FireSlot, _FirePiece>? placements;
   final bool english;
-  static const height = 190.0;
+  static double heightOf(BuildContext context) =>
+      MediaQuery.sizeOf(context).height < 680 ? 216 : 248;
   final void Function(_FireSlot, _FirePiece)? onDrop;
   final _FireSlot? reduced;
   @override
   Widget build(BuildContext context) => ClipRRect(
     borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
     child: SizedBox(
-      height: height,
+      height: heightOf(context),
       child: LayoutBuilder(
         builder: (context, bounds) {
-          final compact = height < 220;
+          final height = bounds.maxHeight;
           final nodeWidth = math.min(122.0, bounds.maxWidth * .31);
           final nodeHeight = nodeWidth / _fireCardAspectRatio;
           // A shared row teaches the three factors without a triangle diagram.
@@ -3259,74 +3780,72 @@ class _FireScene extends StatelessWidget {
                 height - 12 - nodeHeight / 2,
               ),
           };
-          final visible = active.where((slot) => slot != reduced).toSet();
-          final flameSize = compact ? math.min(82.0, height * .47) : 132.0;
           return Stack(
             fit: StackFit.expand,
             children: <Widget>[
-              Image.asset(
-                'assets/images/field/dry-landscape.jpg',
-                fit: BoxFit.cover,
-                alignment: Alignment.bottomCenter,
+              const ColoredBox(color: KifcTheme.forest800),
+              Positioned.fill(
+                bottom: nodeHeight + 8,
+                child: const GamePhoto(
+                  'assets/images/field/rainforest-kalimantan.jpg',
+                  forestTone: true,
+                  alignment: Alignment.bottomCenter,
+                ),
               ),
-              const ColoredBox(color: Color(0x7D152D23)),
-              Align(
-                alignment: const Alignment(0, -.5),
-                child: AnimatedContainer(
-                  duration: _motionDuration(
-                    context,
-                    const Duration(milliseconds: 450),
-                  ),
-                  width: flameSize * 1.6,
-                  height: flameSize * 1.6,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    // A soft halo instead of a solid disc, so the light blends
-                    // into the photo behind the flame.
-                    gradient: RadialGradient(
-                      colors: <Color>[
-                        Color.fromRGBO(255, 152, 56, visible.length * .12),
-                        Color.fromRGBO(255, 125, 32, visible.length * .05),
-                        const Color(0x00FF7D20),
-                      ],
-                      stops: const <double>[0, .45, 1],
-                    ),
+              const DecoratedBox(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [Color(0x00152D23), Color(0x88152D23)],
                   ),
                 ),
               ),
               Positioned(
                 left: 12,
                 top: 12,
-                width: math.max(48, (bounds.maxWidth - nodeWidth) / 2 - 24),
-                child: LocalizedText(
-                  reduced == null
-                      ? '${active.length}/3 ${english ? 'elements' : 'unsur'}'
-                      : (english
-                            ? 'One element reduced'
-                            : 'Satu unsur berkurang'),
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 10,
-                    height: 1.2,
-                    fontWeight: FontWeight.w700,
+                width: bounds.maxWidth - 24,
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 9,
+                      vertical: 5,
+                    ),
+                    decoration: BoxDecoration(
+                      color: const Color(0xE41A4534),
+                      borderRadius: BorderRadius.circular(14),
+                    ),
+                    child: LocalizedText(
+                      reduced == null
+                          ? '${active.length}/3 ${english ? 'elements' : 'unsur'}'
+                          : (english
+                                ? 'One element reduced'
+                                : 'Satu unsur berkurang'),
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 11,
+                        height: 1.2,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
                   ),
                 ),
               ),
               Positioned(
-                left: (bounds.maxWidth - flameSize) / 2,
-                top: 10,
-                width: flameSize,
-                height: flameSize,
+                left: 6,
+                right: 6,
+                top: 38,
+                bottom: nodeHeight + 14,
                 child: AnimatedSwitcher(
                   duration: _motionDuration(
                     context,
-                    const Duration(milliseconds: 500),
+                    const Duration(milliseconds: 450),
                   ),
                   child: active.length == 3
-                      ? _LivingFlame(
+                      ? ForestFireSimulation(
                           key: const ValueKey('fire'),
-                          small: reduced != null,
-                          size: flameSize,
+                          reducedElement: reduced?.index,
                         )
                       : const SizedBox(key: ValueKey('no-fire')),
                 ),
@@ -3340,7 +3859,10 @@ class _FireScene extends StatelessWidget {
                   child: _DropSlot(
                     slot: slot,
                     english: english,
-                    filled: active.contains(slot),
+                    filled:
+                        placements?.containsKey(slot) ?? active.contains(slot),
+                    placedPiece: placements?[slot],
+                    revealLabel: onDrop == null,
                     reduced: reduced == slot,
                     compact: true,
                     onDrop: onDrop,
@@ -3355,15 +3877,6 @@ class _FireScene extends StatelessWidget {
   );
 }
 
-class _LivingFlame extends StatelessWidget {
-  const _LivingFlame({super.key, required this.small, required this.size});
-  final bool small;
-  final double size;
-  @override
-  Widget build(BuildContext context) =>
-      PhotographicFlame(size: size, small: small);
-}
-
 class _DropSlot extends StatelessWidget {
   const _DropSlot({
     required this.slot,
@@ -3372,8 +3885,12 @@ class _DropSlot extends StatelessWidget {
     required this.reduced,
     required this.compact,
     required this.onDrop,
+    this.placedPiece,
+    this.revealLabel = true,
   });
   final _FireSlot slot;
+  final _FirePiece? placedPiece;
+  final bool revealLabel;
   final bool english;
   final bool filled;
   final bool reduced;
@@ -3389,42 +3906,61 @@ class _DropSlot extends StatelessWidget {
       child: SizedBox(
         height: compact ? 56 : 76,
         child: _PhotoFrame(
-          color: filled ? KifcTheme.forest800 : const Color(0xE6F5F3ED),
+          radius: BorderRadius.circular(10),
+          color: filled ? KifcTheme.forest800 : const Color(0xFFF5F3ED),
           border: Border.all(
-            color: candidate.isNotEmpty ? KifcTheme.amber : Colors.white70,
+            color: candidate.isNotEmpty
+                ? KifcTheme.amber
+                : filled
+                ? KifcTheme.answerCorrect
+                : Colors.white70,
             width: candidate.isNotEmpty ? 2 : 1,
           ),
           child: Stack(
             fit: StackFit.expand,
             children: <Widget>[
-              if (filled) GamePhoto(slot.photo),
+              if (filled)
+                GamePhoto(placedPiece?.photo ?? slot.photo, forestTone: true),
               if (filled) const ColoredBox(color: Color(0x850C2119)),
               Padding(
                 padding: const EdgeInsets.all(7),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: filled
+                      ? MainAxisAlignment.end
+                      : MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    LocalizedText(
-                      slot.title(english),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                        color: filled ? Colors.white : KifcTheme.ink,
-                        fontSize: 11,
-                        fontWeight: FontWeight.w800,
+                    if (filled || revealLabel)
+                      LocalizedText(
+                        placedPiece?.slot?.title(english) ??
+                            slot.title(english),
+                        textAlign: TextAlign.center,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          color: filled ? Colors.white : KifcTheme.ink,
+                          fontSize: 11,
+                          fontWeight: FontWeight.w800,
+                        ),
                       ),
-                    ),
-                    if (!filled && onDrop != null)
+                    if (!filled && onDrop != null) ...[
+                      const Icon(
+                        Icons.add_circle_outline,
+                        color: KifcTheme.mutedInk,
+                        size: 20,
+                      ),
+                      const SizedBox(height: 3),
                       LocalizedText(
                         english ? 'Drop here' : 'Taruh di sini',
+                        textAlign: TextAlign.center,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
                           color: KifcTheme.mutedInk,
-                          fontSize: 9,
+                          fontSize: 11,
                         ),
                       ),
+                    ],
                   ],
                 ),
               ),
@@ -3443,14 +3979,17 @@ class _PhotoFrame extends StatelessWidget {
     required this.child,
     required this.border,
     this.color = KifcTheme.forest800,
+    this.radius,
   });
   final Widget child;
   final BoxBorder border;
   final Color color;
+  final BorderRadius? radius;
 
   @override
   Widget build(BuildContext context) {
-    final radius = BorderRadius.circular(KifcTheme.controlRadius);
+    final radius =
+        this.radius ?? BorderRadius.circular(KifcTheme.controlRadius);
     return ClipRRect(
       borderRadius: radius,
       child: ColoredBox(
@@ -3487,22 +4026,59 @@ class _DraggablePiece extends StatelessWidget {
   final bool used;
   @override
   Widget build(BuildContext context) => used
-      ? Opacity(
-          opacity: .32,
-          child: _PieceCard(piece: piece, english: english),
-        )
+      ? _PieceCard(piece: piece, english: english, placed: true)
       : Draggable<_FirePiece>(
           data: piece,
-          feedback: Material(
-            color: Colors.transparent,
-            child: _PieceCard(piece: piece, english: english, elevated: true),
+          dragAnchorStrategy: pointerDragAnchorStrategy,
+          feedback: _AssemblyDragPreview(
+            sourceContext: context,
+            piece: piece,
+            english: english,
           ),
           childWhenDragging: Opacity(
-            opacity: .28,
+            opacity: .35,
             child: _PieceCard(piece: piece, english: english),
           ),
           child: _PieceCard(piece: piece, english: english),
         );
+}
+
+class _AssemblyDragPreview extends StatelessWidget {
+  const _AssemblyDragPreview({
+    required this.sourceContext,
+    required this.piece,
+    required this.english,
+  });
+  final BuildContext sourceContext;
+  final _FirePiece piece;
+  final bool english;
+  @override
+  Widget build(BuildContext context) {
+    if (!sourceContext.mounted) return const SizedBox.shrink();
+    final source = sourceContext.findRenderObject()! as RenderBox;
+    final overlay = Overlay.of(sourceContext).context.findRenderObject()!;
+    final scale = source.getTransformTo(overlay).getMaxScaleOnAxis();
+    final width = source.size.width * scale;
+    final height = source.size.height * scale;
+    // Keep the photo above the finger while hit testing uses the finger itself.
+    return Transform.translate(
+      offset: Offset(-width / 2, -height - 12),
+      child: SizedBox(
+        width: width,
+        height: height,
+        child: FittedBox(
+          child: SizedBox(
+            width: source.size.width,
+            height: source.size.height,
+            child: Material(
+              color: Colors.transparent,
+              child: _PieceCard(piece: piece, english: english, elevated: true),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }
 
 class _PieceCard extends StatelessWidget {
@@ -3510,27 +4086,64 @@ class _PieceCard extends StatelessWidget {
     required this.piece,
     required this.english,
     this.elevated = false,
+    this.placed = false,
   });
   final _FirePiece piece;
   final bool english;
   final bool elevated;
+  final bool placed;
   @override
   Widget build(BuildContext context) => Container(
     width: 106,
     height: 106 / _fireCardAspectRatio,
     decoration: BoxDecoration(
       color: KifcTheme.forest800,
-      borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
+      borderRadius: BorderRadius.circular(10),
       boxShadow: elevated
           ? <BoxShadow>[const BoxShadow(color: Colors.black26, blurRadius: 8)]
           : null,
     ),
     child: _PhotoFrame(
-      border: Border.all(color: KifcTheme.line),
+      radius: BorderRadius.circular(10),
+      border: Border.all(
+        color: placed ? KifcTheme.answerCorrect : KifcTheme.line,
+        width: placed ? 2 : 1,
+      ),
       child: Stack(
         fit: StackFit.expand,
         children: <Widget>[
-          GamePhoto(piece.photo),
+          GamePhoto(piece.photo, forestTone: true),
+          if (placed) const ColoredBox(color: Color(0x30142E22)),
+          if (piece == _FirePiece.oxygen && !placed)
+            Positioned(
+              top: 5,
+              left: 6,
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
+                decoration: BoxDecoration(
+                  color: const Color(0xE6F7F6EE),
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                child: const Text(
+                  'O₂',
+                  style: TextStyle(
+                    fontSize: 10,
+                    fontWeight: FontWeight.w800,
+                    color: KifcTheme.ink,
+                  ),
+                ),
+              ),
+            ),
+          if (placed)
+            const Positioned(
+              top: 5,
+              right: 5,
+              child: Icon(
+                Icons.check_circle_rounded,
+                size: 16,
+                color: Colors.white,
+              ),
+            ),
           const Align(
             alignment: Alignment.bottomCenter,
             child: SizedBox(
@@ -3557,7 +4170,7 @@ class _PieceCard extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
                 style: const TextStyle(
                   color: Colors.white,
-                  fontSize: 10,
+                  fontSize: 11,
                   fontWeight: FontWeight.w700,
                   shadows: <Shadow>[
                     Shadow(color: Colors.black87, blurRadius: 3),
@@ -3631,13 +4244,17 @@ class _RiskTokenCard extends StatelessWidget {
                   right: 6,
                   top: 6,
                   child: Semantics(
-                    label: AppCopy.translate(!revealed
-                        ? (english ? 'Selected' : 'Dipilih')
-                        : _missed
-                        ? (english ? 'Missed risk' : 'Risiko terlewat')
-                        : token.risk
-                        ? (english ? 'Correct risk' : 'Benar, ini berisiko')
-                        : (english ? 'Not a risk' : 'Gambar ini tidak berisiko')),
+                    label: AppCopy.translate(
+                      !revealed
+                          ? (english ? 'Selected' : 'Dipilih')
+                          : _missed
+                          ? (english ? 'Missed risk' : 'Risiko terlewat')
+                          : token.risk
+                          ? (english ? 'Correct risk' : 'Benar, ini berisiko')
+                          : (english
+                                ? 'Not a risk'
+                                : 'Gambar ini tidak berisiko'),
+                    ),
                     child: Container(
                       width: 23,
                       height: 23,
@@ -3717,7 +4334,10 @@ class _TimerChip extends StatelessWidget {
                 tween: Tween(begin: 1, end: fraction),
                 duration: fraction == 0
                     ? Duration.zero
-                    : _motionDuration(context, const Duration(milliseconds: 100)),
+                    : _motionDuration(
+                        context,
+                        const Duration(milliseconds: 100),
+                      ),
                 curve: Curves.linear,
                 builder: (context, value, _) => CircularProgressIndicator(
                   key: const ValueKey('final-countdown-progress'),
@@ -3781,9 +4401,15 @@ class _ScoreRow extends StatelessWidget {
     padding: const EdgeInsets.symmetric(vertical: 6),
     child: Row(
       children: <Widget>[
-        LocalizedText(label, style: const TextStyle(fontWeight: FontWeight.w600)),
+        LocalizedText(
+          label,
+          style: const TextStyle(fontWeight: FontWeight.w600),
+        ),
         const Spacer(),
-        LocalizedText(score, style: const TextStyle(fontWeight: FontWeight.w700)),
+        LocalizedText(
+          score,
+          style: const TextStyle(fontWeight: FontWeight.w700),
+        ),
       ],
     ),
   );

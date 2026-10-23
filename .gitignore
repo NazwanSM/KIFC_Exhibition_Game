@@ -44,3 +44,6 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Owner source footage; only optimized transparent derivatives ship.
+/assets/animations/237888.mp4

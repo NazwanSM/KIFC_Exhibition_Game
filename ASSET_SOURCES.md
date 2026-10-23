@@ -2,6 +2,11 @@
 
 | File | Source | Use | License / attribution |
 | --- | --- | --- | --- |
+| `assets/images/field/ignition-sparks.jpg` | [Kiefer Likens — angle-grinder sparks](https://unsplash.com/photos/shallow-focus-photo-of-person-using-angle-grinder-Kl5PHd1bmTE) | Chapter 1 heat/ignition card, replacing sunlight; hot sparks caused by friction | Unsplash License; downloaded at 1000 px wide. Representative object, not an Indonesian fire event. |
+| `assets/images/field/oxygen-canopy.jpg` | [Francesco Ungaro — outdoor tree canopy](https://unsplash.com/photos/sunlight-filters-through-green-leaves-in-a-forest-canopy-AwVcly-Kz70) | Chapter 1 context for oxygen in air, replacing the windsock | Unsplash License; downloaded at 1000 px wide. Environmental context, not visible oxygen molecules. Label and feedback explain oxygen is present even without wind. |
+| `assets/images/field/stone-pebbles.jpg` | [Harshal . — gray stones](https://www.pexels.com/photo/close-up-shot-of-gray-stones-12277136/) | Stone decoy replacing cold air in Chapter 1 | Pexels License; downloaded at 1000 px wide. |
+| `assets/images/field/mangrove-nusa-lembongan.jpg` | [Lesya Soboleva — Nusa Lembongan, Bali](https://unsplash.com/photos/a-group-of-trees-that-are-in-the-water-eWUK4HMdzwo) | KIFC-08 mangrove answer thumbnail, replacing a photograph of water alone | Unsplash License; downloaded at 1000 px wide, no retouching; display uses proportional cover cropping. |
+| `assets/images/field/rainforest-kalimantan.jpg` | [Ken Shono — primary rainforest in Kalimantan](https://unsplash.com/photos/green-trees-in-forest-during-daytime-S35PpgCIjis) | KIFC-08 representative terrestrial forest thumbnail; the label carries the soil classification, which cannot be verified from a photograph alone | Unsplash License; downloaded at 1000 px wide, no retouching; display uses proportional cover cropping. |
 | `lib/features/game/widgets/terrain_backdrop.dart` | Original procedural contour motif created for this project, 19 October 2026 | Static background on cream and dark-green game stages; drawn locally and available offline | Original project artwork; no external asset or third-party source. Decorative contours do not represent geographic data. |
 | `assets/images/mascot/manggala_agni_*.png` | Generated with GPT and supplied by the project owner, 18 October 2026 | Welcome, educational explanation, hints/safety, and success/closing poses | User-supplied generated assets based on the owner's mascot and Manggala Agni logo references; no separate license supplied. Original PNGs preserved. |
 | `assets/images/forest/kereng-bangkirai.jpg` | [Unsplash — Kereng Bangkirai, Sebangau](https://unsplash.com/photos/green-trees-on-gray-soil-Jsh7I8k3gso) | Welcome and learning photo panels | Unsplash License; retain this record for exhibition credits. |
@@ -22,10 +27,39 @@
 | `assets/images/field/cigarette-leaves.jpg` | [Immo Wegmann — cigarette among leaves](https://unsplash.com/photos/a-cigarette-burning-on-the-ground-surrounded-by-leaves-cmcisooRLyU) | Risk, cause, and final challenge cards | Unsplash License. |
 | `assets/images/field/lightning-forest.jpg` | [Amy Luschen — lightning over forest](https://unsplash.com/photos/lightning-on-forest-during-night-time-Jx9mZGjD08c) | Natural-trigger question | Unsplash License. |
 | `assets/images/field/wet-grass.jpg` | [Nick Page — dew on grass](https://unsplash.com/photos/green-grass-with-water-droplets-Q0-S1qs1Bvc) | Wet-grass option | Unsplash License. |
-| `assets/images/field/fire-cutout.png` | Generated for this project using OpenAI image generation | Transparent flame for the completed fire triangle; cropped, locally warped texture for the spreading-fire simulation | Project asset; photorealistic composite, not a documentary photo or recorded fire video. |
+| `assets/images/field/fire-cutout.png` | Generated for this project using OpenAI image generation | Legacy flame retained on disk for historical evidence; no longer used by the runtime fire renderers | Project asset; photorealistic composite, not a documentary photo or recorded fire video. |
 
 All runtime photos are bundled locally for offline Android use. The field photos illustrate conditions and objects; they do not claim to document one specific KIFC site or event.
 
 Photo curation updated 2026-10-15. Replaced the previous tourist landscape, mossy wood, forest-path water and wet-leaf rain cues. Retained the Indonesian peatland welcome photo, Klaten fire detail, Indonesian mist, lightning and wet-grass photos. Source licenses: [Unsplash](https://unsplash.com/license), [Pexels](https://www.pexels.com/license/). Images use responsive in-app cover framing; no generative retouching was applied to these photographs.
 
 2026-10-16: Replaced the small stacked log ends with the owner's timber photograph and the grass/air cue with a windsock. Per owner feedback, photos fill their cards using uniform cover scaling and deliberate focal points, without letterboxing. Triangle elements, choices and drag previews share a 1.8:1 ratio. The standalone spread introduction uses the landscape's native aspect ratio. Flame meshes preserve the source crop's aspect before local animation deformation.
+
+2026-10-23, KIFC-02: Chapter 1 now uses the existing Kalimantan rainforest photo with uniform cover framing in the shared 190 px panel. Scene, element and choice photographs receive a mild runtime color matrix (slightly reduced saturation, neutral-warm shadows). Source files remain unchanged. This treatment is opt-in through GamePhoto.forestTone; other screens keep their original treatment. The canopy image is environmental context for air; the oxygen label, O2 cue, and feedback carry the concept. Original sunlight, windsock and cold-air files are retained for historical/other uses.
+
+## Owner-provided fire recording, 23 October 2026
+
+- Source: owner attachment `33072-395456627.mp4`, 30,663,232 bytes, H.264 1920×1080, 30 fps, ~19.97 seconds, no audio track. The attachment is preserved unchanged; original creator/license was not supplied, so no third-party attribution or license is invented.
+- Runtime: `assets/animations/fire-loop.webp` (480×180, 15 fps, full clip duration, transparent, infinite loop) and `fire-poster.png` (matching frame at 2 seconds). Both are bundled for offline use. Only the empty upper third was cropped; flames retain their aspect ratio. Dark background is keyed out with a feathered alpha edge.
+- Derived using FFmpeg, no generated replacement flames:
+
+```powershell
+ffmpeg -i SOURCE.mp4 -an -vf "fps=15,crop=1920:720:0:360,scale=480:180:flags=lanczos,format=rgba,colorkey=0x000000:0.13:0.25" -c:v libwebp_anim -quality 66 -compression_level 4 -loop 0 assets/animations/fire-loop.webp
+ffmpeg -ss 2 -i SOURCE.mp4 -frames:v 1 -vf "crop=1920:720:0:360,scale=480:180:flags=lanczos,format=rgba,colorkey=0x000000:0.13:0.25" assets/animations/fire-poster.png
+```
+
+The runtime animation is a transparent derivative of the supplied MP4, rather than direct MP4 playback. The original video is not duplicated in the application bundle.
+
+## Chapter 1 mockups — owner video 237888.mp4, 24 October2026
+
+Owner-provided1920×1080 H.264 footage, 38.33s, 74,690,319 bytes. Original creator/license not supplied. Source remains locally at assets/animations/237888.mp4, ignored by Git and explicitly excluded from Flutter assets; no source footage duplicated into the APK/web bundle.
+
+Runtime derivatives: forest-fire-0.webp (source2s), forest-fire-1.webp (9s), forest-fire-2.webp (18s). Each six-second loop has90frames at15fps, 160×240 RGBA. Combined loop size1,755,668bytes plus38,839byte poster. Six independent ground placements reuse these three different source phases, with alternate mirroring, sizes and depth. No generated flame substitution or continuous fog.
+
+Reproduce each loop with FFmpeg (OFFSET2,9,18 and INDEX0,1,2):
+
+```powershell
+ffmpeg -ss OFFSET -t 6 -i assets/animations/237888.mp4 -an -vf "fps=15,crop=640:960:640:80,scale=160:240:flags=lanczos,format=rgba,colorkey=0x000000:0.04:0.16" -c:v libwebp_anim -quality 72 -compression_level 4 -loop 0 assets/animations/forest-fire-INDEX.webp
+```
+
+The older landscape loop stays in the separate fuel-break simulation outside Chapter 1. The four Chapter 1 screens all use ForestFireSimulation and the new237888 recording. Existing documentary forest photograph is cropped uniformly to place ground immediately behind the bottom element row.

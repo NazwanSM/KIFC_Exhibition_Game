@@ -1,6 +1,7 @@
 import 'dart:ui' as ui;
 
 import 'package:fire_prevention_challenge/features/game/widgets/environment_motion.dart';
+import 'package:fire_prevention_challenge/features/game/widgets/fire_loop.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -72,7 +73,7 @@ void main() {
   });
 
   testWidgets(
-    'photo mesh loads and renders bounded spread and stopped states',
+    'recorded fire loads and renders bounded spread and stopped states',
     (tester) async {
       var stopped = false;
       late StateSetter update;
@@ -107,7 +108,7 @@ void main() {
       );
       await tester.runAsync(() async {
         await precacheImage(
-          const AssetImage('assets/images/field/fire-cutout.png'),
+          const AssetImage(FireLoop.posterAsset),
           tester.element(find.byType(FireSpreadVisual)),
         );
       });

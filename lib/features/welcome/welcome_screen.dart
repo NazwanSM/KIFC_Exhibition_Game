@@ -1191,7 +1191,10 @@ class _SecondaryButton extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
       ),
       icon: Icon(icon, size: 18),
-      label: LocalizedText(label, style: const TextStyle(fontWeight: FontWeight.w600)),
+      label: LocalizedText(
+        label,
+        style: const TextStyle(fontWeight: FontWeight.w600),
+      ),
     ),
   );
 }

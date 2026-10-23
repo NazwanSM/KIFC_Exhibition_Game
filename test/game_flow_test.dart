@@ -12,10 +12,12 @@ import 'package:fire_prevention_challenge/features/game/widgets/environment_moti
 import 'package:fire_prevention_challenge/features/game/widgets/game_mascot.dart';
 
 String renderedTextByKey(WidgetTester tester, String key) => tester
-    .widget<Text>(find.descendant(
-      of: find.byKey(ValueKey(key)),
-      matching: find.byType(Text),
-    ))
+    .widget<Text>(
+      find.descendant(
+        of: find.byKey(ValueKey(key)),
+        matching: find.byType(Text),
+      ),
+    )
     .data!;
 
 class ControlledStopwatch extends Stopwatch {
@@ -62,6 +64,10 @@ class GameFlow {
     // visible providers to decode before recording visual review evidence.
     await tester.runAsync(() async {
       for (final element in find.byType(Image).evaluate()) {
+        final provider = (element.widget as Image).image;
+        if (provider is AssetImage && provider.assetName.endsWith('.webp')) {
+          continue;
+        }
         await precacheImage((element.widget as Image).image, element);
       }
     });
@@ -78,15 +84,19 @@ class GameFlow {
         Platform.environment['KIFC_CAPTURE_DIR'] ?? 'build/review-rev01',
       );
       await dir.create(recursive: true);
-      await File('${dir.path}/${english ? 'en' : 'id'}-${size.width.toInt()}-$stage.png')
-          .writeAsBytes(bytes!.buffer.asUint8List());
+      await File(
+        '${dir.path}/${english ? 'en' : 'id'}-${size.width.toInt()}-$stage.png',
+      ).writeAsBytes(bytes!.buffer.asUint8List());
       final targets = <Map<String, Object>>[];
       for (final element in touchTargets.evaluate()) {
         final finder = find.byElementPredicate((e) => e == element);
         final rect = tester.getRect(finder);
-        final labels = tester.widgetList<Text>(find.descendant(
-          of: finder, matching: find.byType(Text),
-        )).map((text) => text.data ?? '').join(' / ');
+        final labels = tester
+            .widgetList<Text>(
+              find.descendant(of: finder, matching: find.byType(Text)),
+            )
+            .map((text) => text.data ?? '')
+            .join(' / ');
         targets.add({
           'label': labels,
           'centerY': rect.center.dy / size.height,
@@ -94,18 +104,22 @@ class GameFlow {
           'height': rect.height,
         });
       }
-      await File('${dir.path}/${english ? 'en' : 'id'}-${size.width.toInt()}-$stage.json')
-          .writeAsString(jsonEncode(targets));
+      await File(
+        '${dir.path}/${english ? 'en' : 'id'}-${size.width.toInt()}-$stage.json',
+      ).writeAsString(jsonEncode(targets));
       shot.dispose();
     });
   }
+
   String text(String id, String en) => english ? en : id;
   Finder type(String name) =>
       find.byWidgetPredicate((widget) => widget.runtimeType.toString() == name);
-  Finder get touchTargets => find.byWidgetPredicate((widget) =>
-      widget is ButtonStyleButton && widget.onPressed != null ||
-      widget is InkWell && widget.onTap != null ||
-      widget is Draggable);
+  Finder get touchTargets => find.byWidgetPredicate(
+    (widget) =>
+        widget is ButtonStyleButton && widget.onPressed != null ||
+        widget is InkWell && widget.onTap != null ||
+        widget is Draggable,
+  );
   Future<void> pump([int milliseconds = 400]) async {
     await tester.pump();
     await tester.pump(Duration(milliseconds: milliseconds));
@@ -115,22 +129,35 @@ class GameFlow {
   void check(String stage) {
     if (size.height >= 900) {
       for (final element in touchTargets.evaluate()) {
-        final rect = tester.getRect(find.byElementPredicate((e) => e == element));
-        expect(rect.center.dy,
-            inInclusiveRange(size.height * .15, size.height * .85),
-            reason: 'Touch controls must stay in the central area: $stage');
-        expect(rect.shortestSide, greaterThanOrEqualTo(44),
-            reason: 'Touch controls need a usable target on the TV: $stage');
+        final rect = tester.getRect(
+          find.byElementPredicate((e) => e == element),
+        );
+        expect(
+          rect.center.dy,
+          inInclusiveRange(size.height * .15, size.height * .85),
+          reason: 'Touch controls must stay in the central area: $stage',
+        );
+        expect(
+          rect.shortestSide,
+          greaterThanOrEqualTo(44),
+          reason: 'Touch controls need a usable target on the TV: $stage',
+        );
       }
     }
     final crop = find.byKey(const ValueKey('feedback-mascot-crop'));
     if (crop.evaluate().isNotEmpty) {
       final cropRect = tester.getRect(crop);
-      expect(cropRect.bottom, closeTo(size.height, .5),
-          reason: 'The half-body crop must end at the screen edge: $stage');
+      expect(
+        cropRect.bottom,
+        closeTo(size.height, .5),
+        reason: 'The half-body crop must end at the screen edge: $stage',
+      );
       final picture = find.descendant(of: crop, matching: find.byType(Image));
-      expect(tester.getSize(picture).width, lessThanOrEqualTo(cropRect.width + .5),
-          reason: 'The crop must preserve both sides of the mascot: $stage');
+      expect(
+        tester.getSize(picture).width,
+        lessThanOrEqualTo(cropRect.width + .5),
+        reason: 'The crop must preserve both sides of the mascot: $stage',
+      );
     }
     expect(
       tester.takeException(),
@@ -152,6 +179,7 @@ class GameFlow {
   /// screen it lands on. Short feedback advances after about 2 seconds.
   Future<void> advance(String stage, {int milliseconds = 2200}) async {
     await pump(milliseconds);
+    await tester.pump(const Duration(milliseconds: 400));
     check(stage);
   }
 
@@ -179,9 +207,17 @@ class GameFlow {
         }
       }
       if (Platform.environment['KIFC_CAPTURE'] == '1') {
-        for (final pose in ['welcome', 'presenting', 'hint_safety', 'success']) {
+        for (final pose in [
+          'welcome',
+          'presenting',
+          'hint_safety',
+          'success',
+        ]) {
           await precacheImage(
-            ResizeImage(AssetImage('assets/images/mascot/manggala_agni_$pose.png'), width: 320),
+            ResizeImage(
+              AssetImage('assets/images/mascot/manggala_agni_$pose.png'),
+              width: 320,
+            ),
             context,
           );
         }
@@ -196,8 +232,11 @@ class GameFlow {
   Future<void> tap(String label) async {
     if (size.height >= 900) {
       final rect = tester.getRect(find.text(label).first);
-      expect(rect.center.dy, inInclusiveRange(size.height * .15, size.height * .85),
-          reason: 'Navigation must stay away from panel edges: $label');
+      expect(
+        rect.center.dy,
+        inInclusiveRange(size.height * .15, size.height * .85),
+        reason: 'Navigation must stay away from panel edges: $label',
+      );
     }
     await tester.tap(find.text(label).first);
     await pump();
@@ -210,9 +249,17 @@ class GameFlow {
     final trianglePanelSize = tester.getSize(type('_FireScene'));
     final water = type('_DraggablePiece').at(1);
     final heatSlot = type('_DropSlot').first;
-    await tester.drag(water, tester.getCenter(heatSlot) - tester.getCenter(water));
+    await tester.drag(
+      water,
+      tester.getCenter(heatSlot) - tester.getCenter(water),
+    );
     await pump();
-    expect(find.textContaining(text('Foto ini belum cocok', 'Try another element')), findsOneWidget);
+    expect(
+      find.textContaining(
+        text('Air bukan salah satu unsur', 'Water is not one of the elements'),
+      ),
+      findsOneWidget,
+    );
     expect(find.byKey(const ValueKey('fire')), findsNothing);
     final scrims = find.byWidgetPredicate(
       (w) => w is SizedBox && w.height == 42 && w.child is DecoratedBox,
@@ -230,15 +277,28 @@ class GameFlow {
       await pump();
       check('triangle drop ${pair.$1}');
     }
-    // Completing the elements shows short feedback and moves on by itself;
+    // Completing the elements shows the full client feedback and moves on by itself;
     // there is no intermediate button to press.
     expect(
-      find.textContaining(text('Api menyala. Lanjut', 'The fire is burning')),
+      find.textContaining(
+        text(
+          'Tepat! Api dapat menyala ketika panas yang cukup',
+          'Correct! Fire can start when sufficient heat',
+        ),
+      ),
       findsOneWidget,
     );
     await capture('triangle-complete');
-    await advance('fire-explanation');
-    expect(find.text(text('Tiga unsur, satu api.', 'Three elements, one fire.')), findsOneWidget);
+    await advance('fire-explanation', milliseconds: 14200);
+    expect(
+      find.text(
+        text(
+          'Api Dapat Muncul Saat Tiga Unsur Bertemu',
+          'Fire Can Start When Three Elements Meet',
+        ),
+      ),
+      findsOneWidget,
+    );
     await capture('fire-explanation');
     await tap(text('Coba Kurangi Satu Unsur', 'Try Reducing an Element'));
     expect(
@@ -253,11 +313,17 @@ class GameFlow {
       ),
       (
         text('Bahan bakar', 'Fuel'),
-        text('Beri jarak agar api sulit menjalar.', 'Gaps interrupt the spread.'),
+        text(
+          'Beri jarak agar api sulit menjalar.',
+          'Gaps interrupt the spread.',
+        ),
       ),
       (
         text('Oksigen', 'Oxygen'),
-        text('Api perlu oksigen dari udara.', 'Fire needs oxygen from the air.'),
+        text(
+          'Api perlu oksigen dari udara.',
+          'Fire needs oxygen from the air.',
+        ),
       ),
     ]) {
       final tab = find.descendant(
@@ -268,7 +334,13 @@ class GameFlow {
       await pump();
       check('triangle demo ${demo.$1}');
       expect(find.text(demo.$2), findsOneWidget);
-      await capture('demo-${demo.$1 == text('Panas', 'Heat') ? 'heat' : demo.$1 == text('Bahan bakar', 'Fuel') ? 'fuel' : 'oxygen'}');
+      await capture(
+        'demo-${demo.$1 == text('Panas', 'Heat')
+            ? 'heat'
+            : demo.$1 == text('Bahan bakar', 'Fuel')
+            ? 'fuel'
+            : 'oxygen'}',
+      );
       expect(
         type('_AnswerMark'),
         findsNothing,
@@ -282,7 +354,7 @@ class GameFlow {
     }
     // The demo is unscored and only moves on once all three elements are tried.
     expect(
-      find.textContaining(text('sudah kamu coba', 'You tried all three')),
+      find.text(text('3/3 unsur sudah dicoba', '3/3 elements tried')),
       findsOneWidget,
     );
     await capture('demo-complete');
@@ -290,34 +362,45 @@ class GameFlow {
     expect(find.byKey(const ValueKey('karhutla-definition')), findsOneWidget);
     await capture('karhutla-definition');
     await tap(text('Lanjut', 'Continue'));
-    expect(find.byKey(const ValueKey('karhutla-impact')), findsOneWidget);
+    expect(find.byKey(const ValueKey('karhutla-cause')), findsOneWidget);
     await tap(text('Kembali', 'Back'));
     expect(find.byKey(const ValueKey('karhutla-definition')), findsOneWidget);
     await tap(text('Lanjut', 'Continue'));
-    await capture('karhutla-impact');
+    await capture('karhutla-cause');
     await tap(text('Lanjut', 'Continue'));
     expect(find.byKey(const ValueKey('karhutla-prevention')), findsOneWidget);
     await capture('karhutla-prevention');
-    await tap(text('Lihat Risikonya', 'See the Risk'));
+    await tap(text('Mulai Kuis', 'Start Quiz'));
     // One wrong pick earns a mascot hint and a single extra attempt.
-    await tap(text('Hutan basah', 'Wet forest'));
-    await tap(text('Hutan basah', 'Wet forest'));
+    await tap(text('A. Hutan mangrove', 'A. Mangrove forest'));
+    await tap(text('A. Hutan mangrove', 'A. Mangrove forest'));
     expect(
-      find.textContaining(text('satu kesempatan lagi', 'one more try')),
+      find.textContaining(
+        text('lapisan tanah organik tebal', 'thick organic soil layer'),
+      ),
       findsOneWidget,
     );
     await capture('risk-hint');
     if (wrongCause) {
-      await tap(text('Padang rumput basah', 'Wet grassland'));
-      expect(tester.widgetList(type('_RiskCard')).every((w) => (w as dynamic).onTap == null), isTrue);
+      await tap(
+        text('C. Hutan pada tanah mineral', 'C. Forest on mineral soil'),
+      );
+      expect(
+        tester
+            .widgetList(type('_RiskCard'))
+            .every((w) => (w as dynamic).onTap == null),
+        isTrue,
+      );
       await capture('risk-reveal');
     } else {
-      await tap(text('Tanaman kering di dekat sumber api', 'Dry vegetation with an ignition source'));
+      await tap(text('B. Hutan rawa gambut', 'B. Peat swamp forest'));
       await capture('risk-correct');
     }
-    await advance('cause-quiz', milliseconds: wrongCause ? 4700 : 2200);
+    await advance('cause-quiz', milliseconds: wrongCause ? 12200 : 18200);
     expect(
-      find.text(text('Apa penyebabnya?', 'What most likely triggered this risk?')),
+      find.text(
+        text('Apa penyebabnya?', 'What most likely triggered this risk?'),
+      ),
       findsOneWidget,
     );
     for (var index = 0; index < 4; index++) {
@@ -327,9 +410,7 @@ class GameFlow {
             : text('Aktivitas manusia', 'Human activity'),
       );
       expect(
-        find.byWidgetPredicate(
-          (w) => w.runtimeType.toString() == '_Feedback',
-        ),
+        find.byWidgetPredicate((w) => w.runtimeType.toString() == '_Feedback'),
         findsOneWidget,
         reason: 'Every answer shows feedback before the automatic move',
       );
@@ -378,12 +459,32 @@ class GameFlow {
     // Let real image decoding finish before advancing the fake test clock.
     await tester.runAsync(() async {
       final context = tester.element(find.byType(ExhibitionGame));
-      for (final file in Directory('assets/images/field').listSync().whereType<File>()) {
-        final path = file.path.replaceAll(String.fromCharCode(92), '/');
+      for (final path in const [
+        'assets/images/field/dry-leaf-litter.jpg',
+        'assets/images/field/cigarette-leaves.jpg',
+        'assets/images/field/fire-klaten.jpg',
+        'assets/images/forest/kereng-bangkirai.jpg',
+        'assets/images/field/dry-wood-client.jpg',
+        'assets/images/field/rain-splash.jpg',
+      ]) {
         await precacheImage(AssetImage(path), context);
       }
     });
     await pump(5000);
+    // The transition awaits real image decoding, independent of fake timers.
+    // New chapter assets must not make this depend on the global cache order.
+    for (var attempt = 0; attempt < 50; attempt++) {
+      if (find
+          .byKey(const ValueKey('final-selection-grid'))
+          .evaluate()
+          .isNotEmpty) {
+        break;
+      }
+      await tester.runAsync(
+        () => Future<void>.delayed(const Duration(milliseconds: 20)),
+      );
+      await pump(20);
+    }
     await pump(800);
     expect(find.text('10'), findsOneWidget);
     expect(clock.isRunning, isTrue);
@@ -411,8 +512,10 @@ class GameFlow {
     expect(find.byKey(const ValueKey('final-review-continue')), findsOneWidget);
     expect(tester.getRect(grid), gridRect);
     if (perfect != null) {
-      expect(tester.widget<GameMascot>(find.byType(GameMascot)).pose,
-          perfect ? MascotPose.success : MascotPose.hintSafety);
+      expect(
+        tester.widget<GameMascot>(find.byType(GameMascot)).pose,
+        perfect ? MascotPose.success : MascotPose.hintSafety,
+      );
     }
     await capture('final-review');
     await tester.tap(find.byKey(const ValueKey('final-review-continue')));
@@ -433,7 +536,11 @@ void main() {
         tester.view.resetPhysicalSize();
         tester.view.resetDevicePixelRatio();
       });
-      final flow = GameFlow(tester, english: english, size: const Size(360, 640));
+      final flow = GameFlow(
+        tester,
+        english: english,
+        size: const Size(360, 640),
+      );
       await flow.launch();
       await flow.toDecision();
       await flow.choose('separateFuel');
@@ -441,14 +548,26 @@ void main() {
       expect(find.byKey(const ValueKey('final-raw-score')), findsNothing);
       await flow.token('dryVegetation');
       await flow.token('dryVegetation');
-      expect(find.text(flow.text('0 gambar dipilih', '0 images selected')), findsOneWidget);
+      expect(
+        find.text(flow.text('0 gambar dipilih', '0 images selected')),
+        findsOneWidget,
+      );
       await flow.token('dryVegetation');
       await flow.token('rain');
-      expect(find.text(flow.text('2 gambar dipilih', '2 images selected')), findsOneWidget);
+      expect(
+        find.text(flow.text('2 gambar dipilih', '2 images selected')),
+        findsOneWidget,
+      );
       final grid = find.byKey(const ValueKey('final-selection-grid'));
       final gridRect = tester.getRect(grid);
-      expect(find.descendant(of: grid, matching: find.byIcon(Icons.check_rounded)), findsNothing);
-      expect(find.descendant(of: grid, matching: find.byIcon(Icons.close_rounded)), findsNothing);
+      expect(
+        find.descendant(of: grid, matching: find.byIcon(Icons.check_rounded)),
+        findsNothing,
+      );
+      expect(
+        find.descendant(of: grid, matching: find.byIcon(Icons.close_rounded)),
+        findsNothing,
+      );
       await flow.capture('final-neutral-selection');
 
       // The deadline itself locks selection, even before the next timer tick.
@@ -458,20 +577,37 @@ void main() {
       await flow.pump(450);
       await flow.pump(400);
       flow.check('final review mixed');
-      expect(tester.getRect(grid), gridRect,
-          reason: 'Review reveals results on the same board without moving it');
-      expect(find.text(flow.text('1 benar · 1 salah · 3 terlewat', '1 correct · 1 incorrect · 3 missed')), findsOneWidget);
+      expect(
+        tester.getRect(grid),
+        gridRect,
+        reason: 'Review reveals results on the same board without moving it',
+      );
+      expect(
+        find.text(
+          flow.text(
+            '1 benar · 1 salah · 3 terlewat',
+            '1 correct · 1 incorrect · 3 missed',
+          ),
+        ),
+        findsOneWidget,
+      );
       expect(find.byKey(const ValueKey('final-correct-count')), findsNothing);
       final message = renderedTextByKey(tester, 'final-review-message');
       expect(message, contains(english ? 'dry vegetation' : 'Tanaman kering'));
       expect(message, contains(english ? 'Rain' : 'Hujan'));
-      expect(tester.widget<GameMascot>(find.byType(GameMascot)).pose, MascotPose.hintSafety);
+      expect(
+        tester.widget<GameMascot>(find.byType(GameMascot)).pose,
+        MascotPose.hintSafety,
+      );
       for (final card in tester.widgetList(flow.type('_RiskTokenCard'))) {
         expect((card as dynamic).onTap, isNull);
       }
       await flow.capture('final-review-mixed');
       await flow.pump(6000);
-      expect(find.byKey(const ValueKey('final-review-continue')), findsOneWidget);
+      expect(
+        find.byKey(const ValueKey('final-review-continue')),
+        findsOneWidget,
+      );
       await tester.tap(find.byKey(const ValueKey('final-review-continue')));
       await flow.pump();
       expect(renderedTextByKey(tester, 'total-score'), '8');
@@ -547,10 +683,15 @@ void main() {
       expect(find.text('0'), findsOneWidget);
       expect(color(), KifcTheme.answerIncorrect);
       await flow.pump(450);
-      expect(find.byKey(const ValueKey('final-review-continue')), findsOneWidget);
+      expect(
+        find.byKey(const ValueKey('final-review-continue')),
+        findsOneWidget,
+      );
       expect(find.text('0 benar · 0 salah · 4 terlewat'), findsOneWidget);
-      expect(renderedTextByKey(tester, 'final-review-message'),
-          startsWith('Belum ada gambar yang dipilih.'));
+      expect(
+        renderedTextByKey(tester, 'final-review-message'),
+        startsWith('Belum ada gambar yang dipilih.'),
+      );
       await tester.tap(find.byKey(const ValueKey('final-review-continue')));
       await flow.pump();
       expect(find.byKey(const ValueKey('total-score')), findsOneWidget);
@@ -589,7 +730,12 @@ void main() {
     await flow.tap('Kembali');
     await flow.tap('Kembali');
     expect(find.text('Kurangi satu unsur.'), findsOneWidget);
-    expect(tester.widgetList(flow.type('_ChoiceButton')).every((w) => (w as dynamic).onTap != null), isTrue);
+    expect(
+      tester
+          .widgetList(flow.type('_ChoiceButton'))
+          .every((w) => (w as dynamic).onTap != null),
+      isTrue,
+    );
     await tester.pumpWidget(const SizedBox.shrink());
   });
   testWidgets('starts chapter one by assembling the three fire elements', (
@@ -602,46 +748,50 @@ void main() {
       tester.view.resetDevicePixelRatio();
     });
     await tester.pumpWidget(
-      MaterialApp(
-        theme: KifcTheme.light(),
-        home: const ExhibitionGame(),
-      ),
-    );
-    await tester.tap(find.text('Mulai Tantangan'));
-    await tester.pump();
-    await tester.pump(const Duration(milliseconds: 400));
-
-    expect(find.text('Susun tiga unsur api.'), findsOneWidget);
-  });
-  testWidgets('explains the fire triangle after the three elements are placed', (
-    tester,
-  ) async {
-    tester.view.devicePixelRatio = 1;
-    tester.view.physicalSize = const Size(411, 731);
-    addTearDown(() {
-      tester.view.resetPhysicalSize();
-      tester.view.resetDevicePixelRatio();
-    });
-    await tester.pumpWidget(
       MaterialApp(theme: KifcTheme.light(), home: const ExhibitionGame()),
     );
     await tester.tap(find.text('Mulai Tantangan'));
-    await tester.pump(const Duration(milliseconds: 400));
-    Finder type(String name) => find.byWidgetPredicate(
-      (widget) => widget.runtimeType.toString() == name,
-    );
-    for (final pair in [(0, 0), (2, 1), (4, 2)]) {
-      final card = type('_DraggablePiece').at(pair.$1);
-      final slot = type('_DropSlot').at(pair.$2);
-      await tester.drag(card, tester.getCenter(slot) - tester.getCenter(card));
-      await tester.pump(const Duration(milliseconds: 400));
-    }
-
-    // No button press: feedback is shown, then the flow continues on its own.
-    await tester.pump(const Duration(milliseconds: 2600));
     await tester.pump();
-    expect(find.text('Tiga unsur, satu api.'), findsOneWidget);
+    await tester.pump(const Duration(milliseconds: 400));
+
+    expect(find.text('Pilih tiga unsur api.'), findsOneWidget);
   });
+  testWidgets(
+    'explains the fire triangle after the three elements are placed',
+    (tester) async {
+      tester.view.devicePixelRatio = 1;
+      tester.view.physicalSize = const Size(411, 731);
+      addTearDown(() {
+        tester.view.resetPhysicalSize();
+        tester.view.resetDevicePixelRatio();
+      });
+      await tester.pumpWidget(
+        MaterialApp(theme: KifcTheme.light(), home: const ExhibitionGame()),
+      );
+      await tester.tap(find.text('Mulai Tantangan'));
+      await tester.pump(const Duration(milliseconds: 400));
+      Finder type(String name) => find.byWidgetPredicate(
+        (widget) => widget.runtimeType.toString() == name,
+      );
+      for (final pair in [(0, 0), (2, 1), (4, 2)]) {
+        final card = type('_DraggablePiece').at(pair.$1);
+        final slot = type('_DropSlot').at(pair.$2);
+        await tester.drag(
+          card,
+          tester.getCenter(slot) - tester.getCenter(card),
+        );
+        await tester.pump(const Duration(milliseconds: 400));
+      }
+
+      // No button press: feedback is shown, then the flow continues on its own.
+      await tester.pump(const Duration(milliseconds: 14200));
+      await tester.pump();
+      expect(
+        find.text('Api Dapat Muncul Saat Tiga Unsur Bertemu'),
+        findsOneWidget,
+      );
+    },
+  );
   testWidgets('rebuilding cancels the pending automatic move', (tester) async {
     tester.view.devicePixelRatio = 1;
     tester.view.physicalSize = const Size(411, 731);
@@ -668,16 +818,21 @@ void main() {
     await tester.pump(const Duration(milliseconds: 1000));
     await tester.tap(find.text('Ulangi'));
     await tester.pump();
-    expect(find.text('Susun tiga unsur api.'), findsOneWidget);
+    expect(find.text('Pilih tiga unsur api.'), findsOneWidget);
 
     // Well past the automatic delay, the screen must not have changed.
     await tester.pump(const Duration(milliseconds: 4000));
     await tester.pump();
-    expect(find.text('Susun tiga unsur api.'), findsOneWidget);
-    expect(find.text('Tiga unsur, satu api.'), findsNothing);
+    expect(find.text('Pilih tiga unsur api.'), findsOneWidget);
+    expect(find.text('Api Dapat Muncul Saat Tiga Unsur Bertemu'), findsNothing);
   });
   for (final english in [false, true]) {
-    for (final size in [const Size(411, 731), const Size(360, 640), const Size(720, 1280), const Size(1080, 1920)]) {
+    for (final size in [
+      const Size(411, 731),
+      const Size(360, 640),
+      const Size(720, 1280),
+      const Size(1080, 1920),
+    ]) {
       testWidgets('Bilingual complete flow and scoring $english $size', (
         tester,
       ) async {
@@ -751,10 +906,19 @@ void main() {
           }
         }
         expect(find.byKey(const ValueKey('final-raw-score')), findsNothing);
-        expect(find.text(flow.text(
-          '${unsafe ? 6 : size.width == 360 ? 2 : 4} gambar dipilih',
-          '${size.width == 360 ? 2 : 4} images selected',
-        )), findsOneWidget);
+        expect(
+          find.text(
+            flow.text(
+              '${unsafe
+                  ? 6
+                  : size.width == 360
+                  ? 2
+                  : 4} gambar dipilih',
+              '${size.width == 360 ? 2 : 4} images selected',
+            ),
+          ),
+          findsOneWidget,
+        );
         await flow.finish(perfect: !unsafe && size.width != 360);
         final expected = unsafe
             ? '7,5'
@@ -762,10 +926,7 @@ void main() {
             ? (english ? '8.5' : '8,5')
             : '9';
         expect(find.byKey(const ValueKey('total-score')), findsOneWidget);
-        expect(
-          renderedTextByKey(tester, 'total-score'),
-          expected,
-        );
+        expect(renderedTextByKey(tester, 'total-score'), expected);
         if (size.width == 411 && !english) {
           await flow.pump(14000);
           expect(find.byKey(const ValueKey('total-score')), findsOneWidget);
@@ -800,7 +961,7 @@ void main() {
             // Playing again starts a fresh session at Chapter 1, not the old
             // landscape page.
             await flow.tap('Play Again');
-            expect(find.text('Build the fire triangle.'), findsOneWidget);
+            expect(find.text('Choose three elements.'), findsOneWidget);
             expect(find.text('Start Challenge'), findsNothing);
           } else {
             await flow.pump(1100);
