@@ -36,7 +36,7 @@ Tracker ini mencatat pekerjaan baru dari dokumen KIFC. **KIFC-01 sampai 08 serta
 | KIFC-G01 | Variasi interaksi, transisi, dan respons sentuhan | Ditinjau | Pemetaan interaksi dan pembatalan timer diverifikasi;191 tes lulus |
 | KIFC-G02 | Animasi dan latar bergerak | Ditinjau sebagian | Video pemilik, fallback, reduced motion dan offline diuji; profil TV fisik menunggu D-09 |
 | KIFC-G03 | Pengayaan visual seluruh layar | Ditinjau | Audit per layar,33 render inset serta APK offline; overflow Android diperbaiki |
-| KIFC-G04 | Musik, suara alam, efek suara, dan kontrol audio | Perlu kajian | D-08, aset, dan kemampuan perangkat |
+| KIFC-G04 | Musik, suara alam, efek suara, dan kontrol audio | Menunggu keputusan | Usulan paket A/B/C siap; audio ditunda sesuai arahan langsung pemilik, D-08/D-09 |
 | KIFC-X01 | Alur, penomoran babak, dan perhitungan skor | Menunggu keputusan | D-03, D-04, D-07, D-11 |
 | KIFC-X02 | Naskah tiga bahasa dan konsistensi istilah | Ditinjau | Inventaris/glosarium serta alur Korea diperiksa; validasi klien/penutur dan materi09 menunggu |
 | KIFC-X03 | Verifikasi, perangkat, dan rilis | Siap | Bertahap per fitur; uji akhir setelah integrasi |
@@ -483,4 +483,6 @@ Empat keadaan layar direvisi tanpa mengubah urutan. Panel diperbesar, dropzone d
 
 - `01f2693` — KIFC-G03: audit seluruh layar dan perbaikan overflow Android akibat cutout.33 render inset tiga bahasa dan APK offline tersedia; [audit visual serta bukti](../../docs/client-revisions/2026-10-23/kifc-g03-visual-audit.md). Preset kartu, urutan dan interaksi dipertahankan.
 
-- KIFC-G01 — pemetaan variasi interaksi, transisi, respons sentuhan dan penguncian/pembatalan callback selesai diaudit terhadap implementasi.191 tes lulus; [rincian interaksi dan bukti](../../docs/client-revisions/2026-10-23/kifc-g01-interaction-review.md). Status Ditinjau.
+- `ca92786` — KIFC-G01: pemetaan variasi interaksi, transisi, respons sentuhan dan penguncian/pembatalan callback selesai diaudit terhadap implementasi.191 tes lulus; [rincian interaksi dan bukti](../../docs/client-revisions/2026-10-23/kifc-g01-interaction-review.md). Status Ditinjau.
+
+- KIFC-G04, persiapan — [cakupan konkret paket audio dan kriteria uji](../../docs/client-revisions/2026-10-23/kifc-g04-audio-scope.md) siap; tidak mengaktifkan suara sebelum D-08. Keputusan penundaan suara dari pemilik tetap berlaku.
