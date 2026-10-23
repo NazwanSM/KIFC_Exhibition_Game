@@ -35,7 +35,7 @@ Tracker ini mencatat pekerjaan baru dari dokumen KIFC. **KIFC-01 sampai 08 serta
 | KIFC-11 | Layar hasil akhir | Ditinjau sebagian | Pesan penutup terpasang; aturan skor menunggu X-01 |
 | KIFC-G01 | Variasi interaksi, transisi, dan respons sentuhan | Siap | Penerapan sesuai tujuan tiap layar |
 | KIFC-G02 | Animasi dan latar bergerak | Ditinjau sebagian | Video pemilik, fallback, reduced motion dan offline diuji; profil TV fisik menunggu D-09 |
-| KIFC-G03 | Pengayaan visual seluruh layar | Siap | Materi tiap layar dan keterbacaan |
+| KIFC-G03 | Pengayaan visual seluruh layar | Ditinjau | Audit per layar,33 render inset serta APK offline; overflow Android diperbaiki |
 | KIFC-G04 | Musik, suara alam, efek suara, dan kontrol audio | Perlu kajian | D-08, aset, dan kemampuan perangkat |
 | KIFC-X01 | Alur, penomoran babak, dan perhitungan skor | Menunggu keputusan | D-03, D-04, D-07, D-11 |
 | KIFC-X02 | Naskah tiga bahasa dan konsistensi istilah | Ditinjau | Inventaris/glosarium serta alur Korea diperiksa; validasi klien/penutur dan materi09 menunggu |
@@ -347,10 +347,10 @@ Analisis bersih, **151 tes lulus**, dan **60 render** empat keadaan × tiga baha
 
 **Sumber:** catatan tambahan paragraf 3.
 
-- [ ] **KIFC-G03.01** Tinjau setiap layar yang masih terasa polos dan catat kebutuhan visualnya.
-- [ ] **KIFC-G03.02** Tambahkan elemen relevan seperti suasana hutan, detail lingkungan, atau animasi pendukung sesuai materi layar; gunakan visual gambut pada bagian yang mengajarkannya.
-- [ ] **KIFC-G03.03** Pertahankan komposisi rapi, mudah dipahami, dan tidak terlalu ramai. Motif latar yang sudah disetujui tidak otomatis harus ditambah kepadatannya.
-- [ ] **KIFC-G03.04** Periksa kesesuaian foto, label, crop, proporsi maskot, dan keterbacaan pilihan panjang.
+- [x] **KIFC-G03.01** Tinjau setiap layar yang masih terasa polos dan catat kebutuhan visualnya.
+- [x] **KIFC-G03.02** Tambahkan elemen relevan seperti suasana hutan, detail lingkungan, atau animasi pendukung sesuai materi layar; gunakan visual gambut pada bagian yang mengajarkannya.
+- [x] **KIFC-G03.03** Pertahankan komposisi rapi, mudah dipahami, dan tidak terlalu ramai. Motif latar yang sudah disetujui tidak otomatis harus ditambah kepadatannya.
+- [x] **KIFC-G03.04** Periksa kesesuaian foto, label, crop, proporsi maskot, dan keterbacaan pilihan panjang.
 
 **Kriteria penerimaan:** tiap tambahan memiliki hubungan dengan materi atau suasana; konten utama dan area sentuh tetap jelas.
 
@@ -479,4 +479,6 @@ Empat keadaan layar direvisi tanpa mengubah urutan. Panel diperbesar, dropzone d
 
 - `4a37ad8` — KIFC-X02: inventaris aktif, glosarium, status naskah, serta dua alur Korea lengkap dengan pemeriksaan teks tertinggal dan reset sesi. Tes lulus dan analisis bersih; [indeks bukti bahasa](../../docs/client-revisions/2026-10-23/kifc-x02-language-review.md). Review penutur Korea/klien tetap terbuka.
 
-- KIFC-09, persiapan — [usulan konkret dua format, naskah kartu, syarat lanjut dan konsekuensi skor](../../docs/client-revisions/2026-10-23/kifc-09-format-proposal.md) siap. Belum diterapkan; D-04/D-07 memerlukan keputusan klien. Urutan dan materi aktif tetap dipertahankan.
+- `2f13709` — KIFC-09, persiapan: [usulan konkret dua format, naskah kartu, syarat lanjut dan konsekuensi skor](../../docs/client-revisions/2026-10-23/kifc-09-format-proposal.md) siap. Belum diterapkan; D-04/D-07 memerlukan keputusan klien. Urutan dan materi aktif tetap dipertahankan.
+
+- KIFC-G03 — audit seluruh layar dan perbaikan overflow Android akibat cutout.33 render inset tiga bahasa dan APK offline tersedia; [audit visual serta bukti](../../docs/client-revisions/2026-10-23/kifc-g03-visual-audit.md). Preset kartu, urutan dan interaksi dipertahankan.

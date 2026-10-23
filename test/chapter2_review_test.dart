@@ -17,9 +17,14 @@ Future<void> launchScreen(
   required String page,
   int? cardIndex,
   Stopwatch Function()? stopwatchFactory,
+  double topInset = 0,
 }) async {
   tester.view.devicePixelRatio = 1;
   tester.view.physicalSize = size;
+  tester.view.padding = FakeViewPadding(top: topInset);
+  tester.view.viewPadding = FakeViewPadding(top: topInset);
+  addTearDown(tester.view.resetPadding);
+  addTearDown(tester.view.resetViewPadding);
   addTearDown(tester.view.resetPhysicalSize);
   addTearDown(tester.view.resetDevicePixelRatio);
   await tester.pumpWidget(

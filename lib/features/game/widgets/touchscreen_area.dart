@@ -19,7 +19,18 @@ class TouchscreenArea extends StatelessWidget {
     bottom: bottom,
     child: LayoutBuilder(
       builder: (context, bounds) {
-        if (bounds.maxHeight < 900 || bounds.maxWidth < 600) return child;
+        if (bounds.maxHeight < 900 || bounds.maxWidth < 600) {
+          // SafeArea removes the insets but does not update MediaQuery.size.
+          // Descendant compact layouts need the actual remaining height.
+          return MediaQuery(
+            data: MediaQuery.of(context).copyWith(
+              size: Size(bounds.maxWidth, bounds.maxHeight),
+              padding: EdgeInsets.zero,
+              viewPadding: EdgeInsets.zero,
+            ),
+            child: child,
+          );
+        }
 
         // Scale the proven portrait layout uniformly, keeping touch controls
         // away from the physical edges instead of stretching their spacing.

@@ -17,6 +17,11 @@ import 'widgets/terrain_backdrop.dart';
 const _fireCardAspectRatio = 1.8;
 const finalChallengeSeconds = 30;
 
+bool _compactLayout(BuildContext context) =>
+    MediaQuery.sizeOf(context).height -
+        MediaQuery.viewPaddingOf(context).vertical <
+    680;
+
 Duration _motionDuration(BuildContext context, Duration duration) =>
     MediaQuery.maybeOf(context)?.disableAnimations == true
     ? Duration.zero
@@ -897,9 +902,7 @@ class _HostConversation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final height =
-        this.height ??
-        (MediaQuery.sizeOf(context).height < 680 ? 180.0 : 220.0);
+    final height = this.height ?? (_compactLayout(context) ? 180.0 : 220.0);
     final mascot = SizedBox(
       width: height * (opening ? .62 : .75),
       child: GameMascot(pose: pose, height: height),
@@ -972,7 +975,7 @@ class _RiskPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final compact = MediaQuery.sizeOf(context).height < 680;
+    final compact = _compactLayout(context);
     final solved = answer == _correct;
     final revealed = solved || wrongAttempts >= 2;
     final locked = revealed;
@@ -1289,7 +1292,7 @@ class _TriangleBuild extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final complete = pieces.length == 3;
-    final compact = MediaQuery.sizeOf(context).height < 680;
+    final compact = _compactLayout(context);
     final message = complete
         ? (english
               ? 'Correct! Fire can start when sufficient heat, fuel, and oxygen meet. These three elements form the fire triangle. Reducing any one of them can help control fire.'
@@ -1513,7 +1516,7 @@ class _TriangleExplanation extends StatelessWidget {
     title: english
         ? 'Fire Can Start When Three Elements Meet'
         : 'Api Dapat Muncul Saat Tiga Unsur Bertemu',
-    titleFontSize: MediaQuery.sizeOf(context).height < 680 ? 20 : 24,
+    titleFontSize: _compactLayout(context) ? 20 : 24,
     bodyScrollable: false,
     subtitle: english
         ? 'Fire can occur anywhere when sufficient heat, fuel, and oxygen meet.'
@@ -1893,7 +1896,7 @@ class _FinalChallenge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final compact = MediaQuery.sizeOf(context).height < 680;
+    final compact = _compactLayout(context);
     final correct = found.where((token) => token.impact).length;
     final wrong = found.length - correct;
     final missed =
@@ -2090,7 +2093,7 @@ class _FinalReviewDialogue extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, bounds) {
         final height = math.min(
-          MediaQuery.sizeOf(context).height < 680 ? 112.0 : 136.0,
+          _compactLayout(context) ? 112.0 : 136.0,
           bounds.maxHeight,
         );
         final mascot = SizedBox(
@@ -2332,7 +2335,7 @@ class _ClosingPage extends StatelessWidget {
   final int idleSeconds;
   @override
   Widget build(BuildContext context) {
-    final compact = MediaQuery.sizeOf(context).height < 680;
+    final compact = _compactLayout(context);
     return Scaffold(
       backgroundColor: KifcTheme.forest950,
       body: Stack(
@@ -2529,7 +2532,7 @@ class _DarkStage extends StatelessWidget {
   final bool groupFooter;
   @override
   Widget build(BuildContext context) {
-    final compact = MediaQuery.sizeOf(context).height < 680;
+    final compact = _compactLayout(context);
     return Scaffold(
       backgroundColor: KifcTheme.forest950,
       body: TerrainBackdrop(
@@ -2634,7 +2637,7 @@ class _LightStage extends StatelessWidget {
   final double? footerGap;
   @override
   Widget build(BuildContext context) {
-    final compact = MediaQuery.sizeOf(context).height < 680;
+    final compact = _compactLayout(context);
     return Scaffold(
       backgroundColor: KifcTheme.paper,
       body: TerrainBackdrop(
@@ -3774,7 +3777,7 @@ class _FireScene extends StatelessWidget {
   final Map<_FireSlot, _FirePiece>? placements;
   final bool english;
   static double heightOf(BuildContext context) =>
-      MediaQuery.sizeOf(context).height < 680 ? 216 : 248;
+      _compactLayout(context) ? 216 : 248;
   final void Function(_FireSlot, _FirePiece)? onDrop;
   final _FireSlot? reduced;
   @override
