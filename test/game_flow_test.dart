@@ -7,6 +7,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fire_prevention_challenge/core/theme/kifc_theme.dart';
+import 'package:fire_prevention_challenge/core/localization/app_locale.dart';
 import 'package:fire_prevention_challenge/features/game/exhibition_game.dart';
 import 'package:fire_prevention_challenge/features/game/widgets/environment_motion.dart';
 import 'package:fire_prevention_challenge/features/game/widgets/game_mascot.dart';
@@ -53,7 +54,13 @@ Future<void> loadGameFonts() async {
 }
 
 class GameFlow {
-  GameFlow(this.tester, {required this.english, required this.size});
+  GameFlow(
+    this.tester, {
+    required this.english,
+    required this.size,
+    this.korean = false,
+  });
+  final bool korean;
   final WidgetTester tester;
   final bool english;
   final Size size;
@@ -85,7 +92,11 @@ class GameFlow {
       );
       await dir.create(recursive: true);
       await File(
-        '${dir.path}/${english ? 'en' : 'id'}-${size.width.toInt()}-$stage.png',
+        '${dir.path}/${korean
+            ? 'ko'
+            : english
+            ? 'en'
+            : 'id'}-${size.width.toInt()}-$stage.png',
       ).writeAsBytes(bytes!.buffer.asUint8List());
       final targets = <Map<String, Object>>[];
       for (final element in touchTargets.evaluate()) {
@@ -105,13 +116,27 @@ class GameFlow {
         });
       }
       await File(
-        '${dir.path}/${english ? 'en' : 'id'}-${size.width.toInt()}-$stage.json',
+        '${dir.path}/${korean
+            ? 'ko'
+            : english
+            ? 'en'
+            : 'id'}-${size.width.toInt()}-$stage.json',
       ).writeAsString(jsonEncode(targets));
       shot.dispose();
     });
   }
 
-  String text(String id, String en) => english ? en : id;
+  String text(String id, String en) {
+    if (!korean) return english ? en : id;
+    // Existing expectations use short fragments; the UI translates full scripts.
+    return switch (id) {
+      'Air bukan salah satu unsur' => '물은 불의 삼요소',
+      'Tepat! Api dapat menyala ketika panas yang cukup' => '맞아요! 충분한 열과 연료',
+      'lapisan tanah organik tebal' => '유기물 토양층',
+      _ => AppCopy.translate(id),
+    };
+  }
+
   Finder type(String name) =>
       find.byWidgetPredicate((widget) => widget.runtimeType.toString() == name);
   Finder get touchTargets => find.byWidgetPredicate(
@@ -127,6 +152,23 @@ class GameFlow {
   }
 
   void check(String stage) {
+    if (korean) {
+      const branding = [
+        'KIFC EXHIBITION ROOM / MANGGALA AGNI',
+        'Bahasa Indonesia',
+        'English',
+        'Korea–Indonesia Forest Cooperation Center',
+      ];
+      for (final label in tester.widgetList<Text>(find.byType(Text))) {
+        final value = label.data ?? '';
+        if (branding.contains(value)) continue;
+        expect(
+          value.replaceAll('KIFC', ''),
+          isNot(matches(RegExp(r'[A-Za-z]{3,}'))),
+          reason: 'Untranslated player text at $stage: $value',
+        );
+      }
+    }
     if (size.height >= 900) {
       for (final element in touchTargets.evaluate()) {
         final rect = tester.getRect(
@@ -225,6 +267,7 @@ class GameFlow {
     });
     await pump();
     if (english) await tap('English');
+    if (korean) await tap('한국어');
     check('welcome');
     await capture('welcome');
   }

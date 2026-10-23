@@ -38,7 +38,7 @@ Tracker ini mencatat pekerjaan baru dari dokumen KIFC. **KIFC-01 sampai 08 serta
 | KIFC-G03 | Pengayaan visual seluruh layar | Siap | Materi tiap layar dan keterbacaan |
 | KIFC-G04 | Musik, suara alam, efek suara, dan kontrol audio | Perlu kajian | D-08, aset, dan kemampuan perangkat |
 | KIFC-X01 | Alur, penomoran babak, dan perhitungan skor | Menunggu keputusan | D-03, D-04, D-07, D-11 |
-| KIFC-X02 | Naskah tiga bahasa dan konsistensi istilah | Siap | Naskah sumber; keputusan materi/format terkait |
+| KIFC-X02 | Naskah tiga bahasa dan konsistensi istilah | Ditinjau | Inventaris/glosarium serta alur Korea diperiksa; validasi klien/penutur dan materi09 menunggu |
 | KIFC-X03 | Verifikasi, perangkat, dan rilis | Siap | Bertahap per fitur; uji akhir setelah integrasi |
 
 ## KIFC-01 Tampilan awal
@@ -386,12 +386,12 @@ Bagian ini adalah pekerjaan turunan dari perubahan konten, bukan kutipan permint
 
 ### KIFC-X02 Bahasa dan naskah
 
-- [ ] **KIFC-X02.01** Jadikan naskah Indonesia KIFC dalam tracker ini sebagai acuan konten baru; catat perubahan editorial yang memengaruhi isi untuk ditinjau.
-- [ ] **KIFC-X02.02** Terjemahkan judul, subjudul, narasi, pilihan, feedback, pesan hasil, dan kontrol audio baru ke Inggris serta Korea. Sumber kali ini hanya memberi naskah Indonesia.
-- [ ] **KIFC-X02.03** Selaraskan istilah kebakaran hutan, gambut, bara bawah permukaan, emisi karbon, dan subsidens. Bedakan “Air” sebagai water dari “udara” sebagai air dalam versi Inggris.
-- [ ] **KIFC-X02.04** Cek kamus dan teks dinamis: perubahan literal Indonesia tidak boleh membuat terjemahan Korea jatuh kembali ke bahasa Indonesia.
-- [ ] **KIFC-X02.05** Periksa judul langsung berubah saat bahasa dipilih, pemenggalan teks, Hangul offline, serta pilihan/narasi terpanjang di ketiga bahasa.
-- [ ] **KIFC-X02.06** Catat status review/persetujuan per bahasa dan hubungkan naskah baru dengan inventaris REV-08 lama; diterimanya dokumen ini tidak berarti seluruh materi akhir sudah disetujui, terutama bagian 09 serta opsi alternatif.
+- [x] **KIFC-X02.01** Jadikan naskah Indonesia KIFC dalam tracker ini sebagai acuan konten baru; catat perubahan editorial yang memengaruhi isi untuk ditinjau.
+- [x] **KIFC-X02.02** Terjemahkan judul, subjudul, narasi, pilihan, feedback, pesan hasil, dan kontrol audio baru ke Inggris serta Korea. Sumber kali ini hanya memberi naskah Indonesia.
+- [x] **KIFC-X02.03** Selaraskan istilah kebakaran hutan, gambut, bara bawah permukaan, emisi karbon, dan subsidens. Bedakan “Air” sebagai water dari “udara” sebagai air dalam versi Inggris.
+- [x] **KIFC-X02.04** Cek kamus dan teks dinamis: perubahan literal Indonesia tidak boleh membuat terjemahan Korea jatuh kembali ke bahasa Indonesia.
+- [x] **KIFC-X02.05** Periksa judul langsung berubah saat bahasa dipilih, pemenggalan teks, Hangul offline, serta pilihan/narasi terpanjang di ketiga bahasa.
+- [x] **KIFC-X02.06** Catat status review/persetujuan per bahasa dan hubungkan naskah baru dengan inventaris REV-08 lama; diterimanya dokumen ini tidak berarti seluruh materi akhir sudah disetujui, terutama bagian 09 serta opsi alternatif.
 
 **Kriteria penerimaan:** ketiga bahasa selaras dengan materi baru, tanpa teks lama yang tersisa atau karakter hilang, dan status naskah jelas.
 
@@ -475,4 +475,6 @@ Empat keadaan layar direvisi tanpa mengubah urutan. Panel diperbesar, dropzone d
 - `2f17fc2` — checkpoint revisi terdahulu yang semula belum di-commit, termasuk empat layar Babak1 sesuai mockup. 170 tes lulus; [bukti Babak1](../../docs/client-revisions/2026-10-23/chapter1-mockup-review-2026-10-24.md). Commit ini sengaja mengelompokkan akumulasi lama; tiket berikutnya dicatat terpisah.
 - `2f2cb9b` — KIFC-10: enam dampak/foto, terjemahan, ulasan, bonus berlabel dampak, dan timer30 detik sementara diterapkan. 185 tes lulus; [60 render, verifikasi dan batas bukti](../../docs/client-revisions/2026-10-23/kifc-10-impact-review.md). KIFC-10.05 tetap terbuka untuk durasi final pada TV fisik; D-07 tetap terbuka untuk aturan akhir.
 
-- KIFC-G02 — audit gerakan dan fallback poster saat rekaman gagal dimuat.20 tes terarah lulus, analisis bersih, [bukti15 kombinasi ukuran/bahasa dan fallback](../../docs/client-revisions/2026-10-23/kifc-g02-motion-review.md). G02.03 masih menunggu pengukuran performa TV; tidak ada fog/audio baru.
+- `28cd71d` — KIFC-G02: audit gerakan dan fallback poster saat rekaman gagal dimuat.20 tes terarah lulus, analisis bersih, [bukti15 kombinasi ukuran/bahasa dan fallback](../../docs/client-revisions/2026-10-23/kifc-g02-motion-review.md). G02.03 masih menunggu pengukuran performa TV; tidak ada fog/audio baru.
+
+- KIFC-X02 — inventaris aktif, glosarium, status naskah, serta dua alur Korea lengkap dengan pemeriksaan teks tertinggal dan reset sesi. Tes lulus dan analisis bersih; [indeks bukti bahasa](../../docs/client-revisions/2026-10-23/kifc-x02-language-review.md). Review penutur Korea/klien tetap terbuka.
