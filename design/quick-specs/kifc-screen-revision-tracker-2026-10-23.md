@@ -487,4 +487,23 @@ Empat keadaan layar direvisi tanpa mengubah urutan. Panel diperbesar, dropzone d
 
 - `105e32b` — KIFC-G04, persiapan: [cakupan konkret paket audio dan kriteria uji](../../docs/client-revisions/2026-10-23/kifc-g04-audio-scope.md) siap; tidak mengaktifkan suara sebelum D-08. Keputusan penundaan suara dari pemilik tetap berlaku.
 
-- KIFC-X03 —191 tes Flutter dan1 tes pemeriksa APK lulus, analisis bersih, APK debug/44 aset terverifikasi, smoke Android offline serta matriks cakupan siap. [Verifikasi integrasi, screenshot dan batas hasil](../../docs/client-revisions/2026-10-23/kifc-x03-integration-review.md). KIFC11: label dampak sudah diperbarui; rumus dan waktu baca TV tetap menunggu keputusan/uji. Tidak ada push/deployment.
+- `d4ebbb2` — KIFC-X03:191 tes Flutter dan1 tes pemeriksa APK lulus, analisis bersih, APK debug/44 aset terverifikasi, smoke Android offline serta matriks cakupan siap. [Verifikasi integrasi, screenshot dan batas hasil](../../docs/client-revisions/2026-10-23/kifc-x03-integration-review.md). KIFC11: label dampak sudah diperbarui; rumus dan waktu baca TV tetap menunggu keputusan/uji. Tidak ada push/deployment.
+
+
+## Ringkasan commit per tiket — 24 Oktober 2026
+
+| Tiket/cakupan | Commit | Hasil |
+|---|---|---|
+| Checkpoint akumulasi sebelumnya + mockup Babak1 | `2f17fc2` | Revisi01–08 terdahulu dan empat keadaan Babak1; checkpoint awal diungkapkan sebagai kelompok |
+| KIFC-10 | `2f2cb9b` | Tantangan dampak, foto offline, tiga bahasa, timer/ulasan; label bonus11 ikut selaras |
+| KIFC-G02 | `28cd71d` | Fallback poster animasi dan audit gerakan |
+| KIFC-X02 | `4a37ad8` | Alur Korea lengkap, pemeriksaan teks, inventaris/glosarium |
+| KIFC-09 persiapan | `2f13709` | Dua usulan format/skor, belum mengganti layar aktif |
+| KIFC-G03 | `01f2693` | Perbaikan inset/overflow Android, audit visual dan bukti APK |
+| KIFC-G01 | `ca92786` | Pemetaan dan audit interaksi, respons serta transisi |
+| KIFC-G04 persiapan | `105e32b` | Paket audio untuk pembahasan, tetap tanpa suara |
+| KIFC-X03 | `d4ebbb2` | Pemeriksa APK, matriks integrasi,191 tes Flutter/1 tes Python,44 aset offline dan bukti |
+
+Branch lokal: **main**. Belum push/deploy pada rangkaian pekerjaan ini. APK debug mengandung kode aplikasi sampai `01f2693`; commit sesudahnya hanya dokumentasi/tes/peralatan. Preview web utama tetap pada http://localhost:8080/. AVD pengujian sudah dimatikan setelah bukti disimpan; data uji berada pada build di driveD, AVD asli tidak dipindahkan.
+
+Pekerjaan tertunda yang tidak boleh dianggap implementasi selesai:09/D-04, finalisasi skor11/X01/D-07, audio/D-08, penilaian waktu baca D-05/D-06 dan jangkauan/performa TV D-09, pengesahan naskah/visual klien, serta rilis berikutnya. Seluruh persiapan konkret dan bukti lokal tertaut pada tiket masing-masing.
