@@ -248,8 +248,8 @@ Analisis bersih, **151 tes lulus**, dan **60 render** empat keadaan × tiga baha
 
 **Status materi:** bagian ini secara eksplisit disebut akan ditindaklanjuti kembali oleh pengirim; ide vendor boleh diajukan. Materi di bawah adalah arah yang sudah diberikan, bukan persetujuan final terhadap format baru.
 
-- [ ] **KIFC-09.01** Siapkan penggantian materi “Batasi rambatan api” menjadi karakteristik kebakaran pada ekosistem gambut.
-- [ ] **KIFC-09.02** Gunakan judul dan tiga informasi berikut sebagai dasar pembahasan.
+- [x] **KIFC-09.01** Siapkan penggantian materi “Batasi rambatan api” menjadi karakteristik kebakaran pada ekosistem gambut.
+- [x] **KIFC-09.02** Gunakan judul dan tiga informasi berikut sebagai dasar pembahasan.
 - [ ] **KIFC-09.03** Ajukan format **tiga kartu informasi yang dapat disentuh** atau **kuis pilihan jamak**; bahas dan catat keputusan D-04 serta tindak lanjut materi KIFC.
 - [ ] **KIFC-09.04** Terapkan format yang disepakati. Ketiga pernyataan benar; jangan membuat pilihan tunggal dengan hanya satu jawaban dianggap benar.
 - [ ] **KIFC-09.05** Tentukan syarat melanjutkan, feedback, serta apakah layar informatif atau bernilai skor. Selaraskan hasil keseluruhan melalui X-01.
@@ -477,4 +477,6 @@ Empat keadaan layar direvisi tanpa mengubah urutan. Panel diperbesar, dropzone d
 
 - `28cd71d` — KIFC-G02: audit gerakan dan fallback poster saat rekaman gagal dimuat.20 tes terarah lulus, analisis bersih, [bukti15 kombinasi ukuran/bahasa dan fallback](../../docs/client-revisions/2026-10-23/kifc-g02-motion-review.md). G02.03 masih menunggu pengukuran performa TV; tidak ada fog/audio baru.
 
-- KIFC-X02 — inventaris aktif, glosarium, status naskah, serta dua alur Korea lengkap dengan pemeriksaan teks tertinggal dan reset sesi. Tes lulus dan analisis bersih; [indeks bukti bahasa](../../docs/client-revisions/2026-10-23/kifc-x02-language-review.md). Review penutur Korea/klien tetap terbuka.
+- `4a37ad8` — KIFC-X02: inventaris aktif, glosarium, status naskah, serta dua alur Korea lengkap dengan pemeriksaan teks tertinggal dan reset sesi. Tes lulus dan analisis bersih; [indeks bukti bahasa](../../docs/client-revisions/2026-10-23/kifc-x02-language-review.md). Review penutur Korea/klien tetap terbuka.
+
+- KIFC-09, persiapan — [usulan konkret dua format, naskah kartu, syarat lanjut dan konsekuensi skor](../../docs/client-revisions/2026-10-23/kifc-09-format-proposal.md) siap. Belum diterapkan; D-04/D-07 memerlukan keputusan klien. Urutan dan materi aktif tetap dipertahankan.
