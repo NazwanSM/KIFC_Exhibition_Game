@@ -12,6 +12,8 @@ Files: exhibition_game.dart (route/state/integration and score), peat_characteri
 - [x] Implement state, flip, localized content and manual continuation; remove obsolete action screen/state.
 - [x] Adapt complete journeys and score expectations; verify input races, delayed pre-cache, reduced motion and Android inset.
 - [x] Render five sizes × three languages, inspect before/partial/all-read states; verify real browser.
-- [ ] Commit KIFC-09 with evidence and tracker status. Adjust/verify KIFC-11 categories and results in its own commit; record both hashes.
+- [x] Commit KIFC-09 with evidence and tracker status. Adjust/verify KIFC-11 categories and results in its own commit; record both hashes.
 
 Review focus: mirrored back text, hidden-face accessibility, long Korean/English labels, touch targets and safe insets, mid-flip repeated taps, completed cards flipped back, callback after Back/replay, no residual action point.
+
+Completed: KIFC-09 `a11eb8b`, KIFC-11 `e3fb941`.212 Flutter tests pass; analysis clean. Evidence and remaining physical-device checks are linked in the tracker.

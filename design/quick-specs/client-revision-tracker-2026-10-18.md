@@ -1,5 +1,7 @@
 # Tracker Revisi Klien — KIFC Fire Prevention Challenge
 
+> Pembaruan24Oktober: aturan tindakan aman/total9 pada riwayat di bawah sudah digantikan kartu informasi KIFC-09 tanpa skor. Maksimum aktif8. Acuan terkini: [tracker KIFC23Oktober](kifc-screen-revision-tracker-2026-10-23.md).
+
 Tanggal: 18 Oktober 2026  
 Sumber: catatan pertemuan klien dan klarifikasi pemilik proyek dalam percakapan.  
 Cakupan saat ini: pencatatan revisi, implementasi, dan bukti pemeriksaan per tiket.

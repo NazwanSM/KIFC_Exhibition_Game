@@ -1,5 +1,7 @@
 # KIFC-X03 — Verifikasi integrasi 24 Oktober 2026
 
+> Pembaruan24Oktober: dokumen ini mempertahankan snapshot integrasi sebelumnya. KIFC-09 kini berupa kartu tanpa skor; maksimum8 dan212 tes lulus. Bukti/build terbaru: [kartu09](kifc-09-flip-review.md) dan [hasil11](kifc-11-score8-review.md). APK terbaru dibangun dan diverifikasi paketnya; replay emulator09/11 serta uji TV fisik tetap terbuka.
+
 **Kode aplikasi yang diuji: `01f2693`** (commit sesudahnya hanya tes/dokumentasi/peralatan verifikasi). Tidak ada push/deployment. Aplikasi normal tetap dimulai dari pembuka, dengan urutan lama.
 
 ## Matriks cakupan
