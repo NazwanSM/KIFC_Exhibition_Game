@@ -146,6 +146,7 @@ class _ExhibitionGameState extends State<ExhibitionGame>
   int _preparationTicket = 0;
   int _idleSeconds = 15;
   bool _mascotsPrepared = false;
+  int _breakReplay = 0;
 
   @override
   void initState() {
@@ -357,20 +358,37 @@ class _ExhibitionGameState extends State<ExhibitionGame>
   }
 
   void _chooseBreak(_FireSlot slot) {
-    if (_breakChoice == slot) return;
+    _autoAdvance?.cancel();
+    _advanceToken++;
     unawaited(_audio.interact(GameSound.select));
     setState(() {
       _breakChoice = slot;
       _breakTried.add(slot);
+      _breakReplay++;
     });
     // The demo is unscored; it moves on once all three elements are explored.
     if (_breakTried.length == _FireSlot.values.length) {
       _scheduleAdvance(
         () => _go(_Page.karhutlaCards),
         long: false,
-        readingTime: const Duration(milliseconds: 2600),
+        readingTime: const Duration(seconds: 14),
       );
     }
+  }
+
+  void _restartBreak() {
+    _autoAdvance?.cancel();
+    _advanceToken++;
+    setState(() {
+      _breakChoice = null;
+      _breakTried.clear();
+      _breakReplay++;
+    });
+  }
+
+  void _continueBreak() {
+    if (_page != _Page.breakTriangle || _breakTried.length != 3) return;
+    _go(_Page.karhutlaCards);
   }
 
   void _chooseRisk(_RiskOption option) {
@@ -556,7 +574,10 @@ class _ExhibitionGameState extends State<ExhibitionGame>
         english: _en,
         selected: _breakChoice,
         tried: _breakTried,
+        replay: _breakReplay,
         onSelect: _chooseBreak,
+        onRestart: _restartBreak,
+        onContinue: _continueBreak,
         onBack: () => _go(_Page.triangleBuild),
       ),
       _Page.karhutlaCards => _KarhutlaCards(
@@ -1621,14 +1642,18 @@ class _BreakTriangle extends StatelessWidget {
     required this.english,
     required this.selected,
     required this.tried,
+    required this.replay,
     required this.onSelect,
     required this.onBack,
+    required this.onRestart,
+    required this.onContinue,
   });
   final bool english;
   final _FireSlot? selected;
   final Set<_FireSlot> tried;
+  final int replay;
   final ValueChanged<_FireSlot> onSelect;
-  final VoidCallback onBack;
+  final VoidCallback onBack, onRestart, onContinue;
 
   (String, String) get explanation => switch (selected) {
     _FireSlot.heat => (
@@ -1675,8 +1700,10 @@ class _BreakTriangle extends StatelessWidget {
         ? 'Touch an element and watch the flame change. You can try all three.'
         : 'Pilih unsur yang ingin dikurangi, lalu amati apinya. Kamu bisa mencoba ketiganya.',
     onBack: onBack,
+    onRestart: onRestart,
     bodyScrollable: false,
     topAligned: true,
+    footerGap: _compactLayout(context) ? 4 : 12,
     body: Column(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
@@ -1684,6 +1711,7 @@ class _BreakTriangle extends StatelessWidget {
           active: _FireSlot.values.toSet(),
           english: english,
           reduced: selected,
+          reductionReplay: replay,
         ),
         const SizedBox(height: 6),
         Row(
@@ -1707,7 +1735,7 @@ class _BreakTriangle extends StatelessWidget {
           child: Container(
             key: const ValueKey<String>('triangle-demo-explanation'),
             width: double.infinity,
-            padding: const EdgeInsets.all(12),
+            padding: EdgeInsets.all(_compactLayout(context) ? 10 : 12),
             decoration: BoxDecoration(
               color: Colors.white.withValues(alpha: .8),
               border: Border.all(color: KifcTheme.line),
@@ -1734,12 +1762,29 @@ class _BreakTriangle extends StatelessWidget {
         ),
       ],
     ),
-    footer: LocalizedText(
-      '${tried.length}/3 ${english ? 'elements tried' : 'unsur sudah dicoba'}',
-      style: const TextStyle(
-        color: KifcTheme.mutedInk,
-        fontSize: 12,
-        height: 1.25,
+    footer: SizedBox(
+      height: 36,
+      child: Row(
+        children: [
+          Expanded(
+            child: LocalizedText(
+              '${tried.length}/3 ${english ? 'elements tried' : 'unsur sudah dicoba'}',
+              style: const TextStyle(
+                color: KifcTheme.mutedInk,
+                fontSize: 12,
+                height: 1.25,
+              ),
+            ),
+          ),
+          if (tried.length == 3)
+            _SmallButton(
+              key: const ValueKey('reduction-continue'),
+              label: english ? 'Continue' : 'Lanjut',
+              icon: Icons.arrow_forward_rounded,
+              dark: false,
+              onPressed: onContinue,
+            ),
+        ],
       ),
     ),
   );
@@ -3104,6 +3149,7 @@ class _Eyebrow extends StatelessWidget {
 
 class _SmallButton extends StatelessWidget {
   const _SmallButton({
+    super.key,
     required this.label,
     required this.icon,
     required this.onPressed,
@@ -3674,6 +3720,7 @@ class _FireScene extends StatelessWidget {
     this.onDrop,
     this.placements,
     this.reduced,
+    this.reductionReplay = 0,
   });
   final Set<_FireSlot> active;
   final Map<_FireSlot, _FirePiece>? placements;
@@ -3682,6 +3729,7 @@ class _FireScene extends StatelessWidget {
       _compactLayout(context) ? 216 : 248;
   final void Function(_FireSlot, _FirePiece)? onDrop;
   final _FireSlot? reduced;
+  final int reductionReplay;
   @override
   Widget build(BuildContext context) => ClipRRect(
     borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
@@ -3739,9 +3787,18 @@ class _FireScene extends StatelessWidget {
                     child: LocalizedText(
                       reduced == null
                           ? '${active.length}/3 ${english ? 'elements' : 'unsur'}'
-                          : (english
-                                ? 'One element reduced'
-                                : 'Satu unsur berkurang'),
+                          : switch (reduced!) {
+                              _FireSlot.heat =>
+                                english ? 'Heat reduced' : 'Panas dikurangi',
+                              _FireSlot.fuel =>
+                                english
+                                    ? 'Fuel reduced'
+                                    : 'Bahan bakar dikurangi',
+                              _FireSlot.oxygen =>
+                                english
+                                    ? 'Oxygen reduced'
+                                    : 'Oksigen dikurangi',
+                            },
                       style: const TextStyle(
                         color: Colors.white,
                         fontSize: 11,
@@ -3766,6 +3823,7 @@ class _FireScene extends StatelessWidget {
                       ? ForestFireSimulation(
                           key: const ValueKey('fire'),
                           reducedElement: reduced?.index,
+                          replay: reductionReplay,
                         )
                       : const SizedBox(key: ValueKey('no-fire')),
                 ),

@@ -23,6 +23,7 @@ STRINGS = {
     "fuel": ("Bahan bakar", "Fuel", "연료"),
     "oxygen": ("Oksigen", "Oxygen", "산소"),
     "next": ("Lanjut", "Continue", "계속"),
+    "definition": ("Tapi, Apa Itu Kebakaran Hutan?", "What Is a Forest Fire?", "산불이란 무엇일까요?"),
     "quiz": ("Mulai Kuis", "Start Quiz", "퀴즈 시작"),
     "wrongForest": ("A. Hutan mangrove", "A. Mangrove forest", "A. 맹그로브 숲"),
     "rightForest": ("B. Hutan rawa gambut", "B. Peat swamp forest", "B. 이탄습지 숲"),
@@ -79,6 +80,8 @@ def run(language, output):
         r.tap(label(key), clickable=True)
         r.capture("reduction-" + key)
     r.wait(label("next"), clickable=True)
+    r.tap(label("next"), refresh=False, clickable=True)
+    r.wait(label("definition"))
     r.capture("reading-definition")
     r.tap(label("next"), refresh=False, clickable=True)
     r.wait(label("next"), clickable=True)

@@ -1,11 +1,48 @@
 import 'dart:ui' as ui;
 import 'package:fire_prevention_challenge/features/game/widgets/forest_fire_simulation.dart';
+import 'package:fire_prevention_challenge/features/game/widgets/fire_loop.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+  testWidgets(
+    'extinguished fires pause their recordings and reset resumes them',
+    (tester) async {
+      int? factor = 0;
+      late StateSetter update;
+      await tester.pumpWidget(
+        MaterialApp(
+          home: StatefulBuilder(
+            builder: (context, setState) {
+              update = setState;
+              return SizedBox(
+                width: 360,
+                height: 150,
+                child: ForestFireSimulation(reducedElement: factor),
+              );
+            },
+          ),
+        ),
+      );
+      await tester.pump(const Duration(seconds: 2));
+      for (final element in find.byType(FireLoop).evaluate()) {
+        expect(
+          TickerMode.of(element),
+          isFalse,
+          reason:
+              'A transparent extinguished fire must not keep decoding animation',
+        );
+      }
+      update(() => factor = null);
+      await tester.pump();
+      for (final element in find.byType(FireLoop).evaluate()) {
+        expect(TickerMode.of(element), isTrue);
+      }
+      await tester.pumpWidget(const SizedBox.shrink());
+    },
+  );
   test(
     'three offset recordings contain moving transparent frames under 2 MB total',
     () async {
@@ -83,6 +120,28 @@ void main() {
       expect(strengths().any((value) => value > .1), isTrue);
       await tester.pump(const Duration(milliseconds: 2000));
       expect(strengths(), everyElement(0.0));
+      expect(tester.takeException(), isNull);
+      await tester.pumpWidget(const SizedBox.shrink());
+    },
+  );
+
+  testWidgets(
+    'reduced motion finishes quenching without a hidden animation ticker',
+    (tester) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          home: MediaQuery(
+            data: const MediaQueryData(disableAnimations: true),
+            child: const SizedBox(
+              width: 360,
+              height: 150,
+              child: ForestFireSimulation(reducedElement: 0),
+            ),
+          ),
+        ),
+      );
+      await tester.pump(const Duration(milliseconds: 100));
+      expect(tester.binding.transientCallbackCount, 0);
       expect(tester.takeException(), isNull);
       await tester.pumpWidget(const SizedBox.shrink());
     },

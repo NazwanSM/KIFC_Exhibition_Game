@@ -25,7 +25,7 @@ Tracker ini mencatat pekerjaan baru dari dokumen KIFC. **KIFC-01 sampai 10 sudah
 | KIFC-01 | Tampilan awal | Ditinjau | Implementasi dan 16 screenshot siap; penilaian pemilik serta TV fisik menunggu |
 | KIFC-02 | Menyusun tiga unsur api | Ditinjau | Tiga slot dipertahankan; aset dan layout baru siap ditinjau; 60 render dan tes tersedia |
 | KIFC-03 | Penjelasan segitiga api | Ditinjau | Narasi utama, panel di atas dan urutan unsur konsisten; bukti tiga bahasa tersedia |
-| KIFC-04 | Simulasi mengurangi unsur api | Ditinjau | Dipertahankan/diperbaiki berdasarkan mockup dan instruksi pemilik24Oktober |
+| KIFC-04 | Simulasi mengurangi unsur api | Ditinjau | Audit khusus25Oktober: respons tiap unsur, replay/Ulangi, waktu baca dan kelanjutan diperbaiki;120 render serta rekaman browser tersedia; pengesahan/uji TV fisik terbuka |
 | KIFC-05 | Pengertian kebakaran hutan | Ditinjau | Naskah KIFC dan 15 screenshot siap |
 | KIFC-06 | Penyebab kebakaran hutan | Ditinjau | Kartu kedua diubah ke penyebab; 15 screenshot siap |
 | KIFC-07 | Pentingnya pencegahan kebakaran hutan | Ditinjau | 4 pilar kerugian diterapkan; 15 screenshot siap |
@@ -128,17 +128,22 @@ Analisis bersih, **151 tes lulus**, dan **60 render** empat keadaan × tiga baha
 
 ## KIFC-04 Simulasi mengurangi unsur api
 
-**Sumber:** bagian 04, screenshot 04. **Pemetaan saat ini:** `breakTriangle`, demo tanpa skor.
+**Sumber:** bagian04, screenshot04. **Pemetaan:** `breakTriangle`, demo tanpa skor. **Status:** Ditinjau setelah audit khusus25Oktober; belum disahkan klien/diuji pada TV fisik.
 
-**Masalah yang dicatat KIFC:** tujuan pembelajaran dan manfaat interaksi belum terlihat jelas; hubungan antara pilihan unsur dan perubahan api belum cukup mudah diamati.
+**Masalah KIFC:** tujuan pembelajaran dan hubungan pilihan unsur dengan perubahan api belum jelas. Audit25Oktober juga menemukan pengulangan unsur yang diabaikan serta waktu baca terakhir hanya2,6detik. Sebelumnya checklist tidak diselaraskan dengan checkpoint mockup; catatan mockup saja belum menutup kekurangan tersebut.
 
-- [ ] **KIFC-04.01** Susun usulan perbaikan konsep: tujuan belajar, tindakan pemain, perubahan visual, dan penjelasan untuk setiap unsur.
-- [ ] **KIFC-04.02** Susun alternatif penghapusan bila layar hanya mengulang materi sebelumnya; jelaskan dampak pada alur dan materi yang tetap harus tersampaikan.
-- [ ] **KIFC-04.03** Bahas kedua arah dengan KIFC dan catat keputusan D-03 **sebelum mengubah atau menghapus layar**.
-- [ ] **KIFC-04.04** Jika dipertahankan, tunjukkan perubahan api yang mudah diamati saat panas, bahan bakar, atau oksigen dikurangi; sertakan penjelasan singkat pengaruh masing-masing.
-- [ ] **KIFC-04.05** Jika dihapus, perbaiki seluruh rute masuk/keluar, tombol, rujukan materi, dan tes yang terdampak; cegah tombol kembali menuju layar yang sudah tidak ada.
+- [x] **KIFC-04.01** [Konsep perbaikan](kifc-04-reduction-review-2026-10-25.md) mencatat tujuan belajar, tindakan, respons dan narasi setiap unsur.
+- [x] **KIFC-04.02** Alternatif penghapusan beserta dampak pada CTA, navigasi dan materi dicatat dalam konsep; tidak diterapkan.
+- [x] **KIFC-04.03** D-03 mengikuti keputusan langsung pemilik24Oktober: pertahankan demo, perbaiki berdasarkan mockup, dan jaga urutan layar. Ini keputusan pemilik untuk implementasi, bukan klaim pembahasan/pengesahan final KIFC.
+- [x] **KIFC-04.04** Respons ilustratif pendinginan, pemisahan titik bahan bakar dan pembatasan oksigen dibedakan, disertai badge unsur serta penjelasan. Api padam bertahap; narasi oksigen tetap menjelaskan keterbatasan pada lahan terbuka.
+- **KIFC-04.05 — Tidak berlaku:** cabang menghapus layar tidak dipilih, sehingga rute penghapusan tidak perlu diterapkan.
+- [x] **KIFC-04.06** Sentuhan ulang memutar demonstrasi tanpa menambah progres; Ulangi memulihkan0/3 serta membatalkan callback lama. Demo tidak memberi poin atau label benar/salah.
+- [x] **KIFC-04.07** Setelah3/3, Lanjut tersedia dan fallback otomatis memberi14detik dari eksplorasi terakhir. Pengulangan/reset/navigasi membatalkan timer sebelumnya; urutan tetap menuju kartu definisi.
+- [x] **KIFC-04.08** Reduced motion dan penghentian rekaman yang telah padam diperiksa;120 render lima ukuran/tiga bahasa dan rekaman browser tersedia.
 
-**Kriteria penerimaan:** ada keputusan yang tercatat dan hanya cabang yang disepakati diterapkan. Jika dipertahankan, demo tetap tanpa penilaian benar/salah sesuai keputusan terdahulu, kecuali ada persetujuan baru. Penjelasan oksigen tetap menyebut keterbatasan pengendaliannya pada lahan terbuka.
+**Bukti:** [review khusus KIFC-04, screenshot dan rekaman](../../docs/client-revisions/2026-10-25/kifc-04-reduction-review.md). Panel tetap248/216logicalpx dan pilihan tidak diperkecil. Spacing layar pendek diperbaiki setelah overflow ditemukan. Perbedaan timing nyala merupakan ilustrasi interaksi, bukan perbandingan kecepatan pemadaman lapangan.
+
+**Masih terbuka:** pengesahan akhir KIFC/penutur serta uji waktu baca, jangkauan dan performa TV42inci fisik. Angka14detik adalah pilihan implementasi yang siap ditinjau; pemeriksaan viewport tidak menggantikan uji fisik. Koreksi25Oktober belum dimasukkan ke APK/deployment publik sebelumnya.
 
 ## KIFC-05 Pengertian kebakaran hutan
 
@@ -568,3 +573,10 @@ Permintaan pemilik24Oktober: tambahkan gerakan yang lebih interaktif dan halus, 
 254 tes Flutter lulus pada kode akhir, analisis bersih,81 render (360×640/1080×1920/2160×3840 × tiga bahasa × sembilan keadaan) serta rekaman browser nyata tersedia. [Review, screenshot dan rekaman](../../docs/client-revisions/2026-10-23/kifc-g01-interaction-motion-review.md). Status G01 tetap Ditinjau; uji TV fisik/performa tetap terbuka. **Revisi gerakan ini masih lokal; Pages/APK prarilis57f0467 sebelumnya belum memuatnya.**
 
 Commit implementasi dan bukti KIFC-G01: `531a0da` pada `main`. Preview utama lokal dimulai ulang memakai `lib/main.dart` pada http://localhost:8080/; entry review terpisah hanya digunakan untuk merekam keadaan layar.
+
+
+### KIFC-04 — audit khusus dan perbaikan25Oktober
+
+Menindaklanjuti koreksi pemilik: checklist04 sebelumnya tidak sinkron dan laporan umum terlalu menyamaratakan kelengkapan. Audit terhadap DOCX menemukan respons yang hampir sama, sentuhan ulang diabaikan serta auto-lanjut2,6detik yang terlalu singkat. Koreksi kini mencakup respons ilustratif berbeda, replay, Ulangi, badge unsur tiga bahasa, kelanjutan manual setelah3/3 dan fallback14detik yang dibatalkan saat eksplorasi/navigasi baru. Rekaman padam berhenti; reduced motion tidak menjalankan ticker tersembunyi. [Review dan bukti](../../docs/client-revisions/2026-10-25/kifc-04-reduction-review.md). Cabang penghapusan ditandai tidak berlaku, bukan dibiarkan sebagai pekerjaan tertunda. Status Ditinjau, tidak mengklaim pengesahan KIFC atau uji TV fisik.
+
+Verifikasi KIFC-04 pada kode akhir:275tes Flutter lulus, analisis bersih;120render dan perjalanan browser ulang/reset/3pilihan/Lanjut diperiksa. Tidak ada APK/deployment baru untuk koreksi ini.

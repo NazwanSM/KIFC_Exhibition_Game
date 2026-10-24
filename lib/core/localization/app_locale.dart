@@ -936,6 +936,12 @@ const Map<String, String> _korean = <String, String>{
   'SIMULASI · api menjalar ke bahan kering': '시뮬레이션 · 불길이 주변 연료로 번져요',
   'One element reduced': '요소 하나를 줄였어요',
   'Satu unsur berkurang': '요소 하나를 줄였어요',
+  'Heat reduced': '열을 줄였어요',
+  'Panas dikurangi': '열을 줄였어요',
+  'Fuel reduced': '연료를 줄였어요',
+  'Bahan bakar dikurangi': '연료를 줄였어요',
+  'Oxygen reduced': '산소를 줄였어요',
+  'Oksigen dikurangi': '산소를 줄였어요',
   'No images were selected. Look at the four risks marked above.':
       '아직 선택한 항목이 없어요. 위에 표시된 위험 요소 네 가지를 찾아보세요.',
   'You found all four risks.': '위험 요소 네 가지를 모두 찾았어요.',

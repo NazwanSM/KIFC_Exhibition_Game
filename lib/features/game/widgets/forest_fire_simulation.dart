@@ -4,8 +4,9 @@ import 'fire_loop.dart';
 
 /// Six recorded, independently framed ground fires shared by Chapter 1 screens.
 class ForestFireSimulation extends StatefulWidget {
-  const ForestFireSimulation({super.key, this.reducedElement});
+  const ForestFireSimulation({super.key, this.reducedElement, this.replay = 0});
   final int? reducedElement;
+  final int replay;
   static const assets = [
     'assets/animations/forest-fire-0.webp',
     'assets/animations/forest-fire-1.webp',
@@ -33,9 +34,21 @@ class _ForestFireSimulationState extends State<ForestFireSimulation>
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (MediaQuery.disableAnimationsOf(context) &&
+        widget.reducedElement != null) {
+      _quench.value = 1;
+    }
+  }
+
+  @override
   void didUpdateWidget(ForestFireSimulation oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.reducedElement == widget.reducedElement) return;
+    if (oldWidget.reducedElement == widget.reducedElement &&
+        oldWidget.replay == widget.replay) {
+      return;
+    }
     if (widget.reducedElement == null) {
       _quench.reset();
       _replay = false;
@@ -48,7 +61,11 @@ class _ForestFireSimulationState extends State<ForestFireSimulation>
       _replay = current.every((value) => value < .01);
       _starts = _replay ? List.filled(6, 1) : current;
       _quench.duration = Duration(milliseconds: _replay ? 2200 : 1800);
-      _quench.forward(from: 0);
+      if (MediaQuery.disableAnimationsOf(context)) {
+        _quench.value = 1;
+      } else {
+        _quench.forward(from: 0);
+      }
     }
   }
 
@@ -57,9 +74,19 @@ class _ForestFireSimulationState extends State<ForestFireSimulation>
     var t = _quench.value;
     if (_replay && t < .18) return Curves.easeOut.transform(t / .18);
     if (_replay) t = ((t - .18) / .82).clamp(0, 1);
-    final order = (i + element * 2) % 6;
-    final local = ((t - order * .035) / .80).clamp(0.0, 1.0);
-    return _starts[i] * (1 - Curves.easeInOut.transform(local));
+    // These are teaching illustrations, not measured extinguishing speeds:
+    // cooling lowers the whole flame; fuel gaps interrupt separate patches;
+    // oxygen limitation keeps a visible flame before its final snuffing phase.
+    final remaining = switch (element) {
+      0 => 1 - Curves.easeOutCubic.transform(t),
+      1 => () {
+        const gaps = [0.0, .42, .12, .60, .22, .48];
+        final local = ((t - gaps[i]) / (1 - gaps[i])).clamp(0.0, 1.0);
+        return 1 - Curves.easeInOut.transform(local);
+      }(),
+      _ => 1 - Curves.easeInCubic.transform(t),
+    };
+    return _starts[i] * remaining;
   }
 
   @override
@@ -135,10 +162,13 @@ class _ForestFireSimulationState extends State<ForestFireSimulation>
                                     ),
                                     Transform.flip(
                                       flipX: i.isOdd,
-                                      child: FireLoop(
-                                        asset:
-                                            ForestFireSimulation.assets[i % 3],
-                                        poster: ForestFireSimulation.poster,
+                                      child: TickerMode(
+                                        enabled: strength > 0,
+                                        child: FireLoop(
+                                          asset: ForestFireSimulation
+                                              .assets[i % 3],
+                                          poster: ForestFireSimulation.poster,
+                                        ),
                                       ),
                                     ),
                                   ],

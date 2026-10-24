@@ -411,7 +411,9 @@ class GameFlow {
       findsOneWidget,
     );
     await capture('demo-complete');
-    await advance('karhutla');
+    await tester.tap(find.byKey(const ValueKey('reduction-continue')));
+    await pump();
+    check('karhutla');
     expect(find.byKey(const ValueKey('karhutla-definition')), findsOneWidget);
     await capture('karhutla-definition');
     await tap(text('Lanjut', 'Continue'));
