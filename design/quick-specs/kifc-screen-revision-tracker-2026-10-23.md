@@ -532,3 +532,5 @@ Commit `a11eb8b` (KIFC-09) dan `e3fb941` (KIFC-11):212 tes Flutter lulus, analis
 ### KIFC-09 — koreksi foto dan dialog maskot
 
 Tiga sampul foto berbeda diterapkan dengan grading seragam. Dialog menggunakan komponen feedback berbingkai netral, maskot presenting setengah badan lebih besar di kiri. Penghitung kartu dihapus; syarat lanjut setelah tiga kartu dibuka serta skor8 tetap. [60 render, lima ukuran dan tiga bahasa](../../docs/client-revisions/2026-10-23/kifc-09-visual-refinement.md). Status Ditinjau; bukti viewport tidak menggantikan uji TV fisik.
+
+Commit koreksi KIFC-09: `13d3547`.17 tes kartu/visual dan21 tes perjalanan lengkap/Korea lulus; analisis bersih. Tidak ada push/deployment.
