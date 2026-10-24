@@ -33,7 +33,7 @@ Tracker ini mencatat pekerjaan baru dari dokumen KIFC. **KIFC-01 sampai 10 sudah
 | KIFC-09 | Karakteristik kebakaran ekosistem gambut | Ditinjau | Tiga kartu1–3 berputar, tanpa skor;60 render dan alur tiga bahasa diuji |
 | KIFC-10 | Tantangan mengenali dampak kebakaran | Ditinjau | Implementasi/foto/3 bahasa/60 render tersedia; 30 detik sementara menunggu D-06; skor8 sudah dipetakan melalui D-07 |
 | KIFC-11 | Layar hasil akhir | Ditinjau sebagian | Skor maksimum8 dan kategori proporsional diterapkan; uji baca TV fisik tetap terbuka |
-| KIFC-G01 | Variasi interaksi, transisi, dan respons sentuhan | Ditinjau | Pemetaan interaksi dan pembatalan timer diverifikasi;191 tes lulus |
+| KIFC-G01 | Variasi interaksi, transisi, dan respons sentuhan | Ditinjau | Pemetaan interaksi, gerakan maskot/dialog/kontrol/slot/hasil dan pembatalan timer diverifikasi;254 tes lulus;81 render serta rekaman browser tersedia |
 | KIFC-G02 | Animasi dan latar bergerak | Ditinjau sebagian | Video pemilik, fallback, reduced motion dan offline diuji; profil TV fisik menunggu D-09 |
 | KIFC-G03 | Pengayaan visual seluruh layar | Ditinjau | Audit per layar,33 render inset serta APK offline; overflow Android diperbaiki |
 | KIFC-G04 | Musik, suara alam, efek suara, dan kontrol audio | Ditinjau | Koreksi interaksi/error web,239 tes,53 aset APK serta alur/audio native tiga bahasa diperiksa; akustik TV fisik menunggu D-09 |
@@ -559,3 +559,10 @@ APK debug172309275bytes, SHA256 `33f9719443910319ff9c6dfb1e2fc6b0b560617c6affbd1
 
 
 Commit verifikasi KIFC-X03: `57f0467` pada main. [Workflow deploy sukses](https://github.com/NazwanSM/KIFC_Exhibition_Game/actions/runs/40075079187),239 tes CI lulus. [Site pertama](https://nazwansm.github.io/KIFC_Exhibition_Game/) terdeploy dari57f0467,53 entri aset/9 hash audio cocok serta pemutaran/mute publik diperiksa. [Prarilis APK pengujian dan20 screenshot](https://github.com/NazwanSM/KIFC_Exhibition_Game/releases/tag/review-2026-10-24-audio) sudah diunggah; digest/ukuran server cocok lokal. [Rincian publikasi](../../docs/client-revisions/2026-10-23/kifc-x03-latest-apk-review.md). X03.07 selesai untuk rilis pengujian; X03 keseluruhan masih sebagian karena TV fisik/performa produksi belum dinilai.
+
+
+### KIFC-G01 — penyempurnaan animasi interaksi dan feedback
+
+Permintaan pemilik24Oktober: tambahkan gerakan yang lebih interaktif dan halus, terutama kemunculan feedback maskot. Maskot/balon masuk berurutan, kontrol merespons tekanan, slot/penanda pilihan memberi konfirmasi singkat, penjelasan demo berganti lembut dan rincian hasil muncul bertahap. Empat pose disiapkan sejak awal untuk menghindari kemunculan terlambat setelah bubble. Tidak ada loop dekoratif baru; reduced motion langsung ke keadaan akhir, timer/state/skor/urutan tetap.
+
+254 tes Flutter lulus pada kode akhir, analisis bersih,81 render (360×640/1080×1920/2160×3840 × tiga bahasa × sembilan keadaan) serta rekaman browser nyata tersedia. [Review, screenshot dan rekaman](../../docs/client-revisions/2026-10-23/kifc-g01-interaction-motion-review.md). Status G01 tetap Ditinjau; uji TV fisik/performa tetap terbuka. **Revisi gerakan ini masih lokal; Pages/APK prarilis57f0467 sebelumnya belum memuatnya.**

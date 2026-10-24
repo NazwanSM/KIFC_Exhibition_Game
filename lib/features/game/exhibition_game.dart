@@ -14,6 +14,7 @@ import 'widgets/peat_characteristic_card.dart';
 import 'widgets/forest_fire_simulation.dart';
 import 'widgets/game_photo.dart';
 import 'widgets/game_mascot.dart';
+import 'widgets/interaction_motion.dart';
 import 'widgets/touchscreen_area.dart';
 import 'widgets/terrain_backdrop.dart';
 
@@ -144,6 +145,7 @@ class _ExhibitionGameState extends State<ExhibitionGame>
   bool _preparingFinal = false;
   int _preparationTicket = 0;
   int _idleSeconds = 15;
+  bool _mascotsPrepared = false;
 
   @override
   void initState() {
@@ -161,6 +163,18 @@ class _ExhibitionGameState extends State<ExhibitionGame>
     }
     if (widget.initialCardIndex != null) {
       _karhutlaCardIndex = widget.initialCardIndex!;
+    }
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (_mascotsPrepared) return;
+    _mascotsPrepared = true;
+    // Four small decoded sprites, shared with Image's normal cache. Preparing
+    // them before the first answer avoids a late pose after its speech bubble.
+    for (final pose in MascotPose.values) {
+      unawaited(precacheImage(GameMascot.imageFor(pose), context));
     }
   }
 
@@ -938,7 +952,7 @@ class _HostConversation extends StatelessWidget {
     final height = this.height ?? (_compactLayout(context) ? 180.0 : 220.0);
     final mascot = SizedBox(
       width: height * (opening ? .62 : .75),
-      child: GameMascot(pose: pose, height: height),
+      child: GameMascot(pose: pose, height: height, motionTrigger: text),
     );
     final tail = ClipPath(
       clipper: _SpeechTail(),
@@ -953,30 +967,34 @@ class _HostConversation extends StatelessWidget {
         if (!mascotOnRight) mascot,
         if (!mascotOnRight) tail,
         Expanded(
-          child: Container(
-            padding: EdgeInsets.all(opening ? 17 : 14),
-            decoration: BoxDecoration(
-              color: KifcTheme.paper,
-              borderRadius: BorderRadius.circular(opening ? 20 : 18),
-              border: opening
-                  ? Border.all(color: const Color(0xFFE2E6DA))
-                  : null,
-              boxShadow: opening
-                  ? const [
-                      BoxShadow(
-                        color: Color(0x180C2B1F),
-                        blurRadius: 16,
-                        offset: Offset(0, 5),
-                      ),
-                    ]
-                  : null,
-            ),
-            child: LocalizedText(
-              text,
-              style: TextStyle(
-                color: KifcTheme.ink,
-                fontSize: 14,
-                height: opening ? 1.4 : 1.35,
+          child: MotionReveal(
+            trigger: text,
+            delay: const Duration(milliseconds: 55),
+            child: Container(
+              padding: EdgeInsets.all(opening ? 17 : 14),
+              decoration: BoxDecoration(
+                color: KifcTheme.paper,
+                borderRadius: BorderRadius.circular(opening ? 20 : 18),
+                border: opening
+                    ? Border.all(color: const Color(0xFFE2E6DA))
+                    : null,
+                boxShadow: opening
+                    ? const [
+                        BoxShadow(
+                          color: Color(0x180C2B1F),
+                          blurRadius: 16,
+                          offset: Offset(0, 5),
+                        ),
+                      ]
+                    : null,
+              ),
+              child: LocalizedText(
+                text,
+                style: TextStyle(
+                  color: KifcTheme.ink,
+                  fontSize: 14,
+                  height: opening ? 1.4 : 1.35,
+                ),
               ),
             ),
           ),
@@ -1133,7 +1151,11 @@ class _MascotDialogue extends StatelessWidget {
     children: [
       SizedBox(
         width: 94,
-        child: GameMascot(pose: MascotPose.presenting, height: 170),
+        child: GameMascot(
+          pose: MascotPose.presenting,
+          height: 170,
+          motionTrigger: text,
+        ),
       ),
       // The speech tail connects the ranger with the reading card.
       ClipPath(
@@ -1144,19 +1166,23 @@ class _MascotDialogue extends StatelessWidget {
         ),
       ),
       Expanded(
-        child: Container(
-          padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            color: KifcTheme.paper,
-            borderRadius: BorderRadius.circular(18),
-            border: Border.all(color: KifcTheme.line),
-          ),
-          child: LocalizedText(
-            text,
-            style: const TextStyle(
-              color: KifcTheme.ink,
-              fontSize: 14,
-              height: 1.4,
+        child: MotionReveal(
+          trigger: text,
+          delay: const Duration(milliseconds: 55),
+          child: Container(
+            padding: const EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              color: KifcTheme.paper,
+              borderRadius: BorderRadius.circular(18),
+              border: Border.all(color: KifcTheme.line),
+            ),
+            child: LocalizedText(
+              text,
+              style: const TextStyle(
+                color: KifcTheme.ink,
+                fontSize: 14,
+                height: 1.4,
+              ),
             ),
           ),
         ),
@@ -1467,19 +1493,23 @@ class _AssemblyCompletionFeedback extends StatelessWidget {
   Widget build(BuildContext context) => Column(
     crossAxisAlignment: CrossAxisAlignment.stretch,
     children: [
-      Container(
-        key: const ValueKey('feedback-message'),
-        padding: const EdgeInsets.all(12),
-        decoration: BoxDecoration(
-          color: KifcTheme.paper,
-          borderRadius: BorderRadius.circular(18),
-          border: Border.all(
-            color: KifcTheme.answerCorrect.withValues(alpha: .45),
+      MotionReveal(
+        trigger: text,
+        delay: const Duration(milliseconds: 55),
+        child: Container(
+          key: const ValueKey('feedback-message'),
+          padding: const EdgeInsets.all(12),
+          decoration: BoxDecoration(
+            color: KifcTheme.paper,
+            borderRadius: BorderRadius.circular(18),
+            border: Border.all(
+              color: KifcTheme.answerCorrect.withValues(alpha: .45),
+            ),
           ),
-        ),
-        child: LocalizedText(
-          text,
-          style: const TextStyle(fontSize: 13, height: 1.25),
+          child: LocalizedText(
+            text,
+            style: const TextStyle(fontSize: 13, height: 1.25),
+          ),
         ),
       ),
       const SizedBox(height: 8),
@@ -1508,7 +1538,11 @@ class _AssemblyCompletionFeedback extends StatelessWidget {
                     maxWidth: width,
                     minHeight: imageHeight,
                     maxHeight: imageHeight,
-                    child: GameMascot(pose: pose, height: imageHeight),
+                    child: GameMascot(
+                      pose: pose,
+                      height: imageHeight,
+                      motionTrigger: text,
+                    ),
                   ),
                 ),
               ),
@@ -1668,31 +1702,34 @@ class _BreakTriangle extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 6),
-        Container(
-          key: const ValueKey<String>('triangle-demo-explanation'),
-          width: double.infinity,
-          padding: const EdgeInsets.all(12),
-          decoration: BoxDecoration(
-            color: Colors.white.withValues(alpha: .8),
-            border: Border.all(color: KifcTheme.line),
-            borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              LocalizedText(
-                explanation.$1,
-                style: const TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w700,
+        MotionReveal(
+          trigger: selected,
+          child: Container(
+            key: const ValueKey<String>('triangle-demo-explanation'),
+            width: double.infinity,
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: Colors.white.withValues(alpha: .8),
+              border: Border.all(color: KifcTheme.line),
+              borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                LocalizedText(
+                  explanation.$1,
+                  style: const TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 5),
-              LocalizedText(
-                explanation.$2,
-                style: const TextStyle(fontSize: 12, height: 1.3),
-              ),
-            ],
+                const SizedBox(height: 5),
+                LocalizedText(
+                  explanation.$2,
+                  style: const TextStyle(fontSize: 12, height: 1.3),
+                ),
+              ],
+            ),
           ),
         ),
       ],
@@ -2119,6 +2156,7 @@ class _FinalReviewDialogue extends StatelessWidget {
           child: GameMascot(
             pose: perfect ? MascotPose.success : MascotPose.hintSafety,
             height: height,
+            motionTrigger: _message,
           ),
         );
         final tail = ClipPath(
@@ -2133,17 +2171,21 @@ class _FinalReviewDialogue extends StatelessWidget {
             if (!perfect) mascot,
             if (!perfect) tail,
             Expanded(
-              child: Container(
-                padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: KifcTheme.paper,
-                  borderRadius: BorderRadius.circular(16),
-                  border: Border.all(color: KifcTheme.line),
-                ),
-                child: LocalizedText(
-                  _message,
-                  key: const ValueKey('final-review-message'),
-                  style: const TextStyle(fontSize: 13, height: 1.3),
+              child: MotionReveal(
+                trigger: _message,
+                delay: const Duration(milliseconds: 55),
+                child: Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: KifcTheme.paper,
+                    borderRadius: BorderRadius.circular(16),
+                    border: Border.all(color: KifcTheme.line),
+                  ),
+                  child: LocalizedText(
+                    _message,
+                    key: const ValueKey('final-review-message'),
+                    style: const TextStyle(fontSize: 13, height: 1.3),
+                  ),
                 ),
               ),
             ),
@@ -2235,47 +2277,64 @@ class _ScorePage extends StatelessWidget {
     body: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
-          decoration: BoxDecoration(
-            color: KifcTheme.success,
-            borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
-          ),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: <Widget>[
-              LocalizedText(
-                _points(total, english),
-                key: const ValueKey('total-score'),
-                style: const TextStyle(
-                  fontSize: 56,
-                  height: 1,
-                  fontWeight: FontWeight.w800,
+        MotionReveal(
+          delay: const Duration(milliseconds: 60),
+          beginScale: .98,
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
+            decoration: BoxDecoration(
+              color: KifcTheme.success,
+              borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
+            ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: <Widget>[
+                LocalizedText(
+                  _points(total, english),
+                  key: const ValueKey('total-score'),
+                  style: const TextStyle(
+                    fontSize: 56,
+                    height: 1,
+                    fontWeight: FontWeight.w800,
+                  ),
                 ),
-              ),
-              const SizedBox(width: 10),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 5),
-                child: LocalizedText(
-                  english ? '/ $maxGamePoints points' : '/ $maxGamePoints poin',
-                  style: const TextStyle(fontSize: 15),
+                const SizedBox(width: 10),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 5),
+                  child: LocalizedText(
+                    english
+                        ? '/ $maxGamePoints points'
+                        : '/ $maxGamePoints poin',
+                    style: const TextStyle(fontSize: 15),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
         const SizedBox(height: 10),
-        _ScoreRow(
-          label: english ? 'Elements placed' : 'Menyusun unsur',
-          score: '$triangle/3',
+        MotionReveal(
+          delay: const Duration(milliseconds: 110),
+          child: _ScoreRow(
+            label: english ? 'Elements placed' : 'Menyusun unsur',
+            score: '$triangle/3',
+          ),
         ),
-        _ScoreRow(
-          label: english ? 'Recognising causes' : 'Mengenali penyebab',
-          score: '$causes/4',
+        MotionReveal(
+          delay: const Duration(milliseconds: 150),
+          child: _ScoreRow(
+            label: english ? 'Recognising causes' : 'Mengenali penyebab',
+            score: '$causes/4',
+          ),
         ),
-        _ScoreRow(
-          label: english ? 'Impact challenge bonus' : 'Bonus mengenali dampak',
-          score: '${_points(bonus, english)}/1',
+        MotionReveal(
+          delay: const Duration(milliseconds: 190),
+          child: _ScoreRow(
+            label: english
+                ? 'Impact challenge bonus'
+                : 'Bonus mengenali dampak',
+            score: '${_points(bonus, english)}/1',
+          ),
         ),
         LocalizedText(
           english
@@ -3055,23 +3114,26 @@ class _SmallButton extends StatelessWidget {
   final VoidCallback onPressed;
   final bool dark;
   @override
-  Widget build(BuildContext context) => SizedBox(
-    height: 36,
-    child: OutlinedButton.icon(
-      onPressed: () {
-        unawaited(GameAudioScope.of(context).interact(GameSound.tap));
-        onPressed();
-      },
-      style: OutlinedButton.styleFrom(
-        foregroundColor: dark ? Colors.white : KifcTheme.ink,
-        side: BorderSide(color: dark ? Colors.white70 : KifcTheme.forest800),
-        padding: const EdgeInsets.symmetric(horizontal: 9),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
+  Widget build(BuildContext context) => PressFeedback(
+    enabled: true,
+    child: SizedBox(
+      height: 36,
+      child: OutlinedButton.icon(
+        onPressed: () {
+          unawaited(GameAudioScope.of(context).interact(GameSound.tap));
+          onPressed();
+        },
+        style: OutlinedButton.styleFrom(
+          foregroundColor: dark ? Colors.white : KifcTheme.ink,
+          side: BorderSide(color: dark ? Colors.white70 : KifcTheme.forest800),
+          padding: const EdgeInsets.symmetric(horizontal: 9),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
+          ),
         ),
+        icon: Icon(icon, size: 16),
+        label: LocalizedText(label, style: const TextStyle(fontSize: 12)),
       ),
-      icon: Icon(icon, size: 16),
-      label: LocalizedText(label, style: const TextStyle(fontSize: 12)),
     ),
   );
 }
@@ -3091,43 +3153,47 @@ class _Primary extends StatelessWidget {
   final bool dark;
   final bool large;
   @override
-  Widget build(BuildContext context) => SizedBox(
-    width: double.infinity,
-    height: large ? 72 : 46,
-    child: DecoratedBox(
-      decoration: BoxDecoration(
-        gradient: onPressed == null ? null : KifcTheme.primaryGradient,
-        borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
-      ),
-      child: ElevatedButton.icon(
-        onPressed: onPressed == null
-            ? null
-            : () {
-                unawaited(GameAudioScope.of(context).interact(GameSound.tap));
-                onPressed!();
-              },
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.transparent,
-          surfaceTintColor: Colors.transparent,
-          shadowColor: Colors.transparent,
-          disabledBackgroundColor: dark
-              ? KifcTheme.forest800.withValues(alpha: .88)
-              : KifcTheme.warmPanel,
-          foregroundColor: Colors.white,
-          disabledForegroundColor: dark ? Colors.white : KifcTheme.mutedInk,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
-          ),
-          elevation: 0,
+  Widget build(BuildContext context) => PressFeedback(
+    // The large welcome CTA already owns its pressure animation.
+    enabled: onPressed != null && !large,
+    child: SizedBox(
+      width: double.infinity,
+      height: large ? 72 : 46,
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          gradient: onPressed == null ? null : KifcTheme.primaryGradient,
+          borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
         ),
-        icon: icon == null
-            ? const SizedBox.shrink()
-            : Icon(icon, size: large ? 28 : null),
-        label: LocalizedText(
-          label,
-          style: TextStyle(
-            fontWeight: FontWeight.w700,
-            fontSize: large ? 21 : null,
+        child: ElevatedButton.icon(
+          onPressed: onPressed == null
+              ? null
+              : () {
+                  unawaited(GameAudioScope.of(context).interact(GameSound.tap));
+                  onPressed!();
+                },
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.transparent,
+            surfaceTintColor: Colors.transparent,
+            shadowColor: Colors.transparent,
+            disabledBackgroundColor: dark
+                ? KifcTheme.forest800.withValues(alpha: .88)
+                : KifcTheme.warmPanel,
+            foregroundColor: Colors.white,
+            disabledForegroundColor: dark ? Colors.white : KifcTheme.mutedInk,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
+            ),
+            elevation: 0,
+          ),
+          icon: icon == null
+              ? const SizedBox.shrink()
+              : Icon(icon, size: large ? 28 : null),
+          label: LocalizedText(
+            label,
+            style: TextStyle(
+              fontWeight: FontWeight.w700,
+              fontSize: large ? 21 : null,
+            ),
           ),
         ),
       ),
@@ -3145,24 +3211,27 @@ class _Secondary extends StatelessWidget {
   final VoidCallback onPressed;
   final bool dark;
   @override
-  Widget build(BuildContext context) => SizedBox(
-    width: double.infinity,
-    height: 44,
-    child: OutlinedButton(
-      onPressed: () {
-        unawaited(GameAudioScope.of(context).interact(GameSound.tap));
-        onPressed();
-      },
-      style: OutlinedButton.styleFrom(
-        foregroundColor: dark ? Colors.white : KifcTheme.ink,
-        side: BorderSide(color: dark ? Colors.white54 : KifcTheme.forest800),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
+  Widget build(BuildContext context) => PressFeedback(
+    enabled: true,
+    child: SizedBox(
+      width: double.infinity,
+      height: 44,
+      child: OutlinedButton(
+        onPressed: () {
+          unawaited(GameAudioScope.of(context).interact(GameSound.tap));
+          onPressed();
+        },
+        style: OutlinedButton.styleFrom(
+          foregroundColor: dark ? Colors.white : KifcTheme.ink,
+          side: BorderSide(color: dark ? Colors.white54 : KifcTheme.forest800),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
+          ),
         ),
-      ),
-      child: LocalizedText(
-        label,
-        style: const TextStyle(fontWeight: FontWeight.w700),
+        child: LocalizedText(
+          label,
+          style: const TextStyle(fontWeight: FontWeight.w700),
+        ),
       ),
     ),
   );
@@ -3337,10 +3406,15 @@ class _AnswerMark extends StatelessWidget {
   final bool correct;
 
   @override
-  Widget build(BuildContext context) => Icon(
-    correct ? Icons.check_circle_rounded : Icons.cancel_rounded,
-    color: Colors.white,
-    size: 18,
+  Widget build(BuildContext context) => MotionReveal(
+    offset: Offset.zero,
+    beginScale: .65,
+    duration: const Duration(milliseconds: 220),
+    child: Icon(
+      correct ? Icons.check_circle_rounded : Icons.cancel_rounded,
+      color: Colors.white,
+      size: 18,
+    ),
   );
 }
 
@@ -3430,6 +3504,7 @@ class _MascotFeedback extends StatelessWidget {
                   pose:
                       pose ?? (ok ? MascotPose.success : MascotPose.hintSafety),
                   height: imageHeight,
+                  motionTrigger: text,
                 ),
               ),
             ),
@@ -3441,55 +3516,60 @@ class _MascotFeedback extends StatelessWidget {
               top: dense ? 0 : 8,
               bottom: readingBottom,
             ),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                if (!ok)
-                  ClipPath(
-                    clipper: _SpeechTail(),
-                    child: const ColoredBox(
-                      color: KifcTheme.paper,
-                      child: SizedBox(width: 10, height: 18),
-                    ),
-                  ),
-                Expanded(
-                  child: Container(
-                    key: const ValueKey('feedback-message'),
-                    padding: EdgeInsets.all(dense ? 8 : 10),
-                    decoration: BoxDecoration(
-                      color: KifcTheme.paper,
-                      borderRadius: BorderRadius.circular(18),
-                      border: Border.all(
-                        color: neutral
-                            ? KifcTheme.line
-                            : (ok
-                                      ? KifcTheme.answerCorrect
-                                      : KifcTheme.answerIncorrect)
-                                  .withValues(alpha: .45),
-                      ),
-                    ),
-                    child: LocalizedText(
-                      text,
-                      style: const TextStyle(
-                        color: KifcTheme.ink,
-                        fontSize: 13,
-                        height: 1.25,
-                      ),
-                    ),
-                  ),
-                ),
-                if (ok)
-                  RotatedBox(
-                    quarterTurns: 2,
-                    child: ClipPath(
+            child: MotionReveal(
+              key: const ValueKey('feedback-motion'),
+              trigger: text,
+              delay: const Duration(milliseconds: 55),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  if (!ok)
+                    ClipPath(
                       clipper: _SpeechTail(),
                       child: const ColoredBox(
                         color: KifcTheme.paper,
                         child: SizedBox(width: 10, height: 18),
                       ),
                     ),
+                  Expanded(
+                    child: Container(
+                      key: const ValueKey('feedback-message'),
+                      padding: EdgeInsets.all(dense ? 8 : 10),
+                      decoration: BoxDecoration(
+                        color: KifcTheme.paper,
+                        borderRadius: BorderRadius.circular(18),
+                        border: Border.all(
+                          color: neutral
+                              ? KifcTheme.line
+                              : (ok
+                                        ? KifcTheme.answerCorrect
+                                        : KifcTheme.answerIncorrect)
+                                    .withValues(alpha: .45),
+                        ),
+                      ),
+                      child: LocalizedText(
+                        text,
+                        style: const TextStyle(
+                          color: KifcTheme.ink,
+                          fontSize: 13,
+                          height: 1.25,
+                        ),
+                      ),
+                    ),
                   ),
-              ],
+                  if (ok)
+                    RotatedBox(
+                      quarterTurns: 2,
+                      child: ClipPath(
+                        clipper: _SpeechTail(),
+                        child: const ColoredBox(
+                          color: KifcTheme.paper,
+                          child: SizedBox(width: 10, height: 18),
+                        ),
+                      ),
+                    ),
+                ],
+              ),
             ),
           ),
         ],
@@ -3514,68 +3594,73 @@ class _ChoiceButton extends StatelessWidget {
   final bool graded;
   final double height;
   @override
-  Widget build(BuildContext context) => AnimatedContainer(
-    duration: _motionDuration(context, const Duration(milliseconds: 180)),
-    curve: Curves.easeOutCubic,
-    decoration: BoxDecoration(
-      color: selected ? null : Colors.white,
-      gradient: selected ? _answerGradient(!error) : null,
-      borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
-      boxShadow: selected
-          ? <BoxShadow>[
-              BoxShadow(
-                color:
-                    (error
-                            ? KifcTheme.answerIncorrectDeep
-                            : KifcTheme.forest950)
-                        .withValues(alpha: .16),
-                offset: const Offset(0, 3),
-                blurRadius: 10,
-              ),
-            ]
-          : null,
-    ),
-    child: SizedBox(
-      width: double.infinity,
-      height: height,
-      child: OutlinedButton(
-        onPressed: onTap,
-        style: OutlinedButton.styleFrom(
-          backgroundColor: Colors.transparent,
-          foregroundColor: selected ? Colors.white : KifcTheme.ink,
-          disabledForegroundColor: selected ? Colors.white : KifcTheme.ink,
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-          side: BorderSide(
-            color: selected
-                ? (error ? KifcTheme.answerIncorrect : KifcTheme.answerCorrect)
-                : KifcTheme.line,
+  Widget build(BuildContext context) => PressFeedback(
+    enabled: onTap != null,
+    child: AnimatedContainer(
+      duration: _motionDuration(context, const Duration(milliseconds: 180)),
+      curve: Curves.easeOutCubic,
+      decoration: BoxDecoration(
+        color: selected ? null : Colors.white,
+        gradient: selected ? _answerGradient(!error) : null,
+        borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
+        boxShadow: selected
+            ? <BoxShadow>[
+                BoxShadow(
+                  color:
+                      (error
+                              ? KifcTheme.answerIncorrectDeep
+                              : KifcTheme.forest950)
+                          .withValues(alpha: .16),
+                  offset: const Offset(0, 3),
+                  blurRadius: 10,
+                ),
+              ]
+            : null,
+      ),
+      child: SizedBox(
+        width: double.infinity,
+        height: height,
+        child: OutlinedButton(
+          onPressed: onTap,
+          style: OutlinedButton.styleFrom(
+            backgroundColor: Colors.transparent,
+            foregroundColor: selected ? Colors.white : KifcTheme.ink,
+            disabledForegroundColor: selected ? Colors.white : KifcTheme.ink,
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+            side: BorderSide(
+              color: selected
+                  ? (error
+                        ? KifcTheme.answerIncorrect
+                        : KifcTheme.answerCorrect)
+                  : KifcTheme.line,
+            ),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
+            ),
           ),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
-          ),
-        ),
-        child: Row(
-          children: <Widget>[
-            if (graded) const SizedBox(width: 26),
-            Expanded(
-              child: LocalizedText(
-                label,
-                textAlign: TextAlign.center,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style: const TextStyle(
-                  fontSize: 13,
-                  height: 1.2,
-                  fontWeight: FontWeight.w600,
+          child: Row(
+            children: <Widget>[
+              if (graded) const SizedBox(width: 26),
+              Expanded(
+                child: LocalizedText(
+                  label,
+                  textAlign: TextAlign.center,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                    fontSize: 13,
+                    height: 1.2,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ),
-            ),
-            if (graded)
-              SizedBox(
-                width: 26,
-                child: selected ? _AnswerMark(correct: !error) : null,
-              ),
-          ],
+              if (graded)
+                SizedBox(
+                  width: 26,
+                  child: selected ? _AnswerMark(correct: !error) : null,
+                ),
+            ],
+          ),
         ),
       ),
     ),
@@ -3740,66 +3825,73 @@ class _DropSlot extends StatelessWidget {
       opacity: reduced ? .38 : 1,
       child: SizedBox(
         height: compact ? 56 : 76,
-        child: _PhotoFrame(
-          radius: BorderRadius.circular(10),
-          color: filled ? KifcTheme.forest800 : const Color(0xFFF5F3ED),
-          border: Border.all(
-            color: candidate.isNotEmpty
-                ? KifcTheme.amber
-                : filled
-                ? KifcTheme.answerCorrect
-                : Colors.white70,
-            width: candidate.isNotEmpty ? 2 : 1,
-          ),
-          child: Stack(
-            fit: StackFit.expand,
-            children: <Widget>[
-              if (filled)
-                GamePhoto(placedPiece?.photo ?? slot.photo, forestTone: true),
-              if (filled) const ColoredBox(color: Color(0x850C2119)),
-              Padding(
-                padding: const EdgeInsets.all(7),
-                child: Column(
-                  mainAxisAlignment: filled
-                      ? MainAxisAlignment.end
-                      : MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    if (filled || revealLabel)
-                      LocalizedText(
-                        placedPiece?.slot?.title(english) ??
-                            slot.title(english),
-                        textAlign: TextAlign.center,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          color: filled ? Colors.white : KifcTheme.ink,
-                          fontSize: 11,
-                          fontWeight: FontWeight.w800,
+        child: MotionReveal(
+          trigger: filled,
+          animateOnMount: false,
+          offset: Offset.zero,
+          beginScale: .94,
+          duration: const Duration(milliseconds: 240),
+          child: _PhotoFrame(
+            radius: BorderRadius.circular(10),
+            color: filled ? KifcTheme.forest800 : const Color(0xFFF5F3ED),
+            border: Border.all(
+              color: candidate.isNotEmpty
+                  ? KifcTheme.amber
+                  : filled
+                  ? KifcTheme.answerCorrect
+                  : Colors.white70,
+              width: candidate.isNotEmpty ? 2 : 1,
+            ),
+            child: Stack(
+              fit: StackFit.expand,
+              children: <Widget>[
+                if (filled)
+                  GamePhoto(placedPiece?.photo ?? slot.photo, forestTone: true),
+                if (filled) const ColoredBox(color: Color(0x850C2119)),
+                Padding(
+                  padding: const EdgeInsets.all(7),
+                  child: Column(
+                    mainAxisAlignment: filled
+                        ? MainAxisAlignment.end
+                        : MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      if (filled || revealLabel)
+                        LocalizedText(
+                          placedPiece?.slot?.title(english) ??
+                              slot.title(english),
+                          textAlign: TextAlign.center,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            color: filled ? Colors.white : KifcTheme.ink,
+                            fontSize: 11,
+                            fontWeight: FontWeight.w800,
+                          ),
                         ),
-                      ),
-                    if (!filled && onDrop != null) ...[
-                      const Icon(
-                        Icons.add_circle_outline,
-                        color: KifcTheme.mutedInk,
-                        size: 20,
-                      ),
-                      const SizedBox(height: 3),
-                      LocalizedText(
-                        english ? 'Drop here' : 'Taruh di sini',
-                        textAlign: TextAlign.center,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
+                      if (!filled && onDrop != null) ...[
+                        const Icon(
+                          Icons.add_circle_outline,
                           color: KifcTheme.mutedInk,
-                          fontSize: 11,
+                          size: 20,
                         ),
-                      ),
+                        const SizedBox(height: 3),
+                        LocalizedText(
+                          english ? 'Drop here' : 'Taruh di sini',
+                          textAlign: TextAlign.center,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(
+                            color: KifcTheme.mutedInk,
+                            fontSize: 11,
+                          ),
+                        ),
+                      ],
                     ],
-                  ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
@@ -4078,37 +4170,43 @@ class _ImpactTokenCard extends StatelessWidget {
                 Positioned(
                   right: 6,
                   top: 6,
-                  child: Semantics(
-                    label: AppCopy.translate(
-                      !revealed
-                          ? (english ? 'Selected' : 'Dipilih')
-                          : _missed
-                          ? (english ? 'Missed impact' : 'Dampak terlewat')
-                          : token.impact
-                          ? (english
-                                ? 'Correct impact'
-                                : 'Benar, ini dampak kebakaran')
-                          : (english
-                                ? 'Not a fire impact'
-                                : 'Bukan dampak kebakaran'),
-                    ),
-                    child: Container(
-                      width: 23,
-                      height: 23,
-                      decoration: BoxDecoration(
-                        color: !revealed ? KifcTheme.forest950 : _markerColor,
-                        shape: BoxShape.circle,
-                      ),
-                      child: Icon(
+                  child: MotionReveal(
+                    trigger: (found, revealed),
+                    offset: Offset.zero,
+                    beginScale: .7,
+                    duration: const Duration(milliseconds: 220),
+                    child: Semantics(
+                      label: AppCopy.translate(
                         !revealed
-                            ? Icons.radio_button_checked
+                            ? (english ? 'Selected' : 'Dipilih')
                             : _missed
-                            ? Icons.remove_rounded
+                            ? (english ? 'Missed impact' : 'Dampak terlewat')
                             : token.impact
-                            ? Icons.check_rounded
-                            : Icons.close_rounded,
-                        color: Colors.white,
-                        size: 17,
+                            ? (english
+                                  ? 'Correct impact'
+                                  : 'Benar, ini dampak kebakaran')
+                            : (english
+                                  ? 'Not a fire impact'
+                                  : 'Bukan dampak kebakaran'),
+                      ),
+                      child: Container(
+                        width: 23,
+                        height: 23,
+                        decoration: BoxDecoration(
+                          color: !revealed ? KifcTheme.forest950 : _markerColor,
+                          shape: BoxShape.circle,
+                        ),
+                        child: Icon(
+                          !revealed
+                              ? Icons.radio_button_checked
+                              : _missed
+                              ? Icons.remove_rounded
+                              : token.impact
+                              ? Icons.check_rounded
+                              : Icons.close_rounded,
+                          color: Colors.white,
+                          size: 17,
+                        ),
                       ),
                     ),
                   ),
