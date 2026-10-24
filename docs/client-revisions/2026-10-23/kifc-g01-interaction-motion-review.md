@@ -2,6 +2,8 @@
 
 Pembaruan 24 Oktober 2026, atas permintaan pemilik untuk menambah animasi yang lebih interaktif dan halus. Status **Ditinjau**. Ini penyempurnaan tiket G01, bukan penambahan babak atau perubahan aturan.
 
+Commit implementasi dan bukti: `531a0da` pada `main`. Preview utama memakai `lib/main.dart` di http://localhost:8080/ dan telah dimulai ulang setelah perubahan.
+
 ## Hasil implementasi
 
 - Maskot muncul melalui fade, pergeseran naik 16 logical px dan scale .98 → 1 selama 380 ms. Transformasi berada di dalam crop lama; siluet dan logo tidak dibalik.
