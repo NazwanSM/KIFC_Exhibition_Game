@@ -549,3 +549,5 @@ Commit implementasi KIFC-G04: `5c8e282` (branch main).235 tes Flutter lulus;6 te
 ### KIFC-G04 — koreksi interaksi dan error web
 
 Laporan pemilik: efek terlalu pelan, sejumlah tombol tidak berbunyi, dan audio kadang berhenti pada web. Klik diganti rekaman lebih panjang, level efek dinaikkan, tombol navigasi/dialog/penutup dan lanjut layar dilengkapi, akhir kuis memakai cue khusus. Semantics juga mengaktifkan audio. Sumber efek dimuat sekali dalam pemutar tetap; kegagalan satu cue tidak mematikan latar dan pemakaian berikutnya memulihkannya.239tes lulus, analisis bersih,60 render lima ukuran/tiga bahasa serta pemutaran/pemulihan browser nyata tersedia. [Rincian, screenshot dan batas bukti](../../docs/client-revisions/2026-10-23/kifc-g04-audio-feedback.md). APK belum dibangun ulang pada koreksi web ini. Status Ditinjau; kenyamanan speaker TV fisik masih terbuka. Tidak ada push/deployment.
+
+Commit koreksi audio web KIFC-G04: `e8f471f` pada main.239tes lulus,17tes visual diulang, analisis bersih; bukti pemulihan dan akhir kuis pada Chromium terlampir. Belum push/deploy.

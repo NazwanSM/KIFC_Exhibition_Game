@@ -42,3 +42,5 @@ Widget render, bukan foto perangkat fisik. Simulasi1080×1920 dan2160×3840 menc
 - [Ulasan setelah bunyi akhir — browser1280×800 dengan shellportrait](../../../build/review-kifc-g04-audio-feedback/browser-final-review.png)
 
 Status Ditinjau secara lokal. Volume ruangan/TV fisik dan pengesahan pemilik tetap terbuka. Tidak ada push/deploy.
+
+Commit implementasi: `e8f471f` pada main. Preview utama kembali memakai lib/main.dart di http://localhost:8080/.
