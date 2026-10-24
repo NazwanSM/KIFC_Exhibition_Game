@@ -15,7 +15,7 @@ Tracker ini mencatat pekerjaan baru dari dokumen KIFC. **KIFC-01 sampai 10 sudah
 - `G` menandai pekerjaan lintas game; `X` menandai integrasi, bahasa, dan verifikasi. `D` menandai keputusan yang belum tersedia.
 - Centang subpekerjaan setelah implementasi dan pemeriksaan yang relevan. Tutup tiket setelah kriteria penerimaannya terpenuhi dan bukti dicatat. Jangan mencentang implementasi hanya karena rancangan atau asetnya sudah disiapkan.
 - Untuk setiap tiket, isi log di akhir file dengan commit, hasil pemeriksaan, lokasi screenshot/rekaman, serta keterbatasannya. Pemeriksaan viewport/emulator tidak membuktikan kenyamanan jangkauan TV fisik.
-- Cakupan: **18 kelompok pekerjaan; 14 Ditinjau, 3 Ditinjau sebagian, 1 Menunggu keputusan, 0 Selesai/disahkan klien**. Sebagian permintaan melanjutkan fitur yang sudah ada; keberadaannya tetap perlu diperiksa terhadap kebutuhan baru.
+- Cakupan: **18 kelompok pekerjaan; 15 Ditinjau, 3 Ditinjau sebagian, 0 Menunggu keputusan, 0 Selesai/disahkan klien**. Sebagian permintaan melanjutkan fitur yang sudah ada; keberadaannya tetap perlu diperiksa terhadap kebutuhan baru.
 - Sesuai permintaan pemilik proyek, setiap revisi disertai screenshot beberapa ukuran portrait, terutama simulasi TV Full HD 1080×1920 dan 4K 2160×3840. Catat bahasa, sumber gambar, dan batas pemeriksaannya; jangan menyebut render viewport sebagai foto TV fisik.
 
 ## Daftar pekerjaan per layar
@@ -36,10 +36,10 @@ Tracker ini mencatat pekerjaan baru dari dokumen KIFC. **KIFC-01 sampai 10 sudah
 | KIFC-G01 | Variasi interaksi, transisi, dan respons sentuhan | Ditinjau | Pemetaan interaksi dan pembatalan timer diverifikasi;191 tes lulus |
 | KIFC-G02 | Animasi dan latar bergerak | Ditinjau sebagian | Video pemilik, fallback, reduced motion dan offline diuji; profil TV fisik menunggu D-09 |
 | KIFC-G03 | Pengayaan visual seluruh layar | Ditinjau | Audit per layar,33 render inset serta APK offline; overflow Android diperbaiki |
-| KIFC-G04 | Musik, suara alam, efek suara, dan kontrol audio | Menunggu keputusan | Usulan paket A/B/C siap; audio ditunda sesuai arahan langsung pemilik, D-08/D-09 |
+| KIFC-G04 | Musik, suara alam, efek suara, dan kontrol audio | Ditinjau | Musik/hutan/efek CC0 offline, volume/mute tiga bahasa,235 tes serta pemutaran web/Android diperiksa; akustik TV fisik menunggu D-09 |
 | KIFC-X01 | Alur, penomoran babak, dan perhitungan skor | Ditinjau | Urutan dipertahankan, kartu09 tanpa skor, maksimum8;212 tes lulus |
 | KIFC-X02 | Naskah tiga bahasa dan konsistensi istilah | Ditinjau | Inventaris/glosarium serta alur Korea diperiksa; materi09 sudah tiga bahasa; validasi klien/penutur menunggu |
-| KIFC-X03 | Verifikasi, perangkat, dan rilis | Ditinjau sebagian |212 tes, analisis bersih, APK/44 aset terbaru siap; replay APK09/11, TV fisik dan rilis menunggu |
+| KIFC-X03 | Verifikasi, perangkat, dan rilis | Ditinjau sebagian |235 tes, analisis bersih, APK/52 aset offline dan smoke audio Android siap; replay lengkap09/11 pada APK, TV fisik dan rilis menunggu |
 
 ## KIFC-01 Tampilan awal
 
@@ -358,13 +358,13 @@ Analisis bersih, **151 tes lulus**, dan **60 render** empat keadaan × tiga baha
 
 **Sumber:** catatan tambahan paragraf 4.
 
-- [ ] **KIFC-G04.01** Bahas cakupan audio baru melalui D-08; sebelumnya tahap teks tanpa suara telah disepakati karena pengembangan dan biaya.
-- [ ] **KIFC-G04.02** Siapkan musik latar yang sesuai suasana hutan dan tema permainan.
-- [ ] **KIFC-G04.03** Tambahkan suara alam.
-- [ ] **KIFC-G04.04** Tambahkan efek saat tombol disentuh, jawaban dipilih, serta tantangan diselesaikan.
-- [ ] **KIFC-G04.05** Atur level musik, ambience, dan efek agar nyaman serta tidak mengganggu narasi maupun kegiatan ruang pameran.
-- [ ] **KIFC-G04.06** Sediakan pengaturan volume dan tombol untuk menonaktifkan suara, dengan status yang mudah dipahami.
-- [ ] **KIFC-G04.07** Pastikan aset berlisensi sesuai penggunaan, dibundel offline, dan terdokumentasi di `ASSET_SOURCES.md`; periksa perilaku Android/web, autoplay setelah interaksi, ulang sesi, dan keluar aplikasi.
+- [x] **KIFC-G04.01** Bahas cakupan audio baru melalui D-08; sebelumnya tahap teks tanpa suara telah disepakati karena pengembangan dan biaya.
+- [x] **KIFC-G04.02** Siapkan musik latar yang sesuai suasana hutan dan tema permainan.
+- [x] **KIFC-G04.03** Tambahkan suara alam.
+- [x] **KIFC-G04.04** Tambahkan efek saat tombol disentuh, jawaban dipilih, serta tantangan diselesaikan.
+- [x] **KIFC-G04.05** Atur level musik, ambience, dan efek agar nyaman serta tidak mengganggu narasi maupun kegiatan ruang pameran.
+- [x] **KIFC-G04.06** Sediakan pengaturan volume dan tombol untuk menonaktifkan suara, dengan status yang mudah dipahami.
+- [x] **KIFC-G04.07** Pastikan aset berlisensi sesuai penggunaan, dibundel offline, dan terdokumentasi di `ASSET_SOURCES.md`; periksa perilaku Android/web, autoplay setelah interaksi, ulang sesi, dan keluar aplikasi.
 
 **Kriteria penerimaan:** musik, suara alam, dan efek yang disepakati berfungsi; volume/mute benar-benar mengontrol output; audio tidak bertumpuk saat sesi diulang. **Sumber tidak secara eksplisit meminta rekaman suara maskot atau text-to-speech**; jangan menganggap keduanya termasuk otomatis.
 
@@ -398,7 +398,7 @@ Bagian ini adalah pekerjaan turunan dari perubahan konten, bukan kutipan permint
 ### KIFC-X03 Verifikasi dan rilis
 
 - [x] **KIFC-X03.01** Buat matriks cakupan untuk 11 layar, layar yang tetap ada seperti Babak 3, serta audio/animasi lintas layar.
-- [ ] **KIFC-X03.02** Uji alur lengkap ketiga bahasa: susun benar/salah, retry, tiga kartu bacaan, kuis gambut, format karakteristik terpilih, tantangan dampak, ulasan, hasil, dan ulang sesi.
+- [x] **KIFC-X03.02** Uji alur lengkap ketiga bahasa: susun benar/salah, retry, tiga kartu bacaan, kuis gambut, format karakteristik terpilih, tantangan dampak, ulasan, hasil, dan ulang sesi.
 - [x] **KIFC-X03.03** Uji timer/feedback panjang, tidak adanya input ganda, pembatalan pilihan, perpindahan otomatis/manual yang disepakati, tombol kembali, serta reset tanpa skor/audio/animasi tersisa.
 - [ ] **KIFC-X03.04** Periksa crop, ukuran teks, maskot, visual baru, animasi, dan tombol pada viewport portrait; lakukan uji sentuhan langsung pada TV 42 inci setelah perangkat dan pemasangan diketahui.
 - [ ] **KIFC-X03.05** Uji APK offline serta web, termasuk media/audio lokal, kontrol volume/mute, dan performa. Emulator merupakan bukti fungsional awal, bukan tolok ukur tunggal performa TV.
@@ -418,7 +418,7 @@ Bagian ini adalah pekerjaan turunan dari perubahan konten, bukan kutipan permint
 | D-05 | Perilaku setelah salah kedua pada kuis gambut serta waktu baca feedback? | Bagian 08 memberi hint tetapi belum memberi teks pembukaan jawaban salah kedua. Implementasi sementara mempertahankan satu retry untuk >2 pilihan; benar 18 detik, salah kedua 12 detik, hint pertama menunggu input. Naskah salah kedua dibuat vendor. Implementasi dan render sudah diperiksa; durasi serta naskah tambahan masih menunggu penilaian pengguna/KIFC. |
 | D-06 | Berapa durasi baru tantangan dampak dan kapan countdown mulai? | Vendor menerapkan sementara 30 detik setelah foto/transisi siap. Hijau >15, kuning15–10, merah≤9. Stopwatch, ring dan deadline diuji; durasi final menunggu uji membaca TV fisik. |
 | D-07 | Aturan skor, penalti, bonus, dan maksimum setelah materi diganti? | Dipetakan24Oktober sesuai09 tanpa skor: maksimum8. Aturan dampak lama tetap+1 benar/−1 salah, minimum0, bonus hasil/4 (maksimum1); pilihan netral sebelum ulasan dipertahankan. Kategori mengikuti proporsi lama8/9 dan6/9, diuji pada batas7/7.25/5.25/5.5; siap ditinjau pemilik. |
-| D-08 | Cakupan audio, animasi, 3D/video, aset, dan dampak biaya/performa? | Musik/efek diminta dalam dokumen baru; suara sebelumnya ditunda dan fog dihapus. Bahas cakupan baru tanpa menambahkan voice-over maskot secara otomatis. |
+| D-08 | Cakupan audio, animasi, 3D/video, aset, dan dampak biaya/performa? | Pemilik24Oktober meminta melanjutkan audio dan memakai aset internet yang diunduh. Musik+suara alam+efek diterapkan dengan aset CC0, volume/mute dan offline. Tidak ada aset berbayar, generasi suara mentah atau voice-over; fog tetap dihapus. Penilaian speaker/akustik ruang tetap melalui D-09. |
 | D-09 | Resolusi, sistem/perangkat, tinggi pemasangan, speaker, dan posisi pengguna TV 42 inci? | Diagonal dan orientasi sudah disebut. Data lain diperlukan untuk uji jangkauan, audio, dan performa fisik. |
 | D-10 | Visual sumber panas, oksigen, serta pengganti udara dingin yang dipakai? | KIFC-02 memakai foto percikan gerinda (gesekan), konteks kanopi/udara dengan cue O₂, dan batu. Aset dibundel offline, sumber/lisensi dicatat, grading runtime ringan diterapkan. Pilihan aset vendor siap dinilai pemilik/KIFC. |
 | D-11 | Apakah kuis penyebab manusia/alam Babak 3 tetap ada? | Pemilik meminta urutan layar tetap seperti sebelumnya pada24Oktober; Babak3 dipertahankan. |
@@ -509,7 +509,7 @@ Empat keadaan layar direvisi tanpa mengubah urutan. Panel diperbesar, dropzone d
 
 Branch lokal: **main**. Belum push/deploy pada rangkaian pekerjaan ini. APK debug terbaru memuat kartu09 dan kategori skor8; build/hash serta batas verifikasi tercatat pada review KIFC-11. Preview web utama tetap pada http://localhost:8080/. AVD pengujian sudah dimatikan setelah bukti disimpan; data uji berada pada build di driveD, AVD asli tidak dipindahkan.
 
-Pekerjaan tertunda yang tidak boleh dianggap implementasi selesai: audio/D-08, penilaian waktu baca D-05/D-06 dan jangkauan/performa TV D-09, pengesahan naskah/visual klien, serta rilis berikutnya. Seluruh persiapan konkret dan bukti lokal tertaut pada tiket masing-masing.
+Pekerjaan tertunda yang tidak boleh dianggap implementasi selesai: penilaian akustik audio pada perangkat fisik/D-09, penilaian waktu baca D-05/D-06 dan jangkauan/performa TV D-09, pengesahan naskah/visual klien, serta rilis berikutnya. Seluruh persiapan konkret dan bukti lokal tertaut pada tiket masing-masing.
 
 
 ### Keputusan dan implementasi KIFC-09 — 24 Oktober
@@ -534,3 +534,10 @@ Commit `a11eb8b` (KIFC-09) dan `e3fb941` (KIFC-11):212 tes Flutter lulus, analis
 Tiga sampul foto berbeda diterapkan dengan grading seragam. Dialog menggunakan komponen feedback berbingkai netral, maskot presenting setengah badan lebih besar di kiri. Penghitung kartu dihapus; syarat lanjut setelah tiga kartu dibuka serta skor8 tetap. [60 render, lima ukuran dan tiga bahasa](../../docs/client-revisions/2026-10-23/kifc-09-visual-refinement.md). Status Ditinjau; bukti viewport tidak menggantikan uji TV fisik.
 
 Commit koreksi KIFC-09: `13d3547`.17 tes kartu/visual dan21 tes perjalanan lengkap/Korea lulus; analisis bersih. Tidak ada push/deployment.
+
+
+### KIFC-G04 — audio internet offline,24Oktober
+
+Instruksi langsung pemilik membuka kembali audio dan meminta unduhan internet. Musik TinyWorlds, burung Joseph Sardin dan efek Kenney (CC0) diterapkan, total8 aset/1.21MB. Tombol speaker di seluruh layar, master/musik/alam/efek serta mute; nilai bertahan selama aplikasi hidup dan mulai setelah interaksi. Pilihan tantangan akhir netral, tanpa bocoran jawaban. Dua loop dan satu kanal efek dipakai ulang; pause pada inactive, tidak menumpuk saat ulang sesi.
+
+235 tes Flutter lulus, analisis bersih,60 render lima ukuran/tiga bahasa tersedia. Pemutaran nyata web dan Android offline (airplane1/Wi-Fi0) menunjukkan playing, mute/master0 pause, resume dan efek tombol. APK/52 aset/hash diverifikasi. [Bukti lengkap, sumber, screenshot dan batas hasil](../../docs/client-revisions/2026-10-23/kifc-g04-audio-review.md). G04 Ditinjau; level/kenyamanan speaker TV42inci masih perlu uji fisik. X03.02 kini diperiksa lewat alur otomatis lengkap tiga bahasa; perjalanan manual seluruh layar APK tetap dicatat terpisah. Tidak ada push/deploy.

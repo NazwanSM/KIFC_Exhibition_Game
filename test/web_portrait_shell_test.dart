@@ -1,3 +1,4 @@
+import 'package:fire_prevention_challenge/core/audio/game_audio.dart';
 import 'package:fire_prevention_challenge/core/localization/app_locale.dart';
 import 'package:fire_prevention_challenge/core/theme/kifc_theme.dart';
 import 'package:fire_prevention_challenge/features/game/exhibition_game.dart';
@@ -37,7 +38,10 @@ void main() {
             home: RepaintBoundary(
               key: const ValueKey('review-target'),
               child: WebPortraitShell(
-                child: ExhibitionGame(initialLocale: locale),
+                child: ExhibitionGame(
+                  audioBackend: const SilentGameAudioBackend(),
+                  initialLocale: locale,
+                ),
               ),
             ),
           ),

@@ -1,3 +1,4 @@
+import 'package:fire_prevention_challenge/core/audio/game_audio.dart';
 import 'dart:convert';
 import 'dart:io';
 import 'dart:ui' as ui;
@@ -58,8 +59,10 @@ class GameFlow {
     required this.english,
     required this.size,
     this.korean = false,
+    this.audioBackend,
   });
   final bool korean;
+  final GameAudioBackend? audioBackend;
   final WidgetTester tester;
   final bool english;
   final Size size;
@@ -235,7 +238,10 @@ class GameFlow {
         theme: KifcTheme.light(),
         home: RepaintBoundary(
           key: const ValueKey('review-capture'),
-          child: ExhibitionGame(stopwatchFactory: () => clock),
+          child: ExhibitionGame(
+            audioBackend: audioBackend ?? const SilentGameAudioBackend(),
+            stopwatchFactory: () => clock,
+          ),
         ),
       ),
     );
@@ -778,7 +784,10 @@ void main() {
       tester.view.resetDevicePixelRatio();
     });
     await tester.pumpWidget(
-      MaterialApp(theme: KifcTheme.light(), home: const ExhibitionGame()),
+      MaterialApp(
+        theme: KifcTheme.light(),
+        home: const ExhibitionGame(audioBackend: SilentGameAudioBackend()),
+      ),
     );
     await tester.tap(find.text('Mulai Tantangan'));
     await tester.pump();
@@ -796,7 +805,10 @@ void main() {
         tester.view.resetDevicePixelRatio();
       });
       await tester.pumpWidget(
-        MaterialApp(theme: KifcTheme.light(), home: const ExhibitionGame()),
+        MaterialApp(
+          theme: KifcTheme.light(),
+          home: const ExhibitionGame(audioBackend: SilentGameAudioBackend()),
+        ),
       );
       await tester.tap(find.text('Mulai Tantangan'));
       await tester.pump(const Duration(milliseconds: 400));
@@ -830,7 +842,10 @@ void main() {
       tester.view.resetDevicePixelRatio();
     });
     await tester.pumpWidget(
-      MaterialApp(theme: KifcTheme.light(), home: const ExhibitionGame()),
+      MaterialApp(
+        theme: KifcTheme.light(),
+        home: const ExhibitionGame(audioBackend: SilentGameAudioBackend()),
+      ),
     );
     await tester.tap(find.text('Mulai Tantangan'));
     await tester.pump(const Duration(milliseconds: 400));

@@ -1,3 +1,4 @@
+import 'package:fire_prevention_challenge/core/audio/game_audio.dart';
 import 'dart:convert';
 import 'dart:io';
 import 'dart:ui' as ui;
@@ -34,6 +35,7 @@ Future<void> launchScreen(
       home: RepaintBoundary(
         key: const ValueKey('review-target'),
         child: ExhibitionGame(
+          audioBackend: const SilentGameAudioBackend(),
           initialLocale: locale,
           initialPage: page,
           initialCardIndex: cardIndex,

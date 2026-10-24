@@ -48,7 +48,7 @@ with zipfile.ZipFile(apk) as bundle:
     kernel = "assets/flutter_assets/kernel_blob.bin"
     if kernel in names:
         data = bundle.read(kernel)
-        for marker in ["Impact challenge bonus", "finalChallengeSeconds", "_compactLayout", "PeatCharacteristicCard"]:
+        for marker in ["Impact challenge bonus", "finalChallengeSeconds", "_compactLayout", "PeatCharacteristicCard", "GameAudioController"]:
             if marker.encode() not in data:
                 failures.append("Stale debug gameplay: missing " + marker)
 

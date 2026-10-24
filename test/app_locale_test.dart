@@ -1,3 +1,4 @@
+import 'package:fire_prevention_challenge/core/audio/game_audio.dart';
 import 'package:fire_prevention_challenge/core/localization/app_locale.dart';
 import 'package:fire_prevention_challenge/core/theme/kifc_theme.dart';
 import 'package:fire_prevention_challenge/features/game/exhibition_game.dart';
@@ -16,7 +17,10 @@ void main() {
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
     await tester.pumpWidget(
-      MaterialApp(theme: KifcTheme.light(), home: const ExhibitionGame()),
+      MaterialApp(
+        theme: KifcTheme.light(),
+        home: const ExhibitionGame(audioBackend: SilentGameAudioBackend()),
+      ),
     );
     expect(find.text('Fire Prevention\nChallenge'), findsOneWidget);
 

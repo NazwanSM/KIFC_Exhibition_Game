@@ -1,0 +1,62 @@
+{
+  "downloadDate": "2026-10-24",
+  "files": [
+    {
+      "asset": "assets/audio/complete.wav",
+      "bytes": 43332,
+      "sha256": "296c07aea76fcf2b105b2f88d3c3d011e28385b9592100d48b8bb9ea9d19a0a8"
+    },
+    {
+      "asset": "assets/audio/correct.wav",
+      "bytes": 47618,
+      "sha256": "824f6351c01c2b2c1663b2f9debedf6dc628bf3487dd6414233a0600878835fa"
+    },
+    {
+      "asset": "assets/audio/flip.wav",
+      "bytes": 53708,
+      "sha256": "eb624bb7b1c74ec348d9bab2c7598eb03a314e5162d77fadec8d0304b11326b6"
+    },
+    {
+      "asset": "assets/audio/forest-birds.mp3",
+      "bytes": 504729,
+      "sha256": "e5ce80afcbe1b8415a06d06cceb115944706d1fb718a80ac89521824269effe4"
+    },
+    {
+      "asset": "assets/audio/forest-music.mp3",
+      "bytes": 537737,
+      "sha256": "3874fd3780bd7b1c627ab958d603b80880ff9fcc88f5cfede3abeaad57b5a954"
+    },
+    {
+      "asset": "assets/audio/retry.wav",
+      "bytes": 9294,
+      "sha256": "9ef65fca660dd710debd8d37818402dde8f0a08c22ab128d4dcb18d4b7811b65"
+    },
+    {
+      "asset": "assets/audio/select.wav",
+      "bytes": 16676,
+      "sha256": "ab71e1e2de3663a2e6279c1f3944d4620104b7ee3d82ec5057f2b006bd1c2127"
+    },
+    {
+      "asset": "assets/audio/tap.wav",
+      "bytes": 706,
+      "sha256": "03464f6ad6353c0f7bc04725f909827f03a13d5106bb62c7886f5472121d177f"
+    }
+  ],
+  "downloadedOriginals": [
+    {
+      "filename": "Forest_Ambience.mp3",
+      "bytes": 716670,
+      "sha256": "9850aa1d0d5d66bd9c5daf8bb77c6d852e01f2f4de22f283bd5621e8bed13b75"
+    },
+    {
+      "filename": "birds-original.ogg",
+      "bytes": 10633133,
+      "sha256": "3f05e887cd67965cf547dd2e1bc75492ba50dbd46ab8c82958efedc05e0cf6c5"
+    },
+    {
+      "filename": "kenney_interfaceSounds.zip",
+      "bytes": 834536,
+      "sha256": "f2193d072726d6758a5f7871b2dcc54dcce0d5c35c6f0a62f92549b327c81232"
+    }
+  ]
+}

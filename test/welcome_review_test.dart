@@ -1,3 +1,4 @@
+import 'package:fire_prevention_challenge/core/audio/game_audio.dart';
 import 'dart:convert';
 import 'dart:io';
 import 'dart:ui' as ui;
@@ -21,7 +22,7 @@ Future<void> launchWelcome(WidgetTester tester, Size size) async {
       debugShowCheckedModeBanner: false,
       home: const RepaintBoundary(
         key: ValueKey('welcome-review'),
-        child: ExhibitionGame(),
+        child: ExhibitionGame(audioBackend: SilentGameAudioBackend()),
       ),
     ),
   );

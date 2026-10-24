@@ -1,6 +1,6 @@
 # KIFC-G04 — Cakupan audio untuk keputusan
 
-Draf24Oktober 2026, belum diimplementasikan. Permintaan dokumen baru mencakup musik, suara alam, efek, volume dan mute. Keputusan langsung pemilik sebelumnya: “Untuk suara sepertinya kita lakukan nanti saja karena perlu development dan cost yang bertambah”. Karena cakupan/biaya belum dibahas ulang, permainan tetap tanpa suara. Tidak ada voice-over maskot atau aset berbayar yang ditambahkan.
+Draf awal24Oktober 2026. **Diperbarui: pemilik meminta melanjutkan audio dan memakai rekaman yang diunduh dari internet. PaketC sedang diterapkan; penundaan di paragraf berikut merupakan riwayat keputusan lama.** Permintaan dokumen baru mencakup musik, suara alam, efek, volume dan mute. Keputusan langsung pemilik sebelumnya: “Untuk suara sepertinya kita lakukan nanti saja karena perlu development dan cost yang bertambah”. Karena cakupan/biaya belum dibahas ulang, permainan tetap tanpa suara. Tidak ada voice-over maskot atau aset berbayar yang ditambahkan.
 
 ## Paket yang dapat dipilih
 
@@ -24,3 +24,8 @@ Voice-over tidak termasuk ketiga paket dan tidak ditambahkan otomatis. Belum ada
 ## Informasi yang diperlukan
 
 D-08: paket, anggaran aset/development, persetujuan memperluas tahap tanpa suara. D-09: modelTV/player, speaker dan kondisi ruang pameran. Setelah itu dapat dibuat bukti audio/rekaman; screenshot saja tidak membuktikan kualitas audio.
+
+
+## Keputusan implementasi terbaru
+
+Instruksi langsung pemilik membuka kembali G04. Musik+nature+efek (paketC), seluruh aset internet CC0, tidak ada pembelian/generasi/voice-over. Pengaturan dalam aplikasi: master45%, musik35%, alam45%, efek70%; gain dikalikan master. Nilai bertahan selama aplikasi hidup, termasuk ganti bahasa dan ulang sesi. Saat aplikasi dibuka ulang kembali ke default. Audio dimulai setelah interaksi. Speaker/tinggi pemasangan dan level akustik TV tetap perlu uji fisik; bukan penghalang implementasi offline awal. [Rencana dan pemeriksaan](../../superpowers/plans/2026-10-24-kifc-g04-audio.md).

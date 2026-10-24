@@ -30,6 +30,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  audioplayers: 6.5.1
 
 
 dev_dependencies:
@@ -51,6 +52,7 @@ flutter:
 
   uses-material-design: true
   assets:
+    - assets/audio/
     - assets/animations/fire-loop.webp
     - assets/animations/fire-poster.png
     - assets/animations/forest-fire-0.webp

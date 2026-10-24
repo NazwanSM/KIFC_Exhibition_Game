@@ -51,3 +51,11 @@
 ## Revision commits
 
 - Commit each completed revision ticket separately and record the commit hash in the revision tracker. Preserve unrelated owner files and weekly reports. The initial October24 checkpoint groups the earlier uncommitted screen work; later tickets must remain separate.
+
+## Audio (KIFC-G04, owner resumed24October)
+
+- Use downloaded recordings/music/effects with recorded source and license; do not synthesize raw audio. Current assets are CC0 and bundled offline in assets/audio. No paid assets or mascot voice-over/TTS is implied.
+- Start only after visitor interaction. Keep music, forest ambience, and effects separately adjustable, with a reachable mute control in every screen. Preserve settings through language/page/replay for the lifetime of the app, without changing system volume.
+- Pause all output while inactive/backgrounded; resume only when active and allowed by mute/volume. Dispose players when leaving the game. Never stack loop players on replay.
+- Unscored cards/demo and final challenge choices have neutral effects. Do not reveal correctness through audio before visual feedback.
+- Audio controls use the shared centered touchscreen area; screenshots alone cannot prove playback or physical speaker comfort. Keep source/decode, browser/native playback and physical speaker evidence distinct.

@@ -1,6 +1,6 @@
 // Development-only entry point for reproducible browser evidence.
 // flutter run -d web-server -t tool/review.dart --web-port 8081
-// Then open /?page=stopDecision&lang=ko; normal builds use lib/main.dart.
+// Then open /?page=peatCharacteristics&lang=ko; normal builds use lib/main.dart.
 import 'package:fire_prevention_challenge/core/localization/app_locale.dart';
 import 'package:fire_prevention_challenge/core/theme/kifc_theme.dart';
 import 'package:fire_prevention_challenge/core/widgets/web_portrait_shell.dart';

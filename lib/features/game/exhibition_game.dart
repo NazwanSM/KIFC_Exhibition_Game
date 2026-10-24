@@ -6,6 +6,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/localization/app_locale.dart';
+import '../../core/audio/game_audio.dart';
+import '../../core/audio/audioplayers_backend.dart';
+import '../../core/audio/audio_controls.dart';
 import '../../core/theme/kifc_theme.dart';
 import 'widgets/peat_characteristic_card.dart';
 import 'widgets/forest_fire_simulation.dart';
@@ -95,17 +98,23 @@ class ExhibitionGame extends StatefulWidget {
     this.initialPage,
     this.initialCardIndex,
     this.initialLocale,
+    this.audioBackend,
   });
   final Stopwatch Function() stopwatchFactory;
   final String? initialPage;
   final int? initialCardIndex;
   final AppLocale? initialLocale;
+  final GameAudioBackend? audioBackend;
 
   @override
   State<ExhibitionGame> createState() => _ExhibitionGameState();
 }
 
-class _ExhibitionGameState extends State<ExhibitionGame> {
+class _ExhibitionGameState extends State<ExhibitionGame>
+    with WidgetsBindingObserver {
+  late final GameAudioController _audio = GameAudioController(
+    backend: widget.audioBackend ?? AudioplayersGameBackend(),
+  );
   AppLocale _locale = AppLocale.indonesian;
   _Page _page = _Page.welcome;
   _RiskOption? _riskAnswer;
@@ -139,6 +148,7 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     if (widget.initialLocale != null) {
       _locale = widget.initialLocale!;
       AppCopy.locale = widget.initialLocale!;
@@ -152,6 +162,11 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
     if (widget.initialCardIndex != null) {
       _karhutlaCardIndex = widget.initialCardIndex!;
     }
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    unawaited(_audio.setActive(state == AppLifecycleState.resumed));
   }
 
   bool get _en => _locale == AppLocale.english;
@@ -170,6 +185,8 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
     _resetTimer?.cancel();
     _finalClock.stop();
     _finalProgress.dispose();
+    WidgetsBinding.instance.removeObserver(this);
+    _audio.dispose();
     super.dispose();
   }
 
@@ -291,6 +308,13 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
       _lastDroppedPiece = piece;
       if (correct) _triangle[slot] = piece;
     });
+    unawaited(
+      _audio.play(
+        _lastDropCorrect == true
+            ? (_triangle.length == 3 ? GameSound.complete : GameSound.correct)
+            : GameSound.retry,
+      ),
+    );
     if (_triangle.length == 3) {
       _scheduleAdvance(
         () => _go(_Page.triangleExplanation),
@@ -320,6 +344,7 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
 
   void _chooseBreak(_FireSlot slot) {
     if (_breakChoice == slot) return;
+    unawaited(_audio.play(GameSound.select));
     setState(() {
       _breakChoice = slot;
       _breakTried.add(slot);
@@ -341,6 +366,7 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
       return;
     }
     final correct = option == _RiskOption.peatSwamp;
+    unawaited(_audio.play(correct ? GameSound.correct : GameSound.retry));
     setState(() {
       _riskAnswer = option;
       if (!correct) _riskWrong++;
@@ -371,6 +397,13 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
     if (_causeChoice != null) return;
     final scenarios = _causeScenarios(_en);
     final lastScenario = _causeIndex == scenarios.length - 1;
+    unawaited(
+      _audio.play(
+        humanCause == scenarios[_causeIndex].human
+            ? GameSound.correct
+            : GameSound.retry,
+      ),
+    );
     setState(() {
       _causeChoice = humanCause;
       if (humanCause == scenarios[_causeIndex].human) _causePoints++;
@@ -389,6 +422,7 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
 
   void _flipPeatCard(int index) {
     if (_preparingFinal || _page != _Page.peatCharacteristics) return;
+    unawaited(_audio.play(GameSound.flip));
     setState(() {
       if (!_peatFlipped.add(index)) _peatFlipped.remove(index);
       _peatOpened.add(index);
@@ -448,6 +482,7 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
       final remaining = remainingExact.ceil();
       if (remaining != _seconds) setState(() => _seconds = remaining);
       if (remaining == 0) {
+        unawaited(_audio.play(GameSound.complete));
         timer.cancel();
         _finalClock.stop();
         _timer = Timer(const Duration(milliseconds: 420), () {
@@ -474,7 +509,10 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
           _locale = locale;
           AppCopy.locale = locale;
         }),
-        onStart: () => _go(_Page.triangleBuild),
+        onStart: () {
+          unawaited(_audio.play(GameSound.tap));
+          _go(_Page.triangleBuild);
+        },
       ),
       _Page.risk => _RiskPage(
         english: _en,
@@ -547,6 +585,7 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
           if (_seconds > 0 &&
               _finalClock.elapsed <
                   const Duration(seconds: finalChallengeSeconds)) {
+            unawaited(_audio.play(GameSound.select));
             setState(() {
               if (!_finalFound.remove(token)) _finalFound.add(token);
             });
@@ -585,43 +624,49 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
         idleSeconds: _idleSeconds,
       ),
     };
-    return Listener(
-      behavior: HitTestBehavior.translucent,
-      onPointerDown: (_) => _resetInactivity(),
-      onPointerMove: (_) => _resetInactivity(),
-      onPointerSignal: (_) => _resetInactivity(),
-      child: Stack(
-        fit: StackFit.expand,
-        children: <Widget>[
-          AnimatedSwitcher(
-            duration: _motionDuration(
-              context,
-              const Duration(milliseconds: 320),
-            ),
-            reverseDuration: _motionDuration(
-              context,
-              const Duration(milliseconds: 220),
-            ),
-            switchInCurve: Curves.easeOutCubic,
-            switchOutCurve: Curves.easeInCubic,
-            transitionBuilder: (child, animation) {
-              final slide = Tween<Offset>(
-                begin: const Offset(.025, 0),
-                end: Offset.zero,
-              ).animate(animation);
-              return FadeTransition(
-                opacity: animation,
-                child: SlideTransition(position: slide, child: child),
-              );
-            },
-            child: KeyedSubtree(
-              key: ValueKey(
-                _page == _Page.finalReview ? _Page.finalChallenge : _page,
+    return GameAudioScope(
+      controller: _audio,
+      child: Listener(
+        behavior: HitTestBehavior.translucent,
+        onPointerDown: (_) {
+          unawaited(_audio.activate());
+          _resetInactivity();
+        },
+        onPointerMove: (_) => _resetInactivity(),
+        onPointerSignal: (_) => _resetInactivity(),
+        child: Stack(
+          fit: StackFit.expand,
+          children: <Widget>[
+            AnimatedSwitcher(
+              duration: _motionDuration(
+                context,
+                const Duration(milliseconds: 320),
               ),
-              child: page,
+              reverseDuration: _motionDuration(
+                context,
+                const Duration(milliseconds: 220),
+              ),
+              switchInCurve: Curves.easeOutCubic,
+              switchOutCurve: Curves.easeInCubic,
+              transitionBuilder: (child, animation) {
+                final slide = Tween<Offset>(
+                  begin: const Offset(.025, 0),
+                  end: Offset.zero,
+                ).animate(animation);
+                return FadeTransition(
+                  opacity: animation,
+                  child: SlideTransition(position: slide, child: child),
+                );
+              },
+              child: KeyedSubtree(
+                key: ValueKey(
+                  _page == _Page.finalReview ? _Page.finalChallenge : _page,
+                ),
+                child: page,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -745,7 +790,7 @@ class _WelcomePage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
                     const _PartnerHeader(dark: true),
-                    const SizedBox(height: 14),
+                    const SizedBox(height: 8),
                     _LanguagePicker(
                       locale: locale,
                       onChanged: onLocale,
@@ -2343,6 +2388,8 @@ class _ClosingPage extends StatelessWidget {
                           letterSpacing: .4,
                         ),
                       ),
+                      const SizedBox(width: 8),
+                      const AudioControls(dark: true),
                     ],
                   ),
                   Expanded(
@@ -2498,14 +2545,14 @@ class _DarkStage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 const _PartnerHeader(dark: true),
-                SizedBox(height: compact ? 9 : 17),
+                SizedBox(height: compact ? 5 : 13),
                 _TopBar(
                   chapter: chapter,
                   english: english,
                   dark: true,
                   onBack: onBack,
                 ),
-                SizedBox(height: compact ? 9 : 14),
+                SizedBox(height: compact ? 5 : 10),
                 _Eyebrow(text: eyebrow, dark: true),
                 LocalizedText(
                   title,
@@ -2608,7 +2655,7 @@ class _LightStage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 const _PartnerHeader(),
-                SizedBox(height: compact ? 9 : 15),
+                SizedBox(height: compact ? 5 : 11),
                 _TopBar(
                   chapter: chapter,
                   english: english,
@@ -2617,7 +2664,7 @@ class _LightStage extends StatelessWidget {
                   onRestart: onRestart,
                   trailing: trailing,
                 ),
-                SizedBox(height: compact ? 9 : 15),
+                SizedBox(height: compact ? 5 : 11),
                 _Eyebrow(text: eyebrow),
                 LocalizedText(
                   title,
@@ -2740,7 +2787,10 @@ class _LanguagePicker extends StatelessWidget {
               .map(
                 (candidate) => Expanded(
                   child: InkWell(
-                    onTap: () => onChanged(candidate),
+                    onTap: () {
+                      unawaited(GameAudioScope.of(context).play(GameSound.tap));
+                      onChanged(candidate);
+                    },
                     borderRadius: BorderRadius.circular(
                       KifcTheme.controlRadius,
                     ),
@@ -2816,6 +2866,8 @@ class _LanguagePicker extends StatelessWidget {
                 ),
               ),
             ),
+            const SizedBox(width: 8),
+            const AudioControls(dark: true),
           ],
         ),
       ],
@@ -2909,7 +2961,9 @@ class _TopBar extends StatelessWidget {
           onPressed: onRestart!,
         )
       else
-        const SizedBox(width: 76),
+        const SizedBox(width: 24),
+      const SizedBox(width: 6),
+      AudioControls(dark: dark),
     ],
   );
 }
@@ -2982,7 +3036,10 @@ class _SmallButton extends StatelessWidget {
   Widget build(BuildContext context) => SizedBox(
     height: 36,
     child: OutlinedButton.icon(
-      onPressed: onPressed,
+      onPressed: () {
+        unawaited(GameAudioScope.of(context).play(GameSound.tap));
+        onPressed();
+      },
       style: OutlinedButton.styleFrom(
         foregroundColor: dark ? Colors.white : KifcTheme.ink,
         side: BorderSide(color: dark ? Colors.white70 : KifcTheme.forest800),
@@ -3021,7 +3078,12 @@ class _Primary extends StatelessWidget {
         borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
       ),
       child: ElevatedButton.icon(
-        onPressed: onPressed,
+        onPressed: onPressed == null
+            ? null
+            : () {
+                unawaited(GameAudioScope.of(context).play(GameSound.tap));
+                onPressed!();
+              },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.transparent,
           surfaceTintColor: Colors.transparent,
@@ -3065,7 +3127,10 @@ class _Secondary extends StatelessWidget {
     width: double.infinity,
     height: 44,
     child: OutlinedButton(
-      onPressed: onPressed,
+      onPressed: () {
+        unawaited(GameAudioScope.of(context).play(GameSound.tap));
+        onPressed();
+      },
       style: OutlinedButton.styleFrom(
         foregroundColor: dark ? Colors.white : KifcTheme.ink,
         side: BorderSide(color: dark ? Colors.white54 : KifcTheme.forest800),

@@ -76,3 +76,21 @@ All three derivatives are offline JPEG assets. The app applies a uniform cover c
 | `assets/images/field/peat-subsidence-nara.jpg` | US Department of the Interior, Bureau of Indian Affairs, Red Lake Agency, 1935; individual photographer unknown. National Archives NAID285717. [NARA record](https://catalog.archives.gov/id/285717); [Wikimedia reproduction](https://commons.wikimedia.org/wiki/File:Roadway_undermined_by_a_peat_fire_-_NARA_-_285717.jpg) | Public domain, US federal government work. Resized to 1100×637 and recompressed (quality87). Historical US example of ground undermined by a peat fire, not a photograph of an Indonesian site. |
 
 The emissions choice reuses `fire-klaten.jpg` (krisna azie, Unsplash) as fire context; the photo does not depict visible carbon molecules. The two decoys reuse `oxygen-canopy.jpg` (Francesco Ungaro, Unsplash) and `forest/kereng-bangkirai.jpg` (existing project source). Their presence is not a claim that burning peat improves air quality or increases carbon stores; the timed review explicitly corrects both statements.
+
+
+## KIFC-G04 audio — downloaded 24 October2026
+
+All runtime audio is bundled locally, without generation or paid licensing. Mixer levels are relative app gains, not a calibrated TV sound-pressure level. These recordings create atmosphere; the bird recording is not claimed to be an Indonesian field recording.
+
+| Runtime asset | Creator/source | License and preparation |
+|---|---|---|
+| `assets/audio/forest-music.mp3` | TinyWorlds, [Forest Ambience](https://opengameart.org/content/forest-ambience), original [MP3](https://opengameart.org/sites/default/files/Forest_Ambience.mp3) | CC0, loop-ready original. Re-encoded44.1kHz stereo96kbps MP3, normalized approximately−23LUFS/−3dBTP. |
+| `assets/audio/forest-birds.mp3` | Joseph Sardin, [Réveil des oiseaux](https://commons.wikimedia.org/wiki/File:R%C3%A9veil_des_oiseaux.ogg), [original OGG](https://upload.wikimedia.org/wikipedia/commons/3/33/R%C3%A9veil_des_oiseaux.ogg) | CC0. Original174.86s; excerpt20–64s,2s linear overlap to form42s loop, normalized approximately−24LUFS/−3dBTP,44.1kHz stereo96kbps MP3. Sparrows/pigeons/other morning birds, illustrative ambience. |
+| `assets/audio/tap.wav` | Kenney, [Interface Sounds](https://opengameart.org/content/interface-sounds), [original ZIP](https://opengameart.org/sites/default/files/kenney_interfaceSounds.zip), `click_003.ogg` | CC0. Converted44.1kHz mono PCM16, gain0.65 and limiter0.7. |
+| `assets/audio/select.wav` | Same pack, `drop_003.ogg` | Same license/conversion; neutral selection, not a correctness cue. |
+| `assets/audio/flip.wav` | Same pack, `switch_002.ogg` | Same license/conversion. |
+| `assets/audio/correct.wav` | Same pack, `confirmation_002.ogg` | Same license/conversion. |
+| `assets/audio/retry.wav` | Same pack, `error_004.ogg` | Same license/conversion. |
+| `assets/audio/complete.wav` | Same pack, `confirmation_004.ogg` | Same license/conversion. |
+
+[CC0 deed](https://creativecommons.org/publicdomain/zero/1.0/). Kenney's packaged license is preserved in `docs/client-revisions/2026-10-23/audio/kenney-license.txt`. Runtime hashes/bytes are in `audio/asset-hashes.json` alongside that license. Downloaded originals and source HTML used during preparation: `D:/KIFC-review-temp/audio-sources/` (not runtime assets). No new narration/TTS or generated raw sounds.
