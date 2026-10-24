@@ -158,7 +158,7 @@ void main() {
           findsNothing,
         );
         expect(label(), 'Kartu 1. Sentuh untuk membuka');
-        expect(find.text('1/3 kartu sudah dibuka'), findsOneWidget);
+        expect(find.text('1/3 kartu sudah dibuka'), findsNothing);
         await tester.pumpWidget(const SizedBox.shrink());
         handle.dispose();
       },

@@ -188,11 +188,13 @@ class GameFlow {
     final crop = find.byKey(const ValueKey('feedback-mascot-crop'));
     if (crop.evaluate().isNotEmpty) {
       final cropRect = tester.getRect(crop);
-      expect(
-        cropRect.bottom,
-        closeTo(size.height, .5),
-        reason: 'The half-body crop must end at the screen edge: $stage',
-      );
+      if (type('_PeatCharacteristics').evaluate().isEmpty) {
+        expect(
+          cropRect.bottom,
+          closeTo(size.height, .5),
+          reason: 'The feedback crop must end at the screen edge: $stage',
+        );
+      } // Reading-card companion sits above its persistent Continue button.
       final picture = find.descendant(of: crop, matching: find.byType(Image));
       expect(
         tester.getSize(picture).width,

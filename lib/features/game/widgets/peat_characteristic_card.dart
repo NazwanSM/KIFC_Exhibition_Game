@@ -94,14 +94,28 @@ class PeatCharacteristicCard extends StatelessWidget {
                                 fit: StackFit.expand,
                                 children: [
                                   GamePhoto(
-                                    'assets/images/forest/kereng-bangkirai.jpg',
-                                    alignment: Alignment(
-                                      (number - 2) * .65,
-                                      .4,
-                                    ),
+                                    const [
+                                      'assets/images/field/peat-fire-selangor.jpg',
+                                      'assets/images/field/dry-leaf-litter.jpg',
+                                      'assets/images/field/fire-klaten.jpg',
+                                    ][number - 1],
+                                    alignment: number == 3
+                                        ? const Alignment(-.4, -.75)
+                                        : const Alignment(0, .35),
                                     forestTone: true,
                                   ),
-                                  const ColoredBox(color: Color(0xA30C2B1F)),
+                                  const DecoratedBox(
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                        colors: [
+                                          Color(0x401A3025),
+                                          Color(0x850C2119),
+                                        ],
+                                        begin: Alignment.topCenter,
+                                        end: Alignment.bottomCenter,
+                                      ),
+                                    ),
+                                  ),
                                   Center(
                                     child: Text(
                                       '$number',

@@ -880,7 +880,6 @@ class _HostConversation extends StatelessWidget {
     required this.text,
     this.opening = false,
     this.height,
-    this.fontSize = 14,
   });
 
   final MascotPose pose;
@@ -888,7 +887,6 @@ class _HostConversation extends StatelessWidget {
   final String text;
   final bool opening;
   final double? height;
-  final double fontSize;
 
   @override
   Widget build(BuildContext context) {
@@ -932,7 +930,7 @@ class _HostConversation extends StatelessWidget {
               text,
               style: TextStyle(
                 color: KifcTheme.ink,
-                fontSize: fontSize,
+                fontSize: 14,
                 height: opening ? 1.4 : 1.35,
               ),
             ),
@@ -1805,12 +1803,12 @@ class _PeatCharacteristics extends StatelessWidget {
         children: [
           const SizedBox(height: 4),
           SizedBox(
-            height: 96,
-            child: _HostConversation(
-              mascotOnRight: true,
+            height: _compactLayout(context) ? 126 : 142,
+            child: _MascotFeedback(
+              ok: false,
+              neutral: true,
+              assembly: true,
               pose: MascotPose.presenting,
-              height: 96,
-              fontSize: 13,
               text: complete
                   ? (english
                         ? 'All three can happen in peatland fires. Ready to explore their impacts?'
@@ -1819,13 +1817,6 @@ class _PeatCharacteristics extends StatelessWidget {
                         ? 'Take your time. You can turn each card over again.'
                         : 'Baca pelan-pelan, ya. Kamu bisa membalik kartunya lagi.'),
             ),
-          ),
-          const SizedBox(height: 4),
-          LocalizedText(
-            english
-                ? '${opened.length}/3 cards opened'
-                : '${opened.length}/3 kartu sudah dibuka',
-            style: const TextStyle(fontSize: 11, color: KifcTheme.mutedInk),
           ),
           const SizedBox(height: 8),
           _Primary(

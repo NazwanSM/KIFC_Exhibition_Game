@@ -527,3 +527,8 @@ Poin tindakan dihapus karena09 merupakan informasi, bukan soal. Maksimum8 = unsu
 Urutan layar dipertahankan: pembuka → susun unsur/feedback → penjelasan → demo pengurangan → bacaan Babak2 → kuis gambut → penyebab Babak3 → kartu karakteristik Babak4 → tantangan dampak → ulasan → hasil/penutup. KIFC-04 dan Babak3 tetap ada. Tiga kartu09 dibaca tanpa penilaian, lalu lanjut manual. Back/reset membatalkan proses persiapan serta menghapus progres kartu sesuai sesi. Skor dan kategori diuji pada perjalanan penuh, termasuk Korea.
 
 Commit `a11eb8b` (KIFC-09) dan `e3fb941` (KIFC-11):212 tes Flutter lulus, analisis bersih, bukti lima ukuran/tiga bahasa tersedia. [Review kartu](../../docs/client-revisions/2026-10-23/kifc-09-flip-review.md), [hasil/skor8](../../docs/client-revisions/2026-10-23/kifc-11-score8-review.md). X01 Ditinjau; tidak menyatakan persetujuan klien atau kenyamanan TV fisik sudah selesai.
+
+
+### KIFC-09 — koreksi foto dan dialog maskot
+
+Tiga sampul foto berbeda diterapkan dengan grading seragam. Dialog menggunakan komponen feedback berbingkai netral, maskot presenting setengah badan lebih besar di kiri. Penghitung kartu dihapus; syarat lanjut setelah tiga kartu dibuka serta skor8 tetap. [60 render, lima ukuran dan tiga bahasa](../../docs/client-revisions/2026-10-23/kifc-09-visual-refinement.md). Status Ditinjau; bukti viewport tidak menggantikan uji TV fisik.
