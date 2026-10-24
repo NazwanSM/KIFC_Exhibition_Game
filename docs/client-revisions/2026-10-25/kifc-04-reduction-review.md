@@ -2,6 +2,8 @@
 
 Tanggal pemeriksaan 25 Oktober 2026. Status: **Ditinjau**; implementasi dan pemeriksaan lokal selesai, pengesahan klien/TV fisik tetap terbuka.
 
+Commit implementasi, tes dan bukti: `a7b6fa7` pada `main`.
+
 ## Mengapa diperiksa ulang
 
 Layar dasarnya sudah masuk checkpoint mockup24 Oktober, tetapi belum ada audit khusus KIFC-04 yang menyelaraskan checklist dan kriteria DOCX. Pernyataan bahwa seluruh implementasi layar sudah tersedia terlalu umum. Audit ini menemukan kekurangan nyata, bukan hanya checkbox yang tertinggal: perbedaan respons antarpilihan kurang terlihat, sentuhan ulang unsur yang sama diabaikan, dan auto-lanjut2,6 detik terlalu dekat dengan akhir animasi sehingga penjelasan terakhir cepat terlewati.
