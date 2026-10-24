@@ -51,6 +51,10 @@ abstract final class AppCopy {
       r'^(\d)/3 (?:elements tried|unsur sudah dicoba)$',
     ).firstMatch(source);
     if (tried != null) return '불의 요소 ${tried.group(1)}/3 확인';
+    final readCards = RegExp(
+      r'^(\d)/3 (?:cards opened|kartu sudah dibuka)$',
+    ).firstMatch(source);
+    if (readCards != null) return '카드 ${readCards.group(1)}/3 확인';
     final selected = RegExp(
       r'^(\d) (?:images selected|gambar dipilih)$',
     ).firstMatch(source);
@@ -204,6 +208,36 @@ class LocalizedText extends StatelessWidget {
 }
 
 const Map<String, String> _korean = <String, String>{
+  // KIFC-09: unscored flip cards.
+  'Kartu': '카드',
+  'Sentuh untuk membuka': '터치해서 열어 보세요',
+  'Card': '카드',
+  'Touch to open': '터치해서 열어 보세요',
+  'CHAPTER 4 / PEAT FIRE CHARACTERISTICS': '4장 / 이탄지 화재의 특징',
+  'BABAK 4 / CIRI KEBAKARAN GAMBUT': '4장 / 이탄지 화재의 특징',
+  'What Are the Characteristics of Peatland Fires?': '이탄지 화재에는 어떤 특징이 있을까요?',
+  'Apa Saja Karakteristik Kebakaran di Ekosistem Gambut?':
+      '이탄지 화재에는 어떤 특징이 있을까요?',
+  'Touch cards 1–3 to discover each characteristic.': '1~3번 카드를 터치해 특징을 알아보세요.',
+  'Sentuh kartu 1–3 untuk mengenali setiap cirinya.': '1~3번 카드를 터치해 특징을 알아보세요.',
+  'Fire can smolder beneath the ground surface.': '불씨가 지표면 아래에서 타들어 갈 수 있어요.',
+  'Api dapat membara di bawah permukaan tanah.': '불씨가 지표면 아래에서 타들어 갈 수 있어요.',
+  'These fires are difficult to extinguish.': '화재를 진압하기 어려워요.',
+  'Kebakaran sulit dipadamkan.': '화재를 진압하기 어려워요.',
+  'Fire can reignite.': '불이 다시 붙을 수 있어요.',
+  'Api dapat menyala kembali.': '불이 다시 붙을 수 있어요.',
+  'All three can happen in peatland fires. Ready to explore their impacts?':
+      '이탄지 화재에는 이 세 가지 특징이 있어요. 이제 그 영향도 알아볼까요?',
+  'Ketiganya bisa terjadi pada kebakaran gambut. Yuk, kenali dampaknya juga.':
+      '이탄지 화재에는 이 세 가지 특징이 있어요. 이제 그 영향도 알아볼까요?',
+  'Take your time. You can turn each card over again.':
+      '천천히 읽어 보세요. 카드를 다시 뒤집어 볼 수 있어요.',
+  'Baca pelan-pelan, ya. Kamu bisa membalik kartunya lagi.':
+      '천천히 읽어 보세요. 카드를 다시 뒤집어 볼 수 있어요.',
+  'Explore the Impacts': '영향 알아보기',
+  'Kenali Dampaknya': '영향 알아보기',
+  '/ 8 points': '/ 8점',
+  '/ 8 poin': '/ 8점',
   // KIFC-10: impacts, neutral selection and timed review.
   'How Do Forest Fires Affect Peatland Ecosystems?':
       '산림 화재는 이탄지 생태계에 어떤 영향을 줄까요?',

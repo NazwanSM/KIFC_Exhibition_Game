@@ -1,5 +1,4 @@
 import 'package:fire_prevention_challenge/core/localization/app_locale.dart';
-import 'package:fire_prevention_challenge/features/game/widgets/environment_motion.dart';
 import 'package:fire_prevention_challenge/features/game/widgets/fire_loop.dart';
 import 'package:flutter/material.dart';
 import 'package:fire_prevention_challenge/features/game/widgets/forest_fire_simulation.dart';
@@ -91,30 +90,6 @@ void main() {
           'reduction-extinguished-$lang-$res',
           metrics,
         );
-        await tester.pumpWidget(const SizedBox.shrink());
-        await launchScreen(
-          tester,
-          size: size,
-          locale: locale,
-          page: 'stopDecision',
-        );
-        await tester.pump(const Duration(milliseconds: 1100));
-        await paintAssembly(tester);
-        expect(find.byType(FireLoop), findsOneWidget);
-        expect(tester.takeException(), isNull);
-        await captureScreen(tester, 'spread-before-$lang-$res', metrics);
-        await tester.tap(find.byKey(const ValueKey('decision-separateFuel')));
-        await tester.pump();
-        await tester.pump(const Duration(milliseconds: 1100));
-        await paintAssembly(tester);
-        expect(
-          tester
-              .widget<FireSpreadVisual>(find.byType(FireSpreadVisual))
-              .stopped,
-          isTrue,
-        );
-        expect(tester.takeException(), isNull);
-        await captureScreen(tester, 'spread-stopped-$lang-$res', metrics);
         await tester.pumpWidget(const SizedBox.shrink());
       });
     }

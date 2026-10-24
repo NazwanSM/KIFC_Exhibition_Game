@@ -6,7 +6,7 @@ Sumber utama: [Revisi_Game_Untuk_Vendor.docx](../../docs/client-revisions/2026-1
 
 Dokumen sumber berisi **11 bagian layar dengan 11 screenshot serta 4 catatan lintas game**. Seluruh catatan, screenshot, dan penandaan jawaban sudah dibaca. Tidak ditemukan komentar Word atau perubahan terlacak; catatan revisi berada di isi tabel. Naskah pengganti dari KIFC disalin dalam blok kutipan di bawah dengan isi kalimat dipertahankan.
 
-Tracker ini mencatat pekerjaan baru dari dokumen KIFC. **KIFC-01 sampai 08 serta KIFC-10 sudah diterapkan dan berada dalam peninjauan; KIFC-11 ditinjau sebagian.** Riwayat pekerjaan sebelumnya tetap ada di [tracker 18 Oktober](client-revision-tracker-2026-10-18.md). Keputusan terbaru yang jelas dalam dokumen KIFC menjadi acuan untuk revisi terkait; alternatif tidak dianggap otomatis disetujui.
+Tracker ini mencatat pekerjaan baru dari dokumen KIFC. **KIFC-01 sampai 10 sudah diterapkan dan berada dalam peninjauan; KIFC-11 ditinjau sebagian.** Riwayat pekerjaan sebelumnya tetap ada di [tracker 18 Oktober](client-revision-tracker-2026-10-18.md). Keputusan terbaru yang jelas dalam dokumen KIFC menjadi acuan untuk revisi terkait; alternatif tidak dianggap otomatis disetujui.
 
 ## Cara menggunakan tracker
 
@@ -15,7 +15,7 @@ Tracker ini mencatat pekerjaan baru dari dokumen KIFC. **KIFC-01 sampai 08 serta
 - `G` menandai pekerjaan lintas game; `X` menandai integrasi, bahasa, dan verifikasi. `D` menandai keputusan yang belum tersedia.
 - Centang subpekerjaan setelah implementasi dan pemeriksaan yang relevan. Tutup tiket setelah kriteria penerimaannya terpenuhi dan bukti dicatat. Jangan mencentang implementasi hanya karena rancangan atau asetnya sudah disiapkan.
 - Untuk setiap tiket, isi log di akhir file dengan commit, hasil pemeriksaan, lokasi screenshot/rekaman, serta keterbatasannya. Pemeriksaan viewport/emulator tidak membuktikan kenyamanan jangkauan TV fisik.
-- Cakupan: **18 kelompok pekerjaan; 12 Ditinjau, 3 Ditinjau sebagian, 3 Menunggu keputusan, 0 Selesai/disahkan klien**. Sebagian permintaan melanjutkan fitur yang sudah ada; keberadaannya tetap perlu diperiksa terhadap kebutuhan baru.
+- Cakupan: **18 kelompok pekerjaan; 13 Ditinjau, 3 Ditinjau sebagian, 2 Menunggu keputusan, 0 Selesai/disahkan klien**. Sebagian permintaan melanjutkan fitur yang sudah ada; keberadaannya tetap perlu diperiksa terhadap kebutuhan baru.
 - Sesuai permintaan pemilik proyek, setiap revisi disertai screenshot beberapa ukuran portrait, terutama simulasi TV Full HD 1080×1920 dan 4K 2160×3840. Catat bahasa, sumber gambar, dan batas pemeriksaannya; jangan menyebut render viewport sebagai foto TV fisik.
 
 ## Daftar pekerjaan per layar
@@ -30,7 +30,7 @@ Tracker ini mencatat pekerjaan baru dari dokumen KIFC. **KIFC-01 sampai 08 serta
 | KIFC-06 | Penyebab kebakaran hutan | Ditinjau | Kartu kedua diubah ke penyebab; 15 screenshot siap |
 | KIFC-07 | Pentingnya pencegahan kebakaran hutan | Ditinjau | 4 pilar kerugian diterapkan; 15 screenshot siap |
 | KIFC-08 | Kuis kebakaran hutan rawa gambut | Ditinjau | 60 screenshot dan tes siap; D-05 memakai durasi/naskah salah kedua sementara untuk ditinjau |
-| KIFC-09 | Karakteristik kebakaran ekosistem gambut | Menunggu keputusan | D-04 dan tindak lanjut materi KIFC |
+| KIFC-09 | Karakteristik kebakaran ekosistem gambut | Ditinjau | Tiga kartu1–3 berputar, tanpa skor;60 render dan alur tiga bahasa diuji |
 | KIFC-10 | Tantangan mengenali dampak kebakaran | Ditinjau | Implementasi/foto/3 bahasa/60 render tersedia; 30 detik sementara dan skor lama menunggu D-06/D-07 |
 | KIFC-11 | Layar hasil akhir | Ditinjau sebagian | Pesan penutup terpasang; aturan skor menunggu X-01 |
 | KIFC-G01 | Variasi interaksi, transisi, dan respons sentuhan | Ditinjau | Pemetaan interaksi dan pembatalan timer diverifikasi;191 tes lulus |
@@ -244,16 +244,16 @@ Analisis bersih, **151 tes lulus**, dan **60 render** empat keadaan × tiga baha
 
 ## KIFC-09 Karakteristik kebakaran ekosistem gambut
 
-**Sumber:** bagian 09, screenshot 09. **Pemetaan saat ini:** `_StopDecision`, layar “Batasi rambatan api.”, Babak 4.
+**Sumber:** bagian 09, screenshot 09. **Pemetaan saat ini:** `_PeatCharacteristics`, menggantikan `_StopDecision` pada posisi yang sama di Babak4.
 
-**Status materi:** bagian ini secara eksplisit disebut akan ditindaklanjuti kembali oleh pengirim; ide vendor boleh diajukan. Materi di bawah adalah arah yang sudah diberikan, bukan persetujuan final terhadap format baru.
+**Keputusan pemilik24Oktober:** tiga kartu bernomor1–3 dibalik saat disentuh untuk membuka informasi. Bagian ini bukan soal dan tidak masuk skor. Ketiga fakta klien dipertahankan; format kini diterapkan, dengan lanjut manual setelah ketiganya dibuka.
 
 - [x] **KIFC-09.01** Siapkan penggantian materi “Batasi rambatan api” menjadi karakteristik kebakaran pada ekosistem gambut.
 - [x] **KIFC-09.02** Gunakan judul dan tiga informasi berikut sebagai dasar pembahasan.
-- [ ] **KIFC-09.03** Ajukan format **tiga kartu informasi yang dapat disentuh** atau **kuis pilihan jamak**; bahas dan catat keputusan D-04 serta tindak lanjut materi KIFC.
-- [ ] **KIFC-09.04** Terapkan format yang disepakati. Ketiga pernyataan benar; jangan membuat pilihan tunggal dengan hanya satu jawaban dianggap benar.
-- [ ] **KIFC-09.05** Tentukan syarat melanjutkan, feedback, serta apakah layar informatif atau bernilai skor. Selaraskan hasil keseluruhan melalui X-01.
-- [ ] **KIFC-09.06** Ganti pilihan, foto/simulasi, dan feedback lama tentang “Pisahkan bahan bakar”, “Dekati api”, serta “Tambahkan bahan bakar” pada layar ini sesuai konsep baru.
+- [x] **KIFC-09.03** Ajukan format **tiga kartu informasi yang dapat disentuh** atau **kuis pilihan jamak**; bahas dan catat keputusan D-04 serta tindak lanjut materi KIFC.
+- [x] **KIFC-09.04** Terapkan format yang disepakati. Ketiga pernyataan benar; jangan membuat pilihan tunggal dengan hanya satu jawaban dianggap benar.
+- [x] **KIFC-09.05** Tentukan syarat melanjutkan, feedback, serta apakah layar informatif atau bernilai skor. Selaraskan hasil keseluruhan melalui X-01.
+- [x] **KIFC-09.06** Ganti pilihan, foto/simulasi, dan feedback lama tentang “Pisahkan bahan bakar”, “Dekati api”, serta “Tambahkan bahan bakar” pada layar ini sesuai konsep baru.
 
 **Judul:**
 
@@ -414,7 +414,7 @@ Bagian ini adalah pekerjaan turunan dari perubahan konten, bukan kutipan permint
 | D-01 | Tiga slot berlabel atau drop langsung ke gambar utama? | Pemilik menyetujui arah pengerjaan tiga slot sebelum KIFC-02 dimulai. Tiga slot dipertahankan; koreksi pemilik terbaru menghapus label kategori pada placeholder dan membuat semua posisi menerima unsur benar yang belum dipakai. Drop langsung ke gambar utama tetap tidak diaktifkan. |
 | D-02 | Narasi panjang atau singkat untuk penjelasan segitiga api? | Vendor menerapkan narasi utama secara utuh, satu versi pada semua ukuran. Dapat ditinjau pemilik/KIFC; alternatif singkat tidak ditampilkan. |
 | D-03 | Simulasi pengurangan unsur diperbaiki atau dihapus? | Pemilik pada24Oktober meminta memperbaiki layar ini berdasarkan mockup, mempertahankan urutan, dan animasi hingga padam. Cabang dipertahankan diterapkan; penghapusan tidak dilakukan. |
-| D-04 | Tiga kartu sentuh atau kuis pilihan jamak pada karakteristik gambut? | Bagian 09 masih menunggu tindak lanjut KIFC; tetapkan naskah detail, syarat lanjut, dan penilaiannya. |
+| D-04 | Format karakteristik gambut | Diputuskan langsung pemilik24Oktober: tiga kartu1–3 berputar saat disentuh, membuka informasi, bukan soal/tanpa skor. Lanjut manual setelah semua dibuka; implementasi siap ditinjau. |
 | D-05 | Perilaku setelah salah kedua pada kuis gambut serta waktu baca feedback? | Bagian 08 memberi hint tetapi belum memberi teks pembukaan jawaban salah kedua. Implementasi sementara mempertahankan satu retry untuk >2 pilihan; benar 18 detik, salah kedua 12 detik, hint pertama menunggu input. Naskah salah kedua dibuat vendor. Implementasi dan render sudah diperiksa; durasi serta naskah tambahan masih menunggu penilaian pengguna/KIFC. |
 | D-06 | Berapa durasi baru tantangan dampak dan kapan countdown mulai? | Vendor menerapkan sementara 30 detik setelah foto/transisi siap. Hijau >15, kuning15–10, merah≤9. Stopwatch, ring dan deadline diuji; durasi final menunggu uji membaca TV fisik. |
 | D-07 | Aturan skor, penalti, bonus, dan maksimum setelah materi diganti? | Format KIFC-09 dapat mengubah aktivitas berskor; evaluasi juga aturan tantangan akhir dan pertahankan pilihan netral sebelum ulasan kecuali ada persetujuan lain. |
@@ -507,3 +507,8 @@ Empat keadaan layar direvisi tanpa mengubah urutan. Panel diperbesar, dropzone d
 Branch lokal: **main**. Belum push/deploy pada rangkaian pekerjaan ini. APK debug mengandung kode aplikasi sampai `01f2693`; commit sesudahnya hanya dokumentasi/tes/peralatan. Preview web utama tetap pada http://localhost:8080/. AVD pengujian sudah dimatikan setelah bukti disimpan; data uji berada pada build di driveD, AVD asli tidak dipindahkan.
 
 Pekerjaan tertunda yang tidak boleh dianggap implementasi selesai:09/D-04, finalisasi skor11/X01/D-07, audio/D-08, penilaian waktu baca D-05/D-06 dan jangkauan/performa TV D-09, pengesahan naskah/visual klien, serta rilis berikutnya. Seluruh persiapan konkret dan bukti lokal tertaut pada tiket masing-masing.
+
+
+### Keputusan dan implementasi KIFC-09 — 24 Oktober
+
+Pemilik memilih kartu1–3 yang berputar dan membuka informasi, tanpa penilaian. Pertanyaan tindakan lama serta poinnya dihapus; maksimum sementara8 sebelum kategori hasil diselaraskan pada KIFC-11. [Indeks60 render, browser dan pemeriksaan](../../docs/client-revisions/2026-10-23/kifc-09-flip-review.md). Seluruh208 tes Flutter lulus dan analisis bersih. Tidak ada perubahan urutan layar, audio, push atau deployment.

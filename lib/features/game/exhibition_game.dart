@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 
 import '../../core/localization/app_locale.dart';
 import '../../core/theme/kifc_theme.dart';
-import 'widgets/environment_motion.dart';
+import 'widgets/peat_characteristic_card.dart';
 import 'widgets/forest_fire_simulation.dart';
 import 'widgets/game_photo.dart';
 import 'widgets/game_mascot.dart';
@@ -118,9 +118,8 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
   int _causeIndex = 0;
   int _causePoints = 0;
   bool? _causeChoice;
-  _PreventionAction? _stopAnswer;
-  int _stopWrong = 0;
-  bool _stopRevealed = false;
+  final Set<int> _peatOpened = {};
+  final Set<int> _peatFlipped = {};
   int _karhutlaCardIndex = 0;
   final Set<_ImpactToken> _finalFound = <_ImpactToken>{};
   int _seconds = finalChallengeSeconds;
@@ -202,10 +201,9 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
             _causeIndex = 0;
             _causePoints = 0;
             _causeChoice = null;
-          case _Page.stopDecision:
-            _stopAnswer = null;
-            _stopWrong = 0;
-            _stopRevealed = false;
+          case _Page.peatCharacteristics:
+            _peatOpened.clear();
+            _peatFlipped.clear();
           default:
             break;
         }
@@ -273,9 +271,8 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
       _causeIndex = 0;
       _causePoints = 0;
       _causeChoice = null;
-      _stopAnswer = null;
-      _stopWrong = 0;
-      _stopRevealed = false;
+      _peatOpened.clear();
+      _peatFlipped.clear();
       _karhutlaCardIndex = 0;
       _finalFound.clear();
       _seconds = finalChallengeSeconds;
@@ -379,7 +376,7 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
     });
     _scheduleAdvance(() {
       if (lastScenario) {
-        _go(_Page.stopDecision);
+        _go(_Page.peatCharacteristics);
       } else {
         setState(() {
           _causeIndex++;
@@ -389,26 +386,16 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
     }, long: false);
   }
 
-  void _chooseStop(_PreventionAction action) {
-    if (_stopRevealed ||
-        _stopAnswer == action ||
-        _stopAnswer?.correct == true) {
-      return;
-    }
+  void _flipPeatCard(int index) {
+    if (_preparingFinal || _page != _Page.peatCharacteristics) return;
     setState(() {
-      _stopAnswer = action;
-      if (!action.correct) _stopWrong++;
-      if (_stopWrong >= 2) _stopRevealed = true;
+      if (!_peatFlipped.add(index)) _peatFlipped.remove(index);
+      _peatOpened.add(index);
     });
-    if (action.correct) {
-      _scheduleAdvance(_openFinal, long: false);
-    } else if (_stopRevealed) {
-      _scheduleAdvance(_openFinal, long: true);
-    }
   }
 
   Future<void> _openFinal() async {
-    if (_preparingFinal) return;
+    if (_preparingFinal || _peatOpened.length != 3) return;
     final ticket = ++_preparationTicket;
     setState(() => _preparingFinal = true);
     await Future.wait(
@@ -418,7 +405,7 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
     );
     if (!mounted ||
         ticket != _preparationTicket ||
-        _page != _Page.stopDecision) {
+        _page != _Page.peatCharacteristics) {
       return;
     }
     _timer?.cancel();
@@ -541,12 +528,13 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
         onChoose: _chooseCause,
         onBack: () => _go(_Page.risk),
       ),
-      _Page.stopDecision => _StopDecision(
+      _Page.peatCharacteristics => _PeatCharacteristics(
         english: _en,
-        answer: _stopAnswer,
-        wrongAttempts: _stopWrong,
+        opened: _peatOpened,
+        flipped: _peatFlipped,
         preparing: _preparingFinal,
-        onAnswer: _chooseStop,
+        onFlip: _flipPeatCard,
+        onContinue: _openFinal,
         onBack: () => _go(_Page.causeQuiz),
       ),
       _Page.finalChallenge => _FinalChallenge(
@@ -565,7 +553,7 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
         },
         onBack: () {
           _timer?.cancel();
-          _go(_Page.stopDecision);
+          _go(_Page.peatCharacteristics);
         },
       ),
       _Page.finalReview => _FinalChallenge(
@@ -582,7 +570,6 @@ class _ExhibitionGameState extends State<ExhibitionGame> {
         english: _en,
         triangle: _trianglePoints,
         causes: _causePoints,
-        decision: _stopAnswer == _PreventionAction.separateFuel ? 1 : 0,
         finalRaw: _finalRaw,
         bonus: _finalBonus,
         idleSeconds: _idleSeconds,
@@ -647,7 +634,7 @@ enum _Page {
   breakTriangle,
   karhutlaCards,
   causeQuiz,
-  stopDecision,
+  peatCharacteristics,
   finalChallenge,
   finalReview,
   score,
@@ -892,6 +879,7 @@ class _HostConversation extends StatelessWidget {
     required this.text,
     this.opening = false,
     this.height,
+    this.fontSize = 14,
   });
 
   final MascotPose pose;
@@ -899,6 +887,7 @@ class _HostConversation extends StatelessWidget {
   final String text;
   final bool opening;
   final double? height;
+  final double fontSize;
 
   @override
   Widget build(BuildContext context) {
@@ -942,7 +931,7 @@ class _HostConversation extends StatelessWidget {
               text,
               style: TextStyle(
                 color: KifcTheme.ink,
-                fontSize: 14,
+                fontSize: fontSize,
                 height: opening ? 1.4 : 1.35,
               ),
             ),
@@ -1751,123 +1740,100 @@ class _CauseQuiz extends StatelessWidget {
   }
 }
 
-enum _PreventionAction { separateFuel, approach, addFuel }
-
-extension _PreventionCopy on _PreventionAction {
-  bool get correct => this == _PreventionAction.separateFuel;
-  String label(bool en) => switch (this) {
-    _PreventionAction.separateFuel =>
-      en ? 'Separate the fuel' : 'Pisahkan bahan bakar',
-    _PreventionAction.approach => en ? 'Move closer to the fire' : 'Dekati api',
-    _PreventionAction.addFuel => en ? 'Add more fuel' : 'Tambahkan bahan bakar',
-  };
-  String feedback(bool en) => switch (this) {
-    _PreventionAction.separateFuel =>
-      en
-          ? 'The fuel break stops further spread in this simulation. In a real incident, keep your distance and contact trained personnel.'
-          : 'Bahan bakar yang terpisah membuat api sulit menjalar. Jika melihat kebakaran, jaga jarak dan hubungi petugas terlatih.',
-    _PreventionAction.approach =>
-      en
-          ? 'Moving closer puts you in danger. Keep your distance and alert trained personnel. They can separate fuel to limit the spread.'
-          : 'Mendekati api berbahaya. Petugas terlatih bisa memisahkan bahan bakar agar api sulit menjalar. Jika melihat kebakaran, jaga jarak dan laporkan.',
-    _PreventionAction.addFuel =>
-      en
-          ? 'More fuel helps the fire spread. Trained personnel can separate fuel to limit it. Keep away from a real fire.'
-          : 'Menambah bahan bakar justru bisa memperbesar api. Petugas terlatih bisa memisahkannya agar api sulit menjalar. Tetap jaga jarak dari kebakaran.',
-  };
-}
-
-class _StopDecision extends StatelessWidget {
-  const _StopDecision({
+class _PeatCharacteristics extends StatelessWidget {
+  const _PeatCharacteristics({
     required this.english,
-    required this.answer,
-    required this.wrongAttempts,
+    required this.opened,
+    required this.flipped,
     required this.preparing,
-    required this.onAnswer,
+    required this.onFlip,
+    required this.onContinue,
     required this.onBack,
   });
-  final bool english;
-  final _PreventionAction? answer;
-  final int wrongAttempts;
-  final bool preparing;
-  final ValueChanged<_PreventionAction> onAnswer;
-  final VoidCallback onBack;
-
-  static const _PreventionAction _correct = _PreventionAction.separateFuel;
+  final bool english, preparing;
+  final Set<int> opened, flipped;
+  final ValueChanged<int> onFlip;
+  final VoidCallback onContinue, onBack;
 
   @override
   Widget build(BuildContext context) {
-    final solved = answer == _correct;
-    final revealed = solved || wrongAttempts >= 2;
-    final locked = revealed;
+    final complete = opened.length == 3;
     return _LightStage(
       chapter: 4,
       english: english,
       eyebrow: english
-          ? 'CHAPTER 4 / MAKE A CHOICE'
-          : 'BABAK 4 / PILIH TINDAKAN',
-      title: english ? 'Stop the spread.' : 'Batasi rambatan api.',
-      edgeFeedback: answer != null,
+          ? 'CHAPTER 4 / PEAT FIRE CHARACTERISTICS'
+          : 'BABAK 4 / CIRI KEBAKARAN GAMBUT',
+      title: english
+          ? 'What Are the Characteristics of Peatland Fires?'
+          : 'Apa Saja Karakteristik Kebakaran di Ekosistem Gambut?',
+      titleFontSize: _compactLayout(context) ? 21 : 24,
       subtitle: english
-          ? 'Which action should trained personnel take?'
-          : 'Apa yang bisa dilakukan petugas terlatih agar api tidak terus menjalar?',
+          ? 'Touch cards 1–3 to discover each characteristic.'
+          : 'Sentuh kartu 1–3 untuk mengenali setiap cirinya.',
       onBack: onBack,
       bodyScrollable: false,
-      body: LayoutBuilder(
-        builder: (context, bounds) {
-          final sceneHeight = math.min(
-            174.0,
-            math.max(48.0, bounds.maxHeight - 152),
-          );
-          return Column(
-            children: <Widget>[
-              _SpreadScene(
-                english: english,
-                height: sceneHeight,
-                action: answer,
-                decision: true,
+      body: Column(
+        children: [
+          for (var index = 0; index < 3; index++) ...[
+            if (index > 0) const SizedBox(height: 8),
+            Expanded(
+              child: PeatCharacteristicCard(
+                key: ValueKey('peat-card-$index'),
+                number: index + 1,
+                information: (english
+                    ? const [
+                        'Fire can smolder beneath the ground surface.',
+                        'These fires are difficult to extinguish.',
+                        'Fire can reignite.',
+                      ]
+                    : const [
+                        'Api dapat membara di bawah permukaan tanah.',
+                        'Kebakaran sulit dipadamkan.',
+                        'Api dapat menyala kembali.',
+                      ])[index],
+                revealed: flipped.contains(index),
+                onTap: preparing ? null : () => onFlip(index),
               ),
-              const SizedBox(height: 8),
-              ..._PreventionAction.values.map(
-                (action) => Padding(
-                  padding: const EdgeInsets.only(bottom: 4),
-                  child: _ChoiceButton(
-                    key: ValueKey('decision-${action.name}'),
-                    height: 44,
-                    label: action.label(english),
-                    selected: action == _correct ? revealed : answer == action,
-                    error: answer == action && !action.correct,
-                    onTap: locked ? null : () => onAnswer(action),
-                  ),
-                ),
-              ),
-            ],
-          );
-        },
+            ),
+          ],
+        ],
       ),
       footer: Column(
         mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          if (answer != null) ...<Widget>[
-            _Feedback(
-              ok: solved,
-              text: solved
-                  ? _correct.feedback(english)
-                  : (revealed
-                        ? (english
-                              ? 'The safe action is to separate the fuel. ${_correct.feedback(english)}'
-                              : 'Tindakan aman adalah memisahkan bahan bakar. ${_correct.feedback(english)}')
-                        : (english
-                              ? 'Not quite. Think about what keeps the fire from reaching more material. You get one more try.'
-                              : 'Belum tepat. Pikirkan tindakan yang membuat api sulit mencapai bahan lain. Kamu masih punya satu kesempatan lagi.')),
+        children: [
+          const SizedBox(height: 4),
+          SizedBox(
+            height: 96,
+            child: _HostConversation(
+              mascotOnRight: true,
+              pose: MascotPose.presenting,
+              height: 96,
+              fontSize: 13,
+              text: complete
+                  ? (english
+                        ? 'All three can happen in peatland fires. Ready to explore their impacts?'
+                        : 'Ketiganya bisa terjadi pada kebakaran gambut. Yuk, kenali dampaknya juga.')
+                  : (english
+                        ? 'Take your time. You can turn each card over again.'
+                        : 'Baca pelan-pelan, ya. Kamu bisa membalik kartunya lagi.'),
             ),
-          ],
-          if (preparing)
-            _Primary(
-              key: const ValueKey('open-final'),
-              label: english ? 'Preparing challenge…' : 'Menyiapkan tantangan…',
-              onPressed: null,
-            ),
+          ),
+          const SizedBox(height: 4),
+          LocalizedText(
+            english
+                ? '${opened.length}/3 cards opened'
+                : '${opened.length}/3 kartu sudah dibuka',
+            style: const TextStyle(fontSize: 11, color: KifcTheme.mutedInk),
+          ),
+          const SizedBox(height: 8),
+          _Primary(
+            key: const ValueKey('peat-cards-continue'),
+            label: preparing
+                ? (english ? 'Preparing challenge…' : 'Menyiapkan tantangan…')
+                : (english ? 'Explore the Impacts' : 'Kenali Dampaknya'),
+            onPressed: complete && !preparing ? onContinue : null,
+          ),
         ],
       ),
     );
@@ -2182,7 +2148,6 @@ class _ScorePage extends StatelessWidget {
     required this.english,
     required this.triangle,
     required this.causes,
-    required this.decision,
     required this.finalRaw,
     required this.bonus,
     required this.idleSeconds,
@@ -2191,10 +2156,10 @@ class _ScorePage extends StatelessWidget {
     required this.onHome,
   });
   final bool english;
-  final int triangle, causes, decision, finalRaw, idleSeconds;
+  final int triangle, causes, finalRaw, idleSeconds;
   final double bonus;
   final VoidCallback onContinue, onAgain, onHome;
-  double get total => triangle + causes + decision + bonus;
+  double get total => triangle + causes + bonus;
   String get title => total >= 8
       ? (english ? 'Fire Prevention Hero' : 'Siap Cegah Karhutla')
       : total >= 6
@@ -2239,7 +2204,7 @@ class _ScorePage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(bottom: 5),
                 child: LocalizedText(
-                  english ? '/ 9 points' : '/ 9 poin',
+                  english ? '/ 8 points' : '/ 8 poin',
                   style: const TextStyle(fontSize: 15),
                 ),
               ),
@@ -2254,10 +2219,6 @@ class _ScorePage extends StatelessWidget {
         _ScoreRow(
           label: english ? 'Recognising causes' : 'Mengenali penyebab',
           score: '$causes/4',
-        ),
-        _ScoreRow(
-          label: english ? 'Safe decision' : 'Memilih tindakan aman',
-          score: '$decision/1',
         ),
         _ScoreRow(
           label: english ? 'Impact challenge bonus' : 'Bonus mengenali dampak',
@@ -3459,7 +3420,6 @@ class _MascotFeedback extends StatelessWidget {
 
 class _ChoiceButton extends StatelessWidget {
   const _ChoiceButton({
-    super.key,
     required this.label,
     required this.onTap,
     this.selected = false,
@@ -3540,229 +3500,6 @@ class _ChoiceButton extends StatelessWidget {
       ),
     ),
   );
-}
-
-class _SpreadScene extends StatefulWidget {
-  const _SpreadScene({
-    required this.english,
-    required this.height,
-    this.action,
-    this.decision = false,
-  });
-  final bool english;
-  final double height;
-  final _PreventionAction? action;
-  final bool decision;
-  @override
-  State<_SpreadScene> createState() => _SpreadSceneState();
-}
-
-class _SpreadSceneState extends State<_SpreadScene>
-    with SingleTickerProviderStateMixin {
-  late final AnimationController _spread = AnimationController(
-    vsync: this,
-    duration: const Duration(seconds: 6),
-  );
-  bool _started = false;
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    if (MediaQuery.maybeOf(context)?.disableAnimations == true) {
-      _spread.value = widget.decision && widget.action == null ? .42 : 1;
-    } else if (!_started) {
-      _started = true;
-      _spread.animateTo(
-        widget.decision ? .42 : 1,
-        duration: Duration(seconds: widget.decision ? 4 : 6),
-      );
-    }
-  }
-
-  @override
-  void didUpdateWidget(covariant _SpreadScene oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    if (widget.action != oldWidget.action) {
-      if (widget.action?.correct == true) {
-        _spread.animateTo(
-          .43,
-          duration: _motionDuration(context, const Duration(milliseconds: 900)),
-          curve: Curves.easeOutCubic,
-        );
-      } else {
-        _spread.animateTo(
-          1,
-          duration: _motionDuration(context, const Duration(milliseconds: 900)),
-          curve: Curves.easeOutCubic,
-        );
-      }
-    }
-  }
-
-  @override
-  void dispose() {
-    _spread.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final stopped = widget.action?.correct == true;
-    final caption = stopped
-        ? (widget.english
-              ? 'Fuel break · further spread stops'
-              : 'Bahan bakar terpisah · api sulit menjalar')
-        : widget.action == _PreventionAction.addFuel
-        ? (widget.english
-              ? 'More fuel · fire spreads further'
-              : 'Bahan bakar bertambah · api makin menjalar')
-        : (widget.english
-              ? 'SIMULATION · fire spreads through nearby fuel'
-              : 'SIMULASI · api menjalar ke bahan kering');
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
-      child: SizedBox(
-        height: widget.height,
-        child: LayoutBuilder(
-          builder: (context, bounds) => Stack(
-            fit: StackFit.expand,
-            children: <Widget>[
-              Image.asset(
-                'assets/images/field/dry-landscape.jpg',
-                fit: BoxFit.cover,
-                alignment: Alignment.bottomCenter,
-              ),
-              const DecoratedBox(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: <Color>[Color(0xB20C2119), Color(0x180C2119)],
-                  ),
-                ),
-              ),
-              Positioned.fill(
-                child: AnimatedOpacity(
-                  opacity: stopped ? 1 : 0,
-                  duration: _motionDuration(
-                    context,
-                    const Duration(milliseconds: 400),
-                  ),
-                  child: const _FuelBreak(),
-                ),
-              ),
-              AnimatedBuilder(
-                animation: _spread,
-                builder: (context, _) => FireSpreadVisual(
-                  progress: _spread.value,
-                  stopped: stopped,
-                  boosted: widget.action == _PreventionAction.addFuel,
-                ),
-              ),
-              Positioned(
-                left: 10,
-                right: 10,
-                top: 9,
-                child: LocalizedText(
-                  caption,
-                  maxLines: 2,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 10,
-                    height: 1.2,
-                    fontWeight: FontWeight.w700,
-                    shadows: <Shadow>[
-                      Shadow(color: Colors.black87, blurRadius: 5),
-                    ],
-                  ),
-                ),
-              ),
-              if (stopped && bounds.maxHeight > 90)
-                Positioned(
-                  left: bounds.maxWidth * .57,
-                  bottom: 8,
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 5,
-                      vertical: 3,
-                    ),
-                    decoration: BoxDecoration(
-                      color: const Color(0xE6263B2C),
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    child: LocalizedText(
-                      widget.english ? 'BREAK' : 'SEKAT',
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 8,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                  ),
-                ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _FuelBreak extends StatelessWidget {
-  const _FuelBreak();
-
-  @override
-  Widget build(BuildContext context) => ClipPath(
-    clipper: const _FuelBreakClipper(),
-    child: Stack(
-      fit: StackFit.expand,
-      children: <Widget>[
-        // Magnify the bare track in the lower-left of the source photograph.
-        Transform.scale(
-          scale: 1.65,
-          alignment: Alignment.bottomLeft,
-          child: Image.asset(
-            'assets/images/field/dry-landscape.jpg',
-            fit: BoxFit.cover,
-            alignment: Alignment.bottomLeft,
-            filterQuality: FilterQuality.medium,
-          ),
-        ),
-        const DecoratedBox(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: <Color>[Color(0x6689795D), Color(0x88756347)],
-            ),
-          ),
-        ),
-      ],
-    ),
-  );
-}
-
-class _FuelBreakClipper extends CustomClipper<Path> {
-  const _FuelBreakClipper();
-
-  @override
-  Path getClip(Size size) => Path()
-    ..moveTo(size.width * .49, size.height * .56)
-    ..lineTo(size.width * .498, size.height * .568)
-    ..lineTo(size.width * .512, size.height * .555)
-    ..lineTo(size.width * .53, size.height * .56)
-    ..lineTo(size.width * .548, size.height * .68)
-    ..lineTo(size.width * .566, size.height * .74)
-    ..lineTo(size.width * .579, size.height * .85)
-    ..lineTo(size.width * .61, size.height)
-    ..lineTo(size.width * .46, size.height)
-    ..lineTo(size.width * .475, size.height * .86)
-    ..lineTo(size.width * .472, size.height * .81)
-    ..lineTo(size.width * .484, size.height * .68)
-    ..close();
-
-  @override
-  bool shouldReclip(covariant _FuelBreakClipper oldClipper) => false;
 }
 
 class _FireScene extends StatelessWidget {

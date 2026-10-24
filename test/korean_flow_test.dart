@@ -16,8 +16,8 @@ void main() {
       addTearDown(tester.view.resetDevicePixelRatio);
       final flow = GameFlow(tester, english: false, korean: true, size: size);
       await flow.launch();
-      await flow.toDecision();
-      await flow.choose('separateFuel');
+      await flow.toCharacteristics();
+      await flow.readCharacteristics();
       await flow.finalChallenge();
       for (final impact in [
         'haze',
@@ -28,7 +28,7 @@ void main() {
         await flow.token(impact);
       }
       await flow.finish(perfect: true);
-      expect(renderedTextByKey(tester, 'total-score'), '9');
+      expect(renderedTextByKey(tester, 'total-score'), '8');
       await flow.tap(flow.text('Selesai', 'Closing Message'));
       await flow.capture('closing');
       await flow.tap(flow.text('Main Lagi', 'Play Again'));

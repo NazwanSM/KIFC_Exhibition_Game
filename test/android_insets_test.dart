@@ -49,7 +49,7 @@ void main() {
         'karhutlaCards',
         'risk',
         'causeQuiz',
-        'stopDecision',
+        'peatCharacteristics',
         'finalChallenge',
         'score',
         'closing',

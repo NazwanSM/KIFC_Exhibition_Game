@@ -9,7 +9,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:fire_prevention_challenge/core/theme/kifc_theme.dart';
 import 'package:fire_prevention_challenge/core/localization/app_locale.dart';
 import 'package:fire_prevention_challenge/features/game/exhibition_game.dart';
-import 'package:fire_prevention_challenge/features/game/widgets/environment_motion.dart';
 import 'package:fire_prevention_challenge/features/game/widgets/game_mascot.dart';
 
 String renderedTextByKey(WidgetTester tester, String key) => tester
@@ -286,7 +285,7 @@ class GameFlow {
     check(label);
   }
 
-  Future<void> toDecision({bool wrongCause = false}) async {
+  Future<void> toCharacteristics({bool wrongCause = false}) async {
     await tap(text('Mulai Tantangan', 'Start Challenge'));
     await capture('assembly');
     final trianglePanelSize = tester.getSize(type('_FireScene'));
@@ -460,43 +459,19 @@ class GameFlow {
       if (!wrongCause && index == 3) await capture('cause-correct');
       await advance('cause feedback ${index + 1}');
     }
-    expect(find.byKey(const ValueKey('decision-separateFuel')), findsOneWidget);
-    await pump(4000);
-    final waiting = tester.widget<FireSpreadVisual>(
-      find.byType(FireSpreadVisual),
-    );
-    expect(
-      waiting.progress,
-      lessThan(.43),
-      reason: 'Fire must wait on the near side while the visitor decides',
-    );
+    expect(find.byKey(const ValueKey('peat-card-0')), findsOneWidget);
   }
 
-  Future<void> choose(String name) async {
-    await tester.tap(
-      find
-          .descendant(
-            of: find.byKey(ValueKey('decision-$name')),
-            matching: find.byType(Text),
-          )
-          .first,
-    );
-    await pump();
-    check('decision $name');
-    await pump(1500);
-    final spread = tester.widget<FireSpreadVisual>(
-      find.byType(FireSpreadVisual),
-    );
-    expect(spread.stopped, name == 'separateFuel');
-    expect(
-      spread.progress,
-      name == 'separateFuel' ? lessThanOrEqualTo(.43) : 1,
-      reason: 'A fuel break prevents further spread; unsafe choices do not',
-    );
+  Future<void> readCharacteristics() async {
+    for (var index = 0; index < 3; index++) {
+      await tester.tap(find.byKey(ValueKey('peat-card-$index')));
+      await pump(500);
+      check('peat card $index');
+    }
+    await capture('peat-characteristics-read');
   }
 
-  /// Prepares the final challenge. The safe answer already scheduled the move,
-  /// so this only has to let the pending timer and the pre-cache finish.
+  /// Opens the timed challenge after the unscored information cards.
   Future<void> finalChallenge() async {
     // Mascot images can evict final-grid images from the shared image cache.
     // Let real image decoding finish before advancing the fake test clock.
@@ -513,6 +488,7 @@ class GameFlow {
         await precacheImage(AssetImage(path), context);
       }
     });
+    await tester.tap(find.byKey(const ValueKey('peat-cards-continue')));
     await pump(5000);
     // The transition awaits real image decoding, independent of fake timers.
     // New chapter assets must not make this depend on the global cache order.
@@ -585,8 +561,8 @@ void main() {
         size: const Size(360, 640),
       );
       await flow.launch();
-      await flow.toDecision();
-      await flow.choose('separateFuel');
+      await flow.toCharacteristics();
+      await flow.readCharacteristics();
       await flow.finalChallenge();
       expect(find.byKey(const ValueKey('final-raw-score')), findsNothing);
       await flow.token('haze');
@@ -659,7 +635,7 @@ void main() {
       );
       await tester.tap(find.byKey(const ValueKey('final-review-continue')));
       await flow.pump();
-      expect(renderedTextByKey(tester, 'total-score'), '8');
+      expect(renderedTextByKey(tester, 'total-score'), '7');
       await tester.pumpWidget(const SizedBox.shrink());
     });
   }
@@ -676,8 +652,8 @@ void main() {
       });
       final flow = GameFlow(tester, english: false, size: const Size(411, 731));
       await flow.launch();
-      await flow.toDecision();
-      await flow.choose('separateFuel');
+      await flow.toCharacteristics();
+      await flow.readCharacteristics();
       await flow.finalChallenge();
       final ring = find.byKey(const ValueKey('final-countdown-progress'));
       expect(ring, findsOneWidget);
@@ -757,7 +733,7 @@ void main() {
     });
     final flow = GameFlow(tester, english: false, size: const Size(360, 640));
     await flow.launch();
-    await flow.toDecision();
+    await flow.toCharacteristics();
     await tester.pumpWidget(const SizedBox.shrink());
   });
   testWidgets('back navigation reopens playable activities', (tester) async {
@@ -767,7 +743,7 @@ void main() {
     });
     final flow = GameFlow(tester, english: false, size: const Size(360, 640));
     await flow.launch();
-    await flow.toDecision();
+    await flow.toCharacteristics();
     await flow.tap('Kembali');
     final cause = tester.widgetList(flow.type('_ChoiceButton'));
     expect(cause.every((w) => (w as dynamic).onTap != null), isTrue);
@@ -891,56 +867,9 @@ void main() {
         });
         final flow = GameFlow(tester, english: english, size: size);
         await flow.launch();
-        await flow.toDecision();
-        final unsafe = !english && size.width == 411;
-        if (unsafe) {
-          // A first wrong attempt still allows one more try.
-          await flow.choose('approach');
-          expect(
-            (tester.widget(find.byKey(const ValueKey('decision-addFuel')))
-                    as dynamic)
-                .onTap,
-            isNotNull,
-            reason: 'A first wrong answer keeps one extra attempt open',
-          );
-          expect(
-            (tester.widget(find.byKey(const ValueKey('decision-addFuel')))
-                    as dynamic)
-                .error,
-            isFalse,
-          );
-          // A second wrong attempt reveals the safe action and locks input.
-          await flow.choose('addFuel');
-          expect(
-            find.textContaining(flow.text('Tindakan aman', 'The safe action')),
-            findsOneWidget,
-          );
-          expect(
-            (tester.widget(find.byKey(const ValueKey('decision-separateFuel')))
-                    as dynamic)
-                .selected,
-            isTrue,
-          );
-          expect(
-            (tester.widget(find.byKey(const ValueKey('decision-addFuel')))
-                    as dynamic)
-                .onTap,
-            isNull,
-          );
-          await flow.capture('stop-reveal');
-        } else {
-          if (size.width == 360) {
-            await flow.choose('approach');
-          }
-          await flow.choose('separateFuel');
-          expect(
-            (tester.widget(find.byKey(const ValueKey('decision-addFuel')))
-                    as dynamic)
-                .onTap,
-            isNull,
-            reason: 'The correct answer locks the remaining options',
-          );
-        }
+        await flow.toCharacteristics();
+        final mixedFinal = !english && size.width == 411;
+        await flow.readCharacteristics();
         await flow.finalChallenge();
         await flow.token('haze');
         await flow.token('haze');
@@ -949,7 +878,7 @@ void main() {
         if (size.width != 360) {
           await flow.token('carbonEmissions');
           await flow.token('subsidence');
-          if (unsafe) {
+          if (mixedFinal) {
             await flow.token('carbonStorage');
             await flow.token('cleanAir');
           }
@@ -958,7 +887,7 @@ void main() {
         expect(
           find.text(
             flow.text(
-              '${unsafe
+              '${mixedFinal
                   ? 6
                   : size.width == 360
                   ? 2
@@ -968,12 +897,12 @@ void main() {
           ),
           findsOneWidget,
         );
-        await flow.finish(perfect: !unsafe && size.width != 360);
-        final expected = unsafe
+        await flow.finish(perfect: !mixedFinal && size.width != 360);
+        final expected = mixedFinal
             ? '7,5'
             : size.width == 360
-            ? (english ? '8.5' : '8,5')
-            : '9';
+            ? (english ? '7.5' : '7,5')
+            : '8';
         expect(find.byKey(const ValueKey('total-score')), findsOneWidget);
         expect(renderedTextByKey(tester, 'total-score'), expected);
         if (size.width == 411 && !english) {
@@ -1024,7 +953,7 @@ void main() {
   }
   for (final english in [false, true]) {
     testWidgets(
-      'Wrong cause and unsafe fuel feedback fit the compact screen $english',
+      'Wrong cause flow reaches unscored information cards $english',
       (tester) async {
         addTearDown(() {
           tester.view.resetPhysicalSize();
@@ -1036,15 +965,10 @@ void main() {
           size: const Size(360, 640),
         );
         await flow.launch();
-        await flow.toDecision(wrongCause: true);
-        // First wrong attempt: the mascot hint must fit.
-        await flow.choose('addFuel');
-        // Second wrong attempt: the revealed answer must fit as well.
-        await flow.choose('approach');
+        await flow.toCharacteristics(wrongCause: true);
+        await flow.readCharacteristics();
         expect(
-          find.textContaining(
-            flow.text('Tindakan aman adalah', 'The safe action is'),
-          ),
+          find.byKey(const ValueKey('peat-cards-continue')),
           findsOneWidget,
         );
         await tester.pumpWidget(const SizedBox.shrink());

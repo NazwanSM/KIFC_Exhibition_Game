@@ -30,7 +30,7 @@ void main() {
           tester,
           size: size,
           locale: locale,
-          page: 'stopDecision',
+          page: 'peatCharacteristics',
           stopwatchFactory: () => clock,
         );
         await tester.runAsync(() async {
@@ -46,7 +46,11 @@ void main() {
             await precacheImage(AssetImage(path), context);
           }
         });
-        await tester.tap(find.byKey(const ValueKey('decision-separateFuel')));
+        for (var index = 0; index < 3; index++) {
+          await tester.tap(find.byKey(ValueKey('peat-card-$index')));
+          await tester.pump(const Duration(milliseconds: 500));
+        }
+        await tester.tap(find.byKey(const ValueKey('peat-cards-continue')));
         await tester.pump();
         await tester.pump(const Duration(seconds: 5));
         for (var attempt = 0; attempt < 50; attempt++) {

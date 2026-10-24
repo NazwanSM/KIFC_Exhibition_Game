@@ -1,6 +1,6 @@
 # KIFC-09 — Usulan format untuk keputusan klien
 
-Draf vendor24Oktober 2026. **Belum diterapkan ke permainan.** Dokumen klien menyebut materi akan ditindaklanjuti dan mengizinkan usulan vendor. Tidak ada perubahan urutan layar.
+Catatan historis usulan vendor24Oktober 2026. **Keputusan terbaru pemilik: tiga kartu bernomor1–3 berputar saat disentuh, tanpa skor. Sudah diterapkan; lihat [review implementasi](kifc-09-flip-review.md).** Opsi di bawah dipertahankan sebagai riwayat pembahasan. Dokumen klien menyebut materi akan ditindaklanjuti dan mengizinkan usulan vendor. Tidak ada perubahan urutan layar.
 
 ## Materi tetap dari klien
 
