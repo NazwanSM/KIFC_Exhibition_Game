@@ -501,7 +501,8 @@ Empat keadaan layar direvisi tanpa mengubah urutan. Panel diperbesar, dropzone d
 | KIFC-09 persiapan | `2f13709` | Dua usulan format/skor, belum mengganti layar aktif |
 | KIFC-G03 | `01f2693` | Perbaikan inset/overflow Android, audit visual dan bukti APK |
 | KIFC-G01 | `ca92786` | Pemetaan dan audit interaksi, respons serta transisi |
-| KIFC-G04 persiapan | `105e32b` | Paket audio untuk pembahasan, tetap tanpa suara |
+| KIFC-G04 persiapan | `105e32b` | Riwayat paket audio sebelum instruksi melanjutkan |
+| KIFC-G04 implementasi | `5c8e282` | Musik/alam/efek internet CC0 offline, kontrol volume/mute,235 tes serta bukti web/Android |
 | KIFC-09 implementasi | `a11eb8b` | Tiga kartu berputar, tanpa skor,60 render dan browser |
 | KIFC-11 skor | `e3fb941` | Maksimum8, kategori proporsional,212 tes Flutter dan APK terbaru |
 | KIFC-X01 integrasi | `c156395` | Urutan dipertahankan, aturan skor/state ditelusuri, spesifikasi lama ditandai superseded |
@@ -541,3 +542,5 @@ Commit koreksi KIFC-09: `13d3547`.17 tes kartu/visual dan21 tes perjalanan lengk
 Instruksi langsung pemilik membuka kembali audio dan meminta unduhan internet. Musik TinyWorlds, burung Joseph Sardin dan efek Kenney (CC0) diterapkan, total8 aset/1.21MB. Tombol speaker di seluruh layar, master/musik/alam/efek serta mute; nilai bertahan selama aplikasi hidup dan mulai setelah interaksi. Pilihan tantangan akhir netral, tanpa bocoran jawaban. Dua loop dan satu kanal efek dipakai ulang; pause pada inactive, tidak menumpuk saat ulang sesi.
 
 235 tes Flutter lulus, analisis bersih,60 render lima ukuran/tiga bahasa tersedia. Pemutaran nyata web dan Android offline (airplane1/Wi-Fi0) menunjukkan playing, mute/master0 pause, resume dan efek tombol. APK/52 aset/hash diverifikasi. [Bukti lengkap, sumber, screenshot dan batas hasil](../../docs/client-revisions/2026-10-23/kifc-g04-audio-review.md). G04 Ditinjau; level/kenyamanan speaker TV42inci masih perlu uji fisik. X03.02 kini diperiksa lewat alur otomatis lengkap tiga bahasa; perjalanan manual seluruh layar APK tetap dicatat terpisah. Tidak ada push/deploy.
+
+Commit implementasi KIFC-G04: `5c8e282` (branch main).235 tes Flutter lulus;6 tes audio terarah diulang setelah pemeriksaan perangkat dan tetap lulus. Analisis final bersih. APK debug,52 aset offline,60 render, pemutaran web dan smoke audio Android tercatat pada review. Belum push/deploy.
