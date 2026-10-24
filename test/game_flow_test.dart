@@ -285,7 +285,10 @@ class GameFlow {
     check(label);
   }
 
-  Future<void> toCharacteristics({bool wrongCause = false}) async {
+  Future<void> toCharacteristics({
+    bool wrongCause = false,
+    Set<int> wrongCauseIndices = const {},
+  }) async {
     await tap(text('Mulai Tantangan', 'Start Challenge'));
     await capture('assembly');
     final trianglePanelSize = tester.getSize(type('_FireScene'));
@@ -447,7 +450,7 @@ class GameFlow {
     );
     for (var index = 0; index < 4; index++) {
       await tap(
-        (index == 2) != wrongCause
+        (index == 2) != (wrongCause || wrongCauseIndices.contains(index))
             ? text('Faktor alam', 'Natural factor')
             : text('Aktivitas manusia', 'Human activity'),
       );

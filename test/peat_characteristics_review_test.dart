@@ -143,6 +143,13 @@ void main() {
           );
         }
         await tester.pump(const Duration(milliseconds: 30));
+        if (!reduced) {
+          expect(
+            find.text('Api dapat membara di bawah permukaan tanah.'),
+            findsNothing,
+            reason: 'Normal motion flips before revealing the back',
+          );
+        }
         await tester.tap(card);
         await tester.pump();
         await tester.pump(const Duration(milliseconds: 500));

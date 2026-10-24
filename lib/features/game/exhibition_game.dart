@@ -16,6 +16,7 @@ import 'widgets/terrain_backdrop.dart';
 
 const _fireCardAspectRatio = 1.8;
 const finalChallengeSeconds = 30;
+const maxGamePoints = 8;
 
 bool _compactLayout(BuildContext context) =>
     MediaQuery.sizeOf(context).height -
@@ -2160,9 +2161,10 @@ class _ScorePage extends StatelessWidget {
   final double bonus;
   final VoidCallback onContinue, onAgain, onHome;
   double get total => triangle + causes + bonus;
-  String get title => total >= 8
+  // Preserve the previous 8/9 and 6/9 attainment bands after removing a point.
+  String get title => total / maxGamePoints >= 8 / 9
       ? (english ? 'Fire Prevention Hero' : 'Siap Cegah Karhutla')
-      : total >= 6
+      : total / maxGamePoints >= 6 / 9
       ? (english ? 'Fire Awareness Champion' : 'Makin Paham Risikonya')
       : (english ? 'Keep Exploring' : 'Ayo, Coba Lagi');
   @override
@@ -2204,7 +2206,7 @@ class _ScorePage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(bottom: 5),
                 child: LocalizedText(
-                  english ? '/ 8 points' : '/ 8 poin',
+                  english ? '/ $maxGamePoints points' : '/ $maxGamePoints poin',
                   style: const TextStyle(fontSize: 15),
                 ),
               ),

@@ -32,7 +32,7 @@ Tracker ini mencatat pekerjaan baru dari dokumen KIFC. **KIFC-01 sampai 10 sudah
 | KIFC-08 | Kuis kebakaran hutan rawa gambut | Ditinjau | 60 screenshot dan tes siap; D-05 memakai durasi/naskah salah kedua sementara untuk ditinjau |
 | KIFC-09 | Karakteristik kebakaran ekosistem gambut | Ditinjau | Tiga kartu1–3 berputar, tanpa skor;60 render dan alur tiga bahasa diuji |
 | KIFC-10 | Tantangan mengenali dampak kebakaran | Ditinjau | Implementasi/foto/3 bahasa/60 render tersedia; 30 detik sementara dan skor lama menunggu D-06/D-07 |
-| KIFC-11 | Layar hasil akhir | Ditinjau sebagian | Pesan penutup terpasang; aturan skor menunggu X-01 |
+| KIFC-11 | Layar hasil akhir | Ditinjau sebagian | Skor maksimum8 dan kategori proporsional diterapkan; uji baca TV fisik tetap terbuka |
 | KIFC-G01 | Variasi interaksi, transisi, dan respons sentuhan | Ditinjau | Pemetaan interaksi dan pembatalan timer diverifikasi;191 tes lulus |
 | KIFC-G02 | Animasi dan latar bergerak | Ditinjau sebagian | Video pemilik, fallback, reduced motion dan offline diuji; profil TV fisik menunggu D-09 |
 | KIFC-G03 | Pengayaan visual seluruh layar | Ditinjau | Audit per layar,33 render inset serta APK offline; overflow Android diperbaiki |
@@ -309,7 +309,7 @@ Analisis bersih, **151 tes lulus**, dan **60 render** empat keadaan × tiga baha
 
 - [x] **KIFC-11.01** Tambahkan pesan penutup berikut pada layar hasil yang menampilkan skor.
 - [x] **KIFC-11.02** Letakkan pada area yang mudah terlihat dan dibaca tanpa mengganggu skor, “Selesai”, serta “Main Lagi”.
-- [ ] **KIFC-11.03** Setelah X-01 diputuskan, sesuaikan label baris skor, maksimum nilai, bonus, dan kategori hasil yang terdampak pergantian materi.
+- [x] **KIFC-11.03** Setelah X-01 diputuskan, sesuaikan label baris skor, maksimum nilai, bonus, dan kategori hasil yang terdampak pergantian materi.
 - [ ] **KIFC-11.04** Uji waktu baca bersama perilaku kembali ke awal yang sekarang memakai 15 detik tanpa interaksi; sesuaikan bila hasil uji menunjukkan pesan tidak sempat terbaca.
 
 **Pesan dari KIFC:**
@@ -511,4 +511,9 @@ Pekerjaan tertunda yang tidak boleh dianggap implementasi selesai:09/D-04, final
 
 ### Keputusan dan implementasi KIFC-09 — 24 Oktober
 
-Pemilik memilih kartu1–3 yang berputar dan membuka informasi, tanpa penilaian. Pertanyaan tindakan lama serta poinnya dihapus; maksimum sementara8 sebelum kategori hasil diselaraskan pada KIFC-11. [Indeks60 render, browser dan pemeriksaan](../../docs/client-revisions/2026-10-23/kifc-09-flip-review.md). Seluruh208 tes Flutter lulus dan analisis bersih. Tidak ada perubahan urutan layar, audio, push atau deployment.
+Commit `a11eb8b`: pemilik memilih kartu1–3 yang berputar dan membuka informasi, tanpa penilaian. Pertanyaan tindakan lama serta poinnya dihapus; maksimum sementara8 sebelum kategori hasil diselaraskan pada KIFC-11. [Indeks60 render, browser dan pemeriksaan](../../docs/client-revisions/2026-10-23/kifc-09-flip-review.md). Seluruh208 tes Flutter lulus dan analisis bersih. Tidak ada perubahan urutan layar, audio, push atau deployment.
+
+
+### KIFC-11 — pemetaan maksimum8
+
+Poin tindakan dihapus karena09 merupakan informasi, bukan soal. Maksimum8 = unsur3 + penyebab4 + bonus dampak≤1. Ambang kategori mengikuti rasio lama8/9 dan6/9; nilai7.25/7/5.5/5.25 diuji pada perjalanan lengkap dengan baca ulang kartu. [Screenshot hasil dan pemeriksaan](../../docs/client-revisions/2026-10-23/kifc-11-score8-review.md). KIFC-11.04 tetap menunggu uji baca TV fisik; tidak mengubah idle15detik tanpa bukti kebutuhan.
