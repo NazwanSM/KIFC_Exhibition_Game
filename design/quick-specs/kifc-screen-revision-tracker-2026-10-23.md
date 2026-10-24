@@ -36,10 +36,10 @@ Tracker ini mencatat pekerjaan baru dari dokumen KIFC. **KIFC-01 sampai 10 sudah
 | KIFC-G01 | Variasi interaksi, transisi, dan respons sentuhan | Ditinjau | Pemetaan interaksi dan pembatalan timer diverifikasi;191 tes lulus |
 | KIFC-G02 | Animasi dan latar bergerak | Ditinjau sebagian | Video pemilik, fallback, reduced motion dan offline diuji; profil TV fisik menunggu D-09 |
 | KIFC-G03 | Pengayaan visual seluruh layar | Ditinjau | Audit per layar,33 render inset serta APK offline; overflow Android diperbaiki |
-| KIFC-G04 | Musik, suara alam, efek suara, dan kontrol audio | Ditinjau | Musik/hutan/efek CC0 offline, volume/mute tiga bahasa,235 tes serta pemutaran web/Android diperiksa; akustik TV fisik menunggu D-09 |
+| KIFC-G04 | Musik, suara alam, efek suara, dan kontrol audio | Ditinjau | Koreksi interaksi/error web,239 tes,53 aset APK serta alur/audio native tiga bahasa diperiksa; akustik TV fisik menunggu D-09 |
 | KIFC-X01 | Alur, penomoran babak, dan perhitungan skor | Ditinjau | Urutan dipertahankan, kartu09 tanpa skor, maksimum8;212 tes lulus |
 | KIFC-X02 | Naskah tiga bahasa dan konsistensi istilah | Ditinjau | Inventaris/glosarium serta alur Korea diperiksa; materi09 sudah tiga bahasa; validasi klien/penutur menunggu |
-| KIFC-X03 | Verifikasi, perangkat, dan rilis | Ditinjau sebagian |235 tes, analisis bersih, APK/52 aset offline dan smoke audio Android siap; replay lengkap09/11 pada APK, TV fisik dan rilis menunggu |
+| KIFC-X03 | Verifikasi, perangkat, dan rilis | Ditinjau sebagian | APK terbaru/53 aset, tiga perjalanan native lengkap8/8 serta replay/audio lulus; bukti720p/1080p dan4K terbatas; TV fisik dan rilis final menunggu |
 
 ## KIFC-01 Tampilan awal
 
@@ -401,7 +401,7 @@ Bagian ini adalah pekerjaan turunan dari perubahan konten, bukan kutipan permint
 - [x] **KIFC-X03.02** Uji alur lengkap ketiga bahasa: susun benar/salah, retry, tiga kartu bacaan, kuis gambut, format karakteristik terpilih, tantangan dampak, ulasan, hasil, dan ulang sesi.
 - [x] **KIFC-X03.03** Uji timer/feedback panjang, tidak adanya input ganda, pembatalan pilihan, perpindahan otomatis/manual yang disepakati, tombol kembali, serta reset tanpa skor/audio/animasi tersisa.
 - [ ] **KIFC-X03.04** Periksa crop, ukuran teks, maskot, visual baru, animasi, dan tombol pada viewport portrait; lakukan uji sentuhan langsung pada TV 42 inci setelah perangkat dan pemasangan diketahui.
-- [ ] **KIFC-X03.05** Uji APK offline serta web, termasuk media/audio lokal, kontrol volume/mute, dan performa. Emulator merupakan bukti fungsional awal, bukan tolok ukur tunggal performa TV.
+- [ ] **KIFC-X03.05** Bagian fungsional APK/web telah diuji:53 aset, tiga bahasa native, volume/mute/zero/background/replay. Pengukuran performa perangkat target tetap terbuka; FPS emulator tidak dinyatakan lulus. [Bukti terbaru](../../docs/client-revisions/2026-10-23/kifc-x03-latest-apk-review.md).
 - [x] **KIFC-X03.06** Jalankan analisis Flutter dan tes regresi yang relevan; simpan hasil dan screenshot/rekaman setiap layar yang berubah.
 - [ ] **KIFC-X03.07** Setelah pemeriksaan, siapkan build/deployment berikutnya sesuai instruksi rilis; verifikasi commit yang terdeploy, aset, dan site yang tepat.
 
@@ -551,3 +551,8 @@ Commit implementasi KIFC-G04: `5c8e282` (branch main).235 tes Flutter lulus;6 te
 Laporan pemilik: efek terlalu pelan, sejumlah tombol tidak berbunyi, dan audio kadang berhenti pada web. Klik diganti rekaman lebih panjang, level efek dinaikkan, tombol navigasi/dialog/penutup dan lanjut layar dilengkapi, akhir kuis memakai cue khusus. Semantics juga mengaktifkan audio. Sumber efek dimuat sekali dalam pemutar tetap; kegagalan satu cue tidak mematikan latar dan pemakaian berikutnya memulihkannya.239tes lulus, analisis bersih,60 render lima ukuran/tiga bahasa serta pemutaran/pemulihan browser nyata tersedia. [Rincian, screenshot dan batas bukti](../../docs/client-revisions/2026-10-23/kifc-g04-audio-feedback.md). APK belum dibangun ulang pada koreksi web ini. Status Ditinjau; kenyamanan speaker TV fisik masih terbuka. Tidak ada push/deployment.
 
 Commit koreksi audio web KIFC-G04: `e8f471f` pada main.239tes lulus,17tes visual diulang, analisis bersih; bukti pemulihan dan akhir kuis pada Chromium terlampir. Belum push/deploy.
+
+
+### KIFC-X03 — APK setelah koreksi audio
+
+APK debug172309275bytes, SHA256 `33f9719443910319ff9c6dfb1e2fc6b0b560617c6affbd1774b6761e756f8bf6`,53 aset offline cocok. Tiga perjalanan native ID/EN/KO lulus sampai8/8, penutup dan replay0/3; finish masing-masing sekali, sumber disiapkan sekali sepanjang replay. Native mute/master0/background/resume serta persistensi saat pindah bahasa diperiksa.102 screenshot perjalanan1080p, enam pembanding720p dan satu pembuka4K tersedia. Tambahan4K membentur alokasi host; app tetap hidup dan override dipulihkan. [Bukti APK dan screenshot](../../docs/client-revisions/2026-10-23/kifc-x03-latest-apk-review.md), [observasi performa dengan batas NOT ASSESSED](../../production/polish/android-emulator-report-2026-10-24.md). Analisis bersih; tidak mengubah Dart/aturan game. Publikasi web/APK pengujian dicatat setelah diperiksa. Uji fisik TV, waktu baca, akustik, validasi naskah dan paket produksi bertanda tangan pemilik tetap terbuka.

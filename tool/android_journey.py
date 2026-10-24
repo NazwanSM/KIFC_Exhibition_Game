@@ -1,0 +1,156 @@
+"""Offline APK journey through real Android input and UIAutomator.
+Example: python tool/android_journey.py --lang id --output build/review-kifc-x03-latest/id-host
+Requires an already installed current APK and a running portrait emulator.
+"""
+import argparse
+import json
+from pathlib import Path
+import re
+import sys
+import time
+from android_review import AndroidReview
+
+STRINGS = {
+    "start": ("Mulai Tantangan", "Start Challenge", "도전 시작"),
+    "choose": ("Pilih tiga unsur api.", "Choose three elements.", "불의 세 요소를 골라 보세요."),
+    "drop": ("Taruh di sini", "Drop here", "여기에 놓기"),
+    "water": ("Air", "Water", "물"),
+    "spark": ("Percikan api", "Sparks", "불꽃"),
+    "wood": ("Kayu kering", "Dry wood", "마른 나무"),
+    "air": ("O₂ Oksigen dari udara", "O₂ Oxygen from air", "O₂ 공기 중 산소"),
+    "reduce": ("Coba Kurangi Satu Unsur", "Try Reducing an Element", "요소 하나 줄여 보기"),
+    "heat": ("Panas", "Heat", "열"),
+    "fuel": ("Bahan bakar", "Fuel", "연료"),
+    "oxygen": ("Oksigen", "Oxygen", "산소"),
+    "next": ("Lanjut", "Continue", "계속"),
+    "quiz": ("Mulai Kuis", "Start Quiz", "퀴즈 시작"),
+    "wrongForest": ("A. Hutan mangrove", "A. Mangrove forest", "A. 맹그로브 숲"),
+    "rightForest": ("B. Hutan rawa gambut", "B. Peat swamp forest", "B. 이탄습지 숲"),
+    "human": ("Aktivitas manusia", "Human activity", "사람의 행동"),
+    "natural": ("Faktor alam", "Natural factor", "자연 현상"),
+    "card": ("Kartu", "Card", "카드"),
+    "impacts": ("Kenali Dampaknya", "Explore the Impacts", "영향 알아보기"),
+    "haze": ("Kabut asap", "Haze", "연무"),
+    "ecosystem": ("Kerusakan ekosistem", "Ecosystem damage", "생태계 훼손"),
+    "emissions": ("Emisi karbon tinggi", "High carbon emissions", "많은 탄소 배출"),
+    "subsidence": ("Penurunan tinggi permukaan tanah atau subsidens", "Lower ground surface (subsidence)", "지표면 높이 감소 (지반 침하)"),
+    "clean": ("Peningkatan kualitas udara", "Improved air quality", "대기 질 개선"),
+    "result": ("Lihat Hasil Akhir", "See Overall Result", "전체 결과 보기"),
+    "finish": ("Selesai", "Closing Message", "완료"),
+    "again": ("Main Lagi", "Play Again", "다시 하기"),
+    "sound": ("Pengaturan suara", "Sound settings", "소리 설정"),
+    "on": ("Suara aktif", "Sound on", "소리 켜기"),
+    "close": ("Tutup", "Close", "닫기"),
+    "back": ("Kembali", "Back", "뒤로"),
+}
+
+
+def run(language, output):
+    index = ["id", "en", "ko"].index(language)
+    label = lambda key: STRINGS[key][index]
+    r = AndroidReview(output)
+    r.adb("shell", "am", "force-stop", r.package)
+    r.adb("logcat", "-c")
+    r.adb("shell", "am", "start", "-n", r.package + "/.MainActivity")
+    r.wait("Bahasa Indonesia", timeout=45)
+    r.tap(["Bahasa Indonesia", "English", "한국어"][index], refresh=False)
+    r.wait(label("start"), clickable=True)
+    r.capture("welcome")
+    r.tap(label("start"), refresh=False, clickable=True)
+    r.wait(label("water"))
+    r.capture("assembly", hierarchy=True)
+    slots = [n for n in r.nodes if r.label(n) == label("drop")]
+    assert len(slots) == 3, "Expected three empty drop zones"
+    r.drag(r.find(label("water")), slots[0])
+    r.capture("assembly-wrong", hierarchy=True)
+    assert any("0/3" in r.label(n) for n in r.nodes), "Wrong drop must not count"
+    for key, slot in [("spark", 0), ("wood", 1), ("air", 2)]:
+        r.dump()
+        r.drag(r.find(label(key)), slots[slot])
+    r.capture("assembly-complete", hierarchy=True)
+    assert any("3/3" in r.label(n) for n in r.nodes)
+    r.tap_at(540, 680)  # Completion accepts a deliberate next tap anywhere.
+    r.wait(label("reduce"), clickable=True)
+    r.capture("fire-explanation")
+    r.tap(label("reduce"), refresh=False, clickable=True)
+    r.wait(label("heat"), clickable=True)
+    r.capture("reduction-before")
+    for key in ["heat", "fuel", "oxygen"]:
+        r.tap(label(key), clickable=True)
+        r.capture("reduction-" + key)
+    r.wait(label("next"), clickable=True)
+    r.capture("reading-definition")
+    r.tap(label("next"), refresh=False, clickable=True)
+    r.wait(label("next"), clickable=True)
+    r.capture("reading-cause")
+    r.tap(label("next"), refresh=False, clickable=True)
+    r.wait(label("quiz"), clickable=True)
+    r.capture("reading-prevention")
+    r.tap(label("quiz"), refresh=False, clickable=True)
+    r.wait(label("wrongForest"), clickable=True)
+    r.capture("peat-quiz")
+    r.tap(label("wrongForest"), refresh=False, clickable=True)
+    r.capture("peat-hint")
+    r.tap(label("rightForest"), clickable=True)
+    r.capture("peat-correct")
+    r.tap_at(540, 680)
+    for number, key in enumerate(["human", "human", "natural", "human"], 1):
+        r.wait(label(key), clickable=True)
+        r.capture("cause-question-" + str(number))
+        r.tap(label(key), refresh=False, clickable=True)
+        r.capture("cause-feedback-" + str(number))
+        time.sleep(2.4)
+    r.wait(label("card") + " 1.", contains=True, clickable=True)
+    r.capture("characteristics-closed")
+    for number in range(1, 4):
+        r.tap(label("card") + f" {number}.", contains=True, clickable=True)
+        r.capture("characteristic-" + str(number))
+    r.wait(label("impacts"), clickable=True)
+    r.tap(label("impacts"), refresh=False, clickable=True)
+    r.wait(label("haze"), clickable=True, timeout=45)
+    # One hierarchy supplies the stable positions for the timed selection grid.
+    choices = {key: r.find(label(key), clickable=True) for key in ["haze", "ecosystem", "emissions", "subsidence", "clean"]}
+    r.capture("final-start")
+    for key in ["haze", "clean"]:
+        r.tap_at(*r.center(choices[key]))
+    r.capture("final-neutral-mixed")
+    # Toggle the decoy off, then choose the remaining three correct impacts.
+    for key in ["clean", "ecosystem", "emissions", "subsidence"]:
+        r.tap_at(*r.center(choices[key]))
+    r.capture("final-four-selected")
+    r.wait(label("result"), clickable=True, timeout=40)
+    r.capture("final-review")
+    r.tap(label("result"), refresh=False, clickable=True)
+    r.wait(label("finish"), clickable=True)
+    r.capture("score")
+    score_labels = [r.label(n) for n in r.nodes]
+    assert "8" in score_labels and any("/ 8" in s for s in score_labels), score_labels
+    r.record("score-assertion", expected=8, maximum=8, labels=score_labels)
+    r.tap(label("finish"), refresh=False, clickable=True)
+    r.wait(label("again"), clickable=True)
+    r.capture("closing")
+    r.tap(label("again"), refresh=False, clickable=True)
+    r.wait(label("water"))
+    r.capture("replay-empty", hierarchy=True)
+    assert any("0/3" in r.label(n) for n in r.nodes)
+    log = r.log()
+    cues = re.findall(r"effect=(\w+) state=playing", log)
+    assert cues.count("finish") == 1, "Final cue must play once"
+    assert cues.count("complete") == 1, "Assembly cue must play once"
+    assert log.count("Offline sources ready; 9 fixed players") == 1, "Replay must reuse players"
+    assert not re.search(r"AudioPlayerException|E flutter|FATAL EXCEPTION|Unhandled Exception", log), "Inspect app log"
+    report = {"language": language, "passed": True, "score": 8, "maximum": 8,
+              "finishCues": cues.count("finish"), "sourcePreparations": 1,
+              "effectCounts": {cue: cues.count(cue) for cue in sorted(set(cues))},
+              "source": "Real debug APK, API35 emulator,1080x1920,density420,host GPU"}
+    (r.output / "result.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
+    print(json.dumps(report), flush=True)
+
+
+if __name__ == "__main__":
+    sys.stdout.reconfigure(encoding="utf-8")
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--lang", choices=["id", "en", "ko"], required=True)
+    parser.add_argument("--output", required=True)
+    args = parser.parse_args()
+    run(args.lang, args.output)

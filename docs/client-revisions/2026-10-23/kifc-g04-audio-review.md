@@ -44,7 +44,7 @@ Kenyamanan volume, keseimbangan di ruangan, kemampuan speaker dan performa pada 
 
 ## APK dan Android offline
 
-APK debug [app-debug.apk](../../../build/app/outputs/flutter-apk/app-debug.apk):172,301,355bytes, SHA-256 `73e4bf3b340ef09754bd14c7c7ebe2eeea689cfb8d25a7638e3e33fb15580e16`, build define `KIFC_REVISION=g04-audio-offline`. [Pemeriksaan paket](../../../build/review-kifc-g04-audio/apk-verification.json):52 aset offline cocok hash, marker `GameAudioController` ada, tidak membundel MP4 mentah. Diagnostik debug tambahan hanya untuk verifikasi; pengubahan kurung kurawal lint sesudah build tidak mengubah perilaku yang diuji.
+APK debug [app-debug.apk](../../../build/review-kifc-g04-audio/app-debug-g04-initial.apk):172,301,355bytes, SHA-256 `73e4bf3b340ef09754bd14c7c7ebe2eeea689cfb8d25a7638e3e33fb15580e16`, build define `KIFC_REVISION=g04-audio-offline`. [Pemeriksaan paket](../../../build/review-kifc-g04-audio/apk-verification.json):52 aset offline cocok hash, marker `GameAudioController` ada, tidak membundel MP4 mentah. Diagnostik debug tambahan hanya untuk verifikasi; pengubahan kurung kurawal lint sesudah build tidak mengubah perilaku yang diuji.
 
 Emulator API35,1080×1920,density420. Airplane mode1, Wi-Fi0. APK dipasang dan dijalankan; musik/hutan mulai setelah tombol speaker, mute mengubah dua loop menjadi paused/gain0, unmute memulihkan gain, Home menghentikan output dan kembali ke Activity memulihkannya. Sumber siap hanya sekali (tiga pemutar), lalu efek tombol Mulai berhasil dimainkan. [Metadata pemeriksaan](../../../build/review-kifc-g04-audio/android-checks.json), [log aktual](../../../build/review-kifc-g04-audio/android-playback.log).
 
