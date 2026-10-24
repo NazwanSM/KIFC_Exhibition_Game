@@ -504,6 +504,7 @@ Empat keadaan layar direvisi tanpa mengubah urutan. Panel diperbesar, dropzone d
 | KIFC-G04 persiapan | `105e32b` | Paket audio untuk pembahasan, tetap tanpa suara |
 | KIFC-09 implementasi | `a11eb8b` | Tiga kartu berputar, tanpa skor,60 render dan browser |
 | KIFC-11 skor | `e3fb941` | Maksimum8, kategori proporsional,212 tes Flutter dan APK terbaru |
+| KIFC-X01 integrasi | `c156395` | Urutan dipertahankan, aturan skor/state ditelusuri, spesifikasi lama ditandai superseded |
 | KIFC-X03 | `d4ebbb2` | Pemeriksa APK, matriks integrasi,191 tes Flutter/1 tes Python,44 aset offline dan bukti |
 
 Branch lokal: **main**. Belum push/deploy pada rangkaian pekerjaan ini. APK debug terbaru memuat kartu09 dan kategori skor8; build/hash serta batas verifikasi tercatat pada review KIFC-11. Preview web utama tetap pada http://localhost:8080/. AVD pengujian sudah dimatikan setelah bukti disimpan; data uji berada pada build di driveD, AVD asli tidak dipindahkan.
