@@ -2,6 +2,8 @@
 
 Pemeriksaan 25 Oktober 2026. Status **Ditinjau**. Arahan pemilik: “Tetap padam; setiap pilihan memadamkan dua api tambahan.” Catatan ini menggantikan respons seluruh api dan replay pada [review sebelumnya](kifc-04-reduction-review.md).
 
+Commit implementasi dan tes: `78eb6c9` pada `main`.
+
 ## Perilaku yang diterapkan
 
 | Pilihan | Area yang dipadamkan | Titik api |

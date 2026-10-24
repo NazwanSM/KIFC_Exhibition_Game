@@ -589,3 +589,5 @@ Commit khusus koreksi KIFC-04: `a7b6fa7` pada `main`, mencakup implementasi, tes
 Pemilik menilai perbedaan respons sebelumnya belum terlihat dan meminta dua api per area. Klarifikasi eksplisit: “Tetap padam; setiap pilihan memadamkan dua api tambahan.” Panas memadamkan kiri, Bahan bakar tengah, Oksigen kanan. Setiap pilihan baru mengurangi dua api; pilihan berulang tidak menyalakan kembali atau menambah progres. Ulangi memulihkan seluruh enam api. Kartu yang pernah dipakai tetap redup; instruksi tiga bahasa menjelaskan pasangan api di atas pilihan.
 
 276tes lulus, analisis bersih,120render lima ukuran/tiga bahasa serta browser nyata (0error/0warning) diperiksa. Alur Lanjut tetap menuju kartu definisi; fallback14detik, skor dan urutan dipertahankan. [Review terbaru dan bukti](../../docs/client-revisions/2026-10-25/kifc-04-spatial-reduction-review.md). Belum APK/push/deploy atau uji TV fisik.
+
+Commit koreksi kumulatif KIFC-04: `78eb6c9` pada `main`.
