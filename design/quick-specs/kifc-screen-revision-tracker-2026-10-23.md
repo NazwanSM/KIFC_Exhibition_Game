@@ -39,7 +39,7 @@ Tracker ini mencatat pekerjaan baru dari dokumen KIFC. **KIFC-01 sampai 10 sudah
 | KIFC-G04 | Musik, suara alam, efek suara, dan kontrol audio | Ditinjau | Koreksi interaksi/error web,239 tes,53 aset APK serta alur/audio native tiga bahasa diperiksa; akustik TV fisik menunggu D-09 |
 | KIFC-X01 | Alur, penomoran babak, dan perhitungan skor | Ditinjau | Urutan dipertahankan, kartu09 tanpa skor, maksimum8;212 tes lulus |
 | KIFC-X02 | Naskah tiga bahasa dan konsistensi istilah | Ditinjau | Inventaris/glosarium serta alur Korea diperiksa; materi09 sudah tiga bahasa; validasi klien/penutur menunggu |
-| KIFC-X03 | Verifikasi, perangkat, dan rilis | Ditinjau sebagian | APK terbaru/53 aset, tiga perjalanan native lengkap8/8 serta replay/audio lulus; bukti720p/1080p dan4K terbatas; TV fisik dan rilis final menunggu |
+| KIFC-X03 | Verifikasi, perangkat, dan rilis | Ditinjau sebagian | APK terbaru/53 aset, tiga perjalanan native lengkap8/8 serta replay/audio lulus; bukti720p/1080p dan4K terbatas; Prarilis APK/Pages57f0467 terverifikasi; TV fisik dan paket produksi tetap terbuka |
 
 ## KIFC-01 Tampilan awal
 
@@ -403,7 +403,7 @@ Bagian ini adalah pekerjaan turunan dari perubahan konten, bukan kutipan permint
 - [ ] **KIFC-X03.04** Periksa crop, ukuran teks, maskot, visual baru, animasi, dan tombol pada viewport portrait; lakukan uji sentuhan langsung pada TV 42 inci setelah perangkat dan pemasangan diketahui.
 - [ ] **KIFC-X03.05** Bagian fungsional APK/web telah diuji:53 aset, tiga bahasa native, volume/mute/zero/background/replay. Pengukuran performa perangkat target tetap terbuka; FPS emulator tidak dinyatakan lulus. [Bukti terbaru](../../docs/client-revisions/2026-10-23/kifc-x03-latest-apk-review.md).
 - [x] **KIFC-X03.06** Jalankan analisis Flutter dan tes regresi yang relevan; simpan hasil dan screenshot/rekaman setiap layar yang berubah.
-- [ ] **KIFC-X03.07** Setelah pemeriksaan, siapkan build/deployment berikutnya sesuai instruksi rilis; verifikasi commit yang terdeploy, aset, dan site yang tepat.
+- [x] **KIFC-X03.07** APK pengujian dan GitHub Pages diterbitkan; workflow239tes sukses, commit57f0467 dan site pertama benar,53 aset manifest serta9 hash audio terverifikasi. APK prarilis/debug dengan checksum server cocok; paket produksi dengan kunci pemilik tetap terpisah.
 
 **Kriteria penerimaan:** ada bukti per tiket serta satu sesi terpadu tanpa penghalang; batas uji fisik, materi yang masih sementara, dan isu terbuka dilaporkan jelas.
 
@@ -556,3 +556,6 @@ Commit koreksi audio web KIFC-G04: `e8f471f` pada main.239tes lulus,17tes visual
 ### KIFC-X03 — APK setelah koreksi audio
 
 APK debug172309275bytes, SHA256 `33f9719443910319ff9c6dfb1e2fc6b0b560617c6affbd1774b6761e756f8bf6`,53 aset offline cocok. Tiga perjalanan native ID/EN/KO lulus sampai8/8, penutup dan replay0/3; finish masing-masing sekali, sumber disiapkan sekali sepanjang replay. Native mute/master0/background/resume serta persistensi saat pindah bahasa diperiksa.102 screenshot perjalanan1080p, enam pembanding720p dan satu pembuka4K tersedia. Tambahan4K membentur alokasi host; app tetap hidup dan override dipulihkan. [Bukti APK dan screenshot](../../docs/client-revisions/2026-10-23/kifc-x03-latest-apk-review.md), [observasi performa dengan batas NOT ASSESSED](../../production/polish/android-emulator-report-2026-10-24.md). Analisis bersih; tidak mengubah Dart/aturan game. Publikasi web/APK pengujian dicatat setelah diperiksa. Uji fisik TV, waktu baca, akustik, validasi naskah dan paket produksi bertanda tangan pemilik tetap terbuka.
+
+
+Commit verifikasi KIFC-X03: `57f0467` pada main. [Workflow deploy sukses](https://github.com/NazwanSM/KIFC_Exhibition_Game/actions/runs/40075079187),239 tes CI lulus. [Site pertama](https://nazwansm.github.io/KIFC_Exhibition_Game/) terdeploy dari57f0467,53 entri aset/9 hash audio cocok serta pemutaran/mute publik diperiksa. [Prarilis APK pengujian dan20 screenshot](https://github.com/NazwanSM/KIFC_Exhibition_Game/releases/tag/review-2026-10-24-audio) sudah diunggah; digest/ukuran server cocok lokal. [Rincian publikasi](../../docs/client-revisions/2026-10-23/kifc-x03-latest-apk-review.md). X03.07 selesai untuk rilis pengujian; X03 keseluruhan masih sebagian karena TV fisik/performa produksi belum dinilai.

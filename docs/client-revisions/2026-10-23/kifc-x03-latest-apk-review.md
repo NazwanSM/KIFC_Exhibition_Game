@@ -52,4 +52,17 @@ Enam capture720p mencakup pembuka/panel ketiga bahasa. Tambahan panel4K tidak di
 - C tersisa sekitar290MB pada awal.13 direktori sementara kompilasi yang berisi referensi proyek, total1.44GB, diarsipkan secara reversible ke D:/KIFC-review-temp/archived-flutter-tools. Profil browser dan file pemilik tidak dipindahkan. TEMP/TMP build hanya diatur untuk proses ini, keD. AVD uji merupakan salinan di build; AVD asli tetap.
 - APK lama dipertahankan sebagai build/review-kifc-g04-audio/app-debug-g04-initial.apk. Emulator ditutup sesudah pengujian untuk menghemat memori; override tampilan dipulihkan1080×1920/density420.
 
-Status: verifikasi fungsional APK terbaru **Ditinjau**. KIFC-X03 keseluruhan tetap **Ditinjau sebagian** sampai uji TV fisik dan pemeriksaan rilis selesai. Kenyamanan speaker, jangkauan, waktu baca, durasi final dan persetujuan naskah Korea/KIFC masih terbuka. Status publikasi akan dicatat setelah hasil workflow dan aset site diperiksa.
+Status: verifikasi fungsional APK terbaru **Ditinjau**. KIFC-X03 keseluruhan tetap **Ditinjau sebagian** sampai uji TV fisik selesai; publikasi prarilis pengujian sudah diverifikasi di bawah. Kenyamanan speaker, jangkauan, waktu baca, durasi final dan persetujuan naskah Korea/KIFC masih terbuka. Status publikasi sudah diperiksa di bawah.
+
+
+## Publikasi yang telah diverifikasi
+
+Commit verifikasi **57f0467** sudah di-push ke main. [Workflow Pages](https://github.com/NazwanSM/KIFC_Exhibition_Game/actions/runs/40075079187) sukses: analisis bersih, **239 tes lulus**, build web release dan deploy berhasil. [Site pertama](https://nazwansm.github.io/KIFC_Exhibition_Game/) memuat hasil commit57f04675ebad162168569825246d9fe41646b137. Base href benar,53 aset ada pada manifest dan9 audio yang dilayani cocok hash. Pemutaran musik/alam/tap serta mute seluruh9 pemutar diperiksa langsung pada site publik tanpa error audio tak tertangani. [Hasil HTTP/hash](../../../build/review-kifc-x03-latest/published-web-checks.json), [pemutaran browser publik](../../../build/review-kifc-x03-latest/public-browser-audio.json), [panel browser publik](../../../build/review-kifc-x03-latest/public-browser-audio-panel.png).
+
+[Prarilis APK pengujian](https://github.com/NazwanSM/KIFC_Exhibition_Game/releases/tag/review-2026-10-24-audio) menunjuk commit57f0467. Tiga unggahan selesai dan digest server/ukuran cocok lokal: APK172309275bytes, ZIP20 screenshot terpilih27061830bytes, dan SHA256SUMS.txt. [Metadata unggahan](../../../build/review-kifc-x03-latest/published-apk-release.json). APK tetap debug untuk review; tidak dinyatakan sebagai paket produksi.
+
+- [APK](https://github.com/NazwanSM/KIFC_Exhibition_Game/releases/download/review-2026-10-24-audio/KIFC-Challenge-2026-10-24-debug.apk)
+- [ZIP screenshot dan hasil](https://github.com/NazwanSM/KIFC_Exhibition_Game/releases/download/review-2026-10-24-audio/KIFC-testing-evidence-2026-10-24.zip)
+- [Checksum](https://github.com/NazwanSM/KIFC_Exhibition_Game/releases/download/review-2026-10-24-audio/SHA256SUMS.txt)
+
+Emulator sudah ditutup; preview lokal http://localhost:8080/ dijalankan kembali. Uji TV fisik, akustik, waktu baca, validasi bahasa dan kunci penandatanganan produksi tetap terbuka. Commit dokumentasi setelah57f0467 hanya merekam hasil ini, tanpa mengganti aplikasi yang terdeploy atau mengulang build.
