@@ -938,6 +938,10 @@ const Map<String, String> _korean = <String, String>{
   'Satu unsur berkurang': '요소 하나를 줄였어요',
   'Heat reduced': '열을 줄였어요',
   'Panas dikurangi': '열을 줄였어요',
+  'Sentuh unsur untuk memadamkan dua api di atasnya. Coba ketiganya.':
+      '요소를 누르면 바로 위의 불꽃 두 개가 꺼져요. 세 가지 모두 해 보세요.',
+  'Touch an element to put out the two flames above it. Try all three.':
+      '요소를 누르면 바로 위의 불꽃 두 개가 꺼져요. 세 가지 모두 해 보세요.',
   'Fuel reduced': '연료를 줄였어요',
   'Bahan bakar dikurangi': '연료를 줄였어요',
   'Oxygen reduced': '산소를 줄였어요',

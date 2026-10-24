@@ -74,17 +74,22 @@ void main() {
         expect(
           tester
               .widget<ForestFireSimulation>(find.byType(ForestFireSimulation))
-              .reducedElement,
-          0,
+              .reducedRegions,
+          {0},
         );
         await captureScreen(tester, 'reduction-after-$lang-$res', metrics);
         await tester.pump(const Duration(milliseconds: 1500));
-        expect([
-          for (var i = 0; i < 6; i++)
-            tester
-                .widget<Opacity>(find.byKey(ValueKey('forest-fire-opacity-$i')))
-                .opacity,
-        ], everyElement(0.0));
+        expect(
+          [
+            for (var i = 0; i < 6; i++)
+              tester
+                  .widget<Opacity>(
+                    find.byKey(ValueKey('forest-fire-opacity-$i')),
+                  )
+                  .opacity,
+          ],
+          [0.0, 0.0, 1.0, 1.0, 1.0, 1.0],
+        );
         await captureScreen(
           tester,
           'reduction-extinguished-$lang-$res',

@@ -10,7 +10,7 @@ void main() {
   testWidgets(
     'extinguished fires pause their recordings and reset resumes them',
     (tester) async {
-      int? factor = 0;
+      var regions = <int>{0};
       late StateSetter update;
       await tester.pumpWidget(
         MaterialApp(
@@ -20,22 +20,22 @@ void main() {
               return SizedBox(
                 width: 360,
                 height: 150,
-                child: ForestFireSimulation(reducedElement: factor),
+                child: ForestFireSimulation(reducedRegions: regions),
               );
             },
           ),
         ),
       );
       await tester.pump(const Duration(seconds: 2));
-      for (final element in find.byType(FireLoop).evaluate()) {
+      final loops = find.byType(FireLoop).evaluate().toList();
+      for (var i = 0; i < 6; i++) {
         expect(
-          TickerMode.of(element),
-          isFalse,
-          reason:
-              'A transparent extinguished fire must not keep decoding animation',
+          TickerMode.of(loops[i]),
+          i >= 2,
+          reason: 'Only the extinguished left pair pauses its recordings',
         );
       }
-      update(() => factor = null);
+      update(() => regions = <int>{});
       await tester.pump();
       for (final element in find.byType(FireLoop).evaluate()) {
         expect(TickerMode.of(element), isTrue);
@@ -70,9 +70,9 @@ void main() {
   );
 
   testWidgets(
-    'six anchors quench smoothly for all factors and rapid changes never flash',
+    'pairs accumulate and rapid additions preserve already extinguished regions',
     (tester) async {
-      int? factor;
+      final regions = <int>{};
       late StateSetter update;
       await tester.pumpWidget(
         MaterialApp(
@@ -83,7 +83,7 @@ void main() {
                 child: SizedBox(
                   width: 360,
                   height: 150,
-                  child: ForestFireSimulation(reducedElement: factor),
+                  child: ForestFireSimulation(reducedRegions: regions),
                 ),
               );
             },
@@ -100,22 +100,22 @@ void main() {
       for (var i = 0; i < 6; i++) {
         expect(find.byKey(ValueKey('forest-fire-point-$i')), findsOneWidget);
       }
-      update(() => factor = 0);
+      update(() => regions.add(0));
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 600));
       final before = strengths();
       expect(before.any((value) => value < .9), isTrue);
-      update(() => factor = 1);
+      update(() => regions.add(1));
       await tester.pump();
       final after = strengths();
       for (var i = 0; i < 6; i++) {
         expect(after[i], closeTo(before[i], .001));
       }
       await tester.pump(const Duration(milliseconds: 1900));
-      expect(strengths(), everyElement(0.0));
-      update(() => factor = 2);
+      expect(strengths(), [0.0, 0.0, 0.0, 0.0, 1.0, 1.0]);
+      update(() => regions.add(2));
       await tester.pump();
-      expect(strengths(), everyElement(0.0));
+      expect(strengths(), [0.0, 0.0, 0.0, 0.0, 1.0, 1.0]);
       await tester.pump(const Duration(milliseconds: 300));
       expect(strengths().any((value) => value > .1), isTrue);
       await tester.pump(const Duration(milliseconds: 2000));
@@ -135,12 +135,21 @@ void main() {
             child: const SizedBox(
               width: 360,
               height: 150,
-              child: ForestFireSimulation(reducedElement: 0),
+              child: ForestFireSimulation(reducedRegions: {0}),
             ),
           ),
         ),
       );
       await tester.pump(const Duration(milliseconds: 100));
+      expect(
+        [
+          for (var i = 0; i < 6; i++)
+            tester
+                .widget<Opacity>(find.byKey(ValueKey('forest-fire-opacity-$i')))
+                .opacity,
+        ],
+        [0.0, 0.0, 1.0, 1.0, 1.0, 1.0],
+      );
       expect(tester.binding.transientCallbackCount, 0);
       expect(tester.takeException(), isNull);
       await tester.pumpWidget(const SizedBox.shrink());

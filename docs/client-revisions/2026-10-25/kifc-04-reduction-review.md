@@ -1,5 +1,7 @@
 # KIFC-04 — simulasi pengurangan unsur
 
+> Riwayat sebelum arahan kumulatif terbaru. Respons seluruh-api dan replay di bawah sudah diganti: setiap pilihan baru memadamkan dua api di areanya, dan area sebelumnya tetap padam. Lihat [implementasi serta bukti terbaru](kifc-04-spatial-reduction-review.md).
+
 Tanggal pemeriksaan 25 Oktober 2026. Status: **Ditinjau**; implementasi dan pemeriksaan lokal selesai, pengesahan klien/TV fisik tetap terbuka.
 
 Commit implementasi, tes dan bukti: `a7b6fa7` pada `main`.

@@ -146,7 +146,6 @@ class _ExhibitionGameState extends State<ExhibitionGame>
   int _preparationTicket = 0;
   int _idleSeconds = 15;
   bool _mascotsPrepared = false;
-  int _breakReplay = 0;
 
   @override
   void initState() {
@@ -364,7 +363,6 @@ class _ExhibitionGameState extends State<ExhibitionGame>
     setState(() {
       _breakChoice = slot;
       _breakTried.add(slot);
-      _breakReplay++;
     });
     // The demo is unscored; it moves on once all three elements are explored.
     if (_breakTried.length == _FireSlot.values.length) {
@@ -382,7 +380,6 @@ class _ExhibitionGameState extends State<ExhibitionGame>
     setState(() {
       _breakChoice = null;
       _breakTried.clear();
-      _breakReplay++;
     });
   }
 
@@ -574,7 +571,6 @@ class _ExhibitionGameState extends State<ExhibitionGame>
         english: _en,
         selected: _breakChoice,
         tried: _breakTried,
-        replay: _breakReplay,
         onSelect: _chooseBreak,
         onRestart: _restartBreak,
         onContinue: _continueBreak,
@@ -1642,7 +1638,6 @@ class _BreakTriangle extends StatelessWidget {
     required this.english,
     required this.selected,
     required this.tried,
-    required this.replay,
     required this.onSelect,
     required this.onBack,
     required this.onRestart,
@@ -1651,7 +1646,6 @@ class _BreakTriangle extends StatelessWidget {
   final bool english;
   final _FireSlot? selected;
   final Set<_FireSlot> tried;
-  final int replay;
   final ValueChanged<_FireSlot> onSelect;
   final VoidCallback onBack, onRestart, onContinue;
 
@@ -1697,8 +1691,8 @@ class _BreakTriangle extends StatelessWidget {
         : 'BABAK 1 / DEMO INTERAKTIF',
     title: english ? 'Reduce one element.' : 'Kurangi satu unsur.',
     subtitle: english
-        ? 'Touch an element and watch the flame change. You can try all three.'
-        : 'Pilih unsur yang ingin dikurangi, lalu amati apinya. Kamu bisa mencoba ketiganya.',
+        ? 'Touch an element to put out the two flames above it. Try all three.'
+        : 'Sentuh unsur untuk memadamkan dua api di atasnya. Coba ketiganya.',
     onBack: onBack,
     onRestart: onRestart,
     bodyScrollable: false,
@@ -1711,7 +1705,7 @@ class _BreakTriangle extends StatelessWidget {
           active: _FireSlot.values.toSet(),
           english: english,
           reduced: selected,
-          reductionReplay: replay,
+          reducedRegions: tried,
         ),
         const SizedBox(height: 6),
         Row(
@@ -1721,7 +1715,7 @@ class _BreakTriangle extends StatelessWidget {
               Expanded(
                 child: _ChoiceButton(
                   label: slot.title(english),
-                  selected: selected == slot,
+                  selected: tried.contains(slot),
                   graded: false,
                   onTap: () => onSelect(slot),
                 ),
@@ -3720,7 +3714,7 @@ class _FireScene extends StatelessWidget {
     this.onDrop,
     this.placements,
     this.reduced,
-    this.reductionReplay = 0,
+    this.reducedRegions = const {},
   });
   final Set<_FireSlot> active;
   final Map<_FireSlot, _FirePiece>? placements;
@@ -3729,7 +3723,7 @@ class _FireScene extends StatelessWidget {
       _compactLayout(context) ? 216 : 248;
   final void Function(_FireSlot, _FirePiece)? onDrop;
   final _FireSlot? reduced;
-  final int reductionReplay;
+  final Set<_FireSlot> reducedRegions;
   @override
   Widget build(BuildContext context) => ClipRRect(
     borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
@@ -3822,8 +3816,9 @@ class _FireScene extends StatelessWidget {
                   child: active.length == 3
                       ? ForestFireSimulation(
                           key: const ValueKey('fire'),
-                          reducedElement: reduced?.index,
-                          replay: reductionReplay,
+                          reducedRegions: reducedRegions
+                              .map((slot) => slot.index)
+                              .toSet(),
                         )
                       : const SizedBox(key: ValueKey('no-fire')),
                 ),
@@ -3841,7 +3836,7 @@ class _FireScene extends StatelessWidget {
                         placements?.containsKey(slot) ?? active.contains(slot),
                     placedPiece: placements?[slot],
                     revealLabel: onDrop == null,
-                    reduced: reduced == slot,
+                    reduced: reducedRegions.contains(slot),
                     compact: true,
                     onDrop: onDrop,
                   ),

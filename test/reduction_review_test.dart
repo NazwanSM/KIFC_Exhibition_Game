@@ -25,7 +25,7 @@ void main() {
       final lang = ['id', 'en', 'ko'][locale.index];
       final resolution = '${size.width.toInt()}x${size.height.toInt()}';
       testWidgets(
-        'KIFC-04 reduction, replay and continuation fit $lang-$resolution',
+        'KIFC-04 cumulative spatial reduction and continuation fit $lang-$resolution',
         (tester) async {
           final metadata = <String, Object>{
             'ticket': 'KIFC-04',
@@ -56,9 +56,7 @@ void main() {
           for (var element = 0; element < 3; element++) {
             await tester.tap(kind('_ChoiceButton').at(element));
             await tester.pump();
-            await tester.pump(
-              Duration(milliseconds: element == 0 ? 700 : 1000),
-            );
+            await tester.pump(const Duration(milliseconds: 500));
             await paintAssembly(tester);
             expect(tester.getRect(kind('_FireScene')).size, panel.size);
             final caption = locale == AppLocale.english
@@ -77,7 +75,14 @@ void main() {
             expect(strengths(tester).any((v) => v > 0 && v < 1), isTrue);
             await capture('${['heat', 'fuel', 'oxygen'][element]}-changing');
             await tester.pump(const Duration(milliseconds: 2300));
-            expect(strengths(tester), everyElement(0));
+            expect(
+              strengths(tester),
+              const [
+                [0.0, 0.0, 1.0, 1.0, 1.0, 1.0],
+                [0.0, 0.0, 0.0, 0.0, 1.0, 1.0],
+                [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+              ][element],
+            );
             await capture('${['heat', 'fuel', 'oxygen'][element]}-out');
           }
           final continueButton = find.byKey(
@@ -93,7 +98,7 @@ void main() {
           await tester.tap(kind('_ChoiceButton').at(2));
           await tester.pump();
           await tester.pump(const Duration(milliseconds: 350));
-          expect(strengths(tester).any((v) => v > .1), isTrue);
+          expect(strengths(tester), everyElement(0));
           expect(
             find.text(
               AppCopy.translate(
@@ -104,7 +109,7 @@ void main() {
             ),
             findsOneWidget,
           );
-          await capture('replay');
+          await capture('repeated-selection');
           await tester.tap(continueButton);
           await tester.pump();
           await tester.pump(const Duration(milliseconds: 500));

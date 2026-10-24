@@ -1,12 +1,14 @@
 import 'dart:math' as math;
+import 'package:flutter/foundation.dart' show setEquals;
 import 'package:flutter/material.dart';
 import 'fire_loop.dart';
 
 /// Six recorded, independently framed ground fires shared by Chapter 1 screens.
 class ForestFireSimulation extends StatefulWidget {
-  const ForestFireSimulation({super.key, this.reducedElement, this.replay = 0});
-  final int? reducedElement;
-  final int replay;
+  const ForestFireSimulation({super.key, this.reducedRegions = const {}});
+
+  /// Left, centre and right demonstration areas, each containing two fires.
+  final Set<int> reducedRegions;
   static const assets = [
     'assets/animations/forest-fire-0.webp',
     'assets/animations/forest-fire-1.webp',
@@ -22,22 +24,32 @@ class _ForestFireSimulationState extends State<ForestFireSimulation>
     with SingleTickerProviderStateMixin {
   late final _quench = AnimationController(
     vsync: this,
-    duration: const Duration(milliseconds: 1800),
+    duration: const Duration(milliseconds: 1000),
   );
-  bool _replay = false;
+  late Set<int> _regions;
   List<double> _starts = List.filled(6, 1);
+  late List<double> _targets;
+
+  List<double> _targetStrengths() => [
+    for (var i = 0; i < 6; i++) _regions.contains(i ~/ 2) ? 0.0 : 1.0,
+  ];
 
   @override
   void initState() {
     super.initState();
-    if (widget.reducedElement != null) _quench.forward();
+    _regions = Set.of(widget.reducedRegions);
+    _targets = _targetStrengths();
+    if (_regions.isEmpty) {
+      _quench.value = 1;
+    } else {
+      _quench.forward();
+    }
   }
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    if (MediaQuery.disableAnimationsOf(context) &&
-        widget.reducedElement != null) {
+    if (MediaQuery.disableAnimationsOf(context)) {
       _quench.value = 1;
     }
   }
@@ -45,22 +57,16 @@ class _ForestFireSimulationState extends State<ForestFireSimulation>
   @override
   void didUpdateWidget(ForestFireSimulation oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.reducedElement == widget.reducedElement &&
-        oldWidget.replay == widget.replay) {
-      return;
-    }
-    if (widget.reducedElement == null) {
-      _quench.reset();
-      _replay = false;
+    if (setEquals(_regions, widget.reducedRegions)) return;
+    // Snapshot strengths before changing targets. A fast second choice must
+    // not flash a previous region back on or disturb the unselected flames.
+    _starts = List.generate(6, _strength);
+    _regions = Set.of(widget.reducedRegions);
+    _targets = _targetStrengths();
+    if (_regions.isEmpty) {
+      _starts = List.filled(6, 1);
+      _quench.value = 1;
     } else {
-      final current = List.generate(
-        6,
-        (i) => _strength(i, oldWidget.reducedElement),
-      );
-      // Preserve the current strength on rapid changes; only relight once out.
-      _replay = current.every((value) => value < .01);
-      _starts = _replay ? List.filled(6, 1) : current;
-      _quench.duration = Duration(milliseconds: _replay ? 2200 : 1800);
       if (MediaQuery.disableAnimationsOf(context)) {
         _quench.value = 1;
       } else {
@@ -69,25 +75,10 @@ class _ForestFireSimulationState extends State<ForestFireSimulation>
     }
   }
 
-  double _strength(int i, int? element) {
-    if (element == null) return 1;
-    var t = _quench.value;
-    if (_replay && t < .18) return Curves.easeOut.transform(t / .18);
-    if (_replay) t = ((t - .18) / .82).clamp(0, 1);
-    // These are teaching illustrations, not measured extinguishing speeds:
-    // cooling lowers the whole flame; fuel gaps interrupt separate patches;
-    // oxygen limitation keeps a visible flame before its final snuffing phase.
-    final remaining = switch (element) {
-      0 => 1 - Curves.easeOutCubic.transform(t),
-      1 => () {
-        const gaps = [0.0, .42, .12, .60, .22, .48];
-        final local = ((t - gaps[i]) / (1 - gaps[i])).clamp(0.0, 1.0);
-        return 1 - Curves.easeInOut.transform(local);
-      }(),
-      _ => 1 - Curves.easeInCubic.transform(t),
-    };
-    return _starts[i] * remaining;
-  }
+  double _strength(int i) =>
+      _starts[i] +
+      (_targets[i] - _starts[i]) *
+          Curves.easeInOutCubic.transform(_quench.value);
 
   @override
   void dispose() {
@@ -120,10 +111,9 @@ class _ForestFireSimulationState extends State<ForestFireSimulation>
                     for (var i = 0; i < points.length; i++)
                       Builder(
                         builder: (context) {
-                          final strength =
-                              reducedMotion && widget.reducedElement != null
-                              ? 0.0
-                              : _strength(i, widget.reducedElement);
+                          final strength = reducedMotion
+                              ? _targets[i]
+                              : _strength(i);
                           final point = points[i];
                           final height =
                               math.min(

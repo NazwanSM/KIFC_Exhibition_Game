@@ -25,7 +25,7 @@ Tracker ini mencatat pekerjaan baru dari dokumen KIFC. **KIFC-01 sampai 10 sudah
 | KIFC-01 | Tampilan awal | Ditinjau | Implementasi dan 16 screenshot siap; penilaian pemilik serta TV fisik menunggu |
 | KIFC-02 | Menyusun tiga unsur api | Ditinjau | Tiga slot dipertahankan; aset dan layout baru siap ditinjau; 60 render dan tes tersedia |
 | KIFC-03 | Penjelasan segitiga api | Ditinjau | Narasi utama, panel di atas dan urutan unsur konsisten; bukti tiga bahasa tersedia |
-| KIFC-04 | Simulasi mengurangi unsur api | Ditinjau | Audit khusus25Oktober: respons tiap unsur, replay/Ulangi, waktu baca dan kelanjutan diperbaiki;120 render serta rekaman browser tersedia; pengesahan/uji TV fisik terbuka |
+| KIFC-04 | Simulasi mengurangi unsur api | Ditinjau | Koreksi25Oktober: pasangan kiri/tengah/kanan padam kumulatif6→4→2→0;276tes,120render dan rekaman browser tersedia; pengesahan/uji TV fisik terbuka |
 | KIFC-05 | Pengertian kebakaran hutan | Ditinjau | Naskah KIFC dan 15 screenshot siap |
 | KIFC-06 | Penyebab kebakaran hutan | Ditinjau | Kartu kedua diubah ke penyebab; 15 screenshot siap |
 | KIFC-07 | Pentingnya pencegahan kebakaran hutan | Ditinjau | 4 pilar kerugian diterapkan; 15 screenshot siap |
@@ -135,13 +135,13 @@ Analisis bersih, **151 tes lulus**, dan **60 render** empat keadaan × tiga baha
 - [x] **KIFC-04.01** [Konsep perbaikan](kifc-04-reduction-review-2026-10-25.md) mencatat tujuan belajar, tindakan, respons dan narasi setiap unsur.
 - [x] **KIFC-04.02** Alternatif penghapusan beserta dampak pada CTA, navigasi dan materi dicatat dalam konsep; tidak diterapkan.
 - [x] **KIFC-04.03** D-03 mengikuti keputusan langsung pemilik24Oktober: pertahankan demo, perbaiki berdasarkan mockup, dan jaga urutan layar. Ini keputusan pemilik untuk implementasi, bukan klaim pembahasan/pengesahan final KIFC.
-- [x] **KIFC-04.04** Respons ilustratif pendinginan, pemisahan titik bahan bakar dan pembatasan oksigen dibedakan, disertai badge unsur serta penjelasan. Api padam bertahap; narasi oksigen tetap menjelaskan keterbatasan pada lahan terbuka.
+- [x] **KIFC-04.04** Setiap unsur memadamkan dua api di atasnya: Panas kiri, Bahan bakar tengah, Oksigen kanan. Area padam tetap padam, sehingga6→4→2→0; urutan pilihan bebas. Penjelasan unsur serta batas penerapan oksigen di lahan terbuka tetap tersedia.
 - **KIFC-04.05 — Tidak berlaku:** cabang menghapus layar tidak dipilih, sehingga rute penghapusan tidak perlu diterapkan.
-- [x] **KIFC-04.06** Sentuhan ulang memutar demonstrasi tanpa menambah progres; Ulangi memulihkan0/3 serta membatalkan callback lama. Demo tidak memberi poin atau label benar/salah.
+- [x] **KIFC-04.06** Sentuhan ulang mempertahankan area padam tanpa penyalaan kembali atau penambahan progres. Ulangi memulihkan enam api/0/3 serta membatalkan callback lama. Demo tidak memberi poin atau label benar/salah.
 - [x] **KIFC-04.07** Setelah3/3, Lanjut tersedia dan fallback otomatis memberi14detik dari eksplorasi terakhir. Pengulangan/reset/navigasi membatalkan timer sebelumnya; urutan tetap menuju kartu definisi.
 - [x] **KIFC-04.08** Reduced motion dan penghentian rekaman yang telah padam diperiksa;120 render lima ukuran/tiga bahasa dan rekaman browser tersedia.
 
-**Bukti:** [review khusus KIFC-04, screenshot dan rekaman](../../docs/client-revisions/2026-10-25/kifc-04-reduction-review.md). Panel tetap248/216logicalpx dan pilihan tidak diperkecil. Spacing layar pendek diperbaiki setelah overflow ditemukan. Perbedaan timing nyala merupakan ilustrasi interaksi, bukan perbandingan kecepatan pemadaman lapangan.
+**Bukti terbaru:** [review pemadaman kumulatif, screenshot dan rekaman](../../docs/client-revisions/2026-10-25/kifc-04-spatial-reduction-review.md). Panel tetap248/216logicalpx dan pilihan tidak diperkecil. Pembagian tiga area merupakan ilustrasi interaksi, bukan pembagian unsur tunggal pada kebakaran nyata. [Audit sebelumnya](../../docs/client-revisions/2026-10-25/kifc-04-reduction-review.md) disimpan sebagai riwayat; pola seluruh-api/replay diganti arahan kumulatif terbaru.
 
 **Masih terbuka:** pengesahan akhir KIFC/penutur serta uji waktu baca, jangkauan dan performa TV42inci fisik. Angka14detik adalah pilihan implementasi yang siap ditinjau; pemeriksaan viewport tidak menggantikan uji fisik. Koreksi25Oktober belum dimasukkan ke APK/deployment publik sebelumnya.
 
@@ -582,3 +582,10 @@ Menindaklanjuti koreksi pemilik: checklist04 sebelumnya tidak sinkron dan lapora
 Verifikasi KIFC-04 pada kode akhir:275tes Flutter lulus, analisis bersih;120render dan perjalanan browser ulang/reset/3pilihan/Lanjut diperiksa. Tidak ada APK/deployment baru untuk koreksi ini.
 
 Commit khusus koreksi KIFC-04: `a7b6fa7` pada `main`, mencakup implementasi, tes regresi dan catatan bukti. Checklist04 kini selaras dengan cabang dipertahankan; penghapusan ditandai tidak berlaku.
+
+
+### KIFC-04 — koreksi pemadaman per area secara kumulatif,25Oktober
+
+Pemilik menilai perbedaan respons sebelumnya belum terlihat dan meminta dua api per area. Klarifikasi eksplisit: “Tetap padam; setiap pilihan memadamkan dua api tambahan.” Panas memadamkan kiri, Bahan bakar tengah, Oksigen kanan. Setiap pilihan baru mengurangi dua api; pilihan berulang tidak menyalakan kembali atau menambah progres. Ulangi memulihkan seluruh enam api. Kartu yang pernah dipakai tetap redup; instruksi tiga bahasa menjelaskan pasangan api di atas pilihan.
+
+276tes lulus, analisis bersih,120render lima ukuran/tiga bahasa serta browser nyata (0error/0warning) diperiksa. Alur Lanjut tetap menuju kartu definisi; fallback14detik, skor dan urutan dipertahankan. [Review terbaru dan bukti](../../docs/client-revisions/2026-10-25/kifc-04-spatial-reduction-review.md). Belum APK/push/deploy atau uji TV fisik.

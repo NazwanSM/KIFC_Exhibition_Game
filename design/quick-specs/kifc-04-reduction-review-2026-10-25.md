@@ -1,5 +1,7 @@
 # KIFC-04 — hubungan pilihan unsur dan perubahan api
 
+> Riwayat sebelum arahan kumulatif terbaru. Respons seluruh-api dan replay di bawah sudah diganti: setiap pilihan baru memadamkan dua api di areanya, dan area sebelumnya tetap padam. Lihat [implementasi serta bukti terbaru](../../docs/client-revisions/2026-10-25/kifc-04-spatial-reduction-review.md).
+
 ## Dasar dan keputusan
 
 DOCX bagian 04 meminta tujuan belajar yang jelas, perubahan visual yang mudah diamati dan penjelasan per unsur. Alternatifnya menghapus demo jika mengulang penjelasan. Pada24 Oktober pemilik sudah meminta mempertahankan serta memperbaiki keempat keadaan Babak1 berdasarkan mockup dan tidak mengubah urutan. Arah dipertahankan mengikuti instruksi pemilik; ini tidak disebut sebagai persetujuan final KIFC.
