@@ -1,5 +1,7 @@
 # KIFC-G04 — musik, suara hutan dan efek interaksi
 
+> Catatan implementasi awal. Pemutar, gain, aset klik dan cue akhir telah diperbaiki pada [koreksi audio web](kifc-g04-audio-feedback.md); hasil APK di bawah hanya berlaku untuk build awal.
+
 24 Oktober2026. Pemilik meminta melanjutkan audio, lalu menegaskan agar memakai audio internet yang diunduh. Penundaan sebelumnya digantikan instruksi ini. Cakupan implementasi mengikuti musik+alam+efek pada dokumen KIFC; tidak mencakup voice-over, TTS, pembelian aset atau pembuatan suara mentah.
 
 ## Hasil implementasi

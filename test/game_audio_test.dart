@@ -9,6 +9,7 @@ class RecordingAudioBackend implements GameAudioBackend {
   int preparations = 0, disposals = 0;
   Completer<void>? gate;
   bool fail = false;
+  bool failEffectOnce = false;
   @override
   Future<void> prepare() async {
     preparations++;
@@ -32,9 +33,22 @@ class RecordingAudioBackend implements GameAudioBackend {
   }
 
   @override
-  Future<void> play(GameSound sound) async => sounds.add(sound);
+  Future<void> play(GameSound sound) async {
+    if (failEffectOnce) {
+      failEffectOnce = false;
+      throw StateError('transient effect failure');
+    }
+    sounds.add(sound);
+  }
+
   @override
   Future<void> dispose() async => disposals++;
+}
+
+class AudioTestClock extends Stopwatch {
+  int milliseconds = 0;
+  @override
+  int get elapsedMilliseconds => milliseconds;
 }
 
 void main() {
@@ -48,9 +62,9 @@ void main() {
       await audio.activate();
       expect(backend.preparations, 1);
       expect(backend.mixes.last.playing, isTrue);
-      expect(backend.mixes.last.music, closeTo(.45 * .35, .0001));
+      expect(backend.mixes.last.music, closeTo(.65 * .25, .0001));
       await audio.setLevel(AudioLayer.music, .2);
-      expect(backend.mixes.last.music, closeTo(.45 * .2, .0001));
+      expect(backend.mixes.last.music, closeTo(.65 * .2, .0001));
       audio.dispose();
       await audio.settled;
       expect(backend.disposals, 1);
@@ -106,6 +120,47 @@ void main() {
       expect(backend.sounds, [GameSound.select]);
       await audio.play(GameSound.correct);
       expect(backend.sounds.last, GameSound.correct);
+      audio.dispose();
+      await audio.settled;
+    },
+  );
+  test(
+    'a failed effect leaves loops running and the next effect works',
+    () async {
+      final backend = RecordingAudioBackend()..failEffectOnce = true;
+      final audio = GameAudioController(backend: backend);
+      await audio.activate();
+      await audio.play(GameSound.correct);
+      expect(audio.unavailable, isFalse);
+      expect(backend.mixes.last.playing, isTrue);
+      await audio.play(GameSound.retry);
+      expect(backend.sounds, [GameSound.retry]);
+      audio.dispose();
+      await audio.settled;
+    },
+  );
+  test(
+    'next gesture retries output after backoff without undoing mute',
+    () async {
+      final backend = RecordingAudioBackend()..fail = true;
+      final clock = AudioTestClock();
+      final audio = GameAudioController(backend: backend, clock: clock);
+      await audio.interact(GameSound.tap);
+      expect(audio.unavailable, isTrue);
+      await audio.interact(GameSound.tap);
+      expect(backend.preparations, 1, reason: 'Do not retry continuously');
+      await audio.setMuted(true);
+      backend.fail = false;
+      clock.milliseconds = 2100;
+      await audio.interact(GameSound.tap);
+      expect(backend.preparations, 2);
+      expect(audio.unavailable, isFalse);
+      expect(audio.muted, isTrue);
+      expect(backend.mixes.last.playing, isFalse);
+      expect(backend.sounds, isEmpty);
+      await audio.setMuted(false);
+      await audio.interact(GameSound.tap);
+      expect(backend.sounds, [GameSound.tap]);
       audio.dispose();
       await audio.settled;
     },

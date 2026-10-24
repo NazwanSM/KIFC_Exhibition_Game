@@ -15,6 +15,8 @@ extension AppLocaleLabel on AppLocale {
 abstract final class AppCopy {
   static final _locale = ValueNotifier<AppLocale>(AppLocale.indonesian);
 
+  static ValueNotifier<AppLocale> get localeListenable => _locale;
+
   static AppLocale get locale => _locale.value;
   static set locale(AppLocale value) => _locale.value = value;
 

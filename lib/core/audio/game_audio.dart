@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/foundation.dart';
 
-enum GameSound { tap, select, flip, correct, retry, complete }
+enum GameSound { tap, select, flip, correct, retry, complete, finish }
 
 enum AudioLayer { master, music, nature, effects }
 
@@ -19,19 +19,25 @@ abstract interface class GameAudioBackend {
 
 /// Session settings deliberately outlive page changes and Replay, not app exit.
 class GameAudioController extends ChangeNotifier {
-  GameAudioController({required GameAudioBackend backend}) : _backend = backend;
+  GameAudioController({required GameAudioBackend backend, Stopwatch? clock})
+    : _backend = backend,
+      _clock = clock ?? Stopwatch() {
+    _clock.start();
+  }
   final GameAudioBackend _backend;
   final _levels = <AudioLayer, double>{
-    AudioLayer.master: .45,
-    AudioLayer.music: .35,
-    AudioLayer.nature: .45,
-    AudioLayer.effects: .7,
+    AudioLayer.master: .65,
+    AudioLayer.music: .25,
+    AudioLayer.nature: .30,
+    AudioLayer.effects: 1,
   };
   bool muted = false, unavailable = false;
   bool _activated = false, _active = true, _disposed = false, _prepared = false;
   bool _dirty = false, _updating = false;
   int _effectEpoch = 0;
-  final Stopwatch _clock = Stopwatch()..start();
+  final Stopwatch _clock;
+  GameSound? _lastSound;
+  int _retryAfter = 0;
   int _lastEffect = -1000;
   Future<void> _pending = Future.value();
   Future<void> get settled => _pending;
@@ -46,10 +52,22 @@ class GameAudioController extends ChangeNotifier {
 
   Future<void> activate() {
     if (_disposed) return Future.value();
-    if (_activated) return _pending;
+    if (_activated) {
+      if (unavailable && _clock.elapsedMilliseconds >= _retryAfter) {
+        return retry();
+      }
+      return _pending;
+    }
     _activated = true;
     notifyListeners();
     return _sync();
+  }
+
+  /// Call from visitor actions, including keyboard/semantics callbacks that
+  /// do not produce PointerDown. Timers use play() and never unlock autoplay.
+  Future<void> interact(GameSound sound) async {
+    await activate();
+    await play(sound);
   }
 
   Future<void> setLevel(AudioLayer layer, double value) {
@@ -78,6 +96,7 @@ class GameAudioController extends ChangeNotifier {
   Future<void> retry() {
     if (_disposed) return Future.value();
     unavailable = false;
+    _prepared = false;
     notifyListeners();
     _activated = true;
     return _sync();
@@ -109,7 +128,8 @@ class GameAudioController extends ChangeNotifier {
           effects: gain * level(AudioLayer.effects),
         );
       }
-    } catch (_) {
+    } catch (error) {
+      debugPrint('[KIFC audio] output unavailable: $error');
       await _fail();
     } finally {
       _updating = false;
@@ -121,22 +141,28 @@ class GameAudioController extends ChangeNotifier {
     final feedback =
         sound == GameSound.correct ||
         sound == GameSound.retry ||
-        sound == GameSound.complete;
-    if (!feedback && _clock.elapsedMilliseconds - _lastEffect < 100) return;
-    _lastEffect = _clock.elapsedMilliseconds;
+        sound == GameSound.complete ||
+        sound == GameSound.finish;
+    final now = _clock.elapsedMilliseconds;
+    if (!feedback && sound == _lastSound && now - _lastEffect < 60) return;
+    _lastEffect = now;
+    _lastSound = sound;
     final epoch = _effectEpoch;
     await _pending;
     if (!audible || epoch != _effectEpoch) return;
     try {
       await _backend.play(sound);
-    } catch (_) {
-      await _fail();
+    } catch (error) {
+      // A failed one-shot must not stop healthy ambience or latch the mixer off.
+      // The backend discards that cue's player and retries it on its next use.
+      debugPrint('[KIFC audio] effect ${sound.name} failed: $error');
     }
   }
 
   Future<void> _fail() async {
     if (_disposed) return;
     unavailable = true;
+    _retryAfter = _clock.elapsedMilliseconds + 2000;
     _effectEpoch++;
     notifyListeners();
     try {

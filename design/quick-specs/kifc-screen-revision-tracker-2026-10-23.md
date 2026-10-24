@@ -544,3 +544,8 @@ Instruksi langsung pemilik membuka kembali audio dan meminta unduhan internet. M
 235 tes Flutter lulus, analisis bersih,60 render lima ukuran/tiga bahasa tersedia. Pemutaran nyata web dan Android offline (airplane1/Wi-Fi0) menunjukkan playing, mute/master0 pause, resume dan efek tombol. APK/52 aset/hash diverifikasi. [Bukti lengkap, sumber, screenshot dan batas hasil](../../docs/client-revisions/2026-10-23/kifc-g04-audio-review.md). G04 Ditinjau; level/kenyamanan speaker TV42inci masih perlu uji fisik. X03.02 kini diperiksa lewat alur otomatis lengkap tiga bahasa; perjalanan manual seluruh layar APK tetap dicatat terpisah. Tidak ada push/deploy.
 
 Commit implementasi KIFC-G04: `5c8e282` (branch main).235 tes Flutter lulus;6 tes audio terarah diulang setelah pemeriksaan perangkat dan tetap lulus. Analisis final bersih. APK debug,52 aset offline,60 render, pemutaran web dan smoke audio Android tercatat pada review. Belum push/deploy.
+
+
+### KIFC-G04 — koreksi interaksi dan error web
+
+Laporan pemilik: efek terlalu pelan, sejumlah tombol tidak berbunyi, dan audio kadang berhenti pada web. Klik diganti rekaman lebih panjang, level efek dinaikkan, tombol navigasi/dialog/penutup dan lanjut layar dilengkapi, akhir kuis memakai cue khusus. Semantics juga mengaktifkan audio. Sumber efek dimuat sekali dalam pemutar tetap; kegagalan satu cue tidak mematikan latar dan pemakaian berikutnya memulihkannya.239tes lulus, analisis bersih,60 render lima ukuran/tiga bahasa serta pemutaran/pemulihan browser nyata tersedia. [Rincian, screenshot dan batas bukti](../../docs/client-revisions/2026-10-23/kifc-g04-audio-feedback.md). APK belum dibangun ulang pada koreksi web ini. Status Ditinjau; kenyamanan speaker TV fisik masih terbuka. Tidak ada push/deployment.

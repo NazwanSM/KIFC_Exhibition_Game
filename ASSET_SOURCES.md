@@ -86,11 +86,12 @@ All runtime audio is bundled locally, without generation or paid licensing. Mixe
 |---|---|---|
 | `assets/audio/forest-music.mp3` | TinyWorlds, [Forest Ambience](https://opengameart.org/content/forest-ambience), original [MP3](https://opengameart.org/sites/default/files/Forest_Ambience.mp3) | CC0, loop-ready original. Re-encoded44.1kHz stereo96kbps MP3, normalized approximately−23LUFS/−3dBTP. |
 | `assets/audio/forest-birds.mp3` | Joseph Sardin, [Réveil des oiseaux](https://commons.wikimedia.org/wiki/File:R%C3%A9veil_des_oiseaux.ogg), [original OGG](https://upload.wikimedia.org/wikipedia/commons/3/33/R%C3%A9veil_des_oiseaux.ogg) | CC0. Original174.86s; excerpt20–64s,2s linear overlap to form42s loop, normalized approximately−24LUFS/−3dBTP,44.1kHz stereo96kbps MP3. Sparrows/pigeons/other morning birds, illustrative ambience. |
-| `assets/audio/tap.wav` | Kenney, [Interface Sounds](https://opengameart.org/content/interface-sounds), [original ZIP](https://opengameart.org/sites/default/files/kenney_interfaceSounds.zip), `click_003.ogg` | CC0. Converted44.1kHz mono PCM16, gain0.65 and limiter0.7. |
-| `assets/audio/select.wav` | Same pack, `drop_003.ogg` | Same license/conversion; neutral selection, not a correctness cue. |
-| `assets/audio/flip.wav` | Same pack, `switch_002.ogg` | Same license/conversion. |
-| `assets/audio/correct.wav` | Same pack, `confirmation_002.ogg` | Same license/conversion. |
-| `assets/audio/retry.wav` | Same pack, `error_004.ogg` | Same license/conversion. |
-| `assets/audio/complete.wav` | Same pack, `confirmation_004.ogg` | Same license/conversion. |
+| `assets/audio/tap.wav` | Kenney, [Interface Sounds](https://opengameart.org/content/interface-sounds), [original ZIP](https://opengameart.org/sites/default/files/kenney_interfaceSounds.zip), `click_001.ogg` | CC0. 97ms click replaces the barely audible7ms cue. Converted44.1kHz mono PCM16, gain1.1 and peak limiter0.92 with latency compensation. |
+| `assets/audio/select.wav` | Same pack, `drop_003.ogg` | Same license/PCM conversion, gain1.1, limiter0.92; neutral selection, not a correctness cue. |
+| `assets/audio/flip.wav` | Same pack, `switch_002.ogg` | Same license/PCM conversion; gain2.2, limiter0.92 to lift the quieter recording. |
+| `assets/audio/correct.wav` | Same pack, `confirmation_002.ogg` | Same license/PCM conversion; gain1.1, limiter0.92. |
+| `assets/audio/retry.wav` | Same pack, `error_004.ogg` | Same license/PCM conversion; gain1.1, limiter0.92. |
+| `assets/audio/complete.wav` | Same pack, `confirmation_004.ogg` | Same license/PCM conversion; gain1.1, limiter0.92. |
+| `assets/audio/finish.wav` | Same pack, `confirmation_001.ogg` followed by `confirmation_004.ogg` | CC0. Two downloaded phrases concatenated, gain1.1/limiter0.92,44.1kHz mono PCM16,0.78s. Distinct final-deadline cue; no synthesized audio. |
 
 [CC0 deed](https://creativecommons.org/publicdomain/zero/1.0/). Kenney's packaged license is preserved in `docs/client-revisions/2026-10-23/audio/kenney-license.txt`. Runtime hashes/bytes are in `audio/asset-hashes.json` alongside that license. Downloaded originals and source HTML used during preparation: `D:/KIFC-review-temp/audio-sources/` (not runtime assets). No new narration/TTS or generated raw sounds.

@@ -309,7 +309,7 @@ class _ExhibitionGameState extends State<ExhibitionGame>
       if (correct) _triangle[slot] = piece;
     });
     unawaited(
-      _audio.play(
+      _audio.interact(
         _lastDropCorrect == true
             ? (_triangle.length == 3 ? GameSound.complete : GameSound.correct)
             : GameSound.retry,
@@ -344,7 +344,7 @@ class _ExhibitionGameState extends State<ExhibitionGame>
 
   void _chooseBreak(_FireSlot slot) {
     if (_breakChoice == slot) return;
-    unawaited(_audio.play(GameSound.select));
+    unawaited(_audio.interact(GameSound.select));
     setState(() {
       _breakChoice = slot;
       _breakTried.add(slot);
@@ -366,7 +366,7 @@ class _ExhibitionGameState extends State<ExhibitionGame>
       return;
     }
     final correct = option == _RiskOption.peatSwamp;
-    unawaited(_audio.play(correct ? GameSound.correct : GameSound.retry));
+    unawaited(_audio.interact(correct ? GameSound.correct : GameSound.retry));
     setState(() {
       _riskAnswer = option;
       if (!correct) _riskWrong++;
@@ -398,7 +398,7 @@ class _ExhibitionGameState extends State<ExhibitionGame>
     final scenarios = _causeScenarios(_en);
     final lastScenario = _causeIndex == scenarios.length - 1;
     unawaited(
-      _audio.play(
+      _audio.interact(
         humanCause == scenarios[_causeIndex].human
             ? GameSound.correct
             : GameSound.retry,
@@ -422,7 +422,7 @@ class _ExhibitionGameState extends State<ExhibitionGame>
 
   void _flipPeatCard(int index) {
     if (_preparingFinal || _page != _Page.peatCharacteristics) return;
-    unawaited(_audio.play(GameSound.flip));
+    unawaited(_audio.interact(GameSound.flip));
     setState(() {
       if (!_peatFlipped.add(index)) _peatFlipped.remove(index);
       _peatOpened.add(index);
@@ -482,7 +482,7 @@ class _ExhibitionGameState extends State<ExhibitionGame>
       final remaining = remainingExact.ceil();
       if (remaining != _seconds) setState(() => _seconds = remaining);
       if (remaining == 0) {
-        unawaited(_audio.play(GameSound.complete));
+        unawaited(_audio.play(GameSound.finish));
         timer.cancel();
         _finalClock.stop();
         _timer = Timer(const Duration(milliseconds: 420), () {
@@ -510,7 +510,7 @@ class _ExhibitionGameState extends State<ExhibitionGame>
           AppCopy.locale = locale;
         }),
         onStart: () {
-          unawaited(_audio.play(GameSound.tap));
+          unawaited(_audio.interact(GameSound.tap));
           _go(_Page.triangleBuild);
         },
       ),
@@ -585,7 +585,7 @@ class _ExhibitionGameState extends State<ExhibitionGame>
           if (_seconds > 0 &&
               _finalClock.elapsed <
                   const Duration(seconds: finalChallengeSeconds)) {
-            unawaited(_audio.play(GameSound.select));
+            unawaited(_audio.interact(GameSound.select));
             setState(() {
               if (!_finalFound.remove(token)) _finalFound.add(token);
             });
@@ -1073,7 +1073,10 @@ class _RiskPage extends StatelessWidget {
           Positioned.fill(
             child: GestureDetector(
               behavior: HitTestBehavior.opaque,
-              onTap: onContinue,
+              onTap: () {
+                unawaited(GameAudioScope.of(context).interact(GameSound.tap));
+                onContinue();
+              },
               child: const SizedBox.expand(),
             ),
           ),
@@ -1406,7 +1409,12 @@ class _TriangleBuild extends StatelessWidget {
     return GestureDetector(
       key: const ValueKey('assembly-continue-anywhere'),
       behavior: HitTestBehavior.opaque,
-      onTap: complete ? onContinue : null,
+      onTap: complete
+          ? () {
+              unawaited(GameAudioScope.of(context).interact(GameSound.tap));
+              onContinue();
+            }
+          : null,
       child: stage,
     );
   }
@@ -1928,28 +1936,35 @@ class _FinalChallenge extends StatelessWidget {
                 tooltip: AppCopy.translate(
                   english ? 'Photo credits' : 'Kredit foto',
                 ),
-                onPressed: () => showDialog<void>(
-                  context: context,
-                  builder: (context) => AlertDialog(
-                    title: LocalizedText(
-                      english ? 'Photo credits' : 'Kredit foto',
-                    ),
-                    content: const SingleChildScrollView(
-                      child: SelectableText(
-                        'Kabut asap / Smoke: NASA Earth Observatory, Jeff Schmaltz & Adam Voiland. Sumatra, 2015. NASA media guidelines.\nhttps://science.nasa.gov/earth/earth-observatory/smoke-over-sumatra-86762/\n\n'
-                        'Gambut terbakar / Burning peat: Tan Yi Han, Selangor, 2013. CC BY-SA 3.0. Resized; display crop and color filter.\nhttps://commons.wikimedia.org/wiki/File:Peat_fire_in_Selangor,_Malaysia_on_5_June_2013.JPG\nhttps://creativecommons.org/licenses/by-sa/3.0/\n\n'
-                        'Tanah amblas / Collapsed ground: US National Archives, NAID285717. Red Lake Agency, 1935. Public domain (US federal work).\nhttps://catalog.archives.gov/id/285717\n\n'
-                        'Api / Fire: krisna azie, Unsplash. Kanopi / Canopy: Francesco Ungaro, Unsplash. Hutan / Forest: Kereng Bangkirai, project image credits.',
+                onPressed: () {
+                  final audio = GameAudioScope.of(context);
+                  unawaited(audio.interact(GameSound.tap));
+                  showDialog<void>(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                      title: LocalizedText(
+                        english ? 'Photo credits' : 'Kredit foto',
                       ),
-                    ),
-                    actions: [
-                      TextButton(
-                        onPressed: () => Navigator.pop(context),
-                        child: LocalizedText(english ? 'Close' : 'Tutup'),
+                      content: const SingleChildScrollView(
+                        child: SelectableText(
+                          'Kabut asap / Smoke: NASA Earth Observatory, Jeff Schmaltz & Adam Voiland. Sumatra, 2015. NASA media guidelines.\nhttps://science.nasa.gov/earth/earth-observatory/smoke-over-sumatra-86762/\n\n'
+                          'Gambut terbakar / Burning peat: Tan Yi Han, Selangor, 2013. CC BY-SA 3.0. Resized; display crop and color filter.\nhttps://commons.wikimedia.org/wiki/File:Peat_fire_in_Selangor,_Malaysia_on_5_June_2013.JPG\nhttps://creativecommons.org/licenses/by-sa/3.0/\n\n'
+                          'Tanah amblas / Collapsed ground: US National Archives, NAID285717. Red Lake Agency, 1935. Public domain (US federal work).\nhttps://catalog.archives.gov/id/285717\n\n'
+                          'Api / Fire: krisna azie, Unsplash. Kanopi / Canopy: Francesco Ungaro, Unsplash. Hutan / Forest: Kereng Bangkirai, project image credits.',
+                        ),
                       ),
-                    ],
-                  ),
-                ),
+                      actions: [
+                        TextButton(
+                          onPressed: () {
+                            unawaited(audio.interact(GameSound.tap));
+                            Navigator.pop(context);
+                          },
+                          child: LocalizedText(english ? 'Close' : 'Tutup'),
+                        ),
+                      ],
+                    ),
+                  );
+                },
                 icon: const Icon(Icons.info_outline),
               ),
             )
@@ -2448,7 +2463,12 @@ class _ClosingPage extends StatelessWidget {
                   SizedBox(
                     height: 46,
                     child: FilledButton(
-                      onPressed: onAgain,
+                      onPressed: () {
+                        unawaited(
+                          GameAudioScope.of(context).interact(GameSound.tap),
+                        );
+                        onAgain();
+                      },
                       style: FilledButton.styleFrom(
                         backgroundColor: KifcTheme.paper,
                         foregroundColor: KifcTheme.forest950,
@@ -2788,7 +2808,9 @@ class _LanguagePicker extends StatelessWidget {
                 (candidate) => Expanded(
                   child: InkWell(
                     onTap: () {
-                      unawaited(GameAudioScope.of(context).play(GameSound.tap));
+                      unawaited(
+                        GameAudioScope.of(context).interact(GameSound.tap),
+                      );
                       onChanged(candidate);
                     },
                     borderRadius: BorderRadius.circular(
@@ -3037,7 +3059,7 @@ class _SmallButton extends StatelessWidget {
     height: 36,
     child: OutlinedButton.icon(
       onPressed: () {
-        unawaited(GameAudioScope.of(context).play(GameSound.tap));
+        unawaited(GameAudioScope.of(context).interact(GameSound.tap));
         onPressed();
       },
       style: OutlinedButton.styleFrom(
@@ -3081,7 +3103,7 @@ class _Primary extends StatelessWidget {
         onPressed: onPressed == null
             ? null
             : () {
-                unawaited(GameAudioScope.of(context).play(GameSound.tap));
+                unawaited(GameAudioScope.of(context).interact(GameSound.tap));
                 onPressed!();
               },
         style: ElevatedButton.styleFrom(
@@ -3128,7 +3150,7 @@ class _Secondary extends StatelessWidget {
     height: 44,
     child: OutlinedButton(
       onPressed: () {
-        unawaited(GameAudioScope.of(context).play(GameSound.tap));
+        unawaited(GameAudioScope.of(context).interact(GameSound.tap));
         onPressed();
       },
       style: OutlinedButton.styleFrom(

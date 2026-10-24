@@ -4,17 +4,22 @@
     {
       "asset": "assets/audio/complete.wav",
       "bytes": 43332,
-      "sha256": "296c07aea76fcf2b105b2f88d3c3d011e28385b9592100d48b8bb9ea9d19a0a8"
+      "sha256": "59fdef9342a690e2099115700986a165fd85a7dab12a43b91399f1675e73d1d1"
     },
     {
       "asset": "assets/audio/correct.wav",
       "bytes": 47618,
-      "sha256": "824f6351c01c2b2c1663b2f9debedf6dc628bf3487dd6414233a0600878835fa"
+      "sha256": "619e4f06c7039853f5392161958eac5017a6dd323e1f510174a4741878bc1439"
+    },
+    {
+      "asset": "assets/audio/finish.wav",
+      "bytes": 68896,
+      "sha256": "2c5e34c8e98268b138ca5b910ecac0bf2ed2583204ab08eece2135e5db4ed7e4"
     },
     {
       "asset": "assets/audio/flip.wav",
       "bytes": 53708,
-      "sha256": "eb624bb7b1c74ec348d9bab2c7598eb03a314e5162d77fadec8d0304b11326b6"
+      "sha256": "f072efc8aff8d8c9f11e140cd737e143eb585702225d64643e63356b9173c66b"
     },
     {
       "asset": "assets/audio/forest-birds.mp3",
@@ -29,17 +34,17 @@
     {
       "asset": "assets/audio/retry.wav",
       "bytes": 9294,
-      "sha256": "9ef65fca660dd710debd8d37818402dde8f0a08c22ab128d4dcb18d4b7811b65"
+      "sha256": "99fcd9a2f52d1a84784fd51b47e4ae0f8e61d4903203d5eda4c6ca1753a0e835"
     },
     {
       "asset": "assets/audio/select.wav",
       "bytes": 16676,
-      "sha256": "ab71e1e2de3663a2e6279c1f3944d4620104b7ee3d82ec5057f2b006bd1c2127"
+      "sha256": "7e1c75f3d579a6abfea52bbda3ec5e2f48786dd6543b126df6d156037060fd26"
     },
     {
       "asset": "assets/audio/tap.wav",
-      "bytes": 706,
-      "sha256": "03464f6ad6353c0f7bc04725f909827f03a13d5106bb62c7886f5472121d177f"
+      "bytes": 8644,
+      "sha256": "1af8b6167b5310a389e5f43db5f256fd978abcf287117bad1a4bdd1c9d40e8b7"
     }
   ],
   "downloadedOriginals": [

@@ -19,42 +19,47 @@ class AudioControls extends StatelessWidget {
   const AudioControls({super.key, this.dark = false});
   final bool dark;
   @override
-  Widget build(BuildContext context) {
-    final audio = GameAudioScope.of(context);
-    final en = AppCopy.locale == AppLocale.english;
-    final off = audio.muted || audio.level(AudioLayer.master) == 0;
-    return SizedBox(
-      width: 44,
-      height: 44,
-      child: IconButton(
-        key: const ValueKey('audio-settings'),
-        tooltip: AppCopy.translate(en ? 'Sound settings' : 'Pengaturan suara'),
-        style: IconButton.styleFrom(
-          backgroundColor: dark ? const Color(0xB31B3D2F) : KifcTheme.paper,
-          foregroundColor: dark ? Colors.white : KifcTheme.forest800,
-          side: BorderSide(color: dark ? Colors.white54 : KifcTheme.line),
+  Widget build(BuildContext context) => ValueListenableBuilder<AppLocale>(
+    valueListenable: AppCopy.localeListenable,
+    builder: (context, locale, _) {
+      final audio = GameAudioScope.of(context);
+      final en = locale == AppLocale.english;
+      final off = audio.muted || audio.level(AudioLayer.master) == 0;
+      return SizedBox(
+        width: 44,
+        height: 44,
+        child: IconButton(
+          key: const ValueKey('audio-settings'),
+          tooltip: AppCopy.translate(
+            en ? 'Sound settings' : 'Pengaturan suara',
+          ),
+          style: IconButton.styleFrom(
+            backgroundColor: dark ? const Color(0xB31B3D2F) : KifcTheme.paper,
+            foregroundColor: dark ? Colors.white : KifcTheme.forest800,
+            side: BorderSide(color: dark ? Colors.white54 : KifcTheme.line),
+          ),
+          icon: Icon(
+            audio.unavailable
+                ? Icons.volume_off_outlined
+                : off
+                ? Icons.volume_off_rounded
+                : Icons.volume_up_rounded,
+            size: 22,
+          ),
+          onPressed: () {
+            unawaited(audio.interact(GameSound.tap));
+            showDialog<void>(
+              context: context,
+              barrierDismissible: true,
+              builder: (_) => TouchscreenArea(
+                child: _AudioSettings(audio: audio, english: en),
+              ),
+            );
+          },
         ),
-        icon: Icon(
-          audio.unavailable
-              ? Icons.volume_off_outlined
-              : off
-              ? Icons.volume_off_rounded
-              : Icons.volume_up_rounded,
-          size: 22,
-        ),
-        onPressed: () {
-          unawaited(audio.activate());
-          showDialog<void>(
-            context: context,
-            barrierDismissible: true,
-            builder: (_) => TouchscreenArea(
-              child: _AudioSettings(audio: audio, english: en),
-            ),
-          );
-        },
-      ),
-    );
-  }
+      );
+    },
+  );
 }
 
 class _AudioSettings extends StatelessWidget {
@@ -90,7 +95,10 @@ class _AudioSettings extends StatelessWidget {
                   IconButton(
                     key: const ValueKey('audio-close'),
                     tooltip: AppCopy.translate(english ? 'Close' : 'Tutup'),
-                    onPressed: () => Navigator.pop(context),
+                    onPressed: () {
+                      unawaited(audio.interact(GameSound.tap));
+                      Navigator.pop(context);
+                    },
                     icon: const Icon(Icons.close),
                   ),
                 ],
@@ -118,7 +126,13 @@ class _AudioSettings extends StatelessWidget {
                   ),
                 ),
                 value: !audio.muted,
-                onChanged: (value) => unawaited(audio.setMuted(!value)),
+                onChanged: (value) {
+                  unawaited(
+                    audio.setMuted(!value).then((_) async {
+                      if (value) await audio.interact(GameSound.tap);
+                    }),
+                  );
+                },
               ),
               for (final layer in AudioLayer.values) ...[
                 const SizedBox(height: 8),
@@ -156,6 +170,8 @@ class _AudioSettings extends StatelessWidget {
                   divisions: 20,
                   label: '${(audio.level(layer) * 100).round()}%',
                   onChanged: (value) => unawaited(audio.setLevel(layer, value)),
+                  onChangeEnd: (_) =>
+                      unawaited(audio.interact(GameSound.select)),
                 ),
               ],
               if (audio.unavailable) ...[
@@ -168,7 +184,9 @@ class _AudioSettings extends StatelessWidget {
                 ),
                 TextButton(
                   key: const ValueKey('audio-retry'),
-                  onPressed: () => unawaited(audio.retry()),
+                  onPressed: () => unawaited(
+                    audio.retry().then((_) => audio.play(GameSound.tap)),
+                  ),
                   child: LocalizedText(
                     english ? 'Try sound again' : 'Coba suara lagi',
                   ),
