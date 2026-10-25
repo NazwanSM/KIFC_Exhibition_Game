@@ -1,5 +1,7 @@
 # Pengujian menyeluruh KIFC — 25 Oktober 2026
 
+Pembaruan setelah paket E2E ini: [minor layout09](mascot-card-alignment-review.md) dan [minor layout03/APK1.0.2](triangle-cta-alignment-review.md). Artefak ZIP di bawah merekam versi1.0.1 sebelum kedua koreksi tersebut.
+
 **Hasil: siap disampaikan sebagai update/review klien berdasarkan skenario lokal yang diperiksa. Tidak ditemukan penghambat pada perjalanan akhir.** Ini bukan pengesahan KIFC atau sertifikasi pemasangan TV fisik.
 
 Sumber gameplay awal `8b1cbdd`, branch `main`. Koreksi nama launcher Android dikomit terpisah sebagai `5d101d6`. Tidak ada perubahan Dart, naskah, aturan skor atau urutan layar selama QA ini. [Hasil rinci mesin](../../../production/qa/e2e-results-2026-10-25.json), [rencana pengujian](../../../production/qa/e2e-plan-2026-10-25.md).

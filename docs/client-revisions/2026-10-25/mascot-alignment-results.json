@@ -1,0 +1,62 @@
+{
+  "tickets": {
+    "KIFC-09": "2e4eb17",
+    "KIFC-03": "6960a02"
+  },
+  "flutterTests": 64,
+  "analyze": "No issues found",
+  "widgetScreenshots": 75,
+  "portraitSizes": [
+    "360x640",
+    "411x731",
+    "720x1280",
+    "1080x1920",
+    "2160x3840"
+  ],
+  "languages": [
+    "id",
+    "en",
+    "ko"
+  ],
+  "nativeFocusedReview": {
+    "passed": true,
+    "language": "en",
+    "buildMode": "release",
+    "reviewed": [
+      "triangleExplanation",
+      "peatCharacteristics"
+    ],
+    "source": "real APK; API35 emulator1080x1920"
+  },
+  "apk": {
+    "apk": "D:\\KIFC Game Exhibition\\fire_prevention_challenge\\build\\app\\outputs\\flutter-apk\\app-release.apk",
+    "bytes": 75532455,
+    "sha256": "7ea9d3e3fe32d49ae58e3b7ce1c15650cfc5472bef23a870c10b17f3cdd9941d",
+    "offlineAssetsChecked": 53,
+    "failures": [],
+    "passed": true
+  },
+  "aotVerification": {
+    "apk": "build\\app\\outputs\\flutter-apk\\app-release.apk",
+    "architectures": [
+      {
+        "file": "lib/arm64-v8a/libapp.so",
+        "sha256": "0948c75ead4024b1881ebf9f481ace9a6bf6bf969103749a0e37189030ac8c30",
+        "newCtaKeyPresent": true
+      },
+      {
+        "file": "lib/armeabi-v7a/libapp.so",
+        "sha256": "3793daa2ef9d5ee8bdaa8aef06e99965901068d34537a3714bd16bde742ffec6",
+        "newCtaKeyPresent": true
+      },
+      {
+        "file": "lib/x86_64/libapp.so",
+        "sha256": "27b778ad3565f955aec179fd3d39a8853db3a4867729d1bbe4418ea9065645e6",
+        "newCtaKeyPresent": true
+      }
+    ],
+    "passed": true
+  },
+  "physicalTvValidated": false,
+  "pushedOrDeployed": false
+}

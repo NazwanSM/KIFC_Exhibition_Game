@@ -631,3 +631,12 @@ Nama launcher internal diperbaiki melalui commit `5d101d6`; alat QA disesuaikan 
 Tidak ditemukan penghambat pada skenario akhir. Status pengesahan klien tidak otomatis ditutup: TV 42 inci fisik, performa, akustik, naskah/terjemahan, kunci signing produksi dan publikasi terbaru tetap terbuka. Tidak ada push/deploy pada sesi ini.
 
 Commit QA dan paket review: `98b6e79` pada `main`; koreksi launcher terpisah `5d101d6`. ZIP final 95.469.426 byte, SHA256 `a7b89a5d782b4fa675cc1849086488fe01ab1fa18f7a837beab2277b1c2f8753`; seluruh checksum, CRC/salinan ZIP dan PDF 2 halaman diverifikasi.
+
+
+### KIFC-09/03 — penempatan maskot, bubble dan tombol, 25 Oktober
+
+KIFC-09: bubble dipusatkan sejajar dengan maskot dan celah sebelum tombol dihapus, sehingga crop badan menyentuh tombol. Commit `2e4eb17`. KIFC-03: maskot presenting di kiri, CTA di kanan dengan label satu baris; posisi vertikal adaptif menjaga jangkauan tengah pada simulasi TV. Commit `6960a02`.
+
+64 tes terarah lulus, analisis akhir bersih, 75 render fokus tiga bahasa/lima ukuran portrait tersedia. APK release 1.0.2 (20261026) dibangun ulang dan dipasang di emulator; smoke native Inggris memeriksa kedua layar, termasuk koordinat CTA kanan dan bubble yang sudah turun. AOT pada tiga ABI diverifikasi memuat key UI baru setelah cache awal sempat menghasilkan kode lama. 53 hash aset cocok; SHA256 APK final `7ea9d3e3fe32d49ae58e3b7ce1c15650cfc5472bef23a870c10b17f3cdd9941d`.
+
+[Review09](../../docs/client-revisions/2026-10-25/mascot-card-alignment-review.md), [review03](../../docs/client-revisions/2026-10-25/triangle-cta-alignment-review.md), [hasil](../../docs/client-revisions/2026-10-25/mascot-alignment-results.json), [indeks screenshot](../../build/review-mascot-alignment-2026-10-25/evidence-index.json). Web lokal dibangun ulang; tidak push/deploy. Paket ZIP E2E sebelumnya tetap merupakan bukti sebelum minor revision ini dan tidak ditimpa. TV fisik tetap belum diuji.
