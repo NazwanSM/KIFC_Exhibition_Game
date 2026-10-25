@@ -69,3 +69,5 @@ T3 preview snapshot gagal dua kali dengan “Preview automation snapshot timed o
 Build release pertama berhenti saat drive C penuh dan JVM tidak dapat mengalokasikan memori. Delapan direktori transform cache yang baru dibuat build gagal diparkir di build/review, tanpa menghapus file pemilik. Cache Gradle terisolasi dan TEMP berikutnya berada di D; emulator review dimatikan saat build berat. Build berikutnya berhasil. Warning Kotlin/cache lintas drive memakai fallback dan build berakhir sukses; log disimpan. Ini masalah host/build, bukan crash game yang disimpulkan tanpa bukti.
 
 Tetap terbuka: jangkauan dan waktu baca pada tinggi pemasangan TV 42 inci aktual, performa/FPS/sesi panjang pada perangkat target, level/latensi/kenyamanan speaker ruangan, pengesahan naskah/terjemahan KIFC, dan kunci signing produksi. Tidak ada push/deployment pada sesi QA. Paket lokal tidak otomatis memperbarui Pages atau APK publik sebelumnya.
+
+Commit QA/alat/hasil: `98b6e79` pada `main`. Koreksi launcher: `5d101d6`.

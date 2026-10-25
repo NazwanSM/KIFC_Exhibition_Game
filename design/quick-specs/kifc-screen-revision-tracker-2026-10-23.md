@@ -629,3 +629,5 @@ Commit koreksi feedback/hasil15detik: `876cafa` pada `main`.
 Nama launcher internal diperbaiki melalui commit `5d101d6`; alat QA disesuaikan dengan timer/transisi dan pelaporan release tanpa counter debug. [Laporan lengkap](../../docs/client-revisions/2026-10-25/end-to-end-review.md), [hasil mesin](../../production/qa/e2e-results-2026-10-25.json), [paket klien](../../build/review-e2e-2026-10-25/KIFC-Client-Update-2026-10-25.zip) memuat APK release review 1.0.1 (20261025), PDF, 37 PNG asli dan checksum. SHA256 APK `e01e1367d5ec3e47fecddf870361ec764c6dc3ef440611087049130ac4ba4fba`.
 
 Tidak ditemukan penghambat pada skenario akhir. Status pengesahan klien tidak otomatis ditutup: TV 42 inci fisik, performa, akustik, naskah/terjemahan, kunci signing produksi dan publikasi terbaru tetap terbuka. Tidak ada push/deploy pada sesi ini.
+
+Commit QA dan paket review: `98b6e79` pada `main`; koreksi launcher terpisah `5d101d6`. ZIP final 95.469.426 byte, SHA256 `a7b89a5d782b4fa675cc1849086488fe01ab1fa18f7a837beab2277b1c2f8753`; seluruh checksum, CRC/salinan ZIP dan PDF 2 halaman diverifikasi.
