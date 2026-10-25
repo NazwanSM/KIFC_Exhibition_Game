@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="fire_prevention_challenge"
+        android:label="Fire Prevention Challenge"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
