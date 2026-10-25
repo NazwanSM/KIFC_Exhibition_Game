@@ -2,6 +2,8 @@
 
 Klarifikasi pemilik25Oktober2026: “kalau ada feedback dan hasil itu tetep ada waktunya sekitar15detik tapi bisa dilanjutkan dengan menekan layar”. Ini menggantikan penafsiran vendor tanpa batas waktu pada [implementasi sebelumnya](manual-reading-review.md). Status **Ditinjau** setelah implementasi/pemeriksaan lokal.
 
+Commit implementasi/tes: `876cafa` pada `main`.
+
 ## Perilaku terkini
 
 - Feedback assembly lengkap, demo pengurangan3/3, jawaban kuis gambut yang selesai (benar/salah kedua), serta feedback benar/salah kuis penyebab maju otomatis setelah15detik. Sentuhan konten/latar mempercepat kelanjutan; gesture jawaban terakhir tetap hanya membuka feedback.
