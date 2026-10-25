@@ -1527,13 +1527,15 @@ class _AssemblyCompletionFeedback extends StatelessWidget {
             final width = math.min(
               220.0,
               math.min(
-                constraints.maxWidth * (onContinue == null ? .72 : .42),
+                constraints.maxWidth * (onContinue == null ? .72 : .34),
                 constraints.maxHeight / .76,
               ),
             );
             final imageHeight = width * 4 / 3;
             final mascot = Align(
-              alignment: Alignment.bottomRight,
+              alignment: onContinue == null
+                  ? Alignment.bottomRight
+                  : Alignment.bottomLeft,
               child: SizedBox(
                 width: width,
                 height: imageHeight * .57,
@@ -1559,10 +1561,15 @@ class _AssemblyCompletionFeedback extends StatelessWidget {
               children: [
                 mascot,
                 Positioned(
-                  left: 0,
-                  top: 4,
-                  width: constraints.maxWidth * .56,
+                  right: 0,
+                  top: TouchscreenArea.isCenteredOf(context) ? 4 : null,
+                  bottom: TouchscreenArea.isCenteredOf(context)
+                      ? null
+                      : math.max(16.0, imageHeight * .57 / 2 - 23),
+                  width: constraints.maxWidth * .66,
                   child: _Primary(
+                    key: const ValueKey('triangle-reduction-continue'),
+                    singleLine: true,
                     label: english
                         ? 'Try Reducing an Element'
                         : 'Coba Kurangi Satu Unsur',
@@ -3176,12 +3183,14 @@ class _Primary extends StatelessWidget {
     required this.onPressed,
     this.dark = false,
     this.large = false,
+    this.singleLine = false,
   });
   final String label;
   final IconData? icon;
   final VoidCallback? onPressed;
   final bool dark;
   final bool large;
+  final bool singleLine;
   @override
   Widget build(BuildContext context) => PressFeedback(
     // The large welcome CTA already owns its pressure animation.
@@ -3218,13 +3227,23 @@ class _Primary extends StatelessWidget {
           icon: icon == null
               ? const SizedBox.shrink()
               : Icon(icon, size: large ? 28 : null),
-          label: LocalizedText(
-            label,
-            style: TextStyle(
-              fontWeight: FontWeight.w700,
-              fontSize: large ? 21 : null,
-            ),
-          ),
+          label: singleLine
+              ? FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: LocalizedText(
+                    label,
+                    maxLines: 1,
+                    softWrap: false,
+                    style: const TextStyle(fontWeight: FontWeight.w700),
+                  ),
+                )
+              : LocalizedText(
+                  label,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w700,
+                    fontSize: large ? 21 : null,
+                  ),
+                ),
         ),
       ),
     ),

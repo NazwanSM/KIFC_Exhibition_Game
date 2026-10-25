@@ -1,6 +1,7 @@
 import 'package:fire_prevention_challenge/core/localization/app_locale.dart';
 import 'package:fire_prevention_challenge/features/game/widgets/fire_loop.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:fire_prevention_challenge/features/game/widgets/forest_fire_simulation.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'assembly_review_test.dart' show paintAssembly;
@@ -55,6 +56,30 @@ void main() {
         );
         await paintAssembly(tester);
         checkPanel();
+        await tester.pump(const Duration(milliseconds: 500));
+        final action = find.byKey(
+          const ValueKey('triangle-reduction-continue'),
+        );
+        final actionRect = tester.getRect(action);
+        final mascotRect = tester.getRect(
+          find.byKey(const ValueKey('feedback-mascot-crop')),
+        );
+        expect(mascotRect.right, lessThanOrEqualTo(actionRect.left + 1));
+        final label = find.descendant(of: action, matching: find.byType(Text));
+        final paragraph = tester.renderObject<RenderParagraph>(label);
+        expect(
+          paragraph.getBoxesForSelection(
+            TextSelection(
+              baseOffset: 0,
+              extentOffset: paragraph.text.toPlainText().length,
+            ),
+          ),
+          hasLength(1),
+          reason: 'The complete localized CTA must stay on one line',
+        );
+        final labelRect = tester.getRect(label);
+        expect(labelRect.left, greaterThanOrEqualTo(actionRect.left));
+        expect(labelRect.right, lessThanOrEqualTo(actionRect.right));
         await captureScreen(tester, 'explanation-$lang-$res', metrics);
         await tester.pumpWidget(const SizedBox.shrink());
         await launchScreen(
