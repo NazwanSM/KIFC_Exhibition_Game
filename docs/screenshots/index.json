@@ -1,0 +1,182 @@
+{
+  "description": "README screenshot provenance. Source artifacts are local QA output under ignored build/, not repository download links.",
+  "physicalTvPhotographs": false,
+  "images": [
+    {
+      "file": "welcome.png",
+      "title": "Pembuka dan pilihan bahasa",
+      "language": "en",
+      "capturedOn": "2026-10-25",
+      "source": "native Android APK emulator screenshot",
+      "androidApi": 35,
+      "sourcePixels": [
+        1080,
+        1920
+      ],
+      "densityDpi": 420,
+      "exportPixels": [
+        540,
+        960
+      ],
+      "apkVersion": "1.0.2",
+      "sourceArtifact": "build/review-mascot-alignment-2026-10-25/native-en-fresh/welcome.png",
+      "sourceSha256": "31827cd8e8d72cd570c114431b7508678e600574bd54114a69851261c76dadea",
+      "exportSha256": "98ac518cb95e201752ef370cbc8d3ff5c4d5fa9316bab5691102d0620dc51f66",
+      "processing": "Proportional downscale only; no crop, compositing or UI edits."
+    },
+    {
+      "file": "assembly.png",
+      "title": "Menyusun tiga unsur api",
+      "language": "en",
+      "capturedOn": "2026-10-25",
+      "source": "native Android APK emulator screenshot",
+      "androidApi": 35,
+      "sourcePixels": [
+        1080,
+        1920
+      ],
+      "densityDpi": 420,
+      "exportPixels": [
+        540,
+        960
+      ],
+      "apkVersion": "1.0.2",
+      "sourceArtifact": "build/review-mascot-alignment-2026-10-25/native-en-fresh/assembly.png",
+      "sourceSha256": "71006165500ec5068c06cdcf6bb871234dd18aeeeeabc292ce1f0c4dfd3d7b85",
+      "exportSha256": "726f0d9369903c5a52c44c030de9eaef43ba91f5b82bb1d40b24ca660a8e2684",
+      "processing": "Proportional downscale only; no crop, compositing or UI edits."
+    },
+    {
+      "file": "fire-triangle.png",
+      "title": "Penjelasan segitiga api",
+      "language": "en",
+      "capturedOn": "2026-10-25",
+      "source": "native Android APK emulator screenshot",
+      "androidApi": 35,
+      "sourcePixels": [
+        1080,
+        1920
+      ],
+      "densityDpi": 420,
+      "exportPixels": [
+        540,
+        960
+      ],
+      "apkVersion": "1.0.2",
+      "sourceArtifact": "build/review-mascot-alignment-2026-10-25/native-en-fresh/fire-explanation.png",
+      "sourceSha256": "505375e432215a2c0677f307a1c83878d51c03c862e13bccc4a1ac92870cbbc1",
+      "exportSha256": "50cc49e295710edd34784ac0bc62bde82443ce3a8be0d54b936d8ac4f377f9dd",
+      "processing": "Proportional downscale only; no crop, compositing or UI edits."
+    },
+    {
+      "file": "element-reduction.png",
+      "title": "Demo pengurangan unsur",
+      "language": "en",
+      "capturedOn": "2026-10-25",
+      "source": "native Android APK emulator screenshot",
+      "androidApi": 35,
+      "sourcePixels": [
+        1080,
+        1920
+      ],
+      "densityDpi": 420,
+      "exportPixels": [
+        540,
+        960
+      ],
+      "apkVersion": "1.0.2",
+      "sourceArtifact": "build/review-mascot-alignment-2026-10-25/native-en-fresh/reduction-heat.png",
+      "sourceSha256": "090acb32c8a6ce0da9228479f4ec5c3fdd91a3a6e72d696ac5c03cde0950d8c8",
+      "exportSha256": "e3479a65be55ade53b43e02ecf66b49b29a39b5fc335f36af21500a15cc20d8e",
+      "processing": "Proportional downscale only; no crop, compositing or UI edits."
+    },
+    {
+      "file": "peat-cards.png",
+      "title": "Kartu informasi kebakaran gambut",
+      "language": "en",
+      "capturedOn": "2026-10-25",
+      "source": "native Android APK emulator screenshot",
+      "androidApi": 35,
+      "sourcePixels": [
+        1080,
+        1920
+      ],
+      "densityDpi": 420,
+      "exportPixels": [
+        540,
+        960
+      ],
+      "apkVersion": "1.0.2",
+      "sourceArtifact": "build/review-mascot-alignment-2026-10-25/native-en-fresh/characteristics-closed.png",
+      "sourceSha256": "a0b5791f3619fa8eb607edbd1426600b29bc625174ca91a3c71b5994b7fb225c",
+      "exportSha256": "9f10838cf7b05db0920a425ed3c50d10497b27f4b2fdbf09fbe938f3eee06e96",
+      "processing": "Proportional downscale only; no crop, compositing or UI edits."
+    },
+    {
+      "file": "final-challenge.png",
+      "title": "Tantangan akhir 30 detik",
+      "language": "en",
+      "capturedOn": "2026-10-25",
+      "source": "native Android APK emulator screenshot",
+      "androidApi": 35,
+      "sourcePixels": [
+        1080,
+        1920
+      ],
+      "densityDpi": 420,
+      "exportPixels": [
+        540,
+        960
+      ],
+      "apkVersion": "1.0.1",
+      "sourceArtifact": "build/review-e2e-2026-10-25/native-final-en-rerun/final-start.png",
+      "sourceSha256": "e0cfabbef0b70510b5b1361873c5fd46bdaef1a66158b7528d8ba5ae4f521367",
+      "exportSha256": "eebc4dd47fca5c845e7ebabb41f6c4761ea78adb9016842d8f7932ea8a788ede",
+      "processing": "Proportional downscale only; no crop, compositing or UI edits."
+    },
+    {
+      "file": "impact-review.png",
+      "title": "Ulasan jawaban tantangan akhir",
+      "language": "en",
+      "capturedOn": "2026-10-25",
+      "source": "native Android APK emulator screenshot",
+      "androidApi": 35,
+      "sourcePixels": [
+        1080,
+        1920
+      ],
+      "densityDpi": 420,
+      "exportPixels": [
+        540,
+        960
+      ],
+      "apkVersion": "1.0.1",
+      "sourceArtifact": "build/review-e2e-2026-10-25/native-final-en-rerun/final-review.png",
+      "sourceSha256": "3e61b86adec5a21ec6a269397253ad0b9a128dba40a926025bf0c402d6f8b4f5",
+      "exportSha256": "a217a3bc86b9f478e503844637cacaa62914c3604ed378cf5c114c8afa434a0e",
+      "processing": "Proportional downscale only; no crop, compositing or UI edits."
+    },
+    {
+      "file": "score.png",
+      "title": "Ringkasan skor",
+      "language": "en",
+      "capturedOn": "2026-10-25",
+      "source": "native Android APK emulator screenshot",
+      "androidApi": 35,
+      "sourcePixels": [
+        1080,
+        1920
+      ],
+      "densityDpi": 420,
+      "exportPixels": [
+        540,
+        960
+      ],
+      "apkVersion": "1.0.1",
+      "sourceArtifact": "build/review-e2e-2026-10-25/native-final-en-rerun/score.png",
+      "sourceSha256": "1acc46bd84fda84e49b832f1691bd61a4728567f06a9ccc3a1198db56c6417be",
+      "exportSha256": "e14788d539930d10ec8e798baf82aaf39499e9136205755f343a82db3ff3f563",
+      "processing": "Proportional downscale only; no crop, compositing or UI edits."
+    }
+  ]
+}
