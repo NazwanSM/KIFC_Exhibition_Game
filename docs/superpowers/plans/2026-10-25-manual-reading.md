@@ -20,6 +20,8 @@
 - [x] Tambah tes perilaku membaca/manual/gesture/control; jalankan dan catat kegagalan kode lama.
 - [x] Terapkan callback kelanjutan bersama dan hapus timer feedback/reset hasil; ganti notice hasil/penutup.
 - [x] Perbarui kontrak perjalanan/visual yang sebelumnya mengandalkan timer; jalankan suite lengkap dan analisis.
-- [ ] Capture dan inspeksi tiga bahasa × lima ukuran; uji browser, indeks bukti, perbarui keputusan tracker dan commit terpisah.
+- [x] Capture dan inspeksi tiga bahasa × lima ukuran; uji browser, indeks bukti, perbarui keputusan tracker dan commit terpisah.
 
 Ruling: parent GestureDetector semula menggabungkan semantics setelah feedback dan browser memicu error scheduler. Container semantics stabil dengan explicitChildNodes serta excludeFromSemantics pada gesture menjaga teks terpisah; regresi merah→hijau dan browser nyata diperiksa.
+
+Selesai:302tes lulus, analisis/format/diff bersih,105render dan dua rekaman browser diverifikasi; commit `635d303`. Intersepsi audio IDM dicatat sebagai batas lingkungan, bukan klaim audio bersih.

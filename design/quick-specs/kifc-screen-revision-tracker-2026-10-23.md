@@ -608,3 +608,5 @@ Pemilik meminta waktu membaca dahulu sekaligus kelanjutan cepat dengan menyentuh
 Catatan lingkungan G04: saat uji browser terdapat satu error sumber suara burung. Network mencatat204 “Intercepted by the IDM Advanced Integration”, disusul200. Ini bukan klaim audio sudah bersih atau bug aplikasi telah diperbaiki; log/batas hasil tersedia di review. Pengaturan ekstensi pengguna tidak diubah. Belum APK/push/deploy baru.
 
 Commit keputusan durasi KIFC-10: `4d04fbb` pada `main`.
+
+Commit kelanjutan membaca/manual KIFC-X01/G01/11: `635d303` pada `main`.
