@@ -59,13 +59,13 @@ void main() {
   });
 
   testWidgets(
-    'only a correct answer enables tap anywhere and cancels its timer',
+    'finished feedback enables background taps and preserves its controls',
     (tester) async {
       const size = Size(411, 731);
-      // Cover empty space, heading/back area, disabled answer and mascot area.
+      // Cover empty space, heading, disabled answer and mascot area.
       for (final point in const [
         Offset(10, 10),
-        Offset(60, 80),
+        Offset(200, 210),
         Offset(200, 300),
         Offset(390, 710),
       ]) {
@@ -93,7 +93,7 @@ void main() {
           (w) => w.runtimeType.toString() == '_CauseQuiz',
         );
         expect(causeQuiz, findsOneWidget);
-        // A stale 18-second callback must not reset the next activity.
+        // Reading time does not advance the next unanswered question.
         final quizBefore = tester.widget(causeQuiz);
         await tester.pump(const Duration(seconds: 20));
         expect(tester.widget(causeQuiz), same(quizBefore));
@@ -205,6 +205,10 @@ void main() {
         expect(cards, findsNWidgets(3));
         await tester.pump(const Duration(seconds: 8));
         await tester.pump(const Duration(milliseconds: 400));
+        expect(cards, findsNWidgets(3));
+        await tester.tapAt(const Offset(4, 4));
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 400));
         expect(cards, findsNothing);
         expect(tester.takeException(), isNull);
         await tester.pumpWidget(const SizedBox.shrink());
@@ -230,6 +234,10 @@ void main() {
         await tester.pump(const Duration(seconds: 5));
         expect(cards, findsNWidgets(3));
         await tester.pump(const Duration(seconds: 14));
+        await tester.pump(const Duration(milliseconds: 400));
+        expect(cards, findsNWidgets(3));
+        await tester.tapAt(const Offset(4, 4));
+        await tester.pump();
         await tester.pump(const Duration(milliseconds: 400));
         expect(cards, findsNothing);
         expect(tester.takeException(), isNull);

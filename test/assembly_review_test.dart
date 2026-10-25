@@ -238,12 +238,9 @@ void main() {
         await captureScreen(tester, 'complete-$lang-$res', metrics);
         await tester.pump(const Duration(seconds: 5));
         expect(assemblyType('_TriangleBuild'), findsOneWidget);
-        if (locale == AppLocale.english) {
-          // Automatic fallback remains available for visitors who do not tap.
-          await tester.pump(const Duration(seconds: 10));
-        } else {
-          await tester.tapAt(Offset(size.width * .28, 8));
-        }
+        await tester.pump(const Duration(seconds: 60));
+        expect(assemblyType('_TriangleBuild'), findsOneWidget);
+        await tester.tapAt(Offset(size.width * .28, 8));
         await tester.pump(const Duration(milliseconds: 400));
         await tester.pump(const Duration(milliseconds: 400));
         expect(assemblyType('_TriangleExplanation'), findsOneWidget);
@@ -278,9 +275,8 @@ void main() {
         expect((placed[0] as dynamic).placedPiece.toString(), contains('fuel'));
         expect((placed[1] as dynamic).placedPiece.toString(), contains('heat'));
         await captureScreen(tester, 'explanation-$lang-$res', metrics);
-        // The assembly timer and tap layer cannot skip this reading screen.
-        await tester.tapAt(Offset(size.width * .28, 8));
-        await tester.pump(const Duration(seconds: 15));
+        // Reading waits indefinitely; a separate background tap continues.
+        await tester.pump(const Duration(seconds: 60));
         expect(assemblyType('_TriangleExplanation'), findsOneWidget);
         await tester.tap(assemblyType('_Primary'));
         await tester.pump();

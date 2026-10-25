@@ -6,7 +6,7 @@ Sumber utama: [Revisi_Game_Untuk_Vendor.docx](../../docs/client-revisions/2026-1
 
 Dokumen sumber berisi **11 bagian layar dengan 11 screenshot serta 4 catatan lintas game**. Seluruh catatan, screenshot, dan penandaan jawaban sudah dibaca. Tidak ditemukan komentar Word atau perubahan terlacak; catatan revisi berada di isi tabel. Naskah pengganti dari KIFC disalin dalam blok kutipan di bawah dengan isi kalimat dipertahankan.
 
-Tracker ini mencatat pekerjaan baru dari dokumen KIFC. **KIFC-01 sampai 10 sudah diterapkan dan berada dalam peninjauan; KIFC-11 ditinjau sebagian.** Riwayat pekerjaan sebelumnya tetap ada di [tracker 18 Oktober](client-revision-tracker-2026-10-18.md). Keputusan terbaru yang jelas dalam dokumen KIFC menjadi acuan untuk revisi terkait; alternatif tidak dianggap otomatis disetujui.
+Tracker ini mencatat pekerjaan baru dari dokumen KIFC. **KIFC-01 sampai11 sudah diterapkan dan berada dalam peninjauan.** Riwayat pekerjaan sebelumnya tetap ada di [tracker 18 Oktober](client-revision-tracker-2026-10-18.md). Keputusan terbaru yang jelas dalam dokumen KIFC menjadi acuan untuk revisi terkait; alternatif tidak dianggap otomatis disetujui.
 
 ## Cara menggunakan tracker
 
@@ -15,7 +15,7 @@ Tracker ini mencatat pekerjaan baru dari dokumen KIFC. **KIFC-01 sampai 10 sudah
 - `G` menandai pekerjaan lintas game; `X` menandai integrasi, bahasa, dan verifikasi. `D` menandai keputusan yang belum tersedia.
 - Centang subpekerjaan setelah implementasi dan pemeriksaan yang relevan. Tutup tiket setelah kriteria penerimaannya terpenuhi dan bukti dicatat. Jangan mencentang implementasi hanya karena rancangan atau asetnya sudah disiapkan.
 - Untuk setiap tiket, isi log di akhir file dengan commit, hasil pemeriksaan, lokasi screenshot/rekaman, serta keterbatasannya. Pemeriksaan viewport/emulator tidak membuktikan kenyamanan jangkauan TV fisik.
-- Cakupan: **18 kelompok pekerjaan; 15 Ditinjau, 3 Ditinjau sebagian, 0 Menunggu keputusan, 0 Selesai/disahkan klien**. Sebagian permintaan melanjutkan fitur yang sudah ada; keberadaannya tetap perlu diperiksa terhadap kebutuhan baru.
+- Cakupan: **18 kelompok pekerjaan; 16 Ditinjau, 2 Ditinjau sebagian, 0 Menunggu keputusan, 0 Selesai/disahkan klien**. Sebagian permintaan melanjutkan fitur yang sudah ada; keberadaannya tetap perlu diperiksa terhadap kebutuhan baru.
 - Sesuai permintaan pemilik proyek, setiap revisi disertai screenshot beberapa ukuran portrait, terutama simulasi TV Full HD 1080×1920 dan 4K 2160×3840. Catat bahasa, sumber gambar, dan batas pemeriksaannya; jangan menyebut render viewport sebagai foto TV fisik.
 
 ## Daftar pekerjaan per layar
@@ -29,10 +29,10 @@ Tracker ini mencatat pekerjaan baru dari dokumen KIFC. **KIFC-01 sampai 10 sudah
 | KIFC-05 | Pengertian kebakaran hutan | Ditinjau | Naskah KIFC dan 15 screenshot siap |
 | KIFC-06 | Penyebab kebakaran hutan | Ditinjau | Kartu kedua diubah ke penyebab; 15 screenshot siap |
 | KIFC-07 | Pentingnya pencegahan kebakaran hutan | Ditinjau | 4 pilar kerugian diterapkan; 15 screenshot siap |
-| KIFC-08 | Kuis kebakaran hutan rawa gambut | Ditinjau | 60 screenshot dan tes siap; D-05 memakai durasi/naskah salah kedua sementara untuk ditinjau |
+| KIFC-08 | Kuis kebakaran hutan rawa gambut | Ditinjau | Feedback benar/salah kedua menunggu sentuhan; satu retry tetap; naskah salah kedua vendor masih perlu ditinjau melalui D-05 |
 | KIFC-09 | Karakteristik kebakaran ekosistem gambut | Ditinjau | Tiga kartu1–3 berputar, tanpa skor;60 render dan alur tiga bahasa diuji |
 | KIFC-10 | Tantangan mengenali dampak kebakaran | Ditinjau | Implementasi/foto/3 bahasa/60 render tersedia; pemilik menetapkan30detik pada25Oktober melalui D-06; skor8 dipetakan melalui D-07 |
-| KIFC-11 | Layar hasil akhir | Ditinjau sebagian | Skor maksimum8 dan kategori proporsional diterapkan; uji baca TV fisik tetap terbuka |
+| KIFC-11 | Layar hasil akhir | Ditinjau | Skor maksimum8; hasil/penutup menunggu sentuhan sesuai arahan25Oktober; uji TV fisik tetap X03 |
 | KIFC-G01 | Variasi interaksi, transisi, dan respons sentuhan | Ditinjau | Pemetaan interaksi, gerakan maskot/dialog/kontrol/slot/hasil dan pembatalan timer diverifikasi;254 tes lulus;81 render serta rekaman browser tersedia |
 | KIFC-G02 | Animasi dan latar bergerak | Ditinjau sebagian | Video pemilik, fallback, reduced motion dan offline diuji; profil TV fisik menunggu D-09 |
 | KIFC-G03 | Pengayaan visual seluruh layar | Ditinjau | Audit per layar,33 render inset serta APK offline; overflow Android diperbaiki |
@@ -138,12 +138,12 @@ Analisis bersih, **151 tes lulus**, dan **60 render** empat keadaan × tiga baha
 - [x] **KIFC-04.04** Setiap unsur memadamkan dua api di atasnya: Panas kiri, Bahan bakar tengah, Oksigen kanan. Area padam tetap padam, sehingga6→4→2→0; urutan pilihan bebas. Penjelasan unsur serta batas penerapan oksigen di lahan terbuka tetap tersedia.
 - **KIFC-04.05 — Tidak berlaku:** cabang menghapus layar tidak dipilih, sehingga rute penghapusan tidak perlu diterapkan.
 - [x] **KIFC-04.06** Sentuhan ulang mempertahankan area padam tanpa penyalaan kembali atau penambahan progres. Ulangi memulihkan enam api/0/3 serta membatalkan callback lama. Demo tidak memberi poin atau label benar/salah.
-- [x] **KIFC-04.07** Setelah3/3, Lanjut tersedia dan fallback otomatis memberi14detik dari eksplorasi terakhir. Pengulangan/reset/navigasi membatalkan timer sebelumnya; urutan tetap menuju kartu definisi.
+- [x] **KIFC-04.07** Setelah3/3, Lanjut dan sentuhan latar tersedia. Sesuai arahan25Oktober, fallback14detik dihapus agar penjelasan dapat dibaca sampai selesai; urutan tetap menuju kartu definisi.
 - [x] **KIFC-04.08** Reduced motion dan penghentian rekaman yang telah padam diperiksa;120 render lima ukuran/tiga bahasa dan rekaman browser tersedia.
 
 **Bukti terbaru:** [review pemadaman kumulatif, screenshot dan rekaman](../../docs/client-revisions/2026-10-25/kifc-04-spatial-reduction-review.md). Panel tetap248/216logicalpx dan pilihan tidak diperkecil. Pembagian tiga area merupakan ilustrasi interaksi, bukan pembagian unsur tunggal pada kebakaran nyata. [Audit sebelumnya](../../docs/client-revisions/2026-10-25/kifc-04-reduction-review.md) disimpan sebagai riwayat; pola seluruh-api/replay diganti arahan kumulatif terbaru.
 
-**Masih terbuka:** pengesahan akhir KIFC/penutur serta uji waktu baca, jangkauan dan performa TV42inci fisik. Angka14detik adalah pilihan implementasi yang siap ditinjau; pemeriksaan viewport tidak menggantikan uji fisik. Koreksi25Oktober belum dimasukkan ke APK/deployment publik sebelumnya.
+**Masih terbuka:** pengesahan akhir KIFC/penutur serta uji waktu baca, jangkauan dan performa TV42inci fisik. Waktu baca kini bebas sampai disentuh sesuai arahan25Oktober; pemeriksaan viewport tidak menggantikan uji fisik. Koreksi25Oktober belum dimasukkan ke APK/deployment publik sebelumnya.
 
 ## KIFC-05 Pengertian kebakaran hutan
 
@@ -315,7 +315,7 @@ Analisis bersih, **151 tes lulus**, dan **60 render** empat keadaan × tiga baha
 - [x] **KIFC-11.01** Tambahkan pesan penutup berikut pada layar hasil yang menampilkan skor.
 - [x] **KIFC-11.02** Letakkan pada area yang mudah terlihat dan dibaca tanpa mengganggu skor, “Selesai”, serta “Main Lagi”.
 - [x] **KIFC-11.03** Setelah X-01 diputuskan, sesuaikan label baris skor, maksimum nilai, bonus, dan kategori hasil yang terdampak pergantian materi.
-- [ ] **KIFC-11.04** Uji waktu baca bersama perilaku kembali ke awal yang sekarang memakai 15 detik tanpa interaksi; sesuaikan bila hasil uji menunjukkan pesan tidak sempat terbaca.
+- [x] **KIFC-11.04** Sesuai arahan25Oktober, reset15detik dihapus. Skor dan penutup tetap tampil sampai sentuhan terpisah; diuji60detik pada widget serta20detik masing-masing di browser. Kenyamanan TV fisik tetap melalui X03.
 
 **Pesan dari KIFC:**
 
@@ -386,6 +386,7 @@ Bagian ini adalah pekerjaan turunan dari perubahan konten, bukan kutipan permint
 - [x] **KIFC-X01.05** Tinjau bonus serta penalti tantangan dampak. Ada empat jawaban benar, tetapi aturan benar +1/salah −1, minimum 0, dan bonus skor/4 merupakan keputusan lama, bukan aturan baru yang tertulis dalam DOCX.
 - [x] **KIFC-X01.06** Sesuaikan ambang kategori hasil, label baris skor, penyimpanan state, serta tes perhitungan setelah D-07 diputuskan.
 - [x] **KIFC-X01.07** Perbarui aturan proyek/spesifikasi lama yang benar-benar digantikan keputusan baru; tandai bagian superseded tanpa menghapus riwayat.
+- [x] **KIFC-X01.08** Sesuai arahan25Oktober, feedback/hasil menunggu sentuhan terpisah. Konten/latar bisa melanjutkan setelah aktivitas lengkap; retry, kontrol khusus, modal dan tantangan aktif tidak dilewati. Reset hasil15detik dihapus; alur/skor tetap.
 
 **Kriteria penerimaan:** alur dan skor mempunyai keputusan tertulis; tidak ada materi yang hilang tanpa persetujuan atau skor dari aktivitas yang sudah tidak ada.
 
@@ -420,7 +421,7 @@ Bagian ini adalah pekerjaan turunan dari perubahan konten, bukan kutipan permint
 | D-02 | Narasi panjang atau singkat untuk penjelasan segitiga api? | Vendor menerapkan narasi utama secara utuh, satu versi pada semua ukuran. Dapat ditinjau pemilik/KIFC; alternatif singkat tidak ditampilkan. |
 | D-03 | Simulasi pengurangan unsur diperbaiki atau dihapus? | Pemilik pada24Oktober meminta memperbaiki layar ini berdasarkan mockup, mempertahankan urutan, dan animasi hingga padam. Cabang dipertahankan diterapkan; penghapusan tidak dilakukan. |
 | D-04 | Format karakteristik gambut | Diputuskan langsung pemilik24Oktober: tiga kartu1–3 berputar saat disentuh, membuka informasi, bukan soal/tanpa skor. Lanjut manual setelah semua dibuka; implementasi siap ditinjau. |
-| D-05 | Perilaku setelah salah kedua pada kuis gambut serta waktu baca feedback? | Bagian 08 memberi hint tetapi belum memberi teks pembukaan jawaban salah kedua. Implementasi sementara mempertahankan satu retry untuk >2 pilihan; benar 18 detik, salah kedua 12 detik, hint pertama menunggu input. Naskah salah kedua dibuat vendor. Implementasi dan render sudah diperiksa; durasi serta naskah tambahan masih menunggu penilaian pengguna/KIFC. |
+| D-05 | Perilaku setelah salah kedua pada kuis gambut serta waktu baca feedback? | Arahan25Oktober menetapkan waktu baca bebas sampai disentuh: timer benar18detik/salah kedua12detik dihapus. Hint pertama tetap menunggu satu retry; benar atau salah kedua bisa lanjut dengan sentuhan terpisah. Naskah salah kedua dibuat vendor karena sumber belum memberikannya; bagian naskah tambahan masih menunggu penilaian KIFC, sedangkan perilaku membaca sudah diputuskan. |
 | D-06 | Berapa durasi baru tantangan dampak dan kapan countdown mulai? | Pemilik menetapkan30detik pada25Oktober. Countdown tetap dimulai setelah foto/transisi siap. Hijau >15, kuning15–10, merah≤9. Stopwatch, ring dan batas pemilihan telah diuji. D-06 selesai sebagai keputusan durasi; tidak mengklaim uji TV fisik. |
 | D-07 | Aturan skor, penalti, bonus, dan maksimum setelah materi diganti? | Dipetakan24Oktober sesuai09 tanpa skor: maksimum8. Aturan dampak lama tetap+1 benar/−1 salah, minimum0, bonus hasil/4 (maksimum1); pilihan netral sebelum ulasan dipertahankan. Kategori mengikuti proporsi lama8/9 dan6/9, diuji pada batas7/7.25/5.25/5.5; siap ditinjau pemilik. |
 | D-08 | Cakupan audio, animasi, 3D/video, aset, dan dampak biaya/performa? | Pemilik24Oktober meminta melanjutkan audio dan memakai aset internet yang diunduh. Musik+suara alam+efek diterapkan dengan aset CC0, volume/mute dan offline. Tidak ada aset berbayar, generasi suara mentah atau voice-over; fog tetap dihapus. Penilaian speaker/akustik ruang tetap melalui D-09. |
@@ -596,3 +597,14 @@ Commit koreksi kumulatif KIFC-04: `78eb6c9` pada `main`.
 ### KIFC-10 — keputusan durasi final,25Oktober
 
 Pemilik menyatakan30detik cukup. Nilai yang sudah diterapkan dipertahankan; KIFC-10.05 dan D-06 ditutup sebagai keputusan durasi. Tidak ada perubahan aturan skor, awal countdown, ring atau warna. Uji TV fisik tetap bagian X03.
+
+
+### KIFC-X01/G01 dan KIFC-11 — feedback serta hasil menunggu sentuhan,25Oktober
+
+Pemilik meminta waktu membaca dahulu sekaligus kelanjutan cepat dengan menyentuh layar. Timer feedback2/12/14/18detik serta reset skor/penutup15detik dihapus. Kelanjutan latar tersedia setelah aktivitas lengkap dan pada bacaan/ulasan/hasil; jawaban/drop terakhir tidak sekaligus menutup feedback. Kembali/Ulangi/Main Lagi/audio/kredit foto/kartu tetap mendapat prioritas. Hint pertama serta aktivitas/tantangan aktif tidak dapat dilewati.
+
+302tes Flutter lulus pada kode akhir, analisis bersih;105render lima ukuran/tiga bahasa dan perjalanan browser nyata diperiksa. Struktur semantics web diperbaiki setelah pemeriksaan menemukan penggabungan node/error scheduler. [Review dan bukti](../../docs/client-revisions/2026-10-25/manual-reading-review.md). KIFC-11 kini Ditinjau untuk implementasi; TV fisik tetap X03. Keputusan ini menggantikan semua durasi feedback/reset hasil dalam log historis, tanpa mengubah urutan atau skor.
+
+Catatan lingkungan G04: saat uji browser terdapat satu error sumber suara burung. Network mencatat204 “Intercepted by the IDM Advanced Integration”, disusul200. Ini bukan klaim audio sudah bersih atau bug aplikasi telah diperbaiki; log/batas hasil tersedia di review. Pengaturan ekstensi pengguna tidak diubah. Belum APK/push/deploy baru.
+
+Commit keputusan durasi KIFC-10: `4d04fbb` pada `main`.

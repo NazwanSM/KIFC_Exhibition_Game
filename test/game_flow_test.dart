@@ -221,11 +221,11 @@ class GameFlow {
     }
   }
 
-  /// Waits out the automatic move that follows feedback, then checks the
-  /// screen it lands on. Short feedback advances after about 2 seconds.
+  /// Read the feedback, then use a separate background tap to move once.
   Future<void> advance(String stage, {int milliseconds = 2200}) async {
     await pump(milliseconds);
-    await tester.pump(const Duration(milliseconds: 400));
+    await tester.tapAt(const Offset(4, 4));
+    await pump();
     check(stage);
   }
 
@@ -330,8 +330,7 @@ class GameFlow {
       await pump();
       check('triangle drop ${pair.$1}');
     }
-    // Completing the elements shows the full client feedback and moves on by itself;
-    // there is no intermediate button to press.
+    // Completing the elements shows the full feedback until a separate tap.
     expect(
       find.textContaining(
         text(
@@ -467,7 +466,8 @@ class GameFlow {
       expect(
         find.byWidgetPredicate((w) => w.runtimeType.toString() == '_Feedback'),
         findsOneWidget,
-        reason: 'Every answer shows feedback before the automatic move',
+        reason:
+            'Every answer shows feedback before a separate continuation tap',
       );
       if (!wrongCause && index == 3) await capture('cause-correct');
       await advance('cause feedback ${index + 1}');
@@ -827,16 +827,19 @@ void main() {
         await tester.pump(const Duration(milliseconds: 400));
       }
 
-      // No button press: feedback is shown, then the flow continues on its own.
+      // A separate tap advances after reading; elapsed time alone does not.
       await tester.pump(const Duration(milliseconds: 14200));
-      await tester.pump();
+      await tester.tapAt(const Offset(4, 4));
+      await tester.pump(const Duration(milliseconds: 400));
       expect(
         find.text('Api Dapat Muncul Saat Tiga Unsur Bertemu'),
         findsOneWidget,
       );
     },
   );
-  testWidgets('rebuilding cancels the pending automatic move', (tester) async {
+  testWidgets('rebuilding keeps the activity ready for new input', (
+    tester,
+  ) async {
     tester.view.devicePixelRatio = 1;
     tester.view.physicalSize = const Size(411, 731);
     addTearDown(() {
@@ -861,13 +864,13 @@ void main() {
       await tester.pump(const Duration(milliseconds: 400));
     }
 
-    // The automatic move is pending. Rebuilding must call it off.
+    // Rebuilding resets all completion state.
     await tester.pump(const Duration(milliseconds: 1000));
     await tester.tap(find.text('Ulangi'));
     await tester.pump();
     expect(find.text('Pilih tiga unsur api.'), findsOneWidget);
 
-    // Well past the automatic delay, the screen must not have changed.
+    // Elapsed reading time must not change the reset activity.
     await tester.pump(const Duration(milliseconds: 4000));
     await tester.pump();
     expect(find.text('Pilih tiga unsur api.'), findsOneWidget);
@@ -927,46 +930,27 @@ void main() {
             : '8';
         expect(find.byKey(const ValueKey('total-score')), findsOneWidget);
         expect(renderedTextByKey(tester, 'total-score'), expected);
+        await flow.pump(60000);
+        expect(find.byKey(const ValueKey('total-score')), findsOneWidget);
         if (size.width == 411 && !english) {
-          await flow.pump(14000);
-          expect(find.byKey(const ValueKey('total-score')), findsOneWidget);
           await tester.tap(find.byKey(const ValueKey('total-score')));
-          await flow.pump(100);
-          await flow.pump(2000);
-          expect(find.byKey(const ValueKey('total-score')), findsOneWidget);
-          await flow.pump(13000);
-          expect(
-            find.text(flow.text('Mulai Tantangan', 'Start Challenge')),
-            findsOneWidget,
-          );
-        } else if (size.width == 411) {
-          await flow.tap('Closing Message');
-          await flow.capture('closing');
+          await flow.pump();
+        } else {
+          await flow.tap(flow.text('Selesai', 'Closing Message'));
+        }
+        await flow.capture('closing');
+        await flow.pump(60000);
+        expect(flow.type('_ClosingPage'), findsOneWidget);
+        if (english && size.width != 411) {
+          await flow.tap('Play Again');
+          expect(find.text('Choose three elements.'), findsOneWidget);
+        } else if (english) {
           await flow.tap('Explore the Exhibition');
           expect(find.text('Start Challenge'), findsOneWidget);
         } else {
-          await flow.tap(flow.text('Selesai', 'Closing Message'));
-          await flow.capture('closing');
-          await flow.pump(14000);
-          expect(
-            find.text(flow.text('Jelajahi Pameran', 'Explore the Exhibition')),
-            findsOneWidget,
-          );
-          if (english) {
-            await tester.tap(
-              find.text('Korea–Indonesia Forest Cooperation Center'),
-            );
-            await flow.pump(2000);
-            expect(find.text('Explore the Exhibition'), findsOneWidget);
-            // Playing again starts a fresh session at Chapter 1, not the old
-            // landscape page.
-            await flow.tap('Play Again');
-            expect(find.text('Choose three elements.'), findsOneWidget);
-            expect(find.text('Start Challenge'), findsNothing);
-          } else {
-            await flow.pump(1100);
-            expect(find.text('Mulai Tantangan'), findsOneWidget);
-          }
+          await tester.tapAt(const Offset(4, 4));
+          await flow.pump();
+          expect(find.text('Mulai Tantangan'), findsOneWidget);
         }
         await tester.pumpWidget(const SizedBox.shrink());
         await tester.pump();

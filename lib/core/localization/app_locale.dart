@@ -210,6 +210,10 @@ class LocalizedText extends StatelessWidget {
 }
 
 const Map<String, String> _korean = <String, String>{
+  'Touch the screen when you are ready to continue.':
+      '다 읽으셨으면 화면을 눌러 다음으로 이동하세요.',
+  'Sudah selesai membaca? Sentuh layar untuk lanjut.':
+      '다 읽으셨으면 화면을 눌러 다음으로 이동하세요.',
   // KIFC-09: unscored flip cards.
   'Kartu': '카드',
   'Sentuh untuk membuka': '터치해서 열어 보세요',

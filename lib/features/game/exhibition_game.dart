@@ -136,15 +136,9 @@ class _ExhibitionGameState extends State<ExhibitionGame>
   int _seconds = finalChallengeSeconds;
   final ValueNotifier<double> _finalProgress = ValueNotifier(1);
   Timer? _timer;
-  // One shared timer moves the visitor on after feedback. Every explicit
-  // navigation and reset bumps the token so a pending move never fires twice.
-  Timer? _autoAdvance;
-  int _advanceToken = 0;
-  Timer? _resetTimer;
   late final Stopwatch _finalClock = widget.stopwatchFactory();
   bool _preparingFinal = false;
   int _preparationTicket = 0;
-  int _idleSeconds = 15;
   bool _mascotsPrepared = false;
 
   @override
@@ -195,8 +189,6 @@ class _ExhibitionGameState extends State<ExhibitionGame>
   @override
   void dispose() {
     _timer?.cancel();
-    _autoAdvance?.cancel();
-    _resetTimer?.cancel();
     _finalClock.stop();
     _finalProgress.dispose();
     WidgetsBinding.instance.removeObserver(this);
@@ -204,18 +196,12 @@ class _ExhibitionGameState extends State<ExhibitionGame>
     super.dispose();
   }
 
-  bool get _endPage => _page == _Page.score || _page == _Page.closing;
-
   void _go(_Page page) {
     _preparationTicket++;
     _timer?.cancel();
-    _autoAdvance?.cancel();
-    _advanceToken++;
     _finalClock.stop();
-    _resetTimer?.cancel();
     setState(() {
-      // Revisiting an activity starts that activity again. A cancelled
-      // feedback timer must never leave a returning visitor on locked input.
+      // Revisiting an activity starts that activity again.
       if (page != _page) {
         switch (page) {
           case _Page.triangleBuild:
@@ -243,52 +229,11 @@ class _ExhibitionGameState extends State<ExhibitionGame>
       _page = page;
       _preparingFinal = false;
     });
-    if (_endPage) _resetInactivity();
-  }
-
-  /// Runs [action] after feedback has had time to be read, unless the visitor
-  /// navigates away or the session restarts first. Long feedback carries the
-  /// correct answer and its reason, so it stays on screen longer.
-  void _scheduleAdvance(
-    VoidCallback action, {
-    required bool long,
-    Duration? readingTime,
-  }) {
-    _autoAdvance?.cancel();
-    final token = ++_advanceToken;
-    _autoAdvance = Timer(
-      // Reading time remains available when decorative motion is disabled.
-      readingTime ?? Duration(milliseconds: long ? 4500 : 2000),
-      () {
-        if (!mounted || token != _advanceToken) return;
-        action();
-      },
-    );
-  }
-
-  void _resetInactivity() {
-    if (!_endPage) return;
-    _resetTimer?.cancel();
-    setState(() => _idleSeconds = 15);
-    _resetTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      if (!mounted || !_endPage) {
-        timer.cancel();
-        return;
-      }
-      if (_idleSeconds <= 1) {
-        _restart();
-        return;
-      }
-      setState(() => _idleSeconds--);
-    });
   }
 
   void _restart() {
     _preparationTicket++;
     _timer?.cancel();
-    _autoAdvance?.cancel();
-    _advanceToken++;
-    _resetTimer?.cancel();
     _finalClock.stop();
     setState(() {
       _page = _Page.welcome;
@@ -310,7 +255,6 @@ class _ExhibitionGameState extends State<ExhibitionGame>
       _seconds = finalChallengeSeconds;
       _finalProgress.value = 1;
       _preparingFinal = false;
-      _idleSeconds = 15;
     });
   }
 
@@ -329,19 +273,9 @@ class _ExhibitionGameState extends State<ExhibitionGame>
             : GameSound.retry,
       ),
     );
-    if (_triangle.length == 3) {
-      _scheduleAdvance(
-        () => _go(_Page.triangleExplanation),
-        long: true,
-        readingTime: const Duration(seconds: 14),
-      );
-    }
   }
 
   void _resetTriangle() {
-    // Rebuilding cancels a pending automatic move so it cannot fire twice.
-    _autoAdvance?.cancel();
-    _advanceToken++;
     setState(() {
       _triangle.clear();
       _lastDropCorrect = null;
@@ -357,26 +291,14 @@ class _ExhibitionGameState extends State<ExhibitionGame>
   }
 
   void _chooseBreak(_FireSlot slot) {
-    _autoAdvance?.cancel();
-    _advanceToken++;
     unawaited(_audio.interact(GameSound.select));
     setState(() {
       _breakChoice = slot;
       _breakTried.add(slot);
     });
-    // The demo is unscored; it moves on once all three elements are explored.
-    if (_breakTried.length == _FireSlot.values.length) {
-      _scheduleAdvance(
-        () => _go(_Page.karhutlaCards),
-        long: false,
-        readingTime: const Duration(seconds: 14),
-      );
-    }
   }
 
   void _restartBreak() {
-    _autoAdvance?.cancel();
-    _advanceToken++;
     setState(() {
       _breakChoice = null;
       _breakTried.clear();
@@ -401,23 +323,11 @@ class _ExhibitionGameState extends State<ExhibitionGame>
       if (!correct) _riskWrong++;
       if (_riskWrong >= 2) _riskRevealed = true;
     });
-    if (correct) {
-      _scheduleAdvance(
-        () => _go(_Page.causeQuiz),
-        long: true,
-        readingTime: const Duration(seconds: 18),
-      );
-    } else if (_riskRevealed) {
-      _scheduleAdvance(
-        () => _go(_Page.causeQuiz),
-        long: true,
-        readingTime: const Duration(seconds: 12),
-      );
-    }
   }
 
   void _continueRisk() {
-    if (_page == _Page.risk && _riskAnswer == _RiskOption.peatSwamp) {
+    if (_page == _Page.risk &&
+        (_riskAnswer == _RiskOption.peatSwamp || _riskRevealed)) {
       _go(_Page.causeQuiz);
     }
   }
@@ -425,7 +335,6 @@ class _ExhibitionGameState extends State<ExhibitionGame>
   void _chooseCause(bool humanCause) {
     if (_causeChoice != null) return;
     final scenarios = _causeScenarios(_en);
-    final lastScenario = _causeIndex == scenarios.length - 1;
     unawaited(
       _audio.interact(
         humanCause == scenarios[_causeIndex].human
@@ -437,17 +346,47 @@ class _ExhibitionGameState extends State<ExhibitionGame>
       _causeChoice = humanCause;
       if (humanCause == scenarios[_causeIndex].human) _causePoints++;
     });
-    _scheduleAdvance(() {
-      if (lastScenario) {
-        _go(_Page.peatCharacteristics);
-      } else {
-        setState(() {
-          _causeIndex++;
-          _causeChoice = null;
-        });
-      }
-    }, long: false);
   }
+
+  void _continueCause() {
+    if (_page != _Page.causeQuiz || _causeChoice == null) return;
+    if (_causeIndex == _causeScenarios(_en).length - 1) {
+      _go(_Page.peatCharacteristics);
+    } else {
+      setState(() {
+        _causeIndex++;
+        _causeChoice = null;
+      });
+    }
+  }
+
+  void _continueKarhutla() {
+    if (_karhutlaCardIndex < 2) {
+      setState(() => _karhutlaCardIndex++);
+    } else {
+      _go(_Page.risk);
+    }
+  }
+
+  // Register a parent tap only after the activity is complete. The gesture
+  // which answers/places the final item cannot also dismiss its new feedback.
+  // Child controls win the gesture arena, keeping audio/back/replay usable.
+  VoidCallback? get _readingAdvance => switch (_page) {
+    _Page.triangleBuild when _triangle.length == 3 => _continueAssembly,
+    _Page.triangleExplanation => () => _go(_Page.breakTriangle),
+    _Page.breakTriangle when _breakTried.length == 3 => _continueBreak,
+    _Page.karhutlaCards => _continueKarhutla,
+    _Page.risk when _riskAnswer == _RiskOption.peatSwamp || _riskRevealed =>
+      _continueRisk,
+    _Page.causeQuiz when _causeChoice != null => _continueCause,
+    _Page.peatCharacteristics
+        when _peatOpened.length == 3 && !_preparingFinal =>
+      _openFinal,
+    _Page.finalReview => () => _go(_Page.score),
+    _Page.score => _openClosing,
+    _Page.closing => _restart,
+    _ => null,
+  };
 
   void _flipPeatCard(int index) {
     if (_preparingFinal || _page != _Page.peatCharacteristics) return;
@@ -579,9 +518,7 @@ class _ExhibitionGameState extends State<ExhibitionGame>
       _Page.karhutlaCards => _KarhutlaCards(
         english: _en,
         index: _karhutlaCardIndex,
-        onAdvance: () => setState(() {
-          if (_karhutlaCardIndex < 2) _karhutlaCardIndex++;
-        }),
+        onAdvance: _continueKarhutla,
         onComplete: () => _go(_Page.risk),
         onBack: () {
           if (_karhutlaCardIndex > 0) {
@@ -643,7 +580,6 @@ class _ExhibitionGameState extends State<ExhibitionGame>
         causes: _causePoints,
         finalRaw: _finalRaw,
         bonus: _finalBonus,
-        idleSeconds: _idleSeconds,
         onContinue: _openClosing,
         onAgain: _playAgain,
         onHome: _restart,
@@ -652,51 +588,74 @@ class _ExhibitionGameState extends State<ExhibitionGame>
         english: _en,
         onAgain: _playAgain,
         onExplore: _restart,
-        idleSeconds: _idleSeconds,
       ),
     };
+    final advance = _readingAdvance;
+    void continueReading() {
+      if (advance == null) return;
+      unawaited(_audio.interact(GameSound.tap));
+      advance();
+    }
+
     return GameAudioScope(
       controller: _audio,
       child: Listener(
         behavior: HitTestBehavior.translucent,
         onPointerDown: (_) {
           unawaited(_audio.activate());
-          _resetInactivity();
         },
-        onPointerMove: (_) => _resetInactivity(),
-        onPointerSignal: (_) => _resetInactivity(),
-        child: Stack(
-          fit: StackFit.expand,
-          children: <Widget>[
-            AnimatedSwitcher(
-              duration: _motionDuration(
-                context,
-                const Duration(milliseconds: 320),
-              ),
-              reverseDuration: _motionDuration(
-                context,
-                const Duration(milliseconds: 220),
-              ),
-              switchInCurve: Curves.easeOutCubic,
-              switchOutCurve: Curves.easeInCubic,
-              transitionBuilder: (child, animation) {
-                final slide = Tween<Offset>(
-                  begin: const Offset(.025, 0),
-                  end: Offset.zero,
-                ).animate(animation);
-                return FadeTransition(
-                  opacity: animation,
-                  child: SlideTransition(position: slide, child: child),
-                );
-              },
-              child: KeyedSubtree(
-                key: ValueKey(
-                  _page == _Page.finalReview ? _Page.finalChallenge : _page,
+        child: Semantics(
+          container: true,
+          explicitChildNodes: true,
+          label: advance == null
+              ? null
+              : AppCopy.translate(
+                  _en
+                      ? 'Touch the screen when you are ready to continue.'
+                      : 'Sudah selesai membaca? Sentuh layar untuk lanjut.',
                 ),
-                child: page,
-              ),
+          onTap: advance == null ? null : continueReading,
+          child: GestureDetector(
+            key: const ValueKey('reading-continue-anywhere'),
+            behavior: HitTestBehavior.opaque,
+            // Keep a stable semantics container with separate reading nodes.
+            // GestureDetector's implicit merging breaks dynamic web scroll nodes.
+            excludeFromSemantics: true,
+            onTap: advance == null ? null : continueReading,
+            child: Stack(
+              fit: StackFit.expand,
+              children: <Widget>[
+                AnimatedSwitcher(
+                  duration: _motionDuration(
+                    context,
+                    const Duration(milliseconds: 320),
+                  ),
+                  reverseDuration: _motionDuration(
+                    context,
+                    const Duration(milliseconds: 220),
+                  ),
+                  switchInCurve: Curves.easeOutCubic,
+                  switchOutCurve: Curves.easeInCubic,
+                  transitionBuilder: (child, animation) {
+                    final slide = Tween<Offset>(
+                      begin: const Offset(.025, 0),
+                      end: Offset.zero,
+                    ).animate(animation);
+                    return FadeTransition(
+                      opacity: animation,
+                      child: SlideTransition(position: slide, child: child),
+                    );
+                  },
+                  child: KeyedSubtree(
+                    key: ValueKey(
+                      _page == _Page.finalReview ? _Page.finalChallenge : _page,
+                    ),
+                    child: page,
+                  ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );
@@ -1100,23 +1059,7 @@ class _RiskPage extends StatelessWidget {
         answered: answer != null,
       ),
     );
-    return Stack(
-      fit: StackFit.expand,
-      children: [
-        stage,
-        if (solved)
-          Positioned.fill(
-            child: GestureDetector(
-              behavior: HitTestBehavior.opaque,
-              onTap: () {
-                unawaited(GameAudioScope.of(context).interact(GameSound.tap));
-                onContinue();
-              },
-              child: const SizedBox.expand(),
-            ),
-          ),
-      ],
-    );
+    return stage;
   }
 
   Widget _footer({
@@ -1449,17 +1392,7 @@ class _TriangleBuild extends StatelessWidget {
         incorrect: lastDropCorrect == false,
       ),
     );
-    return GestureDetector(
-      key: const ValueKey('assembly-continue-anywhere'),
-      behavior: HitTestBehavior.opaque,
-      onTap: complete
-          ? () {
-              unawaited(GameAudioScope.of(context).interact(GameSound.tap));
-              onContinue();
-            }
-          : null,
-      child: stage,
-    );
+    return stage;
   }
 }
 
@@ -2283,13 +2216,12 @@ class _ScorePage extends StatelessWidget {
     required this.causes,
     required this.finalRaw,
     required this.bonus,
-    required this.idleSeconds,
     required this.onContinue,
     required this.onAgain,
     required this.onHome,
   });
   final bool english;
-  final int triangle, causes, finalRaw, idleSeconds;
+  final int triangle, causes, finalRaw;
   final double bonus;
   final VoidCallback onContinue, onAgain, onHome;
   double get total => triangle + causes + bonus;
@@ -2429,7 +2361,7 @@ class _ScorePage extends StatelessWidget {
           onPressed: onAgain,
         ),
         const SizedBox(height: 8),
-        _IdleNotice(english: english, seconds: idleSeconds),
+        _ContinueNotice(english: english),
       ],
     ),
   );
@@ -2440,11 +2372,9 @@ class _ClosingPage extends StatelessWidget {
     required this.english,
     required this.onAgain,
     required this.onExplore,
-    required this.idleSeconds,
   });
   final bool english;
   final VoidCallback onAgain, onExplore;
-  final int idleSeconds;
   @override
   Widget build(BuildContext context) {
     final compact = _compactLayout(context);
@@ -2591,11 +2521,7 @@ class _ClosingPage extends StatelessWidget {
                     dark: true,
                   ),
                   const SizedBox(height: 10),
-                  _IdleNotice(
-                    english: english,
-                    seconds: idleSeconds,
-                    dark: true,
-                  ),
+                  _ContinueNotice(english: english, dark: true),
                 ],
               ),
             ),
@@ -2606,20 +2532,15 @@ class _ClosingPage extends StatelessWidget {
   }
 }
 
-class _IdleNotice extends StatelessWidget {
-  const _IdleNotice({
-    required this.english,
-    required this.seconds,
-    this.dark = false,
-  });
+class _ContinueNotice extends StatelessWidget {
+  const _ContinueNotice({required this.english, this.dark = false});
   final bool english;
-  final int seconds;
   final bool dark;
   @override
   Widget build(BuildContext context) => LocalizedText(
     english
-        ? 'Returns home after $seconds seconds without interaction.'
-        : 'Layar kembali ke awal dalam $seconds detik jika tidak disentuh.',
+        ? 'Touch the screen when you are ready to continue.'
+        : 'Sudah selesai membaca? Sentuh layar untuk lanjut.',
     textAlign: TextAlign.center,
     style: TextStyle(
       fontSize: 10,

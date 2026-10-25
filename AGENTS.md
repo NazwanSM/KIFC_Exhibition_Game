@@ -48,6 +48,12 @@
 - Chapter 4 peat-fire characteristics (KIFC-09) uses three numbered flip cards. It is information, not a question, and awards no score. Cards can be reopened without losing read progress; all three are opened before manual continuation. Preserve the flow position after Chapter 3 and before the impact challenge. The old safe-action point is removed; maximum is 8 (elements 3, causes 4, impact bonus up to 1).
 - Use a clearly readable air cue for oxygen, and explain that oxygen is present in air. A windsock represents moving air; it is not a visible photograph of oxygen and does not imply wind is required for a fire.
 
+## Reading and continuation (owner25October)
+
+- Feedback and results wait for a separate visitor tap; do not restore feedback auto-advance or the 15-second results/closing reset. Allow tapping game content/background to continue once the current activity is complete. Preserve the retry after the first wrong peat answer and completion requirements for assembly, reduction and flip cards; background taps never skip an unanswered question or an active timed challenge.
+- Child actions (Back/Home, Restart, Play Again, cards, audio and credits) retain priority; dialogs do not advance the underlying page. The answer/drop/last-card gesture shows feedback and must not also dismiss it. Preserve separate semantics reading nodes when the full-page continuation action becomes available.
+- KIFC-10 is finalized at 30 seconds by the owner. Start after photos/transitions are ready; keep the existing countdown ring, colors, deadline and delayed grading.
+
 ## Revision commits
 
 - Commit each completed revision ticket separately and record the commit hash in the revision tracker. Preserve unrelated owner files and weekly reports. The initial October24 checkpoint groups the earlier uncommitted screen work; later tickets must remain separate.
