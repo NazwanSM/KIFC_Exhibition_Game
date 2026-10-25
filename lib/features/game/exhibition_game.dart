@@ -1927,6 +1927,7 @@ class _PeatCharacteristics extends StatelessWidget {
               ok: false,
               neutral: true,
               assembly: true,
+              centerBubbleOnMascot: true,
               pose: MascotPose.presenting,
               text: complete
                   ? (english
@@ -1937,7 +1938,6 @@ class _PeatCharacteristics extends StatelessWidget {
                         : 'Baca pelan-pelan, ya. Kamu bisa membalik kartunya lagi.'),
             ),
           ),
-          const SizedBox(height: 8),
           _Primary(
             key: const ValueKey('peat-cards-continue'),
             label: preparing
@@ -3470,6 +3470,7 @@ class _MascotFeedback extends StatelessWidget {
     this.assembly = false,
     this.pose,
     this.neutral = false,
+    this.centerBubbleOnMascot = false,
   });
   final String text;
   final bool ok;
@@ -3477,6 +3478,7 @@ class _MascotFeedback extends StatelessWidget {
   final bool assembly;
   final MascotPose? pose;
   final bool neutral;
+  final bool centerBubbleOnMascot;
 
   @override
   Widget build(BuildContext context) {
@@ -3502,6 +3504,69 @@ class _MascotFeedback extends StatelessWidget {
         : 194.0;
     final imageHeight = mascotWidth * 4 / 3;
     final leftInset = assembly && pose == MascotPose.presenting ? 16.0 : 40.0;
+    final bubble = Padding(
+      padding: EdgeInsets.only(
+        left: ok ? 0 : mascotWidth - leftInset,
+        right: !ok ? 0 : mascotWidth - 24,
+        top: centerBubbleOnMascot || dense ? 0 : 8,
+        bottom: centerBubbleOnMascot ? 0 : readingBottom,
+      ),
+      child: MotionReveal(
+        key: const ValueKey('feedback-motion'),
+        trigger: text,
+        delay: const Duration(milliseconds: 55),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            if (!ok)
+              ClipPath(
+                clipper: _SpeechTail(),
+                child: const ColoredBox(
+                  color: KifcTheme.paper,
+                  child: SizedBox(width: 10, height: 18),
+                ),
+              ),
+            Expanded(
+              child: Container(
+                key: const ValueKey('feedback-message'),
+                padding: EdgeInsets.all(dense ? 8 : 10),
+                decoration: BoxDecoration(
+                  color: KifcTheme.paper,
+                  borderRadius: BorderRadius.circular(18),
+                  border: Border.all(
+                    color: neutral
+                        ? KifcTheme.line
+                        : (ok
+                                  ? KifcTheme.answerCorrect
+                                  : KifcTheme.answerIncorrect)
+                              .withValues(alpha: .45),
+                  ),
+                ),
+                child: LocalizedText(
+                  text,
+                  style: const TextStyle(
+                    color: KifcTheme.ink,
+                    fontSize: 13,
+                    height: 1.25,
+                  ),
+                ),
+              ),
+            ),
+            if (ok)
+              RotatedBox(
+                quarterTurns: 2,
+                child: ClipPath(
+                  clipper: _SpeechTail(),
+                  child: const ColoredBox(
+                    color: KifcTheme.paper,
+                    child: SizedBox(width: 10, height: 18),
+                  ),
+                ),
+              ),
+          ],
+        ),
+      ),
+    );
     return ConstrainedBox(
       constraints: BoxConstraints(
         minHeight: assembly
@@ -3539,69 +3604,16 @@ class _MascotFeedback extends StatelessWidget {
               ),
             ),
           ),
-          Padding(
-            padding: EdgeInsets.only(
-              left: ok ? 0 : mascotWidth - leftInset,
-              right: !ok ? 0 : mascotWidth - 24,
-              top: dense ? 0 : 8,
-              bottom: readingBottom,
-            ),
-            child: MotionReveal(
-              key: const ValueKey('feedback-motion'),
-              trigger: text,
-              delay: const Duration(milliseconds: 55),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  if (!ok)
-                    ClipPath(
-                      clipper: _SpeechTail(),
-                      child: const ColoredBox(
-                        color: KifcTheme.paper,
-                        child: SizedBox(width: 10, height: 18),
-                      ),
-                    ),
-                  Expanded(
-                    child: Container(
-                      key: const ValueKey('feedback-message'),
-                      padding: EdgeInsets.all(dense ? 8 : 10),
-                      decoration: BoxDecoration(
-                        color: KifcTheme.paper,
-                        borderRadius: BorderRadius.circular(18),
-                        border: Border.all(
-                          color: neutral
-                              ? KifcTheme.line
-                              : (ok
-                                        ? KifcTheme.answerCorrect
-                                        : KifcTheme.answerIncorrect)
-                                    .withValues(alpha: .45),
-                        ),
-                      ),
-                      child: LocalizedText(
-                        text,
-                        style: const TextStyle(
-                          color: KifcTheme.ink,
-                          fontSize: 13,
-                          height: 1.25,
-                        ),
-                      ),
-                    ),
-                  ),
-                  if (ok)
-                    RotatedBox(
-                      quarterTurns: 2,
-                      child: ClipPath(
-                        clipper: _SpeechTail(),
-                        child: const ColoredBox(
-                          color: KifcTheme.paper,
-                          child: SizedBox(width: 10, height: 18),
-                        ),
-                      ),
-                    ),
-                ],
-              ),
-            ),
-          ),
+          if (centerBubbleOnMascot)
+            Positioned(
+              left: 0,
+              right: 0,
+              bottom: 0,
+              height: imageHeight * .57,
+              child: Center(child: bubble),
+            )
+          else
+            bubble,
         ],
       ),
     );

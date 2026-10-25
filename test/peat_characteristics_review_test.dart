@@ -29,6 +29,7 @@ void main() {
           locale: locale,
           page: 'peatCharacteristics',
         );
+        await tester.pump(const Duration(milliseconds: 500));
         final next = find.byKey(const ValueKey('peat-cards-continue'));
         bool enabled() =>
             tester
@@ -43,6 +44,14 @@ void main() {
                 .onPressed !=
             null;
         expect(next, findsOneWidget);
+        final mascotCrop = tester.getRect(
+          find.byKey(const ValueKey('feedback-mascot-crop')),
+        );
+        final speech = tester.getRect(
+          find.byKey(const ValueKey('feedback-message')),
+        );
+        expect(speech.center.dy, closeTo(mascotCrop.center.dy, 1));
+        expect(mascotCrop.bottom, closeTo(tester.getRect(next).top, 1));
         expect(enabled(), isFalse);
         final metrics = <String, Object>{
           'ticket': 'KIFC-09',

@@ -1,0 +1,7 @@
+# KIFC-09 — bubble sejajar dan maskot menyatu dengan tombol
+
+Permintaan pemilik 25 Oktober: bubble informasi pada tiga kartu terlalu tinggi; sejajarkan dengan maskot dan letakkan potongan badan maskot tepat di atas tombol. Bubble kini mengikuti pusat area setengah badan maskot. Celah 8 logical px sebelum tombol dihapus sehingga potongan pinggang menyentuh bagian atas tombol. Aset/pose tidak dicerminkan, syarat tiga kartu dibuka, skor, audio dan kelanjutan manual tetap.
+
+Komponen feedback bersama dipakai ulang dengan opsi lokal; halaman feedback lain mempertahankan susunannya.17 tes kartu lulus, termasuk pemeriksaan pusat bubble sejajar dengan crop maskot dan crop bertemu tombol.60 render kartu dalam tiga bahasa × lima ukuran 360×640/411×731/720×1280/1080×1920/2160×3840 tersedia; indeks gabungan dengan koreksi03 ada di [indeks bukti](../../../build/review-mascot-alignment-2026-10-25/evidence-index.json).
+
+Bukti: [Indonesia Full HD](../../../build/review-mascot-alignment-2026-10-25/peat-cards-front-id-1080x1920.png), [Korea 4K setelah kartu dibaca](../../../build/review-mascot-alignment-2026-10-25/peat-cards-read-ko-2160x3840.png), [Inggris 411×731](../../../build/review-mascot-alignment-2026-10-25/peat-cards-front-en-411x731.png). Screenshot adalah render Flutter, bukan foto/uji jangkauan TV 42 inci fisik.
