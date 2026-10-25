@@ -39,7 +39,7 @@ Tracker ini mencatat pekerjaan baru dari dokumen KIFC. **KIFC-01 sampai11 sudah 
 | KIFC-G04 | Musik, suara alam, efek suara, dan kontrol audio | Ditinjau | Koreksi interaksi/error web,239 tes,53 aset APK serta alur/audio native tiga bahasa diperiksa; akustik TV fisik menunggu D-09 |
 | KIFC-X01 | Alur, penomoran babak, dan perhitungan skor | Ditinjau | Urutan dipertahankan, kartu09 tanpa skor, maksimum8;212 tes lulus |
 | KIFC-X02 | Naskah tiga bahasa dan konsistensi istilah | Ditinjau | Inventaris/glosarium serta alur Korea diperiksa; materi09 sudah tiga bahasa; validasi klien/penutur menunggu |
-| KIFC-X03 | Verifikasi, perangkat, dan rilis | Ditinjau sebagian | APK terbaru/53 aset, tiga perjalanan native lengkap8/8 serta replay/audio lulus; bukti720p/1080p dan4K terbatas; Prarilis APK/Pages57f0467 terverifikasi; TV fisik dan paket produksi tetap terbuka |
+| KIFC-X03 | Verifikasi, perangkat, dan rilis | Ditinjau sebagian | E2E 25 Oktober: 313 tes, browser/APK release final ID/EN/KO, 53 aset dan 951 render; paket review lokal siap. TV fisik, signing produksi dan publikasi terbaru tetap terbuka |
 
 ## KIFC-01 Tampilan awal
 
@@ -621,3 +621,11 @@ Pemilik mengoreksi penafsiran tanpa batas waktu: “kalau ada feedback dan hasil
 Verifikasi koreksi15detik:313tes Flutter lulus, analisis bersih,105render lima ukuran/tiga bahasa diperiksa. Browser menunjukkan feedback tetap pada14detik, lanjut otomatis sekitar15detik, sentuhan cepat serta pembatalan deadline lama berfungsi.
 
 Commit koreksi feedback/hasil15detik: `876cafa` pada `main`.
+
+### Pengujian menyeluruh dan paket review klien — 25 Oktober
+
+313 tes Flutter dan analisis lulus. Browser release serta APK debug offline melewati alur penuh ID/EN/KO; APK release final setelah koreksi label diuji ulang tiga bahasa sampai 8/8, penutup dan replay 0/3. 53 hash aset cocok; 9 sumber audio decode/playback dan kontrol diperiksa, termasuk mute/master 0/layer, pause/resume native serta pemulihan efek setelah 503 buatan. Feedback 15 detik/dialog/sentuhan dan tantangan 30 detik dipertahankan. 951 render berdimensi tervalidasi serta inspeksi representatif seluruh tahap utama tersedia.
+
+Nama launcher internal diperbaiki melalui commit `5d101d6`; alat QA disesuaikan dengan timer/transisi dan pelaporan release tanpa counter debug. [Laporan lengkap](../../docs/client-revisions/2026-10-25/end-to-end-review.md), [hasil mesin](../../production/qa/e2e-results-2026-10-25.json), [paket klien](../../build/review-e2e-2026-10-25/KIFC-Client-Update-2026-10-25.zip) memuat APK release review 1.0.1 (20261025), PDF, 37 PNG asli dan checksum. SHA256 APK `e01e1367d5ec3e47fecddf870361ec764c6dc3ef440611087049130ac4ba4fba`.
+
+Tidak ditemukan penghambat pada skenario akhir. Status pengesahan klien tidak otomatis ditutup: TV 42 inci fisik, performa, akustik, naskah/terjemahan, kunci signing produksi dan publikasi terbaru tetap terbuka. Tidak ada push/deploy pada sesi ini.

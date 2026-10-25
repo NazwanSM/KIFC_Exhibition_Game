@@ -2,7 +2,7 @@
 
 Offline, portrait Android touchscreen game for the KIFC Exhibition Room, Zone 1.
 
-The implementation follows the approved Terms of Reference: bilingual content,
+The implementation follows the approved Terms of Reference: content in Indonesian, English and Korean,
 four short educational levels, score, and automatic reset for consecutive
 visitors. The current preview includes the four chapters, photographic scenes,
 drag-and-drop fire-triangle assembly and an interactive element-reduction demo.

@@ -46,7 +46,7 @@ STRINGS = {
 }
 
 
-def run(language, output):
+def run(language, output, build_mode="debug"):
     index = ["id", "en", "ko"].index(language)
     label = lambda key: STRINGS[key][index]
     r = AndroidReview(output)
@@ -54,7 +54,9 @@ def run(language, output):
     r.adb("logcat", "-c")
     r.adb("shell", "am", "start", "-n", r.package + "/.MainActivity")
     r.wait("Bahasa Indonesia", timeout=45)
-    r.tap(["Bahasa Indonesia", "English", "한국어"][index], refresh=False)
+    # Accessibility may appear before the cold-start window accepts input.
+    time.sleep(1)
+    r.tap(["Bahasa Indonesia", "English", "한국어"][index], clickable=True)
     r.wait(label("start"), clickable=True)
     r.capture("welcome")
     r.tap(label("start"), refresh=False, clickable=True)
@@ -68,6 +70,7 @@ def run(language, output):
     for key, slot in [("spark", 0), ("wood", 1), ("air", 2)]:
         r.dump()
         r.drag(r.find(label(key)), slots[slot])
+    r.wait(["3/3 unsur", "3/3 elements", "요소 3/3"][index], contains=True)
     r.capture("assembly-complete", hierarchy=True)
     assert any("3/3" in r.label(n) for n in r.nodes)
     r.tap_at(540, 680)  # Completion accepts a deliberate next tap anywhere.
@@ -102,7 +105,9 @@ def run(language, output):
         r.capture("cause-question-" + str(number))
         r.tap(label(key), refresh=False, clickable=True)
         r.capture("cause-feedback-" + str(number))
-        time.sleep(2.4)
+        # Feedback now has a 15-second fallback. A separate visitor tap can
+        # continue immediately; waiting 2.4s no longer advances the activity.
+        r.tap_at(540, 680)
     r.wait(label("card") + " 1.", contains=True, clickable=True)
     r.capture("characteristics-closed")
     for number in range(1, 4):
@@ -130,6 +135,8 @@ def run(language, output):
     assert "8" in score_labels and any("/ 8" in s for s in score_labels), score_labels
     r.record("score-assertion", expected=8, maximum=8, labels=score_labels)
     r.tap(label("finish"), refresh=False, clickable=True)
+    # Score and closing both expose Play Again; wait out the outgoing frame.
+    time.sleep(.6)
     r.wait(label("again"), clickable=True)
     r.capture("closing")
     r.tap(label("again"), refresh=False, clickable=True)
@@ -138,14 +145,18 @@ def run(language, output):
     assert any("0/3" in r.label(n) for n in r.nodes)
     log = r.log()
     cues = re.findall(r"effect=(\w+) state=playing", log)
-    assert cues.count("finish") == 1, "Final cue must play once"
-    assert cues.count("complete") == 1, "Assembly cue must play once"
-    assert log.count("Offline sources ready; 9 fixed players") == 1, "Replay must reuse players"
+    if build_mode == "debug":
+        assert cues.count("finish") == 1, "Final cue must play once"
+        assert cues.count("complete") == 1, "Assembly cue must play once"
+        assert log.count("Offline sources ready; 9 fixed players") == 1, "Replay must reuse players"
     assert not re.search(r"AudioPlayerException|E flutter|FATAL EXCEPTION|Unhandled Exception", log), "Inspect app log"
     report = {"language": language, "passed": True, "score": 8, "maximum": 8,
-              "finishCues": cues.count("finish"), "sourcePreparations": 1,
-              "effectCounts": {cue: cues.count(cue) for cue in sorted(set(cues))},
-              "source": "Real debug APK, API35 emulator,1080x1920,density420,host GPU"}
+              "buildMode": build_mode,
+              "finishCues": cues.count("finish") if build_mode == "debug" else None,
+              "sourcePreparations": 1 if build_mode == "debug" else None,
+              "effectCounts": {cue: cues.count(cue) for cue in sorted(set(cues))} if build_mode == "debug" else None,
+              "audioCueLogAssessed": build_mode == "debug",
+              "source": "Real " + build_mode + " APK, API35 emulator,1080x1920,density420,host GPU"}
     (r.output / "result.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
     print(json.dumps(report), flush=True)
 
@@ -155,5 +166,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--lang", choices=["id", "en", "ko"], required=True)
     parser.add_argument("--output", required=True)
+    parser.add_argument("--build-mode", choices=["debug", "release"], default="debug",
+                        help="Release omits debug cue counters; audio evidence must be recorded separately.")
     args = parser.parse_args()
-    run(args.lang, args.output)
+    run(args.lang, args.output, args.build_mode)

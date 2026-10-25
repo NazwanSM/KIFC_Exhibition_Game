@@ -1,0 +1,719 @@
+{
+  "date": "2026-10-25",
+  "branch": "main",
+  "gameplayBaseline": "8b1cbdd",
+  "androidDisplayNameCommit": "5d101d6",
+  "flutterTests": 313,
+  "analysis": "passed",
+  "pythonApkVerifierTests": 1,
+  "widgetEvidence": {
+    "count": 951,
+    "sizes": {
+      "411x731": 225,
+      "1080x1920": 208,
+      "2160x3840": 150,
+      "360x640": 194,
+      "720x1280": 164,
+      "800x600": 4,
+      "1440x900": 3,
+      "390x844": 3
+    }
+  },
+  "releaseApk": {
+    "apk": "D:\\KIFC Game Exhibition\\fire_prevention_challenge\\build\\app\\outputs\\flutter-apk\\app-release.apk",
+    "bytes": 75532455,
+    "sha256": "e01e1367d5ec3e47fecddf870361ec764c6dc3ef440611087049130ac4ba4fba",
+    "offlineAssetsChecked": 53,
+    "failures": [],
+    "passed": true
+  },
+  "nativeFinalJourneys": {
+    "id": {
+      "language": "id",
+      "passed": true,
+      "score": 8,
+      "maximum": 8,
+      "buildMode": "release",
+      "finishCues": null,
+      "sourcePreparations": null,
+      "effectCounts": null,
+      "audioCueLogAssessed": false,
+      "source": "Real release APK, API35 emulator,1080x1920,density420,host GPU"
+    },
+    "en": {
+      "language": "en",
+      "passed": true,
+      "score": 8,
+      "maximum": 8,
+      "buildMode": "release",
+      "finishCues": null,
+      "sourcePreparations": null,
+      "effectCounts": null,
+      "audioCueLogAssessed": false,
+      "source": "Real release APK, API35 emulator,1080x1920,density420,host GPU"
+    },
+    "ko": {
+      "language": "ko",
+      "passed": true,
+      "score": 8,
+      "maximum": 8,
+      "buildMode": "release",
+      "finishCues": null,
+      "sourcePreparations": null,
+      "effectCounts": null,
+      "audioCueLogAssessed": false,
+      "source": "Real release APK, API35 emulator,1080x1920,density420,host GPU"
+    }
+  },
+  "debugJourneys": [
+    {
+      "language": "id",
+      "passed": true,
+      "score": 8,
+      "maximum": 8,
+      "finishCues": 1,
+      "sourcePreparations": 1,
+      "effectCounts": {
+        "complete": 1,
+        "correct": 7,
+        "finish": 1,
+        "flip": 3,
+        "retry": 2,
+        "select": 9,
+        "tap": 17
+      },
+      "source": "Real debug APK, API35 emulator,1080x1920,density420,host GPU"
+    },
+    {
+      "language": "en",
+      "passed": true,
+      "score": 8,
+      "maximum": 8,
+      "finishCues": 1,
+      "sourcePreparations": 1,
+      "effectCounts": {
+        "complete": 1,
+        "correct": 7,
+        "finish": 1,
+        "flip": 3,
+        "retry": 2,
+        "select": 9,
+        "tap": 17
+      },
+      "source": "Real debug APK, API35 emulator,1080x1920,density420,host GPU"
+    },
+    {
+      "language": "ko",
+      "passed": true,
+      "score": 8,
+      "maximum": 8,
+      "finishCues": 1,
+      "sourcePreparations": 1,
+      "effectCounts": {
+        "complete": 1,
+        "correct": 7,
+        "finish": 1,
+        "flip": 3,
+        "retry": 2,
+        "select": 9,
+        "tap": 17
+      },
+      "source": "Real debug APK, API35 emulator,1080x1920,density420,host GPU"
+    }
+  ],
+  "browserChecks": {
+    "browser-id-passed.log": {
+      "language": "id",
+      "passed": true,
+      "score": 8,
+      "maximum": 8,
+      "countdownObservedMs": 30899,
+      "secondWrongCovered": false,
+      "audio": {
+        "players": 9,
+        "errors": [],
+        "played": [
+          "forest-music.mp3",
+          "forest-birds.mp3",
+          "tap.wav",
+          "retry.wav",
+          "correct.wav",
+          "correct.wav",
+          "complete.wav",
+          "tap.wav",
+          "tap.wav",
+          "select.wav",
+          "select.wav",
+          "select.wav",
+          "tap.wav",
+          "tap.wav",
+          "tap.wav",
+          "tap.wav",
+          "retry.wav",
+          "correct.wav",
+          "tap.wav",
+          "correct.wav",
+          "tap.wav",
+          "correct.wav",
+          "tap.wav",
+          "correct.wav",
+          "tap.wav",
+          "correct.wav",
+          "tap.wav",
+          "flip.wav",
+          "flip.wav",
+          "flip.wav",
+          "tap.wav",
+          "select.wav",
+          "select.wav",
+          "select.wav",
+          "select.wav",
+          "select.wav",
+          "select.wav",
+          "forest-birds.mp3",
+          "forest-music.mp3",
+          "finish.wav",
+          "tap.wav",
+          "tap.wav",
+          "tap.wav"
+        ],
+        "loops": [
+          {
+            "src": "http://127.0.0.1:8084/assets/assets/audio/forest-music.mp3",
+            "time": 11.340279,
+            "paused": false,
+            "ready": 4
+          },
+          {
+            "src": "http://127.0.0.1:8084/assets/assets/audio/forest-birds.mp3",
+            "time": 14.068644,
+            "paused": false,
+            "ready": 4
+          }
+        ]
+      }
+    },
+    "browser-en-passed.log": {
+      "language": "en",
+      "passed": true,
+      "score": 8,
+      "maximum": 8,
+      "countdownObservedMs": 30700,
+      "secondWrongCovered": true,
+      "audio": {
+        "players": 9,
+        "errors": [],
+        "played": [
+          "forest-music.mp3",
+          "forest-birds.mp3",
+          "tap.wav",
+          "tap.wav",
+          "retry.wav",
+          "correct.wav",
+          "correct.wav",
+          "complete.wav",
+          "tap.wav",
+          "tap.wav",
+          "select.wav",
+          "select.wav",
+          "select.wav",
+          "tap.wav",
+          "tap.wav",
+          "tap.wav",
+          "tap.wav",
+          "retry.wav",
+          "retry.wav",
+          "tap.wav",
+          "correct.wav",
+          "tap.wav",
+          "correct.wav",
+          "tap.wav",
+          "correct.wav",
+          "tap.wav",
+          "correct.wav",
+          "tap.wav",
+          "flip.wav",
+          "flip.wav",
+          "flip.wav",
+          "tap.wav",
+          "select.wav",
+          "select.wav",
+          "select.wav",
+          "select.wav",
+          "select.wav",
+          "select.wav",
+          "forest-birds.mp3",
+          "forest-music.mp3",
+          "finish.wav",
+          "tap.wav",
+          "tap.wav",
+          "tap.wav"
+        ],
+        "loops": [
+          {
+            "src": "http://127.0.0.1:8084/assets/assets/audio/forest-music.mp3",
+            "time": 10.983039,
+            "paused": false,
+            "ready": 4
+          },
+          {
+            "src": "http://127.0.0.1:8084/assets/assets/audio/forest-birds.mp3",
+            "time": 13.728798,
+            "paused": false,
+            "ready": 4
+          }
+        ]
+      }
+    },
+    "browser-ko-passed.log": {
+      "language": "ko",
+      "passed": true,
+      "score": 8,
+      "maximum": 8,
+      "countdownObservedMs": 31013,
+      "secondWrongCovered": false,
+      "audio": {
+        "players": 9,
+        "errors": [],
+        "played": [
+          "forest-music.mp3",
+          "forest-birds.mp3",
+          "tap.wav",
+          "retry.wav",
+          "correct.wav",
+          "correct.wav",
+          "complete.wav",
+          "tap.wav",
+          "tap.wav",
+          "select.wav",
+          "select.wav",
+          "select.wav",
+          "tap.wav",
+          "tap.wav",
+          "tap.wav",
+          "tap.wav",
+          "retry.wav",
+          "correct.wav",
+          "tap.wav",
+          "correct.wav",
+          "tap.wav",
+          "correct.wav",
+          "tap.wav",
+          "correct.wav",
+          "tap.wav",
+          "correct.wav",
+          "tap.wav",
+          "flip.wav",
+          "flip.wav",
+          "flip.wav",
+          "tap.wav",
+          "select.wav",
+          "select.wav",
+          "select.wav",
+          "select.wav",
+          "select.wav",
+          "select.wav",
+          "forest-birds.mp3",
+          "forest-music.mp3",
+          "finish.wav",
+          "tap.wav",
+          "tap.wav",
+          "tap.wav"
+        ],
+        "loops": [
+          {
+            "src": "http://127.0.0.1:8084/assets/assets/audio/forest-music.mp3",
+            "time": 9.990385,
+            "paused": false,
+            "ready": 4
+          },
+          {
+            "src": "http://127.0.0.1:8084/assets/assets/audio/forest-birds.mp3",
+            "time": 12.620045,
+            "paused": false,
+            "ready": 4
+          }
+        ]
+      }
+    },
+    "browser-audio-controls.log": {
+      "passed": true,
+      "results": [
+        {
+          "name": "initial",
+          "passed": true,
+          "players": 9,
+          "music": {
+            "src": "forest-music.mp3",
+            "paused": false,
+            "time": 6.497836,
+            "ready": 4,
+            "error": null
+          },
+          "nature": {
+            "src": "forest-birds.mp3",
+            "paused": false,
+            "time": 17.318364,
+            "ready": 4,
+            "error": null
+          }
+        },
+        {
+          "name": "mute",
+          "passed": true,
+          "players": 9,
+          "music": {
+            "src": "forest-music.mp3",
+            "paused": true,
+            "time": 6.519002,
+            "ready": 4,
+            "error": null
+          },
+          "nature": {
+            "src": "forest-birds.mp3",
+            "paused": true,
+            "time": 17.342404,
+            "ready": 4,
+            "error": null
+          }
+        },
+        {
+          "name": "unmute",
+          "passed": true,
+          "players": 9,
+          "music": {
+            "src": "forest-music.mp3",
+            "paused": false,
+            "time": 0.509195,
+            "ready": 4,
+            "error": null
+          },
+          "nature": {
+            "src": "forest-birds.mp3",
+            "paused": false,
+            "time": 0.456968,
+            "ready": 4,
+            "error": null
+          }
+        },
+        {
+          "name": "master-zero",
+          "passed": true,
+          "players": 9,
+          "music": {
+            "src": "forest-music.mp3",
+            "paused": true,
+            "time": 1.921451,
+            "ready": 4,
+            "error": null
+          },
+          "nature": {
+            "src": "forest-birds.mp3",
+            "paused": true,
+            "time": 1.869206,
+            "ready": 4,
+            "error": null
+          }
+        },
+        {
+          "name": "master-restored",
+          "passed": true,
+          "players": 9,
+          "music": {
+            "src": "forest-music.mp3",
+            "paused": false,
+            "time": 1.607982,
+            "ready": 4,
+            "error": null
+          },
+          "nature": {
+            "src": "forest-birds.mp3",
+            "paused": false,
+            "time": 1.561542,
+            "ready": 4,
+            "error": null
+          }
+        },
+        {
+          "name": "music-zero",
+          "passed": true,
+          "players": 9,
+          "music": {
+            "src": "forest-music.mp3",
+            "paused": true,
+            "time": 2.027437,
+            "ready": 4,
+            "error": null
+          },
+          "nature": {
+            "src": "forest-birds.mp3",
+            "paused": false,
+            "time": 2.478715,
+            "ready": 4,
+            "error": null
+          }
+        },
+        {
+          "name": "music-restored",
+          "passed": true,
+          "players": 9,
+          "music": {
+            "src": "forest-music.mp3",
+            "paused": false,
+            "time": 0.870768,
+            "ready": 4,
+            "error": null
+          },
+          "nature": {
+            "src": "forest-birds.mp3",
+            "paused": false,
+            "time": 3.361114,
+            "ready": 4,
+            "error": null
+          }
+        },
+        {
+          "name": "nature-zero",
+          "passed": true,
+          "players": 9,
+          "music": {
+            "src": "forest-music.mp3",
+            "paused": false,
+            "time": 1.863216,
+            "ready": 4,
+            "error": null
+          },
+          "nature": {
+            "src": "forest-birds.mp3",
+            "paused": true,
+            "time": 3.857415,
+            "ready": 4,
+            "error": null
+          }
+        },
+        {
+          "name": "nature-restored",
+          "passed": true,
+          "players": 9,
+          "music": {
+            "src": "forest-music.mp3",
+            "paused": false,
+            "time": 2.82926,
+            "ready": 4,
+            "error": null
+          },
+          "nature": {
+            "src": "forest-birds.mp3",
+            "paused": false,
+            "time": 0.960039,
+            "ready": 4,
+            "error": null
+          }
+        },
+        {
+          "name": "effects-zero-persists-dialog",
+          "passed": true
+        }
+      ],
+      "errors": []
+    },
+    "browser-timer-offline.log": {
+      "passed": true,
+      "offline": true,
+      "dialogHeldMs": 16000,
+      "completionToNextMs": 31045,
+      "audio": {
+        "players": 9,
+        "errors": []
+      }
+    },
+    "browser-audio-recovered.log": {
+      "passed": true,
+      "injectedSource503": true,
+      "retryCueRecovered": true,
+      "loopPlaybackContinues": true,
+      "audio": {
+        "errors": [
+          {
+            "event": "error",
+            "src": "http://127.0.0.1:8085/assets/assets/audio/retry.wav",
+            "time": 4671,
+            "position": 0,
+            "error": null
+          },
+          {
+            "event": "error",
+            "src": "http://127.0.0.1:8085/assets/assets/audio/retry.wav",
+            "time": 4672.199999988079,
+            "position": 0,
+            "error": "MEDIA_ELEMENT_ERROR: Empty src attribute"
+          }
+        ],
+        "played": [
+          "forest-music.mp3",
+          "forest-birds.mp3",
+          "tap.wav",
+          "retry.wav"
+        ],
+        "loops": [
+          {
+            "src": "http://127.0.0.1:8085/assets/assets/audio/forest-music.mp3",
+            "paused": false,
+            "ready": 4
+          },
+          {
+            "src": "http://127.0.0.1:8085/assets/assets/audio/forest-birds.mp3",
+            "paused": false,
+            "ready": 4
+          }
+        ]
+      }
+    }
+  },
+  "nativeAudioChecks": [
+    {
+      "check": "initial",
+      "passed": true,
+      "mix": "playing:0.1625 nature=playing:0.195 effects=0.65"
+    },
+    {
+      "check": "muted",
+      "passed": true,
+      "mix": "paused:0.0 nature=paused:0.0 effects=0.0"
+    },
+    {
+      "check": "unmuted",
+      "passed": true,
+      "mix": "playing:0.1625 nature=playing:0.195 effects=0.65"
+    },
+    {
+      "check": "master-zero",
+      "passed": true,
+      "mix": "paused:0.0 nature=paused:0.0 effects=0.0"
+    },
+    {
+      "check": "master-restored",
+      "passed": true,
+      "mix": "playing:0.1625 nature=playing:0.195 effects=0.65"
+    },
+    {
+      "check": "music-zero",
+      "passed": true,
+      "mix": "paused:0.0 nature=playing:0.195 effects=0.65"
+    },
+    {
+      "check": "music-restored",
+      "passed": true,
+      "mix": "playing:0.1625 nature=playing:0.195 effects=0.65"
+    },
+    {
+      "check": "background",
+      "passed": true,
+      "mix": "paused:0.0 nature=paused:0.0 effects=0.0"
+    },
+    {
+      "check": "foreground",
+      "passed": true,
+      "mix": "playing:0.1625 nature=playing:0.195 effects=0.65"
+    },
+    {
+      "check": "same-nine-players-after-lifecycle",
+      "passed": true
+    }
+  ],
+  "audioDecode": [
+    {
+      "file": "assets\\audio\\complete.wav",
+      "bytes": 43332,
+      "seconds": 0.490408,
+      "codec": "pcm_s16le",
+      "meanDb": -11.1,
+      "peakDb": -0.7,
+      "decodePassed": true
+    },
+    {
+      "file": "assets\\audio\\correct.wav",
+      "bytes": 47618,
+      "seconds": 0.539002,
+      "codec": "pcm_s16le",
+      "meanDb": -14.3,
+      "peakDb": -0.7,
+      "decodePassed": true
+    },
+    {
+      "file": "assets\\audio\\finish.wav",
+      "bytes": 68896,
+      "seconds": 0.780249,
+      "codec": "pcm_s16le",
+      "meanDb": -10.9,
+      "peakDb": -0.7,
+      "decodePassed": true
+    },
+    {
+      "file": "assets\\audio\\flip.wav",
+      "bytes": 53708,
+      "seconds": 0.60805,
+      "codec": "pcm_s16le",
+      "meanDb": -23.7,
+      "peakDb": -0.7,
+      "decodePassed": true
+    },
+    {
+      "file": "assets\\audio\\forest-birds.mp3",
+      "bytes": 504729,
+      "seconds": 42.03102,
+      "codec": "mp3",
+      "meanDb": -30.9,
+      "peakDb": -8.2,
+      "decodePassed": true
+    },
+    {
+      "file": "assets\\audio\\forest-music.mp3",
+      "bytes": 537737,
+      "seconds": 44.773878,
+      "codec": "mp3",
+      "meanDb": -27.5,
+      "peakDb": -4.7,
+      "decodePassed": true
+    },
+    {
+      "file": "assets\\audio\\retry.wav",
+      "bytes": 9294,
+      "seconds": 0.10449,
+      "codec": "pcm_s16le",
+      "meanDb": -15.7,
+      "peakDb": -0.7,
+      "decodePassed": true
+    },
+    {
+      "file": "assets\\audio\\select.wav",
+      "bytes": 16676,
+      "seconds": 0.188186,
+      "codec": "pcm_s16le",
+      "meanDb": -19.1,
+      "peakDb": -0.7,
+      "decodePassed": true
+    },
+    {
+      "file": "assets\\audio\\tap.wav",
+      "bytes": 8644,
+      "seconds": 0.09712,
+      "codec": "pcm_s16le",
+      "meanDb": -25.8,
+      "peakDb": -0.7,
+      "decodePassed": true
+    }
+  ],
+  "physicalTvValidated": false,
+  "productionSigning": false,
+  "publishedThisSession": false,
+  "clientPackageVerification": {
+    "passed": true,
+    "zipBytes": 95469426,
+    "zipSha256": "a7b89a5d782b4fa675cc1849086488fe01ab1fa18f7a837beab2277b1c2f8753",
+    "clientScreenshots": 37,
+    "pdfPages": 2,
+    "allManifestHashesMatched": true,
+    "zipCopiesMatched": true
+  }
+}
