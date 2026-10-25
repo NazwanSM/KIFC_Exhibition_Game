@@ -31,7 +31,7 @@ Tracker ini mencatat pekerjaan baru dari dokumen KIFC. **KIFC-01 sampai 10 sudah
 | KIFC-07 | Pentingnya pencegahan kebakaran hutan | Ditinjau | 4 pilar kerugian diterapkan; 15 screenshot siap |
 | KIFC-08 | Kuis kebakaran hutan rawa gambut | Ditinjau | 60 screenshot dan tes siap; D-05 memakai durasi/naskah salah kedua sementara untuk ditinjau |
 | KIFC-09 | Karakteristik kebakaran ekosistem gambut | Ditinjau | Tiga kartu1–3 berputar, tanpa skor;60 render dan alur tiga bahasa diuji |
-| KIFC-10 | Tantangan mengenali dampak kebakaran | Ditinjau | Implementasi/foto/3 bahasa/60 render tersedia; 30 detik sementara menunggu D-06; skor8 sudah dipetakan melalui D-07 |
+| KIFC-10 | Tantangan mengenali dampak kebakaran | Ditinjau | Implementasi/foto/3 bahasa/60 render tersedia; pemilik menetapkan30detik pada25Oktober melalui D-06; skor8 dipetakan melalui D-07 |
 | KIFC-11 | Layar hasil akhir | Ditinjau sebagian | Skor maksimum8 dan kategori proporsional diterapkan; uji baca TV fisik tetap terbuka |
 | KIFC-G01 | Variasi interaksi, transisi, dan respons sentuhan | Ditinjau | Pemetaan interaksi, gerakan maskot/dialog/kontrol/slot/hasil dan pembatalan timer diverifikasi;254 tes lulus;81 render serta rekaman browser tersedia |
 | KIFC-G02 | Animasi dan latar bergerak | Ditinjau sebagian | Video pemilik, fallback, reduced motion dan offline diuji; profil TV fisik menunggu D-09 |
@@ -282,7 +282,7 @@ Analisis bersih, **151 tes lulus**, dan **60 render** empat keadaan × tiga baha
 - [x] **KIFC-10.02** Ganti pertanyaan dan instruksi dengan naskah berikut.
 - [x] **KIFC-10.03** Ganti keenam pilihan beserta foto/visual dan labelnya; jangan hanya mengganti judul di atas grid lama.
 - [x] **KIFC-10.04** Terapkan empat kunci benar dan dua pengecoh sesuai tabel di bawah.
-- [ ] **KIFC-10.05** Perpanjang durasi dari 10 detik. Tentukan angka final berdasarkan uji membaca pertanyaan, memahami gambar, dan memilih pada TV sentuh; catat hasil D-06.
+- [x] **KIFC-10.05** Durasi diperpanjang menjadi30detik dan ditetapkan pemilik pada25Oktober: “KIFC-10 iyaa sepertinya sudah cukup30detik”. D-06 tertutup untuk pemilihan durasi; uji kenyamanan TV fisik tetap dicatat terpisah pada X03.
 - [x] **KIFC-10.06** Sesuaikan angka, lingkaran timer, awal/akhir countdown, batas warna, dan penguncian input terhadap durasi baru. Batas hijau/kuning/merah lama perlu ditinjau, bukan diam-diam dianggap sesuai.
 - [x] **KIFC-10.07** Ubah ulasan maskot, jumlah benar/salah/terlewat, penanda gambar, skor babak, bonus, dan seluruh pesan yang masih menyebut risiko lama.
 - [x] **KIFC-10.08** Pertahankan kemampuan membatalkan pilihan dan penilaian setelah waktu habis sebagai acuan keputusan terdahulu, kecuali D-07 menyetujui perubahan. Jangan membocorkan jawaban ketika pemain sedang memilih.
@@ -421,7 +421,7 @@ Bagian ini adalah pekerjaan turunan dari perubahan konten, bukan kutipan permint
 | D-03 | Simulasi pengurangan unsur diperbaiki atau dihapus? | Pemilik pada24Oktober meminta memperbaiki layar ini berdasarkan mockup, mempertahankan urutan, dan animasi hingga padam. Cabang dipertahankan diterapkan; penghapusan tidak dilakukan. |
 | D-04 | Format karakteristik gambut | Diputuskan langsung pemilik24Oktober: tiga kartu1–3 berputar saat disentuh, membuka informasi, bukan soal/tanpa skor. Lanjut manual setelah semua dibuka; implementasi siap ditinjau. |
 | D-05 | Perilaku setelah salah kedua pada kuis gambut serta waktu baca feedback? | Bagian 08 memberi hint tetapi belum memberi teks pembukaan jawaban salah kedua. Implementasi sementara mempertahankan satu retry untuk >2 pilihan; benar 18 detik, salah kedua 12 detik, hint pertama menunggu input. Naskah salah kedua dibuat vendor. Implementasi dan render sudah diperiksa; durasi serta naskah tambahan masih menunggu penilaian pengguna/KIFC. |
-| D-06 | Berapa durasi baru tantangan dampak dan kapan countdown mulai? | Vendor menerapkan sementara 30 detik setelah foto/transisi siap. Hijau >15, kuning15–10, merah≤9. Stopwatch, ring dan deadline diuji; durasi final menunggu uji membaca TV fisik. |
+| D-06 | Berapa durasi baru tantangan dampak dan kapan countdown mulai? | Pemilik menetapkan30detik pada25Oktober. Countdown tetap dimulai setelah foto/transisi siap. Hijau >15, kuning15–10, merah≤9. Stopwatch, ring dan batas pemilihan telah diuji. D-06 selesai sebagai keputusan durasi; tidak mengklaim uji TV fisik. |
 | D-07 | Aturan skor, penalti, bonus, dan maksimum setelah materi diganti? | Dipetakan24Oktober sesuai09 tanpa skor: maksimum8. Aturan dampak lama tetap+1 benar/−1 salah, minimum0, bonus hasil/4 (maksimum1); pilihan netral sebelum ulasan dipertahankan. Kategori mengikuti proporsi lama8/9 dan6/9, diuji pada batas7/7.25/5.25/5.5; siap ditinjau pemilik. |
 | D-08 | Cakupan audio, animasi, 3D/video, aset, dan dampak biaya/performa? | Pemilik24Oktober meminta melanjutkan audio dan memakai aset internet yang diunduh. Musik+suara alam+efek diterapkan dengan aset CC0, volume/mute dan offline. Tidak ada aset berbayar, generasi suara mentah atau voice-over; fog tetap dihapus. Penilaian speaker/akustik ruang tetap melalui D-09. |
 | D-09 | Resolusi, sistem/perangkat, tinggi pemasangan, speaker, dan posisi pengguna TV 42 inci? | Diagonal dan orientasi sudah disebut. Data lain diperlukan untuk uji jangkauan, audio, dan performa fisik. |
@@ -591,3 +591,8 @@ Pemilik menilai perbedaan respons sebelumnya belum terlihat dan meminta dua api 
 276tes lulus, analisis bersih,120render lima ukuran/tiga bahasa serta browser nyata (0error/0warning) diperiksa. Alur Lanjut tetap menuju kartu definisi; fallback14detik, skor dan urutan dipertahankan. [Review terbaru dan bukti](../../docs/client-revisions/2026-10-25/kifc-04-spatial-reduction-review.md). Belum APK/push/deploy atau uji TV fisik.
 
 Commit koreksi kumulatif KIFC-04: `78eb6c9` pada `main`.
+
+
+### KIFC-10 — keputusan durasi final,25Oktober
+
+Pemilik menyatakan30detik cukup. Nilai yang sudah diterapkan dipertahankan; KIFC-10.05 dan D-06 ditutup sebagai keputusan durasi. Tidak ada perubahan aturan skor, awal countdown, ring atau warna. Uji TV fisik tetap bagian X03.
