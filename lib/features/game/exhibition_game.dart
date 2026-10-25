@@ -136,6 +136,9 @@ class _ExhibitionGameState extends State<ExhibitionGame>
   int _seconds = finalChallengeSeconds;
   final ValueNotifier<double> _finalProgress = ValueNotifier(1);
   Timer? _timer;
+  Timer? _feedbackTimer;
+  int _feedbackEpoch = 0;
+  int _readingSeconds = 15;
   late final Stopwatch _finalClock = widget.stopwatchFactory();
   bool _preparingFinal = false;
   int _preparationTicket = 0;
@@ -158,6 +161,7 @@ class _ExhibitionGameState extends State<ExhibitionGame>
     if (widget.initialCardIndex != null) {
       _karhutlaCardIndex = widget.initialCardIndex!;
     }
+    _syncFeedbackTimer();
   }
 
   @override
@@ -189,6 +193,7 @@ class _ExhibitionGameState extends State<ExhibitionGame>
   @override
   void dispose() {
     _timer?.cancel();
+    _cancelFeedbackTimer();
     _finalClock.stop();
     _finalProgress.dispose();
     WidgetsBinding.instance.removeObserver(this);
@@ -199,6 +204,7 @@ class _ExhibitionGameState extends State<ExhibitionGame>
   void _go(_Page page) {
     _preparationTicket++;
     _timer?.cancel();
+    _cancelFeedbackTimer();
     _finalClock.stop();
     setState(() {
       // Revisiting an activity starts that activity again.
@@ -229,11 +235,53 @@ class _ExhibitionGameState extends State<ExhibitionGame>
       _page = page;
       _preparingFinal = false;
     });
+    _syncFeedbackTimer();
+  }
+
+  void _cancelFeedbackTimer() {
+    _feedbackTimer?.cancel();
+    _feedbackTimer = null;
+    _feedbackEpoch++;
+  }
+
+  void _syncFeedbackTimer() {
+    _cancelFeedbackTimer();
+    _readingSeconds = 15;
+    final timed = switch (_page) {
+      _Page.triangleBuild => _triangle.length == 3,
+      _Page.breakTriangle => _breakTried.length == 3,
+      _Page.risk => _riskAnswer == _RiskOption.peatSwamp || _riskRevealed,
+      _Page.causeQuiz => _causeChoice != null,
+      _Page.finalReview || _Page.score || _Page.closing => true,
+      _ => false,
+    };
+    final advance = timed ? _readingAdvance : null;
+    if (advance == null) return;
+    final epoch = _feedbackEpoch;
+    _feedbackTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      if (!mounted || epoch != _feedbackEpoch) {
+        timer.cancel();
+        return;
+      }
+      // A dialog/backgrounded app must not consume the visitor's reading time.
+      final lifecycle = WidgetsBinding.instance.lifecycleState;
+      if (ModalRoute.of(context)?.isCurrent == false ||
+          (lifecycle != null && lifecycle != AppLifecycleState.resumed)) {
+        return;
+      }
+      if (_readingSeconds <= 1) {
+        _cancelFeedbackTimer();
+        advance();
+      } else {
+        setState(() => _readingSeconds--);
+      }
+    });
   }
 
   void _restart() {
     _preparationTicket++;
     _timer?.cancel();
+    _cancelFeedbackTimer();
     _finalClock.stop();
     setState(() {
       _page = _Page.welcome;
@@ -273,9 +321,11 @@ class _ExhibitionGameState extends State<ExhibitionGame>
             : GameSound.retry,
       ),
     );
+    _syncFeedbackTimer();
   }
 
   void _resetTriangle() {
+    _cancelFeedbackTimer();
     setState(() {
       _triangle.clear();
       _lastDropCorrect = null;
@@ -296,9 +346,11 @@ class _ExhibitionGameState extends State<ExhibitionGame>
       _breakChoice = slot;
       _breakTried.add(slot);
     });
+    _syncFeedbackTimer();
   }
 
   void _restartBreak() {
+    _cancelFeedbackTimer();
     setState(() {
       _breakChoice = null;
       _breakTried.clear();
@@ -323,6 +375,7 @@ class _ExhibitionGameState extends State<ExhibitionGame>
       if (!correct) _riskWrong++;
       if (_riskWrong >= 2) _riskRevealed = true;
     });
+    _syncFeedbackTimer();
   }
 
   void _continueRisk() {
@@ -346,10 +399,12 @@ class _ExhibitionGameState extends State<ExhibitionGame>
       _causeChoice = humanCause;
       if (humanCause == scenarios[_causeIndex].human) _causePoints++;
     });
+    _syncFeedbackTimer();
   }
 
   void _continueCause() {
     if (_page != _Page.causeQuiz || _causeChoice == null) return;
+    _cancelFeedbackTimer();
     if (_causeIndex == _causeScenarios(_en).length - 1) {
       _go(_Page.peatCharacteristics);
     } else {
@@ -580,12 +635,14 @@ class _ExhibitionGameState extends State<ExhibitionGame>
         causes: _causePoints,
         finalRaw: _finalRaw,
         bonus: _finalBonus,
+        readingSeconds: _readingSeconds,
         onContinue: _openClosing,
         onAgain: _playAgain,
         onHome: _restart,
       ),
       _Page.closing => _ClosingPage(
         english: _en,
+        readingSeconds: _readingSeconds,
         onAgain: _playAgain,
         onExplore: _restart,
       ),
@@ -2216,12 +2273,13 @@ class _ScorePage extends StatelessWidget {
     required this.causes,
     required this.finalRaw,
     required this.bonus,
+    required this.readingSeconds,
     required this.onContinue,
     required this.onAgain,
     required this.onHome,
   });
   final bool english;
-  final int triangle, causes, finalRaw;
+  final int triangle, causes, finalRaw, readingSeconds;
   final double bonus;
   final VoidCallback onContinue, onAgain, onHome;
   double get total => triangle + causes + bonus;
@@ -2361,7 +2419,7 @@ class _ScorePage extends StatelessWidget {
           onPressed: onAgain,
         ),
         const SizedBox(height: 8),
-        _ContinueNotice(english: english),
+        _ContinueNotice(english: english, seconds: readingSeconds),
       ],
     ),
   );
@@ -2370,10 +2428,12 @@ class _ScorePage extends StatelessWidget {
 class _ClosingPage extends StatelessWidget {
   const _ClosingPage({
     required this.english,
+    required this.readingSeconds,
     required this.onAgain,
     required this.onExplore,
   });
   final bool english;
+  final int readingSeconds;
   final VoidCallback onAgain, onExplore;
   @override
   Widget build(BuildContext context) {
@@ -2521,7 +2581,11 @@ class _ClosingPage extends StatelessWidget {
                     dark: true,
                   ),
                   const SizedBox(height: 10),
-                  _ContinueNotice(english: english, dark: true),
+                  _ContinueNotice(
+                    english: english,
+                    seconds: readingSeconds,
+                    dark: true,
+                  ),
                 ],
               ),
             ),
@@ -2533,14 +2597,19 @@ class _ClosingPage extends StatelessWidget {
 }
 
 class _ContinueNotice extends StatelessWidget {
-  const _ContinueNotice({required this.english, this.dark = false});
+  const _ContinueNotice({
+    required this.english,
+    required this.seconds,
+    this.dark = false,
+  });
   final bool english;
+  final int seconds;
   final bool dark;
   @override
   Widget build(BuildContext context) => LocalizedText(
     english
-        ? 'Touch the screen when you are ready to continue.'
-        : 'Sudah selesai membaca? Sentuh layar untuk lanjut.',
+        ? 'Touch the screen to continue, or wait $seconds seconds.'
+        : 'Sentuh layar untuk lanjut, atau tunggu $seconds detik.',
     textAlign: TextAlign.center,
     style: TextStyle(
       fontSize: 10,

@@ -233,7 +233,7 @@ void main() {
         // Long feedback must remain readable beyond the former 4.5 seconds.
         await tester.pump(const Duration(seconds: 5));
         expect(cards, findsNWidgets(3));
-        await tester.pump(const Duration(seconds: 14));
+        await tester.pump(const Duration(seconds: 3));
         await tester.pump(const Duration(milliseconds: 400));
         expect(cards, findsNWidgets(3));
         await tester.tapAt(const Offset(4, 4));

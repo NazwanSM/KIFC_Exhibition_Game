@@ -238,7 +238,7 @@ void main() {
         await captureScreen(tester, 'complete-$lang-$res', metrics);
         await tester.pump(const Duration(seconds: 5));
         expect(assemblyType('_TriangleBuild'), findsOneWidget);
-        await tester.pump(const Duration(seconds: 60));
+        await tester.pump(const Duration(seconds: 3));
         expect(assemblyType('_TriangleBuild'), findsOneWidget);
         await tester.tapAt(Offset(size.width * .28, 8));
         await tester.pump(const Duration(milliseconds: 400));

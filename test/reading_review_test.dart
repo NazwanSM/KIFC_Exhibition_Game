@@ -26,9 +26,11 @@ void main() {
     for (final locale in AppLocale.values) {
       final lang = ['id', 'en', 'ko'][locale.index];
       final res = '${size.width.toInt()}x${size.height.toInt()}';
-      testWidgets('manual feedback and results fit $lang-$res', (tester) async {
+      testWidgets('15-second feedback and results fit $lang-$res', (
+        tester,
+      ) async {
         final metadata = <String, Object>{
-          'ticket': 'KIFC-X01-manual-reading',
+          'ticket': 'KIFC-X01-feedback15',
           'source': 'Flutter widget render',
           'language': lang,
           'width': size.width,
@@ -68,7 +70,7 @@ void main() {
             }
           }
           await tester.pump();
-          await tester.pump(const Duration(seconds: 60));
+          await tester.pump(const Duration(seconds: 3));
           await tester.pump(const Duration(milliseconds: 500));
           expect(
             kind(switch (page) {

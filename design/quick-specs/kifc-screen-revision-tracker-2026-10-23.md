@@ -29,10 +29,10 @@ Tracker ini mencatat pekerjaan baru dari dokumen KIFC. **KIFC-01 sampai11 sudah 
 | KIFC-05 | Pengertian kebakaran hutan | Ditinjau | Naskah KIFC dan 15 screenshot siap |
 | KIFC-06 | Penyebab kebakaran hutan | Ditinjau | Kartu kedua diubah ke penyebab; 15 screenshot siap |
 | KIFC-07 | Pentingnya pencegahan kebakaran hutan | Ditinjau | 4 pilar kerugian diterapkan; 15 screenshot siap |
-| KIFC-08 | Kuis kebakaran hutan rawa gambut | Ditinjau | Feedback benar/salah kedua menunggu sentuhan; satu retry tetap; naskah salah kedua vendor masih perlu ditinjau melalui D-05 |
+| KIFC-08 | Kuis kebakaran hutan rawa gambut | Ditinjau | Feedback benar/salah kedua15detik atau sentuh untuk lanjut; satu retry tetap; naskah salah kedua vendor masih perlu ditinjau melalui D-05 |
 | KIFC-09 | Karakteristik kebakaran ekosistem gambut | Ditinjau | Tiga kartu1–3 berputar, tanpa skor;60 render dan alur tiga bahasa diuji |
 | KIFC-10 | Tantangan mengenali dampak kebakaran | Ditinjau | Implementasi/foto/3 bahasa/60 render tersedia; pemilik menetapkan30detik pada25Oktober melalui D-06; skor8 dipetakan melalui D-07 |
-| KIFC-11 | Layar hasil akhir | Ditinjau | Skor maksimum8; hasil/penutup menunggu sentuhan sesuai arahan25Oktober; uji TV fisik tetap X03 |
+| KIFC-11 | Layar hasil akhir | Ditinjau | Skor maksimum8; feedback/hasil15detik atau sentuh untuk lanjut lebih cepat sesuai klarifikasi25Oktober; uji TV fisik tetap X03 |
 | KIFC-G01 | Variasi interaksi, transisi, dan respons sentuhan | Ditinjau | Pemetaan interaksi, gerakan maskot/dialog/kontrol/slot/hasil dan pembatalan timer diverifikasi;254 tes lulus;81 render serta rekaman browser tersedia |
 | KIFC-G02 | Animasi dan latar bergerak | Ditinjau sebagian | Video pemilik, fallback, reduced motion dan offline diuji; profil TV fisik menunggu D-09 |
 | KIFC-G03 | Pengayaan visual seluruh layar | Ditinjau | Audit per layar,33 render inset serta APK offline; overflow Android diperbaiki |
@@ -138,12 +138,12 @@ Analisis bersih, **151 tes lulus**, dan **60 render** empat keadaan × tiga baha
 - [x] **KIFC-04.04** Setiap unsur memadamkan dua api di atasnya: Panas kiri, Bahan bakar tengah, Oksigen kanan. Area padam tetap padam, sehingga6→4→2→0; urutan pilihan bebas. Penjelasan unsur serta batas penerapan oksigen di lahan terbuka tetap tersedia.
 - **KIFC-04.05 — Tidak berlaku:** cabang menghapus layar tidak dipilih, sehingga rute penghapusan tidak perlu diterapkan.
 - [x] **KIFC-04.06** Sentuhan ulang mempertahankan area padam tanpa penyalaan kembali atau penambahan progres. Ulangi memulihkan enam api/0/3 serta membatalkan callback lama. Demo tidak memberi poin atau label benar/salah.
-- [x] **KIFC-04.07** Setelah3/3, Lanjut dan sentuhan latar tersedia. Sesuai arahan25Oktober, fallback14detik dihapus agar penjelasan dapat dibaca sampai selesai; urutan tetap menuju kartu definisi.
+- [x] **KIFC-04.07** Setelah3/3, Lanjut dan sentuhan latar tersedia; fallback otomatis15detik mengikuti klarifikasi25Oktober. Memilih unsur lagi memberi15detik untuk penjelasan terakhir; urutan tetap menuju kartu definisi.
 - [x] **KIFC-04.08** Reduced motion dan penghentian rekaman yang telah padam diperiksa;120 render lima ukuran/tiga bahasa dan rekaman browser tersedia.
 
 **Bukti terbaru:** [review pemadaman kumulatif, screenshot dan rekaman](../../docs/client-revisions/2026-10-25/kifc-04-spatial-reduction-review.md). Panel tetap248/216logicalpx dan pilihan tidak diperkecil. Pembagian tiga area merupakan ilustrasi interaksi, bukan pembagian unsur tunggal pada kebakaran nyata. [Audit sebelumnya](../../docs/client-revisions/2026-10-25/kifc-04-reduction-review.md) disimpan sebagai riwayat; pola seluruh-api/replay diganti arahan kumulatif terbaru.
 
-**Masih terbuka:** pengesahan akhir KIFC/penutur serta uji waktu baca, jangkauan dan performa TV42inci fisik. Waktu baca kini bebas sampai disentuh sesuai arahan25Oktober; pemeriksaan viewport tidak menggantikan uji fisik. Koreksi25Oktober belum dimasukkan ke APK/deployment publik sebelumnya.
+**Masih terbuka:** pengesahan akhir KIFC/penutur serta uji waktu baca, jangkauan dan performa TV42inci fisik. Klarifikasi25Oktober menetapkan15detik dengan opsi lanjut lebih cepat melalui sentuhan; pemeriksaan viewport tidak menggantikan uji fisik. Koreksi25Oktober belum dimasukkan ke APK/deployment publik sebelumnya.
 
 ## KIFC-05 Pengertian kebakaran hutan
 
@@ -315,7 +315,7 @@ Analisis bersih, **151 tes lulus**, dan **60 render** empat keadaan × tiga baha
 - [x] **KIFC-11.01** Tambahkan pesan penutup berikut pada layar hasil yang menampilkan skor.
 - [x] **KIFC-11.02** Letakkan pada area yang mudah terlihat dan dibaca tanpa mengganggu skor, “Selesai”, serta “Main Lagi”.
 - [x] **KIFC-11.03** Setelah X-01 diputuskan, sesuaikan label baris skor, maksimum nilai, bonus, dan kategori hasil yang terdampak pergantian materi.
-- [x] **KIFC-11.04** Sesuai arahan25Oktober, reset15detik dihapus. Skor dan penutup tetap tampil sampai sentuhan terpisah; diuji60detik pada widget serta20detik masing-masing di browser. Kenyamanan TV fisik tetap melalui X03.
+- [x] **KIFC-11.04** Sesuai klarifikasi25Oktober, hasil dan penutup maju otomatis setelah15detik atau bisa dilanjutkan lebih cepat melalui sentuhan. Masing-masing mendapat timer baru; dialog terbuka menjeda sisa waktu. Kenyamanan TV fisik tetap melalui X03.
 
 **Pesan dari KIFC:**
 
@@ -386,7 +386,7 @@ Bagian ini adalah pekerjaan turunan dari perubahan konten, bukan kutipan permint
 - [x] **KIFC-X01.05** Tinjau bonus serta penalti tantangan dampak. Ada empat jawaban benar, tetapi aturan benar +1/salah −1, minimum 0, dan bonus skor/4 merupakan keputusan lama, bukan aturan baru yang tertulis dalam DOCX.
 - [x] **KIFC-X01.06** Sesuaikan ambang kategori hasil, label baris skor, penyimpanan state, serta tes perhitungan setelah D-07 diputuskan.
 - [x] **KIFC-X01.07** Perbarui aturan proyek/spesifikasi lama yang benar-benar digantikan keputusan baru; tandai bagian superseded tanpa menghapus riwayat.
-- [x] **KIFC-X01.08** Sesuai arahan25Oktober, feedback/hasil menunggu sentuhan terpisah. Konten/latar bisa melanjutkan setelah aktivitas lengkap; retry, kontrol khusus, modal dan tantangan aktif tidak dilewati. Reset hasil15detik dihapus; alur/skor tetap.
+- [x] **KIFC-X01.08** Sesuai klarifikasi25Oktober, feedback/hasil menunggu maksimal15detik dan bisa dilanjutkan lebih cepat dengan sentuhan terpisah. Konten/latar bisa melanjutkan setelah aktivitas lengkap; retry, kontrol khusus, modal dan tantangan aktif tidak dilewati. Timer lama dibatalkan saat lanjut/reset; alur/skor tetap.
 
 **Kriteria penerimaan:** alur dan skor mempunyai keputusan tertulis; tidak ada materi yang hilang tanpa persetujuan atau skor dari aktivitas yang sudah tidak ada.
 
@@ -421,7 +421,7 @@ Bagian ini adalah pekerjaan turunan dari perubahan konten, bukan kutipan permint
 | D-02 | Narasi panjang atau singkat untuk penjelasan segitiga api? | Vendor menerapkan narasi utama secara utuh, satu versi pada semua ukuran. Dapat ditinjau pemilik/KIFC; alternatif singkat tidak ditampilkan. |
 | D-03 | Simulasi pengurangan unsur diperbaiki atau dihapus? | Pemilik pada24Oktober meminta memperbaiki layar ini berdasarkan mockup, mempertahankan urutan, dan animasi hingga padam. Cabang dipertahankan diterapkan; penghapusan tidak dilakukan. |
 | D-04 | Format karakteristik gambut | Diputuskan langsung pemilik24Oktober: tiga kartu1–3 berputar saat disentuh, membuka informasi, bukan soal/tanpa skor. Lanjut manual setelah semua dibuka; implementasi siap ditinjau. |
-| D-05 | Perilaku setelah salah kedua pada kuis gambut serta waktu baca feedback? | Arahan25Oktober menetapkan waktu baca bebas sampai disentuh: timer benar18detik/salah kedua12detik dihapus. Hint pertama tetap menunggu satu retry; benar atau salah kedua bisa lanjut dengan sentuhan terpisah. Naskah salah kedua dibuat vendor karena sumber belum memberikannya; bagian naskah tambahan masih menunggu penilaian KIFC, sedangkan perilaku membaca sudah diputuskan. |
+| D-05 | Perilaku setelah salah kedua pada kuis gambut serta waktu baca feedback? | Klarifikasi25Oktober menetapkan feedback benar/salah kedua15detik dengan opsi sentuh untuk lanjut lebih cepat. Hint pertama tetap menunggu satu retry. Naskah salah kedua dibuat vendor karena sumber belum memberikannya; naskah tambahan masih menunggu penilaian KIFC, sedangkan durasi/perilaku kelanjutan sudah diputuskan. |
 | D-06 | Berapa durasi baru tantangan dampak dan kapan countdown mulai? | Pemilik menetapkan30detik pada25Oktober. Countdown tetap dimulai setelah foto/transisi siap. Hijau >15, kuning15–10, merah≤9. Stopwatch, ring dan batas pemilihan telah diuji. D-06 selesai sebagai keputusan durasi; tidak mengklaim uji TV fisik. |
 | D-07 | Aturan skor, penalti, bonus, dan maksimum setelah materi diganti? | Dipetakan24Oktober sesuai09 tanpa skor: maksimum8. Aturan dampak lama tetap+1 benar/−1 salah, minimum0, bonus hasil/4 (maksimum1); pilihan netral sebelum ulasan dipertahankan. Kategori mengikuti proporsi lama8/9 dan6/9, diuji pada batas7/7.25/5.25/5.5; siap ditinjau pemilik. |
 | D-08 | Cakupan audio, animasi, 3D/video, aset, dan dampak biaya/performa? | Pemilik24Oktober meminta melanjutkan audio dan memakai aset internet yang diunduh. Musik+suara alam+efek diterapkan dengan aset CC0, volume/mute dan offline. Tidak ada aset berbayar, generasi suara mentah atau voice-over; fog tetap dihapus. Penilaian speaker/akustik ruang tetap melalui D-09. |
@@ -610,3 +610,12 @@ Catatan lingkungan G04: saat uji browser terdapat satu error sumber suara burung
 Commit keputusan durasi KIFC-10: `4d04fbb` pada `main`.
 
 Commit kelanjutan membaca/manual KIFC-X01/G01/11: `635d303` pada `main`.
+
+
+### KIFC-X01/G01/11 — klarifikasi feedback15detik dan sentuhan cepat,25Oktober
+
+Pemilik mengoreksi penafsiran tanpa batas waktu: “kalau ada feedback dan hasil itu tetep ada waktunya sekitar15detik tapi bisa dilanjutkan dengan menekan layar”. Timer bersama15detik kini diterapkan pada feedback selesai, ulasan dampak, skor dan penutup. Sentuhan memajukan lebih cepat dan membatalkan deadline lama. Dialog terbuka/aplikasi tidak aktif menjeda sisa waktu. Bacaan penjelasan, kartu informasi dan hint percobaan pertama tetap manual; tantangan akhir tetap30detik.
+
+[Review terbaru dan bukti](../../docs/client-revisions/2026-10-25/feedback15-review.md) menggantikan aturan tanpa timer pada log sebelumnya. Tidak mengubah urutan, skor, foto atau geometri komponen. Belum APK/push/deploy baru.
+
+Verifikasi koreksi15detik:313tes Flutter lulus, analisis bersih,105render lima ukuran/tiga bahasa diperiksa. Browser menunjukkan feedback tetap pada14detik, lanjut otomatis sekitar15detik, sentuhan cepat serta pembatalan deadline lama berfungsi.

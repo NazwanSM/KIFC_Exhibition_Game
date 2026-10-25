@@ -24,6 +24,12 @@ abstract final class AppCopy {
     if (locale != AppLocale.korean) return source;
     final exact = _korean[source];
     if (exact != null) return exact;
+    final readingSeconds = RegExp(
+      r'^(?:Touch the screen to continue, or wait|Sentuh layar untuk lanjut, atau tunggu) (\d+) (?:seconds\.|detik\.)$',
+    ).firstMatch(source);
+    if (readingSeconds != null) {
+      return '화면을 누르거나 ${readingSeconds.group(1)}초 후 자동으로 이동해요.';
+    }
     // Cause feedback combines a translated explanation with an answer prefix
     // and, on the last question, a summary. Translate those parts separately.
     for (final summary in const [

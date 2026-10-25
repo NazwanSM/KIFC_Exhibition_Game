@@ -1,5 +1,7 @@
 # Feedback dan hasil menunggu sentuhan
 
+> Riwayat penafsiran vendor tanpa timer, diganti klarifikasi pemilik25Oktober: feedback/hasil tetap15detik dan dapat dilanjutkan lebih cepat dengan sentuhan. Lihat [aturan serta bukti terbaru](../../client-revisions/2026-10-25/feedback15-review.md).
+
 Arahan pemilik 25 Oktober: durasi KIFC-10 cukup 30 detik; setiap feedback/hasil harus dapat dibaca dahulu dan bisa dipercepat dengan menyentuh layar. Pengerjaan native mengikuti instruksi sesi, dengan bukti visual dan commit per tiket.
 
 Pendekatan dipilih: hentikan perpindahan otomatis dari feedback serta reset hasil/penutup 15 detik; gunakan satu penangan tap di leluhur halaman. Alternatif mempertahankan timer masih dapat memotong bacaan. Overlay di depan halaman tidak dipakai karena menghalangi kontrol audio/Kembali. Ini keputusan implementasi untuk memenuhi waktu baca bebas tanpa mengubah aktivitas.

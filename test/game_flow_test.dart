@@ -341,7 +341,7 @@ class GameFlow {
       findsOneWidget,
     );
     await capture('triangle-complete');
-    await advance('fire-explanation', milliseconds: 14200);
+    await advance('fire-explanation', milliseconds: 1200);
     expect(
       find.text(
         text(
@@ -450,7 +450,7 @@ class GameFlow {
       await tap(text('B. Hutan rawa gambut', 'B. Peat swamp forest'));
       await capture('risk-correct');
     }
-    await advance('cause-quiz', milliseconds: wrongCause ? 12200 : 18200);
+    await advance('cause-quiz', milliseconds: 1200);
     expect(
       find.text(
         text('Apa penyebabnya?', 'What most likely triggered this risk?'),
@@ -930,7 +930,7 @@ void main() {
             : '8';
         expect(find.byKey(const ValueKey('total-score')), findsOneWidget);
         expect(renderedTextByKey(tester, 'total-score'), expected);
-        await flow.pump(60000);
+        await flow.pump(5000);
         expect(find.byKey(const ValueKey('total-score')), findsOneWidget);
         if (size.width == 411 && !english) {
           await tester.tap(find.byKey(const ValueKey('total-score')));
@@ -939,7 +939,7 @@ void main() {
           await flow.tap(flow.text('Selesai', 'Closing Message'));
         }
         await flow.capture('closing');
-        await flow.pump(60000);
+        await flow.pump(5000);
         expect(flow.type('_ClosingPage'), findsOneWidget);
         if (english && size.width != 411) {
           await flow.tap('Play Again');

@@ -25,14 +25,14 @@ void main() {
 
   for (final correct in [true, false]) {
     testWidgets(
-      'cause feedback waits for reading and one tap advances ($correct)',
+      'cause feedback offers reading time and an early tap advances ($correct)',
       (tester) async {
         await launch(tester, 'causeQuiz');
         await tester.tap(kind('_ChoiceButton').at(correct ? 0 : 1));
         await pump(tester, 100);
         // The answer gesture must reveal feedback, not also dismiss it.
         expect(kind('_Feedback'), findsOneWidget);
-        await pump(tester, 60000);
+        await pump(tester, 5000);
         expect(find.text('BABAK 3 / SITUASI 1 DARI 4'), findsOneWidget);
         expect(kind('_Feedback'), findsOneWidget);
         await tester.tap(kind('_ScenarioCard'));
@@ -81,7 +81,7 @@ void main() {
           ),
         );
       }
-      await pump(tester, 60000);
+      await pump(tester, 5000);
       expect(kind('_RiskPage'), findsOneWidget);
       await tester.tap(find.byKey(const ValueKey('feedback-message')));
       await pump(tester);
@@ -105,12 +105,12 @@ void main() {
         await pump(tester);
       }
       expect(kind('_TriangleBuild'), findsOneWidget);
-      await pump(tester, 60000);
+      await pump(tester, 5000);
       expect(kind('_TriangleBuild'), findsOneWidget);
       await tester.tapAt(const Offset(4, 4));
       await pump(tester);
       expect(kind('_TriangleExplanation'), findsOneWidget);
-      // A separate tap is required for the next reading screen.
+      // Explanation cards remain manual rather than timed feedback.
       await pump(tester, 60000);
       expect(kind('_TriangleExplanation'), findsOneWidget);
       await tester.tapAt(const Offset(4, 4));
@@ -134,7 +134,7 @@ void main() {
         expect(kind('_BreakTriangle'), findsOneWidget);
       }
     }
-    await pump(tester, 60000);
+    await pump(tester, 5000);
     expect(kind('_BreakTriangle'), findsOneWidget);
     await tester.tapAt(const Offset(4, 4));
     await pump(tester);
@@ -142,27 +142,31 @@ void main() {
     await tester.pumpWidget(const SizedBox.shrink());
   });
 
-  testWidgets('review, score and closing stay readable until separate taps', (
-    tester,
-  ) async {
-    await launch(tester, 'finalReview');
-    await pump(tester, 60000);
-    expect(find.byKey(const ValueKey('final-review-continue')), findsOneWidget);
-    await tester.tap(find.byKey(const ValueKey('impact-haze')));
-    await pump(tester);
-    expect(find.byKey(const ValueKey('total-score')), findsOneWidget);
-    await pump(tester, 60000);
-    expect(find.byKey(const ValueKey('total-score')), findsOneWidget);
-    await tester.tap(find.byKey(const ValueKey('total-score')));
-    await pump(tester);
-    expect(kind('_ClosingPage'), findsOneWidget);
-    await pump(tester, 60000);
-    expect(kind('_ClosingPage'), findsOneWidget);
-    await tester.tapAt(const Offset(4, 4));
-    await pump(tester);
-    expect(kind('_WelcomePage'), findsOneWidget);
-    await tester.pumpWidget(const SizedBox.shrink());
-  });
+  testWidgets(
+    'review, score and closing accept separate taps before their deadlines',
+    (tester) async {
+      await launch(tester, 'finalReview');
+      await pump(tester, 5000);
+      expect(
+        find.byKey(const ValueKey('final-review-continue')),
+        findsOneWidget,
+      );
+      await tester.tap(find.byKey(const ValueKey('impact-haze')));
+      await pump(tester);
+      expect(find.byKey(const ValueKey('total-score')), findsOneWidget);
+      await pump(tester, 5000);
+      expect(find.byKey(const ValueKey('total-score')), findsOneWidget);
+      await tester.tap(find.byKey(const ValueKey('total-score')));
+      await pump(tester);
+      expect(kind('_ClosingPage'), findsOneWidget);
+      await pump(tester, 5000);
+      expect(kind('_ClosingPage'), findsOneWidget);
+      await tester.tapAt(const Offset(4, 4));
+      await pump(tester);
+      expect(kind('_WelcomePage'), findsOneWidget);
+      await tester.pumpWidget(const SizedBox.shrink());
+    },
+  );
 
   testWidgets(
     'audio, home and replay keep their own actions on readable pages',
@@ -218,7 +222,7 @@ void main() {
       await pump(tester);
       expect(kind('_PeatCharacteristics'), findsOneWidget);
     }
-    await pump(tester, 60000);
+    await pump(tester, 5000);
     expect(kind('_PeatCharacteristics'), findsOneWidget);
     await tester.tap(find.byKey(const ValueKey('peat-card-0')));
     await pump(tester);

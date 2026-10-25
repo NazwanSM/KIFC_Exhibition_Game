@@ -99,49 +99,47 @@ void main() {
     },
   );
 
-  testWidgets('reading waits for input and restart restores six flames', (
-    tester,
-  ) async {
-    await launchScreen(
-      tester,
-      size: const Size(411, 731),
-      locale: AppLocale.indonesian,
-      page: 'breakTriangle',
-    );
-    for (var i = 0; i < 3; i++) {
-      await tester.tap(kind('_ChoiceButton').at(i));
+  testWidgets(
+    '15-second reading fallback and restart restore the correct activity',
+    (tester) async {
+      await launchScreen(
+        tester,
+        size: const Size(411, 731),
+        locale: AppLocale.indonesian,
+        page: 'breakTriangle',
+      );
+      for (var i = 0; i < 3; i++) {
+        await tester.tap(kind('_ChoiceButton').at(i));
+        await tester.pump();
+      }
+      await tester.pump(const Duration(seconds: 10));
+      await tester.tap(kind('_ChoiceButton').first);
       await tester.pump();
-    }
-    await tester.pump(const Duration(seconds: 10));
-    await tester.tap(kind('_ChoiceButton').first);
-    await tester.pump();
-    await tester.pump(const Duration(seconds: 5));
-    expect(
-      kind('_BreakTriangle'),
-      findsOneWidget,
-      reason: 'Exploring again preserves the reading screen',
-    );
-    await tester.tap(find.text('Ulangi'));
-    await tester.pump();
-    expect(find.text('0/3 unsur sudah dicoba'), findsOneWidget);
-    expect(find.byKey(const ValueKey('reduction-continue')), findsNothing);
-    expect(strengths(tester), everyElement(1));
-    await tester.pump(const Duration(seconds: 20));
-    expect(kind('_BreakTriangle'), findsOneWidget);
-    for (var i = 0; i < 3; i++) {
-      await tester.tap(kind('_ChoiceButton').at(i));
+      await tester.pump(const Duration(seconds: 5));
+      expect(
+        kind('_BreakTriangle'),
+        findsOneWidget,
+        reason: 'Exploring again preserves the reading screen',
+      );
+      await tester.tap(find.text('Ulangi'));
       await tester.pump();
-    }
-    await tester.pump(const Duration(seconds: 60));
-    expect(kind('_BreakTriangle'), findsOneWidget);
-    await tester.pump(const Duration(seconds: 2));
-    await tester.pump(const Duration(milliseconds: 500));
-    expect(kind('_BreakTriangle'), findsOneWidget);
-    await tester.tapAt(const Offset(4, 4));
-    await tester.pump(const Duration(milliseconds: 500));
-    expect(find.byKey(const ValueKey('karhutla-definition')), findsOneWidget);
-    await tester.pumpWidget(const SizedBox.shrink());
-  });
+      expect(find.text('0/3 unsur sudah dicoba'), findsOneWidget);
+      expect(find.byKey(const ValueKey('reduction-continue')), findsNothing);
+      expect(strengths(tester), everyElement(1));
+      await tester.pump(const Duration(seconds: 20));
+      expect(kind('_BreakTriangle'), findsOneWidget);
+      for (var i = 0; i < 3; i++) {
+        await tester.tap(kind('_ChoiceButton').at(i));
+        await tester.pump();
+      }
+      await tester.pump(const Duration(seconds: 14));
+      expect(kind('_BreakTriangle'), findsOneWidget);
+      await tester.pump(const Duration(seconds: 1));
+      await tester.pump(const Duration(milliseconds: 500));
+      expect(find.byKey(const ValueKey('karhutla-definition')), findsOneWidget);
+      await tester.pumpWidget(const SizedBox.shrink());
+    },
+  );
 
   testWidgets(
     'left, centre and right choices cumulatively extinguish their own pair',

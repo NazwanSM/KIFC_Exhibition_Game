@@ -1,6 +1,6 @@
 # KIFC-04 — pemadaman per area secara kumulatif
 
-> Pembaruan25Oktober: pola api kumulatif tetap berlaku, tetapi fallback14detik dihapus melalui arahan waktu baca bebas. Lihat [aturan kelanjutan terbaru](manual-reading-review.md).
+> Pembaruan25Oktober: pola api kumulatif tetap berlaku. Klarifikasi pemilik menetapkan fallback15detik dengan opsi sentuh untuk lanjut lebih cepat. Lihat [aturan kelanjutan terbaru](feedback15-review.md).
 
 Pemeriksaan 25 Oktober 2026. Status **Ditinjau**. Arahan pemilik: “Tetap padam; setiap pilihan memadamkan dua api tambahan.” Catatan ini menggantikan respons seluruh api dan replay pada [review sebelumnya](kifc-04-reduction-review.md).
 

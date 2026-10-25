@@ -1,5 +1,7 @@
 # Feedback dan hasil — waktu baca bebas, sentuh untuk lanjut
 
+> Riwayat penafsiran vendor tanpa timer, diganti klarifikasi pemilik25Oktober: feedback/hasil tetap15detik dan dapat dilanjutkan lebih cepat dengan sentuhan. Lihat [aturan serta bukti terbaru](feedback15-review.md).
+
 Arahan pemilik 25 Oktober 2026: KIFC-10 cukup30detik; setiap feedback/hasil harus bisa dibaca dahulu dan dapat dilanjutkan cepat dengan menyentuh layar. Status **Ditinjau** setelah implementasi/pemeriksaan lokal. Keputusan durasi KIFC-10 dicatat terpisah pada commit `4d04fbb`.
 
 Commit implementasi, tes dan bukti: `635d303` pada `main`.
