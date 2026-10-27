@@ -1,0 +1,87 @@
+{
+  "date": "2026-10-27",
+  "casesReproducedBeforeFix": [
+    "pointer remained visible while body faded",
+    "direct ID-KO did not replay entrance",
+    "seam pixel red channel 222 versus expected cream 247"
+  ],
+  "testsPassed": 30,
+  "analyze": "No issues found",
+  "webReleaseBuild": true,
+  "widgetScreenshots": 48,
+  "portraitSizes": [
+    "360x640",
+    "411x731",
+    "720x1280",
+    "1080x1920",
+    "2160x3840"
+  ],
+  "languages": [
+    "id",
+    "en",
+    "ko"
+  ],
+  "framesMs": [
+    40,
+    155,
+    500
+  ],
+  "closingScreenshots": 3,
+  "browserRecording": {
+    "source": "Actual T3 collaborative-browser recording, ID to KO to EN to ID",
+    "originalPixels": [
+      1600,
+      1000
+    ],
+    "cssViewport": [
+      1280,
+      800
+    ],
+    "portraitCropPixels": [
+      540,
+      960
+    ],
+    "crop": [
+      530,
+      20,
+      540,
+      960
+    ],
+    "speedUnchanged": true,
+    "file": "welcome-bubble/language-switch.mp4"
+  },
+  "physicalTVValidated": false,
+  "serverBundle": {
+    "mainJsMatches": true,
+    "sha256": "6e15fbae873478e9864bc2dbaeb31f0fe9018687c9d22f1df932de9a3a6cc3cb"
+  },
+  "apkReleaseBuild": true,
+  "apkVersion": "1.0.4",
+  "apkVersionCode": 20261028,
+  "apkVerification": {
+    "apk": "D:\\KIFC Game Exhibition\\fire_prevention_challenge\\build\\review-welcome-tail-2026-10-27\\KIFC-Review-1.0.4.apk",
+    "bytes": 75821443,
+    "sha256": "cef7eff623b50dcc26f4760e11eaddf65360d356cd90cb7e4c36f655f6b43a3f",
+    "offlineAssetsChecked": 53,
+    "failures": [],
+    "passed": true
+  },
+  "aotVerification": [
+    {
+      "file": "lib/arm64-v8a/libapp.so",
+      "newBubbleClassPresent": true,
+      "sha256": "7744e61e7f716608ff416ef988599edc7ff999ca99606d8d321b9b984b570f02"
+    },
+    {
+      "file": "lib/armeabi-v7a/libapp.so",
+      "newBubbleClassPresent": true,
+      "sha256": "1ea6ff8af89763fa01be3a239ec8ac69a48a692d846d4a78f19c50ea6bfa5558"
+    },
+    {
+      "file": "lib/x86_64/libapp.so",
+      "newBubbleClassPresent": true,
+      "sha256": "1d93e0af53a1a14a546c1f457d7cb5ad0dc8422a3e6c23e3784f5cca5c655a18"
+    }
+  ],
+  "nativeRuntimeTestedThisRevision": false
+}

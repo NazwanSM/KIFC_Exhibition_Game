@@ -983,35 +983,36 @@ class _HostConversation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final height = this.height ?? (_compactLayout(context) ? 180.0 : 220.0);
+    final motionTrigger = (AppCopy.locale, text);
     final mascot = SizedBox(
       width: height * (opening ? .62 : .75),
-      child: GameMascot(pose: pose, height: height, motionTrigger: text),
-    );
-    final tail = ClipPath(
-      clipper: _SpeechTail(),
-      child: const ColoredBox(
-        color: KifcTheme.paper,
-        child: SizedBox(width: 10, height: 18),
+      child: GameMascot(
+        pose: pose,
+        height: height,
+        motionTrigger: motionTrigger,
       ),
     );
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         if (!mascotOnRight) mascot,
-        if (!mascotOnRight) tail,
         Expanded(
           child: MotionReveal(
-            trigger: text,
+            trigger: motionTrigger,
             delay: const Duration(milliseconds: 55),
+            // One continuous outline/fill/shadow, animated as a single shape.
             child: Container(
               padding: EdgeInsets.all(opening ? 17 : 14),
-              decoration: BoxDecoration(
+              decoration: ShapeDecoration(
                 color: KifcTheme.paper,
-                borderRadius: BorderRadius.circular(opening ? 20 : 18),
-                border: opening
-                    ? Border.all(color: const Color(0xFFE2E6DA))
-                    : null,
-                boxShadow: opening
+                shape: _HostBubbleShape(
+                  tailOnRight: mascotOnRight,
+                  radius: opening ? 20 : 18,
+                  side: opening
+                      ? const BorderSide(color: Color(0xFFE2E6DA))
+                      : BorderSide.none,
+                ),
+                shadows: opening
                     ? const [
                         BoxShadow(
                           color: Color(0x180C2B1F),
@@ -1032,11 +1033,85 @@ class _HostConversation extends StatelessWidget {
             ),
           ),
         ),
-        if (mascotOnRight) RotatedBox(quarterTurns: 2, child: tail),
         if (mascotOnRight) mascot,
       ],
     );
   }
+}
+
+/// A continuous outline removes the border at the pointer junction. Its inset
+/// preserves the existing reading width and works on both sides of the host.
+class _HostBubbleShape extends ShapeBorder {
+  const _HostBubbleShape({
+    required this.tailOnRight,
+    required this.radius,
+    required this.side,
+    this.tailWidth = 10,
+    this.tailHalfHeight = 9,
+  });
+
+  final bool tailOnRight;
+  final double radius, tailWidth, tailHalfHeight;
+  final BorderSide side;
+
+  @override
+  EdgeInsetsGeometry get dimensions =>
+      EdgeInsets.only(
+        left: tailOnRight ? 0 : tailWidth,
+        right: tailOnRight ? tailWidth : 0,
+      ) +
+      EdgeInsets.all(side.width);
+
+  Path _outline(Rect rect) {
+    final body = Rect.fromLTRB(
+      rect.left + (tailOnRight ? 0 : tailWidth),
+      rect.top,
+      rect.right - (tailOnRight ? tailWidth : 0),
+      rect.bottom,
+    );
+    final edge = tailOnRight ? body.right : body.left;
+    final direction = tailOnRight ? 1.0 : -1.0;
+    final y = body.center.dy;
+    final join = edge - direction;
+    final pointer = Path()
+      ..moveTo(join, y - tailHalfHeight)
+      ..quadraticBezierTo(
+        edge + direction * 3,
+        y - 3,
+        tailOnRight ? rect.right : rect.left,
+        y,
+      )
+      ..quadraticBezierTo(edge + direction * 3, y + 3, join, y + tailHalfHeight)
+      ..close();
+    return Path.combine(
+      PathOperation.union,
+      Path()..addRRect(BorderRadius.circular(radius).toRRect(body)),
+      pointer,
+    );
+  }
+
+  @override
+  Path getOuterPath(Rect rect, {TextDirection? textDirection}) =>
+      _outline(rect);
+
+  @override
+  Path getInnerPath(Rect rect, {TextDirection? textDirection}) =>
+      _outline(rect.deflate(side.width));
+
+  @override
+  void paint(Canvas canvas, Rect rect, {TextDirection? textDirection}) {
+    if (side.style == BorderStyle.none) return;
+    canvas.drawPath(_outline(rect.deflate(side.width / 2)), side.toPaint());
+  }
+
+  @override
+  ShapeBorder scale(double t) => _HostBubbleShape(
+    tailOnRight: tailOnRight,
+    radius: radius * t,
+    side: side.scale(t),
+    tailWidth: tailWidth * t,
+    tailHalfHeight: tailHalfHeight * t,
+  );
 }
 
 class _RiskPage extends StatelessWidget {
