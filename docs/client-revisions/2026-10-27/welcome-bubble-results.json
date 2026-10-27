@@ -1,5 +1,6 @@
 {
   "date": "2026-10-27",
+  "implementationCommit": "5cd094f",
   "casesReproducedBeforeFix": [
     "pointer remained visible while body faded",
     "direct ID-KO did not replay entrance",

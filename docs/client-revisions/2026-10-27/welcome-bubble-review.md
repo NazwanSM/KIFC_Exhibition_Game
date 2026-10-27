@@ -2,6 +2,8 @@
 
 Pemilik proyek melaporkan ekor bubble welcome tetap terlihat saat kotak dialog dan maskot dianimasikan. Permintaan berikutnya menegaskan ekor harus menyatu seperti bubble chat, tanpa garis pemisah di pangkalnya.
 
+Commit implementasi: `5cd094f` pada `main` lokal.
+
 ## Temuan dan perubahan
 
 1. Ekor sebelumnya merupakan `ClipPath` di luar `MotionReveal`. Kotak dialog memudar/bergeser sendiri, sedangkan ekor tetap terlihat. Kini bubble digambar sebagai satu `ShapeBorder`: rounded rectangle dan ekor kurva digabung menjadi satu path sehingga fill, outline, dan shadow menyambung. Satu `MotionReveal` membungkus keseluruhan bentuk.

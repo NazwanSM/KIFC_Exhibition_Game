@@ -648,3 +648,11 @@ Pemilik proyek menyetujui konsep maskot minimalis v3 dan meminta penerapan. Ikon
 Analisis bersih, 17 tes pembuka/shell web lulus, build web dan APK review 1.0.3 (20261027) berhasil. Seluruh 16 ekspor dapat direproduksi; sepuluh PNG native cocok per piksel di APK, 53 aset runtime cocok, dan manifest/enam PNG web terverifikasi HTTP/hash. Ikon diperiksa pada launcher/App info emulator API35 1080×1920/density420; sentuhan ikon membuka permainan. [Review dan screenshot](../../docs/client-revisions/2026-10-27/app-icon-review.md), [hasil terstruktur](../../docs/client-revisions/2026-10-27/app-icon-results.json).
 
 APK lokal: `build/review-app-icon-2026-10-27/KIFC-Review-1.0.3.apk`, SHA256 `dffab3b3299c25d43b50b1054a03e8a641b4dffc0de5c5d2190ea9fa852dd52d`. Sertifikat tetap Android Debug untuk review. Belum push/deploy; tidak ada perubahan kode Dart/gameplay atau pengujian TV fisik baru.
+
+### KIFC-01 — bubble utuh dan sinkronisasi animasi, 27 Oktober
+
+Laporan ekor welcome tertinggal saat pergantian bahasa ditangani bersama permintaan lanjutan agar bentuknya menyatu seperti chat bubble. Commit `5cd094f`: satu path untuk kotak/ekor/border/shadow di dalam satu `MotionReveal`, serta pemicu berbasis bahasa dan pesan untuk maskot/bubble. Perpindahan langsung Indonesia–Korea kini ikut memutar animasi; memilih bahasa aktif tidak mengulang. Arah kanan pada percakapan penutup juga diperiksa.
+
+Tiga kasus direproduksi sebelum fix, kemudian 30 tes terkait lulus dan analisis bersih. Bukti terdiri dari 45 frame welcome (tiga bahasa × lima ukuran × tiga fase) dan tiga penutup, ditambah rekaman kontrol bahasa asli di browser. Build web release terverifikasi melalui hash bundle yang dilayani. APK review 1.0.4 (20261028) berhasil, tiga ABI memuat kelas bubble baru dan 53 hash aset cocok; runtime native/TV fisik tidak diuji ulang. [Review](../../docs/client-revisions/2026-10-27/welcome-bubble-review.md), [hasil](../../docs/client-revisions/2026-10-27/welcome-bubble-results.json), [rekaman browser](../../docs/client-revisions/2026-10-27/welcome-bubble/language-switch.mp4).
+
+APK lokal `build/review-welcome-tail-2026-10-27/KIFC-Review-1.0.4.apk`, SHA256 `cef7eff623b50dcc26f4760e11eaddf65360d356cd90cb7e4c36f655f6b43a3f`, tetap sertifikat Android Debug. Fix ini masih lokal dan belum push/deploy; tidak mengubah skor, urutan layar, naskah, atau audio.
