@@ -2,6 +2,8 @@
 
 Pemilik proyek menyetujui ikon maskot minimalis v3 dan meminta penerapan ke aplikasi. [PNG sumber](../../../design/branding/fire-prevention-app-icon-v3.png) tetap utuh; [prompt dan persetujuan](../../../design/branding/fire-prevention-app-icon-v3.prompt.md), [indeks 16 ekspor](../../../design/branding/app-icon-manifest.json), [hasil verifikasi](app-icon-results.json).
 
+Commit implementasi: `7d8926e` pada branch `main` lokal.
+
 ## Perubahan
 
 - Android: lima ukuran launcher legacy 48–192 px dan lima foreground adaptive 108–432 px. XML adaptive untuk API 26 ke atas memakai latar hijau yang dicocokkan ke tepi PNG sumber; manifest memakai ikon yang sama untuk launcher biasa dan lingkaran.

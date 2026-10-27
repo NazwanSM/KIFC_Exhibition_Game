@@ -640,3 +640,11 @@ KIFC-09: bubble dipusatkan sejajar dengan maskot dan celah sebelum tombol dihapu
 64 tes terarah lulus, analisis akhir bersih, 75 render fokus tiga bahasa/lima ukuran portrait tersedia. APK release 1.0.2 (20261026) dibangun ulang dan dipasang di emulator; smoke native Inggris memeriksa kedua layar, termasuk koordinat CTA kanan dan bubble yang sudah turun. AOT pada tiga ABI diverifikasi memuat key UI baru setelah cache awal sempat menghasilkan kode lama. 53 hash aset cocok; SHA256 APK final `7ea9d3e3fe32d49ae58e3b7ce1c15650cfc5472bef23a870c10b17f3cdd9941d`.
 
 [Review09](../../docs/client-revisions/2026-10-25/mascot-card-alignment-review.md), [review03](../../docs/client-revisions/2026-10-25/triangle-cta-alignment-review.md), [hasil](../../docs/client-revisions/2026-10-25/mascot-alignment-results.json), [indeks screenshot](../../build/review-mascot-alignment-2026-10-25/evidence-index.json). Web lokal dibangun ulang; tidak push/deploy. Paket ZIP E2E sebelumnya tetap merupakan bukti sebelum minor revision ini dan tidak ditimpa. TV fisik tetap belum diuji.
+
+### Tambahan BRAND-01 — ikon aplikasi yang disetujui, 27 Oktober
+
+Pemilik proyek menyetujui konsep maskot minimalis v3 dan meminta penerapan. Ikon telah dipasang pada launcher Android legacy/adaptive, favicon, ikon pemasangan web/maskable, dan Apple touch icon. Metadata nama/warna web serta gambar header README disesuaikan. Commit implementasi `7d8926e` pada `main` lokal; ini tambahan branding dari percakapan, bukan perubahan status persetujuan 18 kelompok tiket DOCX.
+
+Analisis bersih, 17 tes pembuka/shell web lulus, build web dan APK review 1.0.3 (20261027) berhasil. Seluruh 16 ekspor dapat direproduksi; sepuluh PNG native cocok per piksel di APK, 53 aset runtime cocok, dan manifest/enam PNG web terverifikasi HTTP/hash. Ikon diperiksa pada launcher/App info emulator API35 1080×1920/density420; sentuhan ikon membuka permainan. [Review dan screenshot](../../docs/client-revisions/2026-10-27/app-icon-review.md), [hasil terstruktur](../../docs/client-revisions/2026-10-27/app-icon-results.json).
+
+APK lokal: `build/review-app-icon-2026-10-27/KIFC-Review-1.0.3.apk`, SHA256 `dffab3b3299c25d43b50b1054a03e8a641b4dffc0de5c5d2190ea9fa852dd52d`. Sertifikat tetap Android Debug untuk review. Belum push/deploy; tidak ada perubahan kode Dart/gameplay atau pengujian TV fisik baru.
