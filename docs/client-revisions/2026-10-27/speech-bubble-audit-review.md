@@ -2,6 +2,8 @@
 
 Pemilik proyek meminta pemeriksaan masalah yang sama di halaman lain setelah bubble welcome disatukan. Audit menelusuri seluruh pemakaian ekor bubble khusus pada alur `ExhibitionGame` yang aktif, lalu mereproduksi masalah sebelum mengubah kode.
 
+Commit implementasi: `5b3fb42` pada `main` lokal.
+
 ## Temuan dan penanganan
 
 | Komponen / halaman | Kondisi sebelum audit | Perubahan |

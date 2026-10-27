@@ -1,5 +1,6 @@
 {
   "date": "2026-10-27",
+  "implementationCommit": "5b3fb42",
   "auditScope": "All custom speech-tail implementations in the active ExhibitionGame flow",
   "beforeFixFailures": 4,
   "rootCases": [
