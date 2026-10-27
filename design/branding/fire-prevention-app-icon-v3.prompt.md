@@ -6,7 +6,7 @@
 - Referensi: [maskot welcome](../../assets/images/mascot/manggala_agni_welcome.png).
 - Pilihan desain: kepala dan topi saja, latar hijau tanpa suasana hutan, warna lebih tenang, bentuk bulu disederhanakan; seragam, glow, dan ornamen api dihilangkan.
 - Dua tahap generasi: konsep dari maskot asli, lalu penyederhanaan bentuk dan tekstur. Hanya hasil akhir yang disalin ke repo; PNG tidak diolah ulang. Warna akhir adalah hasil raster generator, bukan bukti empat nilai warna eksak.
-- Status: konsep desain; belum mengganti launcher Android/favicon web. Versi sebelumnya tetap dipertahankan.
+- Status: disetujui pemilik proyek pada 27 Oktober 2026 dan diterapkan ke launcher Android, favicon, serta ikon pemasangan web. Turunan dibuat dengan `tool/generate_app_icons.py`; [indeks hasil](app-icon-manifest.json). Versi sebelumnya tetap dipertahankan.
 
 ## Prompt konsep
 

@@ -1,0 +1,232 @@
+{
+  "date": "2026-10-27",
+  "sourceConcept": "design/branding/fire-prevention-app-icon-v3.png",
+  "approval": "Owner explicitly approved v3 in this thread before implementation",
+  "exports": 16,
+  "reproducibleExports": true,
+  "flutterAnalyze": "No issues found",
+  "targetedFlutterTests": 17,
+  "webReleaseBuild": true,
+  "apkReleaseBuild": true,
+  "apkVersion": "1.0.3",
+  "apkVersionCode": 20261027,
+  "apk": {
+    "apk": "D:\\KIFC Game Exhibition\\fire_prevention_challenge\\build\\review-app-icon-2026-10-27\\KIFC-Review-1.0.3.apk",
+    "bytes": 75805059,
+    "sha256": "dffab3b3299c25d43b50b1054a03e8a641b4dffc0de5c5d2190ea9fa852dd52d",
+    "offlineAssetsChecked": 53,
+    "failures": [],
+    "passed": true
+  },
+  "apkSigning": "Android Debug certificate (review build)",
+  "androidIcons": {
+    "passed": true,
+    "pngPixelMatches": [
+      {
+        "source": "android/app/src/main/res/mipmap-mdpi/ic_launcher.png",
+        "packaged": [
+          "res/9w.png"
+        ],
+        "passed": true
+      },
+      {
+        "source": "android/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png",
+        "packaged": [
+          "res/QZ.png"
+        ],
+        "passed": true
+      },
+      {
+        "source": "android/app/src/main/res/mipmap-hdpi/ic_launcher.png",
+        "packaged": [
+          "res/yn.png"
+        ],
+        "passed": true
+      },
+      {
+        "source": "android/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png",
+        "packaged": [
+          "res/zr.png"
+        ],
+        "passed": true
+      },
+      {
+        "source": "android/app/src/main/res/mipmap-xhdpi/ic_launcher.png",
+        "packaged": [
+          "res/FS.png"
+        ],
+        "passed": true
+      },
+      {
+        "source": "android/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png",
+        "packaged": [
+          "res/Em.png"
+        ],
+        "passed": true
+      },
+      {
+        "source": "android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png",
+        "packaged": [
+          "res/RJ.png"
+        ],
+        "passed": true
+      },
+      {
+        "source": "android/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png",
+        "packaged": [
+          "res/Lf.png"
+        ],
+        "passed": true
+      },
+      {
+        "source": "android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png",
+        "packaged": [
+          "res/o-.png"
+        ],
+        "passed": true
+      },
+      {
+        "source": "android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png",
+        "packaged": [
+          "res/as.png"
+        ],
+        "passed": true
+      }
+    ],
+    "adaptiveIcon": "res/BW.xml",
+    "adaptiveBackground": "#144232",
+    "note": "Resource filenames are optimized by Android; decoded pixels, not ZIP filenames/PNG encodings, are compared."
+  },
+  "native": {
+    "installedVersion": "1.0.3",
+    "versionCode": 20261027,
+    "serial": "emulator-5554",
+    "viewport": "1080x1920",
+    "density": 420,
+    "source": "Android API35 emulator; actual installed release APK",
+    "launcherIconInspected": true,
+    "appInfoIconInspected": true,
+    "openedByLauncherTap": true,
+    "welcomeStartButtonPresent": true,
+    "screenshots": [
+      "native-launcher-1080x1920.png",
+      "native-app-info-1080x1920.png",
+      "native-welcome-1080x1920.png"
+    ],
+    "physicalHardwareAssessed": false
+  },
+  "webAndMaskChecks": {
+    "http": [
+      {
+        "path": "manifest.json",
+        "status": 200,
+        "sha256": "335f956558f75bb8af662452a4c3dbfbeab7cf4b3191e07765ccdf0a80e77cec",
+        "matches": true
+      },
+      {
+        "path": "favicon.png",
+        "status": 200,
+        "sha256": "c8fab32fb88cc46c905613217922eb3c66a766e9fb35a268ba5ed2568736abc9",
+        "matches": true
+      },
+      {
+        "path": "icons/apple-touch-icon.png",
+        "status": 200,
+        "sha256": "1788a8edcfba2a026edc835ee7bbddf2e93dc3884d86215374a51da67a5bb652",
+        "matches": true
+      },
+      {
+        "path": "icons/Icon-192.png",
+        "status": 200,
+        "sha256": "9ee23a37869e294d6065a7561654d1989ed3f213a133d6182d2e9e52ea35dd7d",
+        "matches": true
+      },
+      {
+        "path": "icons/Icon-512.png",
+        "status": 200,
+        "sha256": "32afea18859020f68e5637379d90932d55381eb5feebe10f2a1e0f17a1abc6dd",
+        "matches": true
+      },
+      {
+        "path": "icons/Icon-maskable-192.png",
+        "status": 200,
+        "sha256": "f6cd94686530c8edc13991d58ee2d630cc3e60b0a51e3126d07cba7456a1d602",
+        "matches": true
+      },
+      {
+        "path": "icons/Icon-maskable-512.png",
+        "status": 200,
+        "sha256": "2962f890002522d7b44a58a9054327d1b870b0cbef02d09d44db3c93ade040e9",
+        "matches": true
+      }
+    ],
+    "sourceForegroundMaxRadiusRatio": 0.3761238476932477,
+    "pwaMaskableRadiusRatio": 0.3385114629239229,
+    "pwaSafeRadiusRatio": 0.4,
+    "androidForegroundRadiusRatio": 0.25074923179549846,
+    "androidSafeRadiusRatio": 0.3055555555555556,
+    "maskChecksPassed": true,
+    "note": "Color segmentation covers visible ivory/ochre/terracotta strokes; visual inspection and native launcher evidence complement it."
+  },
+  "screenshots": [
+    {
+      "file": "app-icon/launcher.png",
+      "source": "Actual Android API35 emulator screenshot",
+      "pixels": [
+        1080,
+        1920
+      ],
+      "densityDpi": 420,
+      "sha256": "a9001d33596813b83918ba198ef71a36089837c09538df32bd2a21bac24176ca"
+    },
+    {
+      "file": "app-icon/app-info.png",
+      "source": "Actual Android API35 emulator screenshot",
+      "pixels": [
+        1080,
+        1920
+      ],
+      "densityDpi": 420,
+      "sha256": "ebf8ebac6522501cb34e72585c37859e2e30f5f69e1b0edc5118c43184ee2a5b"
+    }
+  ],
+  "scope": "Launcher/favicon/install icons and web metadata only; no gameplay Dart changes, no new full E2E run",
+  "physicalTvTested": false,
+  "webMetadataFromBrowser": {
+    "favicon": "favicon.png?v=mascot-v3",
+    "faviconPixels": [
+      64,
+      64
+    ],
+    "icons": [
+      {
+        "purpose": "any",
+        "sizes": "192x192",
+        "src": "icons/Icon-192.png",
+        "type": "image/png"
+      },
+      {
+        "purpose": "any",
+        "sizes": "512x512",
+        "src": "icons/Icon-512.png",
+        "type": "image/png"
+      },
+      {
+        "purpose": "maskable",
+        "sizes": "192x192",
+        "src": "icons/Icon-maskable-192.png",
+        "type": "image/png"
+      },
+      {
+        "purpose": "maskable",
+        "sizes": "512x512",
+        "src": "icons/Icon-maskable-512.png",
+        "type": "image/png"
+      }
+    ],
+    "name": "Fire Prevention Challenge",
+    "shortName": "Fire Challenge",
+    "theme": "#144232",
+    "title": "Fire Prevention Challenge"
+  }
+}

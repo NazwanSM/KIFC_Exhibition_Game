@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="web/icons/Icon-192.png" width="96" alt="Ikon maskot Fire Prevention Challenge">
+
 # Fire Prevention Challenge
 
 **Kenali penyebab api. Pahami risiko karhutla. Jaga ekosistem gambut.**
@@ -145,10 +147,10 @@ Orientasi portrait dan mode immersive diatur oleh aplikasi. Saat mengevaluasi ke
 ### APK untuk review
 
 ```sh
-flutter build apk --release --build-name=1.0.2 --build-number=20261026 --dart-define=KIFC_BUILD_ID=review-1.0.2-r1
+flutter build apk --release --build-name=1.0.3 --build-number=20261027 --dart-define=KIFC_BUILD_ID=review-1.0.3-r1
 ```
 
-Hasil: `build/app/outputs/flutter-apk/app-release.apk`. Contoh versi mengikuti paket review 25 Oktober 2026; naikkan nomor build untuk pembaruan berikutnya dan gunakan `KIFC_BUILD_ID` yang unik pada setiap revisi. Ini membantu memaksa kompilasi Dart baru pada lingkungan yang pernah menghasilkan AOT tertinggal. [Catatan pemeriksaan kode APK](tool/android/README.md#check-release-code-freshness).
+Hasil: `build/app/outputs/flutter-apk/app-release.apk`. Contoh versi mengikuti paket review 27 Oktober 2026 dengan [ikon maskot v3 yang sudah disetujui](docs/client-revisions/2026-10-27/app-icon-review.md); naikkan nomor build untuk pembaruan berikutnya dan gunakan `KIFC_BUILD_ID` yang unik pada setiap revisi. Ini membantu memaksa kompilasi Dart baru pada lingkungan yang pernah menghasilkan AOT tertinggal. [Catatan pemeriksaan kode APK](tool/android/README.md#check-release-code-freshness).
 
 Build release saat ini masih memakai **debug signing** di konfigurasi Android. Sebelum distribusi produksi, siapkan kunci signing pemilik proyek dan uji APK pada TV yang akan dipasang. APK/ZIP hasil build berada di `build/` yang diabaikan Git; file tersebut tidak disertakan dalam clone repo.
 

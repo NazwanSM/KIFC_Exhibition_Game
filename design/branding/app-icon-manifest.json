@@ -1,0 +1,168 @@
+{
+  "source": "design/branding/fire-prevention-app-icon-v3.png",
+  "sourceSha256": "5961e7f9000deb46fbeb506981fdbe50a5fb3eb5b46d8a6bf9f9132af32378cc",
+  "background": "#144232",
+  "operations": "Proportional resizing and safe-area padding only; original PNG unchanged.",
+  "outputs": [
+    {
+      "path": "android/app/src/main/res/mipmap-mdpi/ic_launcher.png",
+      "pixels": [
+        48,
+        48
+      ],
+      "mode": "RGB",
+      "role": "Android legacy launcher",
+      "sha256": "e538596d2d22fad1c9178ee92ee8dccdf17c0e43418e3d9cf31bb10d34c50359"
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png",
+      "pixels": [
+        108,
+        108
+      ],
+      "mode": "RGBA",
+      "role": "Android adaptive foreground",
+      "sha256": "06e7ba8d5c036a6fe880add07f32acddd50a0abbfe175106ebc8c86bd03bdbcc"
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-hdpi/ic_launcher.png",
+      "pixels": [
+        72,
+        72
+      ],
+      "mode": "RGB",
+      "role": "Android legacy launcher",
+      "sha256": "42d13f4f1ed9724f9f0d0506e75ea53b2ff6d4a0c61d1a7c606a298b034f7778"
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png",
+      "pixels": [
+        162,
+        162
+      ],
+      "mode": "RGBA",
+      "role": "Android adaptive foreground",
+      "sha256": "597c7cb0c1fcb0fd798af3ecd6c0931c05b6ee89747e5acd3b8c03e5c0163b71"
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-xhdpi/ic_launcher.png",
+      "pixels": [
+        96,
+        96
+      ],
+      "mode": "RGB",
+      "role": "Android legacy launcher",
+      "sha256": "6b5ebbd9b8bf1a8c9e99ab142a482c73e53ce33664b5217d3e2478da67fbd7e5"
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png",
+      "pixels": [
+        216,
+        216
+      ],
+      "mode": "RGBA",
+      "role": "Android adaptive foreground",
+      "sha256": "4d43b93229eb1a0ac099808d9d354b5cf708ca5631e1df2ce65b72670904f988"
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png",
+      "pixels": [
+        144,
+        144
+      ],
+      "mode": "RGB",
+      "role": "Android legacy launcher",
+      "sha256": "a429ecd62ec560b4aa3cddb7d0d2e39d0207922b564e07615386624ea6d3245d"
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png",
+      "pixels": [
+        324,
+        324
+      ],
+      "mode": "RGBA",
+      "role": "Android adaptive foreground",
+      "sha256": "e2ed0eb943b6629137d9a613d49c8523293b4feb8733a7b9a36f407176749b55"
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png",
+      "pixels": [
+        192,
+        192
+      ],
+      "mode": "RGB",
+      "role": "Android legacy launcher",
+      "sha256": "9ee23a37869e294d6065a7561654d1989ed3f213a133d6182d2e9e52ea35dd7d"
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png",
+      "pixels": [
+        432,
+        432
+      ],
+      "mode": "RGBA",
+      "role": "Android adaptive foreground",
+      "sha256": "da152f97b5bc657ee14b164ea132c26b25dabb92b3804e25bae629a65bfa51a2"
+    },
+    {
+      "path": "web/icons/Icon-192.png",
+      "pixels": [
+        192,
+        192
+      ],
+      "mode": "RGB",
+      "role": "Web installation icon",
+      "sha256": "9ee23a37869e294d6065a7561654d1989ed3f213a133d6182d2e9e52ea35dd7d"
+    },
+    {
+      "path": "web/icons/Icon-maskable-192.png",
+      "pixels": [
+        192,
+        192
+      ],
+      "mode": "RGB",
+      "role": "Web maskable icon",
+      "sha256": "f6cd94686530c8edc13991d58ee2d630cc3e60b0a51e3126d07cba7456a1d602"
+    },
+    {
+      "path": "web/icons/Icon-512.png",
+      "pixels": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "role": "Web installation icon",
+      "sha256": "32afea18859020f68e5637379d90932d55381eb5feebe10f2a1e0f17a1abc6dd"
+    },
+    {
+      "path": "web/icons/Icon-maskable-512.png",
+      "pixels": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "role": "Web maskable icon",
+      "sha256": "2962f890002522d7b44a58a9054327d1b870b0cbef02d09d44db3c93ade040e9"
+    },
+    {
+      "path": "web/favicon.png",
+      "pixels": [
+        64,
+        64
+      ],
+      "mode": "RGB",
+      "role": "Browser favicon",
+      "sha256": "c8fab32fb88cc46c905613217922eb3c66a766e9fb35a268ba5ed2568736abc9"
+    },
+    {
+      "path": "web/icons/apple-touch-icon.png",
+      "pixels": [
+        180,
+        180
+      ],
+      "mode": "RGB",
+      "role": "Apple touch icon",
+      "sha256": "1788a8edcfba2a026edc835ee7bbddf2e93dc3884d86215374a51da67a5bb652"
+    }
+  ]
+}
