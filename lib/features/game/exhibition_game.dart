@@ -983,13 +983,12 @@ class _HostConversation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final height = this.height ?? (_compactLayout(context) ? 180.0 : 220.0);
-    final motionTrigger = (AppCopy.locale, text);
     final mascot = SizedBox(
       width: height * (opening ? .62 : .75),
       child: GameMascot(
         pose: pose,
         height: height,
-        motionTrigger: motionTrigger,
+        motionTrigger: (AppCopy.locale, text),
       ),
     );
     return Row(
@@ -997,39 +996,27 @@ class _HostConversation extends StatelessWidget {
       children: [
         if (!mascotOnRight) mascot,
         Expanded(
-          child: MotionReveal(
-            trigger: motionTrigger,
-            delay: const Duration(milliseconds: 55),
-            // One continuous outline/fill/shadow, animated as a single shape.
-            child: Container(
-              padding: EdgeInsets.all(opening ? 17 : 14),
-              decoration: ShapeDecoration(
-                color: KifcTheme.paper,
-                shape: _HostBubbleShape(
-                  tailOnRight: mascotOnRight,
-                  radius: opening ? 20 : 18,
-                  side: opening
-                      ? const BorderSide(color: Color(0xFFE2E6DA))
-                      : BorderSide.none,
-                ),
-                shadows: opening
-                    ? const [
-                        BoxShadow(
-                          color: Color(0x180C2B1F),
-                          blurRadius: 16,
-                          offset: Offset(0, 5),
-                        ),
-                      ]
-                    : null,
-              ),
-              child: LocalizedText(
-                text,
-                style: TextStyle(
-                  color: KifcTheme.ink,
-                  fontSize: 14,
-                  height: opening ? 1.4 : 1.35,
-                ),
-              ),
+          child: _SpeechBubble(
+            text: text,
+            tailOnRight: mascotOnRight,
+            padding: EdgeInsets.all(opening ? 17 : 14),
+            radius: opening ? 20 : 18,
+            side: opening
+                ? const BorderSide(color: Color(0xFFE2E6DA))
+                : BorderSide.none,
+            shadows: opening
+                ? const [
+                    BoxShadow(
+                      color: Color(0x180C2B1F),
+                      blurRadius: 16,
+                      offset: Offset(0, 5),
+                    ),
+                  ]
+                : null,
+            style: TextStyle(
+              color: KifcTheme.ink,
+              fontSize: 14,
+              height: opening ? 1.4 : 1.35,
             ),
           ),
         ),
@@ -1039,10 +1026,64 @@ class _HostConversation extends StatelessWidget {
   }
 }
 
+/// Every speech pointer, fill, border and shadow shares the same finite reveal.
+/// The active language is part of the trigger even when source text is reused.
+class _SpeechBubble extends StatelessWidget {
+  const _SpeechBubble({
+    required this.text,
+    this.tailOnRight = false,
+    this.padding = const EdgeInsets.all(16),
+    this.radius = 18,
+    this.side = const BorderSide(color: KifcTheme.line),
+    this.shadows,
+    this.messageKey,
+    this.textKey,
+    this.motionKey,
+    this.tailWidth = 10,
+    this.tailHalfHeight = 9,
+    this.style = const TextStyle(
+      color: KifcTheme.ink,
+      fontSize: 14,
+      height: 1.4,
+    ),
+  });
+  final String text;
+  final bool tailOnRight;
+  final EdgeInsetsGeometry padding;
+  final double radius, tailWidth, tailHalfHeight;
+  final BorderSide side;
+  final List<BoxShadow>? shadows;
+  final Key? messageKey, textKey, motionKey;
+  final TextStyle style;
+
+  @override
+  Widget build(BuildContext context) => MotionReveal(
+    key: motionKey,
+    trigger: (AppCopy.locale, text),
+    delay: const Duration(milliseconds: 55),
+    child: Container(
+      key: messageKey,
+      padding: padding,
+      decoration: ShapeDecoration(
+        color: KifcTheme.paper,
+        shape: _SpeechBubbleShape(
+          tailOnRight: tailOnRight,
+          radius: radius,
+          side: side,
+          tailWidth: tailWidth,
+          tailHalfHeight: tailHalfHeight,
+        ),
+        shadows: shadows,
+      ),
+      child: LocalizedText(text, key: textKey, style: style),
+    ),
+  );
+}
+
 /// A continuous outline removes the border at the pointer junction. Its inset
 /// preserves the existing reading width and works on both sides of the host.
-class _HostBubbleShape extends ShapeBorder {
-  const _HostBubbleShape({
+class _SpeechBubbleShape extends ShapeBorder {
+  const _SpeechBubbleShape({
     required this.tailOnRight,
     required this.radius,
     required this.side,
@@ -1105,7 +1146,7 @@ class _HostBubbleShape extends ShapeBorder {
   }
 
   @override
-  ShapeBorder scale(double t) => _HostBubbleShape(
+  ShapeBorder scale(double t) => _SpeechBubbleShape(
     tailOnRight: tailOnRight,
     radius: radius * t,
     side: side.scale(t),
@@ -1246,53 +1287,12 @@ class _MascotDialogue extends StatelessWidget {
         child: GameMascot(
           pose: MascotPose.presenting,
           height: 170,
-          motionTrigger: text,
+          motionTrigger: (AppCopy.locale, text),
         ),
       ),
-      // The speech tail connects the ranger with the reading card.
-      ClipPath(
-        clipper: _SpeechTail(),
-        child: const ColoredBox(
-          color: KifcTheme.paper,
-          child: SizedBox(width: 10, height: 18),
-        ),
-      ),
-      Expanded(
-        child: MotionReveal(
-          trigger: text,
-          delay: const Duration(milliseconds: 55),
-          child: Container(
-            padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              color: KifcTheme.paper,
-              borderRadius: BorderRadius.circular(18),
-              border: Border.all(color: KifcTheme.line),
-            ),
-            child: LocalizedText(
-              text,
-              style: const TextStyle(
-                color: KifcTheme.ink,
-                fontSize: 14,
-                height: 1.4,
-              ),
-            ),
-          ),
-        ),
-      ),
+      Expanded(child: _SpeechBubble(text: text)),
     ],
   );
-}
-
-class _SpeechTail extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) => Path()
-    ..moveTo(size.width, 0)
-    ..lineTo(0, size.height / 2)
-    ..lineTo(size.width, size.height)
-    ..close();
-
-  @override
-  bool shouldReclip(_SpeechTail oldClipper) => false;
 }
 
 class _KarhutlaCards extends StatelessWidget {
@@ -2267,40 +2267,24 @@ class _FinalReviewDialogue extends StatelessWidget {
           child: GameMascot(
             pose: perfect ? MascotPose.success : MascotPose.hintSafety,
             height: height,
-            motionTrigger: _message,
-          ),
-        );
-        final tail = ClipPath(
-          clipper: _SpeechTail(),
-          child: const ColoredBox(
-            color: KifcTheme.paper,
-            child: SizedBox(width: 8, height: 16),
+            motionTrigger: (AppCopy.locale, _message),
           ),
         );
         return Row(
           children: [
             if (!perfect) mascot,
-            if (!perfect) tail,
             Expanded(
-              child: MotionReveal(
-                trigger: _message,
-                delay: const Duration(milliseconds: 55),
-                child: Container(
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: KifcTheme.paper,
-                    borderRadius: BorderRadius.circular(16),
-                    border: Border.all(color: KifcTheme.line),
-                  ),
-                  child: LocalizedText(
-                    _message,
-                    key: const ValueKey('final-review-message'),
-                    style: const TextStyle(fontSize: 13, height: 1.3),
-                  ),
-                ),
+              child: _SpeechBubble(
+                text: _message,
+                tailOnRight: perfect,
+                tailWidth: 8,
+                tailHalfHeight: 8,
+                padding: const EdgeInsets.all(10),
+                radius: 16,
+                textKey: const ValueKey('final-review-message'),
+                style: const TextStyle(fontSize: 13, height: 1.3),
               ),
             ),
-            if (perfect) RotatedBox(quarterTurns: 2, child: tail),
             if (perfect) mascot,
           ],
         );
@@ -3605,59 +3589,22 @@ class _MascotFeedback extends StatelessWidget {
         top: centerBubbleOnMascot || dense ? 0 : 8,
         bottom: centerBubbleOnMascot ? 0 : readingBottom,
       ),
-      child: MotionReveal(
-        key: const ValueKey('feedback-motion'),
-        trigger: text,
-        delay: const Duration(milliseconds: 55),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            if (!ok)
-              ClipPath(
-                clipper: _SpeechTail(),
-                child: const ColoredBox(
-                  color: KifcTheme.paper,
-                  child: SizedBox(width: 10, height: 18),
-                ),
-              ),
-            Expanded(
-              child: Container(
-                key: const ValueKey('feedback-message'),
-                padding: EdgeInsets.all(dense ? 8 : 10),
-                decoration: BoxDecoration(
-                  color: KifcTheme.paper,
-                  borderRadius: BorderRadius.circular(18),
-                  border: Border.all(
-                    color: neutral
-                        ? KifcTheme.line
-                        : (ok
-                                  ? KifcTheme.answerCorrect
-                                  : KifcTheme.answerIncorrect)
-                              .withValues(alpha: .45),
-                  ),
-                ),
-                child: LocalizedText(
-                  text,
-                  style: const TextStyle(
-                    color: KifcTheme.ink,
-                    fontSize: 13,
-                    height: 1.25,
-                  ),
-                ),
-              ),
-            ),
-            if (ok)
-              RotatedBox(
-                quarterTurns: 2,
-                child: ClipPath(
-                  clipper: _SpeechTail(),
-                  child: const ColoredBox(
-                    color: KifcTheme.paper,
-                    child: SizedBox(width: 10, height: 18),
-                  ),
-                ),
-              ),
-          ],
+      child: _SpeechBubble(
+        text: text,
+        tailOnRight: ok,
+        motionKey: const ValueKey('feedback-motion'),
+        messageKey: const ValueKey('feedback-message'),
+        padding: EdgeInsets.all(dense ? 8 : 10),
+        side: BorderSide(
+          color: neutral
+              ? KifcTheme.line
+              : (ok ? KifcTheme.answerCorrect : KifcTheme.answerIncorrect)
+                    .withValues(alpha: .45),
+        ),
+        style: const TextStyle(
+          color: KifcTheme.ink,
+          fontSize: 13,
+          height: 1.25,
         ),
       ),
     );
@@ -3693,7 +3640,7 @@ class _MascotFeedback extends StatelessWidget {
                   pose:
                       pose ?? (ok ? MascotPose.success : MascotPose.hintSafety),
                   height: imageHeight,
-                  motionTrigger: text,
+                  motionTrigger: (AppCopy.locale, text),
                 ),
               ),
             ),

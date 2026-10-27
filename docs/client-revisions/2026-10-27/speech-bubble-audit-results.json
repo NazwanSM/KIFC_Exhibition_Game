@@ -1,0 +1,131 @@
+{
+  "date": "2026-10-27",
+  "auditScope": "All custom speech-tail implementations in the active ExhibitionGame flow",
+  "beforeFixFailures": 4,
+  "rootCases": [
+    "reading-card pointer outside fade",
+    "final-review pointer outside fade",
+    "left feedback has dividing border",
+    "right feedback has dividing border"
+  ],
+  "fix": "One _SpeechBubble / _SpeechBubbleShape for host conversations, reading cards, impact review and shared feedback; locale-aware trigger shared with mascot",
+  "testRuns": [
+    {
+      "log": "final-tests.log",
+      "passed": 127
+    },
+    {
+      "log": "reading-cards-tests.log",
+      "passed": 45
+    }
+  ],
+  "uniqueTestsPassed": 172,
+  "focusedRerunPassed": 4,
+  "analyze": "No issues found",
+  "webReleaseBuild": true,
+  "servedBundleMatches": true,
+  "mainJsSha256": "2aee5dedd7f74a04705681a91b0cf60f559c7f7c85549a04fcb17f29dc1f54cf",
+  "widgetRenders": 462,
+  "languages": [
+    "id",
+    "en",
+    "ko"
+  ],
+  "portraitSizes": [
+    "360x640",
+    "411x731",
+    "720x1280",
+    "1080x1920",
+    "2160x3840"
+  ],
+  "physicalTVValidated": false,
+  "nativeRuntimeTestedThisRevision": false,
+  "screenshots": [
+    {
+      "file": "speech-bubble-audit/reading-card.png",
+      "sourceFile": "kifc05-definition-id-411x731.png",
+      "source": "Flutter widget render",
+      "sha256": "ac74a7e996c176822e7d7e5cec7aff219f50375627c6421710cceee9c5289655",
+      "pixels": [
+        411,
+        731
+      ],
+      "language": "id"
+    },
+    {
+      "file": "speech-bubble-audit/final-review.png",
+      "sourceFile": "impact-review-en-1080x1920.png",
+      "source": "Flutter widget render",
+      "sha256": "aa40f56310b41fb794c061b52df043bd83a285fecc388a16d73e2eeeaa229da9",
+      "pixels": [
+        1080,
+        1920
+      ],
+      "language": "en"
+    },
+    {
+      "file": "speech-bubble-audit/correct-feedback.png",
+      "sourceFile": "cause-correct-id-411x731.png",
+      "source": "Flutter widget render",
+      "sha256": "7cfdaaf055b4536c0a1a679babfb208d19eb1d281b30e885954481d533d83906",
+      "pixels": [
+        411,
+        731
+      ],
+      "language": "id"
+    },
+    {
+      "file": "speech-bubble-audit/wrong-feedback.png",
+      "sourceFile": "cause-wrong-id-411x731.png",
+      "source": "Flutter widget render",
+      "sha256": "2c44311d35da6cd96e8af320dd2051d00d0a93248746ffbeaefe86734eb2b2ff",
+      "pixels": [
+        411,
+        731
+      ],
+      "language": "id"
+    },
+    {
+      "file": "speech-bubble-audit/peat-cards-ko.png",
+      "sourceFile": "peat-cards-front-ko-411x731.png",
+      "source": "Flutter widget render",
+      "sha256": "42dcfbf9e931345959b7ef776176128e87f2f419b2dcc832246397cb407eff6c",
+      "pixels": [
+        411,
+        731
+      ],
+      "language": "ko"
+    }
+  ],
+  "apkReleaseBuild": true,
+  "apkVersion": "1.0.5",
+  "apkVersionCode": 20261029,
+  "apkVerification": {
+    "apk": "D:\\KIFC Game Exhibition\\fire_prevention_challenge\\build\\review-speech-bubble-audit-2026-10-27\\KIFC-Review-1.0.5.apk",
+    "bytes": 75805059,
+    "sha256": "3fb03003f97fb384beec891a51da7b1985e51dbf5100885af3a61e7cb13ee95b",
+    "offlineAssetsChecked": 53,
+    "failures": [],
+    "passed": true
+  },
+  "aotVerification": [
+    {
+      "file": "lib/arm64-v8a/libapp.so",
+      "sharedSpeechBubblePresent": true,
+      "sharedOutlinePresent": true,
+      "sha256": "07488ad84e629396f0df5262a09e2841331dfb836e56f02937b3c4e9839ca3b8"
+    },
+    {
+      "file": "lib/armeabi-v7a/libapp.so",
+      "sharedSpeechBubblePresent": true,
+      "sharedOutlinePresent": true,
+      "sha256": "ec6d6af7f83043ff231b8c799d9503d7be31a2b1f84309d89bd0d1f8a38fbe84"
+    },
+    {
+      "file": "lib/x86_64/libapp.so",
+      "sharedSpeechBubblePresent": true,
+      "sharedOutlinePresent": true,
+      "sha256": "0db1e451b1977b2c9c26edf12dd12823d8e9ddb65a183b9becdb263fca5461ef"
+    }
+  ]
+}
