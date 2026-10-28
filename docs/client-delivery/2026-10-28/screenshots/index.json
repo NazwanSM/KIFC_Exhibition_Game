@@ -1,0 +1,131 @@
+{
+  "physicalTvPhotographs": false,
+  "images": [
+    {
+      "file": "welcome.png",
+      "source": "docs/client-revisions/2026-10-27/welcome-bubble/indonesian.png",
+      "sourceSha256": "acbc81b8130f2672859c71c17caa95192d4d7668178fcf027bb0b19a5eac9ed1",
+      "sourcePixels": [
+        411,
+        731
+      ],
+      "exportPixels": [
+        411,
+        731
+      ],
+      "sha256": "388817f08d109e2f5a256246b4d7cf469093f0a903e4364ad025bca46ae13b77",
+      "sourceType": "Flutter widget render",
+      "language": "id",
+      "capturedOn": "2026-10-27",
+      "processing": "Proportional downscale only, no crop or UI edits"
+    },
+    {
+      "file": "assembly.png",
+      "source": "build/review-speech-bubble-audit-2026-10-27/screenshots/initial-id-411x731.png",
+      "sourceSha256": "273b16d0691bcdf2d630b03294abe978a3bbc5e2c7d89e519edf2a5267590e60",
+      "sourcePixels": [
+        411,
+        731
+      ],
+      "exportPixels": [
+        411,
+        731
+      ],
+      "sha256": "f198b2ee2b908fd074073636e420e03570ae4df8610c08c0135ef65ece4e7e0a",
+      "sourceType": "Flutter widget render",
+      "language": "id",
+      "capturedOn": "2026-10-27",
+      "processing": "Proportional downscale only, no crop or UI edits"
+    },
+    {
+      "file": "reduction.png",
+      "source": "build/review-speech-bubble-audit-2026-10-27/screenshots/demo-id-1080x1920.png",
+      "sourceSha256": "d6a880c55c857a59e5ed8230ccf1bf0ee474b04c1dbce33a3644cc5073d1e821",
+      "sourcePixels": [
+        1080,
+        1920
+      ],
+      "exportPixels": [
+        540,
+        960
+      ],
+      "sha256": "0f1ac07176cef58ed5104cecf553c8f308511284b3b9fab0ecf6d97bc5d14c50",
+      "sourceType": "Flutter widget render",
+      "language": "id",
+      "capturedOn": "2026-10-27",
+      "processing": "Proportional downscale only, no crop or UI edits"
+    },
+    {
+      "file": "cause.png",
+      "source": "build/review-speech-bubble-audit-2026-10-27/screenshots/cause-correct-id-411x731.png",
+      "sourceSha256": "7cfdaaf055b4536c0a1a679babfb208d19eb1d281b30e885954481d533d83906",
+      "sourcePixels": [
+        411,
+        731
+      ],
+      "exportPixels": [
+        411,
+        731
+      ],
+      "sha256": "a22f732ad658b85c88ac4aea120911842541041af0e3877930be8ac2e9723519",
+      "sourceType": "Flutter widget render",
+      "language": "id",
+      "capturedOn": "2026-10-27",
+      "processing": "Proportional downscale only, no crop or UI edits"
+    },
+    {
+      "file": "peat.png",
+      "source": "build/review-speech-bubble-audit-2026-10-27/screenshots/peat-cards-front-id-411x731.png",
+      "sourceSha256": "3d8fef74e329cd0408a0a0dbb0d5f17c6d2a93cdbf577fbd7a22abd0569548b3",
+      "sourcePixels": [
+        411,
+        731
+      ],
+      "exportPixels": [
+        411,
+        731
+      ],
+      "sha256": "4bb3cbd60b6d30508feca677516a024777b5781683b923a58dc3de21c86db20d",
+      "sourceType": "Flutter widget render",
+      "language": "id",
+      "capturedOn": "2026-10-27",
+      "processing": "Proportional downscale only, no crop or UI edits"
+    },
+    {
+      "file": "impact.png",
+      "source": "build/review-speech-bubble-audit-2026-10-27/screenshots/impact-play-id-411x731.png",
+      "sourceSha256": "decb93bae7f142e619fb43811cc0c048f3309f9ac089dc4753a23379db821df1",
+      "sourcePixels": [
+        411,
+        731
+      ],
+      "exportPixels": [
+        411,
+        731
+      ],
+      "sha256": "aa18a0bb5c9de97ff28aac97efe597be19fd512223655ce455154bb2f9bafe82",
+      "sourceType": "Flutter widget render",
+      "language": "id",
+      "capturedOn": "2026-10-27",
+      "processing": "Proportional downscale only, no crop or UI edits"
+    },
+    {
+      "file": "score.png",
+      "source": "build/review-speech-bubble-audit-2026-10-27/screenshots/impact-score-id-411x731.png",
+      "sourceSha256": "58c55fae7fa61ba8c6610b24e657cf860db34ff5edcf04a52492596eaac572ca",
+      "sourcePixels": [
+        411,
+        731
+      ],
+      "exportPixels": [
+        411,
+        731
+      ],
+      "sha256": "398d60f1dbd5514802e8367ed88b2ccf5a879eb29d95de2e317cf748480c03c0",
+      "sourceType": "Flutter widget render",
+      "language": "id",
+      "capturedOn": "2026-10-27",
+      "processing": "Proportional downscale only, no crop or UI edits"
+    }
+  ]
+}

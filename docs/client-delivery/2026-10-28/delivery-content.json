@@ -1,0 +1,133 @@
+{
+  "playing": [
+    {
+      "title": "Panduan bermain",
+      "subtitle": "Fire Prevention Challenge | Untuk pengunjung dan pendamping pameran",
+      "blocks": [
+        {"type":"lead","text":"Kenali penyebab kebakaran hutan dan lahan, coba cara mengurangi unsur api, lalu temukan dampaknya pada ekosistem gambut. Game dimainkan dengan menyentuh dan menyeret objek di layar portrait."},
+        {"type":"welcome","image":"welcome","items":["Pilih Bahasa Indonesia, English, atau bahasa Korea di halaman pembuka. Judul dan percakapan maskot mengikuti bahasa yang dipilih.","Tekan Mulai Tantangan untuk memulai. APK dapat dimainkan tanpa internet setelah terpasang.","Baca petunjuk di bawah judul. Untuk kartu pilihan, sentuh kartunya; untuk menyusun unsur api, seret fotonya ke tempat kosong.","Ketuk ikon pengeras suara untuk mengaktifkan atau mematikan suara dan mengatur musik, suasana hutan, serta efek interaksi."]},
+        {"type":"h2","text":"Cara berpindah halaman"},
+        {"type":"paragraph","text":"Setelah aktivitas selesai, umpan balik atau hasil tampil hingga 15 detik sebelum berlanjut otomatis. Untuk lebih cepat, ketuk area kosong atau isi halaman yang bukan tombol. Tombol Kembali, suara, dan kartu tetap menjalankan fungsinya sendiri."},
+        {"type":"callout","text":"Kartu penjelasan karhutla dan kartu informasi bernomor dibaca sesuai kecepatan pengunjung. Halaman ini menunggu tindakan pengunjung; tidak berpindah sendiri setelah 15 detik. Aktivitas yang belum selesai juga tidak bisa dilewati hanya dengan mengetuk layar."},
+        {"type":"small","text":"Gambar dalam panduan merupakan render UI Flutter dari kode game pada 27 Oktober 2026, bukan foto TV fisik. Tata letak dapat menyesuaikan resolusi dan pengaturan perangkat."}
+      ]
+    },
+    {
+      "title":"Babak 1 Mengenal unsur api",
+      "subtitle":"Susun unsur terlebih dahulu, lalu amati perubahan api",
+      "blocks":[
+        {"type":"images","images":[{"image":"assembly","caption":"Seret tiga foto ke tempat kosong."},{"image":"reduction","caption":"Coba ketiga tombol pengurangan unsur."}],"height":255},
+        {"type":"steps","items":["Pilih tiga foto yang dapat membentuk api. Seret setiap foto ke salah satu tempat kosong di area hutan. Posisi tempatnya bebas; satu foto hanya dihitung sekali. Jika belum cocok, baca petunjuk maskot dan coba foto lain.","Setelah 3/3 unsur terpasang, api muncul dan maskot menjelaskan hubungan ketiganya. Baca penjelasan Segitiga Api, lalu lanjutkan ke percobaan pengurangan unsur.","Pada halaman Kurangi satu unsur, sentuh Panas, Bahan bakar, dan Oksigen secara bergantian. Setiap pilihan baru memadamkan dua titik api tambahan di kiri, tengah, atau kanan sesuai unsur yang dipilih. Api yang sudah padam tetap padam.","Coba ketiga unsur hingga seluruh titik api padam. Memilih unsur yang sama lagi hanya menampilkan penjelasannya, tanpa menambah hitungan. Tombol Ulangi mengembalikan percobaan ke keadaan awal."]},
+        {"type":"callout","text":"Api belum muncul sebelum ketiga unsur lengkap. Percobaan mengurangi unsur adalah simulasi belajar, bukan penilaian benar atau salah. Coba ketiganya untuk melanjutkan. Jangan mempraktikkan pemadaman kebakaran nyata tanpa petugas terlatih."}
+      ]
+    },
+    {
+      "title":"Babak 2 sampai 4 Membaca dan memilih",
+      "subtitle":"Ikuti penjelasan, jawab situasi, lalu buka tiga kartu informasi",
+      "blocks":[
+        {"type":"images","images":[{"image":"cause","caption":"Pilih penyebab setiap situasi."},{"image":"peat","caption":"Buka kartu 1, 2, dan 3 untuk membaca."}],"height":245},
+        {"type":"h2","text":"Babak 2 Apa itu karhutla"},
+        {"type":"paragraph","text":"Baca tiga kartu penjelasan bersama maskot. Ketuk halaman atau kontrol lanjut setelah selesai membaca. Setelah itu, pilih jenis hutan sesuai pertanyaan. Jika jawaban pertama salah, maskot memberi petunjuk dan satu kesempatan lagi. Setelah jawaban benar atau kesempatan kedua berakhir, baca penjelasannya sebelum melanjutkan."},
+        {"type":"h2","text":"Babak 3 Mengenali penyebab"},
+        {"type":"paragraph","text":"Ada empat situasi. Pada setiap situasi, pilih apakah pemicunya aktivitas manusia atau faktor alam. Karena hanya ada dua pilihan, jawaban yang salah langsung disertai penjelasan yang benar tanpa kesempatan menjawab ulang. Baca umpan balik, lalu ketuk halaman untuk melanjutkan atau tunggu hingga 15 detik."},
+        {"type":"h2","text":"Babak 4 Ciri kebakaran gambut"},
+        {"type":"paragraph","text":"Sentuh kartu bernomor 1, 2, dan 3 untuk membaliknya dan membaca informasi. Kartu dapat dibalik atau dibuka lagi. Setelah ketiganya pernah dibuka, tombol Kenali Dampaknya aktif. Kartu ini berisi informasi dan tidak menambah atau mengurangi skor."}
+      ]
+    },
+    {
+      "title":"Tantangan akhir dan hasil",
+      "subtitle":"Pilih dampak selama 30 detik, lalu baca ulasannya",
+      "blocks":[
+        {"type":"images","images":[{"image":"impact","caption":"Pilihan tetap netral selama tantangan."},{"image":"score","caption":"Hasil merangkum poin permainan."}],"height":240},
+        {"type":"steps","items":["Ketika tantangan dimulai, pilih semua kartu yang menurutmu merupakan dampak kebakaran gambut. Ketuk lagi kartu yang sudah dipilih untuk membatalkan pilihan.","Waktu yang tersedia 30 detik. Lingkaran berkurang mengikuti sisa waktu; pada hitungan akhir warnanya hijau, berubah kuning saat tersisa 5 detik, lalu merah saat tersisa 3 detik.","Selama waktu berjalan, game belum memberi tahu benar atau salah. Setelah waktu habis, baca ulasan pilihan benar, pilihan salah, dan dampak yang terlewat. Lalu lanjutkan ke ringkasan skor dan halaman penutup."]},
+        {"type":"table","widths":[170,341],"headers":["Bagian","Perhitungan skor"],"rows":[["Menyusun unsur api","Maksimal 3 poin, satu untuk tiap unsur valid yang terpasang."],["Empat situasi penyebab","Maksimal 4 poin, satu untuk tiap jawaban benar."],["Tantangan dampak","Bonus = maks(0, jumlah benar dipilih - jumlah salah dipilih) / 4. Maksimal 1 poin."],["Total","Maksimal 8 poin. Kuis jenis hutan, percobaan pengurangan, dan kartu informasi tidak menambah poin tersendiri."]]},
+        {"type":"small","text":"Ulasan, skor, dan penutup memiliki waktu baca hingga 15 detik serta bisa dilanjutkan lebih cepat lewat ketukan. Main Lagi memulai sesi baru dengan skor dan pilihan direset. Game tidak menyediakan arsip hasil atau papan peringkat permanen."}
+      ]
+    }
+  ],
+  "installation":[
+    {
+      "title":"Instalasi TV dan penanganan error",
+      "subtitle":"Fire Prevention Challenge 1.0.5 | Untuk teknisi dan operator pameran",
+      "blocks":[
+        {"type":"lead","text":"Pasang APK pada perangkat Android yang mengendalikan layar, lalu uji sentuhan, orientasi, suara, dan satu putaran penuh permainan. APK berisi aset offline sehingga permainan tidak membutuhkan internet setelah terpasang."},
+        {"type":"h2","text":"Pastikan perangkat yang dipakai sesuai"},
+        {"type":"table","widths":[160,351],"headers":["Perangkat","Yang perlu disiapkan"],"rows":[["Panel Android touchscreen","Pasang APK langsung pada panel jika sistemnya mengizinkan pemasangan aplikasi di luar toko."],["TV dengan Android box atau player","Pasang APK pada box atau player. HDMI membawa gambar dan suara; sentuhan dari panel biasanya membutuhkan sambungan USB terpisah ke box."],["TV dengan sistem selain Android","APK tidak dipasang langsung pada sistem seperti Tizen atau webOS. Gunakan player Android yang kompatibel dan jalur input sentuh yang didukung panel."]]},
+        {"type":"h2","text":"Persyaratan paket ini"},
+        {"type":"bullets","items":["Android 7.0 atau lebih baru, sesuai minimum API 24 dalam APK. Batas minimum ini bukan jaminan kelancaran pada semua TV atau GPU.","Prosesor ARM 32-bit, ARM 64-bit, atau x86_64. APK universal sudah memuat ketiganya.","Layar portrait dengan input sentuh. Remote arah saja belum mencukupi aktivitas seret; mouse yang bisa klik dan seret dapat dipakai untuk pemeriksaan sementara.","Ukuran APK sekitar 75,8 MB. Sediakan ruang internal tambahan untuk instalasi dan operasi; 1 GB kosong adalah cadangan praktis yang disarankan, bukan ukuran instalasi pasti.","Siapkan USB penyimpanan, pengelola berkas yang diizinkan oleh pengelola TV, serta akses ke pengaturan panel atau player."]},
+        {"type":"callout","text":"Paket ini adalah APK review dengan tanda tangan Android Debug, bukan rilis toko dengan kunci produksi pemilik. Minimum sistem dan tanda tangan telah diperiksa; versi 1.0.5 belum diuji pada TV fisik yang akan digunakan. Lakukan uji penerimaan perangkat sebelum pameran."}
+      ]
+    },
+    {
+      "title":"Memasang APK lewat USB",
+      "subtitle":"Nama menu dapat berbeda sesuai merek dan versi Android",
+      "blocks":[
+        {"type":"steps","items":["Ekstrak ZIP di komputer. Ambil KIFC-Fire-Prevention-Challenge-1.0.5.apk dari folder 01_APK, lalu salin ke USB. Jangan mengganti ekstensi atau mencoba memasang ZIP secara langsung.","Sambungkan USB ke perangkat Android yang menjalankan game. Jika menggunakan Android box, USB berisi APK dipasang ke box, bukan hanya ke TV yang menerima HDMI.","Buka pengelola berkas, cari USB atau folder tempat APK disalin, lalu pilih APK. Jika USB belum dikenali, coba port lain atau salin melalui metode transfer berkas yang didukung perangkat. Jangan memformat USB sebelum datanya diamankan.","Jika Android meminta izin, buka pengaturan Instal aplikasi tidak dikenal atau Install unknown apps. Izinkan hanya pengelola berkas yang membuka APK tersebut. Pada beberapa panel, menu ini ada di Aplikasi > Akses khusus aplikasi atau Keamanan dan pembatasan.","Kembali ke APK dan pilih Instal. Tunggu sampai selesai, lalu pilih Buka. Nama aplikasi yang dicari adalah Fire Prevention Challenge dengan ikon maskot orangutan.","Sesudah pemasangan selesai, nonaktifkan kembali izin instalasi dari pengelola berkas jika sudah tidak diperlukan. Simpan salinan ZIP dan APK sebagai cadangan operator."]},
+        {"type":"h2","text":"Jika ikon tidak muncul pada beranda TV"},
+        {"type":"paragraph","text":"APK ini memiliki peluncur Android biasa dan belum memiliki kategori LEANBACK_LAUNCHER untuk beranda Android TV. Ini bisa membuat ikon tidak tampil meskipun pemasangan berhasil. Coba Pengaturan > Aplikasi > Lihat semua aplikasi > Fire Prevention Challenge > Buka jika opsi tersedia, atau buka dari pengelola aplikasi yang disetujui pengelola perangkat. Teknisi juga dapat memakai perintah ADB pada halaman 6. [2]"},
+        {"type":"h2","text":"Atur tampilan dan sentuhan"},
+        {"type":"paragraph","text":"Atur output panel atau player menjadi portrait 9:16. Resolusi 1080 x 1920 atau 2160 x 3840 dapat menjadi acuan, sesuai dukungan perangkat. Memutar panel secara fisik saja belum tentu memutar output atau koordinat sentuh. Gunakan pengaturan resmi perangkat; hindari menarik gambar landscape agar memenuhi panel portrait."},
+        {"type":"small","text":"APK sideload tidak memerlukan akun game atau login Google untuk bermain. Internet mungkin diperlukan untuk menyiapkan pengelola berkas atau perangkat pertama kali. Jangan mematikan seluruh perlindungan Play Protect hanya untuk melewati peringatan; periksa asal paket dan hubungi teknisi bila pemasangan tetap diblokir. [4]"}
+      ]
+    },
+    {
+      "title":"Pemeriksaan sebelum digunakan",
+      "subtitle":"Jalankan pada TV yang benar-benar akan dipakai pengunjung",
+      "blocks":[
+        {"type":"h2","text":"Uji penerimaan setelah instalasi"},
+        {"type":"checks","items":["Aplikasi dapat dibuka kembali dari perangkat dan menampilkan versi 1.0.5 pada informasi aplikasi.","Output portrait benar; gambar tidak tertarik, terpotong, atau tertutup menu sistem. Periksa tombol mulai, kembali, suara, dan tombol bawah dari posisi berdiri pengunjung.","Ketukan di tengah serta dekat keempat sudut tepat sasaran. Seret foto ke tiga tempat kosong. Jika memakai box, pastikan kabel USB sentuh terhubung ke player dan pemetaan rotasinya sesuai.","Coba tiga bahasa. Baca judul, instruksi, percakapan maskot, dan hasil; pastikan huruf Korea tampil normal.","Sentuh layar lalu uji musik, suasana hutan, efek tombol, umpan balik jawaban, dan efek selesai tantangan. Coba mute dan aktifkan lagi; atur volume perangkat pada tingkat nyaman.","Selesaikan satu putaran: tiga unsur, ketiga pengurangan, kartu penjelasan, kuis jenis hutan, empat situasi, tiga kartu informasi, tantangan 30 detik, hasil, penutup, lalu Main Lagi.","Coba tunggu satu umpan balik hingga berpindah sendiri setelah 15 detik, lalu coba lanjut lebih cepat dengan ketukan. Halaman baca manual tetap menunggu pengunjung.","Setelah instalasi, matikan Wi-Fi jika prosedur lokasi mengizinkan. Pastikan foto, font, animasi, dan audio tetap berjalan tanpa internet."]},
+        {"type":"h2","text":"Rutinitas operator"},
+        {"type":"paragraph","text":"Sebelum buka, nyalakan player, pilih input TV yang benar, buka game, lalu periksa suara dan sentuhan. Atur tidur layar, screensaver, dan notifikasi sesuai kebijakan pameran serta panduan panel. Aplikasi tidak otomatis menyala setelah listrik kembali dan tidak mengunci perangkat dalam mode kiosk; pengaturan tersebut berada di perangkat atau sistem pengelola pameran."},
+        {"type":"h2","text":"Memperbarui atau memulihkan versi"},
+        {"type":"paragraph","text":"Simpan APK yang sudah diuji dan catat versinya sebelum memperbarui. Tutup sesi pengunjung, lalu pasang APK baru di atas aplikasi lama bila tanda tangan cocok. [3] Jika pembaruan gagal, baca pesan error dahulu. Jangan langsung menghapus aplikasi atau mereset TV. Untuk kembali ke versi lebih lama, minta paket pemulihan dari pengembang; penghapusan atau pemasangan ulang dapat menghilangkan data aplikasi dan mengulang sesi dari awal."}
+      ]
+    },
+    {
+      "title":"Jika pemasangan bermasalah",
+      "subtitle":"Mulai dari pemeriksaan berkas dan kompatibilitas",
+      "blocks":[
+        {"type":"issues","items":[
+          ["Instalasi diblokir atau izin tidak tersedia","Pastikan akun perangkat berhak memasang APK. Izinkan sumber hanya untuk pengelola berkas yang digunakan. Pada perangkat yang dikelola organisasi, minta administrator membuka izin sesuai kebijakan. Jika Play Protect memberi peringatan, pastikan paket dari tim proyek dan checksum cocok, lalu minta bantuan teknisi. Jangan mengunduh APK pengganti dari situs acak."],
+          ["APK tidak terlihat atau berkas tidak bisa dibuka","Ekstrak ZIP di komputer terlebih dahulu. Pastikan berkas berakhiran .apk, bukan .zip atau .apk.zip. Buka lewat pengelola berkas yang dapat melihat USB dan APK; bila perlu salin ke penyimpanan internal. Periksa dukungan format USB pada panduan perangkat tanpa langsung memformatnya."],
+          ["There was a problem parsing the package atau tidak kompatibel","Salin ulang berkas dan bandingkan SHA-256 dengan SHA256SUMS.txt. Pastikan Android minimal 7.0 dan ABI cocok. Jika ADB menampilkan INSTALL_FAILED_OLDER_SDK atau INSTALL_FAILED_NO_MATCHING_ABIS, gunakan perangkat yang memenuhi syarat atau kirim detail sistem kepada pengembang."],
+          ["App not installed saat mengganti versi lama","Periksa ruang kosong serta kode error jika tersedia. INSTALL_FAILED_UPDATE_INCOMPATIBLE biasanya berarti tanda tangan berbeda; INSTALL_FAILED_VERSION_DOWNGRADE berarti versi terpasang memiliki kode lebih tinggi. Minta APK bertanda tangan yang sama atau rencana migrasi dari pengembang. Copot aplikasi hanya setelah operator menyetujui hilangnya sesi dan data aplikasi."],
+          ["Penyimpanan tidak cukup","Hentikan instalasi, kosongkan berkas unduhan yang sudah tidak diperlukan sesuai kebijakan operator, lalu coba lagi. Jangan menghapus data aplikasi lain tanpa izin. APK sekitar 75,8 MB membutuhkan ruang tambahan ketika dipasang; ukuran ZIP bukan patokan ruang instalasi."],
+          ["Terpasang tetapi ikon tidak ada atau tidak bisa dibuka","Coba Buka langsung setelah instalasi atau melalui informasi aplikasi. Beranda Android TV mungkin menyembunyikan APK dengan peluncur biasa. Gunakan langkah halaman 2 atau ADB halaman 6. Jika tetap gagal, catat model TV atau box, Android, dan pesan error; jangan menganggap setiap TV mendukung APK touchscreen portrait ini."]
+        ]},
+        {"type":"callout","text":"Jika checksum berbeda, hentikan penggunaan berkas itu dan salin kembali dari paket asli. Kecocokan checksum memastikan salinan tidak berubah; asal paket tetap harus dipastikan berasal dari tim proyek."}
+      ]
+    },
+    {
+      "title":"Jika game bermasalah saat berjalan",
+      "subtitle":"Pulihkan dari langkah ringan dan catat kondisi yang memicu error",
+      "blocks":[
+        {"type":"issues","items":[
+          ["Gambar miring, kecil, atau terpotong","Periksa orientasi output player dan panel, resolusi, serta mode ukuran gambar TV seperti Screen fit atau Just scan jika tersedia. Portrait pada APK tidak selalu dapat mengubah firmware TV. Rotasikan output lewat pengaturan yang didukung vendor; jangan mengubah density Android secara acak. Jika player tidak mendukung portrait, konsultasikan konfigurasi ke teknisi."],
+          ["Sentuhan tidak sesuai posisi atau tidak bisa menyeret","Pastikan panel mendukung touch dan kabel USB touch menuju perangkat yang menjalankan APK. HDMI saja biasanya tidak membawa input sentuh. Coba mouse untuk membedakan masalah aplikasi dari driver panel, lalu periksa kalibrasi serta rotasi koordinat sentuh pada sistem vendor. Remote arah bukan pengganti gesture seret."],
+          ["Tidak ada suara atau efek kurang terdengar","Sentuh layar untuk mengaktifkan audio. Periksa mute dan volume utama, musik, suasana hutan, serta efek interaksi di game. Periksa volume media TV atau player dan tujuan output HDMI, speaker, atau Bluetooth. Bila tersedia, gunakan Coba lagi pada pengaturan suara saat audio gagal. Jika belum pulih, tutup dan buka game kembali; sesi akan dimulai ulang."],
+          ["Gerakan tersendat, layar hitam, atau aplikasi menutup","Tutup aplikasi lain, tunggu perangkat selesai boot, periksa ruang kosong dan suhu, lalu buka game kembali. Coba output 1080 x 1920 alih-alih 4K jika player mendukungnya; uji ulang ukuran dan jangkauan kontrol setelah perubahan. Jika berulang, ambil foto atau video dan catatan error. Jangan menghapus data atau melakukan reset pabrik sebagai langkah pertama."],
+          ["Tombol lanjut belum aktif atau halaman berpindah sendiri","Pastikan tiga unsur terpasang, ketiga pengurangan sudah dicoba, atau ketiga kartu informasi pernah dibuka sesuai halaman. Umpan balik dan hasil yang selesai memang berpindah setelah 15 detik. Tantangan akhir berjalan 30 detik dan baru dinilai saat waktunya habis. Halaman baca manual menunggu pengunjung."],
+          ["Sesi kembali ke awal atau layar tertidur","Menutup paksa aplikasi, reboot, atau Main Lagi mengulang sesi; progres bukan arsip permanen. Audio berhenti saat aplikasi tidak aktif. Periksa kebijakan tidur, screensaver, serta aplikasi lain yang mengambil alih layar. Untuk operasi tanpa pengawasan, minta teknisi mengatur autostart atau kiosk pada perangkat; fitur itu belum disediakan oleh game."]
+        ]},
+        {"type":"small","text":"Jika hanya aplikasi yang macet, operator dapat memilih Paksa berhenti pada informasi aplikasi, lalu Buka. Ini mengakhiri sesi berjalan. Reboot perangkat hanya jika perlu dan pastikan aman bagi sistem pameran lain yang terhubung."}
+      ]
+    },
+    {
+      "title":"Bantuan teknisi dan pelaporan",
+      "subtitle":"ADB bersifat opsional dan tidak diperlukan untuk instalasi USB biasa",
+      "blocks":[
+        {"type":"paragraph","text":"Gunakan Android SDK Platform-Tools resmi pada komputer teknisi. Aktifkan debugging melalui pengaturan resmi perangkat hanya bila diizinkan, sambungkan melalui USB yang mendukung data, lalu setujui otorisasi di layar. Jika perangkat tidak mendukung debugging, gunakan metode USB berkas. Matikan debugging setelah pekerjaan selesai. [1]"},
+        {"type":"code","text":"adb devices -l\nadb -s SERIAL_TV install -r \"01_APK/KIFC-Fire-Prevention-Challenge-1.0.5.apk\"\nadb -s SERIAL_TV shell am start -n id.kifc.fire_prevention_challenge/.MainActivity"},
+        {"type":"small","text":"Jalankan dari folder utama paket. Ganti SERIAL_TV dengan serial dari adb devices -l; jangan ketik placeholder itu apa adanya. -r memasang ulang sambil mempertahankan data yang kompatibel. Status unauthorized perlu otorisasi di perangkat; offline perlu pemeriksaan sambungan. Pilih serial yang benar bila beberapa perangkat terhubung. Tidak ada perintah uninstall atau reset otomatis dalam paket ini. [1]"},
+        {"type":"h2","text":"Memeriksa integritas di Windows"},
+        {"type":"code","text":"Get-FileHash -Algorithm SHA256 \"01_APK/KIFC-Fire-Prevention-Challenge-1.0.5.apk\""},
+        {"type":"paragraph","text":"Bandingkan hasilnya dengan SHA256SUMS.txt atau INFO_VERSI.txt. Nama berkas boleh dipindahkan, tetapi isi dan hash APK harus tetap sama."},
+        {"type":"h2","text":"Kirim informasi berikut saat meminta bantuan"},
+        {"type":"bullets","items":["Model panel dan player, versi Android, resolusi, orientasi, serta cara sambungan HDMI dan USB touch.","Versi aplikasi 1.0.5, waktu kejadian, bahasa, halaman, dan langkah terakhir sebelum error.","Pesan error persis, foto atau video, serta apakah masalah berulang setelah aplikasi dibuka kembali. Untuk masalah input, sertakan hasil uji dengan mouse.","Jika diminta pengembang, ambil log dengan adb -s SERIAL_TV logcat -d -v time > KIFC-logcat.txt setelah kejadian. Bagikan hanya kepada tim penanganan dan tinjau isi log karena dapat memuat informasi perangkat atau aplikasi lain."]},
+        {"type":"h2","text":"Rujukan teknis"},
+        {"type":"references","items":[["1","Android Developers - ADB, pemasangan ulang dan pemilihan perangkat","https://developer.android.com/tools/adb"],["2","Android Developers - peluncur aplikasi Android TV","https://developer.android.com/training/tv/get-started/create"],["3","Android Developers - sertifikat dan pembaruan aplikasi","https://developer.android.com/studio/publish/app-signing#considerations"],["4","Google - perlindungan aplikasi pada Android TV","https://support.google.com/androidtv/answer/12188351?hl=en"]]},
+        {"type":"small","text":"Rujukan diperiksa pada 28 Oktober 2026. Nama menu dan dukungan instalasi tetap mengikuti vendor perangkat. Aturan permainan mengacu pada kode dan hasil QA proyek, bukan dokumentasi Android."}
+      ]
+    }
+  ]
+}
