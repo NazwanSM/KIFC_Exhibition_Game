@@ -1,5 +1,7 @@
 # Alternatif musik untuk KIFC
 
+> Preferensi terbaru pemilik: A cukup disukai; B dan C sangat tidak disukai. Rekomendasi A+B di catatan historis ini dibatalkan. Lihat [kurasi putaran kedua](round-2/README.md) yang mengikuti A.
+
 Kurasi 29 Oktober 2026 untuk menanggapi permintaan musik yang lebih dinamis, sedikit dramatis, serta membangun semangat saat tantangan. Belum ada penggantian aset runtime, perubahan mixer, APK baru, atau deployment.
 
 ## Temuan awal
