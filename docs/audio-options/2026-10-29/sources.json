@@ -1,0 +1,78 @@
+{
+  "checkedOn": "2026-10-29",
+  "runtimeChanged": false,
+  "tracks": [
+    {
+      "title": "Treasure Hunter",
+      "creator": "TAD",
+      "sourcePage": "https://opengameart.org/content/treasure-hunter",
+      "download": "https://opengameart.org/sites/default/files/treasure_hunter_0.mp3",
+      "license": "CC0 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "originalSha256": "379f3f2c6f967afaf4f2bd95027cf123cf6770b8d1f35acea0eb32fbeb6798c2",
+      "previewFile": "01-treasure-hunter-30s.mp3",
+      "previewSha256": "bac443e0c69e3b439bb5d8541b067cd8639e49323935222544d008aea928de7d",
+      "excerptStartSeconds": 0,
+      "excerptDurationSeconds": 30,
+      "preparation": "Two-pass loudness normalization target -18 LUFS, -2 dBTP, LRA 11, 0.05s fade-in and 0.4s fade-out, stereo MP3 44.1kHz 96kbps. Audition excerpt, not seamless runtime loop.",
+      "inputLoudness": "-12.01",
+      "probe": {
+        "duration": "30.040816",
+        "size": "361128"
+      },
+      "encodedPreviewMeasurements": {
+        "input_i": "-18.39",
+        "input_tp": "-6.58",
+        "input_lra": "1.70"
+      }
+    },
+    {
+      "title": "Determined Pursuit",
+      "creator": "Emma_MA",
+      "sourcePage": "https://opengameart.org/content/determined-pursuit-epic-orchestra-loop",
+      "download": "https://opengameart.org/sites/default/files/determined_pursuit_loop.wav",
+      "license": "CC0 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "originalSha256": "e4f3be098b50213b56a60aefe60fffae79cd9f7c9008088f93c187ef1bbc856b",
+      "previewFile": "02-determined-pursuit-30s.mp3",
+      "previewSha256": "5d1276e6e39f5356ea5f305abd271bc4caf5a1636578e3832a5ed8b1cfe53283",
+      "excerptStartSeconds": 0,
+      "excerptDurationSeconds": 30,
+      "preparation": "Two-pass loudness normalization target -18 LUFS, -2 dBTP, LRA 11, 0.05s fade-in and 0.4s fade-out, stereo MP3 44.1kHz 96kbps. Audition excerpt, not seamless runtime loop.",
+      "inputLoudness": "-13.88",
+      "probe": {
+        "duration": "30.040816",
+        "size": "360847"
+      },
+      "encodedPreviewMeasurements": {
+        "input_i": "-18.56",
+        "input_tp": "-5.14",
+        "input_lra": "5.00"
+      }
+    },
+    {
+      "title": "Heat Adventure",
+      "creator": "MintoDog",
+      "sourcePage": "https://opengameart.org/content/heat-adventure",
+      "download": "https://opengameart.org/sites/default/files/heat_adventure_bpm135.mp3",
+      "license": "CC0 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "originalSha256": "31d07cd3be187ded5b40532d7bc5c746895da2a0600ea3c3e7236020de7ae865",
+      "previewFile": "03-heat-adventure-30s.mp3",
+      "previewSha256": "3b10219ac2527dff462029e2c6ba1898f80fd47cd72a5b74a5fa1910a9d9490e",
+      "excerptStartSeconds": 0,
+      "excerptDurationSeconds": 30,
+      "preparation": "Two-pass loudness normalization target -18 LUFS, -2 dBTP, LRA 11, 0.05s fade-in and 0.4s fade-out, stereo MP3 44.1kHz 96kbps. Audition excerpt, not seamless runtime loop.",
+      "inputLoudness": "-11.68",
+      "probe": {
+        "duration": "30.040816",
+        "size": "360924"
+      },
+      "encodedPreviewMeasurements": {
+        "input_i": "-18.45",
+        "input_tp": "-7.48",
+        "input_lra": "1.20"
+      }
+    }
+  ]
+}
