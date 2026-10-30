@@ -2561,9 +2561,10 @@ class _ClosingPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         LocalizedText(
+                          key: const ValueKey('closing-title'),
                           english
-                              ? 'Protect forests.\nProtect lives.'
-                              : 'Jaga hutan,\njaga kehidupan.',
+                              ? 'Protect Forests.\nProtect Lives.'
+                              : 'Jaga Hutan,\nJaga Kehidupan.',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: compact ? 30 : 34,

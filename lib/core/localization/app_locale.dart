@@ -796,7 +796,7 @@ const Map<String, String> _korean = <String, String>{
       '결과를 확인하고 전시를 더 둘러보세요.',
   'Keep ignition sources away from dry fuel. Report signs of fire and follow trained personnel.':
       '불씨를 마른 연료에서 멀리하세요. 불을 발견하면 신고하고 담당자의 안내를 따르세요.',
-  'Protect forests.\nProtect lives.': '숲을 지키고\n생명을 지켜요.',
+  'Protect Forests.\nProtect Lives.': '숲을 지키고\n생명을 지켜요.',
   'Thanks for playing! Keep fire away from dry vegetation. If you see a fire, report it to trained personnel.':
       '함께해 줘서 고마워요! 불씨를 마른 식물에서 멀리하세요. 불을 발견하면 담당자에게 알려 주세요.',
   'Cooperation, knowledge and innovation for forest and land fire prevention.':
@@ -913,7 +913,7 @@ const Map<String, String> _korean = <String, String>{
   '3/4 challenge points → +0.75 bonus': '마지막 도전 3/4점 · 보너스 +0.75점',
   '2/4 poin di babak akhir = 0,5 poin bonus': '마지막 도전 2/4점 · 보너스 +0.5점',
   '3/4 poin di babak akhir = 0,75 poin bonus': '마지막 도전 3/4점 · 보너스 +0.75점',
-  'Jaga hutan,\njaga kehidupan.': '숲을 지키고\n생명을 지켜요.',
+  'Jaga Hutan,\nJaga Kehidupan.': '숲을 지키고\n생명을 지켜요.',
   'Terima kasih sudah bermain! Jauhkan sumber api dari bahan kering. Jika melihat kebakaran, segera laporkan kepada petugas.':
       '함께해 줘서 고마워요! 불씨를 마른 식물에서 멀리하세요. 불을 발견하면 담당자에게 알려 주세요.',
   'Kerja sama, pengetahuan, dan inovasi untuk mencegah kebakaran hutan dan lahan.':

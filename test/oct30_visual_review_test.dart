@@ -141,6 +141,40 @@ void main() {
         await tester.pumpWidget(const SizedBox.shrink());
         AppCopy.locale = AppLocale.indonesian;
       });
+      testWidgets('R30-03 closing title layout $suffix', (tester) async {
+        await launchScreen(tester, size: size, locale: locale, page: 'closing');
+        await tester.pump(const Duration(milliseconds: 700));
+        expect(tester.takeException(), isNull);
+        final title = find.byKey(const ValueKey('closing-title'));
+        final text = tester.widget<Text>(
+          find.descendant(of: title, matching: find.byType(Text)),
+        );
+        expect(text.data, switch (locale) {
+          AppLocale.indonesian => 'Jaga Hutan,\nJaga Kehidupan.',
+          AppLocale.english => 'Protect Forests.\nProtect Lives.',
+          AppLocale.korean => '숲을 지키고\n생명을 지켜요.',
+        });
+        final rect = tester.getRect(title);
+        expect(rect.left, greaterThanOrEqualTo(0));
+        expect(rect.right, lessThanOrEqualTo(size.width));
+        await captureScreen(tester, 'closing-$suffix', {
+          'ticket': 'KIFC-R30-03',
+          'source': 'Flutter widget render',
+          'language': locale.name,
+          'width': size.width,
+          'height': size.height,
+          'physicalTVReachValidated': false,
+        });
+        // This ticket changes capitalization, not the closing deadline (ticket 04).
+        await tester.pump(const Duration(seconds: 13));
+        expect(kind('_ClosingPage'), findsOneWidget);
+        await tester.tapAt(Offset(size.width * .01, size.height * .01));
+        await tester.pump(const Duration(milliseconds: 600));
+        expect(kind('_WelcomePage'), findsOneWidget);
+        expect(tester.takeException(), isNull);
+        await tester.pumpWidget(const SizedBox.shrink());
+        AppCopy.locale = AppLocale.indonesian;
+      });
     }
   }
 }
