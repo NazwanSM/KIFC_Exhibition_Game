@@ -203,6 +203,8 @@ Nomor pendek pada dependensi merujuk tiket dengan awalan yang sama. Tiket sumber
 
 - [ ] Ganti titik api lama dengan pergantian background panel: foto hutan selama 0/3–2/3, footage kebakaran setelah 3/3. Gunakan komponen yang sama pada penjelasan Segitiga Api.
 - [ ] Pertahankan ukuran panel, tiga kartu unsur, proporsi foto/video, dan keterbacaan overlay. Tidak ada video fullscreen atau animasi api lama yang masih menumpuk.
+- [ ] Sesuaikan exposure dan saturasi foto kartu unsur agar selaras dengan footage kebakaran, sambil menjaga label dan gambar tetap mudah dikenali. Tinjau pada kondisi sebelum dan setelah video muncul.
+- [ ] Tinjau ketajaman video runtime di panel pada simulasi TV portrait dan perangkat aktual bila tersedia; bandingkan dengan sumber sebelum memutuskan apakah encoding perlu ditingkatkan.
 - [ ] Pilih mekanisme playback yang benar-benar mendukung target Android dan web; catat bila membutuhkan dependensi baru. Footage tidak menambah suara sendiri yang bertabrakan dengan musik/narasi.
 - [ ] Kelola preload, transisi, loop, pause/resume, stop/dispose, poster saat error, dan fallback reduced motion. Reset/replay mengembalikan foto hutan tanpa api.
 - [ ] Uji offline APK, asset delivery web setelah restart penuh, serta batas 2/3 ke 3/3 tanpa flicker atau pemutar ganda.
