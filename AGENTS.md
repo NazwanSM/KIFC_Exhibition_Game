@@ -50,6 +50,8 @@
 
 ## Reading and continuation (owner25October)
 
+- Owner clarification30October / KIFC-R30-04: the final closing page alone now waits 30 seconds before returning to welcome, with early background tap still available. Other completed feedback/results keep 15 seconds. Finishing a future closing narration must not trigger navigation; the closing deadline and explicit actions own continuation.
+
 - Owner clarification25October: completed feedback and results automatically advance after 15 seconds and can be advanced earlier by tapping game content/background. Apply this to completed assembly/reduction, finished peat quiz, binary cause feedback, impact review, score and closing; each advances to its next page. Keep explanatory reading cards and numbered information cards manual. Preserve the retry after the first wrong peat answer and activity completion requirements; background taps never skip an unanswered question or an active timed challenge. Pause the remaining feedback allowance while a dialog is open or the app is inactive; cancel old timers on manual continuation, navigation, reset and disposal.
 - Child actions (Back/Home, Restart, Play Again, cards, audio and credits) retain priority; dialogs do not advance the underlying page. The answer/drop/last-card gesture shows feedback and must not also dismiss it. Preserve separate semantics reading nodes when the full-page continuation action becomes available.
 - KIFC-10 is finalized at 30 seconds by the owner. Start after photos/transitions are ready; keep the existing countdown ring, colors, deadline and delayed grading.

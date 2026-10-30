@@ -246,7 +246,7 @@ class _ExhibitionGameState extends State<ExhibitionGame>
 
   void _syncFeedbackTimer() {
     _cancelFeedbackTimer();
-    _readingSeconds = 15;
+    _readingSeconds = _page == _Page.closing ? 30 : 15;
     final timed = switch (_page) {
       _Page.triangleBuild => _triangle.length == 3,
       _Page.breakTriangle => _breakTried.length == 3,

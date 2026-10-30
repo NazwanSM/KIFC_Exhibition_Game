@@ -2,7 +2,7 @@
 
 Sumber: daftar revisi klien yang disampaikan pemilik proyek dan klarifikasinya dalam percakapan 30 Oktober 2026. Tujuan dokumen ini adalah memetakan pekerjaan, cara penerapan, dependensi, dan bukti penyelesaiannya. Pembuatan tracker tidak berarti revisi game sudah diimplementasikan.
 
-**Status terkini: 17 Belum dikerjakan, 0 Dikerjakan, 0 Siap ditinjau, 3 Selesai secara implementasi.**
+**Status terkini: 16 Belum dikerjakan, 0 Dikerjakan, 0 Siap ditinjau, 4 Selesai secara implementasi.**
 
 ID `KIFC-R30-01` sampai `KIFC-R30-20` khusus untuk putaran ini, bukan nomor halaman atau babak. Riwayat lama tetap disimpan di [tracker 23 Oktober](kifc-screen-revision-tracker-2026-10-23.md). Status pekerjaan lama tidak dipindahkan menjadi status selesai untuk kebutuhan baru.
 
@@ -40,7 +40,7 @@ Keputusan ini menggantikan ketentuan lama tentang demo yang wajib dicoba, seluru
 | KIFC-R30-01 | Hapus caption hutan gambut dan aliran air | Pembuka | Sangat mudah | Tidak ada | Selesai | `9e21c95` |
 | KIFC-R30-02 | Sederhanakan label babak di atas judul | Semua halaman berlabel babak | Sangat mudah | Tidak ada | Selesai | `9644ce8` |
 | KIFC-R30-03 | Perbaiki kapitalisasi judul penutup | Penutup terakhir | Sangat mudah | Tidak ada | Selesai | `0023de3` |
-| KIFC-R30-04 | Ubah timer khusus penutup menjadi 30 detik | Penutup terakhir | Mudah | Tidak ada | Belum dikerjakan | — |
+| KIFC-R30-04 | Ubah timer khusus penutup menjadi 30 detik | Penutup terakhir | Mudah | Tidak ada | Selesai | Dicatat setelah commit |
 | KIFC-R30-05 | Rapikan susunan judul Karhutla pertama | Bacaan Karhutla 1 | Mudah | Tidak ada | Belum dikerjakan | — |
 | KIFC-R30-06 | Tambahkan tombol akhiri tantangan lebih awal | Tantangan akhir | Sedang | Tidak ada | Belum dikerjakan | — |
 | KIFC-R30-07 | Hapus demo pengurangan dan sambungkan navigasi | Babak 1 dan transisi ke Babak 2 | Sedang | Tidak ada | Belum dikerjakan | — |
@@ -110,13 +110,15 @@ Nomor pendek pada dependensi merujuk tiket dengan awalan yang sama. Tiket sumber
 
 ### KIFC-R30-04 — Timer khusus penutup 30 detik
 
-**Status:** Belum dikerjakan. **Area kode:** pengelolaan feedback timer di `exhibition_game.dart`; pemeriksaan `test/feedback_timing_test.dart`.
+**Status:** Selesai secara implementasi; belum merupakan pengesahan klien. **Area kode:** pengelolaan feedback timer di `exhibition_game.dart`; pemeriksaan `test/feedback_timing_test.dart`.
 
-- [ ] Bedakan jatah penutup 30 detik dari jatah feedback/hasil lain yang tetap 15 detik; hitung ketika penutup ditampilkan.
-- [ ] Pertahankan ketuk untuk kembali lebih cepat; tombol Main Lagi/Jelajahi Pameran dan kontrol audio tetap menjalankan aksinya sendiri.
-- [ ] Uji batas sebelum/sesudah 30 detik, pembatalan ketika navigasi manual, serta pause/resume saat dialog atau aplikasi tidak aktif. Jangan mengubah tantangan akhir yang juga 30 detik.
+- [x] Bedakan jatah penutup 30 detik dari jatah feedback/hasil lain yang tetap 15 detik; hitung ketika penutup ditampilkan.
+- [x] Pertahankan ketuk untuk kembali lebih cepat; tombol Main Lagi/Jelajahi Pameran dan kontrol audio tetap menjalankan aksinya sendiri.
+- [x] Uji batas sebelum/sesudah 30 detik, pembatalan ketika navigasi manual, serta pause/resume saat dialog atau aplikasi tidak aktif. Jangan mengubah tantangan akhir yang juga 30 detik.
 
 **Selesai jika:** penutup kembali ke pembuka setelah jatahnya habis atau ketukan yang sah, tanpa navigasi ganda. Bukti: hasil regresi timer dan rekaman.
+
+**Bukti:** [Review tiket 04](../../docs/client-revisions/2026-10-30/r30-04-review.md).
 
 ### KIFC-R30-05 — Judul bacaan Karhutla pertama
 
@@ -324,6 +326,6 @@ Status diperbarui setelah implementasi dan pemeriksaan nyata. Selesai secara imp
 | Tanggal | Tiket | Perubahan status | Commit implementasi | Bukti dan hasil pemeriksaan | Peninjau / catatan |
 |---|---|---|---|---|---|
 | 30 Oktober 2026 | KIFC-R30-01 | Belum dikerjakan → Selesai implementasi | `9e21c95` | 23 tes lulus; analisis bersih; 15 render tiga bahasa/lima viewport diperiksa | Pemeriksaan internal; TV fisik belum diuji |
-
 | 30 Oktober 2026 | KIFC-R30-02 | Belum dikerjakan → Selesai implementasi | `9644ce8` | 57 tes lulus; analisis bersih; 180 render dan contact sheet tiga bahasa | Pemeriksaan internal; TV fisik belum diuji |
 | 30 Oktober 2026 | KIFC-R30-03 | Belum dikerjakan → Selesai implementasi | `0023de3` | 15 pemeriksaan visual + 24 regresi lulus; analisis bersih; 15 render diperiksa | Pemeriksaan internal; timer masih 15 detik sesuai batas tiket |
+| 30 Oktober 2026 | KIFC-R30-04 | Belum dikerjakan → Selesai implementasi | Dicatat setelah commit | 40 tes lulus; analisis bersih; 15 render diperiksa; red/green timer | Pemeriksaan internal; TV fisik belum diuji |

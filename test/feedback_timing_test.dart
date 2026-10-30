@@ -45,9 +45,12 @@ void main() {
     ('score', '_ClosingPage'),
     ('closing', '_WelcomePage'),
   ]) {
-    testWidgets('$page waits 15 seconds then advances once', (tester) async {
+    final allowance = page == 'closing' ? 30 : 15;
+    testWidgets('$page waits $allowance seconds then advances once', (
+      tester,
+    ) async {
       await launch(tester, page);
-      await tester.pump(const Duration(seconds: 14));
+      await tester.pump(Duration(seconds: allowance - 1));
       expect(kind(next), findsNothing);
       await tester.pump(const Duration(seconds: 1));
       await tester.pump(const Duration(milliseconds: 500));
