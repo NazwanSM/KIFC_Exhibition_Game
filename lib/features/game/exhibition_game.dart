@@ -1354,7 +1354,13 @@ class _KarhutlaCards extends StatelessWidget {
       chapter: 2,
       english: english,
       eyebrow: english ? 'CHAPTER 2 / FOREST FIRE' : 'BABAK 2 / KARHUTLA',
-      title: card.$2,
+      title: index == 0
+          ? switch (AppCopy.locale) {
+              AppLocale.indonesian => 'Tapi,\nApa Itu Kebakaran\u00a0Hutan?',
+              AppLocale.english => 'What Is a Forest\u00a0Fire?',
+              AppLocale.korean => card.$2,
+            }
+          : card.$2,
       subtitle: card.$4,
       groupFooter: true,
       onBack: onBack,
@@ -2725,6 +2731,7 @@ class _DarkStage extends StatelessWidget {
                 _Eyebrow(text: eyebrow, dark: true),
                 LocalizedText(
                   title,
+                  semanticsLabel: title.replaceAll(RegExp(r'\s+'), ' '),
                   style: TextStyle(
                     color: Colors.white,
                     height: 1.08,
