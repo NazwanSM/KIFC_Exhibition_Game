@@ -216,6 +216,13 @@ class LocalizedText extends StatelessWidget {
 }
 
 const Map<String, String> _korean = <String, String>{
+  'Audio credits': '오디오 출처',
+  'Kredit audio': '오디오 출처',
+  'Full composition adapted for looping and volume balanced.':
+      '전체 곡을 반복 재생에 맞게 편집하고 음량을 조정했어요.',
+  'Komposisi penuh disesuaikan untuk loop dan volumenya diseimbangkan.':
+      '전체 곡을 반복 재생에 맞게 편집하고 음량을 조정했어요.',
+
   'Touch the screen when you are ready to continue.':
       '다 읽으셨으면 화면을 눌러 다음으로 이동하세요.',
   'Sudah selesai membaca? Sentuh layar untuk lanjut.':

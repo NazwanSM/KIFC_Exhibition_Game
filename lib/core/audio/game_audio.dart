@@ -27,12 +27,13 @@ class GameAudioController extends ChangeNotifier {
   final GameAudioBackend _backend;
   final _levels = <AudioLayer, double>{
     AudioLayer.master: .65,
-    AudioLayer.music: .25,
-    AudioLayer.nature: .30,
+    AudioLayer.music: .50,
+    AudioLayer.nature: .22,
     AudioLayer.effects: 1,
   };
   bool muted = false, unavailable = false;
   bool _activated = false, _active = true, _disposed = false, _prepared = false;
+  bool _narrating = false;
   bool _dirty = false, _updating = false;
   int _effectEpoch = 0;
   final Stopwatch _clock;
@@ -93,6 +94,13 @@ class GameAudioController extends ChangeNotifier {
     return _sync();
   }
 
+  /// Temporary narration mix; never changes saved sliders or unlocks autoplay.
+  Future<void> setNarrationActive(bool value) {
+    if (_disposed || _narrating == value) return Future.value();
+    _narrating = value;
+    return _sync();
+  }
+
   Future<void> retry() {
     if (_disposed) return Future.value();
     unavailable = false;
@@ -123,8 +131,8 @@ class GameAudioController extends ChangeNotifier {
         final gain = audible ? level(AudioLayer.master) : 0.0;
         await _backend.setMix(
           playing: audible,
-          music: gain * level(AudioLayer.music),
-          nature: gain * level(AudioLayer.nature),
+          music: gain * level(AudioLayer.music) * (_narrating ? .28 : 1),
+          nature: gain * level(AudioLayer.nature) * (_narrating ? .5 : 1),
           effects: gain * level(AudioLayer.effects),
         );
       }

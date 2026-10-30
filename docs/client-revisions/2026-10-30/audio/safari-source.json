@@ -1,0 +1,17 @@
+{
+  "title": "Safari",
+  "creator": "syncopika",
+  "sourcePage": "https://opengameart.org/content/safari",
+  "sourceUrl": "https://opengameart.org/sites/default/files/safari.ogg",
+  "license": "CC BY 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+  "sourceSha256": "ce9f72c736617849fb16ce78f03c5b148b4d97ad7b422ac809f274315792f878",
+  "sourceDurationSeconds": 226.725442,
+  "runtime": "assets/audio/forest-music.mp3",
+  "loopDurationSeconds": 221.725442,
+  "processing": "Full composition, rotated by 5 seconds; 5-second equal-power circular outro/intro crossfade; two-pass -18 LUFS/-2 dBTP; stereo 44.1kHz MP3 96kbps. No 30-second excerpt or new fade-out.",
+  "bytes": 2661505,
+  "sha256": "aea92e1da0abe880d8ef85a3e37eeed0cf86d1e7219904d402cc8f1f7920cc15",
+  "measuredLUFS": -18.44,
+  "measuredTruePeakDb": -3.7
+}

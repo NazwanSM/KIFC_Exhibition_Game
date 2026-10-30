@@ -2,7 +2,7 @@
 
 Sumber: daftar revisi klien yang disampaikan pemilik proyek dan klarifikasinya dalam percakapan 30 Oktober 2026. Tujuan dokumen ini adalah memetakan pekerjaan, cara penerapan, dependensi, dan bukti penyelesaiannya. Pembuatan tracker tidak berarti revisi game sudah diimplementasikan.
 
-**Status terkini: 12 Belum dikerjakan, 0 Dikerjakan, 0 Siap ditinjau, 8 Selesai secara implementasi.**
+**Status terkini: 11 Belum dikerjakan, 1 Dikerjakan, 0 Siap ditinjau, 8 Selesai secara implementasi.**
 
 ID `KIFC-R30-01` sampai `KIFC-R30-20` khusus untuk putaran ini, bukan nomor halaman atau babak. Riwayat lama tetap disimpan di [tracker 23 Oktober](kifc-screen-revision-tracker-2026-10-23.md). Status pekerjaan lama tidak dipindahkan menjadi status selesai untuk kebutuhan baru.
 
@@ -45,7 +45,7 @@ Keputusan ini menggantikan ketentuan lama tentang demo yang wajib dicoba, seluru
 | KIFC-R30-06 | Tambahkan tombol akhiri tantangan lebih awal | Tantangan akhir | Sedang | Tidak ada | Selesai | `41384fa` |
 | KIFC-R30-07 | Hapus demo pengurangan dan sambungkan navigasi | Babak 1 dan transisi ke Babak 2 | Sedang | Tidak ada | Selesai | `d069340` |
 | KIFC-R30-08 | Terima drop di seluruh panel unsur | Penyusunan unsur | Sedang | Tidak ada | Selesai | `d62bbae` (koreksi) |
-| KIFC-R30-09 | Terapkan Safari versi penuh | Musik lintas game | Sedang | Sumber penuh dan lisensi | Belum dikerjakan | — |
+| KIFC-R30-09 | Terapkan Safari versi penuh | Musik lintas game | Sedang | Sumber penuh dan lisensi | Dikerjakan: native belum terverifikasi | Dicatat setelah commit |
 | KIFC-R30-10 | Cari dan siapkan video kebakaran kamera statis | Aset panel hutan | Sedang, bergantung aset | Sumber dan izin penggunaan | Belum dikerjakan | — |
 | KIFC-R30-11 | Integrasikan background video kebakaran bersama | Penyusunan lengkap dan penjelasan Segitiga Api | Menengah–sulit | 07, 08, 10 | Belum dikerjakan | — |
 | KIFC-R30-12 | Finalisasi naskah dan audisi suara maskot | Pembuka, tiga bacaan, penutup | Menengah–sulit | Akses TTS dan peninjauan suara | Belum dikerjakan | — |
@@ -173,14 +173,16 @@ Nomor pendek pada dependensi merujuk tiket dengan awalan yang sama. Tiket sumber
 
 ### KIFC-R30-09 — Safari versi penuh
 
-**Status:** Belum dikerjakan. **Area kode/aset:** `assets/audio/`, `lib/core/audio/audioplayers_backend.dart`, `game_audio.dart`, kredit dan `ASSET_SOURCES.md`.
+**Status:** Implementasi dan pengujian widget selesai; pemeriksaan native belum terverifikasi. **Area kode/aset:** `assets/audio/`, `lib/core/audio/audioplayers_backend.dart`, `game_audio.dart`, kredit dan `ASSET_SOURCES.md`.
 
-- [ ] Ambil sumber penuh dari URL yang sudah dicatat pada kurasi, verifikasi hash/CC BY 3.0, dan simpan kredit syncopika serta keterangan pengolahan.
-- [ ] Siapkan versi runtime yang ringan dengan titik loop yang diperiksa; jangan mengulang cuplikan 30 detik yang memiliki fade-out. Cek awal/akhir sambungan tanpa klik atau jeda mencolok.
-- [ ] Sesuaikan mix supaya efek interaksi tetap terbaca. Pertahankan musik, suasana alam, dan efek sebagai lapisan berbeda; jangan mengganti efek jawaban.
+- [x] Ambil sumber penuh dari URL yang sudah dicatat pada kurasi, verifikasi hash/CC BY 3.0, dan simpan kredit syncopika serta keterangan pengolahan.
+- [x] Siapkan versi runtime yang ringan dengan titik loop yang diperiksa; jangan mengulang cuplikan 30 detik yang memiliki fade-out. Cek awal/akhir sambungan tanpa klik atau jeda mencolok.
+- [x] Sesuaikan mix supaya efek interaksi tetap terbaca. Pertahankan musik, suasana alam, dan efek sebagai lapisan berbeda; jangan mengganti efek jawaban.
 - [ ] Uji native/web, mute, pengaturan volume, lifecycle, retry error, pergantian halaman, dan replay tanpa loop bertumpuk. Sediakan pengurangan volume sementara untuk narasi di tiket 17–19 tanpa mengubah setelan volume pengguna secara permanen.
 
 **Selesai jika:** Safari penuh menjadi musik game, aset offline dan kredit lengkap, serta loop/mix diperiksa melalui playback. Bukti: sumber/hash, tes audio, rekaman dan catatan perangkat.
+
+**Bukti dan batas pengujian:** [Review 09](../../docs/client-revisions/2026-10-30/r30-09-review.md).
 
 ### KIFC-R30-10 — Sumber video kebakaran nyata yang statis
 
@@ -343,3 +345,4 @@ Status diperbarui setelah implementasi dan pemeriksaan nyata. Selesai secara imp
 | 30 Oktober 2026 | KIFC-R30-07 | Belum dikerjakan → Selesai implementasi | `d069340` | 16 tes baru + 83 regresi lulus; 45 pemeriksaan alur diulang setelah cleanup; analisis bersih; 30 render diperiksa | Pemeriksaan internal; TV fisik belum diuji |
 | 30 Oktober 2026 | KIFC-R30-08 | Belum dikerjakan → Selesai implementasi | `f74d33b` | 47 tes interaksi gabungan lulus; suite lengkap 437 lulus; 1 tes capture tambahan lulus; analisis bersih; 60 render dan GIF frame widget diperiksa | Pemeriksaan internal; TV fisik belum diuji |
 | 30 Oktober 2026 | KIFC-R30-08 lanjutan | Koreksi tampilan setelah klarifikasi pemilik | `d62bbae` | Hutan penuh sampai dasar; tanpa placeholder kosong; 79 pemeriksaan terkait lulus, analisis bersih; 75 render dan GIF terbaru | Pemeriksaan internal; TV fisik belum diuji |
+| 30 Oktober 2026 | KIFC-R30-09 | Implementasi; native masih terbuka | Dicatat setelah commit | 30 tes lulus, analisis bersih; source/hash, kredit, loop penuh dan ducking tersedia | UIAutomator emulator gagal memberi root; tidak mengklaim uji native lulus |

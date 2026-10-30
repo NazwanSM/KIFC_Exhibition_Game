@@ -62,7 +62,7 @@ void main() {
       await audio.activate();
       expect(backend.preparations, 1);
       expect(backend.mixes.last.playing, isTrue);
-      expect(backend.mixes.last.music, closeTo(.65 * .25, .0001));
+      expect(backend.mixes.last.music, closeTo(.65 * .50, .0001));
       await audio.setLevel(AudioLayer.music, .2);
       expect(backend.mixes.last.music, closeTo(.65 * .2, .0001));
       audio.dispose();
