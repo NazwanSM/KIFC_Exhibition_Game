@@ -838,13 +838,7 @@ class _WelcomePage extends StatelessWidget {
                   children: <Widget>[
                     const _PartnerHeader(dark: true),
                     const SizedBox(height: 8),
-                    _LanguagePicker(
-                      locale: locale,
-                      onChanged: onLocale,
-                      contextLabel: locale == AppLocale.english
-                          ? 'Calm waterways · protected vegetation'
-                          : 'Hutan gambut dan aliran air',
-                    ),
+                    _LanguagePicker(locale: locale, onChanged: onLocale),
                     Expanded(
                       child: Center(
                         child: Column(
@@ -2939,113 +2933,82 @@ class _LiquidGlass extends StatelessWidget {
 }
 
 class _LanguagePicker extends StatelessWidget {
-  const _LanguagePicker({
-    required this.locale,
-    required this.onChanged,
-    required this.contextLabel,
-  });
+  const _LanguagePicker({required this.locale, required this.onChanged});
   final AppLocale locale;
   final ValueChanged<AppLocale> onChanged;
-  final String contextLabel;
 
   @override
   Widget build(BuildContext context) => _LiquidGlass(
     borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
     tint: Colors.white.withValues(alpha: .2),
     padding: const EdgeInsets.all(8),
-    child: Column(
-      mainAxisSize: MainAxisSize.min,
+    child: Row(
       children: <Widget>[
-        Row(
-          children: AppLocale.values
-              .map(
-                (candidate) => Expanded(
-                  child: InkWell(
-                    onTap: () {
-                      unawaited(
-                        GameAudioScope.of(context).interact(GameSound.tap),
-                      );
-                      onChanged(candidate);
-                    },
-                    borderRadius: BorderRadius.circular(
-                      KifcTheme.controlRadius,
-                    ),
-                    child: AnimatedContainer(
-                      duration: _motionDuration(
-                        context,
-                        const Duration(milliseconds: 180),
+        Expanded(
+          child: Row(
+            children: AppLocale.values
+                .map(
+                  (candidate) => Expanded(
+                    child: InkWell(
+                      onTap: () {
+                        unawaited(
+                          GameAudioScope.of(context).interact(GameSound.tap),
+                        );
+                        onChanged(candidate);
+                      },
+                      borderRadius: BorderRadius.circular(
+                        KifcTheme.controlRadius,
                       ),
-                      curve: Curves.easeOut,
-                      height: 38,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        color: locale == candidate
-                            ? Colors.white.withValues(alpha: .16)
-                            : Colors.transparent,
-                        border: locale == candidate
-                            ? Border.all(color: KifcTheme.amber, width: 2)
-                            : null,
-                        borderRadius: BorderRadius.circular(
-                          KifcTheme.controlRadius,
+                      child: AnimatedContainer(
+                        duration: _motionDuration(
+                          context,
+                          const Duration(milliseconds: 180),
                         ),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 6),
-                        child: FittedBox(
-                          fit: BoxFit.scaleDown,
-                          child: LocalizedText(
-                            candidate.label,
-                            maxLines: 1,
-                            softWrap: false,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 13,
-                              fontWeight: FontWeight.w700,
-                              fontFamily: candidate == AppLocale.korean
-                                  ? 'NotoSansKR'
-                                  : null,
-                              fontVariations: candidate == AppLocale.korean
-                                  ? const [FontVariation('wght', 700)]
-                                  : null,
+                        curve: Curves.easeOut,
+                        height: 38,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: locale == candidate
+                              ? Colors.white.withValues(alpha: .16)
+                              : Colors.transparent,
+                          border: locale == candidate
+                              ? Border.all(color: KifcTheme.amber, width: 2)
+                              : null,
+                          borderRadius: BorderRadius.circular(
+                            KifcTheme.controlRadius,
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 6),
+                          child: FittedBox(
+                            fit: BoxFit.scaleDown,
+                            child: LocalizedText(
+                              candidate.label,
+                              maxLines: 1,
+                              softWrap: false,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 13,
+                                fontWeight: FontWeight.w700,
+                                fontFamily: candidate == AppLocale.korean
+                                    ? 'NotoSansKR'
+                                    : null,
+                                fontVariations: candidate == AppLocale.korean
+                                    ? const [FontVariation('wght', 700)]
+                                    : null,
+                              ),
                             ),
                           ),
                         ),
                       ),
                     ),
                   ),
-                ),
-              )
-              .toList(),
+                )
+                .toList(),
+          ),
         ),
-        const SizedBox(height: 7),
-        Container(height: 1, color: Colors.white.withValues(alpha: .25)),
-        const SizedBox(height: 7),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Icon(
-              Icons.water_drop_outlined,
-              size: 14,
-              color: Colors.white.withValues(alpha: .9),
-            ),
-            const SizedBox(width: 6),
-            Flexible(
-              child: LocalizedText(
-                contextLabel,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.white.withValues(alpha: .94),
-                  fontSize: 11,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ),
-            const SizedBox(width: 8),
-            const AudioControls(dark: true),
-          ],
-        ),
+        const SizedBox(width: 6),
+        const AudioControls(dark: true),
       ],
     ),
   );

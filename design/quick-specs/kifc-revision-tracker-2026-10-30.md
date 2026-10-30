@@ -2,7 +2,7 @@
 
 Sumber: daftar revisi klien yang disampaikan pemilik proyek dan klarifikasinya dalam percakapan 30 Oktober 2026. Tujuan dokumen ini adalah memetakan pekerjaan, cara penerapan, dependensi, dan bukti penyelesaiannya. Pembuatan tracker tidak berarti revisi game sudah diimplementasikan.
 
-**Status awal: 20 Belum dikerjakan, 0 Dikerjakan, 0 Siap ditinjau, 0 Selesai.**
+**Status terkini: 19 Belum dikerjakan, 0 Dikerjakan, 0 Siap ditinjau, 1 Selesai secara implementasi.**
 
 ID `KIFC-R30-01` sampai `KIFC-R30-20` khusus untuk putaran ini, bukan nomor halaman atau babak. Riwayat lama tetap disimpan di [tracker 23 Oktober](kifc-screen-revision-tracker-2026-10-23.md). Status pekerjaan lama tidak dipindahkan menjadi status selesai untuk kebutuhan baru.
 
@@ -37,7 +37,7 @@ Keputusan ini menggantikan ketentuan lama tentang demo yang wajib dicoba, seluru
 
 | Urut / ID | Pekerjaan | Halaman | Kesulitan | Dependensi | Status | Commit |
 |---|---|---|---|---|---|---|
-| KIFC-R30-01 | Hapus caption hutan gambut dan aliran air | Pembuka | Sangat mudah | Tidak ada | Belum dikerjakan | — |
+| KIFC-R30-01 | Hapus caption hutan gambut dan aliran air | Pembuka | Sangat mudah | Tidak ada | Selesai | Dicatat setelah commit |
 | KIFC-R30-02 | Sederhanakan label babak di atas judul | Semua halaman berlabel babak | Sangat mudah | Tidak ada | Belum dikerjakan | — |
 | KIFC-R30-03 | Perbaiki kapitalisasi judul penutup | Penutup terakhir | Sangat mudah | Tidak ada | Belum dikerjakan | — |
 | KIFC-R30-04 | Ubah timer khusus penutup menjadi 30 detik | Penutup terakhir | Mudah | Tidak ada | Belum dikerjakan | — |
@@ -74,13 +74,15 @@ Nomor pendek pada dependensi merujuk tiket dengan awalan yang sama. Tiket sumber
 
 ### KIFC-R30-01 — Hapus caption pembuka
 
-**Status:** Belum dikerjakan. **Area kode:** `_WelcomePage` di `lib/features/game/exhibition_game.dart`, serta padanan lokalisasinya.
+**Status:** Selesai secara implementasi; belum merupakan pengesahan klien. **Area kode:** `_WelcomePage` di `lib/features/game/exhibition_game.dart`, serta padanan lokalisasinya.
 
-- [ ] Hapus caption “Hutan gambut dan aliran air” dan padanan Inggris/Korea dari tampilan serta semantics, tanpa menghapus kontrol bahasa atau suara.
-- [ ] Rapikan ruang yang ditinggalkan agar tidak ada garis/pemisah kosong atau kontrol bergeser ke tepi TV.
-- [ ] Periksa pembuka dalam tiga bahasa dan ukuran portrait; sertakan bukti sesuai kriteria umum.
+- [x] Hapus caption “Hutan gambut dan aliran air” dan padanan Inggris/Korea dari tampilan serta semantics, tanpa menghapus kontrol bahasa atau suara.
+- [x] Rapikan ruang yang ditinggalkan agar tidak ada garis/pemisah kosong atau kontrol bergeser ke tepi TV.
+- [x] Periksa pembuka dalam tiga bahasa dan ukuran portrait; sertakan bukti sesuai kriteria umum.
 
 **Selesai jika:** caption hilang pada semua bahasa, tata letak seimbang, dan fungsi pembuka tetap berjalan.
+
+**Bukti:** [Review tiket 01](../../docs/client-revisions/2026-10-30/r30-01-review.md).
 
 ### KIFC-R30-02 — Sederhanakan label babak
 
@@ -313,8 +315,8 @@ Nomor pendek pada dependensi merujuk tiket dengan awalan yang sama. Tiket sumber
 
 ## Log pelaksanaan
 
-Pembuatan dokumen ini hanya menyusun pekerjaan. Belum ada tiket implementasi yang dikerjakan atau ditutup.
+Status diperbarui setelah implementasi dan pemeriksaan nyata. Selesai secara implementasi tidak menyatakan uji TV fisik atau persetujuan visual klien.
 
 | Tanggal | Tiket | Perubahan status | Commit implementasi | Bukti dan hasil pemeriksaan | Peninjau / catatan |
 |---|---|---|---|---|---|
-| — | — | — | — | — | Isi setelah pekerjaan nyata dimulai |
+| 30 Oktober 2026 | KIFC-R30-01 | Belum dikerjakan → Selesai implementasi | Dicatat setelah commit | 23 tes lulus; analisis bersih; 15 render tiga bahasa/lima viewport diperiksa | Pemeriksaan internal; TV fisik belum diuji |
