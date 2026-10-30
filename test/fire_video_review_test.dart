@@ -1,8 +1,7 @@
 import 'package:fire_prevention_challenge/core/localization/app_locale.dart';
-import 'package:fire_prevention_challenge/features/game/widgets/fire_loop.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:fire_prevention_challenge/features/game/widgets/forest_fire_simulation.dart';
+import 'package:fire_prevention_challenge/features/game/widgets/forest_burn_video.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'assembly_review_test.dart' show paintAssembly;
 import 'chapter2_review_test.dart' show launchScreen, captureScreen;
@@ -42,10 +41,10 @@ void main() {
         };
         void checkPanel() {
           expect(tester.takeException(), isNull);
-          final fire = tester.getRect(find.byType(ForestFireSimulation));
-          final cards = tester.getRect(type('_DropSlot').first);
-          expect(fire.bottom, lessThan(cards.top));
-          expect(find.byType(FireLoop), findsNWidgets(6));
+          final fire = tester.getRect(find.byType(ForestBurnVideo));
+          final panel = tester.getRect(type('_FireScene'));
+          expect(fire, panel);
+          expect(find.byType(ForestBurnVideo), findsOneWidget);
         }
 
         await launchScreen(

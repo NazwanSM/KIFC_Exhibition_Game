@@ -11,7 +11,7 @@ import '../../core/audio/audioplayers_backend.dart';
 import '../../core/audio/audio_controls.dart';
 import '../../core/theme/kifc_theme.dart';
 import 'widgets/peat_characteristic_card.dart';
-import 'widgets/forest_fire_simulation.dart';
+import 'widgets/forest_burn_video.dart';
 import 'widgets/game_photo.dart';
 import 'widgets/game_mascot.dart';
 import 'widgets/interaction_motion.dart';
@@ -3613,6 +3613,19 @@ class _FireScene extends StatelessWidget {
                       alignment: Alignment.bottomCenter,
                     ),
                   ),
+                  if (active.length == 3)
+                    Positioned.fill(
+                      child: TweenAnimationBuilder<double>(
+                        tween: Tween(begin: 0, end: 1),
+                        duration: _motionDuration(
+                          context,
+                          const Duration(milliseconds: 450),
+                        ),
+                        builder: (context, opacity, child) =>
+                            Opacity(opacity: opacity, child: child),
+                        child: const ForestBurnVideo(key: ValueKey('fire')),
+                      ),
+                    ),
                   const DecoratedBox(
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
@@ -3649,21 +3662,6 @@ class _FireScene extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Positioned(
-                    left: 6,
-                    right: 6,
-                    top: 38,
-                    bottom: nodeHeight + 14,
-                    child: AnimatedSwitcher(
-                      duration: _motionDuration(
-                        context,
-                        const Duration(milliseconds: 450),
-                      ),
-                      child: active.length == 3
-                          ? ForestFireSimulation(key: const ValueKey('fire'))
-                          : const SizedBox(key: ValueKey('no-fire')),
-                    ),
-                  ),
                   ..._FireSlot.values.map(
                     (slot) => Positioned(
                       left: centers[slot]!.dx - nodeWidth / 2,
@@ -3677,6 +3675,7 @@ class _FireScene extends StatelessWidget {
                             placements?.containsKey(slot) ??
                             active.contains(slot),
                         placedPiece: placements?[slot],
+                        burning: active.length == 3,
                       ),
                     ),
                   ),
@@ -3714,7 +3713,9 @@ class _DropSlot extends StatelessWidget {
     required this.english,
     required this.filled,
     this.placedPiece,
+    this.burning = false,
   });
+  final bool burning;
   final _FireSlot slot;
   final _FirePiece? placedPiece;
   final bool english;
@@ -3734,7 +3735,11 @@ class _DropSlot extends StatelessWidget {
               fit: StackFit.expand,
               children: [
                 GamePhoto(placedPiece?.photo ?? slot.photo, forestTone: true),
-                const ColoredBox(color: Color(0x850C2119)),
+                ColoredBox(
+                  color: burning
+                      ? const Color(0x88451E10)
+                      : const Color(0x850C2119),
+                ),
                 Padding(
                   padding: const EdgeInsets.all(7),
                   child: Align(
@@ -3761,11 +3766,7 @@ class _DropSlot extends StatelessWidget {
 /// Clips the photo edge to edge and paints its outline above it. A decoration
 /// border on Container would inset the image and expose pale corner wedges.
 class _PhotoFrame extends StatelessWidget {
-  const _PhotoFrame({
-    required this.child,
-    required this.border,
-    this.radius,
-  });
+  const _PhotoFrame({required this.child, required this.border, this.radius});
   final Widget child;
   final BoxBorder border;
   final BorderRadius? radius;

@@ -1,0 +1,8 @@
+# KIFC-R30-11 — bukti implementasi
+
+- Video diputar pada panel penyusunan setelah 3/3 dan pada penjelasan Segitiga Api. Kartu unsur diberi warna hangat ketika video tampil; foto hutan tetap muncul sebelum tiga unsur.
+- Analisis Flutter bersih; 50 pengujian layout dan alur lulus pada salinan verifikasi, mencakup tiga bahasa dan lima ukuran portrait. Setelah penambahan fade, pengujian 1080×1920 Indonesia di workspace utama juga lulus. Render widget 15 kombinasi ada di `build/review-r30-11/`; render memakai poster sebagai fallback dan bukan bukti playback.
+- Build web disajikan melalui port yang hash JavaScript-nya cocok dengan build; playback menunjukkan video aktif, muted dan loop. `browser-assembly.png` adalah screenshot browser dari build sebelum penambahan fade.
+- Build APK debug bersih memuat MP4 dan poster dalam paket dan dipasang pada TECNO LG7n, Android 12, 720×1640. `phone-fire-a.png` dan `phone-fire-b.png` direkam berjarak dua detik pada halaman selesai; `phone-triangle.png` pada penjelasan. `phone-loop.mp4` merekam 14 detik di halaman penjelasan. Log perangkat menunjukkan init dan release masing-masing player setelah navigasi.
+- Aset dibundel, tetapi pengujian ponsel dengan koneksi benar-benar diputus belum dilakukan. Uji TV fisik, jangkauan sentuh dan penerimaan visual pemilik juga belum dilakukan. Gradle melaporkan error cache incremental Kotlin lintas drive lalu berhasil melalui fallback; build kedua dari salinan bersih menghasilkan APK dengan aset yang diperiksa.
+- Perubahan ini adalah checkpoint implementasi; tiket tetap dikerjakan sampai pengujian offline selesai.

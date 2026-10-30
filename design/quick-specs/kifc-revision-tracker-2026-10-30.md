@@ -2,7 +2,7 @@
 
 Sumber: daftar revisi klien yang disampaikan pemilik proyek dan klarifikasinya dalam percakapan 30 Oktober 2026. Tujuan dokumen ini adalah memetakan pekerjaan, cara penerapan, dependensi, dan bukti penyelesaiannya. Pembuatan tracker tidak berarti revisi game sudah diimplementasikan.
 
-**Status terkini: 10 Belum dikerjakan, 1 Dikerjakan, 1 Siap ditinjau, 8 Selesai secara implementasi.**
+**Status terkini: 9 Belum dikerjakan, 2 Dikerjakan, 1 Siap ditinjau, 8 Selesai secara implementasi.**
 
 ID `KIFC-R30-01` sampai `KIFC-R30-20` khusus untuk putaran ini, bukan nomor halaman atau babak. Riwayat lama tetap disimpan di [tracker 23 Oktober](kifc-screen-revision-tracker-2026-10-23.md). Status pekerjaan lama tidak dipindahkan menjadi status selesai untuk kebutuhan baru.
 
@@ -47,7 +47,7 @@ Keputusan ini menggantikan ketentuan lama tentang demo yang wajib dicoba, seluru
 | KIFC-R30-08 | Terima drop di seluruh panel unsur | Penyusunan unsur | Sedang | Tidak ada | Selesai | `d62bbae` (koreksi) |
 | KIFC-R30-09 | Terapkan Safari versi penuh | Musik lintas game | Sedang | Sumber penuh dan lisensi | Dikerjakan: native belum terverifikasi | `c713309` |
 | KIFC-R30-10 | Cari dan siapkan video kebakaran kamera statis | Aset panel hutan | Sedang, bergantung aset | Sumber dan izin penggunaan | Siap ditinjau: cuplikan wildfire pengganti | `0961f1c` |
-| KIFC-R30-11 | Integrasikan background video kebakaran bersama | Penyusunan lengkap dan penjelasan Segitiga Api | Menengah–sulit | 07, 08, 10 | Belum dikerjakan | — |
+| KIFC-R30-11 | Integrasikan background video kebakaran bersama | Penyusunan lengkap dan penjelasan Segitiga Api | Menengah–sulit | 07, 08, 10 | Dikerjakan: uji offline tertunda | — |
 | KIFC-R30-12 | Finalisasi naskah dan audisi suara maskot | Pembuka, tiga bacaan, penutup | Menengah–sulit | Akses TTS dan peninjauan suara | Belum dikerjakan | — |
 | KIFC-R30-13 | Produksi narasi tiga bahasa dan data timing | Aset narasi | Sulit | 12 | Belum dikerjakan | — |
 | KIFC-R30-14 | Buktikan desain maskot 3D prerender | Prototipe aset maskot | Sulit, mutu aset belum terbukti | Referensi dan akses produksi | Belum dikerjakan | — |
@@ -199,7 +199,7 @@ Nomor pendek pada dependensi merujuk tiket dengan awalan yang sama. Tiket sumber
 
 ### KIFC-R30-11 — Background video kebakaran bersama
 
-**Status:** Belum dikerjakan. **Dependensi:** 07, 08, 10. **Area kode:** panel `_FireScene`, komponen media bersama, `pubspec.yaml` bila diperlukan; `test/fire_video_review_test.dart` dan assembly.
+**Status:** Sedang dikerjakan; implementasi, playback web dan ponsel diperiksa; uji offline terpisah masih tertunda. **Dependensi:** 07, 08, 10. **Area kode:** panel `_FireScene`, komponen media bersama, `pubspec.yaml` bila diperlukan; `test/fire_video_review_test.dart` dan assembly.
 
 - [ ] Ganti titik api lama dengan pergantian background panel: foto hutan selama 0/3–2/3, footage kebakaran setelah 3/3. Gunakan komponen yang sama pada penjelasan Segitiga Api.
 - [ ] Pertahankan ukuran panel, tiga kartu unsur, proporsi foto/video, dan keterbacaan overlay. Tidak ada video fullscreen atau animasi api lama yang masih menumpuk.
@@ -210,6 +210,8 @@ Nomor pendek pada dependensi merujuk tiket dengan awalan yang sama. Tiket sumber
 - [ ] Uji offline APK, asset delivery web setelah restart penuh, serta batas 2/3 ke 3/3 tanpa flicker atau pemutar ganda.
 
 **Selesai jika:** pergantian foto/video dan kesinambungan kedua halaman benar, media tidak menutupi konten, serta kegagalan decode tidak membuat aktivitas macet. Bukti: tes state/media, rekaman native/web dan screenshot lintas ukuran.
+
+**Progres 30 Oktober:** implementasi awal video dan pewarnaan kartu; 50 tes layout/alur pada salinan verifikasi lulus, 15 render widget tiga bahasa/lima ukuran menampilkan poster, dan video berjalan muted/loop pada build web yang disajikan dari port terverifikasi. Build APK bersih memuat video/poster dan berjalan di ponsel TECNO 720×1640; dua frame menunjukkan video bergerak, rekaman 14 detik dan log init/release tersedia. Pengujian dengan jaringan benar-benar terputus masih tertunda; screenshot widget bukan bukti video bergerak atau uji TV fisik. Bukti lokal: `build/review-r30-11/`.
 
 ### KIFC-R30-12 — Naskah dan audisi suara tiga bahasa
 
