@@ -162,14 +162,14 @@ Nomor pendek pada dependensi merujuk tiket dengan awalan yang sama. Tiket sumber
 
 **Status:** Selesai secara implementasi; belum merupakan pengesahan klien. **Area kode:** `_TriangleBuild`, `_FireScene`, penerimaan drop dan `_dropPiece`; `test/assembly_review_test.dart`.
 
-- [x] Jadikan seluruh batas panel hutan target drop, bukan hanya tiga kartu tujuan. Kartu tujuan tetap menjadi tempat penyimpanan visual otomatis.
+- [x] Jadikan seluruh batas panel hutan target drop, bukan hanya tiga kartu tujuan. Hanya kartu unsur yang sudah terisi ditampilkan; sebelum itu tidak ada placeholder, tanda plus atau label kosong. Foto hutan memenuhi seluruh panel sampai bawah.
 - [x] Unsur valid yang belum dipakai masuk ke posisi tersedia berikutnya. Foto tidak dibiarkan pada koordinat pelepasan. Decoy, duplikat, dan drop di luar panel tidak menambah poin.
 - [x] Pertahankan feedback maskot dan hitungan 0/3 sampai 3/3. Saat lengkap, gesture drop terakhir tidak sekaligus melewati feedback.
 - [x] Uji drop pada bagian atas, tengah, tepi, dan area kartu panel pada beberapa resolusi, serta reset dan replay. Panel dan kartu tidak berubah proporsi.
 
 **Selesai jika:** seluruh panel menerima unsur dengan aturan yang sama dan penyimpanan otomatis stabil. Bukti: tes posisi/drop dan rekaman sentuhan.
 
-**Bukti:** [Review tiket 08](../../docs/client-revisions/2026-10-30/r30-08-review.md).
+**Bukti terbaru:** [Koreksi hutan penuh tanpa placeholder](../../docs/client-revisions/2026-10-30/r30-08-full-forest-review.md). [Review awal](../../docs/client-revisions/2026-10-30/r30-08-review.md) disimpan sebagai riwayat.
 
 ### KIFC-R30-09 — Safari versi penuh
 
@@ -342,3 +342,4 @@ Status diperbarui setelah implementasi dan pemeriksaan nyata. Selesai secara imp
 | 30 Oktober 2026 | KIFC-R30-05 lanjutan | Koreksi visual setelah masukan pemilik | `618a1ce` | Judul Indonesia dua baris tanpa mengecilkan font; 15 tes/15 render tiga bahasa dan lima viewport lulus; analisis bersih | Pemeriksaan internal; menggantikan susunan Tapi, sendiri |
 | 30 Oktober 2026 | KIFC-R30-07 | Belum dikerjakan → Selesai implementasi | `d069340` | 16 tes baru + 83 regresi lulus; 45 pemeriksaan alur diulang setelah cleanup; analisis bersih; 30 render diperiksa | Pemeriksaan internal; TV fisik belum diuji |
 | 30 Oktober 2026 | KIFC-R30-08 | Belum dikerjakan → Selesai implementasi | `f74d33b` | 47 tes interaksi gabungan lulus; suite lengkap 437 lulus; 1 tes capture tambahan lulus; analisis bersih; 60 render dan GIF frame widget diperiksa | Pemeriksaan internal; TV fisik belum diuji |
+| 30 Oktober 2026 | KIFC-R30-08 lanjutan | Koreksi tampilan setelah klarifikasi pemilik | Dicatat setelah commit | Hutan penuh sampai dasar; tanpa placeholder kosong; 79 pemeriksaan terkait lulus, analisis bersih; 75 render dan GIF terbaru | Pemeriksaan internal; TV fisik belum diuji |

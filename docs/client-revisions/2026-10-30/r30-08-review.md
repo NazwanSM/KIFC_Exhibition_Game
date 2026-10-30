@@ -1,5 +1,7 @@
 # KIFC-R30-08 Drop di seluruh panel hutan
 
+Catatan riwayat: placeholder dan batas bawah foto pada versi awal ini sudah digantikan oleh [koreksi hutan penuh tanpa placeholder](r30-08-full-forest-review.md), mengikuti klarifikasi pemilik.
+
 Seluruh area panel hutan menerima pelepasan foto, termasuk area atas, tepi, tengah, dan tempat unsur yang sudah terisi. Unsur valid yang belum digunakan mengisi tempat kosong berikutnya dari kiri ke kanan. Posisi pelepasan tidak menentukan kategori atau koordinat penyimpanan. Foto pengecoh, duplikat, dan drop di luar panel tidak menambah poin.
 
 Panel mendapat garis amber dan tint tipis ketika foto berada di atasnya. Tampilan hover sama untuk semua foto agar tidak membocorkan jawaban. Instruksi Indonesia/Inggris/Korea mengarahkan pengunjung ke area hutan; placeholder bertuliskan Terisi otomatis / Auto-filled / 자동 배치. Ukuran panel, rasio kartu, dan posisi penyimpanannya tetap sama. Api muncul setelah 3/3, dan gesture drop terakhir tidak sekaligus melewati feedback.

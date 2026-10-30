@@ -3592,104 +3592,114 @@ class _FireScene extends StatelessWidget {
             key: const ValueKey('forest-drop-target'),
             onWillAcceptWithDetails: (_) => onDrop != null && active.length < 3,
             onAcceptWithDetails: (details) => onDrop?.call(details.data),
-            builder: (context, candidate, rejected) => Stack(
-              fit: StackFit.expand,
-              children: <Widget>[
-                const ColoredBox(color: KifcTheme.forest800),
-                Positioned.fill(
-                  bottom: nodeHeight + 8,
-                  child: const GamePhoto(
-                    'assets/images/field/rainforest-kalimantan.jpg',
-                    forestTone: true,
-                    alignment: Alignment.bottomCenter,
-                  ),
-                ),
-                const DecoratedBox(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [Color(0x00152D23), Color(0x88152D23)],
+            builder: (context, candidate, rejected) => Semantics(
+              container: true,
+              explicitChildNodes: true,
+              label: onDrop == null
+                  ? null
+                  : AppCopy.translate(
+                      english
+                          ? 'Forest area for dropping fire elements'
+                          : 'Area hutan untuk meletakkan unsur api',
                     ),
-                  ),
-                ),
-                Positioned(
-                  left: 12,
-                  top: 12,
-                  width: bounds.maxWidth - 24,
-                  child: Align(
-                    alignment: Alignment.topLeft,
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 9,
-                        vertical: 5,
-                      ),
-                      decoration: BoxDecoration(
-                        color: const Color(0xE41A4534),
-                        borderRadius: BorderRadius.circular(14),
-                      ),
-                      child: LocalizedText(
-                        '${active.length}/3 ${english ? 'elements' : 'unsur'}',
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 11,
-                          height: 1.2,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  left: 6,
-                  right: 6,
-                  top: 38,
-                  bottom: nodeHeight + 14,
-                  child: AnimatedSwitcher(
-                    duration: _motionDuration(
-                      context,
-                      const Duration(milliseconds: 450),
-                    ),
-                    child: active.length == 3
-                        ? ForestFireSimulation(key: const ValueKey('fire'))
-                        : const SizedBox(key: ValueKey('no-fire')),
-                  ),
-                ),
-                ..._FireSlot.values.map(
-                  (slot) => Positioned(
-                    left: centers[slot]!.dx - nodeWidth / 2,
-                    top: centers[slot]!.dy - nodeHeight / 2,
-                    width: nodeWidth,
-                    height: nodeHeight,
-                    child: _DropSlot(
-                      slot: slot,
-                      english: english,
-                      filled:
-                          placements?.containsKey(slot) ??
-                          active.contains(slot),
-                      placedPiece: placements?[slot],
-                      revealLabel: onDrop == null,
-                      compact: true,
-                      showDropHint: onDrop != null,
-                    ),
-                  ),
-                ),
-                if (candidate.isNotEmpty)
+              child: Stack(
+                fit: StackFit.expand,
+                children: <Widget>[
+                  const ColoredBox(color: KifcTheme.forest800),
                   Positioned.fill(
-                    child: IgnorePointer(
-                      child: DecoratedBox(
-                        key: const ValueKey('forest-drop-highlight'),
+                    child: const GamePhoto(
+                      'assets/images/field/rainforest-kalimantan.jpg',
+                      forestTone: true,
+                      alignment: Alignment.bottomCenter,
+                    ),
+                  ),
+                  const DecoratedBox(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [Color(0x00152D23), Color(0x88152D23)],
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    left: 12,
+                    top: 12,
+                    width: bounds.maxWidth - 24,
+                    child: Align(
+                      alignment: Alignment.topLeft,
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 9,
+                          vertical: 5,
+                        ),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(
-                            KifcTheme.controlRadius,
+                          color: const Color(0xE41A4534),
+                          borderRadius: BorderRadius.circular(14),
+                        ),
+                        child: LocalizedText(
+                          '${active.length}/3 ${english ? 'elements' : 'unsur'}',
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 11,
+                            height: 1.2,
+                            fontWeight: FontWeight.w700,
                           ),
-                          border: Border.all(color: KifcTheme.amber, width: 3),
-                          color: KifcTheme.amber.withValues(alpha: .06),
                         ),
                       ),
                     ),
                   ),
-              ],
+                  Positioned(
+                    left: 6,
+                    right: 6,
+                    top: 38,
+                    bottom: nodeHeight + 14,
+                    child: AnimatedSwitcher(
+                      duration: _motionDuration(
+                        context,
+                        const Duration(milliseconds: 450),
+                      ),
+                      child: active.length == 3
+                          ? ForestFireSimulation(key: const ValueKey('fire'))
+                          : const SizedBox(key: ValueKey('no-fire')),
+                    ),
+                  ),
+                  ..._FireSlot.values.map(
+                    (slot) => Positioned(
+                      left: centers[slot]!.dx - nodeWidth / 2,
+                      top: centers[slot]!.dy - nodeHeight / 2,
+                      width: nodeWidth,
+                      height: nodeHeight,
+                      child: _DropSlot(
+                        slot: slot,
+                        english: english,
+                        filled:
+                            placements?.containsKey(slot) ??
+                            active.contains(slot),
+                        placedPiece: placements?[slot],
+                      ),
+                    ),
+                  ),
+                  if (candidate.isNotEmpty)
+                    Positioned.fill(
+                      child: IgnorePointer(
+                        child: DecoratedBox(
+                          key: const ValueKey('forest-drop-highlight'),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(
+                              KifcTheme.controlRadius,
+                            ),
+                            border: Border.all(
+                              color: KifcTheme.amber,
+                              width: 3,
+                            ),
+                            color: KifcTheme.amber.withValues(alpha: .06),
+                          ),
+                        ),
+                      ),
+                    ),
+                ],
+              ),
             ),
           );
         },
@@ -3703,86 +3713,49 @@ class _DropSlot extends StatelessWidget {
     required this.slot,
     required this.english,
     required this.filled,
-    required this.compact,
-    required this.showDropHint,
     this.placedPiece,
-    this.revealLabel = true,
   });
   final _FireSlot slot;
   final _FirePiece? placedPiece;
-  final bool revealLabel;
   final bool english;
   final bool filled;
-  final bool compact;
-  final bool showDropHint;
+
   @override
-  Widget build(BuildContext context) => SizedBox(
-    height: compact ? 56 : 76,
-    child: MotionReveal(
-      trigger: filled,
-      animateOnMount: false,
-      offset: Offset.zero,
-      beginScale: .94,
-      duration: const Duration(milliseconds: 240),
-      child: _PhotoFrame(
-        radius: BorderRadius.circular(10),
-        color: filled ? KifcTheme.forest800 : const Color(0xFFF5F3ED),
-        border: Border.all(
-          color: filled ? KifcTheme.answerCorrect : Colors.white70,
-          width: 1,
-        ),
-        child: Stack(
-          fit: StackFit.expand,
-          children: <Widget>[
-            if (filled)
-              GamePhoto(placedPiece?.photo ?? slot.photo, forestTone: true),
-            if (filled) const ColoredBox(color: Color(0x850C2119)),
-            Padding(
-              padding: const EdgeInsets.all(7),
-              child: Column(
-                mainAxisAlignment: filled
-                    ? MainAxisAlignment.end
-                    : MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  if (filled || revealLabel)
-                    LocalizedText(
+  Widget build(BuildContext context) => !filled
+      ? const SizedBox.expand()
+      : MotionReveal(
+          offset: Offset.zero,
+          beginScale: .94,
+          duration: const Duration(milliseconds: 240),
+          child: _PhotoFrame(
+            radius: BorderRadius.circular(10),
+            border: Border.all(color: KifcTheme.answerCorrect),
+            child: Stack(
+              fit: StackFit.expand,
+              children: [
+                GamePhoto(placedPiece?.photo ?? slot.photo, forestTone: true),
+                const ColoredBox(color: Color(0x850C2119)),
+                Padding(
+                  padding: const EdgeInsets.all(7),
+                  child: Align(
+                    alignment: Alignment.bottomCenter,
+                    child: LocalizedText(
                       placedPiece?.slot?.title(english) ?? slot.title(english),
                       textAlign: TextAlign.center,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                        color: filled ? Colors.white : KifcTheme.ink,
+                      style: const TextStyle(
+                        color: Colors.white,
                         fontSize: 11,
                         fontWeight: FontWeight.w800,
                       ),
                     ),
-                  if (!filled && showDropHint) ...[
-                    const Icon(
-                      Icons.add_circle_outline,
-                      color: KifcTheme.mutedInk,
-                      size: 20,
-                    ),
-                    const SizedBox(height: 3),
-                    LocalizedText(
-                      english ? 'Auto-filled' : 'Terisi otomatis',
-                      textAlign: TextAlign.center,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                        color: KifcTheme.mutedInk,
-                        fontSize: 11,
-                      ),
-                    ),
-                  ],
-                ],
-              ),
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
-      ),
-    ),
-  );
+          ),
+        );
 }
 
 /// Clips the photo edge to edge and paints its outline above it. A decoration
@@ -3791,12 +3764,10 @@ class _PhotoFrame extends StatelessWidget {
   const _PhotoFrame({
     required this.child,
     required this.border,
-    this.color = KifcTheme.forest800,
     this.radius,
   });
   final Widget child;
   final BoxBorder border;
-  final Color color;
   final BorderRadius? radius;
 
   @override
@@ -3806,7 +3777,7 @@ class _PhotoFrame extends StatelessWidget {
     return ClipRRect(
       borderRadius: radius,
       child: ColoredBox(
-        color: color,
+        color: KifcTheme.forest800,
         child: Stack(
           fit: StackFit.expand,
           children: <Widget>[

@@ -1,5 +1,6 @@
 import 'package:fire_prevention_challenge/core/localization/app_locale.dart';
 import 'package:fire_prevention_challenge/features/game/exhibition_game.dart';
+import 'package:fire_prevention_challenge/features/game/widgets/game_photo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -47,6 +48,43 @@ void main() {
           );
           await settle(tester);
           final panel = tester.getRect(kind('_FireScene'));
+          void checkForestSurface() {
+            final forest = find.descendant(
+              of: kind('_FireScene'),
+              matching: find.byWidgetPredicate(
+                (w) =>
+                    w is GamePhoto &&
+                    w.asset == 'assets/images/field/rainforest-kalimantan.jpg',
+              ),
+            );
+            expect(
+              tester.getRect(forest),
+              panel,
+              reason: 'The forest photo must reach every panel edge',
+            );
+            for (final element in kind('_DropSlot').evaluate()) {
+              if (!(element.widget as dynamic).filled) {
+                final empty = find.byElementPredicate((e) => e == element);
+                expect(
+                  find.descendant(
+                    of: empty,
+                    matching: find.byWidgetPredicate(
+                      (w) =>
+                          w is Text ||
+                          w is Icon ||
+                          w is Image ||
+                          w is DecoratedBox,
+                    ),
+                  ),
+                  findsNothing,
+                  reason:
+                      'An unfilled position must leave the forest visible without a placeholder',
+                );
+              }
+            }
+          }
+
+          checkForestSurface();
           final slots = [
             for (final slot in kind('_DropSlot').evaluate())
               tester.getRect(find.byElementPredicate((e) => e == slot)),
@@ -71,6 +109,7 @@ void main() {
           );
           await dropAt(tester, 0, panel.topCenter + const Offset(0, 6));
           expect(filledAssembly(tester), 1);
+          checkForestSurface();
           expect(
             (tester.widget(kind('_DropSlot').first) as dynamic).placedPiece
                 .toString(),
@@ -101,6 +140,7 @@ void main() {
             2,
             reason: 'Dropping over an occupied slot fills the next one',
           );
+          checkForestSurface();
           expect(
             (tester.widget(kind('_DropSlot').at(1)) as dynamic).placedPiece
                 .toString(),
@@ -108,6 +148,7 @@ void main() {
           );
           await dropAt(tester, 4, panel.topRight + const Offset(-12, 20));
           expect(filledAssembly(tester), 3);
+          checkForestSurface();
           expect(find.byKey(const ValueKey('fire')), findsOneWidget);
           expect(
             kind('_TriangleBuild'),
@@ -121,6 +162,7 @@ void main() {
           await captureScreen(tester, 'complete-$suffix', metrics);
           await tester.tap(find.text(reset));
           await settle(tester);
+          checkForestSurface();
           final inside = [
             panel.topCenter + const Offset(0, 1),
             panel.centerLeft + const Offset(1, 0),
@@ -231,6 +273,36 @@ void main() {
         AppCopy.locale = AppLocale.indonesian;
       });
     }
+  }
+  for (final locale in AppLocale.values) {
+    testWidgets(
+      'R30-08 forest has an accessible target without placeholders ${locale.name}',
+      (tester) async {
+        final semantics = tester.ensureSemantics();
+        try {
+          await launchScreen(
+            tester,
+            size: const Size(411, 731),
+            locale: locale,
+            page: 'triangleBuild',
+          );
+          await settle(tester);
+          final label = AppCopy.translate(
+            locale == AppLocale.english
+                ? 'Forest area for dropping fire elements'
+                : 'Area hutan untuk meletakkan unsur api',
+          );
+          final target = find.bySemanticsLabel(label);
+          expect(target, findsOneWidget);
+          expect(tester.getRect(target), tester.getRect(kind('_FireScene')));
+          expect(find.byIcon(Icons.add_circle_outline), findsNothing);
+          await tester.pumpWidget(const SizedBox.shrink());
+          AppCopy.locale = AppLocale.indonesian;
+        } finally {
+          semantics.dispose();
+        }
+      },
+    );
   }
   testWidgets(
     'R30-08 concurrent duplicate gestures and stale callbacks cannot add points',

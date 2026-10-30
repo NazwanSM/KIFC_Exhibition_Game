@@ -31,8 +31,8 @@ Satu kode Flutter digunakan untuk APK Android dan web. Foto, maskot, font, anima
   </tr>
   <tr>
     <td><a href="docs/screenshots/welcome.png"><img src="docs/screenshots/welcome.png" width="240" alt="Halaman pembuka dengan pilihan Indonesia, Inggris, Korea, maskot, dan tombol mulai"></a></td>
-    <td><a href="docs/client-revisions/2026-10-30/r30-08-empty.png"><img src="docs/client-revisions/2026-10-30/r30-08-empty.png" width="240" alt="Aktivitas menyeret tiga foto unsur api ke seluruh area hutan"></a></td>
-    <td><a href="docs/client-revisions/2026-10-30/r30-07-explanation.png"><img src="docs/client-revisions/2026-10-30/r30-07-explanation.png" width="240" alt="Penjelasan segitiga api dengan enam titik api, maskot di kiri, dan tombol di kanan"></a></td>
+    <td><a href="docs/client-revisions/2026-10-30/r30-08-full-forest-empty.png"><img src="docs/client-revisions/2026-10-30/r30-08-full-forest-empty.png" width="240" alt="Aktivitas menyeret tiga foto unsur api ke seluruh area hutan"></a></td>
+    <td><a href="docs/client-revisions/2026-10-30/r30-08-full-forest-explanation.png"><img src="docs/client-revisions/2026-10-30/r30-08-full-forest-explanation.png" width="240" alt="Penjelasan segitiga api dengan enam titik api, maskot di kiri, dan tombol di kanan"></a></td>
   </tr>
   <tr>
     <th>Bacaan Karhutla</th>
@@ -58,12 +58,12 @@ Satu kode Flutter digunakan untuk APK Android dan web. Foto, maskot, font, anima
 </table>
 </details>
 
-Screenshot penyusunan unsur, penjelasan Segitiga Api dan bacaan Karhutla berasal dari **render widget Flutter 411 × 731, bahasa Indonesia, 30 Oktober 2026** ([review revisi 07](docs/client-revisions/2026-10-30/r30-07-review.md), [revisi 08](docs/client-revisions/2026-10-30/r30-08-review.md)). Screenshot lainnya berasal dari **APK di emulator Android API 35, 1080 × 1920, density 420**, diambil pada 25 Oktober 2026 dalam bahasa Inggris. Gambar diperkecil secara proporsional menjadi 540 × 960 tanpa mengubah tampilan UI. Pembuka sampai kartu gambut memakai APK review **1.0.2**; tantangan, ulasan, dan skor memakai **1.0.1** dari pengujian E2E sebelumnya. [Indeks sumber dan checksum](docs/screenshots/index.json). Ini bukan foto atau bukti uji jangkauan TV fisik.
+Screenshot penyusunan unsur, penjelasan Segitiga Api dan bacaan Karhutla berasal dari **render widget Flutter 411 × 731, bahasa Indonesia, 30 Oktober 2026** ([review revisi 07](docs/client-revisions/2026-10-30/r30-07-review.md), [revisi 08 terbaru](docs/client-revisions/2026-10-30/r30-08-full-forest-review.md)). Screenshot lainnya berasal dari **APK di emulator Android API 35, 1080 × 1920, density 420**, diambil pada 25 Oktober 2026 dalam bahasa Inggris. Gambar diperkecil secara proporsional menjadi 540 × 960 tanpa mengubah tampilan UI. Pembuka sampai kartu gambut memakai APK review **1.0.2**; tantangan, ulasan, dan skor memakai **1.0.1** dari pengujian E2E sebelumnya. [Indeks sumber dan checksum](docs/screenshots/index.json). Ini bukan foto atau bukti uji jangkauan TV fisik.
 
 ## Cara bermain
 
 1. **Pilih bahasa dan mulai.** Tersedia Bahasa Indonesia, English, dan 한국어.
-2. **Babak 1 — Tiga unsur api.** Seret foto yang sesuai ke bagian mana saja di panel hutan. Unsur yang benar otomatis mengisi tempat kosong dari kiri ke kanan. Api muncul setelah panas, bahan bakar, dan oksigen lengkap. Baca penjelasan Segitiga Api, lalu lanjut langsung ke bacaan Karhutla. Demo pengurangan unsur telah dihapus.
+2. **Babak 1 — Tiga unsur api.** Panel awal penuh foto hutan tanpa kotak kosong. Seret foto yang sesuai ke bagian mana saja di panel hutan. Unsur yang benar otomatis mengisi tempat kosong dari kiri ke kanan. Api muncul setelah panas, bahan bakar, dan oksigen lengkap. Baca penjelasan Segitiga Api, lalu lanjut langsung ke bacaan Karhutla. Demo pengurangan unsur telah dihapus.
 3. **Babak 2 — Mengenal karhutla.** Baca tiga kartu penjelasan bersama maskot, kemudian jawab pertanyaan tentang hutan rawa gambut. Jawaban salah pertama mendapat petunjuk dan satu kesempatan lagi.
 4. **Babak 3 — Mengenali penyebab.** Tentukan apakah empat situasi dipicu aktivitas manusia atau faktor alam, lalu baca alasannya.
 5. **Babak 4 — Gambut dan dampaknya.** Buka tiga kartu informasi, kemudian pilih semua dampak yang sesuai dalam **30 detik**. Pilihan tetap netral selama tantangan; tekan **Selesai Memilih** untuk membuka ulasan lebih awal, atau tunggu waktu habis.

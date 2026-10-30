@@ -13,7 +13,7 @@ from android_review import AndroidReview
 STRINGS = {
     "start": ("Mulai Tantangan", "Start Challenge", "도전 시작"),
     "choose": ("Pilih tiga unsur api.", "Choose three elements.", "불의 세 요소를 골라 보세요."),
-    "drop": ("Terisi otomatis", "Auto-filled", "자동 배치"),
+    "forest": ("Area hutan untuk meletakkan unsur api", "Forest area for dropping fire elements", "불의 요소를 놓는 숲 영역"),
     "water": ("Air", "Water", "물"),
     "spark": ("Percikan api", "Sparks", "불꽃"),
     "wood": ("Kayu kering", "Dry wood", "마른 나무"),
@@ -62,14 +62,13 @@ def run(language, output, build_mode="debug"):
     r.tap(label("start"), refresh=False, clickable=True)
     r.wait(label("water"))
     r.capture("assembly", hierarchy=True)
-    slots = [n for n in r.nodes if r.label(n) == label("drop")]
-    assert len(slots) == 3, "Expected three empty drop zones"
-    r.drag(r.find(label("water")), slots[0])
+    panel = r.find(label("forest"))
+    r.drag(r.find(label("water")), panel)
     r.capture("assembly-wrong", hierarchy=True)
     assert any("0/3" in r.label(n) for n in r.nodes), "Wrong drop must not count"
-    for key, slot in [("spark", 0), ("wood", 1), ("air", 2)]:
+    for key in ["spark", "wood", "air"]:
         r.dump()
-        r.drag(r.find(label(key)), slots[slot])
+        r.drag(r.find(label(key)), panel)
     r.wait(["3/3 unsur", "3/3 elements", "요소 3/3"][index], contains=True)
     r.capture("assembly-complete", hierarchy=True)
     assert any("3/3" in r.label(n) for n in r.nodes)

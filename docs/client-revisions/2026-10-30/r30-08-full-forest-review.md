@@ -1,0 +1,14 @@
+# KIFC-R30-08 Hutan penuh tanpa placeholder
+
+Klarifikasi pemilik menggantikan tampilan placeholder pada versi awal tiket 08. Panel 0/3 sekarang hanya menampilkan foto hutan dan indikator jumlah unsur. Posisi yang belum terisi tidak menggambar kotak, border, tanda plus, teks, gambar atau node penjelasan. Kartu baru muncul dengan reveal singkat setelah unsur valid ditempatkan, tetap tersusun dari kiri ke kanan. Reset mengembalikan hutan tanpa kotak kosong.
+
+Foto hutan memakai seluruh batas panel sampai ke bawah, menggunakan BoxFit.cover yang mempertahankan proporsi. Batas bawah yang sebelumnya menyisakan ruang bagi tiga kotak dihapus; foto terus berada di belakang kartu saat sebagian/lengkap. Perubahan berlaku pada penyusunan dan penjelasan Segitiga Api karena memakai komponen bersama. Ukuran panel dan kartu tidak berubah.
+
+- Tes awal memisahkan dua masalah: red.log membuktikan foto tidak mencapai dasar; red-placeholder.log membuktikan placeholder masih menggambar icon/text/dekorasi setelah batas foto diperbaiki.
+- 19 tes revisi 08 lulus: geometri foto penuh, posisi kosong tanpa elemen visual, drop 135 titik internal/60 eksternal, decoy, duplikat, multi-pointer, callback basi, reset, feedback akhir, dan target aksesibilitas dalam tiga bahasa. Kegagalan harness semantics yang awalnya baru dilepas pada teardown diperbaiki menjadi try/finally; riwayatnya ada di tests-first.log.
+- 59 regresi penyusunan, panel api, reading dan perjalanan lengkap/skor lulus. Satu tes capture aplikasi penuh juga lulus. Total pemeriksaan terkait: 79 tes; analisis bersih. Tes panel api 15 kombinasi diulang untuk capture penjelasan terbaru, juga lulus.
+- 75 render diperiksa: empat kondisi penyusunan dan penjelasan Segitiga Api, masing-masing tiga bahasa × lima ukuran portrait (360×640, 411×731, 720×1280, 1080×1920, 2160×3840). [Awal](r30-08-full-forest-empty.png), [satu unsur](r30-08-full-forest-partial.png), [lengkap](r30-08-full-forest-complete.png), [penjelasan](r30-08-full-forest-explanation.png).
+- [Rangkaian interaksi terbaru](r30-08-full-forest-journey.gif): 24 frame render aplikasi/widget yang menyertakan overlay drag; waktunya mengikuti skrip uji. Ini bukan rekaman perangkat dan tanpa audio.
+- Target aksesibilitas seluruh panel menggantikan teks placeholder sebagai titik acuan tool/android_journey.py. Script lolos kompilasi Python; belum dijalankan terhadap APK baru.
+- Bukti lokal: build/review-r30-08-full-forest-2026-10-30/ berisi screenshots, evidence-index.json dengan hash PNG, lima contact sheet, gesture-frames/index.json, gesture-journey.gif, red.log, red-placeholder.log, tests.log, regression.log, explanation.log, recording.log dan analyze.log. Bukti lama dipertahankan.
+- Sumber adalah widget Flutter, belum browser/APK baru atau TV fisik 42 inci. Belum push/deploy. Footage kebakaran nyata tetap tiket 10–11.
