@@ -41,7 +41,7 @@ Keputusan ini menggantikan ketentuan lama tentang demo yang wajib dicoba, seluru
 | KIFC-R30-02 | Sederhanakan label babak di atas judul | Semua halaman berlabel babak | Sangat mudah | Tidak ada | Selesai | `9644ce8` |
 | KIFC-R30-03 | Perbaiki kapitalisasi judul penutup | Penutup terakhir | Sangat mudah | Tidak ada | Selesai | `0023de3` |
 | KIFC-R30-04 | Ubah timer khusus penutup menjadi 30 detik | Penutup terakhir | Mudah | Tidak ada | Selesai | `9630b86` |
-| KIFC-R30-05 | Rapikan susunan judul Karhutla pertama | Bacaan Karhutla 1 | Mudah | Tidak ada | Selesai | `9c829f0` |
+| KIFC-R30-05 | Rapikan susunan judul Karhutla pertama | Bacaan Karhutla 1 | Mudah | Tidak ada | Selesai | `618a1ce` (koreksi) |
 | KIFC-R30-06 | Tambahkan tombol akhiri tantangan lebih awal | Tantangan akhir | Sedang | Tidak ada | Selesai | `41384fa` |
 | KIFC-R30-07 | Hapus demo pengurangan dan sambungkan navigasi | Babak 1 dan transisi ke Babak 2 | Sedang | Tidak ada | Belum dikerjakan | — |
 | KIFC-R30-08 | Terima drop di seluruh panel unsur | Penyusunan unsur | Sedang | Tidak ada | Belum dikerjakan | — |
@@ -335,4 +335,4 @@ Status diperbarui setelah implementasi dan pemeriksaan nyata. Selesai secara imp
 | 30 Oktober 2026 | KIFC-R30-04 | Belum dikerjakan → Selesai implementasi | `9630b86` | 40 tes lulus; analisis bersih; 15 render diperiksa; red/green timer | Pemeriksaan internal; TV fisik belum diuji |
 | 30 Oktober 2026 | KIFC-R30-05 | Belum dikerjakan → Selesai implementasi | `9c829f0` | 60 tes lulus; analisis bersih; 15 render diperiksa; grouping judul teruji | Pemeriksaan internal; TV fisik belum diuji |
 | 30 Oktober 2026 | KIFC-R30-06 | Belum dikerjakan → Selesai implementasi | `41384fa` | 65 tes terkait lulus; analisis bersih; 45 render diperiksa; deadline/submit dan cue tunggal teruji | Pemeriksaan internal; TV fisik belum diuji |
-| 30 Oktober 2026 | KIFC-R30-05 lanjutan | Koreksi visual setelah masukan pemilik | Dicatat setelah commit | Judul Indonesia dua baris tanpa mengecilkan font; 15 tes/15 render tiga bahasa dan lima viewport lulus; analisis bersih | Pemeriksaan internal; menggantikan susunan Tapi, sendiri |
+| 30 Oktober 2026 | KIFC-R30-05 lanjutan | Koreksi visual setelah masukan pemilik | `618a1ce` | Judul Indonesia dua baris tanpa mengecilkan font; 15 tes/15 render tiga bahasa dan lima viewport lulus; analisis bersih | Pemeriksaan internal; menggantikan susunan Tapi, sendiri |
