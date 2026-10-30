@@ -146,13 +146,18 @@ void main() {
           find.descendant(of: title, matching: find.byType(RichText)),
         );
         if (locale == AppLocale.indonesian) {
-          expect(text.startsWith('Tapi,\n'), isTrue);
+          const firstLine = 'Tapi, Apa Itu';
+          expect(text.startsWith('$firstLine\n'), isTrue);
           final first = render.getBoxesForSelection(
-            const TextSelection(baseOffset: 0, extentOffset: 5),
+            const TextSelection(baseOffset: 0, extentOffset: firstLine.length),
           );
           final second = render.getBoxesForSelection(
-            const TextSelection(baseOffset: 6, extentOffset: 9),
+            const TextSelection(
+              baseOffset: firstLine.length + 1,
+              extentOffset: firstLine.length + 4,
+            ),
           );
+          expect(first.length, 1, reason: 'Keep the introduction on one line');
           expect(second.first.top, greaterThan(first.first.top));
         }
         if (locale != AppLocale.korean) {

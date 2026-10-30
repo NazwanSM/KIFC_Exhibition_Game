@@ -1376,7 +1376,7 @@ class _KarhutlaCards extends StatelessWidget {
       eyebrow: english ? 'CHAPTER 2 / FOREST FIRE' : 'BABAK 2 / KARHUTLA',
       title: index == 0
           ? switch (AppCopy.locale) {
-              AppLocale.indonesian => 'Tapi,\nApa Itu Kebakaran\u00a0Hutan?',
+              AppLocale.indonesian => 'Tapi, Apa Itu\nKebakaran\u00a0Hutan?',
               AppLocale.english => 'What Is a Forest\u00a0Fire?',
               AppLocale.korean => card.$2,
             }

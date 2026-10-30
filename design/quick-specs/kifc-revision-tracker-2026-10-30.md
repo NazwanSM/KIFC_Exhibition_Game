@@ -124,13 +124,13 @@ Nomor pendek pada dependensi merujuk tiket dengan awalan yang sama. Tiket sumber
 
 **Status:** Selesai secara implementasi; belum merupakan pengesahan klien. **Area kode:** `_KarhutlaCards`, komponen judul stage, dan lokalisasi; `test/chapter2_review_test.dart`.
 
-- [x] Susun “Tapi,” pada baris tersendiri, lalu kelompokkan “Apa Itu Kebakaran Hutan?” di bawahnya. Kata “Hutan?” tidak boleh menjadi baris yatim.
+- [x] Koreksi terbaru pemilik: judul Indonesia tepat dua baris, “Tapi, Apa Itu” lalu “Kebakaran Hutan?”. Ini menggantikan susunan “Tapi,” sendirian pada versi awal. Kata “Hutan?” tidak boleh menjadi baris yatim.
 - [x] Izinkan kelompok judul membungkus secara wajar pada layar kecil; jangan memaksakan satu baris hingga font terlalu kecil. Inggris/Korea mengikuti struktur bahasa masing-masing.
 - [x] Periksa lima viewport tiga bahasa dengan area maskot dan narasi tetap cukup.
 
 **Selesai jika:** hierarki judul terbaca dan tidak ada kata terakhir yang terpencil. Bukti: screenshot bacaan pertama.
 
-**Bukti:** [Review tiket 05](../../docs/client-revisions/2026-10-30/r30-05-review.md).
+**Bukti terbaru:** [Koreksi dua baris tiket 05](../../docs/client-revisions/2026-10-30/r30-05-two-lines-review.md). [Review awal](../../docs/client-revisions/2026-10-30/r30-05-review.md) disimpan sebagai riwayat.
 
 ### KIFC-R30-06 — Tombol menyelesaikan tantangan lebih awal
 
@@ -335,3 +335,4 @@ Status diperbarui setelah implementasi dan pemeriksaan nyata. Selesai secara imp
 | 30 Oktober 2026 | KIFC-R30-04 | Belum dikerjakan → Selesai implementasi | `9630b86` | 40 tes lulus; analisis bersih; 15 render diperiksa; red/green timer | Pemeriksaan internal; TV fisik belum diuji |
 | 30 Oktober 2026 | KIFC-R30-05 | Belum dikerjakan → Selesai implementasi | `9c829f0` | 60 tes lulus; analisis bersih; 15 render diperiksa; grouping judul teruji | Pemeriksaan internal; TV fisik belum diuji |
 | 30 Oktober 2026 | KIFC-R30-06 | Belum dikerjakan → Selesai implementasi | `41384fa` | 65 tes terkait lulus; analisis bersih; 45 render diperiksa; deadline/submit dan cue tunggal teruji | Pemeriksaan internal; TV fisik belum diuji |
+| 30 Oktober 2026 | KIFC-R30-05 lanjutan | Koreksi visual setelah masukan pemilik | Dicatat setelah commit | Judul Indonesia dua baris tanpa mengecilkan font; 15 tes/15 render tiga bahasa dan lima viewport lulus; analisis bersih | Pemeriksaan internal; menggantikan susunan Tapi, sendiri |

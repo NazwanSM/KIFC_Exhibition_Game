@@ -1,5 +1,7 @@
 # KIFC-R30-05 Judul Karhutla pertama
 
+Catatan riwayat: susunan tiga baris dalam review awal ini digantikan oleh [koreksi dua baris](r30-05-two-lines-review.md) atas masukan pemilik.
+
 Judul Indonesia menempatkan Tapi, pada baris tersendiri. Kebakaran Hutan? menjadi satu kelompok yang tidak dipisahkan saat wrapping. Bahasa Inggris mempertahankan naskahnya dengan Forest Fire? sebagai satu kelompok; Korea mempertahankan terjemahan alami yang ada. Ukuran font tidak diperkecil, dan semantics menormalkan whitespace agar pembaca layar serta pencari judul tetap memperoleh kalimat asli.
 
 - Pengujian awal gagal pada judul Indonesia 360x640 sebelum perbaikan (red.log).
