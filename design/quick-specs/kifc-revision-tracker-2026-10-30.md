@@ -39,7 +39,7 @@ Keputusan ini menggantikan ketentuan lama tentang demo yang wajib dicoba, seluru
 |---|---|---|---|---|---|---|
 | KIFC-R30-01 | Hapus caption hutan gambut dan aliran air | Pembuka | Sangat mudah | Tidak ada | Selesai | `9e21c95` |
 | KIFC-R30-02 | Sederhanakan label babak di atas judul | Semua halaman berlabel babak | Sangat mudah | Tidak ada | Selesai | `9644ce8` |
-| KIFC-R30-03 | Perbaiki kapitalisasi judul penutup | Penutup terakhir | Sangat mudah | Tidak ada | Selesai | Dicatat setelah commit |
+| KIFC-R30-03 | Perbaiki kapitalisasi judul penutup | Penutup terakhir | Sangat mudah | Tidak ada | Selesai | `0023de3` |
 | KIFC-R30-04 | Ubah timer khusus penutup menjadi 30 detik | Penutup terakhir | Mudah | Tidak ada | Belum dikerjakan | — |
 | KIFC-R30-05 | Rapikan susunan judul Karhutla pertama | Bacaan Karhutla 1 | Mudah | Tidak ada | Belum dikerjakan | — |
 | KIFC-R30-06 | Tambahkan tombol akhiri tantangan lebih awal | Tantangan akhir | Sedang | Tidak ada | Belum dikerjakan | — |
@@ -326,4 +326,4 @@ Status diperbarui setelah implementasi dan pemeriksaan nyata. Selesai secara imp
 | 30 Oktober 2026 | KIFC-R30-01 | Belum dikerjakan → Selesai implementasi | `9e21c95` | 23 tes lulus; analisis bersih; 15 render tiga bahasa/lima viewport diperiksa | Pemeriksaan internal; TV fisik belum diuji |
 
 | 30 Oktober 2026 | KIFC-R30-02 | Belum dikerjakan → Selesai implementasi | `9644ce8` | 57 tes lulus; analisis bersih; 180 render dan contact sheet tiga bahasa | Pemeriksaan internal; TV fisik belum diuji |
-| 30 Oktober 2026 | KIFC-R30-03 | Belum dikerjakan → Selesai implementasi | Dicatat setelah commit | 15 pemeriksaan visual + 24 regresi lulus; analisis bersih; 15 render diperiksa | Pemeriksaan internal; timer masih 15 detik sesuai batas tiket |
+| 30 Oktober 2026 | KIFC-R30-03 | Belum dikerjakan → Selesai implementasi | `0023de3` | 15 pemeriksaan visual + 24 regresi lulus; analisis bersih; 15 render diperiksa | Pemeriksaan internal; timer masih 15 detik sesuai batas tiket |
