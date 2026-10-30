@@ -1,11 +1,18 @@
-# KIFC-R30-10 Footage candidate, awaiting framing decision
+# KIFC-R30-10 — pengganti berupa kebakaran hutan yang jelas
 
-Candidate: Controlled Forest Fire with Burning Brush, Everett Bumstead, Pexels asset 29961571. License and source were checked on 30 October: https://www.pexels.com/license/ and the source link in video/source.json. Download/modification/app use is allowed by the Pexels License. Creator credit is retained. No claim that this was filmed in Indonesia.
+Pemilik mengizinkan hasil stabilisasi, tetapi menolak kandidat 29961571 karena terlihat seperti pembakaran ranting lokal. Kandidat tersebut diganti dengan Wildfire in a Forest oleh Arnav Kainthola, Pexels 7448357. Cuplikan menunjukkan garis api meluas di lereng berhutan, pohon di antara nyala, serta asap pada malam hari. Tidak ada gambar/api hasil generasi.
 
-IMPORTANT: The source camera pans lightly. This candidate is therefore an alternative, NOT a claim that a native fixed-camera source was found. Its first six seconds were stabilized using upper-background feature tracking, an inverse affine transform and one fixed overlap crop. There is no animated pan/zoom in the derivative. The owner has been asked whether stabilized footage is acceptable. Ticket stays open pending that decision, or a better native static source.
+Sumber: https://www.pexels.com/video/wildfire-in-a-forest-7448357/ . Lisensi: https://www.pexels.com/license/ . Keduanya diperiksa 30 Oktober 2026. Pexels mengizinkan unduhan, penggunaan dalam aplikasi dan modifikasi; kredit tetap disimpan. Lokasi pengambilan tidak diverifikasi dan tidak diklaim sebagai Indonesia. Tripod tidak diklaim; framing bagian terpilih diperiksa pada beberapa waktu dan tidak diberi pan/zoom tambahan.
 
-Prepared assets: assets/animations/forest-burn-loop.mp4, 960×640, H.264 Main 3.1/yuv420p, 24fps, 5.5s, 1,850,905 bytes, muted; forest-burn-poster.jpg is the fallback/poster. A 0.5s circular dissolve joins the end and start. The clip decodes completely in FFmpeg; container/codec/audio-track/size checks pass. Source and derivative hashes are in video/source.json. Inspect actual loop playback before client approval; decoding alone does not prove a perfectly unobtrusive seam or physical TV performance.
+Aset yang disiapkan:
 
-Rejected candidates: NIST fixed 360-degree surface fire at the 27 March 2019 New Jersey prescribed burn was downloaded, projected and examined, but the protected lens footage was too hazy and the fire too faint for this panel. The source/rights links are https://www.nist.gov/video/360deg-video-surface-fire-during-prescribed-burn-new-jersey-pine-barrens-march-27-2019-full and https://www.nist.gov/copyrights-disclaimers. Originals and trials remain under build/review-r30-10-2026-10-30/; only the selected derivative/poster are staged as assets.
+- assets/animations/forest-burn-loop.mp4: 11 detik, 960×540, H.264 Main 3.1, yuv420p, 24fps, faststart, tanpa audio; 1.863.442 byte.
+- assets/animations/forest-burn-poster.jpg: poster/fallback dari frame pertama.
+- Sumber detik 1–13, crop tetap proporsional 1088×612 di x416/y468, resize ke 960×540. Tail/head memakai dissolve melingkar 1 detik. Sambungan dan empat waktu 0/4/8/10.95 detik diperiksa melalui contact sheet. Tidak men-stretch gambar.
+- Metadata, ukuran, codec, jumlah stream dan durasi lulus pemeriksaan; decoding seluruh klip FFmpeg selesai tanpa error. Manifest dengan hash sumber/derivatif ada di video/source.json. Reproduksi: tool/prepare_wildfire_video.py.
 
-The stabilization method is preserved in video/stabilize.py and video/stabilization.json. A fresh source/FFmpeg pipeline is still needed if the candidate changes. This is asset preparation only: game integration is ticket 11. No gameplay screenshot is presented as if this video were already integrated. No push/deploy.
+[Poster terbaru](r30-10-wildfire-poster.jpg). Bukti lokal build/review-r30-10-wildfire-2026-10-30/ memuat source/night.mp4, contact sheet sumber, loop-contact.jpg dan validation.json. Kandidat hutan pegunungan 12075744 juga diperiksa, tetapi nyala terlalu samar; cuplikan malam dipilih agar kebakarannya jelas. Catatan kandidat ranting yang ditolak dipertahankan di video/rejected-brush-review.md dan rejected-29961571.json; stabilize.py/stabilization.json di direktori yang sama hanya berlaku untuk kandidat lama, bukan aset saat ini.
+
+Status: siap ditinjau visual, belum persetujuan pemilik terhadap cuplikan pengganti. Belum dipasang ke game; integrasi adalah tiket 11. Pratinjau bukan screenshot hasil integrasi, bukan uji TV fisik, dan tidak membuktikan playback APK. Tidak ada perubahan alur/penilaian, push atau deployment pada koreksi ini.
+
+Pemeriksaan komposisi aset memakai simulasi HTML panel rasio 411:248 dengan tiga foto unsur. Crop awal diperketat agar kartu tidak menutupi mayoritas nyala; ini tetap simulasi aset, bukan screenshot game yang sudah terintegrasi.

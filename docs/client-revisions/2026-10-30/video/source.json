@@ -1,22 +1,25 @@
 {
-  "creator": "Everett Bumstead",
-  "sourcePage": "https://www.pexels.com/video/controlled-forest-fire-with-burning-brush-29961571/",
-  "sourceDownload": "https://videos.pexels.com/video-files/29961571/12857999_3840_2160_24fps.mp4",
+  "title": "Wildfire in a Forest",
+  "creator": "Arnav Kainthola",
+  "sourcePage": "https://www.pexels.com/video/wildfire-in-a-forest-7448357/",
+  "sourceDownload": "https://videos.pexels.com/video-files/7448357/7448357-hd_1920_1080_30fps.mp4",
   "license": "Pexels License",
   "licenseUrl": "https://www.pexels.com/license/",
-  "originalSha256": "288b5f9078341eaa2f491904af6bc34296c3f72d648152d5859cafece3c75b8e",
-  "runtimeSha256": "43fc5838716276abe90051aedaffc999203569a11eba2aeaebe822aa41e43306",
-  "bytes": 1850905,
-  "duration": "5.500000",
+  "sourceSha256": "551e0f2fb8e562ec3141c2139439f2974e5dbe1436d5836a5279c5d11b47654c",
+  "runtimeSha256": "3ac9aa9d7fd8d421ff8fddde4e8f8f2fa3d55a35a8a94383034c8ee06a6680a6",
+  "bytes": 1863442,
+  "durationSeconds": 11.0,
   "dimensions": [
     960,
-    640
+    540
   ],
   "fps": "24/1",
   "audio": false,
-  "sourceCameraFixed": false,
-  "outputFraming": "Stabilized fixed framing; original light pan removed using background features. Fixed overlap crop; no animated zoom. First 6 seconds with 0.5-second circular crossfade.",
+  "sourceCameraFixed": "Tripod not asserted; selected framing visually steady",
+  "processing": "Source 1-13s; fixed proportional crop 1088x612 at (416,468), scale 960x540, 24fps, 1s circular tail/head dissolve, H.264 Main 3.1 yuv420p faststart, sound removed. No generated flames, no simulated fire, no pan/zoom added.",
   "location": "Not verified; not claimed to be Indonesia.",
+  "ownerClarification": "Stabilized output permitted; rejected prior localized brush-burning clip because wildfire was not clear.",
   "integratedIntoGame": false,
-  "poster": "assets/animations/forest-burn-poster.jpg"
+  "poster": "assets/animations/forest-burn-poster.jpg",
+  "framingReason": "Crop enlarged the burning forest so fire remains visible above the lower element cards; fixed crop only."
 }

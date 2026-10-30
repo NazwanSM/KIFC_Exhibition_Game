@@ -1,0 +1,22 @@
+{
+  "creator": "Everett Bumstead",
+  "sourcePage": "https://www.pexels.com/video/controlled-forest-fire-with-burning-brush-29961571/",
+  "sourceDownload": "https://videos.pexels.com/video-files/29961571/12857999_3840_2160_24fps.mp4",
+  "license": "Pexels License",
+  "licenseUrl": "https://www.pexels.com/license/",
+  "originalSha256": "288b5f9078341eaa2f491904af6bc34296c3f72d648152d5859cafece3c75b8e",
+  "runtimeSha256": "43fc5838716276abe90051aedaffc999203569a11eba2aeaebe822aa41e43306",
+  "bytes": 1850905,
+  "duration": "5.500000",
+  "dimensions": [
+    960,
+    640
+  ],
+  "fps": "24/1",
+  "audio": false,
+  "sourceCameraFixed": false,
+  "outputFraming": "Stabilized fixed framing; original light pan removed using background features. Fixed overlap crop; no animated zoom. First 6 seconds with 0.5-second circular crossfade.",
+  "location": "Not verified; not claimed to be Indonesia.",
+  "integratedIntoGame": false,
+  "poster": "assets/animations/forest-burn-poster.jpg"
+}

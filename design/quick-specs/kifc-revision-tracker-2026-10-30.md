@@ -2,7 +2,7 @@
 
 Sumber: daftar revisi klien yang disampaikan pemilik proyek dan klarifikasinya dalam percakapan 30 Oktober 2026. Tujuan dokumen ini adalah memetakan pekerjaan, cara penerapan, dependensi, dan bukti penyelesaiannya. Pembuatan tracker tidak berarti revisi game sudah diimplementasikan.
 
-**Status terkini: 10 Belum dikerjakan, 2 Dikerjakan, 0 Siap ditinjau, 8 Selesai secara implementasi.**
+**Status terkini: 10 Belum dikerjakan, 1 Dikerjakan, 1 Siap ditinjau, 8 Selesai secara implementasi.**
 
 ID `KIFC-R30-01` sampai `KIFC-R30-20` khusus untuk putaran ini, bukan nomor halaman atau babak. Riwayat lama tetap disimpan di [tracker 23 Oktober](kifc-screen-revision-tracker-2026-10-23.md). Status pekerjaan lama tidak dipindahkan menjadi status selesai untuk kebutuhan baru.
 
@@ -46,7 +46,7 @@ Keputusan ini menggantikan ketentuan lama tentang demo yang wajib dicoba, seluru
 | KIFC-R30-07 | Hapus demo pengurangan dan sambungkan navigasi | Babak 1 dan transisi ke Babak 2 | Sedang | Tidak ada | Selesai | `d069340` |
 | KIFC-R30-08 | Terima drop di seluruh panel unsur | Penyusunan unsur | Sedang | Tidak ada | Selesai | `d62bbae` (koreksi) |
 | KIFC-R30-09 | Terapkan Safari versi penuh | Musik lintas game | Sedang | Sumber penuh dan lisensi | Dikerjakan: native belum terverifikasi | `c713309` |
-| KIFC-R30-10 | Cari dan siapkan video kebakaran kamera statis | Aset panel hutan | Sedang, bergantung aset | Sumber dan izin penggunaan | Dikerjakan: alternatif stabilisasi menunggu keputusan | `e4cf559` |
+| KIFC-R30-10 | Cari dan siapkan video kebakaran kamera statis | Aset panel hutan | Sedang, bergantung aset | Sumber dan izin penggunaan | Siap ditinjau: cuplikan wildfire pengganti | `e4cf559` |
 | KIFC-R30-11 | Integrasikan background video kebakaran bersama | Penyusunan lengkap dan penjelasan Segitiga Api | Menengah–sulit | 07, 08, 10 | Belum dikerjakan | — |
 | KIFC-R30-12 | Finalisasi naskah dan audisi suara maskot | Pembuka, tiga bacaan, penutup | Menengah–sulit | Akses TTS dan peninjauan suara | Belum dikerjakan | — |
 | KIFC-R30-13 | Produksi narasi tiga bahasa dan data timing | Aset narasi | Sulit | 12 | Belum dikerjakan | — |
@@ -186,12 +186,12 @@ Nomor pendek pada dependensi merujuk tiket dengan awalan yang sama. Tiket sumber
 
 ### KIFC-R30-10 — Sumber video kebakaran nyata yang statis
 
-**Status:** Kandidat berizin, loop dan poster tersedia; sumber aslinya bergerak dan hasil distabilkan. Menunggu keputusan pemilik apakah alternatif ini diterima, atau wajib kamera asli statis. **Area:** aset baru di `assets/animations/` atau lokasi media yang konsisten dengan proyek, `ASSET_SOURCES.md`.
+**Status:** Siap ditinjau. Stabilisasi diizinkan pemilik; kandidat pembakaran ranting ditolak dan diganti cuplikan kebakaran hutan meluas. Persetujuan visual cuplikan baru belum diberikan. **Area:** aset baru di `assets/animations/` atau lokasi media yang konsisten dengan proyek, `ASSET_SOURCES.md`.
 
-- [ ] Cari footage nyata dengan kamera tetap, tanpa gerakan pan/zoom yang mengganggu, watermark, atau konten yang tidak sesuai untuk edukasi pengunjung.
+- [x] Cari footage nyata dengan framing tetap (stabilisasi diperbolehkan), tanpa gerakan pan/zoom yang mengganggu, watermark, atau konten yang tidak sesuai untuk edukasi pengunjung.
 - [x] Verifikasi izin penggunaan dalam game/pameran dan modifikasi; catat kreator, URL sumber, lisensi, versi asli, dan perubahan. Hindari aset berbayar tanpa menyampaikan biayanya dahulu.
-- [ ] Pilih rentang yang bisa diulang dengan wajar; siapkan crop proporsional, encoding runtime, poster/fallback, dan uji sambungan. Kamera statis bukan bukti loop sudah mulus.
-- [ ] Tinjau kesesuaian visual dengan panel hutan dan tiga kartu unsur sebelum integrasi. Jangan mengklaim lokasi footage adalah Indonesia jika tidak dibuktikan sumber.
+- [x] Pilih rentang yang bisa diulang dengan wajar; siapkan crop proporsional, encoding runtime, poster/fallback, dan uji sambungan. Kamera statis bukan bukti loop sudah mulus.
+- [x] Tinjau kesesuaian visual melalui simulasi proporsi panel dan tiga kartu unsur sebelum integrasi (belum screenshot Flutter). Jangan mengklaim lokasi footage adalah Indonesia jika tidak dibuktikan sumber.
 
 **Selesai jika:** ada aset berizin, dapat didekode, cukup ringan, dan pratinjau loop yang layak. Bukti: metadata lisensi/hash, durasi/resolusi/ukuran, dan contoh playback.
 
@@ -349,3 +349,4 @@ Status diperbarui setelah implementasi dan pemeriksaan nyata. Selesai secara imp
 | 30 Oktober 2026 | KIFC-R30-08 lanjutan | Koreksi tampilan setelah klarifikasi pemilik | `d62bbae` | Hutan penuh sampai dasar; tanpa placeholder kosong; 79 pemeriksaan terkait lulus, analisis bersih; 75 render dan GIF terbaru | Pemeriksaan internal; TV fisik belum diuji |
 | 30 Oktober 2026 | KIFC-R30-09 | Implementasi; native masih terbuka | `c713309` | 30 tes lulus, analisis bersih; browser final-encode/mute/loop lulus; source/hash, kredit dan ducking tersedia | UIAutomator emulator gagal memberi root; tidak mengklaim uji native lulus |
 | 30 Oktober 2026 | KIFC-R30-10 | Kandidat dan derivatif siap; belum selesai | `e4cf559` | Pexels berizin; H.264 5.5s/960×640, tanpa audio, poster/hash; decode lulus | Alternatif stabilisasi, bukan kamera asli statis; belum diintegrasikan (11) |
+| 30 Oktober 2026 | KIFC-R30-10 lanjutan | Stabilisasi diizinkan; kandidat ranting ditolak → wildfire baru siap ditinjau | Dicatat setelah commit | H.264 11s/960×540 tanpa audio; 1.86 MB, poster/hash, decode dan inspeksi empat waktu lulus | Belum dipasang (11), belum disahkan visual oleh pemilik |
