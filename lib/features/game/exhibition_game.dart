@@ -1917,7 +1917,7 @@ class _FinalChallenge extends StatelessWidget {
               child: IconButton(
                 key: const ValueKey('impact-photo-credits'),
                 tooltip: AppCopy.translate(
-                  english ? 'Photo credits' : 'Kredit foto',
+                  english ? 'Asset credits' : 'Kredit aset',
                 ),
                 onPressed: () {
                   final audio = GameAudioScope.of(context);
@@ -1926,14 +1926,15 @@ class _FinalChallenge extends StatelessWidget {
                     context: context,
                     builder: (context) => AlertDialog(
                       title: LocalizedText(
-                        english ? 'Photo credits' : 'Kredit foto',
+                        english ? 'Asset credits' : 'Kredit aset',
                       ),
                       content: const SingleChildScrollView(
                         child: SelectableText(
                           'Kabut asap / Smoke: NASA Earth Observatory, Jeff Schmaltz & Adam Voiland. Sumatra, 2015. NASA media guidelines.\nhttps://science.nasa.gov/earth/earth-observatory/smoke-over-sumatra-86762/\n\n'
                           'Gambut terbakar / Burning peat: Tan Yi Han, Selangor, 2013. CC BY-SA 3.0. Resized; display crop and color filter.\nhttps://commons.wikimedia.org/wiki/File:Peat_fire_in_Selangor,_Malaysia_on_5_June_2013.JPG\nhttps://creativecommons.org/licenses/by-sa/3.0/\n\n'
                           'Tanah amblas / Collapsed ground: US National Archives, NAID285717. Red Lake Agency, 1935. Public domain (US federal work).\nhttps://catalog.archives.gov/id/285717\n\n'
-                          'Api / Fire: krisna azie, Unsplash. Kanopi / Canopy: Francesco Ungaro, Unsplash. Hutan / Forest: Kereng Bangkirai, project image credits.',
+                          'Api / Fire: krisna azie, Unsplash. Kanopi / Canopy: Francesco Ungaro, Unsplash. Hutan / Forest: Kereng Bangkirai, project image credits.\n\n'
+                          'Musik / Music: Safari — syncopika. CC BY 3.0. Adapted for looping and volume balanced.\nhttps://opengameart.org/content/safari\nhttps://creativecommons.org/licenses/by/3.0/',
                         ),
                       ),
                       actions: [

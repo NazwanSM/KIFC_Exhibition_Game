@@ -270,6 +270,8 @@ const Map<String, String> _korean = <String, String>{
       '시간이 끝났어요. 선택한 답과 놓친 영향을 확인해 보세요.',
   'Waktu habis. Cermati pilihanmu dan dampak yang masih terlewat.':
       '시간이 끝났어요. 선택한 답과 놓친 영향을 확인해 보세요.',
+  'Asset credits': '자료 출처',
+  'Kredit aset': '자료 출처',
   'Photo credits': '사진 출처',
   'Kredit foto': '사진 출처',
   'Close': '닫기',

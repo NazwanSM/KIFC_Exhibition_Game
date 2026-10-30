@@ -99,7 +99,7 @@ All runtime audio is bundled locally, without generation or paid licensing. Mixe
 
 [CC0 deed](https://creativecommons.org/publicdomain/zero/1.0/). Kenney's packaged license is preserved in `docs/client-revisions/2026-10-23/audio/kenney-license.txt`. Runtime hashes/bytes are in `audio/asset-hashes.json` alongside that license. Downloaded originals and source HTML used during preparation: `D:/KIFC-review-temp/audio-sources/` (not runtime assets). No new narration/TTS or generated raw sounds.
 
-30 October audio update: Safari by syncopika replaces TinyWorlds Forest Ambience. Music is CC BY 3.0; bird ambience and effects remain CC0. In-game attribution is available in Sound → Audio credits. Current hashes: [30 October manifest](docs/client-revisions/2026-10-30/audio/asset-hashes.json). Earlier manifests describe historical builds.
+30 October audio update: Safari by syncopika replaces TinyWorlds Forest Ambience. Music is CC BY 3.0; bird ambience and effects remain CC0. In-game attribution is available in Asset credits on the impact review screen. Current hashes: [30 October manifest](docs/client-revisions/2026-10-30/audio/asset-hashes.json). Earlier manifests describe historical builds.
 
 ## R30-10 wildfire footage (asset preparation; not yet integrated)
 

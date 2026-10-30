@@ -131,6 +131,7 @@ void main() {
         await tester.tap(find.byKey(const ValueKey('impact-photo-credits')));
         await tester.pump(const Duration(milliseconds: 300));
         expect(find.textContaining('CC BY-SA 3.0'), findsOneWidget);
+        expect(find.textContaining('Safari — syncopika'), findsOneWidget);
         Navigator.of(tester.element(find.byType(AlertDialog))).pop();
         await tester.pump(const Duration(milliseconds: 300));
         await tester.tap(find.byKey(const ValueKey('final-review-continue')));

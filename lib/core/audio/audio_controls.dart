@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../localization/app_locale.dart';
 import '../theme/kifc_theme.dart';
 import 'game_audio.dart';
-import 'audio_credits.dart';
 import '../../features/game/widgets/touchscreen_area.dart';
 
 class GameAudioScope extends InheritedNotifier<GameAudioController> {
@@ -193,14 +192,6 @@ class _AudioSettings extends StatelessWidget {
                   ),
                 ),
               ],
-              TextButton.icon(
-                key: const ValueKey('audio-credits'),
-                onPressed: () => showAudioCredits(context, audio, english),
-                icon: const Icon(Icons.library_music_outlined),
-                label: LocalizedText(
-                  english ? 'Audio credits' : 'Kredit audio',
-                ),
-              ),
             ],
           ),
         ),
