@@ -100,3 +100,7 @@ All runtime audio is bundled locally, without generation or paid licensing. Mixe
 [CC0 deed](https://creativecommons.org/publicdomain/zero/1.0/). Kenney's packaged license is preserved in `docs/client-revisions/2026-10-23/audio/kenney-license.txt`. Runtime hashes/bytes are in `audio/asset-hashes.json` alongside that license. Downloaded originals and source HTML used during preparation: `D:/KIFC-review-temp/audio-sources/` (not runtime assets). No new narration/TTS or generated raw sounds.
 
 30 October audio update: Safari by syncopika replaces TinyWorlds Forest Ambience. Music is CC BY 3.0; bird ambience and effects remain CC0. In-game attribution is available in Sound → Audio credits. Current hashes: [30 October manifest](docs/client-revisions/2026-10-30/audio/asset-hashes.json). Earlier manifests describe historical builds.
+
+## R30-10 candidate footage (not integrated; pending owner framing decision)
+
+`assets/animations/forest-burn-loop.mp4` and `forest-burn-poster.jpg`: Everett Bumstead, [Controlled Forest Fire with Burning Brush](https://www.pexels.com/video/controlled-forest-fire-with-burning-brush-29961571/), [Pexels License](https://www.pexels.com/license/). First six seconds stabilized to a fixed crop, 0.5s circular dissolve; H.264 960×640/24fps, silent. Source camera was moving; the derivative is an explicit stabilization alternative, not an original static-camera recording. Location unverified. [Provenance, hashes and processing](docs/client-revisions/2026-10-30/video/source.json). Game integration remains ticket 11.

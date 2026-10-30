@@ -1,0 +1,11 @@
+# KIFC-R30-10 Footage candidate, awaiting framing decision
+
+Candidate: Controlled Forest Fire with Burning Brush, Everett Bumstead, Pexels asset 29961571. License and source were checked on 30 October: https://www.pexels.com/license/ and the source link in video/source.json. Download/modification/app use is allowed by the Pexels License. Creator credit is retained. No claim that this was filmed in Indonesia.
+
+IMPORTANT: The source camera pans lightly. This candidate is therefore an alternative, NOT a claim that a native fixed-camera source was found. Its first six seconds were stabilized using upper-background feature tracking, an inverse affine transform and one fixed overlap crop. There is no animated pan/zoom in the derivative. The owner has been asked whether stabilized footage is acceptable. Ticket stays open pending that decision, or a better native static source.
+
+Prepared assets: assets/animations/forest-burn-loop.mp4, 960×640, H.264 Main 3.1/yuv420p, 24fps, 5.5s, 1,850,905 bytes, muted; forest-burn-poster.jpg is the fallback/poster. A 0.5s circular dissolve joins the end and start. The clip decodes completely in FFmpeg; container/codec/audio-track/size checks pass. Source and derivative hashes are in video/source.json. Inspect actual loop playback before client approval; decoding alone does not prove a perfectly unobtrusive seam or physical TV performance.
+
+Rejected candidates: NIST fixed 360-degree surface fire at the 27 March 2019 New Jersey prescribed burn was downloaded, projected and examined, but the protected lens footage was too hazy and the fire too faint for this panel. The source/rights links are https://www.nist.gov/video/360deg-video-surface-fire-during-prescribed-burn-new-jersey-pine-barrens-march-27-2019-full and https://www.nist.gov/copyrights-disclaimers. Originals and trials remain under build/review-r30-10-2026-10-30/; only the selected derivative/poster are staged as assets.
+
+The stabilization method is preserved in video/stabilize.py and video/stabilization.json. A fresh source/FFmpeg pipeline is still needed if the candidate changes. This is asset preparation only: game integration is ticket 11. No gameplay screenshot is presented as if this video were already integrated. No push/deploy.

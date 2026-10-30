@@ -1,0 +1,28 @@
+{
+  "frames": 144,
+  "fps": 24,
+  "fixedCrop": [
+    40,
+    40,
+    1107,
+    678
+  ],
+  "lastTransform": [
+    [
+      1.0256345359592496,
+      0.026986384013901146,
+      -183.9099870550193
+    ],
+    [
+      -0.0269863840139011,
+      1.0256345359592487,
+      26.71400757169332
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "method": "Upper-background feature tracking and inverse affine stabilization; fixed crop, no animated pan/zoom."
+}
