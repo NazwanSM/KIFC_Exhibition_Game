@@ -1,5 +1,7 @@
 # Tracker revisi layar game dari KIFC
 
+> Putaran revisi terbaru beserta klarifikasi pemilik pada 30 Oktober dicatat terpisah di [tracker 30 Oktober 2026](kifc-revision-tracker-2026-10-30.md). Gunakan dokumen tersebut untuk kebutuhan baru seperti penghapusan demo, narasi, maskot 3D, dan video kebakaran. Dokumen ini mempertahankan riwayat putaran sebelumnya.
+
 Tanggal pencatatan: **23 Oktober 2026**. Tanggal ini adalah tanggal penerimaan/pencatatan, bukan asumsi tanggal penulisan dokumen klien.
 
 Sumber utama: [Revisi_Game_Untuk_Vendor.docx](../../docs/client-revisions/2026-10-23/Revisi_Game_Untuk_Vendor.docx). Salinan sumber diarsipkan tanpa perubahan; SHA-256: `d4b9bfbb92db72a3776b4a0490866596fec18dbc3790703eef5f080d9ab310e2`.
