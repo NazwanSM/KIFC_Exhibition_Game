@@ -256,6 +256,8 @@ const Map<String, String> _korean = <String, String>{
   'Apa Saja Dampak Kebakaran Hutan pada Ekosistem Gambut?':
       '산림 화재는 이탄지 생태계에 어떤 영향을 줄까요?',
   'Choose all the relevant impacts.': '해당하는 영향을 모두 골라 보세요.',
+  'Selesai Memilih': '선택 완료',
+  'Finish Selecting': '선택 완료',
   'Pilih semua dampak yang sesuai.': '해당하는 영향을 모두 골라 보세요.',
   'Time’s up. Review your choices and the impacts you missed.':
       '시간이 끝났어요. 선택한 답과 놓친 영향을 확인해 보세요.',

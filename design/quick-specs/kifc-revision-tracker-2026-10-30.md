@@ -2,7 +2,7 @@
 
 Sumber: daftar revisi klien yang disampaikan pemilik proyek dan klarifikasinya dalam percakapan 30 Oktober 2026. Tujuan dokumen ini adalah memetakan pekerjaan, cara penerapan, dependensi, dan bukti penyelesaiannya. Pembuatan tracker tidak berarti revisi game sudah diimplementasikan.
 
-**Status terkini: 15 Belum dikerjakan, 0 Dikerjakan, 0 Siap ditinjau, 5 Selesai secara implementasi.**
+**Status terkini: 14 Belum dikerjakan, 0 Dikerjakan, 0 Siap ditinjau, 6 Selesai secara implementasi.**
 
 ID `KIFC-R30-01` sampai `KIFC-R30-20` khusus untuk putaran ini, bukan nomor halaman atau babak. Riwayat lama tetap disimpan di [tracker 23 Oktober](kifc-screen-revision-tracker-2026-10-23.md). Status pekerjaan lama tidak dipindahkan menjadi status selesai untuk kebutuhan baru.
 
@@ -41,8 +41,8 @@ Keputusan ini menggantikan ketentuan lama tentang demo yang wajib dicoba, seluru
 | KIFC-R30-02 | Sederhanakan label babak di atas judul | Semua halaman berlabel babak | Sangat mudah | Tidak ada | Selesai | `9644ce8` |
 | KIFC-R30-03 | Perbaiki kapitalisasi judul penutup | Penutup terakhir | Sangat mudah | Tidak ada | Selesai | `0023de3` |
 | KIFC-R30-04 | Ubah timer khusus penutup menjadi 30 detik | Penutup terakhir | Mudah | Tidak ada | Selesai | `9630b86` |
-| KIFC-R30-05 | Rapikan susunan judul Karhutla pertama | Bacaan Karhutla 1 | Mudah | Tidak ada | Selesai | Dicatat setelah commit |
-| KIFC-R30-06 | Tambahkan tombol akhiri tantangan lebih awal | Tantangan akhir | Sedang | Tidak ada | Belum dikerjakan | — |
+| KIFC-R30-05 | Rapikan susunan judul Karhutla pertama | Bacaan Karhutla 1 | Mudah | Tidak ada | Selesai | `9c829f0` |
+| KIFC-R30-06 | Tambahkan tombol akhiri tantangan lebih awal | Tantangan akhir | Sedang | Tidak ada | Selesai | Dicatat setelah commit |
 | KIFC-R30-07 | Hapus demo pengurangan dan sambungkan navigasi | Babak 1 dan transisi ke Babak 2 | Sedang | Tidak ada | Belum dikerjakan | — |
 | KIFC-R30-08 | Terima drop di seluruh panel unsur | Penyusunan unsur | Sedang | Tidak ada | Belum dikerjakan | — |
 | KIFC-R30-09 | Terapkan Safari versi penuh | Musik lintas game | Sedang | Sumber penuh dan lisensi | Belum dikerjakan | — |
@@ -134,14 +134,16 @@ Nomor pendek pada dependensi merujuk tiket dengan awalan yang sama. Tiket sumber
 
 ### KIFC-R30-06 — Tombol menyelesaikan tantangan lebih awal
 
-**Status:** Belum dikerjakan. **Area kode:** `_FinalChallenge` dan timer tantangan; `test/impact_review_test.dart`, `test/feedback_timing_test.dart`.
+**Status:** Selesai secara implementasi; belum merupakan pengesahan klien. **Area kode:** `_FinalChallenge` dan timer tantangan; `test/impact_review_test.dart`, `test/feedback_timing_test.dart`.
 
-- [ ] Tambahkan tombol berlabel jelas, misalnya “Selesai Memilih”, pada area jangkauan tengah tanpa mengecilkan kartu.
-- [ ] Satukan penyelesaian lewat tombol dan waktu habis ke satu aksi yang hanya berjalan sekali: kunci pilihan, hentikan timer, buka ulasan menggunakan pilihan saat itu.
-- [ ] Pertahankan pilihan netral sebelum selesai, rumus bonus, dan 30 detik maksimum. Tidak ada narasi atau efek yang membocorkan jawaban.
-- [ ] Uji nol/sebagian/semua pilihan, pembatalan pilihan, ketukan cepat berulang, dan tombol ditekan bersamaan dengan deadline. Tombol hanya tampil saat tantangan aktif.
+- [x] Tambahkan tombol berlabel jelas, misalnya “Selesai Memilih”, pada area jangkauan tengah tanpa mengecilkan kartu.
+- [x] Satukan penyelesaian lewat tombol dan waktu habis ke satu aksi yang hanya berjalan sekali: kunci pilihan, hentikan timer, buka ulasan menggunakan pilihan saat itu.
+- [x] Pertahankan pilihan netral sebelum selesai, rumus bonus, dan 30 detik maksimum. Tidak ada narasi atau efek yang membocorkan jawaban.
+- [x] Uji nol/sebagian/semua pilihan, pembatalan pilihan, ketukan cepat berulang, dan tombol ditekan bersamaan dengan deadline. Tombol hanya tampil saat tantangan aktif.
 
 **Selesai jika:** pengunjung dapat menyelesaikan kapan saja tanpa penilaian/navigasi ganda; ulasan dan skor tetap akurat. Bukti: tes interaksi, screenshot, rekaman.
+
+**Bukti:** [Review tiket 06](../../docs/client-revisions/2026-10-30/r30-06-review.md).
 
 ### KIFC-R30-07 — Hapus demo pengurangan unsur
 
@@ -331,4 +333,5 @@ Status diperbarui setelah implementasi dan pemeriksaan nyata. Selesai secara imp
 | 30 Oktober 2026 | KIFC-R30-02 | Belum dikerjakan → Selesai implementasi | `9644ce8` | 57 tes lulus; analisis bersih; 180 render dan contact sheet tiga bahasa | Pemeriksaan internal; TV fisik belum diuji |
 | 30 Oktober 2026 | KIFC-R30-03 | Belum dikerjakan → Selesai implementasi | `0023de3` | 15 pemeriksaan visual + 24 regresi lulus; analisis bersih; 15 render diperiksa | Pemeriksaan internal; timer masih 15 detik sesuai batas tiket |
 | 30 Oktober 2026 | KIFC-R30-04 | Belum dikerjakan → Selesai implementasi | `9630b86` | 40 tes lulus; analisis bersih; 15 render diperiksa; red/green timer | Pemeriksaan internal; TV fisik belum diuji |
-| 30 Oktober 2026 | KIFC-R30-05 | Belum dikerjakan → Selesai implementasi | Dicatat setelah commit | 60 tes lulus; analisis bersih; 15 render diperiksa; grouping judul teruji | Pemeriksaan internal; TV fisik belum diuji |
+| 30 Oktober 2026 | KIFC-R30-05 | Belum dikerjakan → Selesai implementasi | `9c829f0` | 60 tes lulus; analisis bersih; 15 render diperiksa; grouping judul teruji | Pemeriksaan internal; TV fisik belum diuji |
+| 30 Oktober 2026 | KIFC-R30-06 | Belum dikerjakan → Selesai implementasi | Dicatat setelah commit | 65 tes terkait lulus; analisis bersih; 45 render diperiksa; deadline/submit dan cue tunggal teruji | Pemeriksaan internal; TV fisik belum diuji |

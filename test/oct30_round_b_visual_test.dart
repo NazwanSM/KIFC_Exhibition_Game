@@ -45,6 +45,79 @@ void main() {
         await tester.pumpWidget(const SizedBox.shrink());
         AppCopy.locale = AppLocale.indonesian;
       });
+      testWidgets('R30-06 finish control and review layout $suffix', (
+        tester,
+      ) async {
+        await launchScreen(
+          tester,
+          size: size,
+          locale: locale,
+          page: 'finalChallenge',
+        );
+        await tester.pump(const Duration(milliseconds: 500));
+        final grid = find.byKey(const ValueKey('final-selection-grid'));
+        final before = tester.getRect(grid);
+        final finish = find.byKey(const ValueKey('final-finish-early'));
+        expect(finish, findsOneWidget);
+        expect(tester.getRect(finish).top, greaterThan(before.bottom));
+        expect(tester.getRect(finish).bottom, lessThan(size.height * .85));
+        expect(
+          find.text(switch (locale) {
+            AppLocale.indonesian => 'Selesai Memilih',
+            AppLocale.english => 'Finish Selecting',
+            AppLocale.korean => '선택 완료',
+          }),
+          findsOneWidget,
+        );
+        final metrics = <String, Object>{
+          'ticket': 'KIFC-R30-06',
+          'source': 'Flutter widget render',
+          'language': locale.name,
+          'width': size.width,
+          'height': size.height,
+          'physicalTVReachValidated': false,
+        };
+        expect(tester.takeException(), isNull);
+        await captureScreen(tester, 'challenge-empty-$suffix', metrics);
+        for (final token in ['haze', 'carbonStorage']) {
+          await tester.tap(find.byKey(ValueKey('impact-$token')));
+          await tester.pump(const Duration(milliseconds: 150));
+        }
+        expect(
+          find.descendant(of: grid, matching: find.byIcon(Icons.check_rounded)),
+          findsNothing,
+        );
+        expect(tester.getRect(grid), before);
+        await captureScreen(tester, 'challenge-selected-$suffix', metrics);
+        await tester.tap(finish);
+        await tester.pump(const Duration(milliseconds: 700));
+        expect(finish, findsNothing);
+        expect(
+          find.byKey(const ValueKey('final-review-continue')),
+          findsOneWidget,
+        );
+        expect(tester.getRect(grid), before);
+        expect(tester.takeException(), isNull);
+        await tester.runAsync(() async {
+          for (final e in find.byType(Image).evaluate()) {
+            await precacheImage((e.widget as Image).image, e);
+          }
+        });
+        await tester.pump();
+        // Newly mounted feedback starts its reveal on the first review frame.
+        // Advance a second frame before recording its settled appearance.
+        await tester.pump(const Duration(milliseconds: 450));
+        final message = find.byKey(const ValueKey('final-review-message'));
+        expect(message, findsOneWidget);
+        for (final fade in tester.widgetList<FadeTransition>(
+          find.ancestor(of: message, matching: find.byType(FadeTransition)),
+        )) {
+          expect(fade.opacity.value, 1);
+        }
+        await captureScreen(tester, 'challenge-review-$suffix', metrics);
+        await tester.pumpWidget(const SizedBox.shrink());
+        AppCopy.locale = AppLocale.indonesian;
+      });
       testWidgets('R30-05 definition title groups words $suffix', (
         tester,
       ) async {

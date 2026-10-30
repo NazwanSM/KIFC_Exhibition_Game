@@ -141,6 +141,7 @@ class _ExhibitionGameState extends State<ExhibitionGame>
   int _readingSeconds = 15;
   late final Stopwatch _finalClock = widget.stopwatchFactory();
   bool _preparingFinal = false;
+  bool _finishingFinal = false;
   int _preparationTicket = 0;
   bool _mascotsPrepared = false;
 
@@ -234,6 +235,7 @@ class _ExhibitionGameState extends State<ExhibitionGame>
       }
       _page = page;
       _preparingFinal = false;
+      _finishingFinal = false;
     });
     _syncFeedbackTimer();
   }
@@ -285,6 +287,7 @@ class _ExhibitionGameState extends State<ExhibitionGame>
     _finalClock.stop();
     setState(() {
       _page = _Page.welcome;
+      _finishingFinal = false;
       _riskAnswer = null;
       _riskWrong = 0;
       _riskRevealed = false;
@@ -469,6 +472,7 @@ class _ExhibitionGameState extends State<ExhibitionGame>
     _timer?.cancel();
     setState(() {
       _page = _Page.finalChallenge;
+      _finishingFinal = false;
       _seconds = finalChallengeSeconds;
       _finalProgress.value = 1;
       _finalFound.clear();
@@ -485,7 +489,7 @@ class _ExhibitionGameState extends State<ExhibitionGame>
   }
 
   void _startFinalCountdown() {
-    if (!mounted || _page != _Page.finalChallenge) return;
+    if (!mounted || _page != _Page.finalChallenge || _finishingFinal) return;
     _timer?.cancel();
     _finalClock
       ..reset()
@@ -505,14 +509,27 @@ class _ExhibitionGameState extends State<ExhibitionGame>
       final remaining = remainingExact.ceil();
       if (remaining != _seconds) setState(() => _seconds = remaining);
       if (remaining == 0) {
-        unawaited(_audio.play(GameSound.finish));
-        timer.cancel();
-        _finalClock.stop();
-        _timer = Timer(const Duration(milliseconds: 420), () {
-          if (mounted && _page == _Page.finalChallenge) _go(_Page.finalReview);
-        });
+        _finishFinalChallenge(atDeadline: true);
       }
     });
+  }
+
+  void _finishFinalChallenge({bool atDeadline = false}) {
+    if (!mounted || _page != _Page.finalChallenge || _finishingFinal) return;
+    _timer?.cancel();
+    _finalClock.stop();
+    setState(() => _finishingFinal = true);
+    unawaited(_audio.play(GameSound.finish));
+    if (atDeadline) {
+      // Preserve the final zero-count frame before the automatic review.
+      _timer = Timer(const Duration(milliseconds: 420), () {
+        if (mounted && _page == _Page.finalChallenge && _finishingFinal) {
+          _go(_Page.finalReview);
+        }
+      });
+    } else {
+      _go(_Page.finalReview);
+    }
   }
 
   void _openClosing() => _go(_Page.closing);
@@ -605,7 +622,9 @@ class _ExhibitionGameState extends State<ExhibitionGame>
         timerProgress: _finalProgress,
         found: _finalFound,
         onTap: (token) {
-          if (_seconds > 0 &&
+          if (_page == _Page.finalChallenge &&
+              !_finishingFinal &&
+              _seconds > 0 &&
               _finalClock.elapsed <
                   const Duration(seconds: finalChallengeSeconds)) {
             unawaited(_audio.interact(GameSound.select));
@@ -614,6 +633,7 @@ class _ExhibitionGameState extends State<ExhibitionGame>
             });
           }
         },
+        onFinish: _finishingFinal ? null : () => _finishFinalChallenge(),
         onBack: () {
           _timer?.cancel();
           _go(_Page.peatCharacteristics);
@@ -2043,6 +2063,7 @@ class _FinalChallenge extends StatelessWidget {
     required this.onBack,
     this.reviewed = false,
     this.onContinue,
+    this.onFinish,
   });
   final bool english;
   final int seconds;
@@ -2052,6 +2073,7 @@ class _FinalChallenge extends StatelessWidget {
   final VoidCallback onBack;
   final bool reviewed;
   final VoidCallback? onContinue;
+  final VoidCallback? onFinish;
 
   @override
   Widget build(BuildContext context) {
@@ -2177,7 +2199,19 @@ class _FinalChallenge extends StatelessWidget {
               Expanded(
                 child: reviewed
                     ? _FinalReviewDialogue(english: english, found: found)
-                    : const SizedBox.shrink(),
+                    : Align(
+                        alignment: Alignment.topCenter,
+                        child: Padding(
+                          padding: EdgeInsets.only(top: compact ? 12 : 18),
+                          child: _Primary(
+                            key: const ValueKey('final-finish-early'),
+                            label: english
+                                ? 'Finish Selecting'
+                                : 'Selesai Memilih',
+                            onPressed: onFinish,
+                          ),
+                        ),
+                      ),
               ),
             ],
           );

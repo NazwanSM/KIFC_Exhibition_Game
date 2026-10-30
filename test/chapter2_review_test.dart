@@ -19,6 +19,7 @@ Future<void> launchScreen(
   int? cardIndex,
   Stopwatch Function()? stopwatchFactory,
   double topInset = 0,
+  GameAudioBackend? audioBackend,
 }) async {
   tester.view.devicePixelRatio = 1;
   tester.view.physicalSize = size;
@@ -35,7 +36,7 @@ Future<void> launchScreen(
       home: RepaintBoundary(
         key: const ValueKey('review-target'),
         child: ExhibitionGame(
-          audioBackend: const SilentGameAudioBackend(),
+          audioBackend: audioBackend ?? const SilentGameAudioBackend(),
           initialLocale: locale,
           initialPage: page,
           initialCardIndex: cardIndex,
