@@ -17,7 +17,7 @@ ID `KIFC-R30-01` sampai `KIFC-R30-20` khusus untuk putaran ini, bukan nomor hala
 - Hanya bacaan Karhutla yang berpindah otomatis ketika narasinya selesai. Ketuk untuk melewati harus menghentikan suara dan berpindah satu halaman. Kuis tidak boleh dilewati oleh perilaku ini.
 - Penutup tidak berpindah karena audio selesai. Timer khusus penutup menjadi **30 detik**, tetap bisa dilanjutkan lebih cepat lewat ketukan. Feedback dan hasil lain tetap **15 detik**, kecuali direvisi lagi.
 - Hapus hanya demo pengurangan unsur. Halaman penjelasan Segitiga Api tetap ada. Skor maksimum tetap **8**, karena demo yang dihapus tidak memiliki poin.
-- Video kebakaran berupa rekaman nyata dengan kamera diam, dipakai pada panel setelah 3/3 unsur dan halaman penjelasan Segitiga Api. Tetap ada hutan tanpa kebakaran sebelum lengkap. Kamera diam tidak otomatis menjamin loop mulus.
+- Video kebakaran berupa rekaman nyata dengan framing stabil (stabilisasi diperbolehkan), dipakai pada panel setelah 3/3 unsur dan halaman penjelasan Segitiga Api. Tetap ada hutan tanpa kebakaran sebelum lengkap. Framing stabil tidak otomatis menjamin loop mulus.
 - Tidak ada perubahan APK, deployment, atau pembelian layanan yang dilakukan hanya untuk membuat tracker ini. Penerapan berikutnya menggunakan komponen yang ada dan menghindari rewrite yang tidak diperlukan.
 
 Keputusan ini menggantikan ketentuan lama tentang demo yang wajib dicoba, seluruh bacaan Babak 2 manual, larangan narasi/TTS lama, serta timer penutup 15 detik. Aturan proyek terkait perlu diselaraskan ketika tiket terkait diterapkan; jangan mengikuti aturan lama yang bertentangan dengan klarifikasi pemilik terbaru.
@@ -47,7 +47,7 @@ Keputusan ini menggantikan ketentuan lama tentang demo yang wajib dicoba, seluru
 | KIFC-R30-08 | Terima drop di seluruh panel unsur | Penyusunan unsur | Sedang | Tidak ada | Selesai | `d62bbae` (koreksi) |
 | KIFC-R30-09 | Terapkan Safari versi penuh | Musik lintas game | Sedang | Sumber penuh dan lisensi | Dikerjakan: native belum terverifikasi | `c713309` |
 | KIFC-R30-10 | Cari dan siapkan video kebakaran kamera statis | Aset panel hutan | Sedang, bergantung aset | Sumber dan izin penggunaan | Siap ditinjau: cuplikan wildfire pengganti | `0961f1c` |
-| KIFC-R30-11 | Integrasikan background video kebakaran bersama | Penyusunan lengkap dan penjelasan Segitiga Api | Menengah–sulit | 07, 08, 10 | Dikerjakan: uji offline tertunda | `72c8941` |
+| KIFC-R30-11 | Integrasikan background video kebakaran bersama | Penyusunan lengkap dan penjelasan Segitiga Api | Menengah–sulit | 07, 08, 10 | Dikerjakan: visual disetujui, uji offline tertunda | `72c8941` |
 | KIFC-R30-12 | Finalisasi naskah dan audisi suara maskot | Pembuka, tiga bacaan, penutup | Menengah–sulit | Akses TTS dan peninjauan suara | Belum dikerjakan | — |
 | KIFC-R30-13 | Produksi narasi tiga bahasa dan data timing | Aset narasi | Sulit | 12 | Belum dikerjakan | — |
 | KIFC-R30-14 | Buktikan desain maskot 3D prerender | Prototipe aset maskot | Sulit, mutu aset belum terbukti | Referensi dan akses produksi | Belum dikerjakan | — |
@@ -199,19 +199,19 @@ Nomor pendek pada dependensi merujuk tiket dengan awalan yang sama. Tiket sumber
 
 ### KIFC-R30-11 — Background video kebakaran bersama
 
-**Status:** Sedang dikerjakan; implementasi, playback web dan ponsel diperiksa; uji offline terpisah masih tertunda. **Dependensi:** 07, 08, 10. **Area kode:** panel `_FireScene`, komponen media bersama, `pubspec.yaml` bila diperlukan; `test/fire_video_review_test.dart` dan assembly.
+**Status:** Sedang dikerjakan. Pemilik menyetujui hasil visual setelah melihat bukti; implementasi dan playback web/ponsel diperiksa. Uji offline terpisah dan pemeriksaan media lain di bawah masih tertunda. **Commit implementasi:** `72c8941`. **Dependensi:** 07, 08, 10. **Area kode:** panel `_FireScene`, komponen media bersama, `pubspec.yaml` bila diperlukan; `test/fire_video_review_test.dart` dan assembly.
 
-- [ ] Ganti titik api lama dengan pergantian background panel: foto hutan selama 0/3–2/3, footage kebakaran setelah 3/3. Gunakan komponen yang sama pada penjelasan Segitiga Api.
-- [ ] Pertahankan ukuran panel, tiga kartu unsur, proporsi foto/video, dan keterbacaan overlay. Tidak ada video fullscreen atau animasi api lama yang masih menumpuk.
-- [ ] Sesuaikan exposure dan saturasi foto kartu unsur agar selaras dengan footage kebakaran, sambil menjaga label dan gambar tetap mudah dikenali. Tinjau pada kondisi sebelum dan setelah video muncul.
+- [x] Ganti titik api lama dengan pergantian background panel: foto hutan selama 0/3–2/3, footage kebakaran setelah 3/3. Gunakan komponen yang sama pada penjelasan Segitiga Api.
+- [x] Pertahankan ukuran panel, tiga kartu unsur, proporsi foto/video, dan keterbacaan overlay. Tidak ada video fullscreen atau animasi api lama yang masih menumpuk.
+- [x] Sesuaikan exposure dan saturasi foto kartu unsur agar selaras dengan footage kebakaran, sambil menjaga label dan gambar tetap mudah dikenali. Hasil visual disetujui pemilik.
 - [ ] Tinjau ketajaman video runtime di panel pada simulasi TV portrait dan perangkat aktual bila tersedia; bandingkan dengan sumber sebelum memutuskan apakah encoding perlu ditingkatkan.
-- [ ] Pilih mekanisme playback yang benar-benar mendukung target Android dan web; catat bila membutuhkan dependensi baru. Footage tidak menambah suara sendiri yang bertabrakan dengan musik/narasi.
+- [x] Gunakan `video_player` untuk playback Android dan web; footage dibungkam. Playback diperiksa di browser dan ponsel TECNO.
 - [ ] Kelola preload, transisi, loop, pause/resume, stop/dispose, poster saat error, dan fallback reduced motion. Reset/replay mengembalikan foto hutan tanpa api.
 - [ ] Uji offline APK, asset delivery web setelah restart penuh, serta batas 2/3 ke 3/3 tanpa flicker atau pemutar ganda.
 
 **Selesai jika:** pergantian foto/video dan kesinambungan kedua halaman benar, media tidak menutupi konten, serta kegagalan decode tidak membuat aktivitas macet. Bukti: tes state/media, rekaman native/web dan screenshot lintas ukuran.
 
-**Progres 30 Oktober:** implementasi awal video dan pewarnaan kartu; 50 tes layout/alur pada salinan verifikasi lulus, 15 render widget tiga bahasa/lima ukuran menampilkan poster, dan video berjalan muted/loop pada build web yang disajikan dari port terverifikasi. Build APK bersih memuat video/poster dan berjalan di ponsel TECNO 720×1640; dua frame menunjukkan video bergerak, rekaman 14 detik dan log init/release tersedia. Pengujian dengan jaringan benar-benar terputus masih tertunda; screenshot widget bukan bukti video bergerak atau uji TV fisik. Bukti lokal: `build/review-r30-11/`.
+**Progres 30 Oktober:** implementasi awal video dan pewarnaan kartu; 50 tes layout/alur pada salinan verifikasi lulus, 15 render widget tiga bahasa/lima ukuran menampilkan poster, dan video berjalan muted/loop pada build web yang disajikan dari port terverifikasi. Build APK bersih memuat video/poster dan berjalan di ponsel TECNO 720×1640; dua frame menunjukkan video bergerak, rekaman 14 detik dan log init/release tersedia. Pemilik menyetujui hasil visual setelah peninjauan. Pengujian dengan jaringan benar-benar terputus serta pemeriksaan lifecycle, fallback, dan ketajaman pada TV fisik masih tertunda; screenshot widget bukan bukti video bergerak atau uji TV fisik. Bukti lokal: `build/review-r30-11/`; rincian: [catatan verifikasi 11](../../docs/client-revisions/2026-10-30/r30-11-review.md).
 
 ### KIFC-R30-12 — Naskah dan audisi suara tiga bahasa
 
@@ -354,3 +354,4 @@ Status diperbarui setelah implementasi dan pemeriksaan nyata. Selesai secara imp
 | 30 Oktober 2026 | KIFC-R30-09 | Implementasi; native masih terbuka | `c713309` | 30 tes lulus, analisis bersih; browser final-encode/mute/loop lulus; source/hash, kredit dan ducking tersedia | UIAutomator emulator gagal memberi root; tidak mengklaim uji native lulus |
 | 30 Oktober 2026 | KIFC-R30-10 | Kandidat dan derivatif siap; belum selesai | `e4cf559` | Pexels berizin; H.264 5.5s/960×640, tanpa audio, poster/hash; decode lulus | Alternatif stabilisasi, bukan kamera asli statis; belum diintegrasikan (11) |
 | 30 Oktober 2026 | KIFC-R30-10 lanjutan | Stabilisasi diizinkan; kandidat ranting ditolak → wildfire baru siap ditinjau | `0961f1c` | H.264 11s/960×540 tanpa audio; 1.86 MB, poster/hash, decode dan inspeksi empat waktu lulus | Belum dipasang (11), belum disahkan visual oleh pemilik |
+| 30 Oktober 2026 | KIFC-R30-11 | Hasil visual disetujui pemilik; tetap dikerjakan | `72c8941` | Playback web dan ponsel diperiksa, rekaman dan screenshot tersedia | Uji offline dan pemeriksaan media tersisa belum selesai |
