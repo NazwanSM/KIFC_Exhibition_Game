@@ -33,15 +33,15 @@ void main() {
         // The answer gesture must reveal feedback, not also dismiss it.
         expect(kind('_Feedback'), findsOneWidget);
         await pump(tester, 5000);
-        expect(find.text('BABAK 3 / SITUASI 1 DARI 4'), findsOneWidget);
+        expect(find.text('SITUASI 1'), findsOneWidget);
         expect(kind('_Feedback'), findsOneWidget);
         await tester.tap(kind('_ScenarioCard'));
         await pump(tester);
-        expect(find.text('BABAK 3 / SITUASI 2 DARI 4'), findsOneWidget);
+        expect(find.text('SITUASI 2'), findsOneWidget);
         expect(kind('_Feedback'), findsNothing);
         await tester.tapAt(const Offset(4, 4));
         await pump(tester);
-        expect(find.text('BABAK 3 / SITUASI 2 DARI 4'), findsOneWidget);
+        expect(find.text('SITUASI 2'), findsOneWidget);
         await tester.pumpWidget(const SizedBox.shrink());
       },
     );
@@ -252,8 +252,8 @@ void main() {
       await tester.tap(kind('_ChoiceButton').first);
       await pump(tester);
       expect(
-        tester.getSemantics(find.text('BABAK 3 / SITUASI 1 DARI 4')).label,
-        'BABAK 3 / SITUASI 1 DARI 4',
+        tester.getSemantics(find.text('SITUASI 1')).label,
+        'SITUASI 1',
         reason:
             'A page-level tap must not merge all reading content into one node',
       );

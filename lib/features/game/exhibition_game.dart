@@ -3150,7 +3150,7 @@ class _Eyebrow extends StatelessWidget {
   Widget build(BuildContext context) => Padding(
     padding: const EdgeInsets.only(bottom: 7),
     child: LocalizedText(
-      text,
+      AppCopy.translate(text).split('/').first.trim(),
       style: TextStyle(
         color: dark ? Colors.white70 : KifcTheme.mutedInk,
         fontSize: 9,

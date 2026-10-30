@@ -25,14 +25,14 @@ void main() {
       await tester.tap(kind('_ChoiceButton').at(correct ? 0 : 1));
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 14999));
-      expect(find.text('BABAK 3 / SITUASI 1 DARI 4'), findsOneWidget);
+      expect(find.text('SITUASI 1'), findsOneWidget);
       expect(kind('_Feedback'), findsOneWidget);
       await tester.pump(const Duration(milliseconds: 1));
-      expect(find.text('BABAK 3 / SITUASI 2 DARI 4'), findsOneWidget);
+      expect(find.text('SITUASI 2'), findsOneWidget);
       expect(kind('_Feedback'), findsNothing);
       await tester.pump(const Duration(seconds: 20));
       expect(
-        find.text('BABAK 3 / SITUASI 2 DARI 4'),
+        find.text('SITUASI 2'),
         findsOneWidget,
         reason: 'The next unanswered question must not inherit a timer',
       );

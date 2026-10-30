@@ -65,6 +65,82 @@ void main() {
         await tester.pumpWidget(const SizedBox.shrink());
         AppCopy.locale = AppLocale.indonesian;
       });
+      testWidgets('R30-02 chapter labels across pages $suffix', (tester) async {
+        for (final (page, card) in [
+          ('triangleBuild', 0),
+          ('triangleExplanation', 0),
+          ('breakTriangle', 0),
+          ('karhutlaCards', 0),
+          ('karhutlaCards', 1),
+          ('karhutlaCards', 2),
+          ('risk', 0),
+          ('causeQuiz', 0),
+          ('peatCharacteristics', 0),
+          ('finalChallenge', 0),
+          ('finalReview', 0),
+          ('score', 0),
+        ]) {
+          await tester.pumpWidget(const SizedBox.shrink());
+          await launchScreen(
+            tester,
+            size: size,
+            locale: locale,
+            page: page,
+            cardIndex: card,
+          );
+          await tester.pump(const Duration(milliseconds: 700));
+          expect(tester.takeException(), isNull, reason: '$page-$card-$suffix');
+          final label = tester
+              .widget<Text>(
+                find.descendant(
+                  of: kind('_Eyebrow'),
+                  matching: find.byType(Text),
+                ),
+              )
+              .data!;
+          expect(label, isNot(contains('/')));
+          expect(label.trim(), isNotEmpty);
+          final chapter = switch (page) {
+            'triangleBuild' || 'triangleExplanation' || 'breakTriangle' => 1,
+            'karhutlaCards' || 'risk' => 2,
+            'causeQuiz' => 3,
+            _ => 4,
+          };
+          if (page != 'score') {
+            expect(label, switch (locale) {
+              AppLocale.indonesian => 'BABAK $chapter',
+              AppLocale.english => 'CHAPTER $chapter',
+              AppLocale.korean => '$chapter장',
+            });
+          }
+          final progress = AppCopy.translate(
+            locale == AppLocale.english
+                ? 'CHAPTER $chapter/4'
+                : 'BABAK $chapter/4',
+          );
+          // The active challenge intentionally shows its countdown here instead.
+          expect(
+            find.text(progress),
+            (page == 'finalChallenge' || page == 'finalReview')
+                ? findsNothing
+                : findsOneWidget,
+            reason: '$page-$card-$suffix',
+          );
+          await captureScreen(tester, '$page-$card-$suffix', {
+            'ticket': 'KIFC-R30-02',
+            'source': 'Flutter widget render',
+            'language': locale.name,
+            'width': size.width,
+            'height': size.height,
+            'page': page,
+            'card': card,
+            'eyebrow': label,
+            'physicalTVReachValidated': false,
+          });
+        }
+        await tester.pumpWidget(const SizedBox.shrink());
+        AppCopy.locale = AppLocale.indonesian;
+      });
     }
   }
 }

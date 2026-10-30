@@ -2,7 +2,7 @@
 
 Sumber: daftar revisi klien yang disampaikan pemilik proyek dan klarifikasinya dalam percakapan 30 Oktober 2026. Tujuan dokumen ini adalah memetakan pekerjaan, cara penerapan, dependensi, dan bukti penyelesaiannya. Pembuatan tracker tidak berarti revisi game sudah diimplementasikan.
 
-**Status terkini: 19 Belum dikerjakan, 0 Dikerjakan, 0 Siap ditinjau, 1 Selesai secara implementasi.**
+**Status terkini: 18 Belum dikerjakan, 0 Dikerjakan, 0 Siap ditinjau, 2 Selesai secara implementasi.**
 
 ID `KIFC-R30-01` sampai `KIFC-R30-20` khusus untuk putaran ini, bukan nomor halaman atau babak. Riwayat lama tetap disimpan di [tracker 23 Oktober](kifc-screen-revision-tracker-2026-10-23.md). Status pekerjaan lama tidak dipindahkan menjadi status selesai untuk kebutuhan baru.
 
@@ -37,8 +37,8 @@ Keputusan ini menggantikan ketentuan lama tentang demo yang wajib dicoba, seluru
 
 | Urut / ID | Pekerjaan | Halaman | Kesulitan | Dependensi | Status | Commit |
 |---|---|---|---|---|---|---|
-| KIFC-R30-01 | Hapus caption hutan gambut dan aliran air | Pembuka | Sangat mudah | Tidak ada | Selesai | Dicatat setelah commit |
-| KIFC-R30-02 | Sederhanakan label babak di atas judul | Semua halaman berlabel babak | Sangat mudah | Tidak ada | Belum dikerjakan | — |
+| KIFC-R30-01 | Hapus caption hutan gambut dan aliran air | Pembuka | Sangat mudah | Tidak ada | Selesai | `9e21c95` |
+| KIFC-R30-02 | Sederhanakan label babak di atas judul | Semua halaman berlabel babak | Sangat mudah | Tidak ada | Selesai | Dicatat setelah commit |
 | KIFC-R30-03 | Perbaiki kapitalisasi judul penutup | Penutup terakhir | Sangat mudah | Tidak ada | Belum dikerjakan | — |
 | KIFC-R30-04 | Ubah timer khusus penutup menjadi 30 detik | Penutup terakhir | Mudah | Tidak ada | Belum dikerjakan | — |
 | KIFC-R30-05 | Rapikan susunan judul Karhutla pertama | Bacaan Karhutla 1 | Mudah | Tidak ada | Belum dikerjakan | — |
@@ -86,13 +86,15 @@ Nomor pendek pada dependensi merujuk tiket dengan awalan yang sama. Tiket sumber
 
 ### KIFC-R30-02 — Sederhanakan label babak
 
-**Status:** Belum dikerjakan. **Area kode:** label `eyebrow` pada halaman di `exhibition_game.dart` dan `lib/core/localization/app_locale.dart` bila diperlukan.
+**Status:** Selesai secara implementasi; belum merupakan pengesahan klien. **Area kode:** label `eyebrow` pada halaman di `exhibition_game.dart` dan `lib/core/localization/app_locale.dart` bila diperlukan.
 
-- [ ] Ganti label seperti `BABAK 2 / HUTAN RAWA GAMBUT` menjadi `BABAK 2`, dengan padanan bahasa yang benar pada setiap halaman.
-- [ ] Terapkan ke penyusunan/penjelasan unsur, bacaan/kuis gambut, penyebab, kartu gambut, tantangan/ulasan, dan skor yang memiliki label tersebut.
-- [ ] Pertahankan indikator progres `BABAK 2/4` yang terpisah, judul utama, dan informasi urutan soal; jangan menghapus semua teks bertanda slash secara global.
+- [x] Ganti label seperti `BABAK 2 / HUTAN RAWA GAMBUT` menjadi `BABAK 2`, dengan padanan bahasa yang benar pada setiap halaman.
+- [x] Terapkan ke penyusunan/penjelasan unsur, bacaan/kuis gambut, penyebab, kartu gambut, tantangan/ulasan, dan skor yang memiliki label tersebut.
+- [x] Pertahankan indikator progres `BABAK 2/4` yang terpisah, judul utama, dan informasi urutan soal; jangan menghapus semua teks bertanda slash secara global.
 
 **Selesai jika:** seluruh label babak konsisten, tidak ada deskripsi lama sesudah slash, dan progres tetap benar. Bukti: inventaris halaman dan screenshot tiga bahasa.
+
+**Bukti:** [Review tiket 02](../../docs/client-revisions/2026-10-30/r30-02-review.md).
 
 ### KIFC-R30-03 — Kapitalisasi judul penutup
 
@@ -319,4 +321,6 @@ Status diperbarui setelah implementasi dan pemeriksaan nyata. Selesai secara imp
 
 | Tanggal | Tiket | Perubahan status | Commit implementasi | Bukti dan hasil pemeriksaan | Peninjau / catatan |
 |---|---|---|---|---|---|
-| 30 Oktober 2026 | KIFC-R30-01 | Belum dikerjakan → Selesai implementasi | Dicatat setelah commit | 23 tes lulus; analisis bersih; 15 render tiga bahasa/lima viewport diperiksa | Pemeriksaan internal; TV fisik belum diuji |
+| 30 Oktober 2026 | KIFC-R30-01 | Belum dikerjakan → Selesai implementasi | `9e21c95` | 23 tes lulus; analisis bersih; 15 render tiga bahasa/lima viewport diperiksa | Pemeriksaan internal; TV fisik belum diuji |
+
+| 30 Oktober 2026 | KIFC-R30-02 | Belum dikerjakan → Selesai implementasi | Dicatat setelah commit | 57 tes lulus; analisis bersih; 180 render dan contact sheet tiga bahasa | Pemeriksaan internal; TV fisik belum diuji |
