@@ -2,7 +2,7 @@
 
 Sumber: daftar revisi klien yang disampaikan pemilik proyek dan klarifikasinya dalam percakapan 30 Oktober 2026. Tujuan dokumen ini adalah memetakan pekerjaan, cara penerapan, dependensi, dan bukti penyelesaiannya. Pembuatan tracker tidak berarti revisi game sudah diimplementasikan.
 
-**Status terkini: 13 Belum dikerjakan, 0 Dikerjakan, 0 Siap ditinjau, 7 Selesai secara implementasi.**
+**Status terkini: 12 Belum dikerjakan, 0 Dikerjakan, 0 Siap ditinjau, 8 Selesai secara implementasi.**
 
 ID `KIFC-R30-01` sampai `KIFC-R30-20` khusus untuk putaran ini, bukan nomor halaman atau babak. Riwayat lama tetap disimpan di [tracker 23 Oktober](kifc-screen-revision-tracker-2026-10-23.md). Status pekerjaan lama tidak dipindahkan menjadi status selesai untuk kebutuhan baru.
 
@@ -43,8 +43,8 @@ Keputusan ini menggantikan ketentuan lama tentang demo yang wajib dicoba, seluru
 | KIFC-R30-04 | Ubah timer khusus penutup menjadi 30 detik | Penutup terakhir | Mudah | Tidak ada | Selesai | `9630b86` |
 | KIFC-R30-05 | Rapikan susunan judul Karhutla pertama | Bacaan Karhutla 1 | Mudah | Tidak ada | Selesai | `618a1ce` (koreksi) |
 | KIFC-R30-06 | Tambahkan tombol akhiri tantangan lebih awal | Tantangan akhir | Sedang | Tidak ada | Selesai | `41384fa` |
-| KIFC-R30-07 | Hapus demo pengurangan dan sambungkan navigasi | Babak 1 dan transisi ke Babak 2 | Sedang | Tidak ada | Selesai | Dicatat setelah commit |
-| KIFC-R30-08 | Terima drop di seluruh panel unsur | Penyusunan unsur | Sedang | Tidak ada | Belum dikerjakan | — |
+| KIFC-R30-07 | Hapus demo pengurangan dan sambungkan navigasi | Babak 1 dan transisi ke Babak 2 | Sedang | Tidak ada | Selesai | `d069340` |
+| KIFC-R30-08 | Terima drop di seluruh panel unsur | Penyusunan unsur | Sedang | Tidak ada | Selesai | Dicatat setelah commit |
 | KIFC-R30-09 | Terapkan Safari versi penuh | Musik lintas game | Sedang | Sumber penuh dan lisensi | Belum dikerjakan | — |
 | KIFC-R30-10 | Cari dan siapkan video kebakaran kamera statis | Aset panel hutan | Sedang, bergantung aset | Sumber dan izin penggunaan | Belum dikerjakan | — |
 | KIFC-R30-11 | Integrasikan background video kebakaran bersama | Penyusunan lengkap dan penjelasan Segitiga Api | Menengah–sulit | 07, 08, 10 | Belum dikerjakan | — |
@@ -160,14 +160,16 @@ Nomor pendek pada dependensi merujuk tiket dengan awalan yang sama. Tiket sumber
 
 ### KIFC-R30-08 — Drop di seluruh panel unsur
 
-**Status:** Belum dikerjakan. **Area kode:** `_TriangleBuild`, `_FireScene`, penerimaan drop dan `_dropPiece`; `test/assembly_review_test.dart`.
+**Status:** Selesai secara implementasi; belum merupakan pengesahan klien. **Area kode:** `_TriangleBuild`, `_FireScene`, penerimaan drop dan `_dropPiece`; `test/assembly_review_test.dart`.
 
-- [ ] Jadikan seluruh batas panel hutan target drop, bukan hanya tiga kartu tujuan. Kartu tujuan tetap menjadi tempat penyimpanan visual otomatis.
-- [ ] Unsur valid yang belum dipakai masuk ke posisi tersedia berikutnya. Foto tidak dibiarkan pada koordinat pelepasan. Decoy, duplikat, dan drop di luar panel tidak menambah poin.
-- [ ] Pertahankan feedback maskot dan hitungan 0/3 sampai 3/3. Saat lengkap, gesture drop terakhir tidak sekaligus melewati feedback.
-- [ ] Uji drop pada bagian atas, tengah, tepi, dan area kartu panel pada beberapa resolusi, serta reset dan replay. Panel dan kartu tidak berubah proporsi.
+- [x] Jadikan seluruh batas panel hutan target drop, bukan hanya tiga kartu tujuan. Kartu tujuan tetap menjadi tempat penyimpanan visual otomatis.
+- [x] Unsur valid yang belum dipakai masuk ke posisi tersedia berikutnya. Foto tidak dibiarkan pada koordinat pelepasan. Decoy, duplikat, dan drop di luar panel tidak menambah poin.
+- [x] Pertahankan feedback maskot dan hitungan 0/3 sampai 3/3. Saat lengkap, gesture drop terakhir tidak sekaligus melewati feedback.
+- [x] Uji drop pada bagian atas, tengah, tepi, dan area kartu panel pada beberapa resolusi, serta reset dan replay. Panel dan kartu tidak berubah proporsi.
 
 **Selesai jika:** seluruh panel menerima unsur dengan aturan yang sama dan penyimpanan otomatis stabil. Bukti: tes posisi/drop dan rekaman sentuhan.
+
+**Bukti:** [Review tiket 08](../../docs/client-revisions/2026-10-30/r30-08-review.md).
 
 ### KIFC-R30-09 — Safari versi penuh
 
@@ -338,4 +340,5 @@ Status diperbarui setelah implementasi dan pemeriksaan nyata. Selesai secara imp
 | 30 Oktober 2026 | KIFC-R30-05 | Belum dikerjakan → Selesai implementasi | `9c829f0` | 60 tes lulus; analisis bersih; 15 render diperiksa; grouping judul teruji | Pemeriksaan internal; TV fisik belum diuji |
 | 30 Oktober 2026 | KIFC-R30-06 | Belum dikerjakan → Selesai implementasi | `41384fa` | 65 tes terkait lulus; analisis bersih; 45 render diperiksa; deadline/submit dan cue tunggal teruji | Pemeriksaan internal; TV fisik belum diuji |
 | 30 Oktober 2026 | KIFC-R30-05 lanjutan | Koreksi visual setelah masukan pemilik | `618a1ce` | Judul Indonesia dua baris tanpa mengecilkan font; 15 tes/15 render tiga bahasa dan lima viewport lulus; analisis bersih | Pemeriksaan internal; menggantikan susunan Tapi, sendiri |
-| 30 Oktober 2026 | KIFC-R30-07 | Belum dikerjakan → Selesai implementasi | Dicatat setelah commit | 16 tes baru + 83 regresi lulus; 45 pemeriksaan alur diulang setelah cleanup; analisis bersih; 30 render diperiksa | Pemeriksaan internal; TV fisik belum diuji |
+| 30 Oktober 2026 | KIFC-R30-07 | Belum dikerjakan → Selesai implementasi | `d069340` | 16 tes baru + 83 regresi lulus; 45 pemeriksaan alur diulang setelah cleanup; analisis bersih; 30 render diperiksa | Pemeriksaan internal; TV fisik belum diuji |
+| 30 Oktober 2026 | KIFC-R30-08 | Belum dikerjakan → Selesai implementasi | Dicatat setelah commit | 47 tes interaksi gabungan lulus; suite lengkap 437 lulus; 1 tes capture tambahan lulus; analisis bersih; 60 render dan GIF frame widget diperiksa | Pemeriksaan internal; TV fisik belum diuji |

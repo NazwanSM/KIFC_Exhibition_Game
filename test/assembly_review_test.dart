@@ -125,8 +125,8 @@ void main() {
         expect(
           find.text(
             text(
-              'Seret tiga foto yang tepat ke tempat kosong.',
-              'Drag the right photos into the empty spaces.',
+              'Seret tiga foto yang tepat ke area hutan.',
+              'Drag the three correct photos into the forest.',
             ),
           ),
           findsOneWidget,
@@ -188,11 +188,11 @@ void main() {
           checkLayout();
         }
         await captureScreen(tester, 'incorrect-$lang-$res', metrics);
-        // Empty slots have no hidden categories: heat may fill the middle.
+        // Release position does not pick a hidden category or storage slot.
         await dropAssembly(tester, 0, 1);
         expect(filledAssembly(tester), 1);
         expect(
-          (tester.widget(assemblyType('_DropSlot').at(1)) as dynamic).filled,
+          (tester.widget(assemblyType('_DropSlot').at(0)) as dynamic).filled,
           isTrue,
         );
         await dropAssembly(tester, 2, 0);
@@ -272,8 +272,8 @@ void main() {
           findsOneWidget,
         );
         final placed = tester.widgetList(assemblyType('_DropSlot')).toList();
-        expect((placed[0] as dynamic).placedPiece.toString(), contains('fuel'));
-        expect((placed[1] as dynamic).placedPiece.toString(), contains('heat'));
+        expect((placed[0] as dynamic).placedPiece.toString(), contains('heat'));
+        expect((placed[1] as dynamic).placedPiece.toString(), contains('fuel'));
         await captureScreen(tester, 'explanation-$lang-$res', metrics);
         // Reading waits indefinitely; a separate background tap continues.
         await tester.pump(const Duration(seconds: 60));

@@ -9,3 +9,5 @@ Demo pengurangan dihapus dari enum halaman, navigasi, widget, state pilihan, sya
 - 30 screenshot aktual widget diperiksa pada 360×640, 411×731, 720×1280, 1080×1920 dan 2160×3840, ID/EN/KO: [penjelasan](r30-07-explanation.png) dan [bacaan berikutnya](r30-07-reading.png). Tidak ada CTA demo, clipping, atau halaman perantara. Ukuran panel tidak berubah.
 - Bukti lokal: build/review-r30-07-2026-10-30/ berisi screenshots, evidence-index.json, contact-explanation.png, contact-reading.png, red.log, tests.log, regression.log, final-tests.log dan analyze.log.
 - Bukti adalah render widget dan pengujian interaksi terotomasi; belum ada rekaman browser/APK baru atau foto TV fisik 42 inci. Tidak menyatakan jangkauan fisik maupun playback audio sudah diuji. Belum push/deploy; paket lama tidak berisi revisi ini.
+
+Verifikasi terpadu setelah tiket 08: [rangkaian frame interaksi](r30-08-gesture-journey.gif) memperlihatkan 3/3 unsur → penjelasan Segitiga Api → bacaan Karhutla pertama, tanpa demo. Sumber adalah widget Flutter, tanpa audio; bukan rekaman perangkat.

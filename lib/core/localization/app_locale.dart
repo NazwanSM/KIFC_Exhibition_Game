@@ -337,6 +337,11 @@ const Map<String, String> _korean = <String, String>{
       '충분한 열, 연료, 산소가 만나면 불이 날 수 있어요. 사람의 활동으로 이 세 요소가 한곳에 모일 수 있어요. 그래서 불이 나지 않도록 미리 예방하는 것이 중요해요.',
   'Choose three elements.': '불의 세 요소를 고르세요.',
   'Pilih tiga unsur api.': '불의 세 요소를 고르세요.',
+  'Drag the three correct photos into the forest.':
+      '올바른 사진 세 장을 숲 영역으로 끌어 놓으세요.',
+  'Seret tiga foto yang tepat ke area hutan.': '올바른 사진 세 장을 숲 영역으로 끌어 놓으세요.',
+  'Auto-filled': '자동 배치',
+  'Terisi otomatis': '자동 배치',
   'Drag the right photos into the empty spaces.': '알맞은 사진 세 장을 빈칸으로 드래그하세요.',
   'Seret tiga foto yang tepat ke tempat kosong.': '알맞은 사진 세 장을 빈칸으로 드래그하세요.',
   'This photo is already in place. Try another photo.':

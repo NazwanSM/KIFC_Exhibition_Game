@@ -16,6 +16,12 @@ Future<void> settle(WidgetTester tester) async {
   await tester.pump(const Duration(milliseconds: 500));
 }
 
+Future<void> dropAt(WidgetTester tester, int piece, Offset position) async {
+  final source = kind('_DraggablePiece').at(piece);
+  await tester.drag(source, position - tester.getCenter(source));
+  await settle(tester);
+}
+
 void main() {
   setUpAll(() async {
     await loadGameFonts();
@@ -30,6 +36,135 @@ void main() {
     for (final locale in AppLocale.values) {
       final suffix =
           '${locale.name}-${size.width.toInt()}x${size.height.toInt()}';
+      testWidgets(
+        'R30-08 whole forest accepts and auto-places elements $suffix',
+        (tester) async {
+          await launchScreen(
+            tester,
+            size: size,
+            locale: locale,
+            page: 'triangleBuild',
+          );
+          await settle(tester);
+          final panel = tester.getRect(kind('_FireScene'));
+          final slots = [
+            for (final slot in kind('_DropSlot').evaluate())
+              tester.getRect(find.byElementPredicate((e) => e == slot)),
+          ];
+          final reset = AppCopy.translate(
+            locale == AppLocale.english ? 'Restart' : 'Ulangi',
+          );
+          final metrics = <String, Object>{
+            'ticket': 'KIFC-R30-08',
+            'source': 'Flutter widget render',
+            'language': locale.name,
+            'width': size.width,
+            'height': size.height,
+            'physicalTVReachValidated': false,
+          };
+          await captureScreen(tester, 'empty-$suffix', metrics);
+          await dropAt(tester, 1, panel.topCenter + const Offset(0, 6));
+          expect(
+            filledAssembly(tester),
+            0,
+            reason: 'Water is a decoy throughout the forest',
+          );
+          await dropAt(tester, 0, panel.topCenter + const Offset(0, 6));
+          expect(filledAssembly(tester), 1);
+          expect(
+            (tester.widget(kind('_DropSlot').first) as dynamic).placedPiece
+                .toString(),
+            contains('heat'),
+          );
+          expect(find.byKey(const ValueKey('fire')), findsNothing);
+          await captureScreen(tester, 'partial-$suffix', metrics);
+          await dropAt(tester, 0, panel.center);
+          expect(
+            filledAssembly(tester),
+            1,
+            reason: 'An already placed card cannot count twice',
+          );
+          final fuel = tester.getCenter(kind('_DraggablePiece').at(2));
+          final gesture = await tester.startGesture(fuel);
+          await gesture.moveTo(panel.center);
+          await tester.pump(const Duration(milliseconds: 120));
+          expect(
+            find.byKey(const ValueKey('forest-drop-highlight')),
+            findsOneWidget,
+          );
+          await captureScreen(tester, 'dragging-$suffix', metrics);
+          await gesture.moveTo(slots.first.center);
+          await gesture.up();
+          await settle(tester);
+          expect(
+            filledAssembly(tester),
+            2,
+            reason: 'Dropping over an occupied slot fills the next one',
+          );
+          expect(
+            (tester.widget(kind('_DropSlot').at(1)) as dynamic).placedPiece
+                .toString(),
+            contains('fuel'),
+          );
+          await dropAt(tester, 4, panel.topRight + const Offset(-12, 20));
+          expect(filledAssembly(tester), 3);
+          expect(find.byKey(const ValueKey('fire')), findsOneWidget);
+          expect(
+            kind('_TriangleBuild'),
+            findsOneWidget,
+            reason: 'The last drop must not dismiss feedback',
+          );
+          expect(tester.getRect(kind('_FireScene')), panel);
+          for (var i = 0; i < 3; i++) {
+            expect(tester.getRect(kind('_DropSlot').at(i)), slots[i]);
+          }
+          await captureScreen(tester, 'complete-$suffix', metrics);
+          await tester.tap(find.text(reset));
+          await settle(tester);
+          final inside = [
+            panel.topCenter + const Offset(0, 1),
+            panel.centerLeft + const Offset(1, 0),
+            panel.centerRight - const Offset(1, 0),
+            panel.bottomCenter - const Offset(0, 1),
+            panel.topLeft + Offset(panel.width * .15, panel.height * .2),
+            panel.center,
+            panel.topLeft + Offset(panel.width * .85, panel.height * .6),
+            slots.first.center,
+            slots.last.center,
+          ];
+          for (final point in inside) {
+            await dropAt(tester, 0, point);
+            expect(
+              filledAssembly(tester),
+              1,
+              reason: 'Visible panel point $point accepts an element',
+            );
+            expect(
+              (tester.widget(kind('_DropSlot').first) as dynamic).filled,
+              isTrue,
+            );
+            await tester.tap(find.text(reset));
+            await settle(tester);
+          }
+          for (final point in [
+            panel.topCenter - const Offset(0, 1),
+            panel.centerLeft - const Offset(1, 0),
+            panel.centerRight + const Offset(1, 0),
+            panel.bottomCenter + const Offset(0, 1),
+          ]) {
+            await dropAt(tester, 0, point);
+            expect(
+              filledAssembly(tester),
+              0,
+              reason: 'Outside point $point must not count',
+            );
+          }
+          expect(find.byKey(const ValueKey('fire')), findsNothing);
+          expect(tester.takeException(), isNull);
+          await tester.pumpWidget(const SizedBox.shrink());
+          AppCopy.locale = AppLocale.indonesian;
+        },
+      );
       testWidgets('R30-07 explanation goes directly to reading $suffix', (
         tester,
       ) async {
@@ -97,6 +232,55 @@ void main() {
       });
     }
   }
+  testWidgets(
+    'R30-08 concurrent duplicate gestures and stale callbacks cannot add points',
+    (tester) async {
+      await launchScreen(
+        tester,
+        size: const Size(411, 731),
+        locale: AppLocale.indonesian,
+        page: 'triangleBuild',
+      );
+      await settle(tester);
+      final dynamic callback =
+          (tester.widget(kind('_TriangleBuild')) as dynamic).onDrop;
+      final draggable = find.byWidgetPredicate((w) => w is Draggable).first;
+      final dynamic heat = (tester.widget(draggable) as dynamic).data;
+      final start = tester.getCenter(kind('_DraggablePiece').first);
+      final panel = tester.getRect(kind('_FireScene'));
+      final first = await tester.startGesture(start, pointer: 1);
+      final second = await tester.startGesture(start, pointer: 2);
+      await first.moveTo(panel.topCenter + const Offset(0, 10));
+      await second.moveTo(panel.center);
+      await tester.pump();
+      await first.up();
+      await second.up();
+      await settle(tester);
+      expect(filledAssembly(tester), 1);
+      await dropAt(tester, 2, panel.center);
+      await dropAt(tester, 4, panel.center);
+      expect(filledAssembly(tester), 3);
+      callback(heat);
+      await settle(tester);
+      expect(
+        (tester.widget(kind('_TriangleBuild')) as dynamic).lastDropCorrect,
+        isTrue,
+      );
+      await tester.tapAt(const Offset(4, 4));
+      await settle(tester);
+      expect(kind('_TriangleExplanation'), findsOneWidget);
+      callback(heat);
+      await settle(tester);
+      expect(kind('_TriangleExplanation'), findsOneWidget);
+      final placed =
+          (tester.widget(kind('_TriangleExplanation')) as dynamic).pieces
+              as Map;
+      expect(placed.length, 3);
+      await tester.pumpWidget(const SizedBox.shrink());
+      callback(heat);
+      expect(tester.takeException(), isNull);
+    },
+  );
   testWidgets(
     'R30-07 completion timer cannot skip reading; back and replay reset assembly',
     (tester) async {

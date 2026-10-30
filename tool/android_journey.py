@@ -13,7 +13,7 @@ from android_review import AndroidReview
 STRINGS = {
     "start": ("Mulai Tantangan", "Start Challenge", "도전 시작"),
     "choose": ("Pilih tiga unsur api.", "Choose three elements.", "불의 세 요소를 골라 보세요."),
-    "drop": ("Taruh di sini", "Drop here", "여기에 놓기"),
+    "drop": ("Terisi otomatis", "Auto-filled", "자동 배치"),
     "water": ("Air", "Water", "물"),
     "spark": ("Percikan api", "Sparks", "불꽃"),
     "wood": ("Kayu kering", "Dry wood", "마른 나무"),
