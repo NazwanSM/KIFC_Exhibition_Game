@@ -18,7 +18,7 @@ STRINGS = {
     "spark": ("Percikan api", "Sparks", "불꽃"),
     "wood": ("Kayu kering", "Dry wood", "마른 나무"),
     "air": ("O₂ Oksigen dari udara", "O₂ Oxygen from air", "O₂ 공기 중 산소"),
-    "reduce": ("Coba Kurangi Satu Unsur", "Try Reducing an Element", "요소 하나 줄여 보기"),
+    "reading": ("Lanjut", "Continue", "계속"),
     "heat": ("Panas", "Heat", "열"),
     "fuel": ("Bahan bakar", "Fuel", "연료"),
     "oxygen": ("Oksigen", "Oxygen", "산소"),
@@ -74,16 +74,9 @@ def run(language, output, build_mode="debug"):
     r.capture("assembly-complete", hierarchy=True)
     assert any("3/3" in r.label(n) for n in r.nodes)
     r.tap_at(540, 680)  # Completion accepts a deliberate next tap anywhere.
-    r.wait(label("reduce"), clickable=True)
+    r.wait(label("reading"), clickable=True)
     r.capture("fire-explanation")
-    r.tap(label("reduce"), refresh=False, clickable=True)
-    r.wait(label("heat"), clickable=True)
-    r.capture("reduction-before")
-    for key in ["heat", "fuel", "oxygen"]:
-        r.tap(label(key), clickable=True)
-        r.capture("reduction-" + key)
-    r.wait(label("next"), clickable=True)
-    r.tap(label("next"), refresh=False, clickable=True)
+    r.tap(label("reading"), refresh=False, clickable=True)
     r.wait(label("definition"))
     r.capture("reading-definition")
     r.tap(label("next"), refresh=False, clickable=True)

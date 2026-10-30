@@ -352,66 +352,8 @@ class GameFlow {
       findsOneWidget,
     );
     await capture('fire-explanation');
-    await tap(text('Coba Kurangi Satu Unsur', 'Try Reducing an Element'));
-    expect(
-      tester.getSize(type('_FireScene')),
-      trianglePanelSize,
-      reason: 'Prevention must use the same panel as the build activity',
-    );
-    for (final demo in [
-      (
-        text('Panas', 'Heat'),
-        text('Suhu turun, api mereda.', 'Less heat, a weaker flame.'),
-      ),
-      (
-        text('Bahan bakar', 'Fuel'),
-        text(
-          'Beri jarak agar api sulit menjalar.',
-          'Gaps interrupt the spread.',
-        ),
-      ),
-      (
-        text('Oksigen', 'Oxygen'),
-        text(
-          'Api perlu oksigen dari udara.',
-          'Fire needs oxygen from the air.',
-        ),
-      ),
-    ]) {
-      final tab = find.descendant(
-        of: type('_ChoiceButton'),
-        matching: find.text(demo.$1),
-      );
-      await tester.tap(tab);
-      await pump();
-      check('triangle demo ${demo.$1}');
-      expect(find.text(demo.$2), findsOneWidget);
-      await capture(
-        'demo-${demo.$1 == text('Panas', 'Heat')
-            ? 'heat'
-            : demo.$1 == text('Bahan bakar', 'Fuel')
-            ? 'fuel'
-            : 'oxygen'}',
-      );
-      expect(
-        type('_AnswerMark'),
-        findsNothing,
-        reason: 'Exploration has no correct or incorrect answers',
-      );
-      expect(
-        tester.getSize(type('_FireScene')),
-        trianglePanelSize,
-        reason: 'Reducing an element changes the flame, not the panel size',
-      );
-    }
-    // The demo is unscored and only moves on once all three elements are tried.
-    expect(
-      find.text(text('3/3 unsur sudah dicoba', '3/3 elements tried')),
-      findsOneWidget,
-    );
-    await capture('demo-complete');
-    await tester.tap(find.byKey(const ValueKey('reduction-continue')));
-    await pump();
+    expect(tester.getSize(type('_FireScene')), trianglePanelSize);
+    await tap(text('Lanjut', 'Continue'));
     check('karhutla');
     expect(find.byKey(const ValueKey('karhutla-definition')), findsOneWidget);
     await capture('karhutla-definition');
@@ -767,11 +709,13 @@ void main() {
     await flow.tap('Kembali');
     await flow.tap('Kembali');
     await flow.tap('Kembali');
-    expect(find.text('Kurangi satu unsur.'), findsOneWidget);
+    expect(flow.type('_TriangleExplanation'), findsOneWidget);
+    await flow.tap('Kembali');
+    expect(flow.type('_TriangleBuild'), findsOneWidget);
     expect(
       tester
-          .widgetList(flow.type('_ChoiceButton'))
-          .every((w) => (w as dynamic).onTap != null),
+          .widgetList(flow.type('_DropSlot'))
+          .every((w) => !(w as dynamic).filled),
       isTrue,
     );
     await tester.pumpWidget(const SizedBox.shrink());

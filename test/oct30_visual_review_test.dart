@@ -69,7 +69,6 @@ void main() {
         for (final (page, card) in [
           ('triangleBuild', 0),
           ('triangleExplanation', 0),
-          ('breakTriangle', 0),
           ('karhutlaCards', 0),
           ('karhutlaCards', 1),
           ('karhutlaCards', 2),
@@ -101,7 +100,7 @@ void main() {
           expect(label, isNot(contains('/')));
           expect(label.trim(), isNotEmpty);
           final chapter = switch (page) {
-            'triangleBuild' || 'triangleExplanation' || 'breakTriangle' => 1,
+            'triangleBuild' || 'triangleExplanation' => 1,
             'karhutlaCards' || 'risk' => 2,
             'causeQuiz' => 3,
             _ => 4,

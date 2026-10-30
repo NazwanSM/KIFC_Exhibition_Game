@@ -32,15 +32,15 @@ Satu kode Flutter digunakan untuk APK Android dan web. Foto, maskot, font, anima
   <tr>
     <td><a href="docs/screenshots/welcome.png"><img src="docs/screenshots/welcome.png" width="240" alt="Halaman pembuka dengan pilihan Indonesia, Inggris, Korea, maskot, dan tombol mulai"></a></td>
     <td><a href="docs/screenshots/assembly.png"><img src="docs/screenshots/assembly.png" width="240" alt="Aktivitas menyeret tiga foto unsur api ke slot di dalam hutan"></a></td>
-    <td><a href="docs/screenshots/fire-triangle.png"><img src="docs/screenshots/fire-triangle.png" width="240" alt="Penjelasan segitiga api dengan enam titik api, maskot di kiri, dan tombol di kanan"></a></td>
+    <td><a href="docs/client-revisions/2026-10-30/r30-07-explanation.png"><img src="docs/client-revisions/2026-10-30/r30-07-explanation.png" width="240" alt="Penjelasan segitiga api dengan enam titik api, maskot di kiri, dan tombol di kanan"></a></td>
   </tr>
   <tr>
-    <th>Mengurangi unsur</th>
+    <th>Bacaan Karhutla</th>
     <th>Kartu informasi gambut</th>
     <th>Tantangan akhir</th>
   </tr>
   <tr>
-    <td><a href="docs/screenshots/element-reduction.png"><img src="docs/screenshots/element-reduction.png" width="240" alt="Demo pengurangan panas dengan sebagian titik api padam dan penjelasan mekanismenya"></a></td>
+    <td><a href="docs/client-revisions/2026-10-30/r30-07-reading.png"><img src="docs/client-revisions/2026-10-30/r30-07-reading.png" width="240" alt="Bacaan Karhutla pertama setelah penjelasan Segitiga Api, tanpa demo pengurangan"></a></td>
     <td><a href="docs/screenshots/peat-cards.png"><img src="docs/screenshots/peat-cards.png" width="240" alt="Tiga kartu bernomor dengan foto berbeda, dialog sejajar maskot, dan tombol lanjut"></a></td>
     <td><a href="docs/screenshots/final-challenge.png"><img src="docs/screenshots/final-challenge.png" width="240" alt="Tantangan memilih dampak kebakaran gambut dengan enam foto dan countdown melingkar"></a></td>
   </tr>
@@ -58,24 +58,24 @@ Satu kode Flutter digunakan untuk APK Android dan web. Foto, maskot, font, anima
 </table>
 </details>
 
-Screenshot berasal dari **APK di emulator Android API 35, 1080 × 1920, density 420**, diambil pada 25 Oktober 2026 dalam bahasa Inggris. Gambar diperkecil secara proporsional menjadi 540 × 960 tanpa mengubah tampilan UI. Pembuka sampai kartu gambut memakai APK review **1.0.2**; tantangan, ulasan, dan skor memakai **1.0.1** dari pengujian E2E sebelumnya. [Indeks sumber dan checksum](docs/screenshots/index.json). Ini bukan foto atau bukti uji jangkauan TV fisik.
+Screenshot penjelasan Segitiga Api dan bacaan Karhutla berasal dari **render widget Flutter 411 × 731, bahasa Indonesia, 30 Oktober 2026** ([review revisi 07](docs/client-revisions/2026-10-30/r30-07-review.md)). Screenshot lainnya berasal dari **APK di emulator Android API 35, 1080 × 1920, density 420**, diambil pada 25 Oktober 2026 dalam bahasa Inggris. Gambar diperkecil secara proporsional menjadi 540 × 960 tanpa mengubah tampilan UI. Pembuka sampai kartu gambut memakai APK review **1.0.2**; tantangan, ulasan, dan skor memakai **1.0.1** dari pengujian E2E sebelumnya. [Indeks sumber dan checksum](docs/screenshots/index.json). Ini bukan foto atau bukti uji jangkauan TV fisik.
 
 ## Cara bermain
 
 1. **Pilih bahasa dan mulai.** Tersedia Bahasa Indonesia, English, dan 한국어.
-2. **Babak 1 — Tiga unsur api.** Seret foto yang sesuai ke tiga slot. Api muncul setelah panas, bahan bakar, dan oksigen lengkap. Baca penjelasannya, lalu coba kurangi setiap unsur: dua titik api tambahan padam pada setiap pilihan baru, dari 6 → 4 → 2 → 0.
+2. **Babak 1 — Tiga unsur api.** Seret foto yang sesuai ke tiga slot. Api muncul setelah panas, bahan bakar, dan oksigen lengkap. Baca penjelasan Segitiga Api, lalu lanjut langsung ke bacaan Karhutla. Demo pengurangan unsur telah dihapus.
 3. **Babak 2 — Mengenal karhutla.** Baca tiga kartu penjelasan bersama maskot, kemudian jawab pertanyaan tentang hutan rawa gambut. Jawaban salah pertama mendapat petunjuk dan satu kesempatan lagi.
 4. **Babak 3 — Mengenali penyebab.** Tentukan apakah empat situasi dipicu aktivitas manusia atau faktor alam, lalu baca alasannya.
-5. **Babak 4 — Gambut dan dampaknya.** Buka tiga kartu informasi, kemudian pilih semua dampak yang sesuai dalam **30 detik**. Pilihan tetap netral selama tantangan; ulasan muncul setelah waktu habis.
-6. **Lihat hasil dan bermain lagi.** Skor maksimum **8 poin**: unsur api 3, penyebab 4, dan bonus tantangan dampak hingga 1. Demo pengurangan unsur dan kartu informasi tidak menambah skor.
+5. **Babak 4 — Gambut dan dampaknya.** Buka tiga kartu informasi, kemudian pilih semua dampak yang sesuai dalam **30 detik**. Pilihan tetap netral selama tantangan; tekan **Selesai Memilih** untuk membuka ulasan lebih awal, atau tunggu waktu habis.
+6. **Lihat hasil dan bermain lagi.** Skor maksimum **8 poin**: unsur api 3, penyebab 4, dan bonus tantangan dampak hingga 1. Kartu informasi tidak menambah skor.
 
-Feedback yang sudah selesai dan halaman hasil memberi waktu baca **15 detik**, atau dapat dilanjutkan lebih cepat dengan menyentuh konten/latar layar. Kartu bacaan dan kartu informasi dilanjutkan secara manual. Tombol navigasi, kartu, serta pengaturan suara tetap menjalankan fungsinya sendiri.
+Feedback yang sudah selesai dan halaman hasil memberi waktu baca **15 detik**, atau dapat dilanjutkan lebih cepat dengan menyentuh konten/latar layar. Penutup terakhir memiliki waktu 30 detik. Kartu bacaan dan kartu informasi dilanjutkan secara manual. Tombol navigasi, kartu, serta pengaturan suara tetap menjalankan fungsinya sendiri.
 
 ## Fitur utama
 
 - **Dirancang untuk sentuhan portrait.** Target pameran adalah TV sentuh 42 inci; komposisi web dipertahankan dalam bingkai 9:16 saat ukuran browser berubah.
 - **Maskot sebagai pemandu.** Petunjuk, kesempatan mencoba lagi, dan feedback memakai dialog serta pose yang mengikuti konteks.
-- **Visual hutan dan api.** Foto dengan proporsi terjaga, enam titik api terpisah, animasi transparan dari rekaman, dan pemadaman bertahap.
+- **Visual hutan dan api.** Foto dengan proporsi terjaga, enam titik api terpisah, animasi transparan dari rekaman yang muncul ketika ketiga unsur lengkap.
 - **Interaksi dan transisi.** Drag-and-drop, kartu flip, respons tombol, kemunculan feedback, serta countdown melingkar yang berubah warna mendekati akhir waktu.
 - **Audio yang dapat diatur.** Musik, suasana hutan, dan efek interaksi memiliki kontrol terpisah serta mute. Audio dimulai setelah interaksi dan dijeda saat aplikasi tidak aktif. Tidak ada sulih suara maskot.
 - **Aset lokal dan tiga bahasa.** Font Hangul ikut dibundel; APK tidak memerlukan akun, server aplikasi, atau unduhan aset saat bermain.

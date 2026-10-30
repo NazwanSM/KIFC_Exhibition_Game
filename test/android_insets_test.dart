@@ -45,7 +45,6 @@ void main() {
       await tester.pumpWidget(const SizedBox.shrink());
       for (final page in [
         'triangleExplanation',
-        'breakTriangle',
         'karhutlaCards',
         'risk',
         'causeQuiz',

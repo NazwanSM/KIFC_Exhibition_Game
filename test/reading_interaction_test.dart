@@ -115,32 +115,10 @@ void main() {
       expect(kind('_TriangleExplanation'), findsOneWidget);
       await tester.tapAt(const Offset(4, 4));
       await pump(tester);
-      expect(kind('_BreakTriangle'), findsOneWidget);
+      expect(find.byKey(const ValueKey('karhutla-definition')), findsOneWidget);
       await tester.pumpWidget(const SizedBox.shrink());
     },
   );
-
-  testWidgets('reduction waits at 3/3; untried elements cannot be skipped', (
-    tester,
-  ) async {
-    await launch(tester, 'breakTriangle');
-    for (var i = 0; i < 3; i++) {
-      await tester.tap(kind('_ChoiceButton').at(i));
-      await pump(tester);
-      expect(kind('_BreakTriangle'), findsOneWidget);
-      if (i < 2) {
-        await tester.tapAt(const Offset(4, 4));
-        await pump(tester);
-        expect(kind('_BreakTriangle'), findsOneWidget);
-      }
-    }
-    await pump(tester, 5000);
-    expect(kind('_BreakTriangle'), findsOneWidget);
-    await tester.tapAt(const Offset(4, 4));
-    await pump(tester);
-    expect(find.byKey(const ValueKey('karhutla-definition')), findsOneWidget);
-    await tester.pumpWidget(const SizedBox.shrink());
-  });
 
   testWidgets(
     'review, score and closing accept separate taps before their deadlines',

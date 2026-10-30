@@ -2,7 +2,7 @@
 
 Sumber: daftar revisi klien yang disampaikan pemilik proyek dan klarifikasinya dalam percakapan 30 Oktober 2026. Tujuan dokumen ini adalah memetakan pekerjaan, cara penerapan, dependensi, dan bukti penyelesaiannya. Pembuatan tracker tidak berarti revisi game sudah diimplementasikan.
 
-**Status terkini: 14 Belum dikerjakan, 0 Dikerjakan, 0 Siap ditinjau, 6 Selesai secara implementasi.**
+**Status terkini: 13 Belum dikerjakan, 0 Dikerjakan, 0 Siap ditinjau, 7 Selesai secara implementasi.**
 
 ID `KIFC-R30-01` sampai `KIFC-R30-20` khusus untuk putaran ini, bukan nomor halaman atau babak. Riwayat lama tetap disimpan di [tracker 23 Oktober](kifc-screen-revision-tracker-2026-10-23.md). Status pekerjaan lama tidak dipindahkan menjadi status selesai untuk kebutuhan baru.
 
@@ -43,7 +43,7 @@ Keputusan ini menggantikan ketentuan lama tentang demo yang wajib dicoba, seluru
 | KIFC-R30-04 | Ubah timer khusus penutup menjadi 30 detik | Penutup terakhir | Mudah | Tidak ada | Selesai | `9630b86` |
 | KIFC-R30-05 | Rapikan susunan judul Karhutla pertama | Bacaan Karhutla 1 | Mudah | Tidak ada | Selesai | `618a1ce` (koreksi) |
 | KIFC-R30-06 | Tambahkan tombol akhiri tantangan lebih awal | Tantangan akhir | Sedang | Tidak ada | Selesai | `41384fa` |
-| KIFC-R30-07 | Hapus demo pengurangan dan sambungkan navigasi | Babak 1 dan transisi ke Babak 2 | Sedang | Tidak ada | Belum dikerjakan | — |
+| KIFC-R30-07 | Hapus demo pengurangan dan sambungkan navigasi | Babak 1 dan transisi ke Babak 2 | Sedang | Tidak ada | Selesai | Dicatat setelah commit |
 | KIFC-R30-08 | Terima drop di seluruh panel unsur | Penyusunan unsur | Sedang | Tidak ada | Belum dikerjakan | — |
 | KIFC-R30-09 | Terapkan Safari versi penuh | Musik lintas game | Sedang | Sumber penuh dan lisensi | Belum dikerjakan | — |
 | KIFC-R30-10 | Cari dan siapkan video kebakaran kamera statis | Aset panel hutan | Sedang, bergantung aset | Sumber dan izin penggunaan | Belum dikerjakan | — |
@@ -147,14 +147,16 @@ Nomor pendek pada dependensi merujuk tiket dengan awalan yang sama. Tiket sumber
 
 ### KIFC-R30-07 — Hapus demo pengurangan unsur
 
-**Status:** Belum dikerjakan. **Area kode:** enum halaman, navigasi, `_BreakTriangle`, state/timer terkait di `exhibition_game.dart`; tes alur, reading, dan feedback.
+**Status:** Selesai secara implementasi; belum merupakan pengesahan klien. **Area kode:** enum halaman, navigasi, `_BreakTriangle`, state/timer terkait di `exhibition_game.dart`; tes alur, reading, dan feedback.
 
-- [ ] Hapus halaman demo, tombol yang mengajak mengurangi unsur, syarat mencoba ketiga unsur, dan state khusus demo yang tidak dipakai lagi.
-- [ ] Sambungkan halaman Penjelasan Segitiga Api langsung ke bacaan Karhutla pertama; sesuaikan tombol lanjut dan jalur Kembali agar tidak menuju halaman yang dihapus.
-- [ ] Pertahankan penjelasan Segitiga Api dan skor maksimum 8. Sesuaikan tes/alat journey serta dokumentasi aturan yang sebelumnya mewajibkan demo.
-- [ ] Uji maju, kembali, ulangi, replay, dan timer yang masih aktif setelah halaman dihapus.
+- [x] Hapus halaman demo, tombol yang mengajak mengurangi unsur, syarat mencoba ketiga unsur, dan state khusus demo yang tidak dipakai lagi.
+- [x] Sambungkan halaman Penjelasan Segitiga Api langsung ke bacaan Karhutla pertama; sesuaikan tombol lanjut dan jalur Kembali agar tidak menuju halaman yang dihapus.
+- [x] Pertahankan penjelasan Segitiga Api dan skor maksimum 8. Sesuaikan tes/alat journey serta dokumentasi aturan yang sebelumnya mewajibkan demo.
+- [x] Uji maju, kembali, ulangi, replay, dan timer yang masih aktif setelah halaman dihapus.
 
 **Selesai jika:** demo tidak lagi dapat dicapai, penjelasan tetap ada, dan tidak ada jalan buntu atau loncatan soal. Bukti: regresi alur dan rekaman perjalanan Babak 1 ke Babak 2.
+
+**Bukti:** [Review tiket 07](../../docs/client-revisions/2026-10-30/r30-07-review.md).
 
 ### KIFC-R30-08 — Drop di seluruh panel unsur
 
@@ -336,3 +338,4 @@ Status diperbarui setelah implementasi dan pemeriksaan nyata. Selesai secara imp
 | 30 Oktober 2026 | KIFC-R30-05 | Belum dikerjakan → Selesai implementasi | `9c829f0` | 60 tes lulus; analisis bersih; 15 render diperiksa; grouping judul teruji | Pemeriksaan internal; TV fisik belum diuji |
 | 30 Oktober 2026 | KIFC-R30-06 | Belum dikerjakan → Selesai implementasi | `41384fa` | 65 tes terkait lulus; analisis bersih; 45 render diperiksa; deadline/submit dan cue tunggal teruji | Pemeriksaan internal; TV fisik belum diuji |
 | 30 Oktober 2026 | KIFC-R30-05 lanjutan | Koreksi visual setelah masukan pemilik | `618a1ce` | Judul Indonesia dua baris tanpa mengecilkan font; 15 tes/15 render tiga bahasa dan lima viewport lulus; analisis bersih | Pemeriksaan internal; menggantikan susunan Tapi, sendiri |
+| 30 Oktober 2026 | KIFC-R30-07 | Belum dikerjakan → Selesai implementasi | Dicatat setelah commit | 16 tes baru + 83 regresi lulus; 45 pemeriksaan alur diulang setelah cleanup; analisis bersih; 30 render diperiksa | Pemeriksaan internal; TV fisik belum diuji |

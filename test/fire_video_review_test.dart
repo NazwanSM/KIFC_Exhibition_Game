@@ -57,9 +57,7 @@ void main() {
         await paintAssembly(tester);
         checkPanel();
         await tester.pump(const Duration(milliseconds: 500));
-        final action = find.byKey(
-          const ValueKey('triangle-reduction-continue'),
-        );
+        final action = find.byKey(const ValueKey('triangle-reading-continue'));
         final actionRect = tester.getRect(action);
         final mascotRect = tester.getRect(
           find.byKey(const ValueKey('feedback-mascot-crop')),
@@ -81,45 +79,6 @@ void main() {
         expect(labelRect.left, greaterThanOrEqualTo(actionRect.left));
         expect(labelRect.right, lessThanOrEqualTo(actionRect.right));
         await captureScreen(tester, 'explanation-$lang-$res', metrics);
-        await tester.pumpWidget(const SizedBox.shrink());
-        await launchScreen(
-          tester,
-          size: size,
-          locale: locale,
-          page: 'breakTriangle',
-        );
-        await paintAssembly(tester);
-        checkPanel();
-        await captureScreen(tester, 'reduction-before-$lang-$res', metrics);
-        await tester.tap(type('_ChoiceButton').first);
-        await tester.pump();
-        await tester.pump(const Duration(milliseconds: 700));
-        await paintAssembly(tester);
-        checkPanel();
-        expect(
-          tester
-              .widget<ForestFireSimulation>(find.byType(ForestFireSimulation))
-              .reducedRegions,
-          {0},
-        );
-        await captureScreen(tester, 'reduction-after-$lang-$res', metrics);
-        await tester.pump(const Duration(milliseconds: 1500));
-        expect(
-          [
-            for (var i = 0; i < 6; i++)
-              tester
-                  .widget<Opacity>(
-                    find.byKey(ValueKey('forest-fire-opacity-$i')),
-                  )
-                  .opacity,
-          ],
-          [0.0, 0.0, 1.0, 1.0, 1.0, 1.0],
-        );
-        await captureScreen(
-          tester,
-          'reduction-extinguished-$lang-$res',
-          metrics,
-        );
         await tester.pumpWidget(const SizedBox.shrink());
       });
     }

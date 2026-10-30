@@ -281,7 +281,10 @@ void main() {
         await tester.tap(assemblyType('_Primary'));
         await tester.pump();
         await tester.pump(const Duration(milliseconds: 800));
-        expect(assemblyType('_BreakTriangle'), findsOneWidget);
+        expect(
+          find.byKey(const ValueKey('karhutla-definition')),
+          findsOneWidget,
+        );
         expect(tester.takeException(), isNull);
         await tester.pumpWidget(const SizedBox.shrink());
       });

@@ -172,8 +172,8 @@ void main() {
         );
         expect(tester.takeException(), isNull);
 
-        await launch('breakTriangle');
-        await capture('demo');
+        await launch('triangleExplanation');
+        await capture('fire-explanation');
         await launch('score');
         final total = find.byKey(const ValueKey('total-score'));
         expect(

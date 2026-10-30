@@ -124,8 +124,6 @@ class _ExhibitionGameState extends State<ExhibitionGame>
   final Map<_FireSlot, _FirePiece> _triangle = <_FireSlot, _FirePiece>{};
   bool? _lastDropCorrect;
   _FirePiece? _lastDroppedPiece;
-  final Set<_FireSlot> _breakTried = <_FireSlot>{};
-  _FireSlot? _breakChoice;
   int _causeIndex = 0;
   int _causePoints = 0;
   bool? _causeChoice;
@@ -215,9 +213,8 @@ class _ExhibitionGameState extends State<ExhibitionGame>
             _triangle.clear();
             _lastDropCorrect = null;
             _lastDroppedPiece = null;
-          case _Page.breakTriangle:
-            _breakTried.clear();
-            _breakChoice = null;
+          case _Page.karhutlaCards:
+            if (_page == _Page.triangleExplanation) _karhutlaCardIndex = 0;
           case _Page.risk:
             _riskAnswer = null;
             _riskWrong = 0;
@@ -251,7 +248,6 @@ class _ExhibitionGameState extends State<ExhibitionGame>
     _readingSeconds = _page == _Page.closing ? 30 : 15;
     final timed = switch (_page) {
       _Page.triangleBuild => _triangle.length == 3,
-      _Page.breakTriangle => _breakTried.length == 3,
       _Page.risk => _riskAnswer == _RiskOption.peatSwamp || _riskRevealed,
       _Page.causeQuiz => _causeChoice != null,
       _Page.finalReview || _Page.score || _Page.closing => true,
@@ -294,8 +290,6 @@ class _ExhibitionGameState extends State<ExhibitionGame>
       _triangle.clear();
       _lastDropCorrect = null;
       _lastDroppedPiece = null;
-      _breakTried.clear();
-      _breakChoice = null;
       _causeIndex = 0;
       _causePoints = 0;
       _causeChoice = null;
@@ -333,36 +327,12 @@ class _ExhibitionGameState extends State<ExhibitionGame>
       _triangle.clear();
       _lastDropCorrect = null;
       _lastDroppedPiece = null;
-      _breakChoice = null;
-      _breakTried.clear();
     });
   }
 
   void _continueAssembly() {
     if (_page != _Page.triangleBuild || _triangle.length != 3) return;
     _go(_Page.triangleExplanation);
-  }
-
-  void _chooseBreak(_FireSlot slot) {
-    unawaited(_audio.interact(GameSound.select));
-    setState(() {
-      _breakChoice = slot;
-      _breakTried.add(slot);
-    });
-    _syncFeedbackTimer();
-  }
-
-  void _restartBreak() {
-    _cancelFeedbackTimer();
-    setState(() {
-      _breakChoice = null;
-      _breakTried.clear();
-    });
-  }
-
-  void _continueBreak() {
-    if (_page != _Page.breakTriangle || _breakTried.length != 3) return;
-    _go(_Page.karhutlaCards);
   }
 
   void _chooseRisk(_RiskOption option) {
@@ -431,8 +401,7 @@ class _ExhibitionGameState extends State<ExhibitionGame>
   // Child controls win the gesture arena, keeping audio/back/replay usable.
   VoidCallback? get _readingAdvance => switch (_page) {
     _Page.triangleBuild when _triangle.length == 3 => _continueAssembly,
-    _Page.triangleExplanation => () => _go(_Page.breakTriangle),
-    _Page.breakTriangle when _breakTried.length == 3 => _continueBreak,
+    _Page.triangleExplanation => () => _go(_Page.karhutlaCards),
     _Page.karhutlaCards => _continueKarhutla,
     _Page.risk when _riskAnswer == _RiskOption.peatSwamp || _riskRevealed =>
       _continueRisk,
@@ -575,16 +544,7 @@ class _ExhibitionGameState extends State<ExhibitionGame>
       _Page.triangleExplanation => _TriangleExplanation(
         english: _en,
         pieces: _triangle,
-        onContinue: () => _go(_Page.breakTriangle),
-        onBack: () => _go(_Page.triangleBuild),
-      ),
-      _Page.breakTriangle => _BreakTriangle(
-        english: _en,
-        selected: _breakChoice,
-        tried: _breakTried,
-        onSelect: _chooseBreak,
-        onRestart: _restartBreak,
-        onContinue: _continueBreak,
+        onContinue: () => _go(_Page.karhutlaCards),
         onBack: () => _go(_Page.triangleBuild),
       ),
       _Page.karhutlaCards => _KarhutlaCards(
@@ -596,7 +556,7 @@ class _ExhibitionGameState extends State<ExhibitionGame>
           if (_karhutlaCardIndex > 0) {
             setState(() => _karhutlaCardIndex--);
           } else {
-            _go(_Page.breakTriangle);
+            _go(_Page.triangleExplanation);
           }
         },
       ),
@@ -744,7 +704,6 @@ enum _Page {
   risk,
   triangleBuild,
   triangleExplanation,
-  breakTriangle,
   karhutlaCards,
   causeQuiz,
   peatCharacteristics,
@@ -1663,11 +1622,9 @@ class _AssemblyCompletionFeedback extends StatelessWidget {
                       : math.max(16.0, imageHeight * .57 / 2 - 23),
                   width: constraints.maxWidth * .66,
                   child: _Primary(
-                    key: const ValueKey('triangle-reduction-continue'),
+                    key: const ValueKey('triangle-reading-continue'),
                     singleLine: true,
-                    label: english
-                        ? 'Try Reducing an Element'
-                        : 'Coba Kurangi Satu Unsur',
+                    label: english ? 'Continue' : 'Lanjut',
                     onPressed: onContinue!,
                   ),
                 ),
@@ -1721,157 +1678,6 @@ class _TriangleExplanation extends StatelessWidget {
       text: english
           ? 'Fire can occur when sufficient heat, fuel, and oxygen meet. Human activity can bring these three elements together. Prevention helps keep a fire from starting.'
           : 'Kebakaran dapat terjadi ketika panas yang cukup, bahan bakar, dan oksigen bertemu. Aktivitas manusia dapat mempertemukan ketiga unsur tersebut. Karena itu, pencegahan penting dilakukan agar kebakaran tidak terjadi.',
-    ),
-  );
-}
-
-class _BreakTriangle extends StatelessWidget {
-  const _BreakTriangle({
-    required this.english,
-    required this.selected,
-    required this.tried,
-    required this.onSelect,
-    required this.onBack,
-    required this.onRestart,
-    required this.onContinue,
-  });
-  final bool english;
-  final _FireSlot? selected;
-  final Set<_FireSlot> tried;
-  final ValueChanged<_FireSlot> onSelect;
-  final VoidCallback onBack, onRestart, onContinue;
-
-  (String, String) get explanation => switch (selected) {
-    _FireSlot.heat => (
-      english ? 'Less heat, a weaker flame.' : 'Suhu turun, api mereda.',
-      english
-          ? 'Cooling burning material removes heat. When it is no longer hot enough to keep burning, the flame goes out.'
-          : 'Bahan yang terbakar perlu didinginkan. Jika suhunya sudah cukup turun, api tak lagi bisa bertahan dan akan padam.',
-    ),
-    _FireSlot.fuel => (
-      english
-          ? 'Gaps interrupt the spread.'
-          : 'Beri jarak agar api sulit menjalar.',
-      english
-          ? 'With less dry material in its path, fire has less fuel to reach. Material already burning may still need to be extinguished.'
-          : 'Jika bahan kering diberi jarak, api lebih sulit menjalar. Bahan yang sudah terbakar tetap perlu dipadamkan.',
-    ),
-    _FireSlot.oxygen => (
-      english
-          ? 'Fire needs oxygen from the air.'
-          : 'Api perlu oksigen dari udara.',
-      english
-          ? 'Limiting oxygen at the flame can smother it. This is difficult in open land; still air alone does not remove oxygen.'
-          : 'Membatasi oksigen bisa memadamkan api, tetapi sulit di lahan terbuka. Tanpa angin pun, udara tetap mengandung oksigen.',
-    ),
-    null => (
-      english
-          ? 'Three elements keep fire burning.'
-          : 'Bagaimana kalau satu unsur dikurangi?',
-      english
-          ? 'Explore each element to see why reducing it can weaken the fire or slow its spread.'
-          : 'Api perlu ketiga unsur ini agar terus menyala. Saat satu unsur berkurang, nyala atau rambatannya bisa ikut berkurang.',
-    ),
-  };
-
-  @override
-  Widget build(BuildContext context) => _LightStage(
-    chapter: 1,
-    english: english,
-    eyebrow: english
-        ? 'CHAPTER 1 / INTERACTIVE DEMO'
-        : 'BABAK 1 / DEMO INTERAKTIF',
-    title: english ? 'Reduce one element.' : 'Kurangi satu unsur.',
-    subtitle: english
-        ? 'Touch an element to put out the two flames above it. Try all three.'
-        : 'Sentuh unsur untuk memadamkan dua api di atasnya. Coba ketiganya.',
-    onBack: onBack,
-    onRestart: onRestart,
-    bodyScrollable: false,
-    topAligned: true,
-    footerGap: _compactLayout(context) ? 4 : 12,
-    body: Column(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        _FireScene(
-          active: _FireSlot.values.toSet(),
-          english: english,
-          reduced: selected,
-          reducedRegions: tried,
-        ),
-        const SizedBox(height: 6),
-        Row(
-          children: <Widget>[
-            for (final slot in _FireSlot.values) ...<Widget>[
-              if (slot != _FireSlot.values.first) const SizedBox(width: 6),
-              Expanded(
-                child: _ChoiceButton(
-                  label: slot.title(english),
-                  selected: tried.contains(slot),
-                  graded: false,
-                  onTap: () => onSelect(slot),
-                ),
-              ),
-            ],
-          ],
-        ),
-        const SizedBox(height: 6),
-        MotionReveal(
-          trigger: selected,
-          child: Container(
-            key: const ValueKey<String>('triangle-demo-explanation'),
-            width: double.infinity,
-            padding: EdgeInsets.all(_compactLayout(context) ? 10 : 12),
-            decoration: BoxDecoration(
-              color: Colors.white.withValues(alpha: .8),
-              border: Border.all(color: KifcTheme.line),
-              borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                LocalizedText(
-                  explanation.$1,
-                  style: const TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-                const SizedBox(height: 5),
-                LocalizedText(
-                  explanation.$2,
-                  style: const TextStyle(fontSize: 12, height: 1.3),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ],
-    ),
-    footer: SizedBox(
-      height: 36,
-      child: Row(
-        children: [
-          Expanded(
-            child: LocalizedText(
-              '${tried.length}/3 ${english ? 'elements tried' : 'unsur sudah dicoba'}',
-              style: const TextStyle(
-                color: KifcTheme.mutedInk,
-                fontSize: 12,
-                height: 1.25,
-              ),
-            ),
-          ),
-          if (tried.length == 3)
-            _SmallButton(
-              key: const ValueKey('reduction-continue'),
-              label: english ? 'Continue' : 'Lanjut',
-              icon: Icons.arrow_forward_rounded,
-              dark: false,
-              onPressed: onContinue,
-            ),
-        ],
-      ),
     ),
   );
 }
@@ -2824,7 +2630,6 @@ class _LightStage extends StatelessWidget {
     this.groupFooter = false,
     this.edgeFeedback = false,
     this.expandFooter = false,
-    this.topAligned = false,
     this.titleFontSize,
     this.footerGap,
   });
@@ -2843,7 +2648,6 @@ class _LightStage extends StatelessWidget {
   final bool groupFooter;
   final bool edgeFeedback;
   final bool expandFooter;
-  final bool topAligned;
   final double? titleFontSize;
   final double? footerGap;
   @override
@@ -2896,12 +2700,7 @@ class _LightStage extends StatelessWidget {
                   ),
                 ],
                 SizedBox(height: compact ? 10 : 16),
-                if (topAligned) ...[
-                  body,
-                  SizedBox(height: footerGap ?? 12),
-                  footer,
-                  const Spacer(),
-                ] else if (groupFooter)
+                if (groupFooter)
                   Expanded(
                     child: Center(
                       child: Column(
@@ -3204,7 +3003,6 @@ class _Eyebrow extends StatelessWidget {
 
 class _SmallButton extends StatelessWidget {
   const _SmallButton({
-    super.key,
     required this.label,
     required this.icon,
     required this.onPressed,
@@ -3672,14 +3470,12 @@ class _ChoiceButton extends StatelessWidget {
     required this.onTap,
     this.selected = false,
     this.error = false,
-    this.graded = true,
     this.height = 48,
   });
   final String label;
   final VoidCallback? onTap;
   final bool selected;
   final bool error;
-  final bool graded;
   final double height;
   @override
   Widget build(BuildContext context) => PressFeedback(
@@ -3728,7 +3524,7 @@ class _ChoiceButton extends StatelessWidget {
           ),
           child: Row(
             children: <Widget>[
-              if (graded) const SizedBox(width: 26),
+              const SizedBox(width: 26),
               Expanded(
                 child: LocalizedText(
                   label,
@@ -3742,11 +3538,10 @@ class _ChoiceButton extends StatelessWidget {
                   ),
                 ),
               ),
-              if (graded)
-                SizedBox(
-                  width: 26,
-                  child: selected ? _AnswerMark(correct: !error) : null,
-                ),
+              SizedBox(
+                width: 26,
+                child: selected ? _AnswerMark(correct: !error) : null,
+              ),
             ],
           ),
         ),
@@ -3761,8 +3556,6 @@ class _FireScene extends StatelessWidget {
     required this.english,
     this.onDrop,
     this.placements,
-    this.reduced,
-    this.reducedRegions = const {},
   });
   final Set<_FireSlot> active;
   final Map<_FireSlot, _FirePiece>? placements;
@@ -3770,8 +3563,6 @@ class _FireScene extends StatelessWidget {
   static double heightOf(BuildContext context) =>
       _compactLayout(context) ? 216 : 248;
   final void Function(_FireSlot, _FirePiece)? onDrop;
-  final _FireSlot? reduced;
-  final Set<_FireSlot> reducedRegions;
   @override
   Widget build(BuildContext context) => ClipRRect(
     borderRadius: BorderRadius.circular(KifcTheme.controlRadius),
@@ -3827,20 +3618,7 @@ class _FireScene extends StatelessWidget {
                       borderRadius: BorderRadius.circular(14),
                     ),
                     child: LocalizedText(
-                      reduced == null
-                          ? '${active.length}/3 ${english ? 'elements' : 'unsur'}'
-                          : switch (reduced!) {
-                              _FireSlot.heat =>
-                                english ? 'Heat reduced' : 'Panas dikurangi',
-                              _FireSlot.fuel =>
-                                english
-                                    ? 'Fuel reduced'
-                                    : 'Bahan bakar dikurangi',
-                              _FireSlot.oxygen =>
-                                english
-                                    ? 'Oxygen reduced'
-                                    : 'Oksigen dikurangi',
-                            },
+                      '${active.length}/3 ${english ? 'elements' : 'unsur'}',
                       style: const TextStyle(
                         color: Colors.white,
                         fontSize: 11,
@@ -3862,12 +3640,7 @@ class _FireScene extends StatelessWidget {
                     const Duration(milliseconds: 450),
                   ),
                   child: active.length == 3
-                      ? ForestFireSimulation(
-                          key: const ValueKey('fire'),
-                          reducedRegions: reducedRegions
-                              .map((slot) => slot.index)
-                              .toSet(),
-                        )
+                      ? ForestFireSimulation(key: const ValueKey('fire'))
                       : const SizedBox(key: ValueKey('no-fire')),
                 ),
               ),
@@ -3884,7 +3657,6 @@ class _FireScene extends StatelessWidget {
                         placements?.containsKey(slot) ?? active.contains(slot),
                     placedPiece: placements?[slot],
                     revealLabel: onDrop == null,
-                    reduced: reducedRegions.contains(slot),
                     compact: true,
                     onDrop: onDrop,
                   ),
@@ -3903,7 +3675,6 @@ class _DropSlot extends StatelessWidget {
     required this.slot,
     required this.english,
     required this.filled,
-    required this.reduced,
     required this.compact,
     required this.onDrop,
     this.placedPiece,
@@ -3914,85 +3685,80 @@ class _DropSlot extends StatelessWidget {
   final bool revealLabel;
   final bool english;
   final bool filled;
-  final bool reduced;
   final bool compact;
   final void Function(_FireSlot, _FirePiece)? onDrop;
   @override
   Widget build(BuildContext context) => DragTarget<_FirePiece>(
     onWillAcceptWithDetails: (details) => onDrop != null && !filled,
     onAcceptWithDetails: (details) => onDrop?.call(slot, details.data),
-    builder: (context, candidate, rejected) => AnimatedOpacity(
-      duration: _motionDuration(context, const Duration(milliseconds: 350)),
-      opacity: reduced ? .38 : 1,
-      child: SizedBox(
-        height: compact ? 56 : 76,
-        child: MotionReveal(
-          trigger: filled,
-          animateOnMount: false,
-          offset: Offset.zero,
-          beginScale: .94,
-          duration: const Duration(milliseconds: 240),
-          child: _PhotoFrame(
-            radius: BorderRadius.circular(10),
-            color: filled ? KifcTheme.forest800 : const Color(0xFFF5F3ED),
-            border: Border.all(
-              color: candidate.isNotEmpty
-                  ? KifcTheme.amber
-                  : filled
-                  ? KifcTheme.answerCorrect
-                  : Colors.white70,
-              width: candidate.isNotEmpty ? 2 : 1,
-            ),
-            child: Stack(
-              fit: StackFit.expand,
-              children: <Widget>[
-                if (filled)
-                  GamePhoto(placedPiece?.photo ?? slot.photo, forestTone: true),
-                if (filled) const ColoredBox(color: Color(0x850C2119)),
-                Padding(
-                  padding: const EdgeInsets.all(7),
-                  child: Column(
-                    mainAxisAlignment: filled
-                        ? MainAxisAlignment.end
-                        : MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      if (filled || revealLabel)
-                        LocalizedText(
-                          placedPiece?.slot?.title(english) ??
-                              slot.title(english),
-                          textAlign: TextAlign.center,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                            color: filled ? Colors.white : KifcTheme.ink,
-                            fontSize: 11,
-                            fontWeight: FontWeight.w800,
-                          ),
+    builder: (context, candidate, rejected) => SizedBox(
+      height: compact ? 56 : 76,
+      child: MotionReveal(
+        trigger: filled,
+        animateOnMount: false,
+        offset: Offset.zero,
+        beginScale: .94,
+        duration: const Duration(milliseconds: 240),
+        child: _PhotoFrame(
+          radius: BorderRadius.circular(10),
+          color: filled ? KifcTheme.forest800 : const Color(0xFFF5F3ED),
+          border: Border.all(
+            color: candidate.isNotEmpty
+                ? KifcTheme.amber
+                : filled
+                ? KifcTheme.answerCorrect
+                : Colors.white70,
+            width: candidate.isNotEmpty ? 2 : 1,
+          ),
+          child: Stack(
+            fit: StackFit.expand,
+            children: <Widget>[
+              if (filled)
+                GamePhoto(placedPiece?.photo ?? slot.photo, forestTone: true),
+              if (filled) const ColoredBox(color: Color(0x850C2119)),
+              Padding(
+                padding: const EdgeInsets.all(7),
+                child: Column(
+                  mainAxisAlignment: filled
+                      ? MainAxisAlignment.end
+                      : MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    if (filled || revealLabel)
+                      LocalizedText(
+                        placedPiece?.slot?.title(english) ??
+                            slot.title(english),
+                        textAlign: TextAlign.center,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          color: filled ? Colors.white : KifcTheme.ink,
+                          fontSize: 11,
+                          fontWeight: FontWeight.w800,
                         ),
-                      if (!filled && onDrop != null) ...[
-                        const Icon(
-                          Icons.add_circle_outline,
+                      ),
+                    if (!filled && onDrop != null) ...[
+                      const Icon(
+                        Icons.add_circle_outline,
+                        color: KifcTheme.mutedInk,
+                        size: 20,
+                      ),
+                      const SizedBox(height: 3),
+                      LocalizedText(
+                        english ? 'Drop here' : 'Taruh di sini',
+                        textAlign: TextAlign.center,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
                           color: KifcTheme.mutedInk,
-                          size: 20,
+                          fontSize: 11,
                         ),
-                        const SizedBox(height: 3),
-                        LocalizedText(
-                          english ? 'Drop here' : 'Taruh di sini',
-                          textAlign: TextAlign.center,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(
-                            color: KifcTheme.mutedInk,
-                            fontSize: 11,
-                          ),
-                        ),
-                      ],
+                      ),
                     ],
-                  ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
