@@ -46,7 +46,7 @@ Keputusan ini menggantikan ketentuan lama tentang demo yang wajib dicoba, seluru
 | KIFC-R30-07 | Hapus demo pengurangan dan sambungkan navigasi | Babak 1 dan transisi ke Babak 2 | Sedang | Tidak ada | Selesai | `d069340` |
 | KIFC-R30-08 | Terima drop di seluruh panel unsur | Penyusunan unsur | Sedang | Tidak ada | Selesai | `d62bbae` (koreksi) |
 | KIFC-R30-09 | Terapkan Safari versi penuh | Musik lintas game | Sedang | Sumber penuh dan lisensi | Dikerjakan: native belum terverifikasi | `c713309` |
-| KIFC-R30-10 | Cari dan siapkan video kebakaran kamera statis | Aset panel hutan | Sedang, bergantung aset | Sumber dan izin penggunaan | Dikerjakan: alternatif stabilisasi menunggu keputusan | Dicatat setelah commit |
+| KIFC-R30-10 | Cari dan siapkan video kebakaran kamera statis | Aset panel hutan | Sedang, bergantung aset | Sumber dan izin penggunaan | Dikerjakan: alternatif stabilisasi menunggu keputusan | `e4cf559` |
 | KIFC-R30-11 | Integrasikan background video kebakaran bersama | Penyusunan lengkap dan penjelasan Segitiga Api | Menengah–sulit | 07, 08, 10 | Belum dikerjakan | — |
 | KIFC-R30-12 | Finalisasi naskah dan audisi suara maskot | Pembuka, tiga bacaan, penutup | Menengah–sulit | Akses TTS dan peninjauan suara | Belum dikerjakan | — |
 | KIFC-R30-13 | Produksi narasi tiga bahasa dan data timing | Aset narasi | Sulit | 12 | Belum dikerjakan | — |
@@ -348,4 +348,4 @@ Status diperbarui setelah implementasi dan pemeriksaan nyata. Selesai secara imp
 | 30 Oktober 2026 | KIFC-R30-08 | Belum dikerjakan → Selesai implementasi | `f74d33b` | 47 tes interaksi gabungan lulus; suite lengkap 437 lulus; 1 tes capture tambahan lulus; analisis bersih; 60 render dan GIF frame widget diperiksa | Pemeriksaan internal; TV fisik belum diuji |
 | 30 Oktober 2026 | KIFC-R30-08 lanjutan | Koreksi tampilan setelah klarifikasi pemilik | `d62bbae` | Hutan penuh sampai dasar; tanpa placeholder kosong; 79 pemeriksaan terkait lulus, analisis bersih; 75 render dan GIF terbaru | Pemeriksaan internal; TV fisik belum diuji |
 | 30 Oktober 2026 | KIFC-R30-09 | Implementasi; native masih terbuka | `c713309` | 30 tes lulus, analisis bersih; source/hash, kredit, loop penuh dan ducking tersedia | UIAutomator emulator gagal memberi root; tidak mengklaim uji native lulus |
-| 30 Oktober 2026 | KIFC-R30-10 | Kandidat dan derivatif siap; belum selesai | Dicatat setelah commit | Pexels berizin; H.264 5.5s/960×640, tanpa audio, poster/hash; decode lulus | Alternatif stabilisasi, bukan kamera asli statis; belum diintegrasikan (11) |
+| 30 Oktober 2026 | KIFC-R30-10 | Kandidat dan derivatif siap; belum selesai | `e4cf559` | Pexels berizin; H.264 5.5s/960×640, tanpa audio, poster/hash; decode lulus | Alternatif stabilisasi, bukan kamera asli statis; belum diintegrasikan (11) |
