@@ -31,3 +31,13 @@ Sampel **M1** dan **M2**, versi SDK 1.3.1, model supertonic-3, dibuat lokal meng
 - [Dengarkan M2 — ID / EN / KO](audition-supertonic3/M2-id-en-ko.mp3)
 
 Sebagai alternatif, Azure F0 mencantumkan kuota gratis terbatas (lihat bagian akses), tetapi resource belum tersedia; jangan menyamakan kuota tersebut dengan akses gratis tanpa syarat. Supertonic tidak menjamin timestamp kata melalui proses audisi yang dipakai; untuk subtitle tiket 13 diperlukan alignment nyata dan validasi terpisah.
+
+## Audisi lanjutan — karakter lebih ramah/lembut
+
+Pemilik menilai kompatibilitas M1/M2 baik, tetapi meminta karakter lebih ramah atau lembut. Tiga preset lain dipersiapkan untuk dibandingkan: M3, M4, M5, semuanya dari Supertonic 3. Gunakan teks sapaan yang sama dan urutan ID → EN → KO. Kecepatan 1.0 (contoh sebelumnya 1.05); perbedaan tempo harus dipertimbangkan ketika membandingkan karakter. Preset dipilih sebagai kandidat, belum dinilai secara subjektif lebih ramah/lembut.
+
+- [M3](audition-supertonic3-soft/M3-id-en-ko.mp3)
+- [M4](audition-supertonic3-soft/M4-id-en-ko.mp3)
+- [M5](audition-supertonic3-soft/M5-id-en-ko.mp3)
+
+Seluruh 12 MP3 (9 individual dan 3 gabungan) lolos decode; sembilan audio sumber tidak hening. [Manifest](audition-supertonic3-soft/manifest.json) mencatat voice, teks, locale, durasi, dan hash. Hasil belum diuji penutur Korea atau disetujui pemilik; belum dipakai di game.
