@@ -54,6 +54,9 @@ flutter:
   uses-material-design: true
   assets:
     - assets/audio/
+    - assets/audio/narration/prepared/id/
+    - assets/audio/narration/prepared/en/
+    - assets/audio/narration/prepared/ko/
     - assets/animations/forest-burn-loop.mp4
     - assets/animations/forest-burn-poster.jpg
     - assets/animations/fire-loop.webp

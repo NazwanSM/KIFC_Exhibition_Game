@@ -2,7 +2,7 @@
 
 Sumber: daftar revisi klien yang disampaikan pemilik proyek dan klarifikasinya dalam percakapan 30 Oktober 2026. Tujuan dokumen ini adalah memetakan pekerjaan, cara penerapan, dependensi, dan bukti penyelesaiannya. Pembuatan tracker tidak berarti revisi game sudah diimplementasikan.
 
-**Status terkini: 8 Belum dikerjakan, 2 Dikerjakan, 1 Siap ditinjau, 9 Selesai secara implementasi.**
+**Status terkini: 7 Belum dikerjakan, 3 Dikerjakan, 1 Siap ditinjau, 9 Selesai secara implementasi.**
 
 ID `KIFC-R30-01` sampai `KIFC-R30-20` khusus untuk putaran ini, bukan nomor halaman atau babak. Riwayat lama tetap disimpan di [tracker 23 Oktober](kifc-screen-revision-tracker-2026-10-23.md). Status pekerjaan lama tidak dipindahkan menjadi status selesai untuk kebutuhan baru.
 
@@ -49,7 +49,7 @@ Keputusan ini menggantikan ketentuan lama tentang demo yang wajib dicoba, seluru
 | KIFC-R30-10 | Cari dan siapkan video kebakaran kamera statis | Aset panel hutan | Sedang, bergantung aset | Sumber dan izin penggunaan | Siap ditinjau: cuplikan wildfire pengganti | `0961f1c` |
 | KIFC-R30-11 | Integrasikan background video kebakaran bersama | Penyusunan lengkap dan penjelasan Segitiga Api | Menengah–sulit | 07, 08, 10 | Dikerjakan: visual disetujui, uji offline tertunda | `72c8941` |
 | KIFC-R30-12 | Finalisasi naskah dan audisi suara maskot | Pembuka, tiga bacaan, penutup | Menengah–sulit | Akses TTS dan peninjauan suara | Selesai: disetujui pemilik | `8aba569` |
-| KIFC-R30-13 | Produksi narasi tiga bahasa dan data timing | Aset narasi | Sulit | 12 | Belum dikerjakan | — |
+| KIFC-R30-13 | Produksi narasi tiga bahasa dan data timing | Aset narasi | Sulit | 12 | Dikerjakan: timing perlu tinjauan | — |
 | KIFC-R30-14 | Buktikan desain maskot 3D prerender | Prototipe aset maskot | Sulit, mutu aset belum terbukti | Referensi dan akses produksi | Belum dikerjakan | — |
 | KIFC-R30-15 | Produksi gerakan maskot yang dapat dipakai ulang | Aset animasi maskot | Sulit | 14 | Belum dikerjakan | — |
 | KIFC-R30-16 | Integrasikan animasi maskot di seluruh halaman | Semua kemunculan maskot | Sulit | 15 | Belum dikerjakan | — |
@@ -226,7 +226,7 @@ Nomor pendek pada dependensi merujuk tiket dengan awalan yang sama. Tiket sumber
 
 ### KIFC-R30-13 — Produksi audio narasi dan timing
 
-**Status:** Belum dikerjakan. **Dependensi:** 12. **Area:** aset audio narasi offline, manifest per halaman/bahasa, indeks timing kata/frasa.
+**Status:** Dikerjakan; 15 salinan audio dan draf timing disiapkan, tetapi timing belum disetujui atau terintegrasi. **Dependensi:** 12. **Area:** aset audio narasi offline, manifest per halaman/bahasa, indeks timing kata/frasa.
 
 - [ ] Buat set narasi pembuka, tiga bacaan, dan penutup untuk tiga bahasa. Gunakan naskah yang sudah dipilih; penutup harus cukup singkat agar tidak terpotong timer 30 detik.
 - [ ] Simpan penyedia, model/voice ID, locale, pengaturan, naskah, durasi, sumber timing, serta hash tiap berkas. Normalisasi secara konsisten tanpa clipping dan periksa kejelasan di atas musik.
@@ -234,6 +234,8 @@ Nomor pendek pada dependensi merujuk tiket dengan awalan yang sama. Tiket sumber
 - [ ] Uji semua berkas dapat didekode offline dan timing tidak melebihi durasi. Cek audio-teks cocok, tidak ada kata hilang atau tertukar locale; catat batas peninjauan penutur bahasa bila belum tersedia.
 
 **Selesai jika:** seluruh halaman bersuara memiliki audio dan timing tiga bahasa yang cocok. Bukti: manifest, berkas, hasil pemeriksaan durasi/decode dan peninjauan naskah-suara.
+
+**Progres 1 November:** 15 salinan dinormalisasi dan terdekode; timing ASR disiapkan sebagai draf dengan 18 bagian ditandai untuk tinjauan, 11 berupa frasa multi-kata. Kelima belas file sudah masuk bundle Flutter dan hash cocok. Belum ada verifikasi pendengaran timing, sinkronisasi per kata, atau pemeriksaan campuran musik. [Bukti dan alat tinjau](../../docs/client-revisions/2026-10-30/narration/r30-13-preparation.md).
 
 ### KIFC-R30-14 — Prototipe maskot 3D prerender
 
@@ -371,3 +373,5 @@ Status diperbarui setelah implementasi dan pemeriksaan nyata. Selesai secara imp
 | 1 November 2026 | KIFC-R30-12 lanjutan | 15 file tiga bahasa diterima | `5def511` | 15 MP3 terdekode; definition/cause Inggris diperbaiki dengan menukar nama, hash terjaga | ASR hanya pemeriksaan awal; perlu peninjauan pendengaran, timing dan penyelarasan pembuka/penutup |
 
 | 1 November 2026 | KIFC-R30-12 | Selesai sesuai konfirmasi pemilik | `8aba569` | Voice ElevenLabs dan 15 file diterima; pemilik mengonfirmasi tiga poin peninjauan | Rincian kredit/model konkret tidak diberikan; timing berada pada 13 |
+
+| 1 November 2026 | KIFC-R30-13 | Draf audio/timing disiapkan | commit persiapan | 15 salinan dinormalisasi; hash/decode/durasi lulus; 18 bagian timing ditandai | Bundle dan hash lulus; perlu review, pemisahan frasa, serta cek campuran musik |

@@ -104,3 +104,8 @@ All runtime audio is bundled locally, without generation or paid licensing. Mixe
 ## R30-10 wildfire footage (asset preparation; not yet integrated)
 
 `assets/animations/forest-burn-loop.mp4` and `forest-burn-poster.jpg`: Arnav Kainthola, [Wildfire in a Forest](https://www.pexels.com/video/wildfire-in-a-forest-7448357/), [Pexels License](https://www.pexels.com/license/). Source seconds 1–13, fixed proportional crop, 1-second circular dissolve → 11-second silent H.264 960×540/24fps loop. No generated fire or added pan/zoom. Location and tripod use are not asserted. [Source/runtime hashes and edits](docs/client-revisions/2026-10-30/video/source.json). This replaces the prior localized brush-burning candidate rejected by the owner. Stabilized output is permitted; game integration remains ticket 11.
+
+
+## KIFC-R30-13 narration preparation
+
+Fifteen narration recordings supplied by the project owner were generated with ElevenLabs using `mw_animated_The Plucky Hero` (voice ID `QZt6b1wd97jPRMrPdClY`). The actual model and generation settings used for each export were not recorded. Prepared offline MP3 copies and per-file source/output hashes, duration and draft speech timings are listed in [the preparation manifest](docs/client-revisions/2026-10-30/narration/timings-draft.json). The copies were normalized with two-pass loudnorm; timing remains under review and narration playback is not yet integrated.
