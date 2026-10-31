@@ -51,3 +51,11 @@ Sampel sapaan Indonesia dibuat lewat demo pihak ketiga [yeyee2609/voxcpm2](https
 Demo resmi OpenBMB dua kali mengembalikan `Queue is full`. Demo pihak ketiga menghasilkan satu klip, lalu menolak lima percobaan berikut karena kuota ZeroGPU harian: permintaan 180 detik melebihi 155 detik tersisa. Karena itu sampel Inggris/Korea dan pembanding kedua belum tersedia. Layanan demo pihak ketiga dapat memiliki syarat sendiri; lisensi model bukan jaminan ketentuan layanan. Model asli lebih besar daripada Supertonic dan kelayakan laptop untuk menjalankannya lokal belum diuji. Di ponsel/game hanya berkas hasil yang akan dibundel jika disetujui, bukan modelnya. Periksa pelafalan, hak penggunaan layanan, hak distribusi untuk proyek, dan alignment kata sebelum produksi.
 
 ElevenLabs sendiri memiliki [paket gratis untuk penggunaan nonkomersial dengan atribusi](https://elevenlabs.io/docs/overview/administration/billing); jangan asumsikan paket gratis cocok untuk distribusi proyek klien. OmniVoice tersedia untuk audisi nonkomersial tetapi [model card](https://huggingface.co/k2-fsa/OmniVoice) menyatakan bobotnya CC-BY-NC, sehingga tidak dipilih sebagai dasar distribusi proyek komersial.
+
+## Percobaan ElevenLabs — 31 Oktober 2026
+
+Pemilik memilih layanan ElevenLabs dan meminta satu contoh sapaan Indonesia dengan voice `mw_animated_The Plucky Hero` (`QZt6b1wd97jPRMrPdClY`). Teks: “Halo! Yuk, main dan cari tahu cara menjaga hutan dari kebakaran.” Model `eleven_v4`, satu variasi.
+
+Estimasi connector: **64 kredit**, setara estimasi nominal USD 0,0064; estimasi bukan tagihan. Percobaan generasi mengembalikan pesan bahwa generasi gratis sedang sibuk dan tidak dimulai: **0 kredit ditagihkan**, sesuai respons connector. Tidak ada audio hasil yang dibuat. Jangan menghitung estimasi sebagai pemakaian aktual. Flow estimasi: https://elevenlabs.io/app/flows/hajZgnK1Vnqh35msplNJ .
+
+Pengucapan Indonesia, hasil suara, hak penggunaan yang berlaku pada paket akun, dan biaya generasi berikutnya masih perlu diverifikasi. Jangan ulangi generasi secara otomatis dalam percobaan ini; pengguna dapat mencoba lagi nanti.
