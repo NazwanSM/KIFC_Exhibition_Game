@@ -1,0 +1,61 @@
+{
+  "model": "Supertone/supertonic-3",
+  "model_license": "BigScience Open RAIL-M",
+  "sdk": "supertonic 1.3.1",
+  "inference": "local CPU, ONNX Runtime",
+  "settings": {
+    "total_steps": 8,
+    "speed": 1.05
+  },
+  "sample_kind": "draft audition only",
+  "samples": [
+    {
+      "voice": "M1",
+      "locale": "id",
+      "text": "Halo! Yuk, main dan cari tahu cara menjaga hutan dari kebakaran.",
+      "duration_seconds": 5.642,
+      "file": "M1-id.mp3",
+      "sha256": "2724253635e34b27c2d80636141942cd3e3bfe37cbfbf6b2c729598a3e8705ce"
+    },
+    {
+      "voice": "M1",
+      "locale": "en",
+      "text": "Hello! Come play and discover how we can protect forests from fire.",
+      "duration_seconds": 5.364,
+      "file": "M1-en.mp3",
+      "sha256": "7900f9b5c9f9e74b42a5fc8f72eb8d3da949e41ddd1575db4f7d570a2ca66dad"
+    },
+    {
+      "voice": "M1",
+      "locale": "ko",
+      "text": "안녕하세요! 함께 게임을 하며 산불로부터 숲을 지키는 방법을 알아봐요.",
+      "duration_seconds": 6.896,
+      "file": "M1-ko.mp3",
+      "sha256": "998341bdc8f4eccaf9505697132df9afe03570735304536dbafe9e3ff993e4c8"
+    },
+    {
+      "voice": "M2",
+      "locale": "id",
+      "text": "Halo! Yuk, main dan cari tahu cara menjaga hutan dari kebakaran.",
+      "duration_seconds": 5.503,
+      "file": "M2-id.mp3",
+      "sha256": "65d1569b9b57edf818e3370b0e86aa51dfba5b6e6e2d43051526c756098927dc"
+    },
+    {
+      "voice": "M2",
+      "locale": "en",
+      "text": "Hello! Come play and discover how we can protect forests from fire.",
+      "duration_seconds": 5.224,
+      "file": "M2-en.mp3",
+      "sha256": "38ab38bd4657d60a4f4baacaa47b93476944defe18d902b1595f4e5f3a60e88b"
+    },
+    {
+      "voice": "M2",
+      "locale": "ko",
+      "text": "안녕하세요! 함께 게임을 하며 산불로부터 숲을 지키는 방법을 알아봐요.",
+      "duration_seconds": 6.757,
+      "file": "M2-ko.mp3",
+      "sha256": "de21c49aedfed56abe01fed00e1342538ae92be929ffc29115a05eb0f3f2bef5"
+    }
+  ]
+}

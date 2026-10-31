@@ -1,6 +1,6 @@
 # KIFC-R30-12 — Draf naskah narasi
 
-Draf untuk audisi, belum direkam atau diterapkan. Tiga bacaan disalin dari teks bubble maskot saat ini; isi masih dapat berubah mengikuti naskah klien. Sapaan dan penutup adalah usulan baru. Korea perlu ditinjau penutur yang kompeten sebelum produksi.
+Draf untuk audisi; sapaan telah disintesis sebagai sampel, belum diterapkan dalam game. Tiga bacaan disalin dari teks bubble maskot saat ini; isi masih dapat berubah mengikuti naskah klien. Sapaan dan penutup adalah usulan baru. Korea perlu ditinjau penutur yang kompeten sebelum produksi.
 
 Batas alur: sapaan pembuka berulang saat idle tetapi tidak memulai game; narasi bacaan berakhir lalu berpindah otomatis dan dapat dilewati dengan ketukan; penutup tidak berpindah karena audio selesai. Kuis dan feedback tidak memiliki narasi.
 

@@ -1,6 +1,6 @@
 # KIFC-R30-12 — Riset awal suara dan audisi
 
-Diperiksa 31 Oktober 2026. Status: riset dan naskah disiapkan; belum ada audio yang disintesis atau dipilih. Tiga bahasa dan pelafalan perlu didengarkan sebelum keputusan.
+Diperiksa 31 Oktober 2026. Status: dua sampel suara gratis dibuat secara lokal; belum dipilih. Tiga bahasa dan pelafalan perlu didengarkan sebelum keputusan.
 
 ## Kandidat audisi
 
@@ -20,3 +20,14 @@ Sumber: [daftar voice Azure](https://learn.microsoft.com/en-us/azure/ai-services
 ## Langkah audisi
 
 Buat klip pendek sapaan dan kalimat uji dari `naskah.md` untuk tiap locale; bandingkan kandidat multilingual dengan pembanding lokal bila akses tersedia. Simpan provider, voice ID, locale, region, teks, setting, durasi, hash dan perkiraan penggunaan tiap klip. Periksa karhutla, gambut dan Manggala Agni; minta pemilik menilai karakter suara sebelum produksi 15 klip. Jika Azure tak tersedia, pilih alternatif setelah memeriksa izin distribusi dan biaya; jangan memakai layanan demo tak resmi sebagai lisensi produksi.
+
+## Audisi gratis — Supertonic 3
+
+Pengguna meminta opsi gratis terlebih dahulu. Supertonic 3 oleh Supertone mendukung ID/EN/KO dan berjalan di CPU lokal setelah mengunduh model; tidak ada panggilan API atau biaya per karakter pada pembuatan sampel ini. Sumber: [model resmi](https://huggingface.co/Supertone/supertonic-3). Kode contoh MIT; bobot model menggunakan [BigScience Open RAIL-M](https://huggingface.co/Supertone/supertonic-3/blob/main/LICENSE), yang memiliki batasan penggunaan. Pasal 6 menyatakan pemberi lisensi tidak mengklaim hak atas output dengan ketentuan lisensi tetap berlaku; tinjau ketentuan lengkap untuk proyek/distribusi sebelum produksi.
+
+Sampel **M1** dan **M2**, versi SDK 1.3.1, model supertonic-3, dibuat lokal menggunakan teks sapaan draf; preset sama untuk ketiga bahasa, 8 langkah dan speed 1.05. Setiap trek gabungan mengurutkan Indonesia, Inggris, Korea dengan jeda 0,8 detik. File individual, durasi dan SHA-256 tercatat dalam [manifest](audition-supertonic3/manifest.json). Delapan MP3 lulus decode, enam WAV asal memiliki sinyal bukan hening. Belum dinilai kualitas, pelafalan, kecocokan karakter, hak distribusi spesifik proyek, maupun timing kata; tidak ada audio dimasukkan ke aplikasi. Jangan menandai kandidat sebagai dipilih sebelum pemilik mendengarkan.
+
+- [Dengarkan M1 — ID / EN / KO](audition-supertonic3/M1-id-en-ko.mp3)
+- [Dengarkan M2 — ID / EN / KO](audition-supertonic3/M2-id-en-ko.mp3)
+
+Sebagai alternatif, Azure F0 mencantumkan kuota gratis terbatas (lihat bagian akses), tetapi resource belum tersedia; jangan menyamakan kuota tersebut dengan akses gratis tanpa syarat. Supertonic tidak menjamin timestamp kata melalui proses audisi yang dipakai; untuk subtitle tiket 13 diperlukan alignment nyata dan validasi terpisah.

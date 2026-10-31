@@ -48,7 +48,7 @@ Keputusan ini menggantikan ketentuan lama tentang demo yang wajib dicoba, seluru
 | KIFC-R30-09 | Terapkan Safari versi penuh | Musik lintas game | Sedang | Sumber penuh dan lisensi | Dikerjakan: native belum terverifikasi | `c713309` |
 | KIFC-R30-10 | Cari dan siapkan video kebakaran kamera statis | Aset panel hutan | Sedang, bergantung aset | Sumber dan izin penggunaan | Siap ditinjau: cuplikan wildfire pengganti | `0961f1c` |
 | KIFC-R30-11 | Integrasikan background video kebakaran bersama | Penyusunan lengkap dan penjelasan Segitiga Api | Menengah–sulit | 07, 08, 10 | Dikerjakan: visual disetujui, uji offline tertunda | `72c8941` |
-| KIFC-R30-12 | Finalisasi naskah dan audisi suara maskot | Pembuka, tiga bacaan, penutup | Menengah–sulit | Akses TTS dan peninjauan suara | Dikerjakan: menunggu akses audisi | `8c48e32` |
+| KIFC-R30-12 | Finalisasi naskah dan audisi suara maskot | Pembuka, tiga bacaan, penutup | Menengah–sulit | Akses TTS dan peninjauan suara | Dikerjakan: menunggu penilaian audisi gratis | `8c48e32` |
 | KIFC-R30-13 | Produksi narasi tiga bahasa dan data timing | Aset narasi | Sulit | 12 | Belum dikerjakan | — |
 | KIFC-R30-14 | Buktikan desain maskot 3D prerender | Prototipe aset maskot | Sulit, mutu aset belum terbukti | Referensi dan akses produksi | Belum dikerjakan | — |
 | KIFC-R30-15 | Produksi gerakan maskot yang dapat dipakai ulang | Aset animasi maskot | Sulit | 14 | Belum dikerjakan | — |
@@ -215,7 +215,7 @@ Nomor pendek pada dependensi merujuk tiket dengan awalan yang sama. Tiket sumber
 
 ### KIFC-R30-12 — Naskah dan audisi suara tiga bahasa
 
-**Status:** Dikerjakan; naskah dan kandidat awal tersedia, audisi menunggu akses penyedia. **Area:** naskah narasi dan manifest sumber audio baru; referensi teks bacaan di `_KarhutlaCards` dan lokalisasi.
+**Status:** Dikerjakan; naskah dan dua audisi gratis tersedia, menunggu penilaian pemilik. **Area:** naskah narasi dan manifest sumber audio baru; referensi teks bacaan di `_KarhutlaCards` dan lokalisasi.
 
 - [x] Inventaris isi tiga bubble Karhutla dalam ID/EN/KO. Buat sapaan pembuka singkat yang mengajak bermain dan salam penutup singkat yang berterima kasih; jangan mengisi kuis/feedback dengan voice-over. Draf baru menunggu peninjauan bahasa/klien.
 - [ ] Pilih kandidat voice hangat, ramah, percaya diri, dan bersemangat sesuai ranger; lakukan audisi pendek untuk pengucapan karhutla, gambut, dan nama lembaga jika disebut. Identitas suara antarbasa harus diusahakan konsisten, bukan dijamin tanpa audisi.
@@ -224,7 +224,7 @@ Nomor pendek pada dependensi merujuk tiket dengan awalan yang sama. Tiket sumber
 
 **Selesai jika:** naskah tiga bahasa dan voice terpilih dapat ditinjau, pengucapan layak, serta sumber dan biaya jelas. Bukti: naskah, contoh audisi, identitas voice dan catatan pilihan pemilik. Akses belum tersedia berarti Menunggu aset/akses, bukan selesai.
 
-**Progres 31 Oktober:** [draf lima narasi](../../docs/client-revisions/2026-10-30/narration/naskah.md) dan [riset kandidat, akses, biaya, dan ketentuan](../../docs/client-revisions/2026-10-30/narration/voice-research.md) tersedia. Kandidat Azure multilingual dan pembanding lokal belum diaudisi; Korea perlu ditinjau penutur kompeten. Belum ada audio, keputusan voice, atau biaya aktual.
+**Progres 31 Oktober:** [draf lima narasi](../../docs/client-revisions/2026-10-30/narration/naskah.md) dan [riset kandidat, akses, biaya, dan ketentuan](../../docs/client-revisions/2026-10-30/narration/voice-research.md) tersedia. Dua sampel lokal Supertonic 3 M1/M2 tersedia untuk tiga bahasa tanpa biaya API; pelafalan dan pilihan pemilik belum dinilai, dan Korea perlu ditinjau penutur kompeten. Belum ada audio produksi atau keputusan voice.
 
 ### KIFC-R30-13 — Produksi audio narasi dan timing
 
@@ -358,4 +358,6 @@ Status diperbarui setelah implementasi dan pemeriksaan nyata. Selesai secara imp
 | 30 Oktober 2026 | KIFC-R30-10 lanjutan | Stabilisasi diizinkan; kandidat ranting ditolak → wildfire baru siap ditinjau | `0961f1c` | H.264 11s/960×540 tanpa audio; 1.86 MB, poster/hash, decode dan inspeksi empat waktu lulus | Belum dipasang (11), belum disahkan visual oleh pemilik |
 | 30 Oktober 2026 | KIFC-R30-11 | Hasil visual disetujui pemilik; tetap dikerjakan | `72c8941` | Playback web dan ponsel diperiksa, rekaman dan screenshot tersedia | Uji offline dan pemeriksaan media tersisa belum selesai |
 
-| 31 Oktober 2026 | KIFC-R30-12 | Mulai dikerjakan; audisi menunggu akses | `8c48e32` | Draf 5 momen × 3 bahasa; sumber dan kandidat awal Azure dicatat | Suara, pelafalan, akses, lisensi akun, dan biaya aktual belum dibuktikan |
+| 31 Oktober 2026 | KIFC-R30-12 | Mulai dikerjakan; akses Azure belum tersedia | `8c48e32` | Draf 5 momen × 3 bahasa; sumber dan kandidat awal Azure dicatat | Suara, pelafalan, akses, lisensi akun, dan biaya aktual belum dibuktikan |
+
+| 31 Oktober 2026 | KIFC-R30-12 lanjutan | Dua kandidat gratis siap didengar | Akan dicatat | Supertonic 3 M1/M2; enam sampel ID/EN/KO dibuat lokal, decode dan sinyal diperiksa | Belum dinilai pemilik, belum produksi, timing dan izin proyek perlu ditinjau |
