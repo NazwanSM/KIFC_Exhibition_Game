@@ -375,3 +375,5 @@ Status diperbarui setelah implementasi dan pemeriksaan nyata. Selesai secara imp
 | 1 November 2026 | KIFC-R30-12 | Selesai sesuai konfirmasi pemilik | `8aba569` | Voice ElevenLabs dan 15 file diterima; pemilik mengonfirmasi tiga poin peninjauan | Rincian kredit/model konkret tidak diberikan; timing berada pada 13 |
 
 | 1 November 2026 | KIFC-R30-13 | Draf audio/timing disiapkan | commit persiapan | 15 salinan dinormalisasi; hash/decode/durasi lulus; 18 bagian timing ditandai | Bundle dan hash lulus; perlu review, pemisahan frasa, serta cek campuran musik |
+
+| 1 November 2026 | KIFC-R30-13 lanjutan | Sampel campuran disiapkan | commit sampel | Sampel definisi ID/EN/KO mengikuti nilai mixer default saat narasi; decode lulus | Perlu dengar dan uji perangkat; timing masih 18 bagian perlu tinjauan |
