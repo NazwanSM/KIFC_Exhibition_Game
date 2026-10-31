@@ -59,3 +59,9 @@ Pemilik memilih layanan ElevenLabs dan meminta satu contoh sapaan Indonesia deng
 Estimasi connector: **64 kredit**, setara estimasi nominal USD 0,0064; estimasi bukan tagihan. Percobaan generasi mengembalikan pesan bahwa generasi gratis sedang sibuk dan tidak dimulai: **0 kredit ditagihkan**, sesuai respons connector. Tidak ada audio hasil yang dibuat. Jangan menghitung estimasi sebagai pemakaian aktual. Flow estimasi: https://elevenlabs.io/app/flows/hajZgnK1Vnqh35msplNJ .
 
 Pengucapan Indonesia, hasil suara, hak penggunaan yang berlaku pada paket akun, dan biaya generasi berikutnya masih perlu diverifikasi. Jangan ulangi generasi secara otomatis dalam percobaan ini; pengguna dapat mencoba lagi nanti.
+
+## File Indonesia diterima dari pemilik
+
+Pemilik menyimpan lima MP3 di `assets/audio/narration/incoming/`: welcome, definition, cause, prevention, dan closing. Pada pemeriksaan lokal seluruh file berhasil didekode; durasi berturut-turut 5,49; 9,17; 14,99; 12,36; dan 5,33 detik. Hash dan metadata ada di `build/review-r30-12-incoming/audio-metadata.json`; file asli tidak diubah. File Inggris dan Korea belum ditemukan.
+
+Transkripsi otomatis lokal adalah pemeriksaan awal, bukan bukti pelafalan atau kecocokan kata demi kata. Hasil awal tiga bacaan tampak mengikuti bubble saat ini, tetapi beberapa kata dibaca keliru oleh ASR dan perlu didengar manusia. Sapaan dan penutup mengikuti draf yang sebelumnya kami berikan dan berbeda dari teks bubble yang saat ini tampil. Isi Babak 2 dinyatakan final oleh pemilik: jangan parafrase; periksa kesesuaian audio secara teliti. Belum diperiksa setting ElevenLabs, akun/izin, kredit aktual, serta ketepatan pengucapan. File belum diintegrasikan atau dimasukkan ke commit.
