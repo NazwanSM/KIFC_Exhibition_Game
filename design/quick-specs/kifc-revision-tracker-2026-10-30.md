@@ -48,7 +48,7 @@ Keputusan ini menggantikan ketentuan lama tentang demo yang wajib dicoba, seluru
 | KIFC-R30-09 | Terapkan Safari versi penuh | Musik lintas game | Sedang | Sumber penuh dan lisensi | Dikerjakan: native belum terverifikasi | `c713309` |
 | KIFC-R30-10 | Cari dan siapkan video kebakaran kamera statis | Aset panel hutan | Sedang, bergantung aset | Sumber dan izin penggunaan | Siap ditinjau: cuplikan wildfire pengganti | `0961f1c` |
 | KIFC-R30-11 | Integrasikan background video kebakaran bersama | Penyusunan lengkap dan penjelasan Segitiga Api | Menengah–sulit | 07, 08, 10 | Dikerjakan: visual disetujui, uji offline tertunda | `72c8941` |
-| KIFC-R30-12 | Finalisasi naskah dan audisi suara maskot | Pembuka, tiga bacaan, penutup | Menengah–sulit | Akses TTS dan peninjauan suara | Dikerjakan: menunggu penilaian audisi lanjutan | `f3de85b` |
+| KIFC-R30-12 | Finalisasi naskah dan audisi suara maskot | Pembuka, tiga bacaan, penutup | Menengah–sulit | Akses TTS dan peninjauan suara | Dikerjakan: audisi VoxCPM2 menunggu penilaian | `f3de85b` |
 | KIFC-R30-13 | Produksi narasi tiga bahasa dan data timing | Aset narasi | Sulit | 12 | Belum dikerjakan | — |
 | KIFC-R30-14 | Buktikan desain maskot 3D prerender | Prototipe aset maskot | Sulit, mutu aset belum terbukti | Referensi dan akses produksi | Belum dikerjakan | — |
 | KIFC-R30-15 | Produksi gerakan maskot yang dapat dipakai ulang | Aset animasi maskot | Sulit | 14 | Belum dikerjakan | — |
@@ -224,7 +224,7 @@ Nomor pendek pada dependensi merujuk tiket dengan awalan yang sama. Tiket sumber
 
 **Selesai jika:** naskah tiga bahasa dan voice terpilih dapat ditinjau, pengucapan layak, serta sumber dan biaya jelas. Bukti: naskah, contoh audisi, identitas voice dan catatan pilihan pemilik. Akses belum tersedia berarti Menunggu aset/akses, bukan selesai.
 
-**Progres 31 Oktober:** [draf lima narasi](../../docs/client-revisions/2026-10-30/narration/naskah.md) dan [riset kandidat, akses, biaya, dan ketentuan](../../docs/client-revisions/2026-10-30/narration/voice-research.md) tersedia. Pemilik menilai kompatibilitas M1/M2 baik tetapi meminta karakter lebih ramah atau lembut. Sampel tambahan Supertonic 3 M3/M4/M5 tersedia untuk ditinjau dalam tiga bahasa tanpa biaya API; pilihan akhir dan pelafalan belum dinilai, dan Korea perlu ditinjau penutur kompeten. Belum ada audio produksi atau keputusan voice.
+**Progres 31 Oktober:** [draf lima narasi](../../docs/client-revisions/2026-10-30/narration/naskah.md) dan [riset kandidat, akses, biaya, dan ketentuan](../../docs/client-revisions/2026-10-30/narration/voice-research.md) tersedia. Pemilik menilai kompatibilitas M1/M2 baik tetapi menolak kesan kaku/robot; meminta suara lebih natural ala ElevenLabs dengan opsi gratis. Sampel tambahan Supertonic 3 M3/M4/M5 tersedia untuk ditinjau dalam tiga bahasa tanpa biaya API; pilihan akhir dan pelafalan belum dinilai, dan Korea perlu ditinjau penutur kompeten. Satu sampel Indonesia VoxCPM2 telah dibuat melalui demo gratis pihak ketiga; sampel EN/KO tertunda kuota. Belum ada audio produksi atau keputusan voice.
 
 ### KIFC-R30-13 — Produksi audio narasi dan timing
 
@@ -363,3 +363,5 @@ Status diperbarui setelah implementasi dan pemeriksaan nyata. Selesai secara imp
 | 31 Oktober 2026 | KIFC-R30-12 lanjutan | Dua kandidat gratis siap didengar | `28aa077` | Supertonic 3 M1/M2; enam sampel ID/EN/KO dibuat lokal, decode dan sinyal diperiksa | Belum dinilai pemilik, belum produksi, timing dan izin proyek perlu ditinjau |
 
 | 31 Oktober 2026 | KIFC-R30-12 lanjutan | Audisi karakter lebih lembut disiapkan | `f3de85b` | Supertonic 3 M3/M4/M5 dalam tiga bahasa; 12 MP3 terdekode | Kandidat belum dinilai subjektif atau dipilih pemilik |
+
+| 31 Oktober 2026 | KIFC-R30-12 lanjutan | Sampel VoxCPM2 gratis siap didengar | Akan dicatat | 1 sampel Indonesia; model Apache 2.0; sumber layanan dan batas kuota dicatat | Belum dinilai pemilik; EN/KO belum dibuat, ketentuan host dan kualitas perlu ditinjau |

@@ -41,3 +41,13 @@ Pemilik menilai kompatibilitas M1/M2 baik, tetapi meminta karakter lebih ramah a
 - [M5](audition-supertonic3-soft/M5-id-en-ko.mp3)
 
 Seluruh 12 MP3 (9 individual dan 3 gabungan) lolos decode; sembilan audio sumber tidak hening. [Manifest](audition-supertonic3-soft/manifest.json) mencatat voice, teks, locale, durasi, dan hash. Hasil belum diuji penutur Korea atau disetujui pemilik; belum dipakai di game.
+
+## Kandidat ekspresif gratis — VoxCPM2
+
+Pemilik menilai sampel Supertonic terlalu kaku dan meminta suara lebih natural seperti layanan ElevenLabs, dengan opsi gratis terlebih dahulu. [VoxCPM2 oleh OpenBMB](https://huggingface.co/openbmb/VoxCPM2) adalah model berbeda yang mendukung Indonesia, Inggris, dan Korea serta desain karakter dari deskripsi; model card menyatakan Apache 2.0. Ini bukan suara ElevenLabs, dan kualitas, pelafalan, serta konsistensi antarbahasa belum dinilai.
+
+Sampel sapaan Indonesia dibuat lewat demo pihak ketiga [yeyee2609/voxcpm2](https://huggingface.co/spaces/yeyee2609/voxcpm2), yang kode publiknya menyatakan menggunakan `openbmb/VoxCPM2`. Teks dan instruksi dikirim ke host tersebut; tidak ada referensi suara orang yang diunggah. Tidak ada biaya yang dibebankan dalam percobaan ini. [Dengarkan sampel hangat](audition-voxcpm2/suara-hangat-id.mp3), [manifest](audition-voxcpm2/manifest.json). MP3 lulus decode dan berisi sinyal; penilaian pendengaran tetap diperlukan.
+
+Demo resmi OpenBMB dua kali mengembalikan `Queue is full`. Demo pihak ketiga menghasilkan satu klip, lalu menolak lima percobaan berikut karena kuota ZeroGPU harian: permintaan 180 detik melebihi 155 detik tersisa. Karena itu sampel Inggris/Korea dan pembanding kedua belum tersedia. Layanan demo pihak ketiga dapat memiliki syarat sendiri; lisensi model bukan jaminan ketentuan layanan. Model asli lebih besar daripada Supertonic dan kelayakan laptop untuk menjalankannya lokal belum diuji. Di ponsel/game hanya berkas hasil yang akan dibundel jika disetujui, bukan modelnya. Periksa pelafalan, hak penggunaan layanan, hak distribusi untuk proyek, dan alignment kata sebelum produksi.
+
+ElevenLabs sendiri memiliki [paket gratis untuk penggunaan nonkomersial dengan atribusi](https://elevenlabs.io/docs/overview/administration/billing); jangan asumsikan paket gratis cocok untuk distribusi proyek klien. OmniVoice tersedia untuk audisi nonkomersial tetapi [model card](https://huggingface.co/k2-fsa/OmniVoice) menyatakan bobotnya CC-BY-NC, sehingga tidak dipilih sebagai dasar distribusi proyek komersial.

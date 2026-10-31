@@ -1,0 +1,14 @@
+{
+  "model": "openbmb/VoxCPM2",
+  "model_license": "Apache-2.0",
+  "hosting": "third-party Hugging Face Space yeyee2609/voxcpm2",
+  "method": "voice design; no reference audio",
+  "locale": "id",
+  "text": "Halo! Yuk, main dan cari tahu cara menjaga hutan dari kebakaran.",
+  "instruction": "A friendly young adult male forest ranger, soft, warm and welcoming; natural conversational voice.",
+  "duration_seconds": 5.46,
+  "source_sample_rate": 48000,
+  "file": "suara-hangat-id.mp3",
+  "sha256": "d0361727f4c49333e0bdb751600424b882995f3a3b196d52df0467ecc573279b",
+  "review": "unreviewed audition, not production"
+}
