@@ -48,7 +48,7 @@ Keputusan ini menggantikan ketentuan lama tentang demo yang wajib dicoba, seluru
 | KIFC-R30-09 | Terapkan Safari versi penuh | Musik lintas game | Sedang | Sumber penuh dan lisensi | Dikerjakan: native belum terverifikasi | `c713309` |
 | KIFC-R30-10 | Cari dan siapkan video kebakaran kamera statis | Aset panel hutan | Sedang, bergantung aset | Sumber dan izin penggunaan | Siap ditinjau: cuplikan wildfire pengganti | `0961f1c` |
 | KIFC-R30-11 | Integrasikan background video kebakaran bersama | Penyusunan lengkap dan penjelasan Segitiga Api | Menengah–sulit | 07, 08, 10 | Dikerjakan: visual disetujui, uji offline tertunda | `72c8941` |
-| KIFC-R30-12 | Finalisasi naskah dan audisi suara maskot | Pembuka, tiga bacaan, penutup | Menengah–sulit | Akses TTS dan peninjauan suara | Dikerjakan: 15 file diterima, audit lanjutan | `d0b3bde` |
+| KIFC-R30-12 | Finalisasi naskah dan audisi suara maskot | Pembuka, tiga bacaan, penutup | Menengah–sulit | Akses TTS dan peninjauan suara | Dikerjakan: 15 file diterima, audit lanjutan | `5def511` |
 | KIFC-R30-13 | Produksi narasi tiga bahasa dan data timing | Aset narasi | Sulit | 12 | Belum dikerjakan | — |
 | KIFC-R30-14 | Buktikan desain maskot 3D prerender | Prototipe aset maskot | Sulit, mutu aset belum terbukti | Referensi dan akses produksi | Belum dikerjakan | — |
 | KIFC-R30-15 | Produksi gerakan maskot yang dapat dipakai ulang | Aset animasi maskot | Sulit | 14 | Belum dikerjakan | — |
@@ -370,4 +370,4 @@ Status diperbarui setelah implementasi dan pemeriksaan nyata. Selesai secara imp
 
 | 31 Oktober 2026 | KIFC-R30-12 ElevenLabs lanjutan | Lima file Indonesia diterima | `d0b3bde` | Lima MP3 terdekode; transkripsi otomatis awal tiga bacaan dibandingkan teks bubble | Perlu dengar manusia; sapaan/penutup berbeda dari tampilan; EN/KO dan kredit aktual belum diketahui |
 
-| 1 November 2026 | KIFC-R30-12 lanjutan | 15 file tiga bahasa diterima | Akan dicatat | 15 MP3 terdekode; definition/cause Inggris diperbaiki dengan menukar nama, hash terjaga | ASR hanya pemeriksaan awal; perlu peninjauan pendengaran, timing dan penyelarasan pembuka/penutup |
+| 1 November 2026 | KIFC-R30-12 lanjutan | 15 file tiga bahasa diterima | `5def511` | 15 MP3 terdekode; definition/cause Inggris diperbaiki dengan menukar nama, hash terjaga | ASR hanya pemeriksaan awal; perlu peninjauan pendengaran, timing dan penyelarasan pembuka/penutup |
