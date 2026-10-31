@@ -2,7 +2,7 @@
 
 Sumber: daftar revisi klien yang disampaikan pemilik proyek dan klarifikasinya dalam percakapan 30 Oktober 2026. Tujuan dokumen ini adalah memetakan pekerjaan, cara penerapan, dependensi, dan bukti penyelesaiannya. Pembuatan tracker tidak berarti revisi game sudah diimplementasikan.
 
-**Status terkini: 8 Belum dikerjakan, 3 Dikerjakan, 1 Siap ditinjau, 8 Selesai secara implementasi.**
+**Status terkini: 8 Belum dikerjakan, 2 Dikerjakan, 1 Siap ditinjau, 9 Selesai secara implementasi.**
 
 ID `KIFC-R30-01` sampai `KIFC-R30-20` khusus untuk putaran ini, bukan nomor halaman atau babak. Riwayat lama tetap disimpan di [tracker 23 Oktober](kifc-screen-revision-tracker-2026-10-23.md). Status pekerjaan lama tidak dipindahkan menjadi status selesai untuk kebutuhan baru.
 
@@ -12,7 +12,7 @@ ID `KIFC-R30-01` sampai `KIFC-R30-20` khusus untuk putaran ini, bukan nomor hala
 - Maskot mengikuti arah **3D yang sudah dirender**, dengan gerakan mulut sederhana saat berbicara. Model 3D real-time bukan target awal. Mutu, konsistensi, transparansi, dan biaya aset tetap perlu dibuktikan melalui contoh sebelum produksi massal.
 - Narasi hanya untuk sapaan pembuka, **tiga halaman bacaan Karhutla**, dan salam penutup. Kuis jenis hutan dan seluruh feedback **tidak menggunakan narasi**; maskotnya tetap bergerak.
 - Bahasa tetap Indonesia, Inggris, dan Korea, mengikuti pilihan pengguna. Isi narasi Karhutla mengikuti teks penjelasan yang sekarang, tanpa menambah materi baru. Pembuka dan penutup memakai naskah singkat yang sesuai fungsinya.
-- Azure AI Speech adalah **usulan sumber TTS**, belum layanan yang sudah dipakai dan belum pilihan voice final. Penyedia, voice/model, izin penggunaan, biaya, dan contoh tiga bahasa perlu dicatat sebelum produksi. Jangan mengklaim TTS sudah dibuat atau gratis tanpa pemeriksaan.
+- Pemilik memilih **ElevenLabs** dengan voice `mw_animated_The Plucky Hero` dan menyatakan peninjauan suara, pengaturan/biaya, serta penggunaan telah selesai. Angka kredit aktual dan pengaturan rinci tidak diberikan dalam percakapan dan tidak diada-adakan.
 - Pembuka menunggu tombol Mulai meskipun sapaan selesai. Sapaan diulang saat idle; **20 detik setelah sapaan selesai adalah nilai awal usulan**, bukan angka yang ditetapkan klien. Dapat disesuaikan setelah didengarkan dalam konteks pameran.
 - Hanya bacaan Karhutla yang berpindah otomatis ketika narasinya selesai. Ketuk untuk melewati harus menghentikan suara dan berpindah satu halaman. Kuis tidak boleh dilewati oleh perilaku ini.
 - Penutup tidak berpindah karena audio selesai. Timer khusus penutup menjadi **30 detik**, tetap bisa dilanjutkan lebih cepat lewat ketukan. Feedback dan hasil lain tetap **15 detik**, kecuali direvisi lagi.
@@ -48,7 +48,7 @@ Keputusan ini menggantikan ketentuan lama tentang demo yang wajib dicoba, seluru
 | KIFC-R30-09 | Terapkan Safari versi penuh | Musik lintas game | Sedang | Sumber penuh dan lisensi | Dikerjakan: native belum terverifikasi | `c713309` |
 | KIFC-R30-10 | Cari dan siapkan video kebakaran kamera statis | Aset panel hutan | Sedang, bergantung aset | Sumber dan izin penggunaan | Siap ditinjau: cuplikan wildfire pengganti | `0961f1c` |
 | KIFC-R30-11 | Integrasikan background video kebakaran bersama | Penyusunan lengkap dan penjelasan Segitiga Api | Menengah–sulit | 07, 08, 10 | Dikerjakan: visual disetujui, uji offline tertunda | `72c8941` |
-| KIFC-R30-12 | Finalisasi naskah dan audisi suara maskot | Pembuka, tiga bacaan, penutup | Menengah–sulit | Akses TTS dan peninjauan suara | Dikerjakan: 15 file diterima, audit lanjutan | `5def511` |
+| KIFC-R30-12 | Finalisasi naskah dan audisi suara maskot | Pembuka, tiga bacaan, penutup | Menengah–sulit | Akses TTS dan peninjauan suara | Selesai: disetujui pemilik | `5def511` |
 | KIFC-R30-13 | Produksi narasi tiga bahasa dan data timing | Aset narasi | Sulit | 12 | Belum dikerjakan | — |
 | KIFC-R30-14 | Buktikan desain maskot 3D prerender | Prototipe aset maskot | Sulit, mutu aset belum terbukti | Referensi dan akses produksi | Belum dikerjakan | — |
 | KIFC-R30-15 | Produksi gerakan maskot yang dapat dipakai ulang | Aset animasi maskot | Sulit | 14 | Belum dikerjakan | — |
@@ -215,16 +215,14 @@ Nomor pendek pada dependensi merujuk tiket dengan awalan yang sama. Tiket sumber
 
 ### KIFC-R30-12 — Naskah dan audisi suara tiga bahasa
 
-**Status:** Dikerjakan; pemilik memilih ElevenLabs dan voice Plucky Hero untuk audisi. Pemilik telah membuat dan menyimpan 15 file melalui web; hasilnya perlu ditinjau dan disesuaikan. **Area:** naskah narasi dan manifest sumber audio baru; referensi teks bacaan di `_KarhutlaCards` dan lokalisasi.
+**Status:** Selesai berdasarkan konfirmasi pemilik pada 1 November 2026. **Penyedia:** ElevenLabs; **voice:** `mw_animated_The Plucky Hero` (`QZt6b1wd97jPRMrPdClY`). Pemilik membuat 15 file melalui web dan menyatakan peninjauan suara, pengaturan/biaya, serta penggunaan sudah selesai. Nilai kredit aktual dan pengaturan yang dipakai tidak diberikan sehingga tidak dicatat sebagai angka pasti.
 
-- [x] Inventaris isi tiga bubble Karhutla dalam ID/EN/KO. Buat sapaan pembuka singkat yang mengajak bermain dan salam penutup singkat yang berterima kasih; jangan mengisi kuis/feedback dengan voice-over. Draf baru menunggu peninjauan bahasa/klien.
-- [ ] Pilih kandidat voice hangat, ramah, percaya diri, dan bersemangat sesuai ranger; lakukan audisi pendek untuk pengucapan karhutla, gambut, dan nama lembaga jika disebut. Identitas suara antarbasa harus diusahakan konsisten, bukan dijamin tanpa audisi.
-- [ ] Periksa Azure AI Speech sebagai usulan, dukungan voice/timing tiap bahasa, akses akun, izin distribusi audio hasil, dan biaya. Catat penyedia/engine/voice yang benar-benar digunakan; alternatif penyedia harus disebut bila usulan tidak dapat dipakai.
-- [ ] Siapkan contoh yang konkret dan sampaikan kebutuhan biaya/akses sebelum menjalankan produksi berbayar. Minta penilaian pemilik terhadap karakter suara sebelum membuat seluruh narasi.
+- [x] Inventaris tiga bubble Babak 2 dalam ID/EN/KO dan siapkan sapaan serta penutup; teks Babak 2 mengikuti konten final.
+- [x] Pilih voice dan tinjau hasil tiga bahasa berdasarkan konfirmasi pemilik.
+- [x] Catat penyedia yang dipilih: ElevenLabs, menggantikan usulan Azure; status biaya dan penggunaan dikonfirmasi pemilik tanpa rincian angka aktual.
+- [x] Siapkan dan terima contoh serta seluruh 15 file narasi dari pemilik. Semua file berhasil didekode; dua nama file Inggris yang tertukar sudah dikoreksi.
 
-**Selesai jika:** naskah tiga bahasa dan voice terpilih dapat ditinjau, pengucapan layak, serta sumber dan biaya jelas. Bukti: naskah, contoh audisi, identitas voice dan catatan pilihan pemilik. Akses belum tersedia berarti Menunggu aset/akses, bukan selesai.
-
-**Progres 31 Oktober:** [draf lima narasi](../../docs/client-revisions/2026-10-30/narration/naskah.md) dan [riset kandidat, akses, biaya, dan ketentuan](../../docs/client-revisions/2026-10-30/narration/voice-research.md) tersedia. Pemilik menilai kompatibilitas M1/M2 baik tetapi menolak kesan kaku/robot; meminta suara lebih natural ala ElevenLabs dengan opsi gratis. Sampel tambahan Supertonic 3 M3/M4/M5 tersedia untuk ditinjau dalam tiga bahasa tanpa biaya API; pilihan akhir dan pelafalan belum dinilai, dan Korea perlu ditinjau penutur kompeten. Satu sampel Indonesia VoxCPM2 telah dibuat melalui demo gratis pihak ketiga; sampel EN/KO tertunda kuota. Belum ada audio produksi atau keputusan voice.
+**Bukti:** [naskah](../../docs/client-revisions/2026-10-30/narration/naskah.md), [catatan suara dan file](../../docs/client-revisions/2026-10-30/narration/voice-research.md). Peninjauan rincian audio/timing dan penyelarasan teks pembuka/penutup dikerjakan pada tiket berikutnya.
 
 ### KIFC-R30-13 — Produksi audio narasi dan timing
 
@@ -371,3 +369,5 @@ Status diperbarui setelah implementasi dan pemeriksaan nyata. Selesai secara imp
 | 31 Oktober 2026 | KIFC-R30-12 ElevenLabs lanjutan | Lima file Indonesia diterima | `d0b3bde` | Lima MP3 terdekode; transkripsi otomatis awal tiga bacaan dibandingkan teks bubble | Perlu dengar manusia; sapaan/penutup berbeda dari tampilan; EN/KO dan kredit aktual belum diketahui |
 
 | 1 November 2026 | KIFC-R30-12 lanjutan | 15 file tiga bahasa diterima | `5def511` | 15 MP3 terdekode; definition/cause Inggris diperbaiki dengan menukar nama, hash terjaga | ASR hanya pemeriksaan awal; perlu peninjauan pendengaran, timing dan penyelarasan pembuka/penutup |
+
+| 1 November 2026 | KIFC-R30-12 | Selesai sesuai konfirmasi pemilik | Akan dicatat | Voice ElevenLabs dan 15 file diterima; pemilik mengonfirmasi tiga poin peninjauan | Rincian kredit/model konkret tidak diberikan; timing berada pada 13 |
