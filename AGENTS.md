@@ -69,4 +69,4 @@
 - Unscored cards and final challenge choices have neutral effects. Do not reveal correctness through audio before visual feedback.
 - Audio controls use the shared centered touchscreen area; screenshots alone cannot prove playback or physical speaker comfort. Keep source/decode, browser/native playback and physical speaker evidence distinct.
 
-- KIFC-R30-09: use the full Safari composition with circular outro/intro overlap, not the 30-second audition. Default music/nature levels are .50/.22; keep effects independent. setNarrationActive temporarily ducks music/nature without changing user sliders or enabling autoplay. No narration is implemented by this API alone.
+- KIFC-R30-09: use the full Safari composition with circular outro/intro overlap, not the 30-second audition. Default music/nature/effects levels are .50/.10/.50; keep effects independent. setNarrationActive temporarily ducks music/nature without changing user sliders or enabling autoplay. No narration is implemented by this API alone.

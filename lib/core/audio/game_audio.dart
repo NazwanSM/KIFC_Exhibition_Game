@@ -28,8 +28,8 @@ class GameAudioController extends ChangeNotifier {
   final _levels = <AudioLayer, double>{
     AudioLayer.master: .65,
     AudioLayer.music: .50,
-    AudioLayer.nature: .22,
-    AudioLayer.effects: 1,
+    AudioLayer.nature: .10,
+    AudioLayer.effects: .50,
   };
   bool muted = false, unavailable = false;
   bool _activated = false, _active = true, _disposed = false, _prepared = false;
