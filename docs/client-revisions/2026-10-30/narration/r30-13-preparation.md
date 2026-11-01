@@ -1,6 +1,6 @@
 # KIFC-R30-13 — Persiapan narasi dan timing
 
-Status: dikerjakan, belum siap dipakai sebagai subtitle final. Pemilik mengonfirmasi peninjauan dan pilihan voice ElevenLabs pada tiket 12. Pengaturan dan nama model yang benar-benar dipakai saat unduh tidak tercatat; metadata menandainya tidak diketahui, bukan mengasumsikan estimasi `eleven_v4` yang tidak sempat dijalankan.
+Status: persiapan diterima pemilik; integrasi subtitle final dikerjakan pada KIFC-R30-19. Pemilik mengonfirmasi peninjauan dan pilihan voice ElevenLabs pada tiket 12. Pengaturan dan nama model yang benar-benar dipakai saat unduh tidak tercatat; metadata menandainya tidak diketahui, bukan mengasumsikan estimasi `eleven_v4` yang tidak sempat dijalankan.
 
 ## Audio
 
@@ -30,3 +30,5 @@ Pemilik mengonfirmasi bahwa campuran suara dan musik sudah aman. Pemeriksaan tim
 Pemilik telah meninjau alat timing dan menyetujui hasil yang ditampilkan. Sebelas span masih berupa gabungan beberapa kata; persetujuan atas tampilan draf tidak dengan sendirinya menyediakan batas waktu masing-masing kata. Pemisahan dan uji tampilan per kata tetap diperlukan pada integrasi.
 
 Klarifikasi pemilik: subtitle narasi hanya untuk tiga bacaan Babak 2, bertambah per kata dan menetap sampai menjadi paragraf utuh. Pembuka dan penutup tanpa subtitle narasi. Dari 11 span gabungan dalam draf, tujuh berada pada bacaan Babak 2 (semuanya Korea) dan membutuhkan pemisahan per kata.
+
+Pemilik menerima draf yang ditinjau dan meminta melanjutkan. Persiapan KIFC-R30-13 ditutup; penanganan tujuh span gabungan dan verifikasi tampilan subtitle yang bertambah tetap menjadi bagian integrasi KIFC-R30-19.
