@@ -25,3 +25,6 @@ Tiga sampel definisi Karhutla: [Indonesia](mix-preview/id-definition-mix.mp3), [
 
 
 Pemilik mengonfirmasi bahwa campuran suara dan musik sudah aman. Pemeriksaan timing terpisah dari konfirmasi tersebut; 18 bagian tetap ditandai sampai dapat diverifikasi terhadap audio.
+
+
+Pemilik telah meninjau alat timing dan menyetujui hasil yang ditampilkan. Sebelas span masih berupa gabungan beberapa kata; persetujuan atas tampilan draf tidak dengan sendirinya menyediakan batas waktu masing-masing kata. Pemisahan dan uji tampilan per kata tetap diperlukan pada integrasi.

@@ -377,3 +377,5 @@ Status diperbarui setelah implementasi dan pemeriksaan nyata. Selesai secara imp
 | 1 November 2026 | KIFC-R30-13 | Draf audio/timing disiapkan | commit persiapan | 15 salinan dinormalisasi; hash/decode/durasi lulus; 18 bagian timing ditandai | Bundle dan hash lulus; perlu review, pemisahan frasa, serta cek campuran musik |
 
 | 1 November 2026 | KIFC-R30-13 lanjutan | Sampel campuran disiapkan | commit sampel | Sampel definisi ID/EN/KO mengikuti nilai mixer default saat narasi; decode lulus | Perlu dengar dan uji perangkat; timing masih 18 bagian perlu tinjauan |
+
+| 1 November 2026 | KIFC-R30-13 | Audio dan timing draf disetujui pemilik | commit dokumentasi | Pemilik meninjau alat timing dan menyetujui hasil yang ditampilkan | 11 span masih gabungan kata; batas tiap kata dan integrasi masih diperlukan |
