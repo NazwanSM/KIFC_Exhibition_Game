@@ -235,7 +235,7 @@ Nomor pendek pada dependensi merujuk tiket dengan awalan yang sama. Tiket sumber
 
 **Selesai jika:** seluruh halaman bersuara memiliki audio dan timing tiga bahasa yang cocok. Bukti: manifest, berkas, hasil pemeriksaan durasi/decode dan peninjauan naskah-suara.
 
-**Progres 1 November:** 15 salinan dinormalisasi dan terdekode; timing ASR disiapkan sebagai draf dengan 18 bagian ditandai untuk tinjauan, 11 berupa frasa multi-kata. Kelima belas file sudah masuk bundle Flutter dan hash cocok. Belum ada verifikasi pendengaran timing, sinkronisasi per kata, atau pemeriksaan campuran musik. [Bukti dan alat tinjau](../../docs/client-revisions/2026-10-30/narration/r30-13-preparation.md).
+**Progres 1 November:** 15 salinan dinormalisasi dan terdekode; timing ASR disiapkan sebagai draf dengan 18 bagian ditandai untuk tinjauan, 11 berupa frasa multi-kata. Kelima belas file sudah masuk bundle Flutter dan hash cocok. Campuran musik dikonfirmasi aman oleh pemilik; verifikasi timing dan sinkronisasi per kata masih diperlukan. [Bukti dan alat tinjau](../../docs/client-revisions/2026-10-30/narration/r30-13-preparation.md).
 
 ### KIFC-R30-14 — Prototipe maskot 3D prerender
 

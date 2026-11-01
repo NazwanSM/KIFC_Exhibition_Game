@@ -22,3 +22,6 @@ Status: dikerjakan, belum siap dipakai sebagai subtitle final. Pemilik mengonfir
 ## Sampel campuran untuk pemeriksaan pendengaran
 
 Tiga sampel definisi Karhutla: [Indonesia](mix-preview/id-definition-mix.mp3), [Inggris](mix-preview/en-definition-mix.mp3), [Korea](mix-preview/ko-definition-mix.mp3). Campuran dibuat secara offline menggunakan narasi 0,65, musik 0,091 dan ambience 0,0715 serta limiter 0,95. Nilai musik dan ambience meniru nilai default mixer saat `narrating`; level narasi 0,65 merupakan asumsi uji karena pemutar narasi belum diintegrasikan. Semua sampel berhasil didekode. Ini bukan hasil rekaman dari aplikasi, dan belum ada penilaian pendengaran pada perangkat target.
+
+
+Pemilik mengonfirmasi bahwa campuran suara dan musik sudah aman. Pemeriksaan timing terpisah dari konfirmasi tersebut; 18 bagian tetap ditandai sampai dapat diverifikasi terhadap audio.
