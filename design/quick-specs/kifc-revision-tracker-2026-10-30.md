@@ -226,14 +226,14 @@ Nomor pendek pada dependensi merujuk tiket dengan awalan yang sama. Tiket sumber
 
 ### KIFC-R30-13 — Produksi audio narasi dan timing
 
-**Status:** Dikerjakan; 15 salinan audio dan draf timing disiapkan, tetapi timing belum disetujui atau terintegrasi. **Dependensi:** 12. **Area:** aset audio narasi offline, manifest per halaman/bahasa, indeks timing kata/frasa.
+**Status:** Dikerjakan; 15 salinan audio dan draf timing disiapkan; pemilik menyetujui draf yang ditampilkan, tetapi timing per kata Babak 2 belum lengkap atau terintegrasi. **Dependensi:** 12. **Area:** aset audio narasi offline, manifest per halaman/bahasa, indeks timing kata/frasa.
 
 - [ ] Buat set narasi pembuka, tiga bacaan, dan penutup untuk tiga bahasa. Gunakan naskah yang sudah dipilih; penutup harus cukup singkat agar tidak terpotong timer 30 detik.
 - [ ] Simpan penyedia, model/voice ID, locale, pengaturan, naskah, durasi, sumber timing, serta hash tiap berkas. Normalisasi secara konsisten tanpa clipping dan periksa kejelasan di atas musik.
 - [ ] Peroleh atau siapkan timestamp yang mengikuti ucapan nyata. Jangan memakai kecepatan ketik konstan sebagai pengganti sinkronisasi; penanganan kata/eojel Korea perlu memperhatikan struktur bahasanya.
 - [ ] Uji semua berkas dapat didekode offline dan timing tidak melebihi durasi. Cek audio-teks cocok, tidak ada kata hilang atau tertukar locale; catat batas peninjauan penutur bahasa bila belum tersedia.
 
-**Selesai jika:** seluruh halaman bersuara memiliki audio dan timing tiga bahasa yang cocok. Bukti: manifest, berkas, hasil pemeriksaan durasi/decode dan peninjauan naskah-suara.
+**Selesai jika:** seluruh halaman bersuara memiliki audio tiga bahasa yang cocok; timing per kata dibutuhkan khusus untuk tiga bacaan Babak 2. Bukti: manifest, berkas, hasil pemeriksaan durasi/decode dan peninjauan naskah-suara.
 
 **Progres 1 November:** 15 salinan dinormalisasi dan terdekode; timing ASR disiapkan sebagai draf dengan 18 bagian ditandai untuk tinjauan, 11 berupa frasa multi-kata. Kelima belas file sudah masuk bundle Flutter dan hash cocok. Campuran musik dikonfirmasi aman oleh pemilik; verifikasi timing dan sinkronisasi per kata masih diperlukan. [Bukti dan alat tinjau](../../docs/client-revisions/2026-10-30/narration/r30-13-preparation.md).
 
@@ -272,7 +272,7 @@ Nomor pendek pada dependensi merujuk tiket dengan awalan yang sama. Tiket sumber
 
 ### KIFC-R30-17 — Salam penutup bersuara
 
-**Status:** Belum dikerjakan. **Dependensi:** 03, 04, 09, 13, 16. **Area kode:** `_ClosingPage`, pengelola narasi, mixer audio dan timer penutup.
+**Status:** Belum dikerjakan. Penutup tidak memiliki subtitle narasi. **Dependensi:** 03, 04, 09, 13, 16. **Area kode:** `_ClosingPage`, pengelola narasi, mixer audio dan timer penutup.
 
 - [ ] Putar salam/terima kasih sekali ketika masuk penutup, sesuai bahasa pengguna; tampilkan gerakan berbicara lalu kembali idle/perpisahan ketika audio selesai.
 - [ ] Selesai audio tidak memicu perpindahan. Penutup tetap menunggu timer 30 detik atau tindakan pengguna; jika timer/hak suara belum tersedia, tampilkan fallback teks yang tetap bisa dilanjutkan.
@@ -283,7 +283,7 @@ Nomor pendek pada dependensi merujuk tiket dengan awalan yang sama. Tiket sumber
 
 ### KIFC-R30-18 — Sapaan pembuka berkala
 
-**Status:** Belum dikerjakan. **Dependensi:** 01, 09, 13, 16. **Area kode:** `_WelcomePage`, lifecycle, pengelola narasi dan kontrol bahasa.
+**Status:** Belum dikerjakan. Pembuka tidak memiliki subtitle narasi. **Dependensi:** 01, 09, 13, 16. **Area kode:** `_WelcomePage`, lifecycle, pengelola narasi dan kontrol bahasa.
 
 - [ ] Putar sapaan singkat sesuai bahasa yang aktif saat pembuka idle. Gunakan jeda awal yang dapat dikonfigurasi, usulan 20 detik setelah sapaan selesai, lalu nilai kenyamanan pengulangannya.
 - [ ] Selesai sapaan tidak memulai tantangan. Mulai, pergantian bahasa, dialog, mute, keluar halaman, background, serta replay harus membatalkan/menyesuaikan jadwal lama; tidak ada panggilan bertumpuk atau dua bahasa berbunyi bersamaan.
@@ -296,7 +296,7 @@ Nomor pendek pada dependensi merujuk tiket dengan awalan yang sama. Tiket sumber
 
 **Status:** Belum dikerjakan. **Dependensi:** 05, 07, 09, 13, 16. **Area kode:** `_KarhutlaCards`, `_MascotDialogue`, pengelola narasi, lokalisasi dan navigasi bacaan; `test/reading_interaction_test.dart`, `test/chapter2_review_test.dart`.
 
-- [ ] Terapkan hanya pada tiga bacaan definisi, penyebab, dan pencegahan Karhutla. Teks bubble bertambah per kata mengikuti timestamp narasi, bukan langsung penuh; jaga tinggi/lebar bubble agar tidak meloncat tiap kata.
+- [ ] Terapkan hanya pada tiga bacaan definisi, penyebab, dan pencegahan Karhutla. Teks bubble bertambah per kata mengikuti timestamp narasi; kata yang sudah muncul tetap terlihat hingga membentuk paragraf utuh. Jaga tinggi/lebar bubble agar tidak meloncat tiap kata.
 - [ ] Mulai timeline setelah aset narasi siap dan halaman aktif. Selama pemuatan, tampilkan keadaan yang bisa dipahami serta akses lanjut manual; pemuatan gagal tidak boleh melewati penjelasan tanpa kesempatan membaca.
 - [ ] Gerakkan mulut maskot selama narasi, turunkan musik, dan selaraskan kemunculan teks dengan posisi audio. Saat pause/lifecycle, teks dan audio berhenti bersama; reduced motion tetap dapat membaca informasi lengkap melalui alternatif yang layak.
 - [ ] Selesai narasi pertama/kedua membuka bacaan berikutnya; bacaan ketiga menuju kuis jenis hutan. Ketuk layar saat bacaan aktif langsung melewati satu halaman dan menghentikan audio lama, bukan sekadar menampilkan seluruh teks dahulu.
@@ -379,3 +379,5 @@ Status diperbarui setelah implementasi dan pemeriksaan nyata. Selesai secara imp
 | 1 November 2026 | KIFC-R30-13 lanjutan | Sampel campuran disiapkan | commit sampel | Sampel definisi ID/EN/KO mengikuti nilai mixer default saat narasi; decode lulus | Perlu dengar dan uji perangkat; timing masih 18 bagian perlu tinjauan |
 
 | 1 November 2026 | KIFC-R30-13 | Audio dan timing draf disetujui pemilik | commit dokumentasi | Pemilik meninjau alat timing dan menyetujui hasil yang ditampilkan | 11 span masih gabungan kata; batas tiap kata dan integrasi masih diperlukan |
+
+| 1 November 2026 | KIFC-R30-13/17/18/19 | Klarifikasi subtitle pemilik | commit dokumentasi | Subtitle bertambah dan menetap menjadi paragraf hanya pada bacaan Babak 2; pembuka dan penutup tanpa subtitle narasi | Tujuh span gabungan tersisa pada bacaan Babak 2 berbahasa Korea; perlu timing per kata |

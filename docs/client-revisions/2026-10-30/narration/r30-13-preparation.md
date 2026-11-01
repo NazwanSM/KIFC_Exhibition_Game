@@ -28,3 +28,5 @@ Pemilik mengonfirmasi bahwa campuran suara dan musik sudah aman. Pemeriksaan tim
 
 
 Pemilik telah meninjau alat timing dan menyetujui hasil yang ditampilkan. Sebelas span masih berupa gabungan beberapa kata; persetujuan atas tampilan draf tidak dengan sendirinya menyediakan batas waktu masing-masing kata. Pemisahan dan uji tampilan per kata tetap diperlukan pada integrasi.
+
+Klarifikasi pemilik: subtitle narasi hanya untuk tiga bacaan Babak 2, bertambah per kata dan menetap sampai menjadi paragraf utuh. Pembuka dan penutup tanpa subtitle narasi. Dari 11 span gabungan dalam draf, tujuh berada pada bacaan Babak 2 (semuanya Korea) dan membutuhkan pemisahan per kata.
