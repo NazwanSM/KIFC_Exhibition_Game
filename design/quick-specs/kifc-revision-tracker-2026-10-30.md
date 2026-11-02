@@ -2,7 +2,7 @@
 
 Sumber: daftar revisi klien yang disampaikan pemilik proyek dan klarifikasinya dalam percakapan 30 Oktober 2026. Tujuan dokumen ini adalah memetakan pekerjaan, cara penerapan, dependensi, dan bukti penyelesaiannya. Pembuatan tracker tidak berarti revisi game sudah diimplementasikan.
 
-**Status terkini: 4 Belum dikerjakan, 4 Dikerjakan, 1 Siap ditinjau, 11 Selesai secara implementasi.**
+**Status terkini: 4 Belum dikerjakan, 3 Dikerjakan, 1 Siap ditinjau, 12 Selesai secara implementasi.**
 
 ID `KIFC-R30-01` sampai `KIFC-R30-20` khusus untuk putaran ini, bukan nomor halaman atau babak. Riwayat lama tetap disimpan di [tracker 23 Oktober](kifc-screen-revision-tracker-2026-10-23.md). Status pekerjaan lama tidak dipindahkan menjadi status selesai untuk kebutuhan baru.
 
@@ -51,7 +51,7 @@ Keputusan ini menggantikan ketentuan lama tentang demo yang wajib dicoba, seluru
 | KIFC-R30-12 | Finalisasi naskah dan audisi suara maskot | Pembuka, tiga bacaan, penutup | Menengah–sulit | Akses TTS dan peninjauan suara | Selesai: disetujui pemilik | `8aba569` |
 | KIFC-R30-13 | Produksi narasi tiga bahasa dan data timing | Aset narasi | Sulit | 12 | Selesai: draf diterima pemilik | `f145844` |
 | KIFC-R30-14 | Buktikan desain maskot 3D langsung dari GLB | Prototipe aset maskot | Sulit | Referensi dan akses produksi | Selesai: sumber final dipilih pemilik dan prototipe web teruji | `4203eda` |
-| KIFC-R30-15 | Produksi gerakan maskot yang dapat dipakai ulang | Aset animasi maskot | Sulit | 14 | Dikerjakan: enam klip siap; fallback dan ketajaman difinalkan | — |
+| KIFC-R30-15 | Produksi gerakan maskot yang dapat dipakai ulang | Aset animasi maskot | Sulit | 14 | Selesai: paket runtime, poster dan varian silent tersedia | — |
 | KIFC-R30-16 | Integrasikan animasi maskot di seluruh halaman | Semua kemunculan maskot | Sulit | 15 | Dikerjakan: welcome lulus, komponen lintas halaman dimulai | — |
 | KIFC-R30-17 | Tambahkan salam bersuara pada penutup | Penutup terakhir | Sulit karena dependensi | 03, 04, 09, 13, 16 | Belum dikerjakan | — |
 | KIFC-R30-18 | Tambahkan sapaan idle berkala | Pembuka | Sulit | 01, 09, 13, 16 | Belum dikerjakan | — |
@@ -250,14 +250,17 @@ Nomor pendek pada dependensi merujuk tiket dengan awalan yang sama. Tiket sumber
 
 ### KIFC-R30-15 — Paket gerakan maskot yang dapat dipakai ulang
 
-**Status:** Dikerjakan. Enam klip final tersedia; poster/fallback, varian tanpa ucapan dan ketajaman sedang difinalkan. **Dependensi:** 14. **Area:** aset animasi maskot, poster dan manifest state.
+**Status:** Selesai untuk paket aset yang diuji di renderer web. Enam klip sumber dipertahankan; varian tanpa ucapan dan tujuh poster transparan tersedia. **Dependensi:** 14. **Area:** aset animasi maskot, poster dan manifest state.
 
-- [ ] Produksi state seperlunya: idle ramah, menyapa/mengajak, berbicara/menjelaskan, respons benar/merayakan, respons belum tepat/memberi petunjuk, dan salam perpisahan. Gabungkan gerakan dengan fungsi serupa jika hasilnya tetap jelas.
-- [ ] Pakai loop berbicara yang sama untuk tiga bahasa; mulut bergerak hanya selama state berbicara. Tidak perlu satu video baru untuk setiap kalimat.
-- [ ] Samakan skala, titik tumpu, pencahayaan, arah hadap, margin aman, crop, serta ketajaman logo. Hindari tangan/kepala terpotong di sisi kiri/kanan.
-- [ ] Optimalkan format/resolusi/frame rate berdasarkan uji nyata dan siapkan poster/fallback statis serta reduced motion. Validasi kemampuan decoder/transparansi sebelum menetapkan format seluruh paket.
+- [x] Produksi state seperlunya: idle ramah, menyapa/mengajak, berbicara/menjelaskan, respons benar/merayakan, respons belum tepat/memberi petunjuk, dan salam perpisahan. Gabungkan gerakan dengan fungsi serupa jika hasilnya tetap jelas.
+- [x] Pakai loop berbicara yang sama untuk tiga bahasa; mulut bergerak hanya selama state berbicara. Tidak perlu satu video baru untuk setiap kalimat.
+- [x] Samakan skala, titik tumpu, pencahayaan, arah hadap, margin aman, crop, serta ketajaman logo. Hindari tangan/kepala terpotong di sisi kiri/kanan.
+- [x] Optimalkan format/resolusi/frame rate berdasarkan uji nyata dan siapkan poster/fallback statis serta reduced motion. Validasi kemampuan decoder/transparansi sebelum menetapkan format seluruh paket.
 
 **Selesai jika:** seluruh state yang dibutuhkan tersedia, konsisten, dan cukup ringan. Bukti: manifest/hash, preview setiap state dan catatan ukuran/playback.
+
+
+**Bukti 2 November:** [paket runtime](../../docs/client-revisions/2026-11-02/r30-15/README.md), manifest/hash, tujuh poster RGBA, enam klip asli ditambah tiga varian silent. Tidak ada pembelian baru. Perpisahan memakai WaveSilent; Talk/Feedback/Wave asli tetap menyimpan mulut untuk konteks bersuara dan welcome. Varian hanya mengganti track bobot morph; seluruh payload binary asli menjadi prefix yang identik. Pemilik memilih model/kamera/gerakan sumber dan meminta lanjut; peninjau teknis: agen. Uji native/hardware dan kenyamanan performa perangkat target tetap pada R30-20.
 
 ### KIFC-R30-16 — Maskot bergerak lintas halaman
 
@@ -383,3 +386,6 @@ Status diperbarui setelah implementasi dan pemeriksaan nyata. Selesai secara imp
 | 1 November 2026 | KIFC-R30-13/17/18/19 | Klarifikasi subtitle pemilik | commit dokumentasi | Subtitle bertambah dan menetap menjadi paragraf hanya pada bacaan Babak 2; pembuka dan penutup tanpa subtitle narasi | Tujuh span gabungan tersisa pada bacaan Babak 2 berbahasa Korea; perlu timing per kata |
 
 | 1 November 2026 | KIFC-R30-13 | Persiapan diterima dan ditutup | `f145844` | Pemilik menerima audio dan timing draf serta meminta lanjut | KIFC-R30-19 menangani subtitle bertahap dan tujuh span gabungan Korea saat integrasi |
+
+| 2 November 2026 | KIFC-R30-14 | Sumber GLB dan prototipe disetujui sebagai jalur integrasi | `4203eda` | Pilihan pemilik dan bukti welcome telah direkonsiliasi | Rencana prerender diganti GLB real-time; perangkat target belum diuji |
+| 2 November 2026 | KIFC-R30-15 | Paket runtime dan poster selesai | commit paket | Enam klip asli, tiga varian tanpa ucapan, tujuh poster RGBA dengan hash | Dilanjutkan ke komponen lintas halaman R30-16 |

@@ -1,0 +1,79 @@
+{
+  "farewell": {
+    "file": "assets/images/mascot3d/farewell.png",
+    "sha256": "e7bef75a5735b2151541278dc95c7b24dfe229e3136a2ea349118fcc878764da",
+    "bytes": 340113,
+    "size": [
+      757,
+      1009
+    ],
+    "rgba": true,
+    "transparent_corner": true
+  },
+  "hintSafety": {
+    "file": "assets/images/mascot3d/hintSafety.png",
+    "sha256": "a467fe13878b976e0a301a795b12ae29f4dd1977da6900447b53d940108adeff",
+    "bytes": 343998,
+    "size": [
+      757,
+      1009
+    ],
+    "rgba": true,
+    "transparent_corner": true
+  },
+  "idle": {
+    "file": "assets/images/mascot3d/idle.png",
+    "sha256": "c40d538bba91a5f533a0f1edf634ec85767c315d151f081c63f50b09ee01860d",
+    "bytes": 349241,
+    "size": [
+      757,
+      1009
+    ],
+    "rgba": true,
+    "transparent_corner": true
+  },
+  "presenting": {
+    "file": "assets/images/mascot3d/presenting.png",
+    "sha256": "beb3ce6c226222943042f40e4ce93e5d2c94d32f29da81b2e0e1444f1c2cbd6c",
+    "bytes": 350657,
+    "size": [
+      757,
+      1009
+    ],
+    "rgba": true,
+    "transparent_corner": true
+  },
+  "success": {
+    "file": "assets/images/mascot3d/success.png",
+    "sha256": "051da036e968f14994a59a97de2bc4d1f45438cee713767a8dd1aab5df4c5f9d",
+    "bytes": 318460,
+    "size": [
+      757,
+      1009
+    ],
+    "rgba": true,
+    "transparent_corner": true
+  },
+  "talking": {
+    "file": "assets/images/mascot3d/talking.png",
+    "sha256": "1a246a575e4236ed01d6195409e009b3652f9153878b22a778b4d65be756f50d",
+    "bytes": 343765,
+    "size": [
+      757,
+      1009
+    ],
+    "rgba": true,
+    "transparent_corner": true
+  },
+  "welcome": {
+    "file": "assets/images/mascot3d/welcome.png",
+    "sha256": "e7bef75a5735b2151541278dc95c7b24dfe229e3136a2ea349118fcc878764da",
+    "bytes": 340113,
+    "size": [
+      757,
+      1009
+    ],
+    "rgba": true,
+    "transparent_corner": true
+  }
+}

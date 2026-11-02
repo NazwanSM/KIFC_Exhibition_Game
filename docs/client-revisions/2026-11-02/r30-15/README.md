@@ -1,0 +1,11 @@
+# KIFC-R30-15 — reusable GLB animation package
+
+Owner-selected source: `assets/models/manggala_welcome_wave_30s.glb`, SHA-256 `cb8e5d8cca8af20aa458442f0c38b5c69b30a23eb9002ecbc04c3ca59e57b46e`. The original file is retained without edits. `tool/prepare_mascot_runtime.py` creates `assets/models/manggala_game_states.glb` (7,098,024 bytes) and its manifest.
+
+All six original animations and their referenced binary payload are preserved. Materials, textures, badge, mesh, skinning, camera and mouth targets remain unchanged. WaveSilent, TalkSilent and FeedbackSilent are appended as runtime variants, sharing the original skeletal tracks. Only their mouth weight outputs are replaced by constant `[1, 0, 0]`. They support unvoiced explanations, quiz feedback and farewell without suggesting speech. The original Wave remains the continuous speaking welcome requested by the owner; Talk is available for future narration integration.
+
+Seven RGBA PNG posters are exported from the actual model-viewer renderer using the approved camera, then cropped only through the transparent side margins to a 3:4 frame. They share the same appearance as the runtime model and support loading, renderer failure and reduced motion. PNG dimensions, hashes, byte sizes and a transparent-corner check are recorded in `assets/models/mascot_posters.json`; each poster is 757x1009. No artwork or texture repaint was performed. Lighting is model-viewer's default environment, not a pixel match to Blender studio lighting.
+
+Reproduction: run `python tool/prepare_mascot_runtime.py` from the project root. Poster capture is recorded in `export_posters.js`; run with the local Flutter review site already open in Playwright CLI. That script uses model-viewer's public canvas export, not a generative image service. No paid service was invoked. The initial assets are owner supplied; unknown original production costs/licenses are not invented.
+
+Validation: GLB preparation asserts the original six animation JSON objects are unchanged and the original binary payload is an identical prefix. Web loading and clip/mouth behavior are checked in the R30-16 browser evidence. Actual poster PNGs were inspected and their transparency checked with PNG decoding. Platform-native and physical-display performance remain part of R30-20; this completion covers the reusable package proven in the web renderer.
