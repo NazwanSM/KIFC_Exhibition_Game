@@ -1,0 +1,40 @@
+### Result
+{
+  "clipDurations": {
+    "Idle": 30,
+    "Talk": 30,
+    "Wave": 30,
+    "Happy": 30,
+    "Feedback": 30,
+    "PointIdle": 30
+  },
+  "faceErrorDeg": 0.000028187463322313956,
+  "framesChecked": 901,
+  "mouthTargets": {
+    "MouthClosed": 0,
+    "MouthHalf": 1,
+    "MouthOpen": 2
+  },
+  "armVariation": 0.24237521887281527,
+  "mouthVariation": 1,
+  "afterWrap": 0.8334000000000052,
+  "assetBytes": 7025064,
+  "sha256": "cb8e5d8cca8af20aa458442f0c38b5c69b30a23eb9002ecbc04c3ca59e57b46e",
+  "camera": "-0.3977650321286112rad 1.4829576043125434rad 3.5m",
+  "fov": 38.165392801162405,
+  "immediatePaused": true,
+  "departed": {
+    "paused": true,
+    "connected": false,
+    "source": null
+  },
+  "returned": {
+    "count": 1,
+    "paused": false,
+    "clip": "Wave"
+  }
+}
+### Ran Playwright code
+```js
+await page.evaluate('() => window.welcomeWaveValidation');
+```

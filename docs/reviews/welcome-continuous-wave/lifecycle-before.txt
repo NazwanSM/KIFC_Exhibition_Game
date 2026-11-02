@@ -1,0 +1,2 @@
+### Error
+Error: Wave still active after departure: {"paused":false,"connected":false,"time":0}

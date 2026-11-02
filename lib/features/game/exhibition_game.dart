@@ -1,3 +1,4 @@
+import 'widgets/welcome_wave_test.dart';
 import 'dart:async';
 import 'dart:math' as math;
 import 'dart:ui' show FontVariation, ImageFilter;
@@ -669,32 +670,37 @@ class _ExhibitionGameState extends State<ExhibitionGame>
             child: Stack(
               fit: StackFit.expand,
               children: <Widget>[
-                AnimatedSwitcher(
-                  duration: _motionDuration(
-                    context,
-                    const Duration(milliseconds: 320),
-                  ),
-                  reverseDuration: _motionDuration(
-                    context,
-                    const Duration(milliseconds: 220),
-                  ),
-                  switchInCurve: Curves.easeOutCubic,
-                  switchOutCurve: Curves.easeInCubic,
-                  transitionBuilder: (child, animation) {
-                    final slide = Tween<Offset>(
-                      begin: const Offset(.025, 0),
-                      end: Offset.zero,
-                    ).animate(animation);
-                    return FadeTransition(
-                      opacity: animation,
-                      child: SlideTransition(position: slide, child: child),
-                    );
-                  },
-                  child: KeyedSubtree(
-                    key: ValueKey(
-                      _page == _Page.finalReview ? _Page.finalChallenge : _page,
+                WelcomeWaveActivity(
+                  active: _page == _Page.welcome,
+                  child: AnimatedSwitcher(
+                    duration: _motionDuration(
+                      context,
+                      const Duration(milliseconds: 320),
                     ),
-                    child: page,
+                    reverseDuration: _motionDuration(
+                      context,
+                      const Duration(milliseconds: 220),
+                    ),
+                    switchInCurve: Curves.easeOutCubic,
+                    switchOutCurve: Curves.easeInCubic,
+                    transitionBuilder: (child, animation) {
+                      final slide = Tween<Offset>(
+                        begin: const Offset(.025, 0),
+                        end: Offset.zero,
+                      ).animate(animation);
+                      return FadeTransition(
+                        opacity: animation,
+                        child: SlideTransition(position: slide, child: child),
+                      );
+                    },
+                    child: KeyedSubtree(
+                      key: ValueKey(
+                        _page == _Page.finalReview
+                            ? _Page.finalChallenge
+                            : _page,
+                      ),
+                      child: page,
+                    ),
                   ),
                 ),
               ],
@@ -965,11 +971,18 @@ class _HostConversation extends StatelessWidget {
     final height = this.height ?? (_compactLayout(context) ? 180.0 : 220.0);
     final mascot = SizedBox(
       width: height * (opening ? .62 : .75),
-      child: GameMascot(
-        pose: pose,
-        height: height,
-        motionTrigger: (AppCopy.locale, text),
-      ),
+      child:
+          opening &&
+              const bool.fromEnvironment(
+                'WELCOME_3D_TEST',
+                defaultValue: kIsWeb,
+              )
+          ? WelcomeWaveTest(height: height)
+          : GameMascot(
+              pose: pose,
+              height: height,
+              motionTrigger: (AppCopy.locale, text),
+            ),
     );
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
