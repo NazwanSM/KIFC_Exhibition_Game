@@ -1,0 +1,77 @@
+### Result
+[
+  {
+    "label": "welcome-playing",
+    "clip": "Wave",
+    "maxMouthError": 0.8847801697927138
+  },
+  {
+    "label": "assembly-wrong",
+    "clip": "FeedbackSilent",
+    "maxMouthError": 0
+  },
+  {
+    "label": "assembly-complete",
+    "clip": "Happy",
+    "maxMouthError": 0
+  },
+  {
+    "label": "triangle-explanation-active",
+    "clip": "PointIdle",
+    "maxMouthError": 0
+  },
+  {
+    "label": "reading-after-navigation",
+    "clip": "PointIdle",
+    "maxMouthError": 0
+  },
+  {
+    "label": "risk-wrong",
+    "clip": "FeedbackSilent",
+    "maxMouthError": 0
+  },
+  {
+    "label": "risk-correct",
+    "clip": "Happy",
+    "maxMouthError": 0
+  },
+  {
+    "label": "cause-wrong",
+    "clip": "FeedbackSilent",
+    "maxMouthError": 0
+  },
+  {
+    "label": "cause-correct",
+    "clip": "Happy",
+    "maxMouthError": 0
+  },
+  {
+    "label": "peat-cards-open",
+    "clip": "PointIdle",
+    "maxMouthError": 0
+  },
+  {
+    "label": "closing-playing",
+    "clip": "WaveSilent",
+    "maxMouthError": 0
+  },
+  {
+    "label": "returned-welcome",
+    "clip": "Wave",
+    "maxMouthError": 0.8847801697927138
+  },
+  {
+    "label": "reduced-motion",
+    "renderers": 0,
+    "oldPaused": true
+  },
+  {
+    "label": "renderer-error",
+    "fallback": true,
+    "renderers": 0
+  }
+]
+### Ran Playwright code
+```js
+await page.evaluate('() => (window.mascotInteractionResults)');
+```

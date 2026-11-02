@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-02",
+  "analysis": "No issues found",
+  "flutter_tests_passed": 447,
+  "web_capture_count": 105,
+  "web_interaction_checks": 14,
+  "native_fixture_captures": 10,
+  "main_web_build": "passed",
+  "review_web_build": "passed",
+  "android_review_apk_build": "passed",
+  "apk_version": "1.0.6-mascot-review+2026110216",
+  "apk_sha256": "05afaba1847ca38475973a051b6278c6b76c4b2bc2f649d29e443dfcefcb8901",
+  "physical_exhibition_TV_tested": false
+}

@@ -1,0 +1,102 @@
+[
+  {
+    "label": "risk-correct-id",
+    "source": "actual Android debug APK; fixture-selected real Flutter page",
+    "loaded": true,
+    "clip": "Happy",
+    "paused": false,
+    "duration": 30,
+    "maxMouthError": 0,
+    "camera": "-0.3977650321286112rad 1.4829576043125434rad 3.5m"
+  },
+  {
+    "label": "final-review-id",
+    "source": "actual Android debug APK; fixture-selected real Flutter page",
+    "loaded": true,
+    "clip": "FeedbackSilent",
+    "paused": false,
+    "duration": 30,
+    "maxMouthError": 0,
+    "camera": "-0.3977650321286112rad 1.4829576043125434rad 3.5m"
+  },
+  {
+    "label": "closing-id",
+    "source": "actual Android debug APK; fixture-selected real Flutter page",
+    "loaded": true,
+    "clip": "WaveSilent",
+    "paused": false,
+    "duration": 30,
+    "maxMouthError": 0,
+    "camera": "-0.3977650321286112rad 1.4829576043125434rad 3.5m"
+  },
+  {
+    "label": "risk-correct-en",
+    "source": "actual Android debug APK; fixture-selected real Flutter page",
+    "loaded": true,
+    "clip": "Happy",
+    "paused": false,
+    "duration": 30,
+    "maxMouthError": 0,
+    "camera": "-0.3977650321286112rad 1.4829576043125434rad 3.5m"
+  },
+  {
+    "label": "final-review-en",
+    "source": "actual Android debug APK; fixture-selected real Flutter page",
+    "loaded": true,
+    "clip": "FeedbackSilent",
+    "paused": false,
+    "duration": 30,
+    "maxMouthError": 0,
+    "camera": "-0.3977650321286112rad 1.4829576043125434rad 3.5m"
+  },
+  {
+    "label": "closing-en",
+    "source": "actual Android debug APK; fixture-selected real Flutter page",
+    "loaded": true,
+    "clip": "WaveSilent",
+    "paused": false,
+    "duration": 30,
+    "maxMouthError": 0,
+    "camera": "-0.3977650321286112rad 1.4829576043125434rad 3.5m"
+  },
+  {
+    "label": "risk-correct-ko",
+    "source": "actual Android debug APK; fixture-selected real Flutter page",
+    "loaded": true,
+    "clip": "Happy",
+    "paused": false,
+    "duration": 30,
+    "maxMouthError": 0,
+    "camera": "-0.3977650321286112rad 1.4829576043125434rad 3.5m"
+  },
+  {
+    "label": "final-review-ko",
+    "source": "actual Android debug APK; fixture-selected real Flutter page",
+    "loaded": true,
+    "clip": "FeedbackSilent",
+    "paused": false,
+    "duration": 30,
+    "maxMouthError": 0,
+    "camera": "-0.3977650321286112rad 1.4829576043125434rad 3.5m"
+  },
+  {
+    "label": "closing-ko",
+    "source": "actual Android debug APK; fixture-selected real Flutter page",
+    "loaded": true,
+    "clip": "WaveSilent",
+    "paused": false,
+    "duration": 30,
+    "maxMouthError": 0,
+    "camera": "-0.3977650321286112rad 1.4829576043125434rad 3.5m"
+  },
+  {
+    "label": "welcome-final",
+    "source": "actual Android debug APK; fixture-selected real Flutter page",
+    "loaded": true,
+    "clip": "Wave",
+    "paused": false,
+    "duration": 30,
+    "maxMouthError": 0.8847801697927138,
+    "camera": "-0.3977650321286112rad 1.4829576043125434rad 3.5m"
+  }
+]

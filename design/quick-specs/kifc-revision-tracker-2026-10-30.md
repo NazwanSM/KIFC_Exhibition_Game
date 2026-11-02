@@ -2,7 +2,7 @@
 
 Sumber: daftar revisi klien yang disampaikan pemilik proyek dan klarifikasinya dalam percakapan 30 Oktober 2026. Tujuan dokumen ini adalah memetakan pekerjaan, cara penerapan, dependensi, dan bukti penyelesaiannya. Pembuatan tracker tidak berarti revisi game sudah diimplementasikan.
 
-**Status terkini: 4 Belum dikerjakan, 3 Dikerjakan, 1 Siap ditinjau, 12 Selesai secara implementasi.**
+**Status terkini: 4 Belum dikerjakan, 2 Dikerjakan, 2 Siap ditinjau, 12 Selesai secara implementasi.**
 
 ID `KIFC-R30-01` sampai `KIFC-R30-20` khusus untuk putaran ini, bukan nomor halaman atau babak. Riwayat lama tetap disimpan di [tracker 23 Oktober](kifc-screen-revision-tracker-2026-10-23.md). Status pekerjaan lama tidak dipindahkan menjadi status selesai untuk kebutuhan baru.
 
@@ -51,8 +51,8 @@ Keputusan ini menggantikan ketentuan lama tentang demo yang wajib dicoba, seluru
 | KIFC-R30-12 | Finalisasi naskah dan audisi suara maskot | Pembuka, tiga bacaan, penutup | Menengah–sulit | Akses TTS dan peninjauan suara | Selesai: disetujui pemilik | `8aba569` |
 | KIFC-R30-13 | Produksi narasi tiga bahasa dan data timing | Aset narasi | Sulit | 12 | Selesai: draf diterima pemilik | `f145844` |
 | KIFC-R30-14 | Buktikan desain maskot 3D langsung dari GLB | Prototipe aset maskot | Sulit | Referensi dan akses produksi | Selesai: sumber final dipilih pemilik dan prototipe web teruji | `4203eda` |
-| KIFC-R30-15 | Produksi gerakan maskot yang dapat dipakai ulang | Aset animasi maskot | Sulit | 14 | Selesai: paket runtime, poster dan varian silent tersedia | — |
-| KIFC-R30-16 | Integrasikan animasi maskot di seluruh halaman | Semua kemunculan maskot | Sulit | 15 | Dikerjakan: welcome lulus, komponen lintas halaman dimulai | — |
+| KIFC-R30-15 | Produksi gerakan maskot yang dapat dipakai ulang | Aset animasi maskot | Sulit | 14 | Selesai: paket runtime, poster dan varian silent tersedia | `786ab35` |
+| KIFC-R30-16 | Integrasikan animasi maskot di seluruh halaman | Semua kemunculan maskot | Sulit | 15 | Siap ditinjau: web dan Android teruji, review visual pemilik tersisa | — |
 | KIFC-R30-17 | Tambahkan salam bersuara pada penutup | Penutup terakhir | Sulit karena dependensi | 03, 04, 09, 13, 16 | Belum dikerjakan | — |
 | KIFC-R30-18 | Tambahkan sapaan idle berkala | Pembuka | Sulit | 01, 09, 13, 16 | Belum dikerjakan | — |
 | KIFC-R30-19 | Sinkronkan narasi, teks per kata, dan navigasi bacaan | Tiga bacaan Karhutla | Paling sulit secara integrasi | 05, 07, 09, 13, 16 | Belum dikerjakan | — |
@@ -264,14 +264,16 @@ Nomor pendek pada dependensi merujuk tiket dengan awalan yang sama. Tiket sumber
 
 ### KIFC-R30-16 — Maskot bergerak lintas halaman
 
-**Status:** Dikerjakan sesuai instruksi pemilik 2 November. Welcome sudah diuji; pemetaan dan komponen bersama sedang diterapkan. **Dependensi:** 15. **Area kode:** `lib/features/game/widgets/game_mascot.dart`, konsumen maskot di `exhibition_game.dart`, registrasi aset.
+**Status:** Siap ditinjau pemilik; komponen lintas halaman diuji pada web dan Android terhubung. **Dependensi:** 15. **Area kode:** `lib/features/game/widgets/game_mascot.dart`, renderer/lifecycle bersama, konsumen di `exhibition_game.dart`, registrasi aset.
 
-- [ ] Petakan seluruh konsumen: pembuka, assembly, penjelasan, bacaan, feedback kuis/penyebab, kartu gambut, ulasan hasil, dan penutup. Konsumen yang dihapus bersama demo tidak dipertahankan.
-- [ ] Gunakan satu komponen/state API bersama untuk idle, berbicara, respons benar, petunjuk, dan perpisahan; jangan membuat pemutar terpisah per bubble.
-- [ ] Pertahankan penempatan yang sudah disetujui: arah benar/salah, crop setengah badan, kedekatan bubble, dan docking maskot di atas tombol kartu gambut. Animasi tidak boleh mengurangi ukuran jawaban atau menghalangi sentuhan.
-- [ ] Feedback hanya bergerak, tidak otomatis diberi TTS atau gerakan mulut yang menyiratkan narasi. Hentikan media di halaman tersembunyi; kelola reset, lifecycle, dispose dan reduced motion.
+- [x] Petakan seluruh konsumen: pembuka, assembly, penjelasan, bacaan, feedback kuis/penyebab, kartu gambut, ulasan hasil, dan penutup. Konsumen yang dihapus bersama demo tidak dipertahankan.
+- [x] Gunakan satu komponen/state API bersama untuk idle, berbicara, respons benar, petunjuk, dan perpisahan; jangan membuat pemutar terpisah per bubble.
+- [x] Pertahankan penempatan yang sudah disetujui: arah benar/salah, crop setengah badan, kedekatan bubble, dan docking maskot di atas tombol kartu gambut. Animasi tidak boleh mengurangi ukuran jawaban atau menghalangi sentuhan.
+- [x] Feedback hanya bergerak, tidak otomatis diberi TTS atau gerakan mulut yang menyiratkan narasi. Hentikan media di halaman tersembunyi; kelola reset, lifecycle, dispose dan reduced motion.
 
 **Selesai jika:** seluruh kemunculan maskot yang aktif memakai state yang tepat tanpa regresi layout/performa. Bukti: inventaris konsumen, screenshot, rekaman gerakan dan fallback.
+
+**Bukti 2 November:** [indeks R30-16](../../docs/client-revisions/2026-11-02/r30-16/README.md), 105 capture browser pada lima viewport dan tiga bahasa, 14 pemeriksaan interaksi web, perjalanan Android nyata dan 10 capture fixture halaman asli pada TECNO LG7n Android 12. Skeletal, morph, loop 30 detik dan penghentian welcome teruji. Input WebView Android diperbaiki dengan hybrid composition; overflow judul kuis pada layar sempit diperbaiki tanpa mengecilkan jawaban. Analisis bersih, 447 tes lulus, build web/APK debug berhasil. Peninjau teknis: agen; persetujuan visual akhir pemilik dan uji TV fisik/performa berkepanjangan masih tersisa. Narasi R30-17–19 belum diintegrasikan.
 
 ### KIFC-R30-17 — Salam penutup bersuara
 
@@ -388,4 +390,5 @@ Status diperbarui setelah implementasi dan pemeriksaan nyata. Selesai secara imp
 | 1 November 2026 | KIFC-R30-13 | Persiapan diterima dan ditutup | `f145844` | Pemilik menerima audio dan timing draf serta meminta lanjut | KIFC-R30-19 menangani subtitle bertahap dan tujuh span gabungan Korea saat integrasi |
 
 | 2 November 2026 | KIFC-R30-14 | Sumber GLB dan prototipe disetujui sebagai jalur integrasi | `4203eda` | Pilihan pemilik dan bukti welcome telah direkonsiliasi | Rencana prerender diganti GLB real-time; perangkat target belum diuji |
-| 2 November 2026 | KIFC-R30-15 | Paket runtime dan poster selesai | commit paket | Enam klip asli, tiga varian tanpa ucapan, tujuh poster RGBA dengan hash | Dilanjutkan ke komponen lintas halaman R30-16 |
+| 2 November 2026 | KIFC-R30-15 | Paket runtime dan poster selesai | `786ab35` | Enam klip asli, tiga varian tanpa ucapan, tujuh poster RGBA dengan hash | Dilanjutkan ke komponen lintas halaman R30-16 |
+| 2 November 2026 | KIFC-R30-16 | Siap ditinjau pemilik | commit integrasi | 447 tes, 105 screenshot browser, interaksi dan playback Android; hybrid composition memperbaiki sentuhan | Review visual pemilik; TV fisik pada R30-20. Berikutnya R30-17 |

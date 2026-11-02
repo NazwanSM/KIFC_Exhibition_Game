@@ -1,0 +1,79 @@
+{
+  "owner_source_sha256": "cb8e5d8cca8af20aa458442f0c38b5c69b30a23eb9002ecbc04c3ca59e57b46e",
+  "archival_source_identical": true,
+  "runtime_sha256": "152ccc305f53c481e8610e9482e94e48132adc2d2c82d81a13e9588e6fe6197e",
+  "runtime_bytes": 7098024,
+  "original_six_clips_identical": true,
+  "original_binary_prefix_identical": true,
+  "materials_textures_images_meshes_nodes_skins_cameras_identical": true,
+  "runtime_clips": [
+    "Idle",
+    "Talk",
+    "Wave",
+    "Happy",
+    "Feedback",
+    "PointIdle",
+    "WaveSilent",
+    "TalkSilent",
+    "FeedbackSilent"
+  ],
+  "posters": [
+    {
+      "file": "farewell.png",
+      "dimensions": [
+        757,
+        1009
+      ],
+      "transparent_corner": true
+    },
+    {
+      "file": "hintSafety.png",
+      "dimensions": [
+        757,
+        1009
+      ],
+      "transparent_corner": true
+    },
+    {
+      "file": "idle.png",
+      "dimensions": [
+        757,
+        1009
+      ],
+      "transparent_corner": true
+    },
+    {
+      "file": "presenting.png",
+      "dimensions": [
+        757,
+        1009
+      ],
+      "transparent_corner": true
+    },
+    {
+      "file": "success.png",
+      "dimensions": [
+        757,
+        1009
+      ],
+      "transparent_corner": true
+    },
+    {
+      "file": "talking.png",
+      "dimensions": [
+        757,
+        1009
+      ],
+      "transparent_corner": true
+    },
+    {
+      "file": "welcome.png",
+      "dimensions": [
+        757,
+        1009
+      ],
+      "transparent_corner": true
+    }
+  ],
+  "apk_contains_runtime_posters_and_local_renderer": true
+}

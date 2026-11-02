@@ -34,6 +34,8 @@ dependencies:
   video_player: ^2.10.1
   model_viewer_plus: 1.9.3
   web: 1.1.1
+  webview_flutter: 4.13.1
+  webview_flutter_android: 4.12.0
 
 
 dev_dependencies:
@@ -67,8 +69,10 @@ flutter:
     - assets/animations/forest-fire-1.webp
     - assets/animations/forest-fire-2.webp
     - assets/animations/forest-fire-poster.png
-    - assets/models/manggala_welcome_wave_30s.glb
+    - assets/models/manggala_game_states.glb
+    - assets/models/mascot_manifest.json
     - assets/images/mascot/
+    - assets/images/mascot3d/
     - assets/images/field/
     - assets/images/logos/
     - assets/images/forest/kereng-bangkirai.jpg

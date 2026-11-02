@@ -1,0 +1,78 @@
+{
+  "stopped": {
+    "paused": true,
+    "time": 1.4724999999999995
+  },
+  "pauseEvent": true,
+  "state": {
+    "loaded": true,
+    "clip": "PointIdle",
+    "paused": false
+  },
+  "controls": [
+    {
+      "label": "Kembali",
+      "bounds": "[36,218][209,290]"
+    },
+    {
+      "label": "BABAK 1/4",
+      "bounds": "[328,241][422,267]"
+    },
+    {
+      "label": "Ulangi",
+      "bounds": "[429,218][584,290]"
+    },
+    {
+      "label": "Pengaturan suara",
+      "bounds": "[596,210][684,298]"
+    },
+    {
+      "label": "BABAK 1",
+      "bounds": "[36,320][684,346]"
+    },
+    {
+      "label": "Pilih tiga unsur api.",
+      "bounds": "[36,360][684,416]"
+    },
+    {
+      "label": "Seret tiga foto yang tepat ke area hutan.",
+      "bounds": "[36,428][684,464]"
+    },
+    {
+      "label": "Area hutan untuk meletakkan unsur api",
+      "bounds": "[36,496][684,992]"
+    },
+    {
+      "label": "0/3 unsur",
+      "bounds": "[78,530][180,556]"
+    },
+    {
+      "label": "Percikan api",
+      "bounds": "[36,1008][241,1122]"
+    },
+    {
+      "label": "Air",
+      "bounds": "[257,1008][463,1122]"
+    },
+    {
+      "label": "Kayu kering",
+      "bounds": "[479,1008][684,1122]"
+    },
+    {
+      "label": "Hujan",
+      "bounds": "[36,1138][241,1252]"
+    },
+    {
+      "label": "O₂ Oksigen dari udara",
+      "bounds": "[257,1138][463,1252]"
+    },
+    {
+      "label": "Batu",
+      "bounds": "[479,1138][684,1252]"
+    },
+    {
+      "label": "Temukan ketiga unsur agar api menyala.",
+      "bounds": "[36,1432][684,1567]"
+    }
+  ]
+}

@@ -1,4 +1,3 @@
-import 'widgets/welcome_wave_test.dart';
 import 'dart:async';
 import 'dart:math' as math;
 import 'dart:ui' show FontVariation, ImageFilter;
@@ -15,6 +14,7 @@ import 'widgets/peat_characteristic_card.dart';
 import 'widgets/forest_burn_video.dart';
 import 'widgets/game_photo.dart';
 import 'widgets/game_mascot.dart';
+import 'widgets/animated_mascot.dart';
 import 'widgets/interaction_motion.dart';
 import 'widgets/touchscreen_area.dart';
 import 'widgets/terrain_backdrop.dart';
@@ -169,10 +169,9 @@ class _ExhibitionGameState extends State<ExhibitionGame>
     super.didChangeDependencies();
     if (_mascotsPrepared) return;
     _mascotsPrepared = true;
-    // Four small decoded sprites, shared with Image's normal cache. Preparing
-    // them before the first answer avoids a late pose after its speech bubble.
-    for (final pose in MascotPose.values) {
-      unawaited(precacheImage(GameMascot.imageFor(pose), context));
+    // Matching 3D posters cover loading, renderer failure and reduced motion.
+    for (final state in MascotState.values) {
+      unawaited(precacheImage(GameMascot.imageForState(state), context));
     }
   }
 
@@ -670,8 +669,8 @@ class _ExhibitionGameState extends State<ExhibitionGame>
             child: Stack(
               fit: StackFit.expand,
               children: <Widget>[
-                WelcomeWaveActivity(
-                  active: _page == _Page.welcome,
+                MascotPlaybackScope(
+                  page: _page,
                   child: AnimatedSwitcher(
                     duration: _motionDuration(
                       context,
@@ -958,6 +957,7 @@ class _HostConversation extends StatelessWidget {
     required this.text,
     this.opening = false,
     this.height,
+    this.state,
   });
 
   final MascotPose pose;
@@ -965,24 +965,19 @@ class _HostConversation extends StatelessWidget {
   final String text;
   final bool opening;
   final double? height;
+  final MascotState? state;
 
   @override
   Widget build(BuildContext context) {
     final height = this.height ?? (_compactLayout(context) ? 180.0 : 220.0);
     final mascot = SizedBox(
       width: height * (opening ? .62 : .75),
-      child:
-          opening &&
-              const bool.fromEnvironment(
-                'WELCOME_3D_TEST',
-                defaultValue: kIsWeb,
-              )
-          ? WelcomeWaveTest(height: height)
-          : GameMascot(
-              pose: pose,
-              height: height,
-              motionTrigger: (AppCopy.locale, text),
-            ),
+      child: GameMascot(
+        pose: pose,
+        state: state,
+        height: height,
+        motionTrigger: (AppCopy.locale, text),
+      ),
     );
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -1168,7 +1163,10 @@ class _RiskPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final compact = _compactLayout(context);
+    // A tall phone can still have only 360 logical pixels of text width.
+    // Keep full-size answers and feedback by using the compact question title.
+    final compact =
+        _compactLayout(context) || MediaQuery.sizeOf(context).width < 380;
     final solved = answer == _correct;
     final revealed = solved || wrongAttempts >= 2;
     final locked = revealed;
@@ -2444,6 +2442,7 @@ class _ClosingPage extends StatelessWidget {
                         _HostConversation(
                           key: const ValueKey('closing-conversation'),
                           pose: MascotPose.success,
+                          state: MascotState.farewell,
                           mascotOnRight: true,
                           text: english
                               ? 'Thanks for playing! Keep fire away from dry vegetation. If you see a fire, report it to trained personnel.'

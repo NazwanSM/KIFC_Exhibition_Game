@@ -1,0 +1,1456 @@
+### Result
+[
+  {
+    "screen": "welcome",
+    "lang": "id",
+    "viewport": [
+      411,
+      731
+    ],
+    "clip": "Wave",
+    "duration": 30,
+    "mouth": [
+      0.26389844661828776,
+      0.737559115726522,
+      0
+    ],
+    "renderSize": [
+      450,
+      216
+    ],
+    "displaySize": [
+      450,
+      216
+    ]
+  },
+  {
+    "screen": "triangleBuild",
+    "lang": "id",
+    "viewport": [
+      411,
+      731
+    ],
+    "clip": "PointIdle",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      416,
+      200
+    ],
+    "displaySize": [
+      416,
+      200
+    ]
+  },
+  {
+    "screen": "triangleExplanation",
+    "lang": "id",
+    "viewport": [
+      411,
+      731
+    ],
+    "clip": "PointIdle",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      354,
+      170
+    ],
+    "displaySize": [
+      354,
+      170
+    ]
+  },
+  {
+    "screen": "karhutlaCards",
+    "lang": "id",
+    "viewport": [
+      411,
+      731
+    ],
+    "clip": "PointIdle",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      354,
+      170
+    ],
+    "displaySize": [
+      354,
+      170
+    ]
+  },
+  {
+    "screen": "peatCharacteristics",
+    "lang": "id",
+    "viewport": [
+      411,
+      731
+    ],
+    "clip": "PointIdle",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      416,
+      200
+    ],
+    "displaySize": [
+      416,
+      200
+    ]
+  },
+  {
+    "screen": "finalReview",
+    "lang": "id",
+    "viewport": [
+      411,
+      731
+    ],
+    "clip": "FeedbackSilent",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      260,
+      125
+    ],
+    "displaySize": [
+      260,
+      125
+    ]
+  },
+  {
+    "screen": "closing",
+    "lang": "id",
+    "viewport": [
+      411,
+      731
+    ],
+    "clip": "WaveSilent",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      458,
+      220
+    ],
+    "displaySize": [
+      457.9999694824219,
+      220
+    ]
+  },
+  {
+    "screen": "welcome",
+    "lang": "en",
+    "viewport": [
+      411,
+      731
+    ],
+    "clip": "Wave",
+    "duration": 30,
+    "mouth": [
+      0.26389844661828776,
+      0.737559115726522,
+      0
+    ],
+    "renderSize": [
+      450,
+      216
+    ],
+    "displaySize": [
+      450,
+      216
+    ]
+  },
+  {
+    "screen": "triangleBuild",
+    "lang": "en",
+    "viewport": [
+      411,
+      731
+    ],
+    "clip": "PointIdle",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      416,
+      200
+    ],
+    "displaySize": [
+      416,
+      200
+    ]
+  },
+  {
+    "screen": "triangleExplanation",
+    "lang": "en",
+    "viewport": [
+      411,
+      731
+    ],
+    "clip": "PointIdle",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      354,
+      170
+    ],
+    "displaySize": [
+      354,
+      170
+    ]
+  },
+  {
+    "screen": "karhutlaCards",
+    "lang": "en",
+    "viewport": [
+      411,
+      731
+    ],
+    "clip": "PointIdle",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      354,
+      170
+    ],
+    "displaySize": [
+      354,
+      170
+    ]
+  },
+  {
+    "screen": "peatCharacteristics",
+    "lang": "en",
+    "viewport": [
+      411,
+      731
+    ],
+    "clip": "PointIdle",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      416,
+      200
+    ],
+    "displaySize": [
+      416,
+      200
+    ]
+  },
+  {
+    "screen": "finalReview",
+    "lang": "en",
+    "viewport": [
+      411,
+      731
+    ],
+    "clip": "FeedbackSilent",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      283,
+      136
+    ],
+    "displaySize": [
+      283,
+      136
+    ]
+  },
+  {
+    "screen": "closing",
+    "lang": "en",
+    "viewport": [
+      411,
+      731
+    ],
+    "clip": "WaveSilent",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      458,
+      220
+    ],
+    "displaySize": [
+      457.9999694824219,
+      220
+    ]
+  },
+  {
+    "screen": "welcome",
+    "lang": "ko",
+    "viewport": [
+      411,
+      731
+    ],
+    "clip": "Wave",
+    "duration": 30,
+    "mouth": [
+      0.26389844661828776,
+      0.737559115726522,
+      0
+    ],
+    "renderSize": [
+      450,
+      216
+    ],
+    "displaySize": [
+      450,
+      216
+    ]
+  },
+  {
+    "screen": "triangleBuild",
+    "lang": "ko",
+    "viewport": [
+      411,
+      731
+    ],
+    "clip": "PointIdle",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      416,
+      200
+    ],
+    "displaySize": [
+      416,
+      200
+    ]
+  },
+  {
+    "screen": "triangleExplanation",
+    "lang": "ko",
+    "viewport": [
+      411,
+      731
+    ],
+    "clip": "PointIdle",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      354,
+      170
+    ],
+    "displaySize": [
+      354,
+      170
+    ]
+  },
+  {
+    "screen": "karhutlaCards",
+    "lang": "ko",
+    "viewport": [
+      411,
+      731
+    ],
+    "clip": "PointIdle",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      354,
+      170
+    ],
+    "displaySize": [
+      354,
+      170
+    ]
+  },
+  {
+    "screen": "peatCharacteristics",
+    "lang": "ko",
+    "viewport": [
+      411,
+      731
+    ],
+    "clip": "PointIdle",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      416,
+      200
+    ],
+    "displaySize": [
+      416,
+      200
+    ]
+  },
+  {
+    "screen": "finalReview",
+    "lang": "ko",
+    "viewport": [
+      411,
+      731
+    ],
+    "clip": "FeedbackSilent",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      283,
+      136
+    ],
+    "displaySize": [
+      283,
+      136
+    ]
+  },
+  {
+    "screen": "closing",
+    "lang": "ko",
+    "viewport": [
+      411,
+      731
+    ],
+    "clip": "WaveSilent",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      458,
+      220
+    ],
+    "displaySize": [
+      457.9999694824219,
+      220
+    ]
+  },
+  {
+    "screen": "welcome",
+    "lang": "id",
+    "viewport": [
+      1080,
+      1920
+    ],
+    "clip": "Wave",
+    "duration": 30,
+    "mouth": [
+      0.26389844661828776,
+      0.737559115726522,
+      0
+    ],
+    "renderSize": [
+      1121,
+      538
+    ],
+    "displaySize": [
+      1121.15625,
+      538.1561889648438
+    ]
+  },
+  {
+    "screen": "triangleBuild",
+    "lang": "id",
+    "viewport": [
+      1080,
+      1920
+    ],
+    "clip": "PointIdle",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      1035,
+      498
+    ],
+    "displaySize": [
+      1036.443359375,
+      498.290771484375
+    ]
+  },
+  {
+    "screen": "triangleExplanation",
+    "lang": "id",
+    "viewport": [
+      1080,
+      1920
+    ],
+    "clip": "PointIdle",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      882,
+      424
+    ],
+    "displaySize": [
+      881.9844360351562,
+      423.547119140625
+    ]
+  },
+  {
+    "screen": "karhutlaCards",
+    "lang": "id",
+    "viewport": [
+      1080,
+      1920
+    ],
+    "clip": "PointIdle",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      882,
+      423
+    ],
+    "displaySize": [
+      881.974609375,
+      423.54913330078125
+    ]
+  },
+  {
+    "screen": "peatCharacteristics",
+    "lang": "id",
+    "viewport": [
+      1080,
+      1920
+    ],
+    "clip": "PointIdle",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      1036,
+      498
+    ],
+    "displaySize": [
+      1036.4530029296875,
+      498.296875
+    ]
+  },
+  {
+    "screen": "finalReview",
+    "lang": "id",
+    "viewport": [
+      1080,
+      1920
+    ],
+    "clip": "FeedbackSilent",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      648,
+      311
+    ],
+    "displaySize": [
+      647.7811279296875,
+      311.421875
+    ]
+  },
+  {
+    "screen": "closing",
+    "lang": "id",
+    "viewport": [
+      1080,
+      1920
+    ],
+    "clip": "WaveSilent",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      1140,
+      547
+    ],
+    "displaySize": [
+      1141.088623046875,
+      548.1180419921875
+    ]
+  },
+  {
+    "screen": "welcome",
+    "lang": "en",
+    "viewport": [
+      1080,
+      1920
+    ],
+    "clip": "Wave",
+    "duration": 30,
+    "mouth": [
+      0.26389844661828776,
+      0.737559115726522,
+      0
+    ],
+    "renderSize": [
+      1120,
+      538
+    ],
+    "displaySize": [
+      1121.15869140625,
+      538.1561889648438
+    ]
+  },
+  {
+    "screen": "triangleBuild",
+    "lang": "en",
+    "viewport": [
+      1080,
+      1920
+    ],
+    "clip": "PointIdle",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      1035,
+      498
+    ],
+    "displaySize": [
+      1036.45556640625,
+      498.286376953125
+    ]
+  },
+  {
+    "screen": "triangleExplanation",
+    "lang": "en",
+    "viewport": [
+      1080,
+      1920
+    ],
+    "clip": "PointIdle",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      881,
+      423
+    ],
+    "displaySize": [
+      881.9755859375,
+      423.537353515625
+    ]
+  },
+  {
+    "screen": "karhutlaCards",
+    "lang": "en",
+    "viewport": [
+      1080,
+      1920
+    ],
+    "clip": "PointIdle",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      881,
+      423
+    ],
+    "displaySize": [
+      881.9814453125,
+      423.5494384765625
+    ]
+  },
+  {
+    "screen": "peatCharacteristics",
+    "lang": "en",
+    "viewport": [
+      1080,
+      1920
+    ],
+    "clip": "PointIdle",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      1035,
+      498
+    ],
+    "displaySize": [
+      1036.450439453125,
+      498.2890625
+    ]
+  },
+  {
+    "screen": "finalReview",
+    "lang": "en",
+    "viewport": [
+      1080,
+      1920
+    ],
+    "clip": "FeedbackSilent",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      705,
+      339
+    ],
+    "displaySize": [
+      705.0894165039062,
+      338.83251953125
+    ]
+  },
+  {
+    "screen": "closing",
+    "lang": "en",
+    "viewport": [
+      1080,
+      1920
+    ],
+    "clip": "WaveSilent",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      1139,
+      547
+    ],
+    "displaySize": [
+      1141.085205078125,
+      548.119873046875
+    ]
+  },
+  {
+    "screen": "welcome",
+    "lang": "ko",
+    "viewport": [
+      1080,
+      1920
+    ],
+    "clip": "Wave",
+    "duration": 30,
+    "mouth": [
+      0.26389844661828776,
+      0.737559115726522,
+      0
+    ],
+    "renderSize": [
+      1120,
+      537
+    ],
+    "displaySize": [
+      1121.161865234375,
+      538.1589965820312
+    ]
+  },
+  {
+    "screen": "triangleBuild",
+    "lang": "ko",
+    "viewport": [
+      1080,
+      1920
+    ],
+    "clip": "PointIdle",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      1035,
+      498
+    ],
+    "displaySize": [
+      1036.45556640625,
+      498.286376953125
+    ]
+  },
+  {
+    "screen": "triangleExplanation",
+    "lang": "ko",
+    "viewport": [
+      1080,
+      1920
+    ],
+    "clip": "PointIdle",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      881,
+      423
+    ],
+    "displaySize": [
+      881.9755859375,
+      423.537353515625
+    ]
+  },
+  {
+    "screen": "karhutlaCards",
+    "lang": "ko",
+    "viewport": [
+      1080,
+      1920
+    ],
+    "clip": "PointIdle",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      882,
+      423
+    ],
+    "displaySize": [
+      881.9818115234375,
+      423.540771484375
+    ]
+  },
+  {
+    "screen": "peatCharacteristics",
+    "lang": "ko",
+    "viewport": [
+      1080,
+      1920
+    ],
+    "clip": "PointIdle",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      1035,
+      498
+    ],
+    "displaySize": [
+      1036.4559326171875,
+      498.2841796875
+    ]
+  },
+  {
+    "screen": "finalReview",
+    "lang": "ko",
+    "viewport": [
+      1080,
+      1920
+    ],
+    "clip": "FeedbackSilent",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      705,
+      339
+    ],
+    "displaySize": [
+      705.0875854492188,
+      338.8314208984375
+    ]
+  },
+  {
+    "screen": "closing",
+    "lang": "ko",
+    "viewport": [
+      1080,
+      1920
+    ],
+    "clip": "WaveSilent",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      1139,
+      547
+    ],
+    "displaySize": [
+      1141.0850830078125,
+      548.1198120117188
+    ]
+  },
+  {
+    "screen": "welcome",
+    "lang": "id",
+    "viewport": [
+      2160,
+      3840
+    ],
+    "clip": "Wave",
+    "duration": 30,
+    "mouth": [
+      0.26389844661828776,
+      0.737559115726522,
+      0
+    ],
+    "renderSize": [
+      2301,
+      1105
+    ],
+    "displaySize": [
+      2303.636962890625,
+      1105.7420654296875
+    ]
+  },
+  {
+    "screen": "triangleBuild",
+    "lang": "id",
+    "viewport": [
+      2160,
+      3840
+    ],
+    "clip": "PointIdle",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      2129,
+      1024
+    ],
+    "displaySize": [
+      2129.58349609375,
+      1023.83935546875
+    ]
+  },
+  {
+    "screen": "triangleExplanation",
+    "lang": "id",
+    "viewport": [
+      2160,
+      3840
+    ],
+    "clip": "PointIdle",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      1812,
+      870
+    ],
+    "displaySize": [
+      1812.196044921875,
+      870.26171875
+    ]
+  },
+  {
+    "screen": "karhutlaCards",
+    "lang": "id",
+    "viewport": [
+      2160,
+      3840
+    ],
+    "clip": "PointIdle",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      1812,
+      870
+    ],
+    "displaySize": [
+      1812.20068359375,
+      870.2607421875
+    ]
+  },
+  {
+    "screen": "peatCharacteristics",
+    "lang": "id",
+    "viewport": [
+      2160,
+      3840
+    ],
+    "clip": "PointIdle",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      2129,
+      1024
+    ],
+    "displaySize": [
+      2129.58154296875,
+      1023.833740234375
+    ]
+  },
+  {
+    "screen": "finalReview",
+    "lang": "id",
+    "viewport": [
+      2160,
+      3840
+    ],
+    "clip": "FeedbackSilent",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      1331,
+      640
+    ],
+    "displaySize": [
+      1330.9937744140625,
+      639.89453125
+    ]
+  },
+  {
+    "screen": "closing",
+    "lang": "id",
+    "viewport": [
+      2160,
+      3840
+    ],
+    "clip": "WaveSilent",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      2340,
+      1124
+    ],
+    "displaySize": [
+      2344.602294921875,
+      1126.228271484375
+    ]
+  },
+  {
+    "screen": "welcome",
+    "lang": "en",
+    "viewport": [
+      2160,
+      3840
+    ],
+    "clip": "Wave",
+    "duration": 30,
+    "mouth": [
+      0.26389844661828776,
+      0.737559115726522,
+      0
+    ],
+    "renderSize": [
+      2302,
+      1105
+    ],
+    "displaySize": [
+      2303.645751953125,
+      1105.7498779296875
+    ]
+  },
+  {
+    "screen": "triangleBuild",
+    "lang": "en",
+    "viewport": [
+      2160,
+      3840
+    ],
+    "clip": "PointIdle",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      2130,
+      1024
+    ],
+    "displaySize": [
+      2129.59521484375,
+      1023.84326171875
+    ]
+  },
+  {
+    "screen": "triangleExplanation",
+    "lang": "en",
+    "viewport": [
+      2160,
+      3840
+    ],
+    "clip": "PointIdle",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      1812,
+      870
+    ],
+    "displaySize": [
+      1812.203125,
+      870.265625
+    ]
+  },
+  {
+    "screen": "karhutlaCards",
+    "lang": "en",
+    "viewport": [
+      2160,
+      3840
+    ],
+    "clip": "PointIdle",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      1812,
+      870
+    ],
+    "displaySize": [
+      1812.1954345703125,
+      870.259521484375
+    ]
+  },
+  {
+    "screen": "peatCharacteristics",
+    "lang": "en",
+    "viewport": [
+      2160,
+      3840
+    ],
+    "clip": "PointIdle",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      2129,
+      1024
+    ],
+    "displaySize": [
+      2129.595947265625,
+      1023.84326171875
+    ]
+  },
+  {
+    "screen": "finalReview",
+    "lang": "en",
+    "viewport": [
+      2160,
+      3840
+    ],
+    "clip": "FeedbackSilent",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      1449,
+      696
+    ],
+    "displaySize": [
+      1448.733154296875,
+      696.208251953125
+    ]
+  },
+  {
+    "screen": "closing",
+    "lang": "en",
+    "viewport": [
+      2160,
+      3840
+    ],
+    "clip": "WaveSilent",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      2340,
+      1124
+    ],
+    "displaySize": [
+      2344.599853515625,
+      1126.225341796875
+    ]
+  },
+  {
+    "screen": "welcome",
+    "lang": "ko",
+    "viewport": [
+      2160,
+      3840
+    ],
+    "clip": "Wave",
+    "duration": 30,
+    "mouth": [
+      0.26389844661828776,
+      0.737559115726522,
+      0
+    ],
+    "renderSize": [
+      2304,
+      1106
+    ],
+    "displaySize": [
+      2303.640380859375,
+      1105.7498779296875
+    ]
+  },
+  {
+    "screen": "triangleBuild",
+    "lang": "ko",
+    "viewport": [
+      2160,
+      3840
+    ],
+    "clip": "PointIdle",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      2130,
+      1024
+    ],
+    "displaySize": [
+      2129.59375,
+      1023.84423828125
+    ]
+  },
+  {
+    "screen": "triangleExplanation",
+    "lang": "ko",
+    "viewport": [
+      2160,
+      3840
+    ],
+    "clip": "PointIdle",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      1812,
+      870
+    ],
+    "displaySize": [
+      1812.203125,
+      870.265625
+    ]
+  },
+  {
+    "screen": "karhutlaCards",
+    "lang": "ko",
+    "viewport": [
+      2160,
+      3840
+    ],
+    "clip": "PointIdle",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      1812,
+      870
+    ],
+    "displaySize": [
+      1812.203125,
+      870.265625
+    ]
+  },
+  {
+    "screen": "peatCharacteristics",
+    "lang": "ko",
+    "viewport": [
+      2160,
+      3840
+    ],
+    "clip": "PointIdle",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      2130,
+      1024
+    ],
+    "displaySize": [
+      2129.595703125,
+      1023.843505859375
+    ]
+  },
+  {
+    "screen": "finalReview",
+    "lang": "ko",
+    "viewport": [
+      2160,
+      3840
+    ],
+    "clip": "FeedbackSilent",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      1448,
+      696
+    ],
+    "displaySize": [
+      1448.727294921875,
+      696.202392578125
+    ]
+  },
+  {
+    "screen": "closing",
+    "lang": "ko",
+    "viewport": [
+      2160,
+      3840
+    ],
+    "clip": "WaveSilent",
+    "duration": 30,
+    "mouth": [
+      1,
+      0,
+      0
+    ],
+    "renderSize": [
+      2341,
+      1124
+    ],
+    "displaySize": [
+      2344.590087890625,
+      1126.2152099609375
+    ]
+  }
+]
+### Ran Playwright code
+```js
+await page.evaluate('() => (window.mascotCaptureResults)');
+```

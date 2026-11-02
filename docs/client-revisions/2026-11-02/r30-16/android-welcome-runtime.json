@@ -1,0 +1,24 @@
+{
+  "url": "http://127.0.0.1:43243/",
+  "value": {
+    "loaded": true,
+    "clip": "Wave",
+    "paused": false,
+    "time": 24.32009999999963,
+    "duration": 30,
+    "src": "/model",
+    "clips": [
+      "Idle",
+      "Talk",
+      "Wave",
+      "Happy",
+      "Feedback",
+      "PointIdle",
+      "WaveSilent",
+      "TalkSilent",
+      "FeedbackSilent"
+    ],
+    "camera": "-0.3977650321286112rad 1.4829576043125434rad 3.5m",
+    "fov": 38.165392801162405
+  }
+}

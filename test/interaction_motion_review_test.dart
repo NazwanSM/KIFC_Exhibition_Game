@@ -19,6 +19,33 @@ void main() {
     (widget) => widget.runtimeType.toString() == '_RiskCard',
   );
 
+  for (final locale in AppLocale.values) {
+    testWidgets('native narrow peat feedback fits ${locale.name}', (
+      tester,
+    ) async {
+      await launchScreen(
+        tester,
+        size: const Size(360, 820),
+        topInset: 36,
+        locale: locale,
+        page: 'risk',
+      );
+      await tester.tap(
+        find.descendant(of: cards.at(1), matching: find.byType(InkWell)),
+      );
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 500));
+      expect(tester.takeException(), isNull);
+      for (final element in cards.evaluate()) {
+        final rect = tester.getRect(find.byWidget(element.widget));
+        expect(rect.height, greaterThanOrEqualTo(72));
+        expect(rect.top, greaterThanOrEqualTo(36));
+        expect(rect.bottom, lessThanOrEqualTo(820));
+      }
+      await tester.pumpWidget(const SizedBox.shrink());
+    });
+  }
+
   testWidgets('feedback poses are decoded before the first answer', (
     tester,
   ) async {
@@ -32,20 +59,28 @@ void main() {
     );
     final context = tester.element(find.byType(MaterialApp));
     final keys = <Object>[];
-    for (final name in ['welcome', 'presenting', 'hint_safety', 'success']) {
+    for (final name in [
+      'idle',
+      'welcome',
+      'presenting',
+      'talking',
+      'success',
+      'hintSafety',
+      'farewell',
+    ]) {
       keys.add(
         await ResizeImage(
-          AssetImage('assets/images/mascot/manggala_agni_$name.png'),
-          width: 320,
+          AssetImage('assets/images/mascot3d/$name.png'),
+          width: 768,
         ).obtainKey(createLocalImageConfiguration(context)),
       );
     }
-    expect(keys, hasLength(4));
+    expect(keys, hasLength(7));
     bool ready() => keys.every((key) {
       final status = PaintingBinding.instance.imageCache.statusForKey(key);
       return status.keepAlive && !status.pending;
     });
-    for (var attempt = 0; attempt < 40 && !ready(); attempt++) {
+    for (var attempt = 0; attempt < 100 && !ready(); attempt++) {
       await tester.runAsync(
         () => Future<void>.delayed(const Duration(milliseconds: 20)),
       );
@@ -88,13 +123,13 @@ void main() {
             for (final pose in [
               'welcome',
               'presenting',
-              'hint_safety',
+              'hintSafety',
               'success',
             ]) {
               await precacheImage(
                 ResizeImage(
-                  AssetImage('assets/images/mascot/manggala_agni_$pose.png'),
-                  width: 320,
+                  AssetImage('assets/images/mascot3d/$pose.png'),
+                  width: 768,
                 ),
                 context,
               );

@@ -1,0 +1,110 @@
+[
+  {
+    "label": "assembly-neutral",
+    "loaded": true,
+    "clip": "PointIdle",
+    "duration": 30,
+    "paused": false,
+    "maxMouthError": 0,
+    "camera": "-0.3977650321286112rad 1.4829576043125434rad 3.5m"
+  },
+  {
+    "label": "assembly-wrong",
+    "loaded": true,
+    "clip": "FeedbackSilent",
+    "duration": 30,
+    "paused": false,
+    "maxMouthError": 0,
+    "camera": "-0.3977650321286112rad 1.4829576043125434rad 3.5m"
+  },
+  {
+    "label": "assembly-complete",
+    "loaded": true,
+    "clip": "Happy",
+    "duration": 30,
+    "paused": false,
+    "maxMouthError": 0,
+    "camera": "-0.3977650321286112rad 1.4829576043125434rad 3.5m"
+  },
+  {
+    "label": "triangle-explanation",
+    "loaded": true,
+    "clip": "PointIdle",
+    "duration": 30,
+    "paused": false,
+    "maxMouthError": 0,
+    "camera": "-0.3977650321286112rad 1.4829576043125434rad 3.5m"
+  },
+  {
+    "label": "reading-one",
+    "loaded": true,
+    "clip": "PointIdle",
+    "duration": 30,
+    "paused": false,
+    "maxMouthError": 0,
+    "camera": "-0.3977650321286112rad 1.4829576043125434rad 3.5m"
+  },
+  {
+    "label": "risk-wrong",
+    "loaded": true,
+    "clip": "FeedbackSilent",
+    "duration": 30,
+    "paused": false,
+    "maxMouthError": 0,
+    "camera": "-0.3977650321286112rad 1.4829576043125434rad 3.5m"
+  },
+  {
+    "label": "risk-correct",
+    "loaded": true,
+    "clip": "Happy",
+    "duration": 30,
+    "paused": false,
+    "maxMouthError": 0,
+    "camera": "-0.3977650321286112rad 1.4829576043125434rad 3.5m"
+  },
+  {
+    "label": "cause-wrong",
+    "loaded": true,
+    "clip": "FeedbackSilent",
+    "duration": 30,
+    "paused": false,
+    "maxMouthError": 0,
+    "camera": "-0.3977650321286112rad 1.4829576043125434rad 3.5m"
+  },
+  {
+    "label": "cause-correct",
+    "loaded": true,
+    "clip": "Happy",
+    "duration": 30,
+    "paused": false,
+    "maxMouthError": 0,
+    "camera": "-0.3977650321286112rad 1.4829576043125434rad 3.5m"
+  },
+  {
+    "label": "cause-natural",
+    "loaded": true,
+    "clip": "Happy",
+    "duration": 30,
+    "paused": false,
+    "maxMouthError": 0,
+    "camera": "-0.3977650321286112rad 1.4829576043125434rad 3.5m"
+  },
+  {
+    "label": "cause-last",
+    "loaded": true,
+    "clip": "Happy",
+    "duration": 30,
+    "paused": false,
+    "maxMouthError": 0,
+    "camera": "-0.3977650321286112rad 1.4829576043125434rad 3.5m"
+  },
+  {
+    "label": "peat-cards",
+    "loaded": true,
+    "clip": "PointIdle",
+    "duration": 30,
+    "paused": false,
+    "maxMouthError": 0,
+    "camera": "-0.3977650321286112rad 1.4829576043125434rad 3.5m"
+  }
+]
