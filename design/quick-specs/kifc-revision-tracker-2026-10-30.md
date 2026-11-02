@@ -52,7 +52,7 @@ Keputusan ini menggantikan ketentuan lama tentang demo yang wajib dicoba, seluru
 | KIFC-R30-13 | Produksi narasi tiga bahasa dan data timing | Aset narasi | Sulit | 12 | Selesai: draf diterima pemilik | `f145844` |
 | KIFC-R30-14 | Buktikan desain maskot 3D langsung dari GLB | Prototipe aset maskot | Sulit | Referensi dan akses produksi | Selesai: sumber final dipilih pemilik dan prototipe web teruji | `4203eda` |
 | KIFC-R30-15 | Produksi gerakan maskot yang dapat dipakai ulang | Aset animasi maskot | Sulit | 14 | Selesai: paket runtime, poster dan varian silent tersedia | `786ab35` |
-| KIFC-R30-16 | Integrasikan animasi maskot di seluruh halaman | Semua kemunculan maskot | Sulit | 15 | Siap ditinjau: web dan Android teruji, review visual pemilik tersisa | — |
+| KIFC-R30-16 | Integrasikan animasi maskot di seluruh halaman | Semua kemunculan maskot | Sulit | 15 | Siap ditinjau: web dan Android teruji, review visual pemilik tersisa | `c78f2cc` |
 | KIFC-R30-17 | Tambahkan salam bersuara pada penutup | Penutup terakhir | Sulit karena dependensi | 03, 04, 09, 13, 16 | Belum dikerjakan | — |
 | KIFC-R30-18 | Tambahkan sapaan idle berkala | Pembuka | Sulit | 01, 09, 13, 16 | Belum dikerjakan | — |
 | KIFC-R30-19 | Sinkronkan narasi, teks per kata, dan navigasi bacaan | Tiga bacaan Karhutla | Paling sulit secara integrasi | 05, 07, 09, 13, 16 | Belum dikerjakan | — |
@@ -391,4 +391,4 @@ Status diperbarui setelah implementasi dan pemeriksaan nyata. Selesai secara imp
 
 | 2 November 2026 | KIFC-R30-14 | Sumber GLB dan prototipe disetujui sebagai jalur integrasi | `4203eda` | Pilihan pemilik dan bukti welcome telah direkonsiliasi | Rencana prerender diganti GLB real-time; perangkat target belum diuji |
 | 2 November 2026 | KIFC-R30-15 | Paket runtime dan poster selesai | `786ab35` | Enam klip asli, tiga varian tanpa ucapan, tujuh poster RGBA dengan hash | Dilanjutkan ke komponen lintas halaman R30-16 |
-| 2 November 2026 | KIFC-R30-16 | Siap ditinjau pemilik | commit integrasi | 447 tes, 105 screenshot browser, interaksi dan playback Android; hybrid composition memperbaiki sentuhan | Review visual pemilik; TV fisik pada R30-20. Berikutnya R30-17 |
+| 2 November 2026 | KIFC-R30-16 | Siap ditinjau pemilik | `c78f2cc` | 447 tes, 105 screenshot browser, interaksi dan playback Android; hybrid composition memperbaiki sentuhan | Review visual pemilik; TV fisik pada R30-20. Berikutnya R30-17 |
