@@ -2,14 +2,14 @@
 
 Sumber: daftar revisi klien yang disampaikan pemilik proyek dan klarifikasinya dalam percakapan 30 Oktober 2026. Tujuan dokumen ini adalah memetakan pekerjaan, cara penerapan, dependensi, dan bukti penyelesaiannya. Pembuatan tracker tidak berarti revisi game sudah diimplementasikan.
 
-**Status terkini: 7 Belum dikerjakan, 2 Dikerjakan, 1 Siap ditinjau, 10 Selesai secara implementasi.**
+**Status terkini: 4 Belum dikerjakan, 4 Dikerjakan, 1 Siap ditinjau, 11 Selesai secara implementasi.**
 
 ID `KIFC-R30-01` sampai `KIFC-R30-20` khusus untuk putaran ini, bukan nomor halaman atau babak. Riwayat lama tetap disimpan di [tracker 23 Oktober](kifc-screen-revision-tracker-2026-10-23.md). Status pekerjaan lama tidak dipindahkan menjadi status selesai untuk kebutuhan baru.
 
 ## Keputusan dan batas cakupan
 
 - Musik pilihan final adalah **Safari oleh syncopika versi penuh**. `a3-0-30s.mp3` adalah cuplikan acuan, bukan berkas loop produksi. Kredit dan lisensi CC BY 3.0 harus dicantumkan. Sumber pilihan ada di [kurasi putaran kedua](../../docs/audio-options/2026-10-29/round-2/sources.json).
-- Maskot mengikuti arah **3D yang sudah dirender**, dengan gerakan mulut sederhana saat berbicara. Model 3D real-time bukan target awal. Mutu, konsistensi, transparansi, dan biaya aset tetap perlu dibuktikan melalui contoh sebelum produksi massal.
+- Keputusan pemilik 2 November menggantikan rencana prerender: gunakan GLB rigged langsung di Flutter, bersumber dari `Welcome_Wave/Review/Manggala_WELCOME_WAVE_30s_REVIEW.glb` dengan kamera `CAM-UserApprovedView`. Pertahankan enam klip asli, material, tekstur, badge dan morph. Wave welcome terus bergerak dengan mulut aktif; feedback tanpa narasi memakai varian tanpa gerak mulut. Suara tetap diintegrasikan pada R30-17–19.
 - Narasi hanya untuk sapaan pembuka, **tiga halaman bacaan Karhutla**, dan salam penutup. Kuis jenis hutan dan seluruh feedback **tidak menggunakan narasi**; maskotnya tetap bergerak.
 - Bahasa tetap Indonesia, Inggris, dan Korea, mengikuti pilihan pengguna. Isi narasi Karhutla mengikuti teks penjelasan yang sekarang, tanpa menambah materi baru. Pembuka dan penutup memakai naskah singkat yang sesuai fungsinya.
 - Pemilik memilih **ElevenLabs** dengan voice `mw_animated_The Plucky Hero` dan menyatakan peninjauan suara, pengaturan/biaya, serta penggunaan telah selesai. Angka kredit aktual dan pengaturan rinci tidak diberikan dalam percakapan dan tidak diada-adakan.
@@ -50,9 +50,9 @@ Keputusan ini menggantikan ketentuan lama tentang demo yang wajib dicoba, seluru
 | KIFC-R30-11 | Integrasikan background video kebakaran bersama | Penyusunan lengkap dan penjelasan Segitiga Api | Menengah–sulit | 07, 08, 10 | Dikerjakan: visual disetujui, uji offline tertunda | `72c8941` |
 | KIFC-R30-12 | Finalisasi naskah dan audisi suara maskot | Pembuka, tiga bacaan, penutup | Menengah–sulit | Akses TTS dan peninjauan suara | Selesai: disetujui pemilik | `8aba569` |
 | KIFC-R30-13 | Produksi narasi tiga bahasa dan data timing | Aset narasi | Sulit | 12 | Selesai: draf diterima pemilik | `f145844` |
-| KIFC-R30-14 | Buktikan desain maskot 3D prerender | Prototipe aset maskot | Sulit, mutu aset belum terbukti | Referensi dan akses produksi | Belum dikerjakan | — |
-| KIFC-R30-15 | Produksi gerakan maskot yang dapat dipakai ulang | Aset animasi maskot | Sulit | 14 | Belum dikerjakan | — |
-| KIFC-R30-16 | Integrasikan animasi maskot di seluruh halaman | Semua kemunculan maskot | Sulit | 15 | Belum dikerjakan | — |
+| KIFC-R30-14 | Buktikan desain maskot 3D langsung dari GLB | Prototipe aset maskot | Sulit | Referensi dan akses produksi | Selesai: sumber final dipilih pemilik dan prototipe web teruji | `4203eda` |
+| KIFC-R30-15 | Produksi gerakan maskot yang dapat dipakai ulang | Aset animasi maskot | Sulit | 14 | Dikerjakan: enam klip siap; fallback dan ketajaman difinalkan | — |
+| KIFC-R30-16 | Integrasikan animasi maskot di seluruh halaman | Semua kemunculan maskot | Sulit | 15 | Dikerjakan: welcome lulus, komponen lintas halaman dimulai | — |
 | KIFC-R30-17 | Tambahkan salam bersuara pada penutup | Penutup terakhir | Sulit karena dependensi | 03, 04, 09, 13, 16 | Belum dikerjakan | — |
 | KIFC-R30-18 | Tambahkan sapaan idle berkala | Pembuka | Sulit | 01, 09, 13, 16 | Belum dikerjakan | — |
 | KIFC-R30-19 | Sinkronkan narasi, teks per kata, dan navigasi bacaan | Tiga bacaan Karhutla | Paling sulit secara integrasi | 05, 07, 09, 13, 16 | Belum dikerjakan | — |
@@ -237,20 +237,20 @@ Nomor pendek pada dependensi merujuk tiket dengan awalan yang sama. Tiket sumber
 
 **Progres 1 November:** 15 salinan dinormalisasi dan terdekode; timing ASR disiapkan sebagai draf dengan 18 bagian ditandai untuk tinjauan, 11 berupa frasa multi-kata. Kelima belas file sudah masuk bundle Flutter dan hash cocok. Campuran musik dan draf timing yang ditampilkan diterima oleh pemilik; sinkronisasi bertahap diuji saat integrasi KIFC-R30-19. [Bukti dan alat tinjau](../../docs/client-revisions/2026-10-30/narration/r30-13-preparation.md).
 
-### KIFC-R30-14 — Prototipe maskot 3D prerender
+### KIFC-R30-14 — Prototipe maskot 3D langsung dari GLB
 
-**Status:** Belum dikerjakan. **Area:** referensi karakter dan aset prototipe; `game_mascot.dart` hanya untuk uji integrasi bila diperlukan.
+**Status:** Selesai sebagai pembuktian konsep dan pilihan jalur produksi, sesuai sumber final dan arahan integrasi pemilik pada 2 November. GLB menggantikan rencana prerender. **Commit:** `4203eda`. **Area:** aset, kamera dan prototipe welcome web.
 
-- [ ] Pertahankan wajah orangutan, topi, seragam, warna, serta logo dada kiri sesuai referensi yang sudah disetujui. Jangan mengganti identitas maskot atau membuat variasi antarhalaman.
-- [ ] Buat contoh pendek idle/menyapa dan berbicara dengan kamera tetap. Gerakan mulut sederhana cukup; lip-sync fonem presisi tidak diwajibkan.
-- [ ] Buktikan metode produksi dapat menghasilkan latar transparan/hasil compositing yang bersih, loop yang layak, dan logo yang tidak berubah bentuk.
-- [ ] Catat alat/model, sumber referensi, izin aset, biaya, ukuran, serta batas kualitasnya. Periksa hasil bersama UI sebelum memproduksi seluruh gerakan; jangan menyamakan image-to-video bergaya 3D dengan model 3D rigged yang dapat diputar bebas.
+- [x] Aset final dipilih/diberikan pemilik; salinan dan respons HTTP memiliki hash sama. Identitas, material, tekstur, badge dan morph tidak diedit.
+- [x] Idle, Talk, Wave, Happy, Feedback dan PointIdle tersedia, masing-masing 30 detik. Gerak tulang dan mulut diuji di Flutter Web.
+- [x] Kamera approved, latar transparan dan loop Wave diuji di UI; arah wajah diperiksa pada 901 sampel, galat maksimum sekitar 0,0000282 derajat.
+- [x] Sumber adalah aset proyek yang diberikan pemilik; integrasi tidak memakai layanan berbayar baru. GLB 7.025.064 bytes. Pipeline sumber mencatat Blender 5.2.3; renderer aplikasi memakai model-viewer. Biaya dan rincian produksi awal yang tidak tercatat tidak diasumsikan.
 
-**Selesai jika:** pemilik menyetujui contoh visual dan jalur produksi yang teruji. Bukti: contoh loop, contoh di atas UI, metadata, serta keputusan visual. Tidak ada komitmen real-time 3D dalam tiket ini.
+**Bukti:** [laporan welcome](../../docs/reviews/welcome-continuous-wave/README.md), [hasil runtime](../../docs/reviews/welcome-continuous-wave/runtime-result.txt) dan screenshot portrait 411/1080/2160. Peninjau teknis: agen. Pemilik menentukan sumber, kamera dan Wave, kemudian meminta lanjut ke R30-16. Status ini bukan sertifikasi Android/TV fisik; fallback dan ketajaman ditangani pada paket/integrasi berikutnya.
 
 ### KIFC-R30-15 — Paket gerakan maskot yang dapat dipakai ulang
 
-**Status:** Belum dikerjakan. **Dependensi:** 14. **Area:** aset animasi maskot, poster dan manifest state.
+**Status:** Dikerjakan. Enam klip final tersedia; poster/fallback, varian tanpa ucapan dan ketajaman sedang difinalkan. **Dependensi:** 14. **Area:** aset animasi maskot, poster dan manifest state.
 
 - [ ] Produksi state seperlunya: idle ramah, menyapa/mengajak, berbicara/menjelaskan, respons benar/merayakan, respons belum tepat/memberi petunjuk, dan salam perpisahan. Gabungkan gerakan dengan fungsi serupa jika hasilnya tetap jelas.
 - [ ] Pakai loop berbicara yang sama untuk tiga bahasa; mulut bergerak hanya selama state berbicara. Tidak perlu satu video baru untuk setiap kalimat.
@@ -261,7 +261,7 @@ Nomor pendek pada dependensi merujuk tiket dengan awalan yang sama. Tiket sumber
 
 ### KIFC-R30-16 — Maskot bergerak lintas halaman
 
-**Status:** Belum dikerjakan. **Dependensi:** 15. **Area kode:** `lib/features/game/widgets/game_mascot.dart`, konsumen maskot di `exhibition_game.dart`, registrasi aset.
+**Status:** Dikerjakan sesuai instruksi pemilik 2 November. Welcome sudah diuji; pemetaan dan komponen bersama sedang diterapkan. **Dependensi:** 15. **Area kode:** `lib/features/game/widgets/game_mascot.dart`, konsumen maskot di `exhibition_game.dart`, registrasi aset.
 
 - [ ] Petakan seluruh konsumen: pembuka, assembly, penjelasan, bacaan, feedback kuis/penyebab, kartu gambut, ulasan hasil, dan penutup. Konsumen yang dihapus bersama demo tidak dipertahankan.
 - [ ] Gunakan satu komponen/state API bersama untuk idle, berbicara, respons benar, petunjuk, dan perpisahan; jangan membuat pemutar terpisah per bubble.
