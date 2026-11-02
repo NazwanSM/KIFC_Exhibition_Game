@@ -10,8 +10,8 @@ void main() {
       final audio = GameAudioController(backend: backend);
       await audio.activate();
       expect(backend.mixes.last.music, closeTo(.65 * .50, .0001));
-      expect(backend.mixes.last.nature, closeTo(.65 * .22, .0001));
-      expect(backend.mixes.last.effects, .65);
+      expect(backend.mixes.last.nature, closeTo(.65 * .10, .0001));
+      expect(backend.mixes.last.effects, closeTo(.65 * .50, .0001));
       audio.dispose();
       await audio.settled;
     },
@@ -30,7 +30,7 @@ void main() {
       expect(audio.level(AudioLayer.nature), .4);
       expect(backend.mixes.last.music, closeTo(.65 * .8 * .28, .0001));
       expect(backend.mixes.last.nature, closeTo(.65 * .4 * .5, .0001));
-      expect(backend.mixes.last.effects, .65);
+      expect(backend.mixes.last.effects, closeTo(.65 * .50, .0001));
       await audio.play(GameSound.correct);
       expect(backend.sounds, [GameSound.correct]);
       await audio.setLevel(AudioLayer.music, .6);
