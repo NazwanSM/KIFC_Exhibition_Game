@@ -6,7 +6,7 @@ import struct
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / 'assets/models/manggala_welcome_wave_30s.glb'
+SOURCE = ROOT / 'assets/models/manggala_feedback_user_pose.glb'
 TARGET = ROOT / 'assets/models/manggala_game_states.glb'
 
 

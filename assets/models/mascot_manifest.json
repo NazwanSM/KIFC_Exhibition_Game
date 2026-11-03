@@ -1,9 +1,9 @@
 {
-  "source": "assets/models/manggala_welcome_wave_30s.glb",
-  "source_sha256": "cb8e5d8cca8af20aa458442f0c38b5c69b30a23eb9002ecbc04c3ca59e57b46e",
+  "source": "assets/models/manggala_feedback_user_pose.glb",
+  "source_sha256": "58fb51bfad79fa4fb9937193562ebaf8257e7c93343187076305defc465ee1a8",
   "runtime": "assets/models/manggala_game_states.glb",
-  "runtime_sha256": "152ccc305f53c481e8610e9482e94e48132adc2d2c82d81a13e9588e6fe6197e",
-  "runtime_bytes": 7098024,
+  "runtime_sha256": "e608bce08384d85bd7a92a40325c997d92d6fadc06090b878fe07d912731fcb1",
+  "runtime_bytes": 6768320,
   "original_six_clips_and_binary_payload_preserved": true,
   "added_clips": [
     "WaveSilent",
@@ -16,6 +16,8 @@
     0
   ],
   "camera": "CAM-UserApprovedView",
+  "posters_manifest": "assets/models/mascot_posters.json",
+  "unvoiced_talking_clip": "TalkSilent",
   "state_clips": {
     "idle": "Idle",
     "welcome": "Wave",
@@ -24,7 +26,5 @@
     "success": "Happy",
     "hintSafety": "FeedbackSilent",
     "farewell": "WaveSilent"
-  },
-  "posters_manifest": "assets/models/mascot_posters.json",
-  "unvoiced_talking_clip": "TalkSilent"
+  }
 }

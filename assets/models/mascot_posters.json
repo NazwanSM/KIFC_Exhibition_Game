@@ -1,8 +1,8 @@
 {
   "farewell": {
     "file": "assets/images/mascot3d/farewell.png",
-    "sha256": "e7bef75a5735b2151541278dc95c7b24dfe229e3136a2ea349118fcc878764da",
-    "bytes": 340113,
+    "sha256": "f66ba06c9e82dcf995e6638e997b2dd95ea92e07928b93bf4c69a8960996ad58",
+    "bytes": 340110,
     "size": [
       757,
       1009
@@ -12,19 +12,20 @@
   },
   "hintSafety": {
     "file": "assets/images/mascot3d/hintSafety.png",
-    "sha256": "a467fe13878b976e0a301a795b12ae29f4dd1977da6900447b53d940108adeff",
-    "bytes": 343998,
+    "sha256": "c2074c2e779ac75b3a7079fc6b3c075e1e3bc503988ce8e44d4acf8f6642579f",
+    "bytes": 387190,
     "size": [
       757,
       1009
     ],
     "rgba": true,
-    "transparent_corner": true
+    "transparent_corner": true,
+    "source": "Feedback_User_Pose/Review/Manggala_FEEDBACK_USER_POSE_REVIEW.blend; Feedback frame 1; approved camera; Blender RGBA render, centered crop"
   },
   "idle": {
     "file": "assets/images/mascot3d/idle.png",
-    "sha256": "c40d538bba91a5f533a0f1edf634ec85767c315d151f081c63f50b09ee01860d",
-    "bytes": 349241,
+    "sha256": "c743850e306f2bc71a9612029a083370dbda0f7a87a028c930e452c6fc25ce79",
+    "bytes": 349287,
     "size": [
       757,
       1009
@@ -34,8 +35,8 @@
   },
   "presenting": {
     "file": "assets/images/mascot3d/presenting.png",
-    "sha256": "beb3ce6c226222943042f40e4ce93e5d2c94d32f29da81b2e0e1444f1c2cbd6c",
-    "bytes": 350657,
+    "sha256": "d6d7b53b4e6bfa2aa4bc18b5edef0fc5cfa6aed7b215aad3e6318c6bcc4f3a2c",
+    "bytes": 350785,
     "size": [
       757,
       1009
@@ -45,8 +46,8 @@
   },
   "success": {
     "file": "assets/images/mascot3d/success.png",
-    "sha256": "051da036e968f14994a59a97de2bc4d1f45438cee713767a8dd1aab5df4c5f9d",
-    "bytes": 318460,
+    "sha256": "311d59b5d237c4582f7d1ac58398319699b6d90a1762a9eb6002056868c4c43c",
+    "bytes": 320094,
     "size": [
       757,
       1009
@@ -56,8 +57,8 @@
   },
   "talking": {
     "file": "assets/images/mascot3d/talking.png",
-    "sha256": "1a246a575e4236ed01d6195409e009b3652f9153878b22a778b4d65be756f50d",
-    "bytes": 343765,
+    "sha256": "4080380445868bbb4d0936ca90d695df4a6cf1c163611c41a4b03a9df32ee619",
+    "bytes": 345128,
     "size": [
       757,
       1009
@@ -67,8 +68,8 @@
   },
   "welcome": {
     "file": "assets/images/mascot3d/welcome.png",
-    "sha256": "e7bef75a5735b2151541278dc95c7b24dfe229e3136a2ea349118fcc878764da",
-    "bytes": 340113,
+    "sha256": "f66ba06c9e82dcf995e6638e997b2dd95ea92e07928b93bf4c69a8960996ad58",
+    "bytes": 340110,
     "size": [
       757,
       1009
