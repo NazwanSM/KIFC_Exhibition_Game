@@ -16,11 +16,18 @@ void main() {
       page: 'finalReview',
     );
     await tester.pump(const Duration(seconds: 1));
-      final crop = find.byKey(const ValueKey('final-review-mascot-crop'));
+    final crop = find.byKey(const ValueKey('final-review-mascot-crop'));
     expect(crop, findsOneWidget);
     expect(tester.getSize(crop).width, greaterThanOrEqualTo(156));
     expect(find.byKey(const ValueKey('final-review-continue')), findsOneWidget);
-      expect(tester.getRect(crop).bottom, lessThanOrEqualTo(tester.getRect(find.byKey(const ValueKey('final-review-continue'))).top));
+    expect(
+      tester.getRect(crop).bottom,
+      closeTo(
+        tester.getRect(find.byKey(const ValueKey('final-review-continue'))).top,
+        .5,
+      ),
+      reason: 'The half-body crop must meet the button without a gap.',
+    );
     expect(tester.takeException(), isNull);
     await captureScreen(tester, 'impact-half-body-id-411x731', {
       'source': 'Flutter widget render, static mascot fallback',

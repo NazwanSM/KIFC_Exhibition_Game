@@ -80,6 +80,13 @@ void main() {
         };
         void check() {
           expect(tester.takeException(), isNull);
+          final crop = find.byKey(const ValueKey('final-review-mascot-crop'));
+          if (crop.evaluate().isNotEmpty) {
+            final button = find.byKey(const ValueKey('final-review-continue'));
+            expect(tester.getRect(crop).bottom,
+                closeTo(tester.getRect(button).top, .5),
+                reason: 'Impact mascot must meet the continuation button.');
+          }
           for (final e
               in find
                   .descendant(of: grid, matching: find.byType(RichText))

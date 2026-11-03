@@ -1,0 +1,94 @@
+{
+  "source": "T3 browser, production renderer and real answer inputs via tool/feedback_review_main.dart",
+  "viewport": {
+    "width": 1080,
+    "height": 1920
+  },
+  "beforeRetry": {
+    "clip": "Happy",
+    "height": "1069.67px",
+    "id": "game-mascot-1",
+    "parent": {
+      "bottom": 2236.285888671875,
+      "height": 883.6280517578125,
+      "left": -104.24370574951172,
+      "right": 1734.8452835083008,
+      "top": 1352.6578369140625,
+      "width": 1839.0889892578125,
+      "x": -104.24370574951172,
+      "y": 1352.6578369140625
+    },
+    "rect": {
+      "bottom": 2423.49365234375,
+      "height": 1070.8358154296875,
+      "left": -104.24370574951172,
+      "right": 2121.1447219848633,
+      "top": 1352.6578369140625,
+      "width": 2225.388427734375,
+      "x": -104.24370574951172,
+      "y": 1352.6578369140625
+    },
+    "width": "2222.96px"
+  },
+  "afterWrong": {
+    "clip": "FeedbackSilent",
+    "id": "game-mascot-1"
+  },
+  "afterRetry": {
+    "clip": "Happy",
+    "glbRequests": 1,
+    "height": "883.129px",
+    "id": "game-mascot-1",
+    "loaded": true,
+    "parent": {
+      "bottom": 2236.285888671875,
+      "height": 883.6280517578125,
+      "left": -104.24370574951172,
+      "right": 1734.8452835083008,
+      "top": 1352.6578369140625,
+      "width": 1839.0889892578125,
+      "x": -104.24370574951172,
+      "y": 1352.6578369140625
+    },
+    "rect": {
+      "bottom": 2235.137451171875,
+      "height": 882.4796142578125,
+      "left": -104.24370574951172,
+      "right": 1733.9667434692383,
+      "top": 1352.6578369140625,
+      "width": 1838.21044921875,
+      "x": -104.24370574951172,
+      "y": 1352.6578369140625
+    },
+    "width": "1839.56px"
+  },
+  "afterDirectCorrect": {
+    "clip": "Happy",
+    "glbRequests": 1,
+    "height": "883.628px",
+    "id": "game-mascot-1",
+    "loaded": true,
+    "parent": {
+      "bottom": 2236.285888671875,
+      "height": 883.6280517578125,
+      "left": -104.24370574951172,
+      "right": 1734.8452835083008,
+      "top": 1352.6578369140625,
+      "width": 1839.0889892578125,
+      "x": -104.24370574951172,
+      "y": 1352.6578369140625
+    },
+    "rect": {
+      "bottom": 2235.138427734375,
+      "height": 882.4805908203125,
+      "left": -104.24370574951172,
+      "right": 1733.9661331176758,
+      "top": 1352.6578369140625,
+      "width": 1838.2098388671875,
+      "x": -104.24370574951172,
+      "y": 1352.6578369140625
+    },
+    "width": "1840.6px"
+  },
+  "note": "DOM surface is deliberately larger than the clipped half-body slot. Compare retained renderer dimensions with its parent; absolute surface bounds are not the mascot's visible bounds."
+}

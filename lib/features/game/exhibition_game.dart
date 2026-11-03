@@ -36,6 +36,8 @@ double _assemblyMascotWidth(BuildContext context) =>
 const _feedbackMascotScale = 1.4;
 const _feedbackMascotCrop = .72;
 
+double _stageFooterGap(BuildContext context) => _compactLayout(context) ? 9 : 14;
+
 bool _compactLayout(BuildContext context) =>
     MediaQuery.sizeOf(context).height -
         MediaQuery.viewPaddingOf(context).vertical <
@@ -2646,7 +2648,7 @@ class _FinalReviewDialogue extends StatelessWidget {
       messageTextKey: const ValueKey('final-review-message'),
       cropKey: const ValueKey('final-review-mascot-crop'),
       bubbleHeightLimit: bounds.maxHeight,
-      mascotBottom: -10,
+      mascotBottom: -_stageFooterGap(context),
     ));
   }
 }
@@ -3249,7 +3251,7 @@ class _LightStage extends StatelessWidget {
                         ? SingleChildScrollView(child: body)
                         : body,
                   ),
-                  SizedBox(height: footerGap ?? (compact ? 9 : 14)),
+                  SizedBox(height: footerGap ?? _stageFooterGap(context)),
                   footer,
                 ],
               ],

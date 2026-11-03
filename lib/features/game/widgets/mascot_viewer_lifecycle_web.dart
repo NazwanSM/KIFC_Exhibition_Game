@@ -41,6 +41,11 @@ class MascotViewerLifecycle {
         _capture();
       }).toJS,
     );
+    _sizeObserver = web.ResizeObserver(
+      ((JSArray<web.ResizeObserverEntry> entries, web.ResizeObserver observer) {
+        _resize();
+      }).toJS,
+    );
     _observer.observe(
       web.document.documentElement!,
       web.MutationObserverInit(childList: true, subtree: true),
@@ -51,6 +56,7 @@ class MascotViewerLifecycle {
   final String id;
   final void Function() onLoad, onError;
   late final web.MutationObserver _observer;
+  late final web.ResizeObserver _sizeObserver;
   late final JSFunction _loaded, _error, _windowResize;
   web.Element? _element;
   bool _released = false;
@@ -60,6 +66,8 @@ class MascotViewerLifecycle {
     final element = web.document.getElementById(id);
     if (element == null) return;
     _element = element;
+    final parent = element.parentElement;
+    if (parent != null) _sizeObserver.observe(parent);
     _observer.disconnect();
     element.addEventListener('load', _loaded);
     element.addEventListener('error', _error);
@@ -121,6 +129,7 @@ class MascotViewerLifecycle {
     _released = true;
     _observer.disconnect();
     web.window.removeEventListener('resize', _windowResize);
+    _sizeObserver.disconnect();
     final element = _element;
     if (element == null) return;
     element.removeEventListener('load', _loaded);
