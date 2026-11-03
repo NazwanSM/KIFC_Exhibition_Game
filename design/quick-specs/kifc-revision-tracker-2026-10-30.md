@@ -333,6 +333,8 @@ Nomor pendek pada dependensi merujuk tiket dengan awalan yang sama. Tiket sumber
 
 **Progres 3 November:** [Laporan verifikasi dan paket review](../../docs/client-revisions/2026-11-03/r30-20/README.md). Uji tambahan: WGT terpasang pada Samsung TV Web Simulator 10.0.6; alur produksi Indonesia, video, skeletal/morph, narasi/skip/kuis, skor dan penutup 30 detik; sapaan Inggris/Korea. Mode jendela opaque diperlukan pada SDK Windows untuk mengatasi gambar lama tertinggal. Simulator memakai Chromium 137, bukan engine TV Tizen 10 yang tercatat Chromium 130; hasil ini bukan sertifikasi native Tizen OS. Remote key diterima, tetapi drag-and-drop membutuhkan sentuhan/pointer. APK build lulus dan aset byte-identical; tidak dipasang/diuji ulang di Android sesuai instruksi pemilik. WGT unsigned dan dibatasi kandidat Tizen 10; uji model TV nyata, signing dan review pendengaran tetap terbuka.
 
+**Follow-up performa browser 3 November:** [Laporan dan bukti](../../docs/client-revisions/2026-11-03/mascot-browser-performance/README.md). Pengukuran Chrome desktop menemukan pemuatan GLB ganda dan frame CanvasKit yang dipaksa pemantau audio. Optimasi mempertahankan data visual/timing; kerja main thread bacaan turun 83,2% pada median tiga perjalanan Full HD, dan 80,1% pada satu perbandingan 4K. Regresi 466 tes dan harness browser lulus. Lima ukuran × tiga bahasa: 14 pasangan screenshot identik; satu pasangan berbeda tiga piksel dengan selisih maksimum 1/255. Paket web baru terpisah tersedia; APK/WGT lama tidak diperbarui. Status tiket tetap Dikerjakan: hasil desktop tidak menggantikan kompatibilitas/performa QM43B-T Tizen 6.5 atau pengujian Android yang ditunda.
+
 **Selesai jika:** perubahan diuji sebagai satu pengalaman yang utuh, artifact dan panduan cocok dengan versi baru, serta laporan mencatat hasil dan batas pemeriksaannya secara jujur.
 
 ## Pemetaan daftar klien ke tiket
@@ -410,6 +412,8 @@ Status diperbarui setelah implementasi dan pemeriksaan nyata. Selesai secara imp
 | 3 November 2026 | KIFC-R30-20 koreksi target | QM43B-T dipulihkan dari informasi pemilik sebelumnya; belum lulus performa | — | Samsung mencantumkan Tizen 6.5; WGT percobaan meminta 10.0. Audit GLB 6.77 MB/17.333 segitiga; renderer membutuhkan WebGL2 | Peninjau teknis: agen. Tidak ada data FPS/RAM/latensi target; hasil simulator tidak mengesahkan QM43B-T. Android tetap ditunda |
 
 ### Follow-up pemilik — Feedback_User_Pose dan proporsi maskot (3 November)
+
+- Follow-up performa browser: pengukuran dan optimasi selesai untuk skenario desktop yang dicatat, tanpa mengurangi mesh/tekstur/kualitas render. [Bukti, batas metrik dan paket web](../../docs/client-revisions/2026-11-03/mascot-browser-performance/README.md). Tidak mengubah jumlah tiket selesai; validasi QM43B-T dan review pemilik tetap terbuka.
 
 - Perbaikan terbaru: maskot completion/penjelasan menjadi overlay bawah dengan `Stack/Positioned`, tanpa mengambil tinggi panel unsur/teks. Scroll panel dihapus; panel utuh dan ukuran tetap. Subtitle dan bubble 13px dipertahankan, completion tengah, penjelasan kiri, Lanjut kanan. [Bukti terbaru yang menggantikan pendekatan scroll sebelumnya](../../docs/client-revisions/2026-11-03/assembly-mascot-overlay/README.md).
 

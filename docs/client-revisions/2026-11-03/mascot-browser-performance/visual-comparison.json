@@ -1,0 +1,154 @@
+[
+  {
+    "file": "1080x1920/0-welcome-en.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "identical": true,
+    "before_sha256": "22244b4cd60c6179afb8ed7b79c547652b099da237ac93720e65bfea1f2811c7",
+    "after_sha256": "22244b4cd60c6179afb8ed7b79c547652b099da237ac93720e65bfea1f2811c7"
+  },
+  {
+    "file": "1080x1920/0-welcome-id.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "identical": true,
+    "before_sha256": "aa8b7abf587caa53e36a51609d56c80e64ebb8ad247f064bede515e808df4014",
+    "after_sha256": "aa8b7abf587caa53e36a51609d56c80e64ebb8ad247f064bede515e808df4014"
+  },
+  {
+    "file": "1080x1920/0-welcome-ko.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "identical": true,
+    "before_sha256": "d0923e36ac4024957befde999ab896b76d1e14a1646b167c90c140fc20a31402",
+    "after_sha256": "d0923e36ac4024957befde999ab896b76d1e14a1646b167c90c140fc20a31402"
+  },
+  {
+    "file": "2160x3840/0-welcome-en.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "identical": false,
+    "before_sha256": "397ad6ad680e4987f0f5196a0537e44bcdef1fc3626487f55e820e7281a86ebb",
+    "after_sha256": "33f7b3a293e0550a7c50b8b0132446fe89e17bfb26aa3fd0e45e13c7a8a20c70",
+    "different_pixels": 3,
+    "maximum_channel_delta": 1
+  },
+  {
+    "file": "2160x3840/0-welcome-id.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "identical": true,
+    "before_sha256": "2a6d2e6daf8e5b0c26bbdd0939654d40c97737522087c3a6e81e46989fd29aff",
+    "after_sha256": "2a6d2e6daf8e5b0c26bbdd0939654d40c97737522087c3a6e81e46989fd29aff"
+  },
+  {
+    "file": "2160x3840/0-welcome-ko.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "identical": true,
+    "before_sha256": "59487989627c5438b61ff2b7283b9cb38fa6252e823c8589bb2aa3ebf145aeaa",
+    "after_sha256": "59487989627c5438b61ff2b7283b9cb38fa6252e823c8589bb2aa3ebf145aeaa"
+  },
+  {
+    "file": "360x640/0-welcome-en.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "identical": true,
+    "before_sha256": "8ecf290cb9cecdf017c2b9471182159e23a1aabd54953659e1ece8b19458824c",
+    "after_sha256": "8ecf290cb9cecdf017c2b9471182159e23a1aabd54953659e1ece8b19458824c"
+  },
+  {
+    "file": "360x640/0-welcome-id.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "identical": true,
+    "before_sha256": "430f1d388785c2e519dc86a367e20884a6221f584841b1b65879fc4f5c51cc2b",
+    "after_sha256": "430f1d388785c2e519dc86a367e20884a6221f584841b1b65879fc4f5c51cc2b"
+  },
+  {
+    "file": "360x640/0-welcome-ko.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "identical": true,
+    "before_sha256": "15a47e8951befaa4484b4ac505b4a72c54edf381954a0c8ae7c168589ba149a6",
+    "after_sha256": "15a47e8951befaa4484b4ac505b4a72c54edf381954a0c8ae7c168589ba149a6"
+  },
+  {
+    "file": "411x731/0-welcome-en.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "identical": true,
+    "before_sha256": "45100171bc9626435b429344f0874e0a2cd0452b7709ff1ec993b2f0b691d409",
+    "after_sha256": "45100171bc9626435b429344f0874e0a2cd0452b7709ff1ec993b2f0b691d409"
+  },
+  {
+    "file": "411x731/0-welcome-id.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "identical": true,
+    "before_sha256": "5dd3cfc104e3fb13408c2caabf8e7e03f3361fd997272b48bde0e7068bb46b76",
+    "after_sha256": "5dd3cfc104e3fb13408c2caabf8e7e03f3361fd997272b48bde0e7068bb46b76"
+  },
+  {
+    "file": "411x731/0-welcome-ko.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "identical": true,
+    "before_sha256": "4cca85ed4de658573c88b6778e511d68df076cb5f4a2c677829d90c404d3b36f",
+    "after_sha256": "4cca85ed4de658573c88b6778e511d68df076cb5f4a2c677829d90c404d3b36f"
+  },
+  {
+    "file": "720x1280/0-welcome-en.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "identical": true,
+    "before_sha256": "836f0e462b484735236e4a213506f0a27514dd9969b2745c5d12755fe79083b4",
+    "after_sha256": "836f0e462b484735236e4a213506f0a27514dd9969b2745c5d12755fe79083b4"
+  },
+  {
+    "file": "720x1280/0-welcome-id.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "identical": true,
+    "before_sha256": "1d2f8cfe25efb777bc432e494de726ab649dca0698ca735a2b3aefca5a35012a",
+    "after_sha256": "1d2f8cfe25efb777bc432e494de726ab649dca0698ca735a2b3aefca5a35012a"
+  },
+  {
+    "file": "720x1280/0-welcome-ko.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "identical": true,
+    "before_sha256": "0d1b316f29fcfa045f5a64bb4712296e891591b558d6326c23eae0280377656a",
+    "after_sha256": "0d1b316f29fcfa045f5a64bb4712296e891591b558d6326c23eae0280377656a"
+  }
+]

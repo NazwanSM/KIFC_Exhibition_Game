@@ -1,0 +1,493 @@
+--- a/lib/features/game/exhibition_game.dart
++++ b/lib/features/game/exhibition_game.dart
+@@ -308,9 +308,20 @@
+         _readingPaused) {
+       return;
+     }
++    final previousEnd = _readingStarted
++        ? _readingTiming?.visibleText(_readingState.position).length
++        : null;
+     final advance = _readingState.update(_readingEpoch, position);
+-    setState(() => _readingStarted = true);
+-    if (advance) _advanceReading(claimed: true);
++    if (advance) {
++      _advanceReading(claimed: true);
++      return;
++    }
++    final nextEnd = _readingTiming?.visibleText(_readingState.position).length;
++    // The player reports every animation frame. Keep its exact position, but
++    // rebuild only when that position actually reveals different text.
++    if (!_readingStarted || previousEnd != nextEnd) {
++      setState(() => _readingStarted = true);
++    }
+   }
+ 
+   void _readingFinished(int session) {
+--- a/lib/features/game/widgets/mascot_asset_cache.dart
++++ b/lib/features/game/widgets/mascot_asset_cache.dart
+@@ -1,4 +1,5 @@
+ import 'dart:async';
++import 'package:flutter/foundation.dart';
+ import 'package:flutter/services.dart';
+ 
+ /// One offline read per session, shared by successive native WebViews.
+@@ -7,6 +8,9 @@
+   static Future<ByteData> load(String key) =>
+       _loads.putIfAbsent(key, () => rootBundle.load(key));
+   static void warmup() {
++    // Web's model-viewer owns the fetch and decoded-model cache. rootBundle
++    // bytes are consumed only by native WebViews' local asset server.
++    if (kIsWeb) return;
+     for (final key in [
+       'assets/models/manggala_game_states.glb',
+       'packages/model_viewer_plus/assets/model-viewer.min.js',
+--- a/lib/core/audio/narration_coordinator.dart
++++ b/lib/core/audio/narration_coordinator.dart
+@@ -1,5 +1,7 @@
+ import 'dart:async';
+ import 'package:audioplayers/audioplayers.dart';
++import 'narration_position_updater.dart'
++    if (dart.library.js_interop) 'narration_position_updater_web.dart';
+ 
+ abstract interface class NarrationPlayer {
+   Future<void> play(String asset, double volume);
+@@ -127,7 +129,7 @@
+   Future<void> play(String asset, double volume) async {
+     final done = Completer<void>();
+     await _enqueue(() async {
+-      final player = _player ??= AudioPlayer();
++      final player = _player ??= _createPlayer();
+       _positionSubscription ??= player.onPositionChanged.listen(_positions.add);
+       _completion = done;
+       await player.setAudioContext(
+@@ -145,6 +147,14 @@
+       );
+     });
+     await done.future;
++  }
++
++  AudioPlayer _createPlayer() {
++    final player = AudioPlayer();
++    player.positionUpdater = createNarrationPositionUpdater(
++      getPosition: player.getCurrentPosition,
++    );
++    return player;
+   }
+ 
+   @override
+--- /dev/null
++++ b/lib/core/audio/narration_position_updater.dart
+@@ -0,0 +1,5 @@
++import 'package:audioplayers/audioplayers.dart';
++
++PositionUpdater createNarrationPositionUpdater({
++  required Future<Duration?> Function() getPosition,
++}) => FramePositionUpdater(getPosition: getPosition);
+--- /dev/null
++++ b/lib/core/audio/narration_position_updater_web.dart
+@@ -0,0 +1,41 @@
++import 'dart:async';
++import 'dart:js_interop';
++import 'package:audioplayers/audioplayers.dart';
++import 'package:web/web.dart' as web;
++
++PositionUpdater createNarrationPositionUpdater({
++  required Future<Duration?> Function() getPosition,
++}) => _BrowserFramePositionUpdater(getPosition: getPosition);
++
++/// Audio is sampled at display cadence without asking Flutter to paint an
++/// otherwise unchanged CanvasKit scene. The GLB has its own browser renderer.
++class _BrowserFramePositionUpdater extends PositionUpdater {
++  _BrowserFramePositionUpdater({required super.getPosition});
++
++  int? _frame;
++  bool _running = false;
++  late final JSFunction _callback = ((double _) {
++    _frame = null;
++    if (_running) _tick();
++  }).toJS;
++
++  void _tick() {
++    unawaited(update());
++    _frame = web.window.requestAnimationFrame(_callback);
++  }
++
++  @override
++  void start() {
++    if (_running) return;
++    _running = true;
++    _tick();
++  }
++
++  @override
++  void stop() {
++    _running = false;
++    final frame = _frame;
++    if (frame != null) web.window.cancelAnimationFrame(frame);
++    _frame = null;
++  }
++}
+--- /dev/null
++++ b/test/reading_render_updates_test.dart
+@@ -0,0 +1,63 @@
++import 'package:fire_prevention_challenge/core/audio/game_audio.dart';
++import 'package:fire_prevention_challenge/features/game/exhibition_game.dart';
++import 'package:fire_prevention_challenge/features/game/widgets/progressive_reading_text.dart';
++import 'package:flutter/material.dart';
++import 'package:flutter_test/flutter_test.dart';
++import 'game_flow_test.dart' show loadGameFonts;
++import 'reading_integration_test.dart' show ReadingPlayer, waitForReading;
++
++void main() {
++  setUpAll(loadGameFonts);
++
++  testWidgets(
++    'audio positions between words do not schedule identical UI frames',
++    (tester) async {
++      tester.view.physicalSize = const Size(411, 900);
++      tester.view.devicePixelRatio = 1;
++      addTearDown(tester.view.resetPhysicalSize);
++      addTearDown(tester.view.resetDevicePixelRatio);
++      final player = ReadingPlayer();
++      await tester.pumpWidget(
++        MaterialApp(
++          home: ExhibitionGame(
++            initialPage: 'triangleExplanation',
++            audioBackend: const SilentGameAudioBackend(),
++            narrationPlayer: player,
++          ),
++        ),
++      );
++      await tester.tap(find.text('Lanjut'));
++      await tester.pump();
++      await tester.pump(const Duration(milliseconds: 400));
++      await waitForReading(tester);
++      await tester.pump(const Duration(seconds: 4));
++      await tester.pump(const Duration(seconds: 1));
++      await tester.pump();
++      expect(player.played, ['id/karhutla-definition.mp3']);
++
++      player.events.add(const Duration(milliseconds: 100));
++      await tester.pump();
++      await tester.pump();
++      final text = find.byType(ProgressiveReadingText);
++      expect(tester.widget<ProgressiveReadingText>(text).visibleCharacters, 9);
++      final size = tester.getSize(text);
++      expect(tester.binding.hasScheduledFrame, isFalse);
++      for (final ms in [200, 300, 500]) {
++        player.events.add(Duration(milliseconds: ms));
++        await tester.idle();
++        expect(
++          tester.binding.hasScheduledFrame,
++          isFalse,
++          reason: 'The first word remains unchanged until 540 ms.',
++        );
++      }
++      player.events.add(const Duration(milliseconds: 540));
++      await tester.idle();
++      expect(tester.binding.hasScheduledFrame, isTrue);
++      await tester.pump();
++      expect(tester.widget<ProgressiveReadingText>(text).visibleCharacters, 15);
++      expect(tester.getSize(text), size);
++      await tester.pumpWidget(const SizedBox.shrink());
++    },
++  );
++}
+--- /dev/null
++++ b/tool/browser_mascot_perf.mjs
+@@ -0,0 +1,121 @@
++// Release-web benchmark. Supply PLAYWRIGHT_MODULE when Playwright is not local.
++// Browser timings are desktop evidence, never a Samsung TV hardware simulation.
++import {mkdirSync, writeFileSync} from 'node:fs';
++import {pathToFileURL} from 'node:url';
++import {resolve} from 'node:path';
++const moduleName = process.env.PLAYWRIGHT_MODULE || 'playwright';
++const {chromium} = await import(moduleName.startsWith('C:') || moduleName.startsWith('D:')
++  ? pathToFileURL(resolve(moduleName, 'index.mjs')).href : moduleName);
++const base = process.env.PERF_URL || 'http://127.0.0.1:8792/before/';
++const out = process.env.PERF_OUT || 'build/browser-perf/results-before';
++const repeats = Number(process.env.PERF_REPEATS || 3);
++const width = Number(process.env.PERF_WIDTH || 1080);
++const height = Number(process.env.PERF_HEIGHT || 1920);
++const cpuRate = Number(process.env.PERF_CPU_RATE || 1);
++mkdirSync(out, {recursive:true});
++const browser = await chromium.launch({channel:'chrome',headless:process.env.PERF_HEADED !== '1'});
++const all = [];
++try {
++  for (let run = 0; run < repeats; run++) {
++    const context = await browser.newContext({viewport:{width,height},deviceScaleFactor:1,
++      reducedMotion:'no-preference',serviceWorkers:'block'});
++    const page = await context.newPage();
++    const cdp = await context.newCDPSession(page);
++    await cdp.send('Network.enable');
++    await cdp.send('Network.setCacheDisabled',{cacheDisabled:true});
++    await cdp.send('Performance.enable');
++    if(cpuRate !== 1) await cdp.send('Emulation.setCPUThrottlingRate',{rate:cpuRate});
++    await page.addInitScript(() => {
++      window.__mascotPerf={loads:[],longTasks:[],renderScales:[],inputs:[],nodes:0};
++      new PerformanceObserver(list => {
++        for(const e of list.getEntries())window.__mascotPerf.longTasks.push({start:e.startTime,duration:e.duration});
++      }).observe({type:'longtask',buffered:true});
++      const attached = new WeakSet();
++      const observer=new MutationObserver(() => {
++        for(const m of document.querySelectorAll('model-viewer')) {
++          if(attached.has(m))continue;attached.add(m);window.__mascotPerf.nodes++;
++          m.addEventListener('load',()=>window.__mascotPerf.loads.push({id:m.id,time:performance.now(),clip:m.animationName}));
++          m.addEventListener('render-scale',e=>window.__mascotPerf.renderScales.push({...e.detail,time:performance.now()}));
++        }
++      });
++      observer.observe(document,{childList:true,subtree:true});
++      document.addEventListener('pointerup',()=>{
++        const start=performance.now();requestAnimationFrame(()=>window.__mascotPerf.inputs.push(performance.now()-start));
++      },true);
++    });
++    const errors=[];page.on('pageerror',e=>errors.push(e.message));
++    await page.goto(base+'?run='+run,{waitUntil:'load'});
++    await page.waitForFunction(()=>document.querySelector('flt-glass-pane'));
++    await page.evaluate(()=>document.querySelector('flt-semantics-placeholder')?.click());
++    await page.getByRole('button',{name:'Mulai Tantangan',exact:true}).waitFor({timeout:45000});
++    const has3d = await page.locator('model-viewer').count()>0;
++    if(has3d)await page.waitForFunction(()=>document.querySelector('model-viewer')?.loaded,{},{timeout:45000});
++    await page.waitForTimeout(800);
++    const environment=await page.evaluate(()=>{
++      const c=document.createElement('canvas'),g=c.getContext('webgl2'),e=g?.getExtension('WEBGL_debug_renderer_info');
++      const gpu=e?g.getParameter(e.UNMASKED_RENDERER_WEBGL):null;g?.getExtension('WEBGL_lose_context')?.loseContext();
++      return {ua:navigator.userAgent,cores:navigator.hardwareConcurrency,gpu,viewport:[innerWidth,innerHeight],dpr:devicePixelRatio,visibility:document.visibilityState};
++    });
++    const stages=[];
++    async function measure(name,ms=5000) {
++      const profile = name === 'reading' && process.env.PERF_CPU_PROFILE === '1';
++      if(profile){await cdp.send('Profiler.enable');await cdp.send('Profiler.start');}
++      const before=(await cdp.send('Performance.getMetrics')).metrics;
++      const sample=await page.evaluate(ms=>new Promise(resolve=>{
++        const started=performance.now(),values=[];let last=started;
++        function tick(now){values.push(now-last);last=now;if(now-started>=ms){
++          const sorted=values.slice().sort((a,b)=>a-b),pct=p=>sorted[Math.min(sorted.length-1,Math.floor(sorted.length*p))];
++          const m=document.querySelector('model-viewer');
++          resolve({duration:now-started,rafCount:values.length,rafHz:values.length*1000/(now-started),p50Ms:pct(.5),p95Ms:pct(.95),p99Ms:pct(.99),over33ms:values.filter(v=>v>33.5).length,visibility:document.visibilityState,
++            model:m?{loaded:m.loaded,clip:m.animationName,time:m.currentTime,paused:m.paused,rect:m.getBoundingClientRect().toJSON()}:null});
++        }else requestAnimationFrame(tick)}requestAnimationFrame(tick);
++      }),ms);
++      const after=(await cdp.send('Performance.getMetrics')).metrics;
++      if(profile){const result=await cdp.send('Profiler.stop');writeFileSync(out+'/'+run+'-reading.cpuprofile',JSON.stringify(result.profile));}
++      const get=(a,n)=>a.find(x=>x.name===n)?.value||0;
++      stages.push({name,...sample,taskMs:(get(after,'TaskDuration')-get(before,'TaskDuration'))*1000,
++        scriptMs:(get(after,'ScriptDuration')-get(before,'ScriptDuration'))*1000,
++        layoutMs:(get(after,'LayoutDuration')-get(before,'LayoutDuration'))*1000,
++        heapUsed:get(after,'JSHeapUsedSize'),domNodes:get(after,'Nodes')});
++      console.log(run,name,'rAF',sample.rafHz.toFixed(1),'p95',sample.p95Ms.toFixed(1),'task',stages.at(-1).taskMs.toFixed(0));
++    }
++    async function shot(name){await page.screenshot({path:out+'/'+run+'-'+name+'.png'});}
++    async function fixedMascot(){if(has3d){await page.evaluate(()=>{const m=document.querySelector('model-viewer');m.pause();m.currentTime=1.25;});await page.waitForTimeout(150);}}
++    if(process.env.PERF_VISUAL_ONLY === '1') {
++      for(const [lang,label] of [['id','Bahasa Indonesia'],['en','English'],['ko','한국어']]) {
++        await page.getByRole('button',{name:label,exact:true}).click();
++        await page.waitForTimeout(800);await fixedMascot();await shot('welcome-'+lang);
++      }
++      all.push({run,base,environment,has3d,source:'fixed Wave time=1.25, welcome three languages'});
++      writeFileSync(out+'/visual.json',JSON.stringify(all,null,2));
++      await context.close();continue;
++    }
++    await measure('welcome');await fixedMascot();await shot('welcome');
++    await page.getByRole('button',{name:'Mulai Tantangan',exact:true}).click();
++    await page.getByText('Pilih tiga unsur api.',{exact:true}).waitFor();
++    if(has3d)await page.waitForFunction(()=>document.querySelector('model-viewer')?.loaded);
++    await measure('assembly');
++    for(const label of ['Percikan api','Kayu kering','Oksigen dari udara']) {
++      const from=page.getByRole('img',{name:label,exact:false});
++      const target=page.getByRole('group',{name:/Area hutan/});
++      const a=await from.boundingBox(),b=await target.boundingBox();
++      await page.mouse.move(a.x+a.width/2,a.y+a.height/2);await page.mouse.down();
++      await page.mouse.move(b.x+b.width/2,b.y+b.height/2,{steps:20});await page.mouse.up();
++      await page.waitForTimeout(350);
++    }
++    await page.getByText('3/3 unsur',{exact:false}).waitFor();
++    await measure('video-feedback');await shot('video-feedback');
++    await page.mouse.click(width*.5,height*.22);
++    await page.getByRole('button',{name:'Lanjut',exact:true}).waitFor();
++    await page.getByRole('button',{name:'Lanjut',exact:true}).click();
++    if(has3d)await page.waitForFunction(()=>document.querySelector('model-viewer')?.loaded&&document.querySelector('model-viewer')?.animationName==='Talk');
++    // PNG mode starts narration via its production fallback deadline. Compare
++    // active narration in both modes, not its initial silent waiting period.
++    await page.waitForFunction(()=>document.body.innerText.includes('Kebakaran hutan adalah'),{},{timeout:15000});
++    await measure('reading',7000);await fixedMascot();await shot('reading');
++    const evidence=await page.evaluate(()=>({...window.__mascotPerf,resources:performance.getEntriesByType('resource').filter(r=>/glb|model-viewer|canvaskit|main.dart/.test(r.name)).map(r=>({name:r.name,start:r.startTime,end:r.responseEnd,duration:r.duration,transferSize:r.transferSize,encodedBodySize:r.encodedBodySize})),text:document.body.innerText}));
++    const result={run,base,environment,has3d,cpuRate,stages,evidence,errors};
++    all.push(result);writeFileSync(out+'/results.json',JSON.stringify(all,null,2));
++    await context.close();
++  }
++} finally {await browser.close();}
+--- /dev/null
++++ b/tool/assert_mascot_perf.mjs
+@@ -0,0 +1,16 @@
++// Assert observed browser behavior, not source text or assumed performance.
++import {readFileSync} from 'node:fs';
++import assert from 'node:assert/strict';
++const runs=JSON.parse(readFileSync(process.argv[2],'utf8'));
++assert(runs.length>0,'No browser measurements');
++for(const run of runs) {
++  assert.equal(run.errors.length,0,'Browser JavaScript errors');
++  if(!run.has3d)continue;
++  const glb=run.evidence.resources.filter(r=>r.name.includes('manggala_game_states.glb'));
++  assert.equal(glb.length,1,'The same GLB must not be fetched through both Flutter warmup and model-viewer');
++  const js=run.evidence.resources.filter(r=>r.name.includes('model-viewer.min.js'));
++  assert.equal(js.length,1,'The already imported viewer module must not be loaded as unused Flutter bytes');
++  for(const s of run.stages)assert.equal(s.model?.loaded,true,'Model missing in '+s.name);
++  assert(run.evidence.loads.some(m=>m.clip==='Talk'),'Narrated Talk was not exercised');
++}
++console.log('Browser mascot loading checks passed for '+runs.length+' runs.');
+--- /dev/null
++++ b/tool/summarize_browser_perf.py
+@@ -0,0 +1,52 @@
++"""Summarize actual release-browser runs; no assumed TV or pass budgets."""
++import json
++from pathlib import Path
++from statistics import median
++
++root = Path('build/browser-perf')
++groups = {}
++for label, directory in [('before', 'final-before'), ('after', 'optimized-results'), ('png', 'png-optimized-results')]:
++    runs = json.loads((root / directory / 'results.json').read_text())
++    stages = {}
++    for name in ['welcome', 'assembly', 'video-feedback', 'reading']:
++        samples = [next(s for s in r['stages'] if s['name'] == name) for r in runs]
++        stages[name] = {
++            'raf_callback_hz_median': median(s['rafHz'] for s in samples),
++            'raf_interval_p95_ms_median': median(s['p95Ms'] for s in samples),
++            'main_thread_task_ms_per_second_median': median(s['taskMs'] * 1000 / s['duration'] for s in samples),
++            'js_heap_used_bytes_median': median(s['heapUsed'] for s in samples),
++        }
++    resources = [r['evidence']['resources'] for r in runs]
++    groups[label] = {'runs': len(runs), 'environment': runs[0]['environment'], 'stages': stages,
++        'glb_requests_per_journey': [sum('.glb' in x['name'] for x in entries) for entries in resources],
++        'viewer_js_requests_per_journey': [sum('model-viewer.min.js' in x['name'] for x in entries) for entries in resources],
++        'mascot_resource_transfer_bytes_median': median(sum(x['transferSize'] for x in entries if '.glb' in x['name'] or 'model-viewer.min.js' in x['name']) for entries in resources),
++        'first_model_load_ms': [r['evidence']['loads'][0]['time'] for r in runs if r['evidence']['loads']],
++        'input_to_next_raf_ms': [n for r in runs for n in r['evidence']['inputs']],
++        'rendered_dpr_values': sorted({s['renderedDpr'] for r in runs for s in r['evidence']['renderScales']}),
++        'javascript_errors': [e for r in runs for e in r['errors']]}
++before = groups['before']['stages']['reading']['main_thread_task_ms_per_second_median']
++after = groups['after']['stages']['reading']['main_thread_task_ms_per_second_median']
++result = {'scope': 'Desktop Chrome release-web benchmark; not QM43B-T emulation',
++    'absolute_performance_budgets': 'NOT ASSESSED: no project.yaml FPS/memory/load budgets',
++    'target_tv_performance': 'NOT ASSESSED: no target hardware measurements',
++    'groups': groups, 'reading_main_thread_task_reduction_percent': (1 - after / before) * 100,
++    'notes': ['rAF callback rate is not measured GLB rendered FPS or GPU time.',
++              'TaskDuration is browser main-thread work, not total system CPU utilization.',
++              'JS heap excludes total browser/native/GPU/WASM memory.',
++              'Network cache disabled in fresh contexts; model-viewer decoded cache still reuses the GLB within each journey.',
++              'Active reading measurement begins after the same visible phrase; PNG uses its production 4-second narration fallback.',
++              'PNG is a diagnostic control, not a shipped visual replacement.']}
++result['four_k_reading'] = {}
++for label, directory in [('before', '4k-before'), ('after', '4k-optimized')]:
++    run = json.loads((root / directory / 'results.json').read_text())[0]
++    stage = next(s for s in run['stages'] if s['name'] == 'reading')
++    result['four_k_reading'][label] = {
++        'runs': 1, 'viewport': run['environment']['viewport'],
++        'raf_callback_hz': stage['rafHz'], 'raf_interval_p95_ms': stage['p95Ms'],
++        'main_thread_task_ms_per_second': stage['taskMs'] * 1000 / stage['duration'],
++    }
++(root / 'summary.json').write_text(json.dumps(result, indent=2) + '\n', encoding='utf-8')
++print(json.dumps({'reading_main_thread_task_reduction_percent': result['reading_main_thread_task_reduction_percent'],
++    'groups': {name: {'reading': g['stages']['reading'], 'glb_requests': g['glb_requests_per_journey'],
++                    'load_ms': g['first_model_load_ms'], 'dpr_values': g['rendered_dpr_values']} for name, g in groups.items()}}, indent=2))
+--- /dev/null
++++ b/tool/narration_sampler_check.dart
+@@ -0,0 +1,78 @@
++// Browser-only behavioral check built in release mode like the benchmark.
++import 'dart:async';
++import 'dart:convert';
++import 'dart:js_interop';
++import 'package:flutter/widgets.dart';
++import 'package:web/web.dart' as web;
++import 'package:fire_prevention_challenge/core/audio/narration_position_updater_web.dart';
++
++@JS('globalThis.samplerCheck')
++external set samplerCheck(JSString value);
++
++Future<void> frame() {
++  final done = Completer<void>();
++  web.window.requestAnimationFrame(((double _) => done.complete()).toJS);
++  return done.future;
++}
++
++void main() {
++  WidgetsFlutterBinding.ensureInitialized();
++  runApp(const SizedBox.shrink());
++  WidgetsBinding.instance.addPostFrameCallback((_) async {
++    await Future<void>.delayed(Duration.zero);
++    final failures = <String>[];
++    var reads = 0;
++    final updater = createNarrationPositionUpdater(
++      getPosition: () async {
++        reads++;
++        return const Duration(milliseconds: 120);
++      },
++    );
++    final received = <Duration>[];
++    final two = Completer<void>();
++    final sub = updater.positionStream.listen((p) {
++      received.add(p);
++      if (received.length >= 2 && !two.isCompleted) two.complete();
++    });
++    try {
++      updater.start();
++      updater.start();
++      if (WidgetsBinding.instance.hasScheduledFrame) {
++        failures.add('Audio-only sampling scheduled a Flutter paint.');
++      }
++      await two.future.timeout(const Duration(seconds: 3));
++      if (received.any((p) => p != const Duration(milliseconds: 120))) {
++        failures.add('Sampled position changed.');
++      }
++      updater.stop();
++      await frame();
++      final stopped = reads;
++      await frame();
++      await frame();
++      if (reads != stopped) failures.add('Sampling continued after stop.');
++      updater.start();
++      await frame();
++      await frame();
++      if (reads <= stopped) failures.add('Sampling did not resume.');
++    } catch (error) {
++      failures.add('$error');
++    } finally {
++      await updater.dispose();
++      await sub.cancel();
++    }
++    final disposedReads = reads;
++    await frame();
++    await frame();
++    if (reads != disposedReads) {
++      failures.add('Sampling continued after dispose.');
++    }
++    samplerCheck = jsonEncode({
++      'passed': failures.isEmpty,
++      'failures': failures,
++      'samples': received.length,
++      'positionPreserved': received.every(
++        (p) => p == const Duration(milliseconds: 120),
++      ),
++    }).toJS;
++  });
++}
+--- /dev/null
++++ b/tool/run_narration_sampler_check.mjs
+@@ -0,0 +1,16 @@
++import {writeFileSync} from 'node:fs';
++import {pathToFileURL} from 'node:url';
++import {resolve} from 'node:path';
++import assert from 'node:assert/strict';
++const name=process.env.PLAYWRIGHT_MODULE||'playwright';
++const {chromium}=await import(/^[CD]:/.test(name)?pathToFileURL(resolve(name,'index.mjs')).href:name);
++const browser=await chromium.launch({channel:'chrome',headless:true});
++try {
++  const page=await browser.newPage();
++  await page.goto(process.env.SAMPLER_URL);
++  await page.waitForFunction(()=>typeof globalThis.samplerCheck==='string',{},{timeout:20000});
++  const result=await page.evaluate(()=>JSON.parse(globalThis.samplerCheck));
++  writeFileSync(process.env.SAMPLER_RESULT,JSON.stringify(result,null,2));
++  console.log(result);
++  assert.equal(result.passed,true,'Browser audio sampling contract: '+result.failures.join('; '));
++} finally {await browser.close();}

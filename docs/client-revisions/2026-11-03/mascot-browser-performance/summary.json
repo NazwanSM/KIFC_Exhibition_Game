@@ -1,0 +1,256 @@
+{
+  "scope": "Desktop Chrome release-web benchmark; not QM43B-T emulation",
+  "absolute_performance_budgets": "NOT ASSESSED: no project.yaml FPS/memory/load budgets",
+  "target_tv_performance": "NOT ASSESSED: no target hardware measurements",
+  "groups": {
+    "before": {
+      "runs": 3,
+      "environment": {
+        "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+        "cores": 16,
+        "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 Laptop GPU (0x000025A2) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "viewport": [
+          1080,
+          1920
+        ],
+        "dpr": 1,
+        "visibility": "visible"
+      },
+      "stages": {
+        "welcome": {
+          "raf_callback_hz_median": 144.16540030390559,
+          "raf_interval_p95_ms_median": 7,
+          "main_thread_task_ms_per_second_median": 119.38210440096512,
+          "js_heap_used_bytes_median": 30227492
+        },
+        "assembly": {
+          "raf_callback_hz_median": 142.71722401009538,
+          "raf_interval_p95_ms_median": 7.099999999998545,
+          "main_thread_task_ms_per_second_median": 162.2548921625699,
+          "js_heap_used_bytes_median": 33497352
+        },
+        "video-feedback": {
+          "raf_callback_hz_median": 142.34021710881433,
+          "raf_interval_p95_ms_median": 7.099999999998545,
+          "main_thread_task_ms_per_second_median": 152.41378620979188,
+          "js_heap_used_bytes_median": 37913780
+        },
+        "reading": {
+          "raf_callback_hz_median": 73.50107754005317,
+          "raf_interval_p95_ms_median": 20.799999999999272,
+          "main_thread_task_ms_per_second_median": 1002.7734882324785,
+          "js_heap_used_bytes_median": 62877800
+        }
+      },
+      "glb_requests_per_journey": [
+        2,
+        2,
+        2
+      ],
+      "viewer_js_requests_per_journey": [
+        2,
+        2,
+        2
+      ],
+      "mascot_resource_transfer_bytes_median": 15448950,
+      "first_model_load_ms": [
+        2040.4000000022352,
+        1327.800000000745,
+        1336.1000000014901
+      ],
+      "input_to_next_raf_ms": [
+        62.600000001490116,
+        6,
+        6.300000000745058,
+        4.199999999254942,
+        4.400000002235174,
+        29.600000001490116,
+        71.30000000074506,
+        3.199999999254942,
+        5.099999997764826,
+        1.8999999985098839,
+        2.5,
+        31.199999999254942,
+        65.70000000298023,
+        5.699999999254942,
+        4.600000001490116,
+        4.400000002235174,
+        4,
+        28.399999998509884
+      ],
+      "rendered_dpr_values": [
+        1
+      ],
+      "javascript_errors": []
+    },
+    "after": {
+      "runs": 3,
+      "environment": {
+        "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+        "cores": 16,
+        "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 Laptop GPU (0x000025A2) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "viewport": [
+          1080,
+          1920
+        ],
+        "dpr": 1,
+        "visibility": "visible"
+      },
+      "stages": {
+        "welcome": {
+          "raf_callback_hz_median": 144.03579918883887,
+          "raf_interval_p95_ms_median": 7,
+          "main_thread_task_ms_per_second_median": 128.53007571360982,
+          "js_heap_used_bytes_median": 26084992
+        },
+        "assembly": {
+          "raf_callback_hz_median": 143.40783350304184,
+          "raf_interval_p95_ms_median": 7.099999999998545,
+          "main_thread_task_ms_per_second_median": 159.42836598950274,
+          "js_heap_used_bytes_median": 32290332
+        },
+        "video-feedback": {
+          "raf_callback_hz_median": 142.36867889062287,
+          "raf_interval_p95_ms_median": 7.099999999998545,
+          "main_thread_task_ms_per_second_median": 153.9979204574765,
+          "js_heap_used_bytes_median": 36793108
+        },
+        "reading": {
+          "raf_callback_hz_median": 141.76803152301252,
+          "raf_interval_p95_ms_median": 7.099999999998545,
+          "main_thread_task_ms_per_second_median": 168.27543353432227,
+          "js_heap_used_bytes_median": 33731640
+        }
+      },
+      "glb_requests_per_journey": [
+        1,
+        1,
+        1
+      ],
+      "viewer_js_requests_per_journey": [
+        1,
+        1,
+        1
+      ],
+      "mascot_resource_transfer_bytes_median": 7724475,
+      "first_model_load_ms": [
+        1840.7000000029802,
+        1258.2999999970198,
+        1240.199999999255
+      ],
+      "input_to_next_raf_ms": [
+        69.59999999776483,
+        5.100000001490116,
+        5.399999998509884,
+        1.7999999970197678,
+        4.300000000745058,
+        28,
+        68.29999999701977,
+        6.200000002980232,
+        5.199999999254942,
+        5.5,
+        1.5,
+        26.300000000745058,
+        62.899999998509884,
+        6.300000000745058,
+        6.5,
+        6,
+        3.399999998509884,
+        27.899999998509884
+      ],
+      "rendered_dpr_values": [
+        1
+      ],
+      "javascript_errors": []
+    },
+    "png": {
+      "runs": 1,
+      "environment": {
+        "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+        "cores": 16,
+        "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 Laptop GPU (0x000025A2) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "viewport": [
+          1080,
+          1920
+        ],
+        "dpr": 1,
+        "visibility": "visible"
+      },
+      "stages": {
+        "welcome": {
+          "raf_callback_hz_median": 144.33360654099113,
+          "raf_interval_p95_ms_median": 7.099999999999454,
+          "main_thread_task_ms_per_second_median": 21.756991783779462,
+          "js_heap_used_bytes_median": 21350200
+        },
+        "assembly": {
+          "raf_callback_hz_median": 137.79448822053277,
+          "raf_interval_p95_ms_median": 7.100000000000364,
+          "main_thread_task_ms_per_second_median": 102.37550497984655,
+          "js_heap_used_bytes_median": 23681688
+        },
+        "video-feedback": {
+          "raf_callback_hz_median": 142.35444657715894,
+          "raf_interval_p95_ms_median": 7.099999999998545,
+          "main_thread_task_ms_per_second_median": 65.46145233528193,
+          "js_heap_used_bytes_median": 36216864
+        },
+        "reading": {
+          "raf_callback_hz_median": 142.15574332040788,
+          "raf_interval_p95_ms_median": 7.099999999998545,
+          "main_thread_task_ms_per_second_median": 78.27543388902416,
+          "js_heap_used_bytes_median": 24386080
+        }
+      },
+      "glb_requests_per_journey": [
+        0
+      ],
+      "viewer_js_requests_per_journey": [
+        1
+      ],
+      "mascot_resource_transfer_bytes_median": 955855,
+      "first_model_load_ms": [],
+      "input_to_next_raf_ms": [
+        63.20000000298023,
+        2.300000000745058,
+        1.199999999254942,
+        1.8999999985098839,
+        0.9000000022351742,
+        25.199999999254942
+      ],
+      "rendered_dpr_values": [],
+      "javascript_errors": []
+    }
+  },
+  "reading_main_thread_task_reduction_percent": 83.21899855660024,
+  "notes": [
+    "rAF callback rate is not measured GLB rendered FPS or GPU time.",
+    "TaskDuration is browser main-thread work, not total system CPU utilization.",
+    "JS heap excludes total browser/native/GPU/WASM memory.",
+    "Network cache disabled in fresh contexts; model-viewer decoded cache still reuses the GLB within each journey.",
+    "Active reading measurement begins after the same visible phrase; PNG uses its production 4-second narration fallback.",
+    "PNG is a diagnostic control, not a shipped visual replacement."
+  ],
+  "four_k_reading": {
+    "before": {
+      "runs": 1,
+      "viewport": [
+        2160,
+        3840
+      ],
+      "raf_callback_hz": 41.242115477918965,
+      "raf_interval_p95_ms": 27.899999999997817,
+      "main_thread_task_ms_per_second": 1005.4979022175488
+    },
+    "after": {
+      "runs": 1,
+      "viewport": [
+        2160,
+        3840
+      ],
+      "raf_callback_hz": 137.94285224694102,
+      "raf_interval_p95_ms": 7.099999999998545,
+      "main_thread_task_ms_per_second": 200.15536420627888
+    }
+  }
+}

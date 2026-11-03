@@ -1,0 +1,57 @@
+[
+  {
+    "file": "lib/features/game/exhibition_game.dart",
+    "sha256": "3eed0831f450ab8daa147efab0cfb049b132f002e572425bb938d85ed94dd98a",
+    "base": "previous review source ZIP"
+  },
+  {
+    "file": "lib/features/game/widgets/mascot_asset_cache.dart",
+    "sha256": "d9ff4c252b5308ef9145a15a4c7eff259939efb90b1dab5233f470cd838fce5b",
+    "base": "previous review source ZIP"
+  },
+  {
+    "file": "lib/core/audio/narration_coordinator.dart",
+    "sha256": "f6b3af42429a93bf0a9fbb69d2a5e6aa522b9d2acf03d1c963917137d15d258a",
+    "base": "previous review source ZIP"
+  },
+  {
+    "file": "lib/core/audio/narration_position_updater.dart",
+    "sha256": "0fb0c76c7c4ad4db7554a0d5c7281592475c7cff444a2bcd48e819305997de6c",
+    "base": "new file"
+  },
+  {
+    "file": "lib/core/audio/narration_position_updater_web.dart",
+    "sha256": "eb0624de0aa1efc38bbd51f50089d0beae9671f3044f7679e0ae1e145b1c88ab",
+    "base": "new file"
+  },
+  {
+    "file": "test/reading_render_updates_test.dart",
+    "sha256": "7d886e70151e202500956e9bbabfb1d0ef1bc837f763322ecf1ff272d167001d",
+    "base": "new file"
+  },
+  {
+    "file": "tool/browser_mascot_perf.mjs",
+    "sha256": "4e516e00d6eb5a99be6c6fd3d15d0f5346be33bbba1c2dc9a039034f1155fb29",
+    "base": "new file"
+  },
+  {
+    "file": "tool/assert_mascot_perf.mjs",
+    "sha256": "48b50bf07df5691c8c4d2573102c0c1f7be0117ab887fd2de6358ef8e37caf1c",
+    "base": "new file"
+  },
+  {
+    "file": "tool/summarize_browser_perf.py",
+    "sha256": "0df2998e32dabc00ef17ae29196d70b9e64549155b6064a2c73e6cd969cbf734",
+    "base": "new file"
+  },
+  {
+    "file": "tool/narration_sampler_check.dart",
+    "sha256": "7c9de101ea7596dfea00777d137e167ef2e852b96213eecc001362563a0ca92b",
+    "base": "new file"
+  },
+  {
+    "file": "tool/run_narration_sampler_check.mjs",
+    "sha256": "010b27f2f30f5ed9673d84006e6b38f75036f2b3cded656bc368f73c934b12a9",
+    "base": "new file"
+  }
+]

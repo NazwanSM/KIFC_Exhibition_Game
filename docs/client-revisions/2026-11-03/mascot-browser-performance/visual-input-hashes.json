@@ -1,0 +1,20 @@
+[
+  {
+    "file": "assets/assets/models/manggala_game_states.glb",
+    "bytes": 6768320,
+    "sha256": "e608bce08384d85bd7a92a40325c997d92d6fadc06090b878fe07d912731fcb1",
+    "unchanged": true
+  },
+  {
+    "file": "assets/packages/model_viewer_plus/assets/model-viewer.min.js",
+    "bytes": 955555,
+    "sha256": "159d94919f8267db46cd6b196a7343260e31541857c2db7aaeee0c3d7b94b45c",
+    "unchanged": true
+  },
+  {
+    "file": "assets/assets/audio/narration/reading_timing.json",
+    "bytes": 25992,
+    "sha256": "06c484583f4b4873b4e3bb18f1833e895a709f1b77c7c081f7c0d7752f0e2b70",
+    "unchanged": true
+  }
+]

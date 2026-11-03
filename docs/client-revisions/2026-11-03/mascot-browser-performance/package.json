@@ -1,0 +1,8 @@
+{
+  "file": "build\\delivery\\KIFC-web-performance-20261103.zip",
+  "bytes": 53521201,
+  "sha256": "6bea6f71c2267d3028e7cceb1d152378785219781e768b89c5226445807c9c50",
+  "build_id": "perf_browser_audio_frames_20261103",
+  "native_tv_validation": false,
+  "android_runtime": "deferred by owner"
+}

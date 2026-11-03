@@ -1,0 +1,184 @@
+[
+  {
+    "run": 0,
+    "base": "http://127.0.0.1:8792/png-optimized/",
+    "environment": {
+      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+      "cores": 16,
+      "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 Laptop GPU (0x000025A2) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "viewport": [
+        1080,
+        1920
+      ],
+      "dpr": 1,
+      "visibility": "visible"
+    },
+    "has3d": false,
+    "cpuRate": 1,
+    "stages": [
+      {
+        "name": "welcome",
+        "duration": 5002.3,
+        "rafCount": 722,
+        "rafHz": 144.33360654099113,
+        "p50Ms": 6.900000000000546,
+        "p95Ms": 7.099999999999454,
+        "p99Ms": 7.100000000000364,
+        "over33ms": 0,
+        "visibility": "visible",
+        "model": null,
+        "taskMs": 108.83500000000001,
+        "scriptMs": 14.700999999999965,
+        "layoutMs": 0,
+        "heapUsed": 21350200,
+        "domNodes": 104
+      },
+      {
+        "name": "assembly",
+        "duration": 5000.199999997765,
+        "rafCount": 689,
+        "rafHz": 137.79448822053277,
+        "p50Ms": 6.900000000001455,
+        "p95Ms": 7.100000000000364,
+        "p99Ms": 7.200000000000728,
+        "over33ms": 1,
+        "visibility": "visible",
+        "model": null,
+        "taskMs": 511.89799999999997,
+        "scriptMs": 370.1049999999999,
+        "layoutMs": 0.08800000000000127,
+        "heapUsed": 23681688,
+        "domNodes": 142
+      },
+      {
+        "name": "video-feedback",
+        "duration": 5001.599999997765,
+        "rafCount": 712,
+        "rafHz": 142.35444657715894,
+        "p50Ms": 6.900000000001455,
+        "p95Ms": 7.099999999998545,
+        "p99Ms": 13.800000000001091,
+        "over33ms": 0,
+        "visibility": "visible",
+        "model": null,
+        "taskMs": 327.4119999999998,
+        "scriptMs": 193.5739999999999,
+        "layoutMs": 2.256999999999999,
+        "heapUsed": 36216864,
+        "domNodes": 380
+      },
+      {
+        "name": "reading",
+        "duration": 7006.399999999256,
+        "rafCount": 996,
+        "rafHz": 142.15574332040788,
+        "p50Ms": 6.900000000001455,
+        "p95Ms": 7.099999999998545,
+        "p99Ms": 13.799999999999272,
+        "over33ms": 0,
+        "visibility": "visible",
+        "model": null,
+        "taskMs": 548.4290000000005,
+        "scriptMs": 329.6090000000005,
+        "layoutMs": 6.171999999999997,
+        "heapUsed": 24386080,
+        "domNodes": 430
+      }
+    ],
+    "evidence": {
+      "loads": [],
+      "longTasks": [
+        {
+          "start": 179.70000000298023,
+          "duration": 173
+        },
+        {
+          "start": 510,
+          "duration": 105
+        },
+        {
+          "start": 615.4000000022352,
+          "duration": 316
+        },
+        {
+          "start": 935.7000000029802,
+          "duration": 55
+        },
+        {
+          "start": 1246.9000000022352,
+          "duration": 122
+        },
+        {
+          "start": 7291.900000002235,
+          "duration": 57
+        },
+        {
+          "start": 7351,
+          "duration": 248
+        },
+        {
+          "start": 7605.10000000149,
+          "duration": 90
+        },
+        {
+          "start": 7754.800000000745,
+          "duration": 92
+        },
+        {
+          "start": 7934.300000000745,
+          "duration": 188
+        },
+        {
+          "start": 13208.20000000298,
+          "duration": 54
+        }
+      ],
+      "renderScales": [],
+      "inputs": [
+        63.20000000298023,
+        2.300000000745058,
+        1.199999999254942,
+        1.8999999985098839,
+        0.9000000022351742,
+        25.199999999254942
+      ],
+      "nodes": 0,
+      "resources": [
+        {
+          "name": "http://127.0.0.1:8792/png-optimized/assets/packages/model_viewer_plus/assets/model-viewer.min.js",
+          "start": 13.600000001490116,
+          "end": 56.80000000074506,
+          "duration": 43.19999999925494,
+          "transferSize": 955855,
+          "encodedBodySize": 955555
+        },
+        {
+          "name": "http://127.0.0.1:8792/png-optimized/canvaskit/chromium/canvaskit.wasm",
+          "start": 41.100000001490116,
+          "end": 88,
+          "duration": 46.899999998509884,
+          "transferSize": 5678318,
+          "encodedBodySize": 5678018
+        },
+        {
+          "name": "http://127.0.0.1:8792/png-optimized/canvaskit/chromium/canvaskit.js",
+          "start": 41.400000002235174,
+          "end": 47.100000001490116,
+          "duration": 5.699999999254942,
+          "transferSize": 86556,
+          "encodedBodySize": 86256
+        },
+        {
+          "name": "http://127.0.0.1:8792/png-optimized/main.dart.js",
+          "start": 42.600000001490116,
+          "end": 72.10000000149012,
+          "duration": 29.5,
+          "transferSize": 2697146,
+          "encodedBodySize": 2696846
+        }
+      ],
+      "text": "Kembali\nBABAK 2/4\nPengaturan suara\nBABAK 2\nTapi, Apa Itu Kebakaran Hutan?\nTadi kamu melihat api menyala. Bagaimana jika api itu menjalar?\nKebakaran hutan adalah peristiwa terbakarnya vegetasi dan bahan organik di kawasan hutan, dengan api yang menyebar secara bebas dan tidak\n1/3\nLanjut"
+    },
+    "errors": []
+  }
+]

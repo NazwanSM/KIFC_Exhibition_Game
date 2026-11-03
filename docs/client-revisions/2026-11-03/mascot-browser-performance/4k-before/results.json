@@ -1,0 +1,386 @@
+[
+  {
+    "run": 0,
+    "base": "http://127.0.0.1:8792/before/",
+    "environment": {
+      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+      "cores": 16,
+      "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 Laptop GPU (0x000025A2) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "viewport": [
+        2160,
+        3840
+      ],
+      "dpr": 1,
+      "visibility": "visible"
+    },
+    "has3d": true,
+    "cpuRate": 1,
+    "stages": [
+      {
+        "name": "welcome",
+        "duration": 5005.6,
+        "rafCount": 721,
+        "rafHz": 144.03867668211603,
+        "p50Ms": 6.900000000000546,
+        "p95Ms": 7,
+        "p99Ms": 7.100000000000364,
+        "over33ms": 0,
+        "visibility": "visible",
+        "model": {
+          "loaded": true,
+          "clip": "Wave",
+          "time": 5.687699999999979,
+          "paused": false,
+          "rect": {
+            "x": -657.038818359375,
+            "y": 1717.7906494140625,
+            "width": 2303.640380859375,
+            "height": 1105.7498779296875,
+            "top": 1717.7906494140625,
+            "right": 1646.6015625,
+            "bottom": 2823.54052734375,
+            "left": -657.038818359375
+          }
+        },
+        "taskMs": 589.81,
+        "scriptMs": 360.66699999999986,
+        "layoutMs": 0,
+        "heapUsed": 26213912,
+        "domNodes": 519
+      },
+      {
+        "name": "assembly",
+        "duration": 5004.60000000149,
+        "rafCount": 711,
+        "rafHz": 142.06929624741005,
+        "p50Ms": 6.900000000001455,
+        "p95Ms": 7.099999999998545,
+        "p99Ms": 7.100000000000364,
+        "over33ms": 1,
+        "visibility": "visible",
+        "model": {
+          "loaded": true,
+          "clip": "PointIdle",
+          "time": 5.132199999999988,
+          "paused": false,
+          "rect": {
+            "x": -1327.9061279296875,
+            "y": 2754.774169921875,
+            "width": 3676.62451171875,
+            "height": 1770.226318359375,
+            "top": 2754.774169921875,
+            "right": 2348.7183837890625,
+            "bottom": 4525.00048828125,
+            "left": -1327.9061279296875
+          }
+        },
+        "taskMs": 841.1309999999999,
+        "scriptMs": 553.3380000000001,
+        "layoutMs": 0.21400000000000238,
+        "heapUsed": 33374296,
+        "domNodes": 770
+      },
+      {
+        "name": "video-feedback",
+        "duration": 5004.700000002234,
+        "rafCount": 707,
+        "rafHz": 141.26720882364265,
+        "p50Ms": 6.900000000001455,
+        "p95Ms": 7.099999999998545,
+        "p99Ms": 7.200000000000728,
+        "over33ms": 0,
+        "visibility": "visible",
+        "model": {
+          "loaded": true,
+          "clip": "Happy",
+          "time": 5.284999999999983,
+          "paused": false,
+          "rect": {
+            "x": -683.9080810546875,
+            "y": 2754.774169921875,
+            "width": 3676.62451171875,
+            "height": 1770.226318359375,
+            "top": 2754.774169921875,
+            "right": 2992.7164306640625,
+            "bottom": 4525.00048828125,
+            "left": -683.9080810546875
+          }
+        },
+        "taskMs": 822.8860000000004,
+        "scriptMs": 529.1999999999995,
+        "layoutMs": 1.0430000000000024,
+        "heapUsed": 30265680,
+        "domNodes": 1129
+      },
+      {
+        "name": "reading",
+        "duration": 7007.400000000744,
+        "rafCount": 289,
+        "rafHz": 41.242115477918965,
+        "p50Ms": 21,
+        "p95Ms": 27.899999999997817,
+        "p99Ms": 34.79999999999927,
+        "over33ms": 6,
+        "visibility": "visible",
+        "model": {
+          "loaded": true,
+          "clip": "Talk",
+          "time": 8.125499999999999,
+          "paused": false,
+          "rect": {
+            "x": -822.6024780273438,
+            "y": 1633.3236083984375,
+            "width": 2661.98388671875,
+            "height": 1279.7991943359375,
+            "top": 1633.3236083984375,
+            "right": 1839.3814086914062,
+            "bottom": 2913.122802734375,
+            "left": -822.6024780273438
+          }
+        },
+        "taskMs": 7045.9259999999995,
+        "scriptMs": 6742.191,
+        "layoutMs": 48.19800000000001,
+        "heapUsed": 58272876,
+        "domNodes": 2499
+      }
+    ],
+    "evidence": {
+      "loads": [
+        {
+          "id": "game-mascot-1",
+          "time": 2101.800000000745,
+          "clip": "Wave"
+        },
+        {
+          "id": "game-mascot-2",
+          "time": 10294.89999999851,
+          "clip": "PointIdle"
+        },
+        {
+          "id": "game-mascot-3",
+          "time": 18461.699999999255,
+          "clip": "Happy"
+        },
+        {
+          "id": "game-mascot-4",
+          "time": 24654.300000000745,
+          "clip": "PointIdle"
+        },
+        {
+          "id": "game-mascot-5",
+          "time": 25214.699999999255,
+          "clip": "Talk"
+        }
+      ],
+      "longTasks": [
+        {
+          "start": 163.30000000074506,
+          "duration": 170
+        },
+        {
+          "start": 470,
+          "duration": 108
+        },
+        {
+          "start": 578.8999999985099,
+          "duration": 329
+        },
+        {
+          "start": 913.5,
+          "duration": 102
+        },
+        {
+          "start": 1156.800000000745,
+          "duration": 76
+        },
+        {
+          "start": 1459.3999999985099,
+          "duration": 641
+        },
+        {
+          "start": 9685.099999997765,
+          "duration": 56
+        },
+        {
+          "start": 9743,
+          "duration": 193
+        },
+        {
+          "start": 9999.5,
+          "duration": 82
+        },
+        {
+          "start": 10110.300000000745,
+          "duration": 119
+        },
+        {
+          "start": 10230.300000000745,
+          "duration": 58
+        },
+        {
+          "start": 10437,
+          "duration": 82
+        },
+        {
+          "start": 24478.599999997765,
+          "duration": 52
+        },
+        {
+          "start": 24554.39999999851,
+          "duration": 50
+        },
+        {
+          "start": 24606.39999999851,
+          "duration": 50
+        },
+        {
+          "start": 24920.39999999851,
+          "duration": 53
+        },
+        {
+          "start": 24975.300000000745,
+          "duration": 72
+        },
+        {
+          "start": 25048.39999999851,
+          "duration": 69
+        }
+      ],
+      "renderScales": [
+        {
+          "reportedDpr": 1,
+          "renderedDpr": 1,
+          "minimumDpr": 0.5,
+          "pixelWidth": 2304,
+          "pixelHeight": 1106,
+          "reason": "",
+          "time": 1460.0999999977648
+        },
+        {
+          "reportedDpr": 1,
+          "renderedDpr": 1,
+          "minimumDpr": 0.5,
+          "pixelWidth": 3078,
+          "pixelHeight": 1482,
+          "reason": "",
+          "time": 10233.89999999851
+        },
+        {
+          "reportedDpr": 1,
+          "renderedDpr": 1,
+          "minimumDpr": 0.5,
+          "pixelWidth": 514,
+          "pixelHeight": 247,
+          "reason": "",
+          "time": 18424.89999999851
+        },
+        {
+          "reportedDpr": 1,
+          "renderedDpr": 1,
+          "minimumDpr": 0.5,
+          "pixelWidth": 3078,
+          "pixelHeight": 1482,
+          "reason": "",
+          "time": 18491.5
+        },
+        {
+          "reportedDpr": 1,
+          "renderedDpr": 1,
+          "minimumDpr": 0.5,
+          "pixelWidth": 514,
+          "pixelHeight": 247,
+          "reason": "",
+          "time": 24554.800000000745
+        },
+        {
+          "reportedDpr": 1,
+          "renderedDpr": 1,
+          "minimumDpr": 0.5,
+          "pixelWidth": 2653,
+          "pixelHeight": 1276,
+          "reason": "",
+          "time": 25140.099999997765
+        },
+        {
+          "reportedDpr": 1,
+          "renderedDpr": 1,
+          "minimumDpr": 0.5,
+          "pixelWidth": 2661,
+          "pixelHeight": 1280,
+          "reason": "",
+          "time": 25226.39999999851
+        }
+      ],
+      "inputs": [
+        61.19999999925494,
+        3.800000000745058,
+        1.5999999977648258,
+        2.599999997764826,
+        2.699999999254942,
+        32.30000000074506
+      ],
+      "nodes": 5,
+      "resources": [
+        {
+          "name": "http://127.0.0.1:8792/before/assets/packages/model_viewer_plus/assets/model-viewer.min.js",
+          "start": 16.099999997764826,
+          "end": 24.699999999254942,
+          "duration": 8.600000001490116,
+          "transferSize": 955855,
+          "encodedBodySize": 955555
+        },
+        {
+          "name": "http://127.0.0.1:8792/before/canvaskit/chromium/canvaskit.wasm",
+          "start": 33.30000000074506,
+          "end": 87.09999999776483,
+          "duration": 53.79999999701977,
+          "transferSize": 5678318,
+          "encodedBodySize": 5678018
+        },
+        {
+          "name": "http://127.0.0.1:8792/before/canvaskit/chromium/canvaskit.js",
+          "start": 33.599999997764826,
+          "end": 40.30000000074506,
+          "duration": 6.700000002980232,
+          "transferSize": 86556,
+          "encodedBodySize": 86256
+        },
+        {
+          "name": "http://127.0.0.1:8792/before/main.dart.js",
+          "start": 34.80000000074506,
+          "end": 55.899999998509884,
+          "duration": 21.099999997764826,
+          "transferSize": 2708395,
+          "encodedBodySize": 2708095
+        },
+        {
+          "name": "http://127.0.0.1:8792/before/assets/assets/models/manggala_game_states.glb",
+          "start": 484,
+          "end": 1062.199999999255,
+          "duration": 578.1999999992549,
+          "transferSize": 6768620,
+          "encodedBodySize": 6768320
+        },
+        {
+          "name": "http://127.0.0.1:8792/before/assets/packages/model_viewer_plus/assets/model-viewer.min.js",
+          "start": 484.80000000074506,
+          "end": 494.30000000074506,
+          "duration": 9.5,
+          "transferSize": 955855,
+          "encodedBodySize": 955555
+        },
+        {
+          "name": "http://127.0.0.1:8792/before/assets/assets/models/manggala_game_states.glb",
+          "start": 1143.800000000745,
+          "end": 1299.699999999255,
+          "duration": 155.89999999850988,
+          "transferSize": 6768620,
+          "encodedBodySize": 6768320
+        }
+      ],
+      "text": "Kembali\nBABAK 2/4\nPengaturan suara\nBABAK 2\nTapi, Apa Itu Kebakaran Hutan?\nTadi kamu melihat api menyala. Bagaimana jika api itu menjalar?\nKebakaran hutan adalah peristiwa terbakarnya vegetasi dan bahan organik di kawasan hutan, dengan api yang menyebar secara bebas dan tidak terkendali.\n1/3\nLanjut"
+    },
+    "errors": []
+  }
+]
