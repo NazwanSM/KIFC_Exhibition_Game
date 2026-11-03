@@ -27,7 +27,11 @@ double paintOpacity(Finder finder) {
 void checkPaint(WidgetTester tester, Finder host) {
   final message = find.descendant(
     of: host,
-    matching: find.byType(LocalizedText),
+    matching: find.byWidgetPredicate(
+      (widget) =>
+          widget is LocalizedText ||
+          widget.runtimeType.toString() == 'ProgressiveReadingText',
+    ),
   );
   final body = find
       .ancestor(of: message, matching: find.byType(Container))

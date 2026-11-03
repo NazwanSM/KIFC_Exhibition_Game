@@ -2,7 +2,11 @@
 export async function connectMascot() {
   const endpoint = process.env.KIFC_CDP_ENDPOINT || 'http://127.0.0.1:9223';
   const targets = await (await fetch(endpoint + '/json')).json();
-  const target = targets.filter(x => x.type === 'page' && /127\.0\.0\.1/.test(x.url)).at(-1);
+  const target = targets.filter(x => {
+    if (x.type !== 'page' || !/127\.0\.0\.1/.test(x.url)) return false;
+    try { const d=JSON.parse(x.description); return d.attached===true&&d.visible===true; }
+    catch { return false; }
+  }).at(-1);
   if (!target) throw new Error('No app WebView target');
   const ws = new WebSocket(target.webSocketDebuggerUrl);
   await new Promise((resolve, reject) => { ws.addEventListener('open', resolve, {once:true}); ws.addEventListener('error', reject, {once:true}); });

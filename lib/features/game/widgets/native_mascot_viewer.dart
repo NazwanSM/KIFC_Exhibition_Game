@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:webview_flutter_android/webview_flutter_android.dart';
 import 'approved_mascot_camera.dart';
+import 'mascot_asset_cache.dart';
 
 /// Decorative native WebView. Hybrid composition avoids the texture WebView
 /// swallowing Flutter touches on the tested Android 12 device.
@@ -55,7 +55,7 @@ class _NativeMascotViewerState extends State<NativeMascotViewer> {
                 'application',
                 'javascript',
               );
-              final data = await rootBundle.load(
+              final data = await MascotAssetCache.load(
                 'packages/model_viewer_plus/assets/model-viewer.min.js',
               );
               request.response.add(
@@ -63,7 +63,7 @@ class _NativeMascotViewerState extends State<NativeMascotViewer> {
               );
             case '/model':
               request.response.headers.contentType = ContentType.binary;
-              final data = await rootBundle.load(
+              final data = await MascotAssetCache.load(
                 'assets/models/manggala_game_states.glb',
               );
               request.response.add(

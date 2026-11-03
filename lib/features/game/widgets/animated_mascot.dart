@@ -31,12 +31,14 @@ class AnimatedMascot extends StatefulWidget {
     required this.fallback,
     this.narrating = false,
     this.trigger,
+    this.onReady,
   });
   final MascotState state;
   final double height;
   final Widget fallback;
   final bool narrating;
   final Object? trigger;
+  final VoidCallback? onReady;
   @override
   State<AnimatedMascot> createState() => _AnimatedMascotState();
 }
@@ -79,7 +81,19 @@ class _AnimatedMascotState extends State<AnimatedMascot>
   void _loaded() {
     if (_failed) return;
     _loadTimeout?.cancel();
-    if (!_ready) setState(() => _ready = true);
+    if (!_ready) {
+      setState(() => _ready = true);
+      _selectClip();
+      widget.onReady?.call();
+    }
+    _playback();
+  }
+
+  void _selectClip() {
+    _lifecycle.setClip(_clip);
+    _nativeSend?.call(
+      "(()=>{const m=document.querySelector('model-viewer');if(m){m.animationName='$_clip';m.currentTime=0;}})();",
+    );
     _playback();
   }
 
@@ -134,13 +148,20 @@ class _AnimatedMascotState extends State<AnimatedMascot>
   void didUpdateWidget(AnimatedMascot oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (mascotClip(oldWidget.state, narrating: oldWidget.narrating) != _clip) {
-      _close();
-      _open();
+      _selectClip();
+      if (_ready) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (mounted && _ready) widget.onReady?.call();
+        });
+      }
     } else if (oldWidget.trigger != widget.trigger && _ready) {
       _lifecycle.restart();
       _nativeSend?.call(
         "document.querySelector('model-viewer').currentTime=0;",
       );
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted && _ready) widget.onReady?.call();
+      });
     }
   }
 

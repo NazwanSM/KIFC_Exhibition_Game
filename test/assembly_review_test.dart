@@ -73,6 +73,9 @@ void main() {
           page: 'triangleBuild',
         );
         await paintAssembly(tester);
+        final choosingMascot = tester.getRect(
+          find.byKey(const ValueKey('feedback-mascot-crop')),
+        );
         String text(String id, String en) =>
             AppCopy.translate(locale == AppLocale.english ? en : id);
         final metrics = <String, Object>{
@@ -226,6 +229,15 @@ void main() {
         final feedback = tester.getRect(
           find.byKey(const ValueKey('feedback-message')),
         );
+        void expectNormalFeedbackText() {
+          final message = find.descendant(
+            of: find.byKey(const ValueKey('feedback-message')),
+            matching: find.byType(Text),
+          );
+          expect(tester.widget<Text>(message.first).style?.fontSize, 13);
+        }
+
+        expectNormalFeedbackText();
         final mascot = tester.getRect(
           find.byKey(const ValueKey('feedback-mascot-crop')),
         );
@@ -233,7 +245,12 @@ void main() {
           feedback.top - scene.bottom,
           inInclusiveRange(0, size.height * .025),
         );
-        expect(mascot.top, greaterThanOrEqualTo(feedback.bottom));
+        // The mascot is a positioned overlay; its transparent canvas may
+        // extend behind the foreground reading card without reserving space.
+        expect(mascot.center.dx, closeTo(size.width / 2, .5));
+        expect(mascot.bottom, closeTo(size.height, .5));
+        expect(mascot.width, closeTo(choosingMascot.width, .5));
+        expect(mascot.height, closeTo(choosingMascot.height, .5));
         expect(mascot.width, greaterThanOrEqualTo(size.width * .28));
         await captureScreen(tester, 'complete-$lang-$res', metrics);
         await tester.pump(const Duration(seconds: 5));
@@ -245,6 +262,16 @@ void main() {
         await tester.pump(const Duration(milliseconds: 400));
         expect(assemblyType('_TriangleExplanation'), findsOneWidget);
         await paintAssembly(tester);
+        expectNormalFeedbackText();
+        expect(
+          find.text(
+            text(
+              'Kebakaran dapat terjadi di mana saja jika panas yang cukup, bahan bakar, dan oksigen bertemu.',
+              'Fire can occur anywhere when sufficient heat, fuel, and oxygen meet.',
+            ),
+          ),
+          findsOneWidget,
+        );
         final explanationScene = tester.getRect(assemblyType('_FireScene'));
         expect(explanationScene.height, closeTo(scene.height, .5));
         final explanationBubble = tester.getRect(
@@ -258,9 +285,23 @@ void main() {
           find.byKey(const ValueKey('feedback-mascot-crop')),
         );
         expect(explanationMascot.bottom, closeTo(size.height, .5));
+        expect(explanationMascot.left, closeTo(explanationBubble.left, .5));
+        expect(explanationMascot.width, closeTo(mascot.width, .5));
+        expect(explanationMascot.height, closeTo(mascot.height, .5));
+        final continueButton = find.byKey(
+          const ValueKey('triangle-reading-continue'),
+        );
+        final continueRect = tester.getRect(continueButton);
         expect(
-          explanationMascot.top,
-          greaterThanOrEqualTo(explanationBubble.bottom),
+          continueRect.left,
+          greaterThanOrEqualTo(explanationMascot.right + 4),
+        );
+        expect(continueRect.height, greaterThanOrEqualTo(46));
+        expect(continueButton.hitTestable(), findsOneWidget);
+        expect(find.byType(SingleChildScrollView), findsNothing);
+        expect(
+          explanationScene.bottom,
+          lessThanOrEqualTo(explanationBubble.top),
         );
         expect(
           find.text(

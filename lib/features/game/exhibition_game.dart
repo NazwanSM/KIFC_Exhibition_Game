@@ -1,14 +1,17 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:math' as math;
 import 'dart:ui' show FontVariation, ImageFilter;
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../core/localization/app_locale.dart';
 import '../../core/audio/game_audio.dart';
 import '../../core/audio/audioplayers_backend.dart';
 import '../../core/audio/audio_controls.dart';
+import '../../core/audio/narration_coordinator.dart';
 import '../../core/theme/kifc_theme.dart';
 import 'widgets/peat_characteristic_card.dart';
 import 'widgets/forest_burn_video.dart';
@@ -18,10 +21,20 @@ import 'widgets/animated_mascot.dart';
 import 'widgets/interaction_motion.dart';
 import 'widgets/touchscreen_area.dart';
 import 'widgets/terrain_backdrop.dart';
+import 'widgets/progressive_reading_text.dart';
+import 'reading_timing.dart';
+import 'reading_playback_state.dart';
+import 'widgets/mascot_asset_cache.dart';
 
 const _fireCardAspectRatio = 1.8;
 const finalChallengeSeconds = 30;
 const maxGamePoints = 8;
+
+double _assemblyMascotWidth(BuildContext context) =>
+    MediaQuery.sizeOf(context).height < 680 ? 156.0 : 185.0;
+
+const _feedbackMascotScale = 1.4;
+const _feedbackMascotCrop = .72;
 
 bool _compactLayout(BuildContext context) =>
     MediaQuery.sizeOf(context).height -
@@ -101,12 +114,18 @@ class ExhibitionGame extends StatefulWidget {
     this.initialCardIndex,
     this.initialLocale,
     this.audioBackend,
+    this.narrationPlayer,
+    this.greetingInterval = const Duration(seconds: 20),
+    this.readingStopwatchFactory = Stopwatch.new,
   });
   final Stopwatch Function() stopwatchFactory;
   final String? initialPage;
   final int? initialCardIndex;
   final AppLocale? initialLocale;
   final GameAudioBackend? audioBackend;
+  final NarrationPlayer? narrationPlayer;
+  final Duration greetingInterval;
+  final Stopwatch Function() readingStopwatchFactory;
 
   @override
   State<ExhibitionGame> createState() => _ExhibitionGameState();
@@ -143,11 +162,349 @@ class _ExhibitionGameState extends State<ExhibitionGame>
   bool _finishingFinal = false;
   int _preparationTicket = 0;
   bool _mascotsPrepared = false;
+  late final NarrationCoordinator _voice = NarrationCoordinator(
+    player: widget.narrationPlayer ?? AssetNarrationPlayer(),
+    onSpeaking: _onSpeaking,
+  );
+  Timer? _greetingTimer, _voiceLoadTimeout;
+  bool _closingVoicePending = false;
+  bool _speaking = false, _voiceAudible = false, _appForeground = true;
+  final _readingState = ReadingPlaybackState();
+  ReadingTiming? _readingTiming;
+  StreamSubscription<Duration>? _readingPositions;
+  Timer? _readingTimer, _readingVoiceTimeout, _readingTransitionTimer;
+  Timer? _readingCompletionTimer;
+  int _readingCompletionTicks = 0;
+  late final Stopwatch _readingClock = widget.readingStopwatchFactory();
+  Duration _readingOffset = Duration.zero;
+  int _readingSession = 0, _readingEpoch = 0;
+  bool _readingSilent = false, _readingFailed = false, _readingPaused = false;
+  bool _readingStarted = false;
+  bool _readingVoicePending = false,
+      _readingFinishPending = false,
+      _readingTransitioning = false;
+
+  void _stopReading() {
+    _readingCompletionTimer?.cancel();
+    _readingCompletionTicks = 0;
+    _readingSession++;
+    _readingTimer?.cancel();
+    _readingTimer = null;
+    _readingVoiceTimeout?.cancel();
+    _readingVoiceTimeout = null;
+    _readingClock.stop();
+    _readingPositions?.cancel();
+    _readingPositions = null;
+    _readingTiming = null;
+    _readingFailed = false;
+    _readingStarted = false;
+    _readingPaused = false;
+    _readingVoicePending = false;
+    _readingFinishPending = false;
+  }
+
+  Future<void> _beginReading() async {
+    _stopReading();
+    final session = _readingSession;
+    try {
+      final data =
+          jsonDecode(
+                await rootBundle.loadString(
+                  'assets/audio/narration/reading_timing.json',
+                ),
+              )
+              as Map<String, dynamic>;
+      if (!mounted ||
+          session != _readingSession ||
+          _page != _Page.karhutlaCards) {
+        return;
+      }
+      final key = [
+        'karhutla-definition',
+        'karhutla-cause',
+        'karhutla-prevention',
+      ][_karhutlaCardIndex];
+      final lang = switch (_locale) {
+        AppLocale.indonesian => 'id',
+        AppLocale.english => 'en',
+        AppLocale.korean => 'ko',
+      };
+      final item = (data['items'] as List)
+          .cast<Map<String, dynamic>>()
+          .firstWhere((x) => x['key'] == key && x['locale'] == lang);
+      final timing = ReadingTiming.fromJson(item);
+      _readingEpoch = _readingState.open(timing.duration);
+      _readingPaused =
+          !_appForeground || ModalRoute.of(context)?.isCurrent == false;
+      if (_readingPaused) _readingState.pause();
+      _readingSilent = !_audio.audible;
+      setState(() {
+        _readingTiming = timing;
+        _readingFailed = false;
+      });
+      if (_audio.unavailable) {
+        _readingError(session);
+      } else if (_readingSilent) {
+        _startSilentReading();
+      } else {
+        _readingVoicePending = true;
+        setState(() => _speaking = true);
+        _readingVoiceTimeout = Timer(
+          const Duration(seconds: 4),
+          _startReadingVoice,
+        );
+      }
+    } catch (_) {
+      _readingError(session);
+    }
+  }
+
+  void _startReadingVoice() {
+    if (!_readingVoicePending ||
+        !mounted ||
+        _page != _Page.karhutlaCards ||
+        _readingPaused) {
+      return;
+    }
+    final timing = _readingTiming;
+    if (timing == null) return;
+    _readingVoicePending = false;
+    _readingVoiceTimeout?.cancel();
+    _readingVoiceTimeout = null;
+    final session = _readingSession;
+    final player = _voice.player;
+    _voice.speak(
+      '${timing.locale}/${timing.key}.mp3',
+      _audio.level(AudioLayer.master),
+      onStart: () {
+        if (player is PositionedNarrationPlayer) {
+          _readingPositions = (player as PositionedNarrationPlayer).positions
+              .listen((position) => _readingTick(session, position));
+        }
+      },
+      onFinished: () => _readingFinished(session),
+      onError: () => _readingError(session),
+    );
+  }
+
+  void _startSilentReading() {
+    _readingSilent = true;
+    _readingStarted = true;
+    _readingOffset = _readingState.position;
+    _readingClock.reset();
+    if (!_readingPaused) _readingClock.start();
+    final session = _readingSession;
+    _readingTimer?.cancel();
+    _readingTimer = Timer.periodic(const Duration(milliseconds: 100), (_) {
+      if (!_appForeground || (ModalRoute.of(context)?.isCurrent == false)) {
+        _readingClock.stop();
+      } else {
+        if (!_readingClock.isRunning) _readingClock.start();
+        _readingTick(session, _readingOffset + _readingClock.elapsed);
+      }
+    });
+  }
+
+  void _readingTick(int session, Duration position) {
+    if (!mounted ||
+        session != _readingSession ||
+        _page != _Page.karhutlaCards ||
+        _readingPaused) {
+      return;
+    }
+    final previousEnd = _readingStarted
+        ? _readingTiming?.visibleText(_readingState.position).length
+        : null;
+    final advance = _readingState.update(_readingEpoch, position);
+    if (advance) {
+      _queueReadingAdvance();
+      return;
+    }
+    final nextEnd = _readingTiming?.visibleText(_readingState.position).length;
+    // The player reports every animation frame. Keep its exact position, but
+    // rebuild only when that position actually reveals different text.
+    if (!_readingStarted || previousEnd != nextEnd) {
+      setState(() => _readingStarted = true);
+    }
+  }
+
+  void _readingFinished(int session) {
+    if (!mounted ||
+        session != _readingSession ||
+        _page != _Page.karhutlaCards) {
+      return;
+    }
+    if (_readingPaused) {
+      _readingFinishPending = true;
+      return;
+    }
+    if (_readingState.advanceOnce(_readingEpoch)) {
+      _queueReadingAdvance();
+    }
+  }
+
+  void _queueReadingAdvance() {
+    if (_readingCompletionTicks > 0) return;
+    _readingTimer?.cancel();
+    _readingClock.stop();
+    setState(() {
+      _readingStarted = true;
+      _readingState.position = _readingTiming?.duration ?? _readingState.position;
+      _readingCompletionTicks = 10;
+    });
+    _runReadingCompletionDelay();
+  }
+
+  void _runReadingCompletionDelay() {
+    _readingCompletionTimer?.cancel();
+    final session = _readingSession;
+    _readingCompletionTimer = Timer.periodic(const Duration(milliseconds: 100), (timer) {
+      if (!mounted || session != _readingSession || _page != _Page.karhutlaCards) {
+        timer.cancel();
+        return;
+      }
+      if (_readingPaused || !_appForeground) return;
+      if (--_readingCompletionTicks == 0) {
+        timer.cancel();
+        _advanceReading(claimed: true);
+      }
+    });
+  }
+
+  void _readingError(int session) {
+    if (!mounted ||
+        session != _readingSession ||
+        _page != _Page.karhutlaCards) {
+      return;
+    }
+    _readingState.fail();
+    _readingCompletionTimer?.cancel();
+    _readingCompletionTicks = 0;
+    _readingTimer?.cancel();
+    setState(() => _readingFailed = true);
+  }
+
+  void _setReadingPaused(bool paused) {
+    if (_page != _Page.karhutlaCards || _readingPaused == paused) return;
+    _readingPaused = paused;
+    if (paused) {
+      _readingCompletionTimer?.cancel();
+      _readingState.pause();
+      _readingClock.stop();
+      if (!_readingSilent) _voice.pause();
+    } else {
+      _readingState.resume();
+      if (_readingCompletionTicks > 0) {
+        _runReadingCompletionDelay();
+        return;
+      }
+      if (_readingFinishPending) {
+        _readingFinishPending = false;
+        _readingFinished(_readingSession);
+        return;
+      }
+      if (_readingVoicePending) {
+        _startReadingVoice();
+        return;
+      }
+      if (_readingSilent) {
+        _readingClock.start();
+      } else {
+        _voice.resume();
+      }
+    }
+  }
+
+  void _onSpeaking(bool value) {
+    if (!mounted) return;
+    if (_speaking != value) setState(() => _speaking = value);
+    unawaited(_audio.setNarrationActive(value));
+  }
+
+  void _cancelVoice() {
+    _closingVoicePending = false;
+    _voiceLoadTimeout?.cancel();
+    _voiceLoadTimeout = null;
+    _greetingTimer?.cancel();
+    _greetingTimer = null;
+    _voice.stop();
+  }
+
+  void _startClosingVoice() {
+    if (!_closingVoicePending || !mounted || _page != _Page.closing) return;
+    _closingVoicePending = false;
+    _voiceLoadTimeout?.cancel();
+    _voiceLoadTimeout = null;
+    _say('closing');
+  }
+
+  void _audioChanged() {
+    final audible = _audio.audible && _appForeground;
+    if (_speaking && audible) _voice.setVolume(_audio.level(AudioLayer.master));
+    if (_voiceAudible == audible) return;
+    _voiceAudible = audible;
+    if (_page == _Page.karhutlaCards) {
+      if (!audible &&
+          _appForeground &&
+          !_readingSilent &&
+          _readingTiming != null) {
+        _readingVoicePending = false;
+        _readingVoiceTimeout?.cancel();
+        _voice.stop();
+        _readingPositions?.cancel();
+        if (_audio.unavailable) {
+          _readingError(_readingSession);
+        } else {
+          _startSilentReading();
+        }
+      }
+      return;
+    }
+    if (!audible) {
+      _cancelVoice();
+    } else if (_page == _Page.welcome) {
+      _scheduleGreeting();
+    }
+  }
+
+  void _scheduleGreeting() {
+    _greetingTimer?.cancel();
+    _greetingTimer = Timer(widget.greetingInterval, () {
+      _greetingTimer = null;
+      if (mounted &&
+          _page == _Page.welcome &&
+          _audio.audible &&
+          _appForeground &&
+          (ModalRoute.of(context)?.isCurrent ?? true)) {
+        _say('welcome', repeat: true);
+      }
+    });
+  }
+
+  void _say(String name, {bool repeat = false}) {
+    if (!_audio.audible ||
+        !_appForeground ||
+        !(ModalRoute.of(context)?.isCurrent ?? true)) {
+      return;
+    }
+    final language = switch (_locale) {
+      AppLocale.indonesian => 'id',
+      AppLocale.english => 'en',
+      AppLocale.korean => 'ko',
+    };
+    _voice.speak(
+      '$language/$name.mp3',
+      _audio.level(AudioLayer.master),
+      onFinished: repeat ? _scheduleGreeting : null,
+    );
+  }
 
   @override
   void initState() {
     super.initState();
+    MascotAssetCache.warmup();
     WidgetsBinding.instance.addObserver(this);
+    _audio.addListener(_audioChanged);
     if (widget.initialLocale != null) {
       _locale = widget.initialLocale!;
       AppCopy.locale = widget.initialLocale!;
@@ -161,12 +518,29 @@ class _ExhibitionGameState extends State<ExhibitionGame>
     if (widget.initialCardIndex != null) {
       _karhutlaCardIndex = widget.initialCardIndex!;
     }
+    if (_page == _Page.karhutlaCards) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted && _page == _Page.karhutlaCards) unawaited(_beginReading());
+      });
+    }
     _syncFeedbackTimer();
   }
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
+    _setReadingPaused(
+      !_appForeground || ModalRoute.of(context)?.isCurrent == false,
+    );
+    if (ModalRoute.of(context)?.isCurrent == false &&
+        _page != _Page.karhutlaCards) {
+      _cancelVoice();
+    } else if (_page == _Page.welcome &&
+        _audio.audible &&
+        _greetingTimer == null &&
+        !_speaking) {
+      _scheduleGreeting();
+    }
     if (_mascotsPrepared) return;
     _mascotsPrepared = true;
     // Matching 3D posters cover loading, renderer failure and reduced motion.
@@ -177,7 +551,13 @@ class _ExhibitionGameState extends State<ExhibitionGame>
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
+    _appForeground = state == AppLifecycleState.resumed;
+    _setReadingPaused(
+      !_appForeground || ModalRoute.of(context)?.isCurrent == false,
+    );
+    if (!_appForeground && _page != _Page.karhutlaCards) _cancelVoice();
     unawaited(_audio.setActive(state == AppLifecycleState.resumed));
+    _audioChanged();
   }
 
   bool get _en => _locale == AppLocale.english;
@@ -191,6 +571,12 @@ class _ExhibitionGameState extends State<ExhibitionGame>
 
   @override
   void dispose() {
+    _stopReading();
+    _readingTransitionTimer?.cancel();
+    _greetingTimer?.cancel();
+    _voiceLoadTimeout?.cancel();
+    _audio.removeListener(_audioChanged);
+    unawaited(_voice.dispose());
     _timer?.cancel();
     _cancelFeedbackTimer();
     _finalClock.stop();
@@ -201,6 +587,8 @@ class _ExhibitionGameState extends State<ExhibitionGame>
   }
 
   void _go(_Page page) {
+    _stopReading();
+    _cancelVoice();
     _preparationTicket++;
     _timer?.cancel();
     _cancelFeedbackTimer();
@@ -235,6 +623,14 @@ class _ExhibitionGameState extends State<ExhibitionGame>
       _finishingFinal = false;
     });
     _syncFeedbackTimer();
+    if (page == _Page.karhutlaCards) unawaited(_beginReading());
+    if (page == _Page.closing && _audio.audible && _appForeground) {
+      _closingVoicePending = true;
+      setState(() => _speaking = true);
+      // Static fallback or slow renderers must never suppress the narration.
+      _voiceLoadTimeout = Timer(const Duration(seconds: 4), _startClosingVoice);
+    }
+    if (page == _Page.welcome && _audio.audible) _scheduleGreeting();
   }
 
   void _cancelFeedbackTimer() {
@@ -277,6 +673,8 @@ class _ExhibitionGameState extends State<ExhibitionGame>
   }
 
   void _restart() {
+    _stopReading();
+    _cancelVoice();
     _preparationTicket++;
     _timer?.cancel();
     _cancelFeedbackTimer();
@@ -301,6 +699,7 @@ class _ExhibitionGameState extends State<ExhibitionGame>
       _finalProgress.value = 1;
       _preparingFinal = false;
     });
+    if (_audio.audible) _scheduleGreeting();
   }
 
   void _dropPiece(_FirePiece piece) {
@@ -395,9 +794,28 @@ class _ExhibitionGameState extends State<ExhibitionGame>
     }
   }
 
-  void _continueKarhutla() {
+  void _continueKarhutla() => _advanceReading();
+
+  void _advanceReading({bool claimed = false}) {
+    if (_page != _Page.karhutlaCards) return;
+    if (_readingTransitioning) return;
+    if (!claimed &&
+        _readingCompletionTicks == 0 &&
+        _readingTiming != null &&
+        !_readingState.advanceOnce(_readingEpoch)) {
+      return;
+    }
+    _readingTransitioning = true;
+    _readingTransitionTimer?.cancel();
+    _readingTransitionTimer = Timer(
+      const Duration(milliseconds: 350),
+      () => _readingTransitioning = false,
+    );
+    _stopReading();
+    _cancelVoice();
     if (_karhutlaCardIndex < 2) {
       setState(() => _karhutlaCardIndex++);
+      unawaited(_beginReading());
     } else {
       _go(_Page.risk);
     }
@@ -521,10 +939,14 @@ class _ExhibitionGameState extends State<ExhibitionGame>
     final page = switch (_page) {
       _Page.welcome => _WelcomePage(
         locale: _locale,
-        onLocale: (locale) => setState(() {
-          _locale = locale;
-          AppCopy.locale = locale;
-        }),
+        onLocale: (locale) {
+          _cancelVoice();
+          setState(() {
+            _locale = locale;
+            AppCopy.locale = locale;
+          });
+          if (_audio.audible) _scheduleGreeting();
+        },
         onStart: () {
           unawaited(_audio.interact(GameSound.tap));
           _go(_Page.triangleBuild);
@@ -557,11 +979,20 @@ class _ExhibitionGameState extends State<ExhibitionGame>
       _Page.karhutlaCards => _KarhutlaCards(
         english: _en,
         index: _karhutlaCardIndex,
+        timing: _readingTiming,
+        position: _readingState.position,
+        failed: _readingFailed,
+        started: _readingStarted,
+        narrating: _speaking && !_readingSilent,
+        onMascotReady: _startReadingVoice,
         onAdvance: _continueKarhutla,
         onComplete: () => _go(_Page.risk),
         onBack: () {
           if (_karhutlaCardIndex > 0) {
+            _stopReading();
+            _cancelVoice();
             setState(() => _karhutlaCardIndex--);
+            unawaited(_beginReading());
           } else {
             _go(_Page.triangleExplanation);
           }
@@ -629,6 +1060,8 @@ class _ExhibitionGameState extends State<ExhibitionGame>
       ),
       _Page.closing => _ClosingPage(
         english: _en,
+        narrating: _speaking,
+        onMascotReady: _startClosingVoice,
         readingSeconds: _readingSeconds,
         onAgain: _playAgain,
         onExplore: _restart,
@@ -958,6 +1391,8 @@ class _HostConversation extends StatelessWidget {
     this.opening = false,
     this.height,
     this.state,
+    this.narrating = false,
+    this.onMascotReady,
   });
 
   final MascotPose pose;
@@ -966,6 +1401,8 @@ class _HostConversation extends StatelessWidget {
   final bool opening;
   final double? height;
   final MascotState? state;
+  final bool narrating;
+  final VoidCallback? onMascotReady;
 
   @override
   Widget build(BuildContext context) {
@@ -975,6 +1412,8 @@ class _HostConversation extends StatelessWidget {
       child: GameMascot(
         pose: pose,
         state: state,
+        narrating: narrating,
+        onReady: onMascotReady,
         height: height,
         motionTrigger: (AppCopy.locale, text),
       ),
@@ -1026,6 +1465,7 @@ class _SpeechBubble extends StatelessWidget {
     this.shadows,
     this.messageKey,
     this.textKey,
+    this.content,
     this.motionKey,
     this.tailWidth = 10,
     this.tailHalfHeight = 9,
@@ -1043,6 +1483,7 @@ class _SpeechBubble extends StatelessWidget {
   final List<BoxShadow>? shadows;
   final Key? messageKey, textKey, motionKey;
   final TextStyle style;
+  final Widget? content;
 
   @override
   Widget build(BuildContext context) => MotionReveal(
@@ -1063,7 +1504,7 @@ class _SpeechBubble extends StatelessWidget {
         ),
         shadows: shadows,
       ),
-      child: LocalizedText(text, key: textKey, style: style),
+      child: content ?? LocalizedText(text, key: textKey, style: style),
     ),
   );
 }
@@ -1266,24 +1707,66 @@ class _RiskPage extends StatelessWidget {
 }
 
 class _MascotDialogue extends StatelessWidget {
-  const _MascotDialogue({required this.text});
+  const _MascotDialogue({
+    required this.text,
+    this.timing,
+    this.position = Duration.zero,
+    this.failed = false,
+    this.started = false,
+    this.narrating = false,
+    this.onMascotReady,
+  });
   final String text;
+  final ReadingTiming? timing;
+  final Duration position;
+  final bool failed, narrating;
+  final bool started;
+  final VoidCallback? onMascotReady;
 
   @override
   Widget build(BuildContext context) => Row(
     crossAxisAlignment: CrossAxisAlignment.center,
     children: [
       SizedBox(
-        width: 94,
+        width: _compactLayout(context) ? 122 : 140,
         child: GameMascot(
           pose: MascotPose.presenting,
-          height: 170,
+          state: narrating ? MascotState.talking : MascotState.presenting,
+          narrating: narrating,
+          onReady: onMascotReady,
+          height: _compactLayout(context) ? 210 : 250,
           motionTrigger: (AppCopy.locale, text),
         ),
       ),
-      Expanded(child: _SpeechBubble(text: text)),
+      Expanded(
+        child: _SpeechBubble(text: text, content: _readingContent(context)),
+      ),
     ],
   );
+
+  Widget _readingContent(BuildContext context) {
+    final full = timing?.text ?? AppCopy.translate(text);
+    final showFull = failed || MediaQuery.disableAnimationsOf(context);
+    final visible = showFull
+        ? full.length
+        : started && timing != null
+        ? timing!.visibleText(position).length
+        : 0;
+    return Stack(
+      children: [
+        ProgressiveReadingText(
+          key: ValueKey('reading-paragraph-${timing?.key ?? 'loading'}'),
+          text: full,
+          visibleCharacters: visible,
+          style: const TextStyle(
+            color: KifcTheme.ink,
+            fontSize: 12.5,
+            height: 1.35,
+          ),
+        ),
+      ],
+    );
+  }
 }
 
 class _KarhutlaCards extends StatelessWidget {
@@ -1293,12 +1776,23 @@ class _KarhutlaCards extends StatelessWidget {
     required this.onAdvance,
     required this.onComplete,
     required this.onBack,
+    this.timing,
+    this.position = Duration.zero,
+    this.failed = false,
+    this.started = false,
+    this.narrating = false,
+    this.onMascotReady,
   });
   final bool english;
   final int index;
   final VoidCallback onAdvance;
   final VoidCallback onComplete;
   final VoidCallback onBack;
+  final ReadingTiming? timing;
+  final Duration position;
+  final bool failed, narrating;
+  final bool started;
+  final VoidCallback? onMascotReady;
 
   @override
   Widget build(BuildContext context) {
@@ -1362,10 +1856,28 @@ class _KarhutlaCards extends StatelessWidget {
       groupFooter: true,
       onBack: onBack,
       body: Column(
-        key: ValueKey(card.$1),
         mainAxisSize: MainAxisSize.min,
         children: [
-          _MascotDialogue(text: card.$3),
+          SizedBox(key: ValueKey(card.$1)),
+          _MascotDialogue(
+            text: card.$3,
+            timing: timing,
+            position: position,
+            failed: failed,
+            started: started,
+            narrating: narrating,
+            onMascotReady: onMascotReady,
+          ),
+          if (failed) ...[
+            const SizedBox(height: 8),
+            Text(switch (AppCopy.locale) {
+              AppLocale.indonesian =>
+                'Audio belum tersedia. Silakan baca, lalu lanjutkan.',
+              AppLocale.english =>
+                'Audio is unavailable. Please read, then continue.',
+              AppLocale.korean => '오디오를 사용할 수 없어요. 읽은 후 계속해 주세요.',
+            }, style: const TextStyle(color: Colors.white70, fontSize: 12)),
+          ],
           const SizedBox(height: 18),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -1567,91 +2079,96 @@ class _AssemblyCompletionFeedback extends StatelessWidget {
   final MascotPose pose;
   final VoidCallback? onContinue;
   final bool english;
-
   @override
-  Widget build(BuildContext context) => Column(
-    crossAxisAlignment: CrossAxisAlignment.stretch,
-    children: [
-      MotionReveal(
-        trigger: text,
-        delay: const Duration(milliseconds: 55),
-        child: Container(
-          key: const ValueKey('feedback-message'),
-          padding: const EdgeInsets.all(12),
-          decoration: BoxDecoration(
-            color: KifcTheme.paper,
-            borderRadius: BorderRadius.circular(18),
-            border: Border.all(
-              color: KifcTheme.answerCorrect.withValues(alpha: .45),
+  Widget build(BuildContext context) => LayoutBuilder(
+    builder: (context, bounds) {
+      final width = _assemblyMascotWidth(context);
+      final imageHeight = width * 4 / 3;
+      final cropHeight = imageHeight * _feedbackMascotCrop;
+      final completion = onContinue == null;
+      return Stack(
+        fit: StackFit.expand,
+        clipBehavior: Clip.none,
+        children: [
+          // The decorative host may overlap the card border; text stays readable.
+          Positioned(
+            left: 0,
+            right: 0,
+            top: 0,
+            child: MotionReveal(
+              trigger: text,
+              delay: const Duration(milliseconds: 55),
+              child: Container(
+                key: const ValueKey('feedback-message'),
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: KifcTheme.paper,
+                  borderRadius: BorderRadius.circular(18),
+                  border: Border.all(
+                    color: KifcTheme.answerCorrect.withValues(alpha: .45),
+                  ),
+                ),
+                child: LocalizedText(
+                  text,
+                  style: const TextStyle(fontSize: 13, height: 1.25),
+                ),
+              ),
             ),
           ),
-          child: LocalizedText(
-            text,
-            style: const TextStyle(fontSize: 13, height: 1.25),
-          ),
-        ),
-      ),
-      const SizedBox(height: 8),
-      Expanded(
-        child: LayoutBuilder(
-          builder: (context, constraints) {
-            // Grow into the remaining space without overlapping the explanation.
-            final width = math.min(
-              220.0,
-              math.min(
-                constraints.maxWidth * (onContinue == null ? .72 : .34),
-                constraints.maxHeight / .76,
-              ),
-            );
-            final imageHeight = width * 4 / 3;
-            final mascot = Align(
-              alignment: onContinue == null
-                  ? Alignment.bottomRight
-                  : Alignment.bottomLeft,
-              child: SizedBox(
-                width: width,
-                height: imageHeight * .57,
-                child: ClipRect(
-                  key: const ValueKey('feedback-mascot-crop'),
-                  child: OverflowBox(
-                    alignment: Alignment.topCenter,
-                    minWidth: width,
-                    maxWidth: width,
-                    minHeight: imageHeight,
-                    maxHeight: imageHeight,
-                    child: GameMascot(
-                      pose: pose,
-                      height: imageHeight,
-                      motionTrigger: text,
+          Positioned(
+            left: completion ? (bounds.maxWidth - width) / 2 : 0,
+            bottom: 0,
+            width: width,
+            height: cropHeight,
+            child: IgnorePointer(
+              child: ClipRect(
+                key: const ValueKey('feedback-mascot-crop'),
+                child: OverflowBox(
+                  alignment: Alignment.topCenter,
+                  minWidth: width,
+                  maxWidth: width,
+                  minHeight: imageHeight,
+                  maxHeight: imageHeight,
+                  child: Transform.translate(
+                    offset: Offset(
+                      pose == MascotPose.success ? width * .08 : 0,
+                      !completion && bounds.maxHeight < 240 ? 8 : 0,
+                    ),
+                    child: Transform.scale(
+                      scale: _feedbackMascotScale,
+                      alignment: const Alignment(0, -.5),
+                      child: GameMascot(
+                        pose: pose,
+                        height: imageHeight,
+                        motionTrigger: text,
+                      ),
                     ),
                   ),
                 ),
               ),
-            );
-            if (onContinue == null) return mascot;
-            return Stack(
-              children: [
-                mascot,
-                Positioned(
-                  right: 0,
-                  top: TouchscreenArea.isCenteredOf(context) ? 4 : null,
-                  bottom: TouchscreenArea.isCenteredOf(context)
-                      ? null
-                      : math.max(16.0, imageHeight * .57 / 2 - 23),
-                  width: constraints.maxWidth * .66,
-                  child: _Primary(
-                    key: const ValueKey('triangle-reading-continue'),
-                    singleLine: true,
-                    label: english ? 'Continue' : 'Lanjut',
-                    onPressed: onContinue!,
-                  ),
-                ),
-              ],
-            );
-          },
-        ),
-      ),
-    ],
+            ),
+          ),
+          if (!completion)
+            Positioned(
+              right: 0,
+              top: TouchscreenArea.isCenteredOf(context) ? 4 : null,
+              bottom: TouchscreenArea.isCenteredOf(context)
+                  ? null
+                  : math.max(16.0, cropHeight / 2 - 23),
+              width: math.min(
+                bounds.maxWidth * .60,
+                math.max(0.0, bounds.maxWidth - width - 8),
+              ),
+              child: _Primary(
+                key: const ValueKey('triangle-reading-continue'),
+                singleLine: true,
+                label: english ? 'Continue' : 'Lanjut',
+                onPressed: onContinue!,
+              ),
+            ),
+        ],
+      );
+    },
   );
 }
 
@@ -1683,7 +2200,11 @@ class _TriangleExplanation extends StatelessWidget {
     onBack: onBack,
     edgeFeedback: true,
     expandFooter: true,
-    footerGap: 12,
+    footerGap: _compactLayout(context)
+        ? 0
+        : MediaQuery.sizeOf(context).height < 900
+        ? 4
+        : 12,
     body: _FireScene(
       active: _FireSlot.values.toSet(),
       placements: pieces.isEmpty ? null : pieces,
@@ -1766,6 +2287,7 @@ class _CauseQuiz extends StatelessWidget {
       footer: answered
           ? _Feedback(
               ok: correct,
+              mascotRightInset: correct ? 64 : 24,
               text: english
                   ? (correct
                         ? 'Correct. ${scenario.reason}${lastScenario ? ' $summary' : ''}'
@@ -2115,40 +2637,17 @@ class _FinalReviewDialogue extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final perfect = found.length == 4 && found.every((token) => token.impact);
-    return LayoutBuilder(
-      builder: (context, bounds) {
-        final height = math.min(
-          _compactLayout(context) ? 112.0 : 136.0,
-          bounds.maxHeight,
-        );
-        final mascot = SizedBox(
-          width: height * .75,
-          child: GameMascot(
-            pose: perfect ? MascotPose.success : MascotPose.hintSafety,
-            height: height,
-            motionTrigger: (AppCopy.locale, _message),
-          ),
-        );
-        return Row(
-          children: [
-            if (!perfect) mascot,
-            Expanded(
-              child: _SpeechBubble(
-                text: _message,
-                tailOnRight: perfect,
-                tailWidth: 8,
-                tailHalfHeight: 8,
-                padding: const EdgeInsets.all(10),
-                radius: 16,
-                textKey: const ValueKey('final-review-message'),
-                style: const TextStyle(fontSize: 13, height: 1.3),
-              ),
-            ),
-            if (perfect) mascot,
-          ],
-        );
-      },
-    );
+    return LayoutBuilder(builder: (context, bounds) => _MascotFeedback(
+      ok: perfect,
+      assembly: true,
+      centerBubbleOnMascot: true,
+      pose: perfect ? MascotPose.success : MascotPose.hintSafety,
+      text: _message,
+      messageTextKey: const ValueKey('final-review-message'),
+      cropKey: const ValueKey('final-review-mascot-crop'),
+      bubbleHeightLimit: bounds.maxHeight,
+      mascotBottom: -10,
+    ));
   }
 }
 
@@ -2356,8 +2855,12 @@ class _ClosingPage extends StatelessWidget {
     required this.readingSeconds,
     required this.onAgain,
     required this.onExplore,
+    required this.narrating,
+    required this.onMascotReady,
   });
   final bool english;
+  final bool narrating;
+  final VoidCallback onMascotReady;
   final int readingSeconds;
   final VoidCallback onAgain, onExplore;
   @override
@@ -2443,6 +2946,8 @@ class _ClosingPage extends StatelessWidget {
                           key: const ValueKey('closing-conversation'),
                           pose: MascotPose.success,
                           state: MascotState.farewell,
+                          narrating: narrating,
+                          onMascotReady: onMascotReady,
                           mascotOnRight: true,
                           text: english
                               ? 'Thanks for playing! Keep fire away from dry vegetation. If you see a fire, report it to trained personnel.'
@@ -2604,7 +3109,7 @@ class _DarkStage extends StatelessWidget {
                   subtitle,
                   style: TextStyle(
                     color: Colors.white70,
-                    fontSize: compact ? 13 : 14,
+                    fontSize: 12.5,
                     height: 1.25,
                   ),
                 ),
@@ -3354,13 +3859,16 @@ class _Feedback extends StatelessWidget {
     required this.ok,
     required this.text,
     this.longMessage = false,
+    this.mascotRightInset = 24,
   });
   final bool ok;
   final String text;
   final bool longMessage;
+  final double mascotRightInset;
   @override
   Widget build(BuildContext context) =>
-      _MascotFeedback(text: text, ok: ok, longMessage: longMessage);
+      _MascotFeedback(text: text, ok: ok, longMessage: longMessage,
+        mascotRightInset: mascotRightInset);
 }
 
 class _MascotFeedback extends StatelessWidget {
@@ -3372,6 +3880,11 @@ class _MascotFeedback extends StatelessWidget {
     this.pose,
     this.neutral = false,
     this.centerBubbleOnMascot = false,
+    this.mascotRightInset = 24,
+    this.messageTextKey,
+    this.bubbleHeightLimit,
+    this.mascotBottom = 0,
+    this.cropKey = const ValueKey('feedback-mascot-crop'),
   });
   final String text;
   final bool ok;
@@ -3380,6 +3893,11 @@ class _MascotFeedback extends StatelessWidget {
   final MascotPose? pose;
   final bool neutral;
   final bool centerBubbleOnMascot;
+  final double mascotRightInset;
+  final Key? messageTextKey;
+  final double? bubbleHeightLimit;
+  final double mascotBottom;
+  final Key cropKey;
 
   @override
   Widget build(BuildContext context) {
@@ -3397,18 +3915,23 @@ class _MascotFeedback extends StatelessWidget {
         : 48.0;
     // Long quiz feedback shares a row with the mascot; preserve answer sizes.
     final mascotWidth = assembly
-        ? (viewport.height < 680 ? 128.0 : 150.0)
+        ? _assemblyMascotWidth(context)
         : dense && ok
-        ? (viewport.height < 680 ? 112.0 : 160.0)
+        ? (viewport.height < 680 ? 140.0 : 190.0)
         : viewport.width < 380
-        ? 160.0
-        : 194.0;
+        ? 176.0
+        : 230.0;
     final imageHeight = mascotWidth * 4 / 3;
+    // Artwork includes transparent side margins. Keep cause-feedback reading
+    // width stable when enlarging its decorative mascot.
+    final bubbleInsetWidth = !assembly && !longMessage
+        ? math.min(mascotWidth, viewport.width < 380 ? 160.0 : 194.0)
+        : mascotWidth;
     final leftInset = assembly && pose == MascotPose.presenting ? 16.0 : 40.0;
     final bubble = Padding(
       padding: EdgeInsets.only(
-        left: ok ? 0 : mascotWidth - leftInset,
-        right: !ok ? 0 : mascotWidth - 24,
+        left: ok ? 0 : bubbleInsetWidth - leftInset,
+        right: !ok ? 0 : bubbleInsetWidth - 24,
         top: centerBubbleOnMascot || dense ? 0 : 8,
         bottom: centerBubbleOnMascot ? 0 : readingBottom,
       ),
@@ -3417,6 +3940,9 @@ class _MascotFeedback extends StatelessWidget {
         tailOnRight: ok,
         motionKey: const ValueKey('feedback-motion'),
         messageKey: const ValueKey('feedback-message'),
+        textKey: messageTextKey,
+        tailWidth: messageTextKey != null ? 8 : 10,
+        tailHalfHeight: messageTextKey != null ? 8 : 9,
         padding: EdgeInsets.all(dense ? 8 : 10),
         side: BorderSide(
           color: neutral
@@ -3424,9 +3950,9 @@ class _MascotFeedback extends StatelessWidget {
               : (ok ? KifcTheme.answerCorrect : KifcTheme.answerIncorrect)
                     .withValues(alpha: .45),
         ),
-        style: const TextStyle(
+        style: TextStyle(
           color: KifcTheme.ink,
-          fontSize: 13,
+          fontSize: dense ? 12 : 13,
           height: 1.25,
         ),
       ),
@@ -3447,23 +3973,28 @@ class _MascotFeedback extends StatelessWidget {
             // Use the PNG's transparent side margin to sit close to the edge
             // while preserving the complete silhouette and both hands.
             left: ok ? null : -leftInset,
-            right: ok ? -24 : null,
-            bottom: 0,
+            right: ok ? -mascotRightInset : null,
+            bottom: mascotBottom,
             width: mascotWidth,
-            height: imageHeight * .57,
+            height: imageHeight * _feedbackMascotCrop,
             child: ClipRect(
-              key: const ValueKey('feedback-mascot-crop'),
+              key: cropKey,
               child: OverflowBox(
                 alignment: Alignment.topCenter,
                 minWidth: mascotWidth,
                 maxWidth: mascotWidth,
                 minHeight: imageHeight,
                 maxHeight: imageHeight,
-                child: GameMascot(
-                  pose:
-                      pose ?? (ok ? MascotPose.success : MascotPose.hintSafety),
-                  height: imageHeight,
-                  motionTrigger: (AppCopy.locale, text),
+                child: Transform.scale(
+                  scale: _feedbackMascotScale,
+                  alignment: const Alignment(0, -.5),
+                  child: GameMascot(
+                    pose:
+                        pose ??
+                        (ok ? MascotPose.success : MascotPose.hintSafety),
+                    height: imageHeight,
+                    motionTrigger: (AppCopy.locale, text),
+                  ),
                 ),
               ),
             ),
@@ -3473,7 +4004,8 @@ class _MascotFeedback extends StatelessWidget {
               left: 0,
               right: 0,
               bottom: 0,
-              height: imageHeight * .57,
+              height: math.min(imageHeight * _feedbackMascotCrop,
+                bubbleHeightLimit ?? double.infinity),
               child: Center(child: bubble),
             )
           else

@@ -5,6 +5,7 @@ import 'package:web/web.dart' as web;
 extension type _Viewer(JSObject _) implements JSObject {
   external bool get loaded;
   external set currentTime(double value);
+  external set animationName(String value);
   external void play();
   external void pause();
 }
@@ -106,6 +107,13 @@ class MascotViewerLifecycle {
     if (!_released && element != null && _Viewer(element).loaded) {
       _Viewer(element).currentTime = 0;
     }
+  }
+
+  void setClip(String clip) {
+    final element = _element;
+    if (_released || element == null) return;
+    _Viewer(element).animationName = clip;
+    _Viewer(element).currentTime = 0;
   }
 
   void release() {

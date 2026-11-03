@@ -61,6 +61,7 @@ flutter:
     - assets/audio/narration/prepared/id/
     - assets/audio/narration/prepared/en/
     - assets/audio/narration/prepared/ko/
+    - assets/audio/narration/reading_timing.json
     - assets/fonts/Roboto-LICENSE.txt
     - assets/animations/forest-burn-loop.mp4
     - assets/animations/forest-burn-poster.jpg

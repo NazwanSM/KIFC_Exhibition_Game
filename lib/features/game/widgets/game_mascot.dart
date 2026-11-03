@@ -20,12 +20,14 @@ class GameMascot extends StatelessWidget {
     this.motionTrigger,
     this.state,
     this.narrating = false,
+    this.onReady,
   });
   final MascotPose pose;
   final double height;
   final Object? motionTrigger;
   final MascotState? state;
   final bool narrating;
+  final VoidCallback? onReady;
 
   /// The same decoded key is used for warmup and display on web and Android.
   static ImageProvider<Object> imageFor(MascotPose pose) {
@@ -87,6 +89,7 @@ class GameMascot extends StatelessWidget {
                 fallback: fallback,
                 narrating: narrating,
                 trigger: motionTrigger,
+                onReady: onReady,
               )
             : fallback,
       ),

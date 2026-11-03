@@ -1,0 +1,23 @@
+import {readFileSync,writeFileSync} from 'node:fs';
+import {adb,tap,wait} from './android_mascot_ui.mjs';
+import {connectMascot} from './android_mascot_cdp.mjs';
+const root='docs/client-revisions/2026-11-03/r30-19/';
+const u=readFileSync('output/r30-16-device-backup/vm-endpoint.txt','utf8').trim();
+const vm=await(await fetch(u+'getVM')).json();
+const id=vm.result.isolates.find(i=>i.name==='main').id;
+await fetch(u+'ext.kifc.reviewPage?'+new URLSearchParams({isolateId:id,page:'triangleExplanation',lang:'id'}));
+await wait(1200);tap('Lanjut');await wait(3500);
+const c=await connectMascot();
+const state=()=>c.evaluate("(()=>{const v=document.querySelector('model-viewer');return {clip:v.animationName,loaded:v.loaded,paused:v.paused,time:v.currentTime};})()");
+const before=await state();
+// Coordinates are the sound-settings button in the captured native UI.
+adb('shell','input','tap','628','260');await wait(1000);
+const dialog=await state();
+adb('shell','screencap','-p','/data/local/tmp/kifc-reading-dialog.png');
+adb('pull','/data/local/tmp/kifc-reading-dialog.png',root+'android-pause-dialog.png');
+tap('Tutup');await wait(1200);
+const resumed=await state();c.close();
+const results={before,dialog,resumed};
+writeFileSync(root+'android-dialog-lifecycle.json',JSON.stringify(results,null,2));
+if(before.clip!=='Talk'||!before.loaded||before.paused||!dialog.paused||resumed.paused||resumed.time<=dialog.time)throw new Error(JSON.stringify(results));
+console.log(JSON.stringify(results));
