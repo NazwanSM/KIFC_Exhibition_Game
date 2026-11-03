@@ -1,0 +1,12 @@
+00:00 +0: loading D:/KIFC Game Exhibition/fire_prevention_challenge/test/asset_narration_session_test.dart
+00:00 +0: late old-clip position and completion cannot finish the next narration
+00:00 +0 -1: late old-clip position and completion cannot finish the next narration [E]
+  Expected: empty
+    Actual: [Duration:0:01:00.000000]
+  Never reveal the new paragraph from old audio.
+
+  package:matcher                                     expect
+  package:flutter_test/src/widget_tester.dart 473:18  expect
+  test\asset_narration_session_test.dart 63:5         main.<fn>
+
+00:00 +0 -1: Some tests failed.

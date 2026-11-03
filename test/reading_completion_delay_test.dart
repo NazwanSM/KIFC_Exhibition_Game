@@ -4,6 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:fire_prevention_challenge/core/audio/game_audio.dart';
 import 'package:fire_prevention_challenge/core/theme/kifc_theme.dart';
 import 'package:fire_prevention_challenge/features/game/exhibition_game.dart';
+import 'package:fire_prevention_challenge/features/game/widgets/game_mascot.dart';
+import 'package:fire_prevention_challenge/features/game/widgets/progressive_reading_text.dart';
 import 'game_flow_test.dart' show loadGameFonts;
 import 'reading_integration_test.dart' show ReadingPlayer, waitForReading;
 import 'chapter2_review_test.dart' show captureScreen;
@@ -46,6 +48,20 @@ void main() {
     (t) async {
       final p = await launch(t);
       for (final key in ['definition', 'cause', 'prevention']) {
+        expect(p.played.last, 'id/karhutla-$key.mp3');
+        expect(p.sessions.last.isCompleted, isFalse);
+        final paragraph = find.byType(ProgressiveReadingText);
+        expect(
+          t.widget<ProgressiveReadingText>(paragraph).visibleCharacters,
+          0,
+        );
+        expect(t.widget<GameMascot>(find.byType(GameMascot)).narrating, isTrue);
+        p.events.add(const Duration(seconds: 1));
+        await t.pump();
+        await t.pump();
+        final revealed = t.widget<ProgressiveReadingText>(paragraph);
+        expect(revealed.visibleCharacters, greaterThan(0));
+        expect(revealed.visibleCharacters, lessThan(revealed.text.length));
         p.sessions.last.complete();
         await t.pump();
         await t.pump(const Duration(milliseconds: 999));

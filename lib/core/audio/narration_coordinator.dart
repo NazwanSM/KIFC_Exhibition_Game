@@ -110,6 +110,10 @@ class NarrationCoordinator {
 
 class AssetNarrationPlayer
     implements NarrationPlayer, PositionedNarrationPlayer {
+  AssetNarrationPlayer({AudioPlayer Function()? createPlayer})
+    : _playerFactory = createPlayer;
+
+  final AudioPlayer Function()? _playerFactory;
   AudioPlayer? _player;
   final _positions = StreamController<Duration>.broadcast();
   StreamSubscription<Duration>? _positionSubscription;
@@ -129,8 +133,12 @@ class AssetNarrationPlayer
   Future<void> play(String asset, double volume) async {
     final done = Completer<void>();
     await _enqueue(() async {
-      final player = _player ??= _createPlayer();
-      _positionSubscription ??= player.onPositionChanged.listen(_positions.add);
+      await _stopCurrent();
+      // Platform completion and asynchronous position queries carry no source
+      // identity. Give each clip its own player so late events from the previous
+      // recording cannot finish or reveal the next reading.
+      final player = _player = _playerFactory?.call() ?? _createPlayer();
+      _positionSubscription = player.onPositionChanged.listen(_positions.add);
       _completion = done;
       await player.setAudioContext(
         AudioContextConfig(
@@ -172,20 +180,29 @@ class AssetNarrationPlayer
   });
 
   @override
-  Future<void> stop() => _enqueue(() async {
-    await _player?.stop();
+  Future<void> stop() => _enqueue(_stopCurrent);
+
+  Future<void> _stopCurrent() async {
+    // Detach before stop: stop itself can emit a final position/completion.
+    await _positionSubscription?.cancel();
+    _positionSubscription = null;
     await _subscription?.cancel();
     _subscription = null;
+    final player = _player;
+    _player = null;
     final done = _completion;
     _completion = null;
     if (done != null && !done.isCompleted) done.complete();
-  });
+    try {
+      await player?.stop();
+    } finally {
+      await player?.dispose();
+    }
+  }
 
   @override
   Future<void> dispose() async {
     await stop();
-    await _positionSubscription?.cancel();
-    await _player?.dispose();
     await _positions.close();
   }
 }

@@ -1,0 +1,22 @@
+00:00 +0: loading D:/KIFC Game Exhibition/fire_prevention_challenge/test/asset_narration_session_test.dart
+00:00 +0: D:/KIFC Game Exhibition/fire_prevention_challenge/test/asset_narration_session_test.dart: late old-clip position and completion cannot finish the next narration
+00:01 +1: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_completion_delay_test.dart: (setUpAll)
+00:01 +1: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_completion_delay_test.dart: each reading holds for one second after speech including before quiz
+00:02 +2: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_completion_delay_test.dart: each reading holds for one second after speech including before quiz
+00:03 +3: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_completion_delay_test.dart: each reading holds for one second after speech including before quiz
+00:03 +4: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_completion_delay_test.dart: each reading holds for one second after speech including before quiz
+00:03 +5: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_completion_delay_test.dart: each reading holds for one second after speech including before quiz
+00:03 +6: D:/KIFC Game Exhibition/fire_prevention_challenge/test/narration_coordinator_test.dart: playing again stops the closing voice
+00:03 +7: D:/KIFC Game Exhibition/fire_prevention_challenge/test/narration_coordinator_test.dart: playing again stops the closing voice
+00:03 +8: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_integration_test.dart: reading follows audio position and ignores old completion after skip
+00:04 +9: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_integration_test.dart: reading follows audio position and ignores old completion after skip
+00:04 +10: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_integration_test.dart: reading follows audio position and ignores old completion after skip
+00:04 +11: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_integration_test.dart: reading follows audio position and ignores old completion after skip
+00:04 +12: D:/KIFC Game Exhibition/fire_prevention_challenge/test/narration_coordinator_test.dart: leaving before the mascot loads cancels closing speech
+00:04 +13: D:/KIFC Game Exhibition/fire_prevention_challenge/test/narration_coordinator_test.dart: backgrounding stops a greeting
+00:04 +14: D:/KIFC Game Exhibition/fire_prevention_challenge/test/narration_coordinator_test.dart: muting cancels speech and does not queue greetings
+00:04 +15: D:/KIFC Game Exhibition/fire_prevention_challenge/test/narration_coordinator_test.dart: closing speech ends without advancing the page
+00:04 +16: D:/KIFC Game Exhibition/fire_prevention_challenge/test/narration_coordinator_test.dart: welcome greeting stops when the player starts
+00:04 +17: D:/KIFC Game Exhibition/fire_prevention_challenge/test/narration_coordinator_test.dart: replacing speech cancels old completion and ends current speech
+00:04 +18: D:/KIFC Game Exhibition/fire_prevention_challenge/test/narration_coordinator_test.dart: (tearDownAll)
+00:05 +18: All tests passed!

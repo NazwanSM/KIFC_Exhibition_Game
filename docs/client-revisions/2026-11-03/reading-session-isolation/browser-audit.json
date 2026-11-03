@@ -1,0 +1,593 @@
+{
+  "events": [
+    {
+      "event": "play",
+      "src": "http://localhost:8795/assets/assets/audio/narration/prepared/id/karhutla-definition.mp3",
+      "time": 21338.79999999702
+    },
+    {
+      "event": "ended",
+      "src": "http://localhost:8795/assets/assets/audio/narration/prepared/id/karhutla-definition.mp3",
+      "time": 30518.5
+    },
+    {
+      "event": "error",
+      "src": "http://localhost:8795/",
+      "time": 31526.10000000149
+    },
+    {
+      "event": "play",
+      "src": "http://localhost:8795/assets/assets/audio/narration/prepared/id/karhutla-cause.mp3",
+      "time": 31701
+    },
+    {
+      "event": "ended",
+      "src": "http://localhost:8795/assets/assets/audio/narration/prepared/id/karhutla-cause.mp3",
+      "time": 46697.39999999851
+    },
+    {
+      "event": "error",
+      "src": "http://localhost:8795/",
+      "time": 47700.29999999702
+    },
+    {
+      "event": "play",
+      "src": "http://localhost:8795/assets/assets/audio/narration/prepared/id/karhutla-prevention.mp3",
+      "time": 48119.89999999851
+    },
+    {
+      "event": "ended",
+      "src": "http://localhost:8795/assets/assets/audio/narration/prepared/id/karhutla-prevention.mp3",
+      "time": 60477.89999999851
+    },
+    {
+      "event": "error",
+      "src": "http://localhost:8795/",
+      "time": 61479.79999999702
+    }
+  ],
+  "finalText": "Kembali\nBABAK 2/4\nPengaturan suara\nBABAK 2\nPada jenis hutan manakah kebakaran dapat membara di bawah permukaan tanah sehingga sulit dipadamkan?\nPilih jenis hutan yang memiliki lapisan gambut.\nA. Hutan mangrove\nB. Hutan rawa gambut\nC. Hutan pada tanah mineral\nPilih satu jawaban.",
+  "samples": [
+    {
+      "audio": [
+        {
+          "duration": 9.16898,
+          "ended": false,
+          "paused": false,
+          "src": "http://localhost:8795/assets/assets/audio/narration/prepared/id/karhutla-definition.mp3",
+          "time": 0.194467
+        }
+      ],
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "text": "Kembali\nBABAK 2/4\nPengaturan suara\nBABAK 2\nTapi, Apa Itu Kebakaran Hutan?\nTadi kamu melihat api menyala. Bagaimana jika api itu menjalar?\nKebakaran\n1/3\nLanjut",
+      "time": 21540.5
+    },
+    {
+      "audio": [
+        {
+          "duration": 9.16898,
+          "ended": false,
+          "paused": false,
+          "src": "http://localhost:8795/assets/assets/audio/narration/prepared/id/karhutla-definition.mp3",
+          "time": 1.38449
+        }
+      ],
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "text": "Kembali\nBABAK 2/4\nPengaturan suara\nBABAK 2\nTapi, Apa Itu Kebakaran Hutan?\nTadi kamu melihat api menyala. Bagaimana jika api itu menjalar?\nKebakaran hutan adalah peristiwa\n1/3\nLanjut",
+      "time": 22736.20000000298
+    },
+    {
+      "audio": [
+        {
+          "duration": 9.16898,
+          "ended": false,
+          "paused": false,
+          "src": "http://localhost:8795/assets/assets/audio/narration/prepared/id/karhutla-definition.mp3",
+          "time": 2.593041
+        }
+      ],
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "text": "Kembali\nBABAK 2/4\nPengaturan suara\nBABAK 2\nTapi, Apa Itu Kebakaran Hutan?\nTadi kamu melihat api menyala. Bagaimana jika api itu menjalar?\nKebakaran hutan adalah peristiwa terbakarnya vegetasi\n1/3\nLanjut",
+      "time": 23937.70000000298
+    },
+    {
+      "audio": [
+        {
+          "duration": 9.16898,
+          "ended": false,
+          "paused": false,
+          "src": "http://localhost:8795/assets/assets/audio/narration/prepared/id/karhutla-definition.mp3",
+          "time": 3.792248
+        }
+      ],
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "text": "Kembali\nBABAK 2/4\nPengaturan suara\nBABAK 2\nTapi, Apa Itu Kebakaran Hutan?\nTadi kamu melihat api menyala. Bagaimana jika api itu menjalar?\nKebakaran hutan adalah peristiwa terbakarnya vegetasi dan bahan\n1/3\nLanjut",
+      "time": 25138.10000000149
+    },
+    {
+      "audio": [
+        {
+          "duration": 9.16898,
+          "ended": false,
+          "paused": false,
+          "src": "http://localhost:8795/assets/assets/audio/narration/prepared/id/karhutla-definition.mp3",
+          "time": 4.983583
+        }
+      ],
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "text": "Kembali\nBABAK 2/4\nPengaturan suara\nBABAK 2\nTapi, Apa Itu Kebakaran Hutan?\nTadi kamu melihat api menyala. Bagaimana jika api itu menjalar?\nKebakaran hutan adalah peristiwa terbakarnya vegetasi dan bahan organik di kawasan hutan,\n1/3\nLanjut",
+      "time": 26336.60000000149
+    },
+    {
+      "audio": [
+        {
+          "duration": 9.16898,
+          "ended": false,
+          "paused": false,
+          "src": "http://localhost:8795/assets/assets/audio/narration/prepared/id/karhutla-definition.mp3",
+          "time": 6.193923
+        }
+      ],
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "text": "Kembali\nBABAK 2/4\nPengaturan suara\nBABAK 2\nTapi, Apa Itu Kebakaran Hutan?\nTadi kamu melihat api menyala. Bagaimana jika api itu menjalar?\nKebakaran hutan adalah peristiwa terbakarnya vegetasi dan bahan organik di kawasan hutan, dengan api\n1/3\nLanjut",
+      "time": 27542
+    },
+    {
+      "audio": [
+        {
+          "duration": 9.16898,
+          "ended": false,
+          "paused": false,
+          "src": "http://localhost:8795/assets/assets/audio/narration/prepared/id/karhutla-definition.mp3",
+          "time": 7.39271
+        }
+      ],
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "text": "Kembali\nBABAK 2/4\nPengaturan suara\nBABAK 2\nTapi, Apa Itu Kebakaran Hutan?\nTadi kamu melihat api menyala. Bagaimana jika api itu menjalar?\nKebakaran hutan adalah peristiwa terbakarnya vegetasi dan bahan organik di kawasan hutan, dengan api yang menyebar secara bebas\n1/3\nLanjut",
+      "time": 28736.79999999702
+    },
+    {
+      "audio": [
+        {
+          "duration": 9.16898,
+          "ended": false,
+          "paused": false,
+          "src": "http://localhost:8795/assets/assets/audio/narration/prepared/id/karhutla-definition.mp3",
+          "time": 8.59345
+        }
+      ],
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "text": "Kembali\nBABAK 2/4\nPengaturan suara\nBABAK 2\nTapi, Apa Itu Kebakaran Hutan?\nTadi kamu melihat api menyala. Bagaimana jika api itu menjalar?\nKebakaran hutan adalah peristiwa terbakarnya vegetasi dan bahan organik di kawasan hutan, dengan api yang menyebar secara bebas dan tidak terkendali.\n1/3\nLanjut",
+      "time": 29938.79999999702
+    },
+    {
+      "audio": [
+        {
+          "duration": 9.16898,
+          "ended": false,
+          "paused": true,
+          "src": "http://localhost:8795/assets/assets/audio/narration/prepared/id/karhutla-definition.mp3",
+          "time": 0
+        }
+      ],
+      "clip": "PointIdle",
+      "loaded": true,
+      "paused": false,
+      "text": "Kembali\nBABAK 2/4\nPengaturan suara\nBABAK 2\nTapi, Apa Itu Kebakaran Hutan?\nTadi kamu melihat api menyala. Bagaimana jika api itu menjalar?\nKebakaran hutan adalah peristiwa terbakarnya vegetasi dan bahan organik di kawasan hutan, dengan api yang menyebar secara bebas dan tidak terkendali.\n1/3\nLanjut",
+      "time": 31140.10000000149
+    },
+    {
+      "audio": [
+        {
+          "duration": 14.994286,
+          "ended": false,
+          "paused": false,
+          "src": "http://localhost:8795/assets/assets/audio/narration/prepared/id/karhutla-cause.mp3",
+          "time": 0.640858
+        }
+      ],
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "text": "Kembali\nBABAK 2/4\nPengaturan suara\nBABAK 2\nMengapa Kebakaran Hutan Bisa Terjadi?\nKebakaran hutan dapat terjadi ketika tiga unsur api bertemu.\nKebakaran hutan\n2/3\nLanjut",
+      "time": 32338.89999999851
+    },
+    {
+      "audio": [
+        {
+          "duration": 14.994286,
+          "ended": false,
+          "paused": false,
+          "src": "http://localhost:8795/assets/assets/audio/narration/prepared/id/karhutla-cause.mp3",
+          "time": 1.840181
+        }
+      ],
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "text": "Kembali\nBABAK 2/4\nPengaturan suara\nBABAK 2\nMengapa Kebakaran Hutan Bisa Terjadi?\nKebakaran hutan dapat terjadi ketika tiga unsur api bertemu.\nKebakaran hutan dapat terjadi ketika\n2/3\nLanjut",
+      "time": 33542.5
+    },
+    {
+      "audio": [
+        {
+          "duration": 14.994286,
+          "ended": false,
+          "paused": false,
+          "src": "http://localhost:8795/assets/assets/audio/narration/prepared/id/karhutla-cause.mp3",
+          "time": 3.039748
+        }
+      ],
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "text": "Kembali\nBABAK 2/4\nPengaturan suara\nBABAK 2\nMengapa Kebakaran Hutan Bisa Terjadi?\nKebakaran hutan dapat terjadi ketika tiga unsur api bertemu.\nKebakaran hutan dapat terjadi ketika panas yang cukup,\n2/3\nLanjut",
+      "time": 34737.60000000149
+    },
+    {
+      "audio": [
+        {
+          "duration": 14.994286,
+          "ended": false,
+          "paused": false,
+          "src": "http://localhost:8795/assets/assets/audio/narration/prepared/id/karhutla-cause.mp3",
+          "time": 4.239596
+        }
+      ],
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "text": "Kembali\nBABAK 2/4\nPengaturan suara\nBABAK 2\nMengapa Kebakaran Hutan Bisa Terjadi?\nKebakaran hutan dapat terjadi ketika tiga unsur api bertemu.\nKebakaran hutan dapat terjadi ketika panas yang cukup, bahan bakar,\n2/3\nLanjut",
+      "time": 35938.60000000149
+    },
+    {
+      "audio": [
+        {
+          "duration": 14.994286,
+          "ended": false,
+          "paused": false,
+          "src": "http://localhost:8795/assets/assets/audio/narration/prepared/id/karhutla-cause.mp3",
+          "time": 5.442177
+        }
+      ],
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "text": "Kembali\nBABAK 2/4\nPengaturan suara\nBABAK 2\nMengapa Kebakaran Hutan Bisa Terjadi?\nKebakaran hutan dapat terjadi ketika tiga unsur api bertemu.\nKebakaran hutan dapat terjadi ketika panas yang cukup, bahan bakar, dan oksigen bertemu\n2/3\nLanjut",
+      "time": 37139.79999999702
+    },
+    {
+      "audio": [
+        {
+          "duration": 14.994286,
+          "ended": false,
+          "paused": false,
+          "src": "http://localhost:8795/assets/assets/audio/narration/prepared/id/karhutla-cause.mp3",
+          "time": 6.640907
+        }
+      ],
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "text": "Kembali\nBABAK 2/4\nPengaturan suara\nBABAK 2\nMengapa Kebakaran Hutan Bisa Terjadi?\nKebakaran hutan dapat terjadi ketika tiga unsur api bertemu.\nKebakaran hutan dapat terjadi ketika panas yang cukup, bahan bakar, dan oksigen bertemu dalam kondisi yang\n2/3\nLanjut",
+      "time": 38341.70000000298
+    },
+    {
+      "audio": [
+        {
+          "duration": 14.994286,
+          "ended": false,
+          "paused": false,
+          "src": "http://localhost:8795/assets/assets/audio/narration/prepared/id/karhutla-cause.mp3",
+          "time": 7.833832
+        }
+      ],
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "text": "Kembali\nBABAK 2/4\nPengaturan suara\nBABAK 2\nMengapa Kebakaran Hutan Bisa Terjadi?\nKebakaran hutan dapat terjadi ketika tiga unsur api bertemu.\nKebakaran hutan dapat terjadi ketika panas yang cukup, bahan bakar, dan oksigen bertemu dalam kondisi yang memungkinkan api\n2/3\nLanjut",
+      "time": 39536.70000000298
+    },
+    {
+      "audio": [
+        {
+          "duration": 14.994286,
+          "ended": false,
+          "paused": false,
+          "src": "http://localhost:8795/assets/assets/audio/narration/prepared/id/karhutla-cause.mp3",
+          "time": 9.040274
+        }
+      ],
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "text": "Kembali\nBABAK 2/4\nPengaturan suara\nBABAK 2\nMengapa Kebakaran Hutan Bisa Terjadi?\nKebakaran hutan dapat terjadi ketika tiga unsur api bertemu.\nKebakaran hutan dapat terjadi ketika panas yang cukup, bahan bakar, dan oksigen bertemu dalam kondisi yang memungkinkan api menyala. Aktivitas\n2/3\nLanjut",
+      "time": 40738.60000000149
+    },
+    {
+      "audio": [
+        {
+          "duration": 14.994286,
+          "ended": false,
+          "paused": false,
+          "src": "http://localhost:8795/assets/assets/audio/narration/prepared/id/karhutla-cause.mp3",
+          "time": 10.23995
+        }
+      ],
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "text": "Kembali\nBABAK 2/4\nPengaturan suara\nBABAK 2\nMengapa Kebakaran Hutan Bisa Terjadi?\nKebakaran hutan dapat terjadi ketika tiga unsur api bertemu.\nKebakaran hutan dapat terjadi ketika panas yang cukup, bahan bakar, dan oksigen bertemu dalam kondisi yang memungkinkan api menyala. Aktivitas manusia dapat\n2/3\nLanjut",
+      "time": 41939.60000000149
+    },
+    {
+      "audio": [
+        {
+          "duration": 14.994286,
+          "ended": false,
+          "paused": false,
+          "src": "http://localhost:8795/assets/assets/audio/narration/prepared/id/karhutla-cause.mp3",
+          "time": 11.441633
+        }
+      ],
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "text": "Kembali\nBABAK 2/4\nPengaturan suara\nBABAK 2\nMengapa Kebakaran Hutan Bisa Terjadi?\nKebakaran hutan dapat terjadi ketika tiga unsur api bertemu.\nKebakaran hutan dapat terjadi ketika panas yang cukup, bahan bakar, dan oksigen bertemu dalam kondisi yang memungkinkan api menyala. Aktivitas manusia dapat mempertemukan ketiga\n2/3\nLanjut",
+      "time": 43141
+    },
+    {
+      "audio": [
+        {
+          "duration": 14.994286,
+          "ended": false,
+          "paused": false,
+          "src": "http://localhost:8795/assets/assets/audio/narration/prepared/id/karhutla-cause.mp3",
+          "time": 12.640363
+        }
+      ],
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "text": "Kembali\nBABAK 2/4\nPengaturan suara\nBABAK 2\nMengapa Kebakaran Hutan Bisa Terjadi?\nKebakaran hutan dapat terjadi ketika tiga unsur api bertemu.\nKebakaran hutan dapat terjadi ketika panas yang cukup, bahan bakar, dan oksigen bertemu dalam kondisi yang memungkinkan api menyala. Aktivitas manusia dapat mempertemukan ketiga unsur tersebut sehingga\n2/3\nLanjut",
+      "time": 44341.20000000298
+    },
+    {
+      "audio": [
+        {
+          "duration": 14.994286,
+          "ended": false,
+          "paused": false,
+          "src": "http://localhost:8795/assets/assets/audio/narration/prepared/id/karhutla-cause.mp3",
+          "time": 13.833288
+        }
+      ],
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "text": "Kembali\nBABAK 2/4\nPengaturan suara\nBABAK 2\nMengapa Kebakaran Hutan Bisa Terjadi?\nKebakaran hutan dapat terjadi ketika tiga unsur api bertemu.\nKebakaran hutan dapat terjadi ketika panas yang cukup, bahan bakar, dan oksigen bertemu dalam kondisi yang memungkinkan api menyala. Aktivitas manusia dapat mempertemukan ketiga unsur tersebut sehingga meningkatkan risiko\n2/3\nLanjut",
+      "time": 45536.29999999702
+    },
+    {
+      "audio": [
+        {
+          "duration": 14.994286,
+          "ended": false,
+          "paused": true,
+          "src": "http://localhost:8795/assets/assets/audio/narration/prepared/id/karhutla-cause.mp3",
+          "time": 0
+        }
+      ],
+      "clip": "PointIdle",
+      "loaded": true,
+      "paused": false,
+      "text": "Kembali\nBABAK 2/4\nPengaturan suara\nBABAK 2\nMengapa Kebakaran Hutan Bisa Terjadi?\nKebakaran hutan dapat terjadi ketika tiga unsur api bertemu.\nKebakaran hutan dapat terjadi ketika panas yang cukup, bahan bakar, dan oksigen bertemu dalam kondisi yang memungkinkan api menyala. Aktivitas manusia dapat mempertemukan ketiga unsur tersebut sehingga meningkatkan risiko kebakaran.\n2/3\nLanjut",
+      "time": 46738.29999999702
+    },
+    {
+      "audio": [],
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "text": "Kembali\nBABAK 2/4\nPengaturan suara\nBABAK 2\nMengapa Kebakaran Hutan Perlu Kita Cegah?\nSebagian besar karhutla bisa dicegah sebelum membesar.\n3/3\nMulai Kuis",
+      "time": 47953.10000000149
+    },
+    {
+      "audio": [
+        {
+          "duration": 12.355918,
+          "ended": false,
+          "paused": false,
+          "src": "http://localhost:8795/assets/assets/audio/narration/prepared/id/karhutla-prevention.mp3",
+          "time": 1.019299
+        }
+      ],
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "text": "Kembali\nBABAK 2/4\nPengaturan suara\nBABAK 2\nMengapa Kebakaran Hutan Perlu Kita Cegah?\nSebagian besar karhutla bisa dicegah sebelum membesar.\nKebakaran hutan merusak\n3/3\nMulai Kuis",
+      "time": 49137.10000000149
+    },
+    {
+      "audio": [
+        {
+          "duration": 12.355918,
+          "ended": false,
+          "paused": false,
+          "src": "http://localhost:8795/assets/assets/audio/narration/prepared/id/karhutla-prevention.mp3",
+          "time": 2.208798
+        }
+      ],
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "text": "Kembali\nBABAK 2/4\nPengaturan suara\nBABAK 2\nMengapa Kebakaran Hutan Perlu Kita Cegah?\nSebagian besar karhutla bisa dicegah sebelum membesar.\nKebakaran hutan merusak lingkungan dan menimbulkan\n3/3\nMulai Kuis",
+      "time": 50337
+    },
+    {
+      "audio": [
+        {
+          "duration": 12.355918,
+          "ended": false,
+          "paused": false,
+          "src": "http://localhost:8795/assets/assets/audio/narration/prepared/id/karhutla-prevention.mp3",
+          "time": 3.410431
+        }
+      ],
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "text": "Kembali\nBABAK 2/4\nPengaturan suara\nBABAK 2\nMengapa Kebakaran Hutan Perlu Kita Cegah?\nSebagian besar karhutla bisa dicegah sebelum membesar.\nKebakaran hutan merusak lingkungan dan menimbulkan kerugian ekologis,\n3/3\nMulai Kuis",
+      "time": 51536.39999999851
+    },
+    {
+      "audio": [
+        {
+          "duration": 12.355918,
+          "ended": false,
+          "paused": false,
+          "src": "http://localhost:8795/assets/assets/audio/narration/prepared/id/karhutla-prevention.mp3",
+          "time": 4.619536
+        }
+      ],
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "text": "Kembali\nBABAK 2/4\nPengaturan suara\nBABAK 2\nMengapa Kebakaran Hutan Perlu Kita Cegah?\nSebagian besar karhutla bisa dicegah sebelum membesar.\nKebakaran hutan merusak lingkungan dan menimbulkan kerugian ekologis, ekonomi,\n3/3\nMulai Kuis",
+      "time": 52738.20000000298
+    },
+    {
+      "audio": [
+        {
+          "duration": 12.355918,
+          "ended": false,
+          "paused": false,
+          "src": "http://localhost:8795/assets/assets/audio/narration/prepared/id/karhutla-prevention.mp3",
+          "time": 5.816955
+        }
+      ],
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "text": "Kembali\nBABAK 2/4\nPengaturan suara\nBABAK 2\nMengapa Kebakaran Hutan Perlu Kita Cegah?\nSebagian besar karhutla bisa dicegah sebelum membesar.\nKebakaran hutan merusak lingkungan dan menimbulkan kerugian ekologis, ekonomi, sosial budaya,\n3/3\nMulai Kuis",
+      "time": 53936.89999999851
+    },
+    {
+      "audio": [
+        {
+          "duration": 12.355918,
+          "ended": false,
+          "paused": false,
+          "src": "http://localhost:8795/assets/assets/audio/narration/prepared/id/karhutla-prevention.mp3",
+          "time": 7.018656
+        }
+      ],
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "text": "Kembali\nBABAK 2/4\nPengaturan suara\nBABAK 2\nMengapa Kebakaran Hutan Perlu Kita Cegah?\nSebagian besar karhutla bisa dicegah sebelum membesar.\nKebakaran hutan merusak lingkungan dan menimbulkan kerugian ekologis, ekonomi, sosial budaya, serta politik.\n3/3\nMulai Kuis",
+      "time": 55137
+    },
+    {
+      "audio": [
+        {
+          "duration": 12.355918,
+          "ended": false,
+          "paused": false,
+          "src": "http://localhost:8795/assets/assets/audio/narration/prepared/id/karhutla-prevention.mp3",
+          "time": 8.218103
+        }
+      ],
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "text": "Kembali\nBABAK 2/4\nPengaturan suara\nBABAK 2\nMengapa Kebakaran Hutan Perlu Kita Cegah?\nSebagian besar karhutla bisa dicegah sebelum membesar.\nKebakaran hutan merusak lingkungan dan menimbulkan kerugian ekologis, ekonomi, sosial budaya, serta politik. Kerusakan tersebut\n3/3\nMulai Kuis",
+      "time": 56337.70000000298
+    },
+    {
+      "audio": [
+        {
+          "duration": 12.355918,
+          "ended": false,
+          "paused": false,
+          "src": "http://localhost:8795/assets/assets/audio/narration/prepared/id/karhutla-prevention.mp3",
+          "time": 9.419044
+        }
+      ],
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "text": "Kembali\nBABAK 2/4\nPengaturan suara\nBABAK 2\nMengapa Kebakaran Hutan Perlu Kita Cegah?\nSebagian besar karhutla bisa dicegah sebelum membesar.\nKebakaran hutan merusak lingkungan dan menimbulkan kerugian ekologis, ekonomi, sosial budaya, serta politik. Kerusakan tersebut mengganggu kemampuan\n3/3\nMulai Kuis",
+      "time": 57537.29999999702
+    },
+    {
+      "audio": [
+        {
+          "duration": 12.355918,
+          "ended": false,
+          "paused": false,
+          "src": "http://localhost:8795/assets/assets/audio/narration/prepared/id/karhutla-prevention.mp3",
+          "time": 10.617486
+        }
+      ],
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "text": "Kembali\nBABAK 2/4\nPengaturan suara\nBABAK 2\nMengapa Kebakaran Hutan Perlu Kita Cegah?\nSebagian besar karhutla bisa dicegah sebelum membesar.\nKebakaran hutan merusak lingkungan dan menimbulkan kerugian ekologis, ekonomi, sosial budaya, serta politik. Kerusakan tersebut mengganggu kemampuan hutan untuk menjalankan\n3/3\nMulai Kuis",
+      "time": 58736.70000000298
+    },
+    {
+      "audio": [
+        {
+          "duration": 12.355918,
+          "ended": false,
+          "paused": false,
+          "src": "http://localhost:8795/assets/assets/audio/narration/prepared/id/karhutla-prevention.mp3",
+          "time": 11.819979
+        }
+      ],
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "text": "Kembali\nBABAK 2/4\nPengaturan suara\nBABAK 2\nMengapa Kebakaran Hutan Perlu Kita Cegah?\nSebagian besar karhutla bisa dicegah sebelum membesar.\nKebakaran hutan merusak lingkungan dan menimbulkan kerugian ekologis, ekonomi, sosial budaya, serta politik. Kerusakan tersebut mengganggu kemampuan hutan untuk menjalankan fungsinya dengan baik.\n3/3\nMulai Kuis",
+      "time": 59937.60000000149
+    },
+    {
+      "audio": [
+        {
+          "duration": 12.355918,
+          "ended": false,
+          "paused": true,
+          "src": "http://localhost:8795/assets/assets/audio/narration/prepared/id/karhutla-prevention.mp3",
+          "time": 0
+        }
+      ],
+      "clip": "PointIdle",
+      "loaded": true,
+      "paused": false,
+      "text": "Kembali\nBABAK 2/4\nPengaturan suara\nBABAK 2\nMengapa Kebakaran Hutan Perlu Kita Cegah?\nSebagian besar karhutla bisa dicegah sebelum membesar.\nKebakaran hutan merusak lingkungan dan menimbulkan kerugian ekologis, ekonomi, sosial budaya, serta politik. Kerusakan tersebut mengganggu kemampuan hutan untuk menjalankan fungsinya dengan baik.\n3/3\nMulai Kuis",
+      "time": 61136.60000000149
+    }
+  ],
+  "source": "Production audio/renderer via tool/reading_review_main.dart; automatic transitions without manual skips",
+  "viewport": {
+    "height": 900,
+    "width": 411
+  }
+}
