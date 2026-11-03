@@ -1,7 +1,7 @@
 {
   "version": "1.0.10-r30-review",
   "versionCode": 2026110331,
-  "git_head": "53ed5fcee0c857ef0c2ad304a7d9687558560c64",
+  "git_head": "e89766de16963afb5e2bd8385fa3677da472a1b2",
   "contains_pending_working_tree_integration": true,
   "apk_signing": "review build signed with existing Android debug key; not store release",
   "tizen_signing": "unsigned candidate; Samsung certificate required for physical TV installation",
@@ -16,8 +16,8 @@
       "sha256": "749e5f38ef5e1a3175b12e85218ef4f80f7adfc17f6294d2dc9dd942f2fe7a3b"
     },
     "KIFC-current-source-review.zip": {
-      "bytes": 137880103,
-      "sha256": "bdd094eec7c25664a099e007d845c5b452443827f2d26f32b047dfa405c36214"
+      "bytes": 330743944,
+      "sha256": "8af17ecf0db5ab8a56d7335afae273d3634d7b40ff1394f8aa0db5dc3ca5fc8d"
     },
     "KIFC-web-offline-resources.zip": {
       "bytes": 59883861,

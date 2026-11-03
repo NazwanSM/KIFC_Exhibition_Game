@@ -59,7 +59,7 @@ Keputusan ini menggantikan ketentuan lama tentang demo yang wajib dicoba, seluru
 | KIFC-R30-17 | Tambahkan salam bersuara pada penutup | Penutup terakhir | Sulit karena dependensi | 03, 04, 09, 13, 16 | Siap ditinjau: Android tiga bahasa dan regresi teruji | — |
 | KIFC-R30-18 | Tambahkan sapaan idle berkala | Pembuka | Sulit | 01, 09, 13, 16 | Siap ditinjau: playback web/Android teruji, review kenyamanan tersisa | — |
 | KIFC-R30-19 | Sinkronkan narasi, teks per kata, dan navigasi bacaan | Tiga bacaan Karhutla | Paling sulit secara integrasi | 05, 07, 09, 13, 16 | Siap ditinjau: playback dan teks teruji; timing perkiraan perlu didengar | — |
-| KIFC-R30-20 | Verifikasi terpadu dan kemas hasil revisi | Web, APK dan Samsung Tizen | Luas, lintas fitur | 01–19 | Dikerjakan: paket review dan simulator tersedia; Android ditunda pemilik | — |
+| KIFC-R30-20 | Verifikasi terpadu dan kemas hasil revisi | Web, APK dan Samsung Tizen | Luas, lintas fitur | 01–19 | Dikerjakan: paket review dan simulator tersedia; Android ditunda pemilik | `ab13abf` checkpoint verifikasi; belum selesai |
 
 Nomor pendek pada dependensi merujuk tiket dengan awalan yang sama. Tiket sumber aset 09, 10, 12, dan 14 dapat dipersiapkan lebih awal bila perlu agar integrasi tidak tertahan; ini tidak mengubah urutan kesulitan.
 
@@ -403,6 +403,9 @@ Status diperbarui setelah implementasi dan pemeriksaan nyata. Selesai secara imp
 | 2 November 2026 | KIFC-R30-14 | Sumber GLB dan prototipe disetujui sebagai jalur integrasi | `4203eda` | Pilihan pemilik dan bukti welcome telah direkonsiliasi | Rencana prerender diganti GLB real-time; perangkat target belum diuji |
 | 2 November 2026 | KIFC-R30-15 | Paket runtime dan poster selesai | `786ab35` | Enam klip asli, tiga varian tanpa ucapan, tujuh poster RGBA dengan hash | Dilanjutkan ke komponen lintas halaman R30-16 |
 | 2 November 2026 | KIFC-R30-16 | Siap ditinjau pemilik | `c78f2cc` | 447 tes, 105 screenshot browser, interaksi dan playback Android; hybrid composition memperbaiki sentuhan | Review visual pemilik; TV fisik pada R30-20. Berikutnya R30-17 |
+
+| 3 November 2026 | KIFC-R30-10 | Persetujuan visual direkonsiliasi; selesai | `0961f1c` | Video sama persis dengan aset yang telah diterima pada R30-11; SHA-256 dibandingkan | Tidak meminta persetujuan ulang untuk footage yang sama |
+| 3 November 2026 | KIFC-R30-20 | Checkpoint verifikasi dan paket review; masih dikerjakan | `ab13abf` | 465 tes + 30 tes visual lulus, analisis bersih; APK/web/WGT dan checksum; alur Indonesia pada simulator resmi | Peninjau teknis: agen. Android ditunda pemilik; TV fisik belum tersedia, native Tizen OS/signing/review pemilik masih terbuka |
 
 ### Follow-up pemilik — Feedback_User_Pose dan proporsi maskot (3 November)
 

@@ -2,6 +2,8 @@
 
 Status: **review package prepared; integrated verification in progress**, not a declaration that all 20 tickets are closed. Android execution was postponed by the owner. No physical TV or native Tizen OS emulator was tested.
 
+Verification/tooling checkpoint: `ab13abf4cb3d4bf03ae12f9b5198b0490feb7dce`. The current-source archive also includes the pending integration described below; checking out this checkpoint alone does not reproduce all current working-tree gameplay changes.
+
 ## Results
 
 | Layer | Result and actual scope |
