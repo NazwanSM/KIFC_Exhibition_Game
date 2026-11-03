@@ -1,0 +1,56 @@
+--- a/lib/features/game/exhibition_game.dart
++++ b/lib/features/game/exhibition_game.dart
+@@ -1302,7 +1302,7 @@
+                             _HostConversation(
+                               key: const ValueKey('welcome-conversation'),
+                               opening: true,
+-                              height: compact ? 180 : 216,
++                              height: compact ? 230 : 275,
+                               pose: MascotPose.welcome,
+                               mascotOnRight: false,
+                               text: locale == AppLocale.english
+--- /dev/null
++++ b/test/welcome_mascot_size_test.dart
+@@ -0,0 +1,42 @@
++import 'package:flutter/material.dart';
++import 'package:flutter_test/flutter_test.dart';
++import 'package:fire_prevention_challenge/core/localization/app_locale.dart';
++import 'package:fire_prevention_challenge/features/game/widgets/game_mascot.dart';
++import 'chapter2_review_test.dart' show launchScreen;
++import 'game_flow_test.dart' show loadGameFonts;
++
++void main() {
++  setUpAll(loadGameFonts);
++  for (final size in [
++    const Size(360, 640),
++    const Size(411, 731),
++    const Size(1080, 1920),
++    const Size(2160, 3840),
++  ]) {
++    testWidgets('welcome mascot is at least as tall as Chapter 2 at $size', (
++      t,
++    ) async {
++      await launchScreen(
++        t,
++        size: size,
++        locale: AppLocale.indonesian,
++        page: 'welcome',
++      );
++      await t.pump(const Duration(seconds: 1));
++      final welcome = t.getRect(find.byType(GameMascot)).height;
++      await t.pumpWidget(const SizedBox.shrink());
++      await launchScreen(
++        t,
++        size: size,
++        locale: AppLocale.indonesian,
++        page: 'karhutlaCards',
++      );
++      await t.pump(const Duration(seconds: 1));
++      expect(
++        welcome,
++        greaterThanOrEqualTo(t.getRect(find.byType(GameMascot)).height),
++      );
++      await t.pumpWidget(const SizedBox.shrink());
++    });
++  }
++}

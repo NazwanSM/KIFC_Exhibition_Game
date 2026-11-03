@@ -869,7 +869,7 @@ class _WelcomePage extends StatelessWidget {
                             _HostConversation(
                               key: const ValueKey('welcome-conversation'),
                               opening: true,
-                              height: compact ? 180 : 216,
+                              height: compact ? 230 : 275,
                               pose: MascotPose.welcome,
                               mascotOnRight: false,
                               text: locale == AppLocale.english

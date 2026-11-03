@@ -414,6 +414,8 @@ Status diperbarui setelah implementasi dan pemeriksaan nyata. Selesai secara imp
 
 ### Follow-up pemilik — Feedback_User_Pose dan proporsi maskot (3 November)
 
+- Welcome diperbesar dari tinggi komponen 180/216 menjadi 230/275 logical pixels, agar setidaknya sebesar Babak 2. Perbandingan geometri layar kecil/Full HD/4K dan matriks welcome lima ukuran × tiga bahasa lulus. Model, kamera dan Wave tetap. [Bukti dan batas validasi](../../docs/client-revisions/2026-11-03/welcome-mascot-enlarged/README.md).
+
 - Revisi proporsi lanjutan: ulasan dampak Babak 4 memakai maskot besar setengah badan untuk hasil sempurna maupun belum sempurna, mengikuti komponen pada kartu karakteristik. Bubble dibatasi pada ruang di bawah hitungan jawaban; maskot berakhir tepat di atas tombol. Jawaban benar Babak 3 digeser 40 logical pixels lebih ke kanan, tanpa mengubah feedback salah atau kuis Babak 2. [Bukti dan pemeriksaan](../../docs/client-revisions/2026-11-03/mascot-layout-followup/README.md). Status tetap siap ditinjau; Android ditunda.
 
 - Follow-up performa browser: pengukuran dan optimasi selesai untuk skenario desktop yang dicatat, tanpa mengurangi mesh/tekstur/kualitas render. [Bukti, batas metrik dan paket web](../../docs/client-revisions/2026-11-03/mascot-browser-performance/README.md). Tidak mengubah jumlah tiket selesai; validasi QM43B-T dan review pemilik tetap terbuka.

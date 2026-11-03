@@ -1,0 +1,146 @@
+[
+  {
+    "file": "widget/en-1080x1920.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render with GLB-derived static mascot poster",
+    "sha256": "c56efe902ba203653d5443b7670728378dcc93bcf092c026f56137febaa525f4"
+  },
+  {
+    "file": "widget/en-2160x3840.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render with GLB-derived static mascot poster",
+    "sha256": "c3bdbcca33af861d5b81c8cde23d74a1579b7602f73e58db1f822bffd71e4f6d"
+  },
+  {
+    "file": "widget/en-360x640.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render with GLB-derived static mascot poster",
+    "sha256": "0050b517f07e7ef7d204f4e603670677a65dffe17f563f1c367c1edc163db387"
+  },
+  {
+    "file": "widget/en-411x731.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render with GLB-derived static mascot poster",
+    "sha256": "e3792fecc62e96b9a9521031fd5b3b7b3e90d6b8ee79c41730b314eb404eb23f"
+  },
+  {
+    "file": "widget/en-720x1280.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render with GLB-derived static mascot poster",
+    "sha256": "4223cab426cfba4746c33e28bb926274d38f96822b77ea2d3dd72cb19665a29a"
+  },
+  {
+    "file": "widget/id-1080x1920.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render with GLB-derived static mascot poster",
+    "sha256": "552221efa3fa37e68947eb99332995ddc5cc00379124c4bafef365b0e8650cef"
+  },
+  {
+    "file": "widget/id-2160x3840.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render with GLB-derived static mascot poster",
+    "sha256": "15f09f701ad1552051a2ad7a524be292ae6ccb4c22781115e9a149e84d434463"
+  },
+  {
+    "file": "widget/id-360x640.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render with GLB-derived static mascot poster",
+    "sha256": "14c7c015341265f12f17fca79377318be998c1800df52b3d06e1b372d7120dc1"
+  },
+  {
+    "file": "widget/id-411x731-pressed.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render with GLB-derived static mascot poster",
+    "sha256": "61dfec9d0a93c7a337b77342edde6bb8d284176be6749e0f3a3870e571c474ac"
+  },
+  {
+    "file": "widget/id-411x731.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render with GLB-derived static mascot poster",
+    "sha256": "afb3570c2b5399edc00cf73d7cff020ab9dc71f115676c257e996c9416c3ff12"
+  },
+  {
+    "file": "widget/id-720x1280.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render with GLB-derived static mascot poster",
+    "sha256": "2d51bd8fb983ea7fd532bb545213db17db39475db8b0bf64d119b5d8af69543e"
+  },
+  {
+    "file": "widget/ko-1080x1920.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render with GLB-derived static mascot poster",
+    "sha256": "f5875e6567447bf084718a8dbc39792529d223e789c414d66ab0bb5d29e8891f"
+  },
+  {
+    "file": "widget/ko-2160x3840.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render with GLB-derived static mascot poster",
+    "sha256": "32b3dcce55d32226afc85039acb14bd0dd401acc789c9b14dea93fa72df810bb"
+  },
+  {
+    "file": "widget/ko-360x640.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render with GLB-derived static mascot poster",
+    "sha256": "8999bc095b05651a51982b4bafd86891a6ed51c7dae62fc5156c95135206b1cf"
+  },
+  {
+    "file": "widget/ko-411x731.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render with GLB-derived static mascot poster",
+    "sha256": "8f7a286bfefed0380d20c87135dcef3e1639c9546bb3e21399c2a64cac81b169"
+  },
+  {
+    "file": "widget/ko-720x1280.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render with GLB-derived static mascot poster",
+    "sha256": "9fcc0ec699afa9e4898d520fd3787a1588e5c6eefde7a996b6c6adb3c2ec8e4b"
+  }
+]
