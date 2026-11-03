@@ -1,0 +1,19 @@
+00:00 +0: loading D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: R30-03 closing title layout indonesian-360x640
+00:04 +1: R30-03 closing title layout english-360x640
+00:06 +2: R30-03 closing title layout korean-360x640
+00:09 +3: R30-03 closing title layout indonesian-411x731
+00:11 +4: R30-03 closing title layout english-411x731
+00:13 +5: R30-03 closing title layout korean-411x731
+00:15 +6: R30-03 closing title layout indonesian-720x1280
+00:18 +7: R30-03 closing title layout english-720x1280
+00:20 +8: R30-03 closing title layout korean-720x1280
+00:23 +9: R30-03 closing title layout indonesian-1080x1920
+00:26 +10: R30-03 closing title layout english-1080x1920
+00:30 +11: R30-03 closing title layout korean-1080x1920
+00:33 +12: R30-03 closing title layout indonesian-2160x3840
+00:42 +13: R30-03 closing title layout english-2160x3840
+00:51 +14: R30-03 closing title layout korean-2160x3840
+01:01 +15: (tearDownAll)
+01:01 +15: All tests passed!

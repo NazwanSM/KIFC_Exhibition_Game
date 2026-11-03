@@ -1408,9 +1408,9 @@ class _HostConversation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final height = this.height ?? (_compactLayout(context) ? 180.0 : 220.0);
+    final height = this.height ?? (_compactLayout(context) ? 230.0 : 275.0);
     final mascot = SizedBox(
-      width: height * (opening ? .62 : .75),
+      width: height * .62,
       child: GameMascot(
         pose: pose,
         state: state,
@@ -2943,7 +2943,7 @@ class _ClosingPage extends StatelessWidget {
                             letterSpacing: -.6,
                           ),
                         ),
-                        const SizedBox(height: 12),
+                        const SizedBox(height: 8),
                         _HostConversation(
                           key: const ValueKey('closing-conversation'),
                           pose: MascotPose.success,
@@ -2955,7 +2955,7 @@ class _ClosingPage extends StatelessWidget {
                               ? 'Thanks for playing! Keep fire away from dry vegetation. If you see a fire, report it to trained personnel.'
                               : 'Terima kasih sudah bermain! Jauhkan sumber api dari bahan kering. Jika melihat kebakaran, segera laporkan kepada petugas.',
                         ),
-                        SizedBox(height: compact ? 18 : 24),
+                        SizedBox(height: compact ? 10 : 12),
                         const Divider(color: Colors.white24, height: 1),
                         const SizedBox(height: 12),
                         const LocalizedText(
@@ -2981,7 +2981,7 @@ class _ClosingPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(height: compact ? 18 : 24),
+                  SizedBox(height: compact ? 10 : 12),
                   SizedBox(
                     height: 46,
                     child: FilledButton(
