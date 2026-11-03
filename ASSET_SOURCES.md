@@ -1,5 +1,7 @@
 # Asset sources
 
+CanvasKit offline fallback: `assets/fonts/Roboto-Regular.woff2` is the exact Roboto v32 font otherwise requested by Flutter 3.35's CanvasKit renderer from [Google Fonts](https://fonts.gstatic.com/s/roboto/v32/KFOmCnqEu92Fr1Me4GZLCzYlKw.woff2). Bundled as family Roboto to remove that network dependency; the interface retains Archivo/Noto Sans KR. Apache 2.0 [upstream license](https://github.com/googlefonts/roboto/blob/main/LICENSE) is bundled in `assets/fonts/Roboto-LICENSE.txt`. No paid asset.
+
 | File | Source | Use | License / attribution |
 | --- | --- | --- | --- |
 | `assets/models/manggala_welcome_wave_30s.glb` | Owner-supplied `mascot_3d_pipeline/Welcome_Wave/Review/Manggala_WELCOME_WAVE_30s_REVIEW.glb`; accompanying review report read before integration | Unmodified archival source for the runtime derivative; six original 30-second clips and `CAM-UserApprovedView` | Owner-supplied project mascot; original bytes, textures, badge, skinning and mouth morphs preserved. SHA-256 in `assets/models/mascot_manifest.json`; no new license or purchase implied. |

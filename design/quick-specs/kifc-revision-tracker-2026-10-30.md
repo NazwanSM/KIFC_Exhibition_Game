@@ -2,14 +2,17 @@
 
 Sumber: daftar revisi klien yang disampaikan pemilik proyek dan klarifikasinya dalam percakapan 30 Oktober 2026. Tujuan dokumen ini adalah memetakan pekerjaan, cara penerapan, dependensi, dan bukti penyelesaiannya. Pembuatan tracker tidak berarti revisi game sudah diimplementasikan.
 
-**Status terkini: 4 Belum dikerjakan, 2 Dikerjakan, 2 Siap ditinjau, 12 Selesai secara implementasi.**
+**Status terkini: 0 Belum dikerjakan, 3 Dikerjakan, 4 Siap ditinjau, 13 Selesai secara implementasi.**
 
 ID `KIFC-R30-01` sampai `KIFC-R30-20` khusus untuk putaran ini, bukan nomor halaman atau babak. Riwayat lama tetap disimpan di [tracker 23 Oktober](kifc-screen-revision-tracker-2026-10-23.md). Status pekerjaan lama tidak dipindahkan menjadi status selesai untuk kebutuhan baru.
 
 ## Keputusan dan batas cakupan
 
+- Target pengujian ditambah Samsung Tizen atas instruksi pemilik. TV fisik belum tersedia; gunakan simulator resmi sebagai lapisan uji tambahan, terpisah dari emulator Tizen OS asli dan perangkat nyata. Pengujian Android ditunda atas instruksi pemilik 3 November. [Cakupan dan hasil](../../docs/client-revisions/2026-11-03/r30-20/README.md).
+
 - Musik pilihan final adalah **Safari oleh syncopika versi penuh**. `a3-0-30s.mp3` adalah cuplikan acuan, bukan berkas loop produksi. Kredit dan lisensi CC BY 3.0 harus dicantumkan. Sumber pilihan ada di [kurasi putaran kedua](../../docs/audio-options/2026-10-29/round-2/sources.json).
 - Keputusan pemilik 2 November menggantikan rencana prerender: gunakan GLB rigged langsung di Flutter, bersumber dari `Welcome_Wave/Review/Manggala_WELCOME_WAVE_30s_REVIEW.glb` dengan kamera `CAM-UserApprovedView`. Pertahankan enam klip asli, material, tekstur, badge dan morph. Wave welcome terus bergerak dengan mulut aktif; feedback tanpa narasi memakai varian tanpa gerak mulut. Suara tetap diintegrasikan pada R30-17–19.
+- Revisi pemilik 3 November: paket sumber diperbarui ke `Camera_Facing_Revisions/Review/Manggala_CAMERA_FACING_REVISIONS_REVIEW.glb` (Talk/Happy/Feedback revisi). Hilangkan label penyiapan pada Karhutla, besarkan maskot terhadap teks, dan kurangi pemuatan ulang. [Bukti tindak lanjut](../../docs/client-revisions/2026-11-03/mascot-review-revisions/README.md): 107 tes, 21 screenshot web, pergantian klip tanpa load tambahan. APK baru terpasang; Talk, Happy, layout dan retensi renderer antarbacaan juga diuji pada Android terhubung setelah perangkat dibuka. Uji TV fisik tetap tertunda.
 - Narasi hanya untuk sapaan pembuka, **tiga halaman bacaan Karhutla**, dan salam penutup. Kuis jenis hutan dan seluruh feedback **tidak menggunakan narasi**; maskotnya tetap bergerak.
 - Bahasa tetap Indonesia, Inggris, dan Korea, mengikuti pilihan pengguna. Isi narasi Karhutla mengikuti teks penjelasan yang sekarang, tanpa menambah materi baru. Pembuka dan penutup memakai naskah singkat yang sesuai fungsinya.
 - Pemilik memilih **ElevenLabs** dengan voice `mw_animated_The Plucky Hero` dan menyatakan peninjauan suara, pengaturan/biaya, serta penggunaan telah selesai. Angka kredit aktual dan pengaturan rinci tidak diberikan dalam percakapan dan tidak diada-adakan.
@@ -46,17 +49,17 @@ Keputusan ini menggantikan ketentuan lama tentang demo yang wajib dicoba, seluru
 | KIFC-R30-07 | Hapus demo pengurangan dan sambungkan navigasi | Babak 1 dan transisi ke Babak 2 | Sedang | Tidak ada | Selesai | `d069340` |
 | KIFC-R30-08 | Terima drop di seluruh panel unsur | Penyusunan unsur | Sedang | Tidak ada | Selesai | `d62bbae` (koreksi) |
 | KIFC-R30-09 | Terapkan Safari versi penuh | Musik lintas game | Sedang | Sumber penuh dan lisensi | Dikerjakan: native belum terverifikasi | `c713309` |
-| KIFC-R30-10 | Cari dan siapkan video kebakaran kamera statis | Aset panel hutan | Sedang, bergantung aset | Sumber dan izin penggunaan | Siap ditinjau: cuplikan wildfire pengganti | `0961f1c` |
+| KIFC-R30-10 | Cari dan siapkan video kebakaran kamera statis | Aset panel hutan | Sedang, bergantung aset | Sumber dan izin penggunaan | Selesai: persetujuan visual pada 11 direkonsiliasi | `0961f1c` |
 | KIFC-R30-11 | Integrasikan background video kebakaran bersama | Penyusunan lengkap dan penjelasan Segitiga Api | Menengah–sulit | 07, 08, 10 | Dikerjakan: visual disetujui, uji offline tertunda | `72c8941` |
 | KIFC-R30-12 | Finalisasi naskah dan audisi suara maskot | Pembuka, tiga bacaan, penutup | Menengah–sulit | Akses TTS dan peninjauan suara | Selesai: disetujui pemilik | `8aba569` |
 | KIFC-R30-13 | Produksi narasi tiga bahasa dan data timing | Aset narasi | Sulit | 12 | Selesai: draf diterima pemilik | `f145844` |
 | KIFC-R30-14 | Buktikan desain maskot 3D langsung dari GLB | Prototipe aset maskot | Sulit | Referensi dan akses produksi | Selesai: sumber final dipilih pemilik dan prototipe web teruji | `4203eda` |
 | KIFC-R30-15 | Produksi gerakan maskot yang dapat dipakai ulang | Aset animasi maskot | Sulit | 14 | Selesai: paket runtime, poster dan varian silent tersedia | `786ab35` |
 | KIFC-R30-16 | Integrasikan animasi maskot di seluruh halaman | Semua kemunculan maskot | Sulit | 15 | Siap ditinjau: web dan Android teruji, review visual pemilik tersisa | `c78f2cc` |
-| KIFC-R30-17 | Tambahkan salam bersuara pada penutup | Penutup terakhir | Sulit karena dependensi | 03, 04, 09, 13, 16 | Belum dikerjakan | — |
-| KIFC-R30-18 | Tambahkan sapaan idle berkala | Pembuka | Sulit | 01, 09, 13, 16 | Belum dikerjakan | — |
-| KIFC-R30-19 | Sinkronkan narasi, teks per kata, dan navigasi bacaan | Tiga bacaan Karhutla | Paling sulit secara integrasi | 05, 07, 09, 13, 16 | Belum dikerjakan | — |
-| KIFC-R30-20 | Verifikasi terpadu dan kemas hasil revisi | Seluruh alur, web dan APK | Luas, lintas fitur | 01–19 | Belum dikerjakan | — |
+| KIFC-R30-17 | Tambahkan salam bersuara pada penutup | Penutup terakhir | Sulit karena dependensi | 03, 04, 09, 13, 16 | Siap ditinjau: Android tiga bahasa dan regresi teruji | — |
+| KIFC-R30-18 | Tambahkan sapaan idle berkala | Pembuka | Sulit | 01, 09, 13, 16 | Siap ditinjau: playback web/Android teruji, review kenyamanan tersisa | — |
+| KIFC-R30-19 | Sinkronkan narasi, teks per kata, dan navigasi bacaan | Tiga bacaan Karhutla | Paling sulit secara integrasi | 05, 07, 09, 13, 16 | Siap ditinjau: playback dan teks teruji; timing perkiraan perlu didengar | — |
+| KIFC-R30-20 | Verifikasi terpadu dan kemas hasil revisi | Web, APK dan Samsung Tizen | Luas, lintas fitur | 01–19 | Dikerjakan: paket review dan simulator tersedia; Android ditunda pemilik | — |
 
 Nomor pendek pada dependensi merujuk tiket dengan awalan yang sama. Tiket sumber aset 09, 10, 12, dan 14 dapat dipersiapkan lebih awal bila perlu agar integrasi tidak tertahan; ini tidak mengubah urutan kesulitan.
 
@@ -186,7 +189,7 @@ Nomor pendek pada dependensi merujuk tiket dengan awalan yang sama. Tiket sumber
 
 ### KIFC-R30-10 — Sumber video kebakaran nyata yang statis
 
-**Status:** Siap ditinjau. Stabilisasi diizinkan pemilik; kandidat pembakaran ranting ditolak dan diganti cuplikan kebakaran hutan meluas. Persetujuan visual cuplikan baru belum diberikan. **Area:** aset baru di `assets/animations/` atau lokasi media yang konsisten dengan proyek, `ASSET_SOURCES.md`.
+**Status:** Selesai secara implementasi. Persetujuan visual footage pada tiket 11 direkonsiliasi dengan tiket sumber 10; hash aset runtime sama dengan commit `0961f1c`. Tidak meminta persetujuan ulang untuk footage yang sama. Stabilisasi diizinkan pemilik; kandidat pembakaran ranting tetap ditolak. **Area:** aset baru di `assets/animations/` atau lokasi media yang konsisten dengan proyek, `ASSET_SOURCES.md`.
 
 - [x] Cari footage nyata dengan framing tetap (stabilisasi diperbolehkan), tanpa gerakan pan/zoom yang mengganggu, watermark, atau konten yang tidak sesuai untuk edukasi pengunjung.
 - [x] Verifikasi izin penggunaan dalam game/pameran dan modifikasi; catat kreator, URL sumber, lisensi, versi asli, dan perubahan. Hindari aset berbayar tanpa menyampaikan biayanya dahulu.
@@ -273,54 +276,62 @@ Nomor pendek pada dependensi merujuk tiket dengan awalan yang sama. Tiket sumber
 
 **Selesai jika:** seluruh kemunculan maskot yang aktif memakai state yang tepat tanpa regresi layout/performa. Bukti: inventaris konsumen, screenshot, rekaman gerakan dan fallback.
 
-**Bukti 2 November:** [indeks R30-16](../../docs/client-revisions/2026-11-02/r30-16/README.md), 105 capture browser pada lima viewport dan tiga bahasa, 14 pemeriksaan interaksi web, perjalanan Android nyata dan 10 capture fixture halaman asli pada TECNO LG7n Android 12. Skeletal, morph, loop 30 detik dan penghentian welcome teruji. Input WebView Android diperbaiki dengan hybrid composition; overflow judul kuis pada layar sempit diperbaiki tanpa mengecilkan jawaban. Analisis bersih, 447 tes lulus, build web/APK debug berhasil. Peninjau teknis: agen; persetujuan visual akhir pemilik dan uji TV fisik/performa berkepanjangan masih tersisa. Narasi R30-17–19 belum diintegrasikan.
+**Bukti 2 November:** [indeks R30-16](../../docs/client-revisions/2026-11-02/r30-16/README.md), 105 capture browser pada lima viewport dan tiga bahasa, 14 pemeriksaan interaksi web, perjalanan Android nyata dan 10 capture fixture halaman asli pada TECNO LG7n Android 12. Skeletal, morph, loop 30 detik dan penghentian welcome teruji. Input WebView Android diperbaiki dengan hybrid composition; overflow judul kuis pada layar sempit diperbaiki tanpa mengecilkan jawaban. Analisis bersih, 447 tes lulus, build web/APK debug berhasil. Peninjau teknis: agen; persetujuan visual akhir pemilik dan uji TV fisik/performa berkepanjangan masih tersisa. Narasi R30-17–19 telah diintegrasikan pada 3 November dan menunggu review akhir sebagaimana tiket terkait.
 
 ### KIFC-R30-17 — Salam penutup bersuara
 
-**Status:** Belum dikerjakan. Penutup tidak memiliki subtitle narasi. **Dependensi:** 03, 04, 09, 13, 16. **Area kode:** `_ClosingPage`, pengelola narasi, mixer audio dan timer penutup.
+**Status:** Siap ditinjau: playback Android tiga bahasa, state mulut, mixer dan regresi dasar teruji. Penutup tidak memiliki subtitle narasi. **Dependensi:** 03, 04, 09, 13, 16. **Area kode:** `_ClosingPage`, pengelola narasi, mixer audio dan timer penutup.
 
-- [ ] Putar salam/terima kasih sekali ketika masuk penutup, sesuai bahasa pengguna; tampilkan gerakan berbicara lalu kembali idle/perpisahan ketika audio selesai.
-- [ ] Selesai audio tidak memicu perpindahan. Penutup tetap menunggu timer 30 detik atau tindakan pengguna; jika timer/hak suara belum tersedia, tampilkan fallback teks yang tetap bisa dilanjutkan.
-- [ ] Turunkan musik sementara selama narasi, pulihkan sesuai setelan pengguna sesudahnya. Mute tetap berlaku dan tidak mengubah volume sistem.
-- [ ] Uji replay, ketuk cepat, navigasi saat berbicara, lifecycle dan audio gagal; tidak ada suara penutup yang tertinggal di sesi baru.
+- [x] Putar salam/terima kasih sekali ketika masuk penutup, sesuai bahasa pengguna; tampilkan gerakan berbicara lalu kembali idle/perpisahan ketika audio selesai.
+- [x] Selesai audio tidak memicu perpindahan. Penutup tetap menunggu timer 30 detik atau tindakan pengguna; jika timer/hak suara belum tersedia, tampilkan fallback teks yang tetap bisa dilanjutkan.
+- [x] Turunkan musik sementara selama narasi, pulihkan sesuai setelan pengguna sesudahnya. Mute tetap berlaku dan tidak mengubah volume sistem.
+- [x] Uji replay, ketuk cepat, navigasi saat berbicara, lifecycle dan audio gagal; tidak ada suara penutup yang tertinggal di sesi baru.
 
 **Selesai jika:** audio penutup dan gerakan benar tanpa mengambil alih aturan timer/manual. Bukti: rekaman tiga bahasa serta regresi timer/lifecycle/audio.
 
+**Bukti 3 November:** [laporan integrasi](../../docs/client-revisions/2026-11-03/r30-17-18/README.md). Android: tiga bahasa, Wave/morph lalu WaveSilent, mixer turun dan pulih; renderer ditunggu maksimum empat detik agar suara selaras dengan munculnya maskot. Sembilan tes narasi dan regresi alur lulus. Perlu review pendengaran pemilik dan uji speaker TV. Commit per tiket belum dicatat karena perubahan bersama kedua tiket masih dalam working tree.
+
 ### KIFC-R30-18 — Sapaan pembuka berkala
 
-**Status:** Belum dikerjakan. Pembuka tidak memiliki subtitle narasi. **Dependensi:** 01, 09, 13, 16. **Area kode:** `_WelcomePage`, lifecycle, pengelola narasi dan kontrol bahasa.
+**Status:** Siap ditinjau: sapaan berkala terhubung dan diuji pada web/Android setelah interaksi; review kenyamanan masih diperlukan. Pembuka tidak memiliki subtitle narasi. **Dependensi:** 01, 09, 13, 16. **Area kode:** `_WelcomePage`, lifecycle, pengelola narasi dan kontrol bahasa.
 
-- [ ] Putar sapaan singkat sesuai bahasa yang aktif saat pembuka idle. Gunakan jeda awal yang dapat dikonfigurasi, usulan 20 detik setelah sapaan selesai, lalu nilai kenyamanan pengulangannya.
-- [ ] Selesai sapaan tidak memulai tantangan. Mulai, pergantian bahasa, dialog, mute, keluar halaman, background, serta replay harus membatalkan/menyesuaikan jadwal lama; tidak ada panggilan bertumpuk atau dua bahasa berbunyi bersamaan.
-- [ ] Pada APK, uji apakah sapaan bisa dimulai saat foreground. Pada web, tangani pembatasan autoplay: bila ditolak, tunggu interaksi pengguna dan lanjutkan secara benar tanpa spam error. Jangan menjanjikan sapaan sebelum interaksi pada semua browser.
-- [ ] Selama mute sapaan tidak berbunyi; animasi idle tetap hidup. Setelah unmute tidak memutar antrean sapaan yang terlewat. Nilai interval dan volume dengan musik serta suasana pameran.
+- [x] Putar sapaan singkat sesuai bahasa yang aktif saat pembuka idle. Gunakan jeda awal yang dapat dikonfigurasi, usulan 20 detik setelah sapaan selesai; kenyamanan pengulangan menunggu review pemilik.
+- [x] Selesai sapaan tidak memulai tantangan. Mulai, pergantian bahasa, dialog, mute, keluar halaman, background, serta replay harus membatalkan/menyesuaikan jadwal lama; tidak ada panggilan bertumpuk atau dua bahasa berbunyi bersamaan.
+- [x] Uji sapaan APK saat foreground setelah interaksi. Cold start tanpa sentuhan tidak memulai audio sesuai aturan aplikasi; kemampuan autoplay sistem Android sendiri tidak disimpulkan. Web juga menunggu interaksi dan teruji memainkan suara setelahnya.
+- [x] Selama mute sapaan tidak berbunyi; animasi idle tetap hidup. Setelah unmute tidak memutar antrean sapaan yang terlewat. Penilaian interval dan volume dalam suasana pameran menunggu review pemilik/perangkat tujuan.
 
 **Selesai jika:** sapaan berkala menarik perhatian tanpa mengganggu atau memulai game sendiri. Bukti: rekaman idle beberapa siklus, tes lifecycle/locale dan catatan perbedaan web/APK.
 
+**Bukti 3 November:** [laporan integrasi](../../docs/client-revisions/2026-11-03/r30-17-18/README.md). Browser: tidak autoplay sebelum interaksi, sapaan Inggris diputar dan berhenti saat mulai. Android: beberapa siklus mixer setelah interaksi, serta cold start tanpa audio sebelum interaksi; tes mute, background dan pergantian bahasa lulus. Kenyamanan suara di lokasi dan commit terpisah masih tertunda.
+
 ### KIFC-R30-19 — Bacaan dengan narasi dan teks per kata
 
-**Status:** Belum dikerjakan. **Dependensi:** 05, 07, 09, 13, 16. **Area kode:** `_KarhutlaCards`, `_MascotDialogue`, pengelola narasi, lokalisasi dan navigasi bacaan; `test/reading_interaction_test.dart`, `test/chapter2_review_test.dart`.
+**Status:** Siap ditinjau: playback, teks bertahap, navigasi, fallback dan regresi dasar terintegrasi; timing perkiraan menunggu review pendengaran pemilik. **Dependensi:** 05, 07, 09, 13, 16. **Area kode:** `_KarhutlaCards`, `_MascotDialogue`, pengelola narasi, lokalisasi dan navigasi bacaan; `test/reading_interaction_test.dart`, `test/chapter2_review_test.dart`.
 
-- [ ] Terapkan hanya pada tiga bacaan definisi, penyebab, dan pencegahan Karhutla. Teks bubble bertambah per kata mengikuti timestamp narasi; kata yang sudah muncul tetap terlihat hingga membentuk paragraf utuh. Jaga tinggi/lebar bubble agar tidak meloncat tiap kata.
-- [ ] Mulai timeline setelah aset narasi siap dan halaman aktif. Selama pemuatan, tampilkan keadaan yang bisa dipahami serta akses lanjut manual; pemuatan gagal tidak boleh melewati penjelasan tanpa kesempatan membaca.
-- [ ] Gerakkan mulut maskot selama narasi, turunkan musik, dan selaraskan kemunculan teks dengan posisi audio. Saat pause/lifecycle, teks dan audio berhenti bersama; reduced motion tetap dapat membaca informasi lengkap melalui alternatif yang layak.
-- [ ] Selesai narasi pertama/kedua membuka bacaan berikutnya; bacaan ketiga menuju kuis jenis hutan. Ketuk layar saat bacaan aktif langsung melewati satu halaman dan menghentikan audio lama, bukan sekadar menampilkan seluruh teks dahulu.
-- [ ] Pertahankan prioritas tombol Kembali, suara, dialog, dan kontrol manual. Tangani ketuk berulang serta ketuk bersamaan event audio selesai dengan satu transisi saja. Callback lama tidak boleh melewati halaman baru atau pertanyaan.
-- [ ] Saat mute, gunakan timeline teks dengan durasi rekaman sebagai dasar kelanjutan otomatis; jangan membuat game menunggu audio yang sengaja dimatikan. Saat audio gagal, sediakan teks lengkap dan kelanjutan manual tanpa deadlock; catat fallback kepada pengguna secara wajar.
-- [ ] Uji tiga bahasa, jeda/resume, kembali lalu masuk lagi, audio decode gagal, subtitle panjang, batas akhir timestamp, dan perpindahan menuju kuis yang belum dijawab.
+**Bukti 3 November:** [laporan dan screenshot](../../docs/client-revisions/2026-11-03/r30-19/README.md). Sembilan data timing terdaftar di bundle; 15 cue hasil pemisahan tujuh frasa Korea masih perkiraan dan perlu didengar. Android tiga bahasa menampilkan teks bertahap; bacaan Korea berjalan otomatis hingga kuis tanpa jawaban. Web dengan audio produksi menguji auto-lanjut, skip dan penghentian suara pada kuis. Analisis bersih, 106 tes regresi dan empat tes integrasi terbaru lulus. Perubahan tiket 17–19 belum di-commit; review pendengaran dan uji TV fisik masih tertunda.
+
+- [x] Terapkan hanya pada tiga bacaan definisi, penyebab, dan pencegahan Karhutla. Teks bubble bertambah per kata mengikuti timestamp narasi; kata yang sudah muncul tetap terlihat hingga membentuk paragraf utuh. Jaga tinggi/lebar bubble agar tidak meloncat tiap kata.
+- [x] Mulai timeline setelah aset narasi siap dan halaman aktif. Selama pemuatan, tampilkan keadaan yang bisa dipahami serta akses lanjut manual; pemuatan gagal tidak boleh melewati penjelasan tanpa kesempatan membaca.
+- [x] Gerakkan mulut maskot selama narasi, turunkan musik, dan selaraskan kemunculan teks dengan posisi audio. Saat pause/lifecycle, teks dan audio berhenti bersama; reduced motion tetap dapat membaca informasi lengkap melalui alternatif yang layak.
+- [x] Selesai narasi pertama/kedua membuka bacaan berikutnya; bacaan ketiga menuju kuis jenis hutan. Ketuk layar saat bacaan aktif langsung melewati satu halaman dan menghentikan audio lama, bukan sekadar menampilkan seluruh teks dahulu.
+- [x] Pertahankan prioritas tombol Kembali, suara, dialog, dan kontrol manual. Tangani ketuk berulang serta ketuk bersamaan event audio selesai dengan satu transisi saja. Callback lama tidak boleh melewati halaman baru atau pertanyaan.
+- [x] Saat mute, gunakan timeline teks dengan durasi rekaman sebagai dasar kelanjutan otomatis; jangan membuat game menunggu audio yang sengaja dimatikan. Saat audio gagal, sediakan teks lengkap dan kelanjutan manual tanpa deadlock; catat fallback kepada pengguna secara wajar.
+- [x] Uji tiga bahasa, jeda/resume, kembali lalu masuk lagi, audio decode gagal, subtitle panjang, batas akhir timestamp, dan perpindahan menuju kuis yang belum dijawab.
 
 **Selesai jika:** ucapan, gerakan mulut, teks, serta perpindahan selaras dan seluruh isi penjelasan dapat diakses saat suara gagal/mute. Bukti: regresi event/timing dan rekaman ketiga bacaan dalam tiga bahasa.
 
 ### KIFC-R30-20 — Verifikasi terpadu dan paket hasil revisi
 
-**Status:** Belum dikerjakan. **Dependensi:** 01–19. **Area:** tes, alat journey, indeks bukti, build web/APK, dan panduan paket klien.
+**Status:** Dikerjakan. Regresi 465 tes lulus, paket web/APK/WGT review tersedia dan Samsung TV Web Simulator resmi diuji. Pengujian Android ditunda atas permintaan pemilik; runtime Tizen OS asli dan TV fisik belum divalidasi. **Dependensi:** 01–19. **Area:** tes, alat journey, indeks bukti, build web/APK, dan panduan paket klien.
 
-- [ ] Jalankan analisis dan suite regresi yang relevan, lalu perbarui perjalanan E2E agar tidak lagi mengunjungi demo. Pastikan skor maksimum 8, retry gambut, dan informasi tanpa skor tetap benar.
+- [x] Jalankan analisis dan suite regresi yang relevan, lalu perbarui perjalanan E2E agar tidak lagi mengunjungi demo. Pastikan skor maksimum 8, retry gambut, dan informasi tanpa skor tetap benar.
 - [ ] Mainkan alur tiga bahasa pada web dan APK: idle/sapaan, drop/3 unsur/video, penjelasan, tiga bacaan bersuara/skip, kuis, penyebab, kartu gambut, tantangan selesai lebih awal/deadline, ulasan/skor, penutup 30 detik dan replay.
 - [ ] Uji audio/mute/unmute, musik diturunkan saat narasi, gagal decode, lifecycle, pemutar/timer tidak bocor, serta seluruh aset offline. Verifikasi hash aset dan kode APK agar tidak mengirim build lama.
 - [ ] Lengkapi screenshot lima ukuran, rekaman animasi/audio, dan pengujian pada TV fisik jika tersedia. Catat batas bukti performa, jangkauan dan kenyamanan speaker; pisahkan yang belum dapat dibuktikan dari yang lulus.
-- [ ] Perbarui panduan bermain/instalasi, kredit, informasi versi dan checksum. Buat APK/ZIP review yang baru; jangan menimpa paket 1.0.5 lama atau menyebutnya sudah berisi revisi ini.
+- [x] Perbarui panduan bermain/instalasi, kredit, informasi versi dan checksum. Buat APK/ZIP review yang baru; jangan menimpa paket 1.0.5 lama atau menyebutnya sudah berisi revisi ini.
 - [ ] Tandai per tiket yang telah ditinjau. Push/deploy/distribusi mengikuti instruksi pemilik pada tahap rilis; paket review tidak otomatis berarti semua hasil visual/suara disahkan klien.
+
+**Progres 3 November:** [Laporan verifikasi dan paket review](../../docs/client-revisions/2026-11-03/r30-20/README.md). Uji tambahan: WGT terpasang pada Samsung TV Web Simulator 10.0.6; alur produksi Indonesia, video, skeletal/morph, narasi/skip/kuis, skor dan penutup 30 detik; sapaan Inggris/Korea. Mode jendela opaque diperlukan pada SDK Windows untuk mengatasi gambar lama tertinggal. Simulator memakai Chromium 137, bukan engine TV Tizen 10 yang tercatat Chromium 130; hasil ini bukan sertifikasi native Tizen OS. Remote key diterima, tetapi drag-and-drop membutuhkan sentuhan/pointer. APK build lulus dan aset byte-identical; tidak dipasang/diuji ulang di Android sesuai instruksi pemilik. WGT unsigned dan dibatasi kandidat Tizen 10; uji model TV nyata, signing dan review pendengaran tetap terbuka.
 
 **Selesai jika:** perubahan diuji sebagai satu pengalaman yang utuh, artifact dan panduan cocok dengan versi baru, serta laporan mencatat hasil dan batas pemeriksaannya secara jujur.
 
@@ -392,3 +403,21 @@ Status diperbarui setelah implementasi dan pemeriksaan nyata. Selesai secara imp
 | 2 November 2026 | KIFC-R30-14 | Sumber GLB dan prototipe disetujui sebagai jalur integrasi | `4203eda` | Pilihan pemilik dan bukti welcome telah direkonsiliasi | Rencana prerender diganti GLB real-time; perangkat target belum diuji |
 | 2 November 2026 | KIFC-R30-15 | Paket runtime dan poster selesai | `786ab35` | Enam klip asli, tiga varian tanpa ucapan, tujuh poster RGBA dengan hash | Dilanjutkan ke komponen lintas halaman R30-16 |
 | 2 November 2026 | KIFC-R30-16 | Siap ditinjau pemilik | `c78f2cc` | 447 tes, 105 screenshot browser, interaksi dan playback Android; hybrid composition memperbaiki sentuhan | Review visual pemilik; TV fisik pada R30-20. Berikutnya R30-17 |
+
+### Follow-up pemilik — Feedback_User_Pose dan proporsi maskot (3 November)
+
+- Perbaikan terbaru: maskot completion/penjelasan menjadi overlay bawah dengan `Stack/Positioned`, tanpa mengambil tinggi panel unsur/teks. Scroll panel dihapus; panel utuh dan ukuran tetap. Subtitle dan bubble 13px dipertahankan, completion tengah, penjelasan kiri, Lanjut kanan. [Bukti terbaru yang menggantikan pendekatan scroll sebelumnya](../../docs/client-revisions/2026-11-03/assembly-mascot-overlay/README.md).
+
+- Koreksi copy terbaru: subtitle penjelasan kembali pada semua ukuran layar; bubble completion/penjelasan kembali 13px dan padding 12px. Tinggi serta posisi maskot dipertahankan. Pada layar pendek, panel hutan dapat digulir jika ruang tidak cukup; teks tidak dihilangkan/diperkecil. [Bukti yang menggantikan catatan subtitle/teks kecil sebelumnya](../../docs/client-revisions/2026-11-03/restore-assembly-copy/README.md).
+
+- Permintaan terbaru: tinggi maskot penjelasan disamakan dengan completion, tetap kiri-bawah. Width/scale/crop kini sama tanpa pengecilan berdasar sisa footer; layout pendek menyediakan ruang lewat padding/jarak dan menghindari subtitle berulang, isi bubble utuh. [Bukti terbaru dan batas validasi](../../docs/client-revisions/2026-11-03/explanation-matching-height/README.md).
+
+- Koreksi terbaru pemilik membatalkan posisi tengah pada layar penjelasan bertombol Lanjut: maskot kembali kiri-bawah, subtitle dan susunan teks dipulihkan, pembesaran tetap; tombol tetap kanan dengan lebar yang aman. Completion tetap tengah. [Bukti yang menggantikan revisi posisi penjelasan sebelumnya](../../docs/client-revisions/2026-11-03/explanation-original-position/README.md).
+
+- Layar penjelasan sesudah completion kini memakai ukuran/scale/crop bersama dan posisi tengah-bawah; Lanjut dipindahkan ke ruang kanan dengan gap 8px. Subtitle pengantar berulang disembunyikan pada viewport pendek; isi bubble utuh dan panel hutan tetap. [Bukti dan pemeriksaan](../../docs/client-revisions/2026-11-03/explanation-matches-assembly/README.md). Review melalui hot reload; server build tidak dijalankan.
+
+- Koreksi lanjutan pemilik: ukuran completion disamakan dengan maskot saat pemilihan tiga unsur (lebar, scale, crop bersama), dipusatkan X dan tetap di bawah; trial geser naik dihapus. 15 tes assembly lulus, termasuk kesamaan ukuran sebelum/sesudah, tiga bahasa × lima viewport; analisis bersih. [Bukti terbaru](../../docs/client-revisions/2026-11-03/completion-matches-assembly/README.md). Server web build tetap dimatikan; review melalui sesi Flutter development pemilik.
+
+- Sumber Feedback diganti dengan `Feedback_User_Pose/Review/Manggala_FEEDBACK_USER_POSE_REVIEW.glb`; laporan sumber dibaca, lima klip lain dan kamera/material/morph dipertahankan. Pose tumpang tindih tangan pada sumber tetap dipertahankan.
+- Maskot setelah tiga unsur api diperbesar dan dipusatkan pada X, dengan anchor bawah tetap. Maskot feedback benar/salah, penjelasan segitiga api, kartu informasi dan review dampak diperbesar; teks lengkap dan ukuran pilihan jawaban tetap dipertahankan.
+- Status: **siap ditinjau pemilik**, belum menjadi tiket selesai/commit baru. [Indeks bukti dan batas validasi](../../docs/client-revisions/2026-11-03/feedback-pose-proportions/README.md): widget render lima viewport dan tiga bahasa, validasi data GLB; playback sumber terbaru di Android belum diuji dalam follow-up ini. Jumlah status tiket utama tidak berubah.

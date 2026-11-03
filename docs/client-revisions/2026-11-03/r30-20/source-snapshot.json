@@ -1,0 +1,2534 @@
+[
+  {
+    "file": ".github/workflows/deploy-pages.yml",
+    "sha256": "aa1f746eb081d7f2c19c855e900e8b349bd4c176b04f213d437c6af3fdf0a44c"
+  },
+  {
+    "file": ".gitignore",
+    "sha256": "1d9f7c801e52db9d6cf7c938830df82bf7984600f2697870cadee5fb5851d15c"
+  },
+  {
+    "file": ".metadata",
+    "sha256": "15b1cf75c945f33c7428a1b26c4936f75e111a7f677d44a33d4e4d3743596ab2"
+  },
+  {
+    "file": "AGENTS.md",
+    "sha256": "9785da3138adaa8b59b31ec755cb16678139e90152eada8ec3dbe49a5944b5df"
+  },
+  {
+    "file": "ASSET_SOURCES.md",
+    "sha256": "ac744470212bfe459693ad3660352bc564d0dc7ac3017495cff326082d6cbba1"
+  },
+  {
+    "file": "README.md",
+    "sha256": "85a20d0a3301bc9e4a0129b9fb450c64249f96daad739544286cb3d1162705c1"
+  },
+  {
+    "file": "analysis_options.yaml",
+    "sha256": "257e799b6c50a9dea1c4e42cb6fa7d2a35ac08d35528222d071162c387e92687"
+  },
+  {
+    "file": "android/.gitignore",
+    "sha256": "c9af75dbc2c8aa867476a09426c80b178c4aeed8b9393ae48503eedfa3273d71"
+  },
+  {
+    "file": "android/app/build.gradle.kts",
+    "sha256": "ea62a84a42d499cd0c1bb9799d1fc6c0fb8df42a67e64b98a2531add79aad96e"
+  },
+  {
+    "file": "android/app/src/debug/AndroidManifest.xml",
+    "sha256": "b01a4541a8144c15bc617bab7eb267c99fa1476368fbbda5a12cdbf4e316a34c"
+  },
+  {
+    "file": "android/app/src/main/AndroidManifest.xml",
+    "sha256": "c5163bc4154097e5ac3d898950fa2a3383766f40743fedbdfb01af38848f64c1"
+  },
+  {
+    "file": "android/app/src/main/kotlin/id/kifc/fire_prevention_challenge/MainActivity.kt",
+    "sha256": "f6539ccf4d4572798c0fba641b4d5c6b4725ca14bd510185ecda76899d4eb545"
+  },
+  {
+    "file": "android/app/src/main/res/drawable-v21/launch_background.xml",
+    "sha256": "dca312ec77de83e43ef70a825c299b51451247286c29167d62f19165750b8793"
+  },
+  {
+    "file": "android/app/src/main/res/drawable/launch_background.xml",
+    "sha256": "2df60e2cfbee873ce2858088cf003e6b93498f2f568476da437610467ea1a9d7"
+  },
+  {
+    "file": "android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml",
+    "sha256": "5056b7226b3f58e65a61739e8ab6f5c52099fccee3ae9aad0e8856f31709e3fa"
+  },
+  {
+    "file": "android/app/src/main/res/mipmap-hdpi/ic_launcher.png",
+    "sha256": "42d13f4f1ed9724f9f0d0506e75ea53b2ff6d4a0c61d1a7c606a298b034f7778"
+  },
+  {
+    "file": "android/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png",
+    "sha256": "597c7cb0c1fcb0fd798af3ecd6c0931c05b6ee89747e5acd3b8c03e5c0163b71"
+  },
+  {
+    "file": "android/app/src/main/res/mipmap-mdpi/ic_launcher.png",
+    "sha256": "e538596d2d22fad1c9178ee92ee8dccdf17c0e43418e3d9cf31bb10d34c50359"
+  },
+  {
+    "file": "android/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png",
+    "sha256": "06e7ba8d5c036a6fe880add07f32acddd50a0abbfe175106ebc8c86bd03bdbcc"
+  },
+  {
+    "file": "android/app/src/main/res/mipmap-xhdpi/ic_launcher.png",
+    "sha256": "6b5ebbd9b8bf1a8c9e99ab142a482c73e53ce33664b5217d3e2478da67fbd7e5"
+  },
+  {
+    "file": "android/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png",
+    "sha256": "4d43b93229eb1a0ac099808d9d354b5cf708ca5631e1df2ce65b72670904f988"
+  },
+  {
+    "file": "android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png",
+    "sha256": "a429ecd62ec560b4aa3cddb7d0d2e39d0207922b564e07615386624ea6d3245d"
+  },
+  {
+    "file": "android/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png",
+    "sha256": "e2ed0eb943b6629137d9a613d49c8523293b4feb8733a7b9a36f407176749b55"
+  },
+  {
+    "file": "android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png",
+    "sha256": "9ee23a37869e294d6065a7561654d1989ed3f213a133d6182d2e9e52ea35dd7d"
+  },
+  {
+    "file": "android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png",
+    "sha256": "da152f97b5bc657ee14b164ea132c26b25dabb92b3804e25bae629a65bfa51a2"
+  },
+  {
+    "file": "android/app/src/main/res/values-night/styles.xml",
+    "sha256": "ea763597dc1a84c8034251caee98d7753e0fbf57340ffc94677427de4b537516"
+  },
+  {
+    "file": "android/app/src/main/res/values/icon_colors.xml",
+    "sha256": "f18538bf50e0e89f857cd40bd5538ef83cfa846703a318ecce11b9880b6be23a"
+  },
+  {
+    "file": "android/app/src/main/res/values/styles.xml",
+    "sha256": "cca15a99b59380a548bf6a890f7ca5380ee509b1f9bbb2f5f9ec3589fa25c2f7"
+  },
+  {
+    "file": "android/app/src/main/res/xml/network_security_config.xml",
+    "sha256": "c869d1fafdd3261c25f2973afa1d7f77e4e0f476d3dbfe5cfe00028fe81a513a"
+  },
+  {
+    "file": "android/app/src/profile/AndroidManifest.xml",
+    "sha256": "b01a4541a8144c15bc617bab7eb267c99fa1476368fbbda5a12cdbf4e316a34c"
+  },
+  {
+    "file": "android/build.gradle.kts",
+    "sha256": "218f400e3fff31c9c986a2535dfb974560e1b4d33cc27b7c1fee96a2b7e44454"
+  },
+  {
+    "file": "android/gradle.properties",
+    "sha256": "8c571c20e6b82d16e64d0a14320db39367ba7d85af2ecf3100f369459e1c0c8f"
+  },
+  {
+    "file": "android/gradle/wrapper/gradle-wrapper.properties",
+    "sha256": "a23faf39f936281e98c22c568a812ded3684a61fcf683bbd1aac2e85691622ac"
+  },
+  {
+    "file": "android/settings.gradle.kts",
+    "sha256": "12ec5e66e6a1cc90fcd73cfae78c87e6ca9637dc3a860c90253af63aa1af58cf"
+  },
+  {
+    "file": "assets/animations/fire-loop.webp",
+    "sha256": "06df66e011c958c93b2de2593e86f387cae71fa7d521d2bb0ec279fc4de8efcb"
+  },
+  {
+    "file": "assets/animations/fire-poster.png",
+    "sha256": "7bdf04525e27e6847dad35e2b21f268cba1521ec7de5f1979f67ad30d1629934"
+  },
+  {
+    "file": "assets/animations/forest-burn-loop.mp4",
+    "sha256": "3ac9aa9d7fd8d421ff8fddde4e8f8f2fa3d55a35a8a94383034c8ee06a6680a6"
+  },
+  {
+    "file": "assets/animations/forest-burn-poster.jpg",
+    "sha256": "6ee4a2d0af1f2026e581ebaa8f663ca8ba22333cfe602f2d892afaa4071818ba"
+  },
+  {
+    "file": "assets/animations/forest-fire-0.webp",
+    "sha256": "9f0f184465af3d9abd29881f0a9fddd3a98af5874a9b570632f3d5c2c21eaffb"
+  },
+  {
+    "file": "assets/animations/forest-fire-1.webp",
+    "sha256": "675cfdbcb9520ea462fb9bc872d49306771073fb8e4a9f9a7b03828407f0e42b"
+  },
+  {
+    "file": "assets/animations/forest-fire-2.webp",
+    "sha256": "f1a769e25b2ebde6b780cd622473fb9e348bf32403ccf1dbbeedb6fee55fc79f"
+  },
+  {
+    "file": "assets/animations/forest-fire-poster.png",
+    "sha256": "53af59bb86e7752a0bb99608a77e71828cfeaaef4b3328e130d5b439edcf1f66"
+  },
+  {
+    "file": "assets/audio/complete.wav",
+    "sha256": "59fdef9342a690e2099115700986a165fd85a7dab12a43b91399f1675e73d1d1"
+  },
+  {
+    "file": "assets/audio/correct.wav",
+    "sha256": "619e4f06c7039853f5392161958eac5017a6dd323e1f510174a4741878bc1439"
+  },
+  {
+    "file": "assets/audio/finish.wav",
+    "sha256": "2c5e34c8e98268b138ca5b910ecac0bf2ed2583204ab08eece2135e5db4ed7e4"
+  },
+  {
+    "file": "assets/audio/flip.wav",
+    "sha256": "f072efc8aff8d8c9f11e140cd737e143eb585702225d64643e63356b9173c66b"
+  },
+  {
+    "file": "assets/audio/forest-birds.mp3",
+    "sha256": "e5ce80afcbe1b8415a06d06cceb115944706d1fb718a80ac89521824269effe4"
+  },
+  {
+    "file": "assets/audio/forest-music.mp3",
+    "sha256": "aea92e1da0abe880d8ef85a3e37eeed0cf86d1e7219904d402cc8f1f7920cc15"
+  },
+  {
+    "file": "assets/audio/narration/incoming/README.md",
+    "sha256": "36e319f0f37e71aa8e82c8e3d0172aab64657ae2735ca03055166d10acd008df"
+  },
+  {
+    "file": "assets/audio/narration/prepared/en/closing.mp3",
+    "sha256": "4f1e1d049c643b909a2c5e7db0aa3793857f355623855843c0ee536efa7ba135"
+  },
+  {
+    "file": "assets/audio/narration/prepared/en/karhutla-cause.mp3",
+    "sha256": "31471110d7bf1e188f4f7c0c6c4caefdb5a6591ecfd58e7b13aff7f3d261432c"
+  },
+  {
+    "file": "assets/audio/narration/prepared/en/karhutla-definition.mp3",
+    "sha256": "f411d7747e15c436449b7a1e0fdf1975f8bf753438d724daccc7bbe27c0fb409"
+  },
+  {
+    "file": "assets/audio/narration/prepared/en/karhutla-prevention.mp3",
+    "sha256": "1ca82d7e55e301c9452c68f1f8df4521bb809f10756b8008490159d6147c32b2"
+  },
+  {
+    "file": "assets/audio/narration/prepared/en/welcome.mp3",
+    "sha256": "35752a0f73f2764c0623db4c1353e34b618630d84690128c023a6670c00a1aa5"
+  },
+  {
+    "file": "assets/audio/narration/prepared/id/closing.mp3",
+    "sha256": "2b58f6722949aa89f90fb7cd7cf50e855b1c9e728a43238517621b0239964576"
+  },
+  {
+    "file": "assets/audio/narration/prepared/id/karhutla-cause.mp3",
+    "sha256": "be91ccde3ecccc11cb0c1d5bf73280b4ac9f4d44c8a9372d53ca7765ecc6d219"
+  },
+  {
+    "file": "assets/audio/narration/prepared/id/karhutla-definition.mp3",
+    "sha256": "7cbba014cee5275c8a0adfe8f8456a3ff9f2a62d0bed1e5f28410b1a9a50fb76"
+  },
+  {
+    "file": "assets/audio/narration/prepared/id/karhutla-prevention.mp3",
+    "sha256": "b46e98d531484e9b331961a7420d1a139282f0e16f402e5a5b33147744381535"
+  },
+  {
+    "file": "assets/audio/narration/prepared/id/welcome.mp3",
+    "sha256": "88c026ae17ebe4dd6bbc06623786ee0cddfed923fcb981b6d92735a114802a2a"
+  },
+  {
+    "file": "assets/audio/narration/prepared/ko/closing.mp3",
+    "sha256": "e060cf0e74223cb983879c4883b31b1c3d32c91a7d03084adc79c860c8a2d69c"
+  },
+  {
+    "file": "assets/audio/narration/prepared/ko/karhutla-cause.mp3",
+    "sha256": "985ba047bd829bada3e8d973637e7115e6c37049d21fa6ecc13e23f1d1676699"
+  },
+  {
+    "file": "assets/audio/narration/prepared/ko/karhutla-definition.mp3",
+    "sha256": "802296c29025c9f112d98ec5068948edc1aaf43cc5bae40f5d4170f68b663f9c"
+  },
+  {
+    "file": "assets/audio/narration/prepared/ko/karhutla-prevention.mp3",
+    "sha256": "e20041a83b57862e6e7261c93a22e2eef3899cc9056a3cae5335095264d5c216"
+  },
+  {
+    "file": "assets/audio/narration/prepared/ko/welcome.mp3",
+    "sha256": "c5798d4bf87dd585b42e02c44d4e65ac1ac18a26d6b6821d30ae76c2529ee3c2"
+  },
+  {
+    "file": "assets/audio/narration/reading_timing.json",
+    "sha256": "06c484583f4b4873b4e3bb18f1833e895a709f1b77c7c081f7c0d7752f0e2b70"
+  },
+  {
+    "file": "assets/audio/retry.wav",
+    "sha256": "99fcd9a2f52d1a84784fd51b47e4ae0f8e61d4903203d5eda4c6ca1753a0e835"
+  },
+  {
+    "file": "assets/audio/select.wav",
+    "sha256": "7e1c75f3d579a6abfea52bbda3ec5e2f48786dd6543b126df6d156037060fd26"
+  },
+  {
+    "file": "assets/audio/tap.wav",
+    "sha256": "1af8b6167b5310a389e5f43db5f256fd978abcf287117bad1a4bdd1c9d40e8b7"
+  },
+  {
+    "file": "assets/fonts/Archivo-Bold.ttf",
+    "sha256": "3a59763a5ccdaee991fcbd828f48aba988628016bb32e04c14c29d1948781d1a"
+  },
+  {
+    "file": "assets/fonts/Archivo-ExtraBold.ttf",
+    "sha256": "05d1aa5a1f627b0a4547ded4f5ce9586cdb0809248165748a873ae73465e9ead"
+  },
+  {
+    "file": "assets/fonts/Archivo-Medium.ttf",
+    "sha256": "25d42ba304326e459be18ea09b3ff52377a3bd7af608006d7b16e9f70b2185ca"
+  },
+  {
+    "file": "assets/fonts/Archivo-OFL.txt",
+    "sha256": "393a694c7dee6694a22c73049e95cea5d0808697a872c435862d33c0afc67091"
+  },
+  {
+    "file": "assets/fonts/Archivo-Regular.ttf",
+    "sha256": "a291577256eb9f66f7a3105194e75cd40eba57c1aa6a17ef687ec038af9e9c48"
+  },
+  {
+    "file": "assets/fonts/Archivo-SemiBold.ttf",
+    "sha256": "1f7adf5917f9c4f25545436b164555edd401c449ab6c1fedd65c62a71658d2e2"
+  },
+  {
+    "file": "assets/fonts/ArchivoBlack-OFL.txt",
+    "sha256": "3173acd82f8c6159b5b1037b539fcbd4edff68e65c2ea8b9412b5a5ca97b08ff"
+  },
+  {
+    "file": "assets/fonts/ArchivoBlack-Regular.ttf",
+    "sha256": "dd9a89a019b4849f66ab75455fe7bdf931311042cbb0f0f97acc061539703180"
+  },
+  {
+    "file": "assets/fonts/NotoSansKR-OFL.txt",
+    "sha256": "babcfe66c8a098b2fa279bc724a3a342f8124f77ce18941fbcc1bbb39823cded"
+  },
+  {
+    "file": "assets/fonts/NotoSansKR-Variable.ttf",
+    "sha256": "194018e6b2b293a7964f037b25c0249ce1418bc9ab3c971060a03aa57861e252"
+  },
+  {
+    "file": "assets/fonts/Roboto-LICENSE.txt",
+    "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+  },
+  {
+    "file": "assets/fonts/Roboto-Regular.woff2",
+    "sha256": "35b02ca266b79eb4996590f15817425a1ce9ebf48f84471843233ff614656bf2"
+  },
+  {
+    "file": "assets/images/field/cigarette-leaves.jpg",
+    "sha256": "e5f26a35dec6b671fa0d1a30c375eedaca9f59728f0d1935df3d9d55cacc8f19"
+  },
+  {
+    "file": "assets/images/field/cool-mist.jpg",
+    "sha256": "e90233c39e97d2a1be70d7566cb5fc1d98597e687b4b5a4197ea9061154b42bd"
+  },
+  {
+    "file": "assets/images/field/dry-landscape.jpg",
+    "sha256": "d0ba9f1d647c1aeebb246873c4ed3df444dd27e149254e4002e3031b0c5c016f"
+  },
+  {
+    "file": "assets/images/field/dry-leaf-litter.jpg",
+    "sha256": "5931aaabc27a5dd05b4e2edec689a4f934d9279c87e18581e1a0bb72cf28815c"
+  },
+  {
+    "file": "assets/images/field/dry-wood-client.jpg",
+    "sha256": "ba80f3866cf333d165318889e6a77895b7d21202c082b8f3863a61bfeca8ea42"
+  },
+  {
+    "file": "assets/images/field/fire-cutout.png",
+    "sha256": "4f94917c5215bb6bfb6772a019521285d815aa35e7835b95cdc55b3adb0e3a35"
+  },
+  {
+    "file": "assets/images/field/fire-klaten.jpg",
+    "sha256": "39de8c40785c6c9fa51899b781f6e37a82d10874ee0f88bfa139cccdff9095e7"
+  },
+  {
+    "file": "assets/images/field/haze-sumatra-nasa.jpg",
+    "sha256": "82ec3543af945b6f0e9558a60ed5fcf8bbc913db7204fa157696f210dcd90aad"
+  },
+  {
+    "file": "assets/images/field/ignition-sparks.jpg",
+    "sha256": "b2a6e60f21c85eef05a14013513023c140271e5e92fb2aa6142323949252f093"
+  },
+  {
+    "file": "assets/images/field/lightning-forest.jpg",
+    "sha256": "e70f7648923377a9dd8d1a458d216632257dff7f4e747335df0e7ad8970616cd"
+  },
+  {
+    "file": "assets/images/field/mangrove-nusa-lembongan.jpg",
+    "sha256": "b3ea8d11f4569caef46712754f424543ed95cea73de92b555e3312446db53703"
+  },
+  {
+    "file": "assets/images/field/oxygen-air.jpg",
+    "sha256": "d7aa5bfd2a5f008b1da91598cbf6fcee793841e6e84698071571cb8b8f572166"
+  },
+  {
+    "file": "assets/images/field/oxygen-canopy.jpg",
+    "sha256": "8e12ce69c63b6374b382d8554cb1e65edbc17c32b6714e9075e32cf723c22fa9"
+  },
+  {
+    "file": "assets/images/field/peat-fire-selangor.jpg",
+    "sha256": "f295c7f4e7fda31f32ddc04d825744595400c231cc851309a28c3a0d34c222e2"
+  },
+  {
+    "file": "assets/images/field/peat-subsidence-nara.jpg",
+    "sha256": "6b24b1497958e7a8e6ea86ed49947c35e8e2043d17baed90935f66f1bde07295"
+  },
+  {
+    "file": "assets/images/field/rain-splash.jpg",
+    "sha256": "1c6d7e48ff53cb90041c24f72572542465161ca2fdb87c09b30a9576fc3b2dbe"
+  },
+  {
+    "file": "assets/images/field/rainforest-kalimantan.jpg",
+    "sha256": "66fcfd43d84c6e890f95ecd16f089b7da72efab5cf15f6bce20fa82638617853"
+  },
+  {
+    "file": "assets/images/field/small-campfire.jpg",
+    "sha256": "d43ca95d043bd43377f52daeaae69b495e1f047a0f8d84090f4b60d307523451"
+  },
+  {
+    "file": "assets/images/field/stone-pebbles.jpg",
+    "sha256": "431db5505bf756747b9461598215ab5fe8b416013bd41af2bec2617579bbac19"
+  },
+  {
+    "file": "assets/images/field/sunlit-grass.jpg",
+    "sha256": "46044d0425d3b31c410d9923fe750cd102634e67a55d186a62d4bd9d890b97c6"
+  },
+  {
+    "file": "assets/images/field/water-surface.jpg",
+    "sha256": "4eb929dedc9b6f0c51832426e49e1776c56065b80e344fb09371e814a19ffde2"
+  },
+  {
+    "file": "assets/images/field/wet-grass.jpg",
+    "sha256": "5c10209a598d982b7fce999523edf1bf08d7a9d79e889b692d6ccaffc1a2ee3d"
+  },
+  {
+    "file": "assets/images/forest/kereng-bangkirai.jpg",
+    "sha256": "a70dc5d8ed4a0d9610ccc9bef86c151596e28a8e91e805795b969d5497faa666"
+  },
+  {
+    "file": "assets/images/logos/01-kementerian-kehutanan.png",
+    "sha256": "de2df83039f4d727184aa8f584780cfb56ac54629f4090f7c419d77765b192b5"
+  },
+  {
+    "file": "assets/images/logos/02-korea-forest-service.png",
+    "sha256": "af91ac2f8717ce6b0873a1bb7c112772a6d62eeb98ebdcb0f02beaa53eceee69"
+  },
+  {
+    "file": "assets/images/logos/03-kifc.png",
+    "sha256": "08295b349e43d35b3c07480834fdfdd9e2af8b4e1726f84389ebf9562c740525"
+  },
+  {
+    "file": "assets/images/logos/04-manggala-agni.jpeg",
+    "sha256": "e576ad7a59f3110c4eb853f6da2ad23a78f6d397887e73930fdd7f0b437933cf"
+  },
+  {
+    "file": "assets/images/mascot/manggala_agni_hint_safety.png",
+    "sha256": "3268643e74bca5c414959bc501871f9cd1ac73249df2fe6b5e5b6772b7fb9efb"
+  },
+  {
+    "file": "assets/images/mascot/manggala_agni_presenting.png",
+    "sha256": "57506bec1df82cbefb37462bd312521b10fc62960dd21ad2a4406f3cf87bd921"
+  },
+  {
+    "file": "assets/images/mascot/manggala_agni_success.png",
+    "sha256": "d972e524a79062a6ea201a2d3aabf72741895bef8182151fc26312105dabd0bd"
+  },
+  {
+    "file": "assets/images/mascot/manggala_agni_welcome.png",
+    "sha256": "a096b5dfe13ff187ccfcca0c1dbdcaba4fa6d65682c8f11472d596e35d01facc"
+  },
+  {
+    "file": "assets/images/mascot3d/farewell.png",
+    "sha256": "f66ba06c9e82dcf995e6638e997b2dd95ea92e07928b93bf4c69a8960996ad58"
+  },
+  {
+    "file": "assets/images/mascot3d/hintSafety.png",
+    "sha256": "c2074c2e779ac75b3a7079fc6b3c075e1e3bc503988ce8e44d4acf8f6642579f"
+  },
+  {
+    "file": "assets/images/mascot3d/idle.png",
+    "sha256": "c743850e306f2bc71a9612029a083370dbda0f7a87a028c930e452c6fc25ce79"
+  },
+  {
+    "file": "assets/images/mascot3d/presenting.png",
+    "sha256": "d6d7b53b4e6bfa2aa4bc18b5edef0fc5cfa6aed7b215aad3e6318c6bcc4f3a2c"
+  },
+  {
+    "file": "assets/images/mascot3d/success.png",
+    "sha256": "311d59b5d237c4582f7d1ac58398319699b6d90a1762a9eb6002056868c4c43c"
+  },
+  {
+    "file": "assets/images/mascot3d/talking.png",
+    "sha256": "4080380445868bbb4d0936ca90d695df4a6cf1c163611c41a4b03a9df32ee619"
+  },
+  {
+    "file": "assets/images/mascot3d/welcome.png",
+    "sha256": "f66ba06c9e82dcf995e6638e997b2dd95ea92e07928b93bf4c69a8960996ad58"
+  },
+  {
+    "file": "assets/models/manggala_feedback_user_pose.glb",
+    "sha256": "58fb51bfad79fa4fb9937193562ebaf8257e7c93343187076305defc465ee1a8"
+  },
+  {
+    "file": "assets/models/manggala_game_states.glb",
+    "sha256": "e608bce08384d85bd7a92a40325c997d92d6fadc06090b878fe07d912731fcb1"
+  },
+  {
+    "file": "assets/models/manggala_welcome_wave_30s.glb",
+    "sha256": "cb8e5d8cca8af20aa458442f0c38b5c69b30a23eb9002ecbc04c3ca59e57b46e"
+  },
+  {
+    "file": "assets/models/mascot_manifest.json",
+    "sha256": "86825acb1441e40c99ea372dc1ca31b803d5160709474b85825cab134a6c1677"
+  },
+  {
+    "file": "assets/models/mascot_posters.json",
+    "sha256": "c26244a19e49d4cbba628002c4c43c83dde7a54c875c9928161cf37dc28a7b88"
+  },
+  {
+    "file": "design/branding/app-icon-manifest.json",
+    "sha256": "2344acada2c72c2665d3e2d152a6d06c246aa2d1ee7013491bb556f7ecfd6f30"
+  },
+  {
+    "file": "design/branding/fire-prevention-app-icon-v1.png",
+    "sha256": "ca54c8a0859af957508c155c761d2a7170b74feb68f50fdcbaf09762f7c49780"
+  },
+  {
+    "file": "design/branding/fire-prevention-app-icon-v1.prompt.md",
+    "sha256": "23cda982055a005c46186854b384230f1f4f349b33cfde5fc64340ae9fc5fcc3"
+  },
+  {
+    "file": "design/branding/fire-prevention-app-icon-v2.png",
+    "sha256": "adeae2a06d1f1c16af52057d760d945d0af67994d93f3693b93603e43a6808f5"
+  },
+  {
+    "file": "design/branding/fire-prevention-app-icon-v2.prompt.md",
+    "sha256": "8322cf2427b7f2ee9eab7b089fb755887037d2a49a8be38c37be14643b78e3dc"
+  },
+  {
+    "file": "design/branding/fire-prevention-app-icon-v3.png",
+    "sha256": "5961e7f9000deb46fbeb506981fdbe50a5fb3eb5b46d8a6bf9f9132af32378cc"
+  },
+  {
+    "file": "design/branding/fire-prevention-app-icon-v3.prompt.md",
+    "sha256": "43a14a1f0acd4090948ea64acf2857a0a38599927749765ea6c9eed59b71bf30"
+  },
+  {
+    "file": "design/quick-specs/answer-feedback-2026-10-16.md",
+    "sha256": "c6f5c4f296dcdcf98271511637dca26337f4b487ccf7e1ed97f9df450f2fdc8d"
+  },
+  {
+    "file": "design/quick-specs/client-revision-tracker-2026-10-18.md",
+    "sha256": "0d91af50ba94316a4c834d7cdac24282185ea6fcffa5beb3610954f1d20ddef2"
+  },
+  {
+    "file": "design/quick-specs/fire-atmosphere-closing-2026-10-16.md",
+    "sha256": "1f5cb5afcbc2c73555f51e0b61da4ff8310c813a2a32a389ca985edbc6fe6540"
+  },
+  {
+    "file": "design/quick-specs/indonesian-copy-pass-2026-10-10.md",
+    "sha256": "03fbd8de2d77ad6ae16417eb6194d7f4b9ea6168384f0911479495004c8e421c"
+  },
+  {
+    "file": "design/quick-specs/indonesian-copy-pass-2026-10-16.md",
+    "sha256": "051658a7cabe5528f76d8676616383c33ac5993bd06a4331cbbf0c7e5abd95e6"
+  },
+  {
+    "file": "design/quick-specs/kifc-04-reduction-review-2026-10-25.md",
+    "sha256": "12959c10fe657d23a696a2d9358f6c6562cedf60c40001cfa89b24d20aebc5dd"
+  },
+  {
+    "file": "design/quick-specs/kifc-revision-tracker-2026-10-30.md",
+    "sha256": "2744b65f388f28d30e9d5a416c2e6ebb189345f88c5a9970caa4cf599ff94f13"
+  },
+  {
+    "file": "design/quick-specs/kifc-screen-revision-tracker-2026-10-23.md",
+    "sha256": "0b7294037f64008a86bbe88ba69e8a01c024f3b9f4774c54c7ad59b7ea243832"
+  },
+  {
+    "file": "design/quick-specs/partner-logo-pill-2026-10-10.md",
+    "sha256": "c22e7d3fd5fcc5b994eb42e582cb0f77f9f95dff1c3af4bb3f6772906db2800d"
+  },
+  {
+    "file": "design/quick-specs/photo-curation-2026-10-15.md",
+    "sha256": "932703f6d21e7e0e6c0cbf48a7e247624c2109e94393ad320ef66d048228be14"
+  },
+  {
+    "file": "design/quick-specs/photo-proportions-2026-10-16.md",
+    "sha256": "3f202355db597f46e219d088e8c0e7a5b2a6b134a2242715a5f0d61bae8317a6"
+  },
+  {
+    "file": "design/quick-specs/priority-audit-revisions-2026-10-15.md",
+    "sha256": "ebef491720841323ffd3a7d07eae5cc597678e368b3411d7980932b0ef5c76d4"
+  },
+  {
+    "file": "design/quick-specs/rev09-portrait-touch-reach-review.md",
+    "sha256": "7399b7159c5f16023415a04b429ea77bf2b026fef1dc5a8f661d37dda0950c15"
+  },
+  {
+    "file": "design/quick-specs/triangle-demo-2026-10-16.md",
+    "sha256": "0455ab38aed2107e1a835801a1755e423fcaa83dfdaf98730c07f5f1cb20a12c"
+  },
+  {
+    "file": "design/quick-specs/unified-typeface-2026-10-09.md",
+    "sha256": "066848e7327e7fc6b007f8b3e1f51a7903f04c66a7ce1b834314a1279dad57f8"
+  },
+  {
+    "file": "docs/audio-options/2026-10-29/01-treasure-hunter-30s.mp3",
+    "sha256": "bac443e0c69e3b439bb5d8541b067cd8639e49323935222544d008aea928de7d"
+  },
+  {
+    "file": "docs/audio-options/2026-10-29/02-determined-pursuit-30s.mp3",
+    "sha256": "5d1276e6e39f5356ea5f305abd271bc4caf5a1636578e3832a5ed8b1cfe53283"
+  },
+  {
+    "file": "docs/audio-options/2026-10-29/03-heat-adventure-30s.mp3",
+    "sha256": "3b10219ac2527dff462029e2c6ba1898f80fd47cd72a5b74a5fa1910a9d9490e"
+  },
+  {
+    "file": "docs/audio-options/2026-10-29/README.md",
+    "sha256": "2809ed16e06f3f3689b59968f4a3d6c50b6d3a3fcc115740c739885b2381776c"
+  },
+  {
+    "file": "docs/audio-options/2026-10-29/round-2/README.md",
+    "sha256": "0b41955ea6393cf2a9bab9c6fa1f806641b0d7030d31600f6f420a07ab9f90f5"
+  },
+  {
+    "file": "docs/audio-options/2026-10-29/round-2/a0-original-30s.mp3",
+    "sha256": "bac443e0c69e3b439bb5d8541b067cd8639e49323935222544d008aea928de7d"
+  },
+  {
+    "file": "docs/audio-options/2026-10-29/round-2/a1-0-30s.mp3",
+    "sha256": "1237cbf1f3854c36160bc715e653029e721a2d68554ccf21095e2ef8fb36b35f"
+  },
+  {
+    "file": "docs/audio-options/2026-10-29/round-2/a1-45-30s.mp3",
+    "sha256": "e96487e0446860f1c8b922edc1298d7875e806d9d1c03d979fc84fd7270fddba"
+  },
+  {
+    "file": "docs/audio-options/2026-10-29/round-2/a2-0-30s.mp3",
+    "sha256": "a7fbb4d11bca59e532790905cc66d17989d1791d76db1cdd02ba03c8594f975d"
+  },
+  {
+    "file": "docs/audio-options/2026-10-29/round-2/a3-0-30s.mp3",
+    "sha256": "0498c57ca84a1a81fdb169783733c283d75dd3c6efb33c2a9b4431f17bfacef4"
+  },
+  {
+    "file": "docs/audio-options/2026-10-29/round-2/sources.json",
+    "sha256": "c1ab46109346a8c72803d2352863f999379391f4975c082566de94ce3b41365e"
+  },
+  {
+    "file": "docs/audio-options/2026-10-29/sources.json",
+    "sha256": "ce5457b4bb4a32470affbe0b6525ceb8eb7a173b47821517401c9795a79a9383"
+  },
+  {
+    "file": "docs/client-delivery/2026-10-28/README.md",
+    "sha256": "07e5209a20ad118b86471419e3b685b29f1b53152cf65b3df5d949d83a187176"
+  },
+  {
+    "file": "docs/client-delivery/2026-10-28/delivery-content.json",
+    "sha256": "6eafec237023110b15641b18d888df9773c15d73d3471caf479207fe480e6a50"
+  },
+  {
+    "file": "docs/client-delivery/2026-10-28/screenshots/assembly.png",
+    "sha256": "f198b2ee2b908fd074073636e420e03570ae4df8610c08c0135ef65ece4e7e0a"
+  },
+  {
+    "file": "docs/client-delivery/2026-10-28/screenshots/cause.png",
+    "sha256": "a22f732ad658b85c88ac4aea120911842541041af0e3877930be8ac2e9723519"
+  },
+  {
+    "file": "docs/client-delivery/2026-10-28/screenshots/impact.png",
+    "sha256": "aa18a0bb5c9de97ff28aac97efe597be19fd512223655ce455154bb2f9bafe82"
+  },
+  {
+    "file": "docs/client-delivery/2026-10-28/screenshots/index.json",
+    "sha256": "42e9be6dea9a0973ffcf191f9a7d02dc6729218126ffd602dd9e7eedca7ec8a8"
+  },
+  {
+    "file": "docs/client-delivery/2026-10-28/screenshots/peat.png",
+    "sha256": "4bb3cbd60b6d30508feca677516a024777b5781683b923a58dc3de21c86db20d"
+  },
+  {
+    "file": "docs/client-delivery/2026-10-28/screenshots/reduction.png",
+    "sha256": "0f1ac07176cef58ed5104cecf553c8f308511284b3b9fab0ecf6d97bc5d14c50"
+  },
+  {
+    "file": "docs/client-delivery/2026-10-28/screenshots/score.png",
+    "sha256": "398d60f1dbd5514802e8367ed88b2ccf5a879eb29d95de2e317cf748480c03c0"
+  },
+  {
+    "file": "docs/client-delivery/2026-10-28/screenshots/welcome.png",
+    "sha256": "388817f08d109e2f5a256246b4d7cf469093f0a903e4364ad025bca46ae13b77"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-23/Revisi_Game_Untuk_Vendor.docx",
+    "sha256": "d4b9bfbb92db72a3776b4a0490866596fec18dbc3790703eef5f080d9ab310e2"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-23/audio/asset-hashes.json",
+    "sha256": "3edff4df0048a2d0124ac8d9c36a82dffb3c11185caa22336f058b2b5b83379b"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-23/audio/kenney-license.txt",
+    "sha256": "f7966c773bbed0eca6a9c75081c44a178b38eae112724dbb5fdfbd4192d118a9"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-23/chapter1-mockup-review-2026-10-24.md",
+    "sha256": "f152aac85e041fbbcc372ae5db744733ab3700a5daa214e989e10bf74a2f66ca"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-23/kifc-01-visual-review.md",
+    "sha256": "594763c95bb679afab11548d6ef8213d1884c8bbfdd7f55b25714f28a3aea647"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-23/kifc-02-empty-slots-review.md",
+    "sha256": "eecd46f0e7033d556db07f56789d0ccaab9a3850bd9ee9a892b29d03884045d5"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-23/kifc-02-layout-plan.md",
+    "sha256": "d73576406e268c88f87b7f689c263a814ec534dfe6b36b4cc9d6e7cfcc7c7fd7"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-23/kifc-02-raised-completion-review.md",
+    "sha256": "9e2a11383d15e9765ee7776c1a6addbe45e9a4400a8e3fdb333772804e789e1e"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-23/kifc-02-visual-review.md",
+    "sha256": "dfeaf899d0ffe27b995328dbb4ccc9d0eeb0b1b63b0e59b3f6ee768abc928125"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-23/kifc-03-continuity-review.md",
+    "sha256": "eb4f33d86e9180852dfe2b11a154557c0e8ea32dfa98846634f24fe9b3e78d16"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-23/kifc-05-06-07-11-visual-review.md",
+    "sha256": "b900e06042af4b26e6792b660962170d669d8abd6da1f7b17c34724e162fb2bd"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-23/kifc-08-raised-feedback-review.md",
+    "sha256": "f6b8434cc899afa320b5ad0e30dbef03667890e7155d0a5c190db721498576f2"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-23/kifc-08-side-feedback-review.md",
+    "sha256": "03675ed791ace0422f2e8b9861bf242488fe06e13fc40979dd0972509260e239"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-23/kifc-08-stable-heading-review.md",
+    "sha256": "19eccc9de5b6ee93fae6c49d44a916d310f313de2311b364ec1575e299c05bf8"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-23/kifc-08-visual-review.md",
+    "sha256": "2a7194c9d78b53dea09bbd97c67a6639bb31ebd569e66c06d6a6090314ca99cb"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-23/kifc-09-flip-review.md",
+    "sha256": "e794486bc43be72fe6268050e59fac40cb8a5fb8539885d1b9094f845c016e61"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-23/kifc-09-format-proposal.md",
+    "sha256": "0ef216fec584369259f923cc4cee9c71e4cc26d863759a5d33345f88b1565149"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-23/kifc-09-visual-refinement.md",
+    "sha256": "e7e84498f35e3b8350c8eef9e5eb1eb67a34dbb7877990fe1173d87a3c6ddc3c"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-23/kifc-10-impact-review.md",
+    "sha256": "d290f707b626377be298e3ee5c8a343d874ffffafba9c03de8779609840b0244"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-23/kifc-11-score8-review.md",
+    "sha256": "caa2ab7f75629ab4ae89c2cbfddc79ebdd608ad247d64dd152bec07409d1286e"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-23/kifc-g01-interaction-motion-review.md",
+    "sha256": "9aacce322e6635d5d647ec14a9304fb3ca35ce0760e35d62bdef2ce6f4e47831"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-23/kifc-g01-interaction-review.md",
+    "sha256": "5e273a9d9dddc686cd17270adf0a6bf611d36455eb2afb4219ff905d4fd1822d"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-23/kifc-g02-motion-review.md",
+    "sha256": "158987cd079828d088b9addfdf1109fc399a28a318ee13065a4abb6796464b5d"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-23/kifc-g03-visual-audit.md",
+    "sha256": "2641de6375fa016e927cb8dbab8cdae620bb74d91dfeffa27d1c347c1b9b7fbc"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-23/kifc-g04-audio-feedback.md",
+    "sha256": "a4c4132a70bd2d44cbf9ba6a600df42b9b695e834f9058d1a910823e32942d64"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-23/kifc-g04-audio-review.md",
+    "sha256": "5a283baa36314d77a83fa636e18754a9aed764707e3dde6268311983f35cfd5e"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-23/kifc-g04-audio-scope.md",
+    "sha256": "40221b8cfde955cb55bbe4a7035ac3aef6236afb25a9148a0d432e1f140c1330"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-23/kifc-x02-language-review.md",
+    "sha256": "c37bea0d9336d718bad5049fc9912d7d7ad4182d1611ba65392dae244c971a00"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-23/kifc-x03-integration-review.md",
+    "sha256": "71bc317cc7ae0e64bbf760dadca9c8c75afea462f5116cce278ef22e869cea3f"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-23/kifc-x03-latest-apk-review.md",
+    "sha256": "159159c5a8ba6d3a76d466579c649f151605d7f3096777179cc1037ee8e412d4"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-23/recorded-fire-review.md",
+    "sha256": "f18d0e0b3b4fee3f5c2e4ada28ce25ab7b03cd502a53a5b761955ca61a4b35ea"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-23/web-fixed-preview-review.md",
+    "sha256": "161853f6a94945d2ef4c8e0785152d960d911d126a2515a24d490ee3ebbbbfb4"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-25/apk-display-name-review.md",
+    "sha256": "3f847f23c951446d397ad2a36b560f5405605573452c4ea17fe3a90a53fd273d"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-25/end-to-end-review.md",
+    "sha256": "ef7f71d739fbde4fb47c388a7e9438b359694778e78aacb2a642a083fa36aa73"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-25/feedback15-review.md",
+    "sha256": "91ab684061c99534efb4a26706a858eb66229da7895e9685db1d52a98d1fa000"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-25/kifc-04-reduction-review.md",
+    "sha256": "ae4893c38654a04fa0777089f6c7eef93d42b7b81922a85c9b61ccaad6f69858"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-25/kifc-04-spatial-reduction-review.md",
+    "sha256": "8c00c7d0a096db7ff0c86a64f13a3b5b38ba1d87bb27070c5f7f687a750a42a5"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-25/manual-reading-review.md",
+    "sha256": "e257ff15d4954db42be3e8ee6a225f46f90ed6d1b52e66dc3f25d03502f2145a"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-25/mascot-alignment-results.json",
+    "sha256": "bea1a599908aef5214572a20096b9c28c9f94a5f4a81ecebdc990dd865486c04"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-25/mascot-card-alignment-review.md",
+    "sha256": "fc977f28b9a4f71d49b2bd19642b1091145270e20cfb92e10ae10f790733a5c3"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-25/triangle-cta-alignment-review.md",
+    "sha256": "967b76682ee35feccd1caa1edb8b482ccbfddd68e25f833ecbef5ac301514738"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-27/app-icon-results.json",
+    "sha256": "9e20f64612b8e567be779877117a7d62d5a8525b26fa150b27f0d10f4338854f"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-27/app-icon-review.md",
+    "sha256": "ec81ad68b7d91462e7f1cf96fc0556d6638acd4ac8dc58bca913005b1482f05b"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-27/app-icon/app-info.png",
+    "sha256": "ebf8ebac6522501cb34e72585c37859e2e30f5f69e1b0edc5118c43184ee2a5b"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-27/app-icon/launcher.png",
+    "sha256": "a9001d33596813b83918ba198ef71a36089837c09538df32bd2a21bac24176ca"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-27/speech-bubble-audit-results.json",
+    "sha256": "26aba501cfe31c1118ed6b528bcae51ea9a862b0d74bd5df7ed19a5d1a5e82ab"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-27/speech-bubble-audit-review.md",
+    "sha256": "55123e991610c0c6b2362a54b4f4ddaa3a45e9d9620357c065c676995eafc71b"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-27/speech-bubble-audit/correct-feedback.png",
+    "sha256": "7cfdaaf055b4536c0a1a679babfb208d19eb1d281b30e885954481d533d83906"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-27/speech-bubble-audit/final-review.png",
+    "sha256": "aa40f56310b41fb794c061b52df043bd83a285fecc388a16d73e2eeeaa229da9"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-27/speech-bubble-audit/peat-cards-ko.png",
+    "sha256": "42dcfbf9e931345959b7ef776176128e87f2f419b2dcc832246397cb407eff6c"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-27/speech-bubble-audit/reading-card.png",
+    "sha256": "ac74a7e996c176822e7d7e5cec7aff219f50375627c6421710cceee9c5289655"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-27/speech-bubble-audit/wrong-feedback.png",
+    "sha256": "2c44311d35da6cd96e8af320dd2051d00d0a93248746ffbeaefe86734eb2b2ff"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-27/welcome-bubble-results.json",
+    "sha256": "1bebc18a967bd7864ae9bd3f083511beeed93fe0feb4ca4b547913cf61734b97"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-27/welcome-bubble-review.md",
+    "sha256": "548c59402736a0870139e56973401c9517fecc54fcf8dcaeb65cda3191236402"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-27/welcome-bubble/english.png",
+    "sha256": "32d050b5b2f8d8fba5ba072f27a51534b1dc766b35e04df638cfde6092018db1"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-27/welcome-bubble/indonesian.png",
+    "sha256": "acbc81b8130f2672859c71c17caa95192d4d7668178fcf027bb0b19a5eac9ed1"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-27/welcome-bubble/korean.png",
+    "sha256": "6002ccde6f777415da1d6185dc01c50c094475c47d0bc6a6e5ac1be005f061fd"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-27/welcome-bubble/language-switch.mp4",
+    "sha256": "6c5e9c4c6ae2e8060bb76550b2486b6f75ca6c602846b95c0ddbfe495ee5dca5"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/audio/asset-hashes.json",
+    "sha256": "e0252befd8b1041d06b5caefdd601026d7fbfa5975226c8878c11aa537eea392"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/audio/safari-source.json",
+    "sha256": "01c040a733752a6ec33cd1b398720b788cb04bb3485097188bf6478b9fa83423"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/narration/audition-supertonic3-soft/M3-en.mp3",
+    "sha256": "6c2226e24ce723089a7583a2c5b26d374a1afa445bb0bef68c2e0fcf9097949f"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/narration/audition-supertonic3-soft/M3-id-en-ko.mp3",
+    "sha256": "34a9fdf02b9333b9c47022ef91117f643b5cd3e5f82e459b6ad6079dcc918420"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/narration/audition-supertonic3-soft/M3-id.mp3",
+    "sha256": "76e61a1fc5349424b5e0b1d3b9286f9687aa6e3541e5b3c0446f6b5d84e6d1b1"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/narration/audition-supertonic3-soft/M3-ko.mp3",
+    "sha256": "777eb3e2b1ed17386d26a6d92e07a3dce1666d638a9c832425cf63e6b720ea05"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/narration/audition-supertonic3-soft/M4-en.mp3",
+    "sha256": "2670d3e533c46d7443f0c86785e032c3afd5a2007cc14eadfc60c59f8080568c"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/narration/audition-supertonic3-soft/M4-id-en-ko.mp3",
+    "sha256": "40e8d592637a3acbed9888a3e1ad275a7cbb0ddfec2bc8b2c0e1de14b3a7b6b8"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/narration/audition-supertonic3-soft/M4-id.mp3",
+    "sha256": "4c7313f15b7a8e46b635ee563a9b0abc9213b3995920ba94446e35ab29aab350"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/narration/audition-supertonic3-soft/M4-ko.mp3",
+    "sha256": "39bf22cb2c0baf5d1cddfbe1042b7b0626a5f264bacead4f5c82ccc3f39d3e8d"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/narration/audition-supertonic3-soft/M5-en.mp3",
+    "sha256": "e22cff2275557fd898eb78eebeea0f07a87cdce37e88608ada8e3aac340323c7"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/narration/audition-supertonic3-soft/M5-id-en-ko.mp3",
+    "sha256": "636b02da89fd177599e3f2488632e1d38d00c1874d823146bf23f25e9a49f27a"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/narration/audition-supertonic3-soft/M5-id.mp3",
+    "sha256": "b4123b3e7843933ce6c322e04f8856a3a4ced99d8f825b46944b09651741213f"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/narration/audition-supertonic3-soft/M5-ko.mp3",
+    "sha256": "ae464ec009e9536c3fa0c47e9a0d6c08685b7fa66330223c2eb3af0a5433cb93"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/narration/audition-supertonic3-soft/manifest.json",
+    "sha256": "b5dc9a08b1e194be0c9ae9c3a1c92102d812d735aa7f965c47ee9c8cce3509b9"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/narration/audition-supertonic3/M1-en.mp3",
+    "sha256": "7900f9b5c9f9e74b42a5fc8f72eb8d3da949e41ddd1575db4f7d570a2ca66dad"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/narration/audition-supertonic3/M1-id-en-ko.mp3",
+    "sha256": "45af8672945e17d0e08f968a602f5c2a345e2c0f37680e675e49fe96c96e62d0"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/narration/audition-supertonic3/M1-id.mp3",
+    "sha256": "2724253635e34b27c2d80636141942cd3e3bfe37cbfbf6b2c729598a3e8705ce"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/narration/audition-supertonic3/M1-ko.mp3",
+    "sha256": "998341bdc8f4eccaf9505697132df9afe03570735304536dbafe9e3ff993e4c8"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/narration/audition-supertonic3/M2-en.mp3",
+    "sha256": "38ab38bd4657d60a4f4baacaa47b93476944defe18d902b1595f4e5f3a60e88b"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/narration/audition-supertonic3/M2-id-en-ko.mp3",
+    "sha256": "7fa2454da457d373286eb12ad63d79a39abd9daf4faf7d16f99aeb28b9603474"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/narration/audition-supertonic3/M2-id.mp3",
+    "sha256": "65d1569b9b57edf818e3370b0e86aa51dfba5b6e6e2d43051526c756098927dc"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/narration/audition-supertonic3/M2-ko.mp3",
+    "sha256": "de21c49aedfed56abe01fed00e1342538ae92be929ffc29115a05eb0f3f2bef5"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/narration/audition-supertonic3/manifest.json",
+    "sha256": "43e036af4719e7d97213ad6a6e79e041824e426d7a0129abea4ebbef8597473d"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/narration/audition-voxcpm2/manifest.json",
+    "sha256": "5281e12a9bd504e388789ab4bebd3d3eff851636ccfbff5bc60f7abf11c997a3"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/narration/audition-voxcpm2/suara-hangat-id.mp3",
+    "sha256": "d0361727f4c49333e0bdb751600424b882995f3a3b196d52df0467ecc573279b"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/narration/mix-preview/en-definition-mix.mp3",
+    "sha256": "9a7499f807dbdb535b9486dbb2fdc1803a0c4180204755f14dc15ed465aa914b"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/narration/mix-preview/id-definition-mix.mp3",
+    "sha256": "5b84fef4e66f064f5ecec1817d1de6aece6e3d811baa231a96904bdb04724c41"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/narration/mix-preview/ko-definition-mix.mp3",
+    "sha256": "da722ef2d48a61327c2e4de24c00f12ee34a62f2ff3149bb997e7e597be17bca"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/narration/naskah.md",
+    "sha256": "a7f43eafdc3fd4d436bd5c9ed721e75ee3c6c7565b765aae1573add3b13458d2"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/narration/r30-13-preparation.md",
+    "sha256": "5997402908e9825454842e90734cd23b34b613f06365775a1315ef193f5cd404"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/narration/scripts.json",
+    "sha256": "5d58214f68ecb791714de821fc640a1178dee61714cea168de2bf6703ca6fc3b"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/narration/timing-review.html",
+    "sha256": "3737c88ae2b7f51298506259249948208157cdbdf0a21adfb0a1da282158e0c9"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/narration/timings-draft.json",
+    "sha256": "cb0be80a08dc4acfc632159863da3634e6e98496ed7900b6c119287254706a85"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/narration/voice-research.md",
+    "sha256": "e01f28bff16887c6099f24e4ee64720b5b2ff3ca7574a942131a7c90d75724d5"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/r30-01-review.md",
+    "sha256": "2696df12d8a887a0f83fb1926b1cb97d74cc3296b97cdb9e8ab0e41fd76c64b0"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/r30-01-welcome.png",
+    "sha256": "437e55e820d8dd33dd065b66c067a1c49327dcb6587f2064c7ba02b744fa4be0"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/r30-02-english.png",
+    "sha256": "df7f628686cd567664b9a5d939dbe37db99d08f24f3fc7cb9bd349f133997ecb"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/r30-02-indonesian.png",
+    "sha256": "976cd46e66a518bb757cc56f049aaf08fbbd8d185e96a4f0b3b9357ec4d61473"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/r30-02-korean.png",
+    "sha256": "d1682873f57783eb31d7941f95267ea6f0d13432dfefa395af3d2409297eb559"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/r30-02-review.md",
+    "sha256": "3003b09edc6ade596740ec2e28f6c96a4f30df663b368e22b5a75d646abbc2d6"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/r30-03-closing.png",
+    "sha256": "efb07f7d02c6fb9fed7f5a7bef121f15d9f6a7f0e11104cff1c6e7afae410805"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/r30-03-review.md",
+    "sha256": "5c9c1ba677fa98380a4b94dd133e8623b569d94320b53e8db84f9f9edf993c51"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/r30-04-closing.png",
+    "sha256": "73232c41308a3cc97164791ac81885c39592919013b707acaba706d8c22c8457"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/r30-04-review.md",
+    "sha256": "672c44fa9ef683025323fe97835fb916dc6d59551469046fc27645462f36f53e"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/r30-05-definition.png",
+    "sha256": "60b5190dbb9f112fda2d74afff135571ac099ee8ec6e072f92fcc882af45fde9"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/r30-05-review.md",
+    "sha256": "065417ab593e7f71da76af2b815f8fc31eed54233339d6584fe5ca293d8fac32"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/r30-05-two-lines-review.md",
+    "sha256": "aa7347f55fce3fbdb1b49ac1555c4d37d59f6ecb7b04cfd351673547444451af"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/r30-05-two-lines.png",
+    "sha256": "5d01f48e104e670f5342525e8837dbc1e9f0963cf56cb1db7cb5e8bae45daefc"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/r30-06-challenge.png",
+    "sha256": "0513eb502b4a2bd403dbda8ab1f701b6dbcbf09d05cd9aa9f63142e21bacebd9"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/r30-06-review.md",
+    "sha256": "c219e4887341c1f826db84d30f3e823d0b2dd21b027895a838edf2722f09ce02"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/r30-06-review.png",
+    "sha256": "08a25550fb9c9fd3fc2087964f3982e01101e99f878f52ad4e7eb33a6394e211"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/r30-07-explanation.png",
+    "sha256": "6894eeda84a08b03868a8ae4c387ab50b7afdd3ad156c18697d11890e31b4c1f"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/r30-07-reading.png",
+    "sha256": "5d01f48e104e670f5342525e8837dbc1e9f0963cf56cb1db7cb5e8bae45daefc"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/r30-07-review.md",
+    "sha256": "d47227f6b4cf59b98d6a7efa71e5259e32397b7e6944b9c12c180db394a4853a"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/r30-08-complete.png",
+    "sha256": "22a3a573532ead5d877b43a826381e33033b1764cd47863b004e02ad971a9aa2"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/r30-08-dragging.png",
+    "sha256": "13fa37aba8dc4efd95da6d5cc950acbcd3e8955789082e0e74734493c0113613"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/r30-08-empty.png",
+    "sha256": "b111b6dc02fe3952667c8da374b504f953eb73da3cf1e64144faafb7c494b1d9"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/r30-08-full-forest-complete.png",
+    "sha256": "58848a67301a0b0f0bc024ea520705baa9608fe4b5ceb0cb9aa716fd25099ca2"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/r30-08-full-forest-empty.png",
+    "sha256": "b7fff525f5100ac7c7d66b2583806b0c7ada6114dbaa923c1c0233f1e129d56b"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/r30-08-full-forest-explanation.png",
+    "sha256": "f9291dfe38393492aac60e4067cb09744b68c561971609dc98d5e44477f5e80e"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/r30-08-full-forest-journey.gif",
+    "sha256": "92e627449133ef24103a3c3ef0a6d9d815d7b63a6b6be75ee6790e2d31fb64a9"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/r30-08-full-forest-partial.png",
+    "sha256": "b78652519c541ebe739c9c56649877147870d236c80cf2a20b73f4b00b87ea90"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/r30-08-full-forest-review.md",
+    "sha256": "9bafe91f4f782f039accaebb379c31dcadc29e346220e0d3e092990a0bde43ab"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/r30-08-gesture-journey.gif",
+    "sha256": "25d9fef9cea3d03995e4d107327b959cecdda0d4745ffba02b69cd320a0f3822"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/r30-08-review.md",
+    "sha256": "2c45c535fdaa0ba556385ceac09190e389a748d9230f4bf833326c9b6030433f"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/r30-09-audio-credits.png",
+    "sha256": "68ee5be88c0311462da2dedf7f6e9ea3050e27f6d6d27aa2dcd6f38078a309fc"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/r30-09-review.md",
+    "sha256": "5b466e8c99e801d1b2cc33582b872a0d5eeb165c8223ef5edbacf97c22fa830a"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/r30-10-review.md",
+    "sha256": "4984e87db825babae2082f33feaa7411838d2b508ba7687846acbe310ea0d12e"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/r30-10-wildfire-poster.jpg",
+    "sha256": "6ee4a2d0af1f2026e581ebaa8f663ca8ba22333cfe602f2d892afaa4071818ba"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/r30-11-review.md",
+    "sha256": "d82736df0c7392accf8f88449653b4f077bca5578ef576f1f1bfbc5e67d4c38c"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/video/rejected-29961571.json",
+    "sha256": "b89aca49adf560bbbbfe3bf35c459fd2e4d4cd1f8126d57bcece6fccf2b3dbff"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/video/rejected-brush-review.md",
+    "sha256": "1cf4259f889f46a85b62d4de2e7e40f0b5edd097e845a7aad6cc743757b37fac"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/video/source.json",
+    "sha256": "6409dabf0dee569b051ee9ae149009b05219c98e6a090f24076c757107965ab1"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/video/stabilization.json",
+    "sha256": "496d6d9672c8628e58968ebc06b0c50d45307387211fa07cbb2b4f665c802196"
+  },
+  {
+    "file": "docs/client-revisions/2026-10-30/video/stabilize.py",
+    "sha256": "1fed79b81a27b9c758af1e3c2679b1b9c9c5743bbdf8329fc367951cc62cbcde"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-15/README.md",
+    "sha256": "1c0860b2e7c8e638d306e2fc86ce8907d314fda86f74f7346bd52858f1dfa0d1"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-15/export_posters.js",
+    "sha256": "3f041d50bd852edec0e2ba400c24c2a8c2312bcfb6fef40e16fc5a6b6e5b417a"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/README.md",
+    "sha256": "82b03e42defba7838c4d0af081d45592f6aabe7cc124844ce0eee7106932a447"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/android-assembly-complete.png",
+    "sha256": "85ac6d91cf5a6218c7e98c21b4d2eef2d7eaa4d2249884d36ca5e92597cf8a9f"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/android-assembly-neutral.png",
+    "sha256": "ce428c224d1924b3515a18b8d81e8b38b255e29f2d495376c71f7f803a60c219"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/android-assembly-wrong.png",
+    "sha256": "902ecc7a700cfaef8ca0953d65404442ea8b507697b3b252aab1d355a1203847"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/android-assembly.png",
+    "sha256": "4e66c4f6229f9d6cf320c11affefe730b16e07e359536143c2e1db614c609fe0"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/android-cause-correct.png",
+    "sha256": "a02d56156b35f9f8cf337fd8fa9d2804f1705044d0b0ef08a15d55619429ab0c"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/android-cause-wrong.png",
+    "sha256": "2353b4bd631e1f9bbd7c59764bc2346e52443eb1eef4eef5f2ffc57a43df0ba4"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/android-closing-en.png",
+    "sha256": "a6bc3e7bebd056e1b95d4734790f7a760a68f458b5092397c61f5ae5093dbdd6"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/android-closing-id.png",
+    "sha256": "171456d846531b25b928309e200b332917930a6c5af52d63ddfdf902709e5fbf"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/android-closing-ko.png",
+    "sha256": "e36c9c1fd94bc933220ca15dbc7fc0f864f3d440c7cad064a1d8a67afaf5d2b1"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/android-final-review-en.png",
+    "sha256": "d74892fe5e4125aa0190c8659ba8bd156ec7565b2a9f72a070a6289345a6b53e"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/android-final-review-id.png",
+    "sha256": "470c989103f4cc40a4aa00e68e1e1ab316dd4a002a5142e4427aced2416257b7"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/android-final-review-ko.png",
+    "sha256": "fe41f7b085783f6208b84caab267762d38a5c8a635cc81e5da0b584b61de4af3"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/android-fixtures.json",
+    "sha256": "709978de798fbb9079199473469d72156e2c3ec0cc726d346ef6a7bdb0394621"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/android-journey.json",
+    "sha256": "16a2e8b26a51c92803d26f9fa3eb58fedd54e35f94ceb9053ba53236b23f122a"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/android-motion.mp4",
+    "sha256": "4f038e545973de5218d52dfe6174780420ec2f2dabcd8ac1c95ebf33dbfcc473"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/android-peat-cards.png",
+    "sha256": "9dc317436f3c9742464d30ce0d37e0fe5498c0d6f3c195e526f49bda2789fe28"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/android-reading-one.png",
+    "sha256": "2dccdbea3766d8f47cf2d20d702e8b1df201596753dd59d5ac5f8a6badbd0f68"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/android-risk-correct-en.png",
+    "sha256": "2773c6120271458572913a8392d828730d68ada1371f751f6995920dccaa13ff"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/android-risk-correct-id.png",
+    "sha256": "49c8d312157d9a9fb10ee32f7ac03105090f75e22b242f8d9746ea2b6757c2dc"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/android-risk-correct-ko.png",
+    "sha256": "f514085429e2d48d2ee9400e2834c14106379c3fb420fbcfe037bca409f02035"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/android-risk-wrong.png",
+    "sha256": "3b586b359e7780ce9987c50b38f395ff663f9c0e5ce89aeb49fa72d0f6e24d4f"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/android-start-navigation.json",
+    "sha256": "b60b19317cc1f628432a502765e3ff1c9f918faa658f62de0c342189813538c7"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/android-triangle-explanation.png",
+    "sha256": "af69b12d2fe152b239234bee2a98e17d618168a39d0245d9270d31998e2603fe"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/android-wave-check.js",
+    "sha256": "88fa18f47ecf5c516c5ca8045458838fac3845d31bf093db602fd22042b4de34"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/android-wave-playback.json",
+    "sha256": "5790a1630c74d19902d978b8dd179a7556eb57b26c85c29f2c95ae5ec8bec4cc"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/android-welcome-final.png",
+    "sha256": "4d378f7165c33ede6345813b991a9c29c536c3defa5f359195134b2f420b976d"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/android-welcome-runtime.json",
+    "sha256": "c3a29ba7590e3916be2f27d87433cadb7ffd6dd53f15563c5f6fef1acbd170cd"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/android-welcome.png",
+    "sha256": "38d38aad1b7977a6b28c496152dd303b43809f23e765086aaad0c8f79acc118f"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/assembly-complete.jpg",
+    "sha256": "28abe84182b4a5b524352f0f529347adaa36805a0edf051c79aeca4dd4d0731d"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/assembly-wrong.jpg",
+    "sha256": "2317fa5fe98a2df3e08cc2e83829ac2ee814fa04f32f671ae53660f37e31ef6e"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/asset-integrity.json",
+    "sha256": "79473aa0e3af46de3887445f913e21a52a3e924514669b5705a883bd4161966d"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/capture-results.json",
+    "sha256": "cdc56d88ad6c4979a75ee8d1a9cb83acfc2e8caa0e5f183c291d5c8c736f4d82"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/capture-results.txt",
+    "sha256": "c9ac03fbe1fead911c2005c0010f293d92a655bc1e2f303a8bf7850ed3c34664"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/capture_extra_sizes.js",
+    "sha256": "a617650ffa23255b1358d22c106534590221c732992dc2b3f7e203d295931c5b"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/capture_pages.js",
+    "sha256": "932c8b4e0702ea55783b8b8ab4f21b91dbe95d5e9f40eb156284f4296ba3a8e7"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/cause-correct.jpg",
+    "sha256": "2f1b43ecb51fbcc3652ea2bd6e7f9fdc1e297ed27f176dbe28b72d6d4c23d785"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/cause-wrong.jpg",
+    "sha256": "b6a0682492205071caeb37ce9d11a8a4d1aea84bf87477566a27cfb0c774b2e5"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/closing-en-1080.jpg",
+    "sha256": "ee958829bdc06c969db761e0cd1b27a4385db95091a85f91591a648fffee3497"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/closing-en-2160.jpg",
+    "sha256": "fda38d86bb9ab3bd9f3c773ce77409c01b396422a39b138903afde47cab506b1"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/closing-en-360.jpg",
+    "sha256": "be192e202c2cf79d15e13abe4b49789f5d12784a42f75428dff5515e754d4dc9"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/closing-en-411.jpg",
+    "sha256": "c326afed0bb26d92b0188ebf8b9dec7abdb0423cb89cc472a13efb9bbbf80fef"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/closing-en-720.jpg",
+    "sha256": "57f52e43ede51f7dec98811adb8e913d01efbb1b95b9767264d09abc4fa00d76"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/closing-id-1080.jpg",
+    "sha256": "b0a652145b8f64a9d213353619916abbeee9e31c498a2993ed73a65d7a2673f0"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/closing-id-2160.jpg",
+    "sha256": "5aed1b9586c47fad8d11e8bc6c93898c433d4d3d434af128ea6acb8fdf16fa5c"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/closing-id-360.jpg",
+    "sha256": "020bed13509bd8f97d483d1715d7915a18f3ece000756e6836cea4b6610432b2"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/closing-id-411.jpg",
+    "sha256": "75fd0c1978034fa3b6b198fdf76f1344d5f49cf3b2d7ec8858859737bd152bf0"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/closing-id-720.jpg",
+    "sha256": "d5e397df1d98754d7f2faedbfbad0092e0ec13e4194850f01676e6463c0f2d40"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/closing-ko-1080.jpg",
+    "sha256": "f4c1ad0f3feb1e9fa17100079602a6ad8eba227bf566c99b36af7a7791f65431"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/closing-ko-2160.jpg",
+    "sha256": "17cd7e6024cd8e758d03bb440befa5ae1f666ffc89d648314f86f92001d69af8"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/closing-ko-360.jpg",
+    "sha256": "10aa96533aa1ce6d07ca900fe36456b6fbe1abaef252fb6ae0f22e73e39e1617"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/closing-ko-411.jpg",
+    "sha256": "eb994bfa261ccfc575bc105a73c36ac1b66b0284a2dc050cc344b93f27ed79ea"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/closing-ko-720.jpg",
+    "sha256": "6be77c1be0b57b20352a8eea52e85d095d576cdfb0d7387923d799eb3e2f40de"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/closing-playing.jpg",
+    "sha256": "6098e9bad37c133ef73a6759ebf79e5e059d9cb2e66224a54b80613185872d7d"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/export_posters.js",
+    "sha256": "3f041d50bd852edec0e2ba400c24c2a8c2312bcfb6fef40e16fc5a6b6e5b417a"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/extra-capture-results.txt",
+    "sha256": "910f83d2d440905a7dfdf1fd15a289d5152f945f58ef3dd207a4272bc197b6f9"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/finalReview-en-1080.jpg",
+    "sha256": "efd622a173aa9a31f6d2b5db503a567fc6c288f7caefafeda3d5fee1afc76fad"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/finalReview-en-2160.jpg",
+    "sha256": "cbe0a3b43d6c32d3c09c2b98ef82e20a50cb78a738245cd671d884ae93220ddc"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/finalReview-en-360.jpg",
+    "sha256": "f0cb3c5034fff147c717f12481a07b4360ec75cd7e079964062984af4ebe9606"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/finalReview-en-411.jpg",
+    "sha256": "44ba47e9086009015af1fe7884dec0a8fdbec5cd12f97533c75a81d653004ab6"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/finalReview-en-720.jpg",
+    "sha256": "f0e95acb79396953dfe161075d52018b37a7900bcb22b3c6dd6ac1177ce0a4cc"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/finalReview-id-1080.jpg",
+    "sha256": "189e72100b8eb710aa8fc24ca339cba4c882a73231c943ec136cc0843872b226"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/finalReview-id-2160.jpg",
+    "sha256": "e98d29c39d0d8c85ca78e2a8477dbf256425911906cfb4fef7d9a46c8dee0842"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/finalReview-id-360.jpg",
+    "sha256": "4dd1a6809d4148bdc0ab897cd8839e04a5362c5ac5f294b972c1395683d7f4d9"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/finalReview-id-411.jpg",
+    "sha256": "26eed342f9a8f1484c3e271f97dd6a758f70ef8177d704e5b3139aa5042503d8"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/finalReview-id-720.jpg",
+    "sha256": "396184b12ea2ac3a6a986e181a8d5a4ec575fcb06e9b03e0d6ea6aa8cf0a8cc8"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/finalReview-ko-1080.jpg",
+    "sha256": "3213c1a2f818081e0011e9d70e46903379c710fd8a21e04fc3182722705cf628"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/finalReview-ko-2160.jpg",
+    "sha256": "f0228eae75d47b5069b6b5b552f90deda21e281d7c43c35c1acf57a912ff7d64"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/finalReview-ko-360.jpg",
+    "sha256": "e27edf65afa453627fba673b32aa8dcc74deebe5376feb60c65a25089220fca4"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/finalReview-ko-411.jpg",
+    "sha256": "569fe679ce102852090fd86b92c73a099d5be93898c9ec09eb9495c79b1409cd"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/finalReview-ko-720.jpg",
+    "sha256": "f0f40565154e8053179c4190fc3ba3866c4febb207163b079cfefe0cbd74c3ee"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/finalize_evidence.py",
+    "sha256": "a4a88850c1d4d93c1ea2d7e532337c9976b01efe4892392f57dc5f255c5e9e33"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/interaction-results.json",
+    "sha256": "25fcab8dc3a41db482b969e758afcfbda4bcc6122f27e09ec3787230b2456419"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/interaction-results.txt",
+    "sha256": "62c789145c94738f88f746d12ced55992270802bc3003242b7b745864a09bd7f"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/karhutlaCards-en-1080.jpg",
+    "sha256": "d8c1863f8e9e0e4910e9bef2d93e53dd7f38dabb088eebc507b79abe4170b30b"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/karhutlaCards-en-2160.jpg",
+    "sha256": "a7a0ab9ab2a371ebfe9cb8cb42d25f192e77ac3050bcd9a49fc34f9d8139c686"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/karhutlaCards-en-360.jpg",
+    "sha256": "26bfc736792119b01bcc73d05c22bb72a0f99e3237e924c7aa83ab4af10089fc"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/karhutlaCards-en-411.jpg",
+    "sha256": "c856941b8f908253d7a6c023b7b1f5204fb62770a030fc8debe4b187a7d30ea7"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/karhutlaCards-en-720.jpg",
+    "sha256": "17b51965d664c0824757d9c105aeca16f4b46b5d9b138016a841fa758bf131e2"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/karhutlaCards-id-1080.jpg",
+    "sha256": "d1efc007c83342549d3046f3626c0ae750f8c954989bd3a1710a66ca2b66c917"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/karhutlaCards-id-2160.jpg",
+    "sha256": "00df4749989f2048ef3e9e65297b0c9ff88225239a0bc89a79c1e4e176190f67"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/karhutlaCards-id-360.jpg",
+    "sha256": "d6b481125c9ce2061e486c52cbbce442efc4e7f9d15d2032b58164bb59f50b6f"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/karhutlaCards-id-411.jpg",
+    "sha256": "b56ffd15c115be0848ee898ccf40839211e550a21c3b0a63fb4ff6cc348e6d9c"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/karhutlaCards-id-720.jpg",
+    "sha256": "e46d0bc1cc1eda953f64ae4b5a8749dd7913300637b45cb6517b7937377d4c3c"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/karhutlaCards-ko-1080.jpg",
+    "sha256": "d6dd353fb22d1a706f5cd31d1425037fdc8f086404a2b39575e27dc1ebb8a544"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/karhutlaCards-ko-2160.jpg",
+    "sha256": "ab282a7fb243e12f774972d31c49e2302caf7f3fa7798e0816c0dffd540719f9"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/karhutlaCards-ko-360.jpg",
+    "sha256": "ee05b2ef85caa8271b425dd6449b01df7616b0ac064bb3b2dd10e329abe64d80"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/karhutlaCards-ko-411.jpg",
+    "sha256": "417cacf60df24e9fe0f8f0662c6dfb4fac4117c400461fdf5074ce3b532ab62b"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/karhutlaCards-ko-720.jpg",
+    "sha256": "8f9def2d04f94c06c21c5130bd0fb3a73a6a5fac000bcea0ab2360bc4f0f473a"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/peat-cards-open.jpg",
+    "sha256": "d062e0e7462c17a00d9b6768fcfb0d194da92ed5c10d9b23a02efdfc29f63713"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/peatCharacteristics-en-1080.jpg",
+    "sha256": "bfd0d379b0f174534a1dcd09ec96233bf132da128298463de1a8bb445be3e8ce"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/peatCharacteristics-en-2160.jpg",
+    "sha256": "18ae9b857a2fe7faf4dddbe28578ea061bc22e387e3a8947c5f183c20ddf4430"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/peatCharacteristics-en-360.jpg",
+    "sha256": "dce8217d54a33695e745694de9f43bf8703ffb2e253594e56a5071873a29661c"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/peatCharacteristics-en-411.jpg",
+    "sha256": "e32aa6981252a0d09dae005829d3806cbc5a9a94c74628985f627450a5e895aa"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/peatCharacteristics-en-720.jpg",
+    "sha256": "68d54bfe5b1d01e88f1ac5b67436e48a547b1634afd5a3dca165237613b3a6aa"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/peatCharacteristics-id-1080.jpg",
+    "sha256": "f13b3c24f12aa464abd19ab6fcc2e809f9c54eba451e95f059d561d0f173cc92"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/peatCharacteristics-id-2160.jpg",
+    "sha256": "add032965f1feea4f2806f1c3d79c6afa67223dae20d2e898903cfa6a58b83d4"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/peatCharacteristics-id-360.jpg",
+    "sha256": "8bce3674e6d3ac5e3bcbccb4df9678bcab37c4b6d503053332200bf16d59a723"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/peatCharacteristics-id-411.jpg",
+    "sha256": "878c321f3823b34b5be7f6f4f3fdc94204a12140510360dbf0e7272ae965701a"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/peatCharacteristics-id-720.jpg",
+    "sha256": "609b769ee52c472fd9ddd2f025e5a385ca1d84a37d442a1a5958de0bfe0f8ccf"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/peatCharacteristics-ko-1080.jpg",
+    "sha256": "79d14870f8d1e9d7b816a859e95f1d821c5367f571e7e780257b770286d9becd"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/peatCharacteristics-ko-2160.jpg",
+    "sha256": "4d9e25397523c2bdb00e8fe5bc59d2a6a8b87a2b1c5a1fdaa5ba9db0e2f9dfc2"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/peatCharacteristics-ko-360.jpg",
+    "sha256": "5ce8019583e57224af9cbfc1ae451270ae65107d1499dd94ba2b90ebc2065e34"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/peatCharacteristics-ko-411.jpg",
+    "sha256": "baf30826edb2c3042bbb0cfa8f9e3372c54e3b11eae54c92fff48d233738e450"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/peatCharacteristics-ko-720.jpg",
+    "sha256": "af486da85ef1a35c072041274d859f3d7b26c76c62f61d0c8ee970d41257b4ce"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/reading-after-navigation.jpg",
+    "sha256": "cbda160b94cdf498818e6afff1ad2adcf86ddc1f196ccb2bb5979265f466bd60"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/reduced-motion.jpg",
+    "sha256": "d22491dda8c67006fb3559c2f1c5a7c33a54fe9a1ad09930f6ed1613367c8494"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/renderer-failure-fallback.jpg",
+    "sha256": "d95bf2c56fe78c91faf87579a2a5aece714de8c569d896515b6f5c95de9d9b05"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/returned-welcome.jpg",
+    "sha256": "a7b6a926d5c1f86399decbad3bc6dd986ada005e8ae93ade425737a9cd4a0a36"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/risk-correct.jpg",
+    "sha256": "045ef17e9b9ae5071624af33d844860f2b6f9cd0ab087a5d092d0418ebb5c94f"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/risk-wrong.jpg",
+    "sha256": "571938cb31cd95b157131884fd79f2204d3ec08718086171197108838cb67710"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/screenshots.md",
+    "sha256": "c435c5e872bee286b6f18d8fd435213dff0470e3a7094b955aeab5dd45f13fc2"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/test_interactions.js",
+    "sha256": "c58274340743cbf91e675dd6e19365552bafafbfb06c756cae19db7416326603"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/triangle-explanation-active.jpg",
+    "sha256": "514efbc0257056c432ddabee353b3cd43ca7b7a75f65886d72d59541ece793c7"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/triangleBuild-en-1080.jpg",
+    "sha256": "9a38f725b795e5f05bf6eeb88910a74877e835e3e252cdcbb22e4105d2263883"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/triangleBuild-en-2160.jpg",
+    "sha256": "640715a105313e8b4b2cc4ff83a3ee6a96382e9053b631e15a05cb8d3ddb520a"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/triangleBuild-en-360.jpg",
+    "sha256": "6d3943913cc9281c64ccd400283a9a4f013d1d7c33526570f13142122e8d8001"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/triangleBuild-en-411.jpg",
+    "sha256": "e26af89d07033d6c20522aca75bf4db960181470404a6fd97570bd1ec13039f7"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/triangleBuild-en-720.jpg",
+    "sha256": "9a66bf7fe9e748cb30d1bd43ee91a5910e8d7fda1ae0f3c62487be40f0b24c89"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/triangleBuild-id-1080.jpg",
+    "sha256": "8354ecf0c7d517abf3b45a9edc763ef3c8b8685fce0ba325fb52975dbb002f2a"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/triangleBuild-id-2160.jpg",
+    "sha256": "48fd764001e209b8d6b76ff84f12f92360087578b03f42f8b4096709cffb4eb1"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/triangleBuild-id-360.jpg",
+    "sha256": "ea504ff0c5394a50170dd70feb4aea2ec580a93c96238218d49276dc138253de"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/triangleBuild-id-411.jpg",
+    "sha256": "57105d26bfa884da14d1567c68ad95650e19f94e7ac33c7d1a1da1ce8c63fe4c"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/triangleBuild-id-720.jpg",
+    "sha256": "711a7adbfa67a666182e57fb722b08de9d65fe259de2dc3c7b6e794f9277dae8"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/triangleBuild-ko-1080.jpg",
+    "sha256": "26a9a73f1238344b5f019cc350264dd00167be57c146baa8e2863994ddc604cf"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/triangleBuild-ko-2160.jpg",
+    "sha256": "87f0f7f2314cdb832d933831707812c5bebf320b553751d17dc99b0e91f4b6f0"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/triangleBuild-ko-360.jpg",
+    "sha256": "0f204514d85b6eba776f982e0f6a419519be1f8f0444bf495035df7407250272"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/triangleBuild-ko-411.jpg",
+    "sha256": "42e8041665f227e4f593ed3d1ccbcbe2500c63e2ce8491da8388a8904f33776a"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/triangleBuild-ko-720.jpg",
+    "sha256": "a88f8f47a0fe55af4d4a0aaba8b23c2ea812684f97e9a1f86e1da2fd44940e07"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/triangleExplanation-en-1080.jpg",
+    "sha256": "880f410c8bfed6ea72cfd4020c63d2a923c76c02a14b8c2f14f13844014daba2"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/triangleExplanation-en-2160.jpg",
+    "sha256": "b0397c2a16e33bfddae66d1759b332c4529a954ea7d0f67f9c914e515de6ba29"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/triangleExplanation-en-360.jpg",
+    "sha256": "c67b1b95fde3ba67b96ab092a6c8babf95896c548f2f78223201498bfcfd6e98"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/triangleExplanation-en-411.jpg",
+    "sha256": "2a1003104ec75f1080add2e29bac671dbbf7aa6e9d9212aa90b0b472cff16886"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/triangleExplanation-en-720.jpg",
+    "sha256": "d26e8106f42e130008d2ed3a20e927c877ed5269b7cd2e7a0434fff93ae1dd0d"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/triangleExplanation-id-1080.jpg",
+    "sha256": "8c52c0ba15eb825a7d9684786cf38764df4e6db551285e37c4739a738ba84e8f"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/triangleExplanation-id-2160.jpg",
+    "sha256": "79f30b3cd717af4e6900d4bd37145b626533c629280041212ed05d607bf23eeb"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/triangleExplanation-id-360.jpg",
+    "sha256": "2bb670a2efdf93db290941856b7020cf10ab58eccb2711c1c63b3073bf6234b7"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/triangleExplanation-id-411.jpg",
+    "sha256": "70ae74793c815862bc6c3e79a94b6608fc1635258d0f91c6847e147f5ea858e3"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/triangleExplanation-id-720.jpg",
+    "sha256": "1ce45cc5dfb8b50801c5b3a98fd5f9d60678d6e3b5b8afbd1d4f6c6840970e81"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/triangleExplanation-ko-1080.jpg",
+    "sha256": "cfcb08f3e37c3769d94cfe08536010dad959e4d7fc016a47ac5a8d1e5a67960c"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/triangleExplanation-ko-2160.jpg",
+    "sha256": "62738fa12d9ad4db375166c51bbf9965d02fd6ed929b08406253016c5519a029"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/triangleExplanation-ko-360.jpg",
+    "sha256": "9d69f2117c52a6e8872d5d012c159c7a6ded495ceec144adf2ed37cd447a85b1"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/triangleExplanation-ko-411.jpg",
+    "sha256": "d1882e5c257e9969186af9eaa00c2a7fec5bad9835d4cc8f30685b2bff84d8eb"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/triangleExplanation-ko-720.jpg",
+    "sha256": "a6fc05d9ad8692e007282a3f6c5bcbbebad7ea202b5cedc36a585cf008a86617"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/verification.json",
+    "sha256": "bc9feae571c52bac935e8de3c4843f48a78c2b804d9cffb677e02f80b1bd4897"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/verify_assets.py",
+    "sha256": "c5d26fb1ace001b04d8843392686f6ac5c42c76a8d022d931d6795a47e4350b7"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/web-contact-sheet.jpg",
+    "sha256": "1aebb7e7f61bfe8a6039b00c86b8247b1c78fe8c9830deda17317a0bf632b991"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/welcome-en-1080.jpg",
+    "sha256": "f92cd0069d43207a2055729ef5559adc7f31fbb00d00946c9497669b5b5041f7"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/welcome-en-2160.jpg",
+    "sha256": "18d910b3b456541907c190cb65650bb675bd60359346d4d3e995d761be8ab54b"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/welcome-en-360.jpg",
+    "sha256": "b092f82bfa774ab6e568cd0728055e1344835c73dfe66bf9547cfd186c662c9a"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/welcome-en-411.jpg",
+    "sha256": "5d8ee32ec407613a57a20450b39548a59a6645a6cec78e539ebd696797279d54"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/welcome-en-720.jpg",
+    "sha256": "10ccdb9caf48ef82e24c3d8bab057964a5afc2f84b8b9dd62770c91ace3b7f04"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/welcome-id-1080.jpg",
+    "sha256": "65b0fcdad52ffa6f93a098dc4ed2c4516e747bab9411faee7a42d445c5954564"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/welcome-id-2160.jpg",
+    "sha256": "60320874fd45c73c7f00fe9c3d628e14ef9ea8450a1cb800cd3904f88563142d"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/welcome-id-360.jpg",
+    "sha256": "31697b7668a660dc870f40ee44ec60bb2564db5fc973c684f9881787c0bccfce"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/welcome-id-411.jpg",
+    "sha256": "eccaea2eec42d3b64f6b160b068b944166396084734f88334f8f370175d2666f"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/welcome-id-720.jpg",
+    "sha256": "a9b0a638c9b7ee98a0c17f230b7b6fbe567c44c98c145bcab388ea95a4cb0a96"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/welcome-ko-1080.jpg",
+    "sha256": "738da89bf1619b7a714354e68b66aefe1f04ef90bd6642fcf49b205e7006abbb"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/welcome-ko-2160.jpg",
+    "sha256": "bc1d26107f91985476c124a442f5f1e2d020b2d979be81df136df8e876992f80"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/welcome-ko-360.jpg",
+    "sha256": "1777b9cb199b5f67dd6871dbd4bb4d3663605a13fd907aa4d65089e85e73e086"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/welcome-ko-411.jpg",
+    "sha256": "08d23a242d011702e259d902c208530e5c0e366d6778ab4a6e1bbe53d65dd480"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/welcome-ko-720.jpg",
+    "sha256": "a67fc4094620954124512e79ff8037bd8d659f2117dfdbeaf96eb0a46b8081db"
+  },
+  {
+    "file": "docs/client-revisions/2026-11-02/r30-16/welcome-playing.jpg",
+    "sha256": "8204b8992e0b80ed9293b0df09a718a0530322b7f30ff3352e0789cf94515e31"
+  },
+  {
+    "file": "docs/copy-animation-audit.md",
+    "sha256": "445825179eced7698c6262b4eedd94e35ab3743c2b1ea4089d654ab12040c749"
+  },
+  {
+    "file": "docs/reviews/welcome-continuous-wave/README.md",
+    "sha256": "237aebc9cf410b08f7a758c65646c11dd4bba3c569786dea36306227a747ca95"
+  },
+  {
+    "file": "docs/reviews/welcome-continuous-wave/lifecycle-after.txt",
+    "sha256": "cd70a85e1036ff24e1fa608c829b9afce824113d74fa8a330c18598d621489d6"
+  },
+  {
+    "file": "docs/reviews/welcome-continuous-wave/lifecycle-before.txt",
+    "sha256": "cd70a85e1036ff24e1fa608c829b9afce824113d74fa8a330c18598d621489d6"
+  },
+  {
+    "file": "docs/reviews/welcome-continuous-wave/lifecycle_test.js",
+    "sha256": "995647685ee9ce9853b6cdb00d5577e8a2c748aa35a64c0807e1b2f74f8ad54b"
+  },
+  {
+    "file": "docs/reviews/welcome-continuous-wave/runtime-result.txt",
+    "sha256": "187ccb707d746b9bfe520608e4a98282aa492a87b83f56b9423b686a1b37f4f4"
+  },
+  {
+    "file": "docs/reviews/welcome-continuous-wave/runtime-test-output.txt",
+    "sha256": "6fede9949af829f4e78f76f7d1e49b6f42ee82b0bcc5cc3d1f7eec59733b2fef"
+  },
+  {
+    "file": "docs/reviews/welcome-continuous-wave/source-camera.json",
+    "sha256": "75b9aeb6899d1d565eb234b6caf5bf9de93ed26a1427282c7e90185dba396744"
+  },
+  {
+    "file": "docs/reviews/welcome-continuous-wave/source-review.md",
+    "sha256": "82979508b125648ce0adc29a418cee30b492024d5b65bc860b08c5df180054fb"
+  },
+  {
+    "file": "docs/reviews/welcome-continuous-wave/validate_runtime.js",
+    "sha256": "0ea482a6d0c0f93b9a77a321703edbcc5839f439ef3ebfd35e58592d38f4d58a"
+  },
+  {
+    "file": "docs/reviews/welcome-continuous-wave/welcome-1080.png",
+    "sha256": "74b912ad011962d95f3fcd652ceab3b1d1f38eb8856643b6ad66e03e3b3b1b57"
+  },
+  {
+    "file": "docs/reviews/welcome-continuous-wave/welcome-2160.png",
+    "sha256": "18e4c94ef54a351b3942a74f7f6e4b48b4ca1d2648bd2fc9e31b49b274152f88"
+  },
+  {
+    "file": "docs/reviews/welcome-continuous-wave/welcome-411.png",
+    "sha256": "35fbfc840514418cb1580051658b0268c8f7c954faa3a465b374131f4e404074"
+  },
+  {
+    "file": "docs/screenshots/assembly.png",
+    "sha256": "726f0d9369903c5a52c44c030de9eaef43ba91f5b82bb1d40b24ca660a8e2684"
+  },
+  {
+    "file": "docs/screenshots/element-reduction.png",
+    "sha256": "e3479a65be55ade53b43e02ecf66b49b29a39b5fc335f36af21500a15cc20d8e"
+  },
+  {
+    "file": "docs/screenshots/final-challenge.png",
+    "sha256": "eebc4dd47fca5c845e7ebabb41f6c4761ea78adb9016842d8f7932ea8a788ede"
+  },
+  {
+    "file": "docs/screenshots/fire-triangle.png",
+    "sha256": "50cc49e295710edd34784ac0bc62bde82443ce3a8be0d54b936d8ac4f377f9dd"
+  },
+  {
+    "file": "docs/screenshots/impact-review.png",
+    "sha256": "a217a3bc86b9f478e503844637cacaa62914c3604ed378cf5c114c8afa434a0e"
+  },
+  {
+    "file": "docs/screenshots/index.json",
+    "sha256": "c479da659fa54352c6b10ef643490edabbf2af40c93f1472c3ea1c7fabd0becb"
+  },
+  {
+    "file": "docs/screenshots/peat-cards.png",
+    "sha256": "9f10838cf7b05db0920a425ed3c50d10497b27f4b2fdbf09fbe938f3eee06e96"
+  },
+  {
+    "file": "docs/screenshots/score.png",
+    "sha256": "e14788d539930d10ec8e798baf82aaf39499e9136205755f343a82db3ff3f563"
+  },
+  {
+    "file": "docs/screenshots/welcome.png",
+    "sha256": "98ac518cb95e201752ef370cbc8d3ff5c4d5fa9316bab5691102d0620dc51f66"
+  },
+  {
+    "file": "docs/superpowers/plans/2026-10-18-rev-01-auto-advance-and-second-chance.md",
+    "sha256": "e1ca7e91f0f46bb7834dbfe09c00f6c43d4c5962e43f68ee45ed956729ea660b"
+  },
+  {
+    "file": "docs/superpowers/plans/2026-10-18-revised-exhibition-flow.md",
+    "sha256": "d4b57c14264c2b471ce1771109ca52a29cd8159e97bac666b2e062712c7baff4"
+  },
+  {
+    "file": "docs/superpowers/plans/2026-10-23-kifc-03-continuity.md",
+    "sha256": "5fa8eb46c1f78162d9a91303415b8468017ed29f904a177366aa121250b4285c"
+  },
+  {
+    "file": "docs/superpowers/plans/2026-10-23-video-fire.md",
+    "sha256": "322fed7047f85637b3587af1b81289aa07e3a6e8b27ec378bf8a000257db2f5a"
+  },
+  {
+    "file": "docs/superpowers/plans/2026-10-24-chapter1-mockups.md",
+    "sha256": "f50596dea2c7c2214bdb42a95b53837de6c2122eeb77aa4942973ef50f8487da"
+  },
+  {
+    "file": "docs/superpowers/plans/2026-10-24-interaction-motion.md",
+    "sha256": "cb235641b0379221572e4e5bf05981be5fe2fcdcfd168ba7bef242cb7128ff9f"
+  },
+  {
+    "file": "docs/superpowers/plans/2026-10-24-kifc-g04-audio.md",
+    "sha256": "50e096d3a43ce0e6e1b2fb75a8a8d333c4fa7ae1053a8d83e0ab298438864e13"
+  },
+  {
+    "file": "docs/superpowers/plans/2026-10-24-kifc09-flip-cards.md",
+    "sha256": "bd2477e8c024ed90552198692e1b0456df24fabfd49c68e37cbd9d75817acbd8"
+  },
+  {
+    "file": "docs/superpowers/plans/2026-10-25-manual-reading.md",
+    "sha256": "e3abb944f7b05d6389b8a721c17dbf96e5e35928fd96af71b27114b0967221ef"
+  },
+  {
+    "file": "docs/superpowers/specs/2026-10-18-rev-01-auto-advance-and-second-chance-design.md",
+    "sha256": "1b5b2b3496e54cb220ac97c02a381020ef58c556d5c265aefc811a0413779422"
+  },
+  {
+    "file": "docs/superpowers/specs/2026-10-18-revised-exhibition-flow-design.md",
+    "sha256": "5915017284b2dff9da6964e2181c8b501d80381953f9b202327b03b81f3041c3"
+  },
+  {
+    "file": "docs/superpowers/specs/2026-10-24-interaction-motion-design.md",
+    "sha256": "9a68e00a422d36f3e479684a07d1631413a9bba8bfa86356de4f1042f1238e56"
+  },
+  {
+    "file": "docs/superpowers/specs/2026-10-25-manual-reading-design.md",
+    "sha256": "e6231f7b7fb39f8f77ffc03bd82099a20d522f61c87ff0330369d058075763c6"
+  },
+  {
+    "file": "lib/app.dart",
+    "sha256": "e0debebd2da0a0297961a3d7b00885654a708cb2b8731e6b414bb9aa305eb239"
+  },
+  {
+    "file": "lib/core/audio/audio_controls.dart",
+    "sha256": "9935a52cf091ab0a550544fd93dd50676e5962bff07f6abea2400bb2189b369e"
+  },
+  {
+    "file": "lib/core/audio/audioplayers_backend.dart",
+    "sha256": "03909451245a785268d76742fd344afc0e6d490e012fb8e9e5481ac3996793e9"
+  },
+  {
+    "file": "lib/core/audio/game_audio.dart",
+    "sha256": "ba88d44a59e97ed56140bee1c44a72c9972bf9ea49072d5533c9d8648464d1e1"
+  },
+  {
+    "file": "lib/core/audio/narration_coordinator.dart",
+    "sha256": "6821d1075706c4850a4521ec53709be21b911573576e26ef5174a2aecbee9172"
+  },
+  {
+    "file": "lib/core/localization/app_locale.dart",
+    "sha256": "0ef493c7582df6baae33ba5b52582de47b8643be946d20d40233fba13c2d1bd4"
+  },
+  {
+    "file": "lib/core/theme/kifc_theme.dart",
+    "sha256": "f46e10e9e61e62164e2deae10a7012d23e9e9d7455902c36548d78c870cc1ca3"
+  },
+  {
+    "file": "lib/core/widgets/web_portrait_shell.dart",
+    "sha256": "fea14260b0a6b6fe6593c7693e7fc1c37c90b9d26bd1eb18a8354a14af175c56"
+  },
+  {
+    "file": "lib/features/game/exhibition_game.dart",
+    "sha256": "68f7851c21230ac9a4cd3370f3d2697a8966fa7be60926e7a4ff4da01f39ae49"
+  },
+  {
+    "file": "lib/features/game/reading_playback_state.dart",
+    "sha256": "ca27129907145d933ccf55fdec39cc98f223d58753047d5e01bcb2664010c483"
+  },
+  {
+    "file": "lib/features/game/reading_timing.dart",
+    "sha256": "bd71c00d4239b016c8594c24195a454fdf54f998d635ca0febca9e4c9c8dc098"
+  },
+  {
+    "file": "lib/features/game/widgets/animated_mascot.dart",
+    "sha256": "65c954f55eff1130f26c5f15813656605d08bcd5235e6aca4f6db0eb60710af6"
+  },
+  {
+    "file": "lib/features/game/widgets/approved_mascot_camera.dart",
+    "sha256": "fe50c8ff23bcd5671b5b62ff1a563f75347f5d1eb033130c9c6b9c3aa0591e65"
+  },
+  {
+    "file": "lib/features/game/widgets/environment_motion.dart",
+    "sha256": "056144074800e7d215b403dbb062d4db9445403c5c6ab0ef12f2de06ab3c664a"
+  },
+  {
+    "file": "lib/features/game/widgets/fire_loop.dart",
+    "sha256": "ad4652b3f658d2cd21705cac0e43afb1f3c1bb1854ccb2d5d1785b23e942c418"
+  },
+  {
+    "file": "lib/features/game/widgets/forest_burn_video.dart",
+    "sha256": "91633f6e686ae6b010aae01554845af4fc204aa37cb2f17b83bf1b7587a63f77"
+  },
+  {
+    "file": "lib/features/game/widgets/forest_fire_simulation.dart",
+    "sha256": "51a3f7417da3347aca988d648e358ac97226d320733448ea6caa2353227f3460"
+  },
+  {
+    "file": "lib/features/game/widgets/game_mascot.dart",
+    "sha256": "f185cfec27de385f26580241d3667034f83a774871a4b37803e58693c66122fa"
+  },
+  {
+    "file": "lib/features/game/widgets/game_photo.dart",
+    "sha256": "6a8c1a0729a119567389473fca68214b373bb91fd1b046bd97abb678749f519e"
+  },
+  {
+    "file": "lib/features/game/widgets/interaction_motion.dart",
+    "sha256": "374c9c6b076c8f6cb993f8a92a261d9988c3ca51520be3e45c1fb9b405f2a58a"
+  },
+  {
+    "file": "lib/features/game/widgets/mascot_asset_cache.dart",
+    "sha256": "eaadbdd211bebcddd0a33d3a45d99913a3d7312ab0e765e07c9962fefdbd5b94"
+  },
+  {
+    "file": "lib/features/game/widgets/mascot_motion_preferences_stub.dart",
+    "sha256": "7b28a37f21dc3597481358481596f45bfcd58c0bd840095883275e9463577285"
+  },
+  {
+    "file": "lib/features/game/widgets/mascot_motion_preferences_web.dart",
+    "sha256": "17586f941c7de5dd0d761808e4c7d5bcbaa3885f17d64db2bdee05c3926fbf71"
+  },
+  {
+    "file": "lib/features/game/widgets/mascot_state.dart",
+    "sha256": "dd71b5aeeececfd8f81e3b0ed35e8968ff60ffb1983db11ea32b77f1f9323c74"
+  },
+  {
+    "file": "lib/features/game/widgets/mascot_viewer_lifecycle_stub.dart",
+    "sha256": "cc9af84a66b51d6afb93e9c8d109e7c120743fdb717ef22d478f4082ca39e036"
+  },
+  {
+    "file": "lib/features/game/widgets/mascot_viewer_lifecycle_web.dart",
+    "sha256": "7ebbec0864e3b3fae68e4627a1ee712eedb8cfc66d6dd3d9c29a15f52186a173"
+  },
+  {
+    "file": "lib/features/game/widgets/native_mascot_viewer.dart",
+    "sha256": "51ab0dc5768f7843de9ba4d2727c10211a0f54b90095b2e49f56af4427d34bef"
+  },
+  {
+    "file": "lib/features/game/widgets/native_mascot_viewer_stub.dart",
+    "sha256": "050886ca21a7dd41308f5b485568eb71303bac34f3490d4512c1a37c65d7707d"
+  },
+  {
+    "file": "lib/features/game/widgets/native_mascot_viewer_web.dart",
+    "sha256": "d120aaa4cd9b6c28ea601058e4a8abd44dfa08aa4ce672f9fb3f503864c37925"
+  },
+  {
+    "file": "lib/features/game/widgets/peat_characteristic_card.dart",
+    "sha256": "fe486e0b441967d89966d48835681376bfc5beff4cfadd22345718376bcce73b"
+  },
+  {
+    "file": "lib/features/game/widgets/progressive_reading_text.dart",
+    "sha256": "90ca127aabb327ea0f946d85bd62c00b2b59235cc471f35964ce76361e792f57"
+  },
+  {
+    "file": "lib/features/game/widgets/terrain_backdrop.dart",
+    "sha256": "ba380c8b7aafce430963c69e26dceac7f3fbff22949ca6d7d2eff47e8fbc4e85"
+  },
+  {
+    "file": "lib/features/game/widgets/touchscreen_area.dart",
+    "sha256": "28881413c3f65f6316c28ccbd169e720d8396df98b33ed018146f680a1b86d79"
+  },
+  {
+    "file": "lib/features/welcome/welcome_screen.dart",
+    "sha256": "395391bf5621572266db9213db9a1c97fe77bd79d5092d81f1bf28bd6c127dde"
+  },
+  {
+    "file": "lib/main.dart",
+    "sha256": "5b2a41e6e6ea003a1c6e961d5071958177a2f631325d7656b0ee3649cb6ff4c1"
+  },
+  {
+    "file": "production/polish/android-emulator-report-2026-10-24.md",
+    "sha256": "abce42cf2f09972a44755ce28aa09e89e06bb3fa6fb3ca2b2e1d887bb5913b61"
+  },
+  {
+    "file": "production/qa/e2e-plan-2026-10-25.md",
+    "sha256": "1849f3853280a9bc15466c4476592fbf70d84a046f6d05a35e66a84fd4876106"
+  },
+  {
+    "file": "production/qa/e2e-results-2026-10-25.json",
+    "sha256": "c215bf6680a33ceb3a484bc96b0e783e4def9fe085294c26682dd17f9069e85b"
+  },
+  {
+    "file": "production/releases/preview-2026-10-16.md",
+    "sha256": "a2c47cc0449203c8c50fd38ef86a4d4ca757ee8ffbfdb4581d26e195ae7e00f3"
+  },
+  {
+    "file": "production/ui/fire-atmosphere/ux-review.md",
+    "sha256": "f6a1760e0ac8e324aadf7d2ba1fb04725a8716e545858dd75f14c893cd3eddcb"
+  },
+  {
+    "file": "pubspec.lock",
+    "sha256": "e105119e681e9c010c0f5af84c8afddc8d40bd83cf5d32353a6123486ad93f5b"
+  },
+  {
+    "file": "pubspec.yaml",
+    "sha256": "76a13e36c43c7fab0899e2ba65b85841248eca2f3fc30b55e93ca2a246564b54"
+  },
+  {
+    "file": "test/android_insets_test.dart",
+    "sha256": "1628a0d9165b61c846ce40ef3ed4ee1c59557e6f5e379c0fc53fc0a1842b2ba3"
+  },
+  {
+    "file": "test/app_locale_test.dart",
+    "sha256": "5eba9d49d38c89507a56662c0fc2f2aa0bcc98fad04edec3d4e458163e0e861d"
+  },
+  {
+    "file": "test/assembly_review_test.dart",
+    "sha256": "00103726e1cb75d98cf0315d6168c7d9572bdd974b65edc583cc5c26b1b860ee"
+  },
+  {
+    "file": "test/audio_controls_review_test.dart",
+    "sha256": "ba898bd5373a671d68dca682d27efcee06e1c7460f277236a9ac97d96fbfac7f"
+  },
+  {
+    "file": "test/audio_gameplay_test.dart",
+    "sha256": "bb2bbca2f0074ef5502cc40b22d906dd65feb825952800845d4aa1e088a7157a"
+  },
+  {
+    "file": "test/chapter2_review_test.dart",
+    "sha256": "9bf0424abaffccfa8cdb8a3dae861f5ca4474b64fdd3f8a30d474d319c280413"
+  },
+  {
+    "file": "test/environment_motion_test.dart",
+    "sha256": "29458345607d61f2b3aa39d459680a7c9d837adae7b7d5598f743a82efb35484"
+  },
+  {
+    "file": "test/feedback_timing_test.dart",
+    "sha256": "f900fb38ed0e85138802ea3e8c8bae92f286d4ac3d0c5e5dce3b153209723756"
+  },
+  {
+    "file": "test/fire_loop_test.dart",
+    "sha256": "fbb66c2cf15b9469a7741b9511f1037b5ba5b7e5befa14f36703bfde7825240c"
+  },
+  {
+    "file": "test/fire_video_review_test.dart",
+    "sha256": "b7acaa2116a67f521a421db559d52633de2b6352e1e33a3f7c9e67a53e36789c"
+  },
+  {
+    "file": "test/forest_fire_simulation_test.dart",
+    "sha256": "559df038603c385f596ce3174e1ed27847ff6e90da9415d1b07d53bb234e7ea2"
+  },
+  {
+    "file": "test/game_audio_test.dart",
+    "sha256": "87c9a165950fe8a57cd9d2d30060005d0b1bc6129e40f7d4af2ee387ebf9b803"
+  },
+  {
+    "file": "test/game_flow_test.dart",
+    "sha256": "dc37f21a154ff7b050a8450fddda58526c113e60edcb8e84c9d67263e08b32f9"
+  },
+  {
+    "file": "test/impact_review_test.dart",
+    "sha256": "07e0f447880cd369c6a5222a98808992e16be9ce914d9f8eab793d4fbc72b8be"
+  },
+  {
+    "file": "test/interaction_motion_review_test.dart",
+    "sha256": "3361b71613d7fa18a334c22bce52833c40a462384847d27ee14cdc00f3dce7db"
+  },
+  {
+    "file": "test/interaction_motion_test.dart",
+    "sha256": "51a435e77edfa4b4fe337e7f29dae29f6a0d81513e8d480fc3039fd40f6b7e3f"
+  },
+  {
+    "file": "test/korean_flow_test.dart",
+    "sha256": "cd290bb20f4dd56bd4862445e6a4444f774ab40ea23926ddb2a436950e191c03"
+  },
+  {
+    "file": "test/narration_coordinator_test.dart",
+    "sha256": "a34ca0ec9877b38af539c31b2358bd64f38e7e3580355b161f51c213973a91fb"
+  },
+  {
+    "file": "test/oct30_audio_test.dart",
+    "sha256": "b655db7393b7324cd7ad3ee5d4fe4ed2a2ab784dc93ec1bfad3a5b27e450e947"
+  },
+  {
+    "file": "test/oct30_drop_recording_test.dart",
+    "sha256": "dfc7402b031c58c27a3742083481a8712ae81a1547e648dea7353801bb35549d"
+  },
+  {
+    "file": "test/oct30_flow_drop_test.dart",
+    "sha256": "35171a08ffb77929ac2231033e805832dd761e4228d44b37df600d41ac4f027d"
+  },
+  {
+    "file": "test/oct30_interaction_test.dart",
+    "sha256": "04426077bd5b4ab11eb9c4c1830c784c7d2e389553a644d7ed49e447b6577f56"
+  },
+  {
+    "file": "test/oct30_round_b_visual_test.dart",
+    "sha256": "ac8e570d694fb2517fd8f4ea21b39933669649bb113fa598a5db7d8311bcff37"
+  },
+  {
+    "file": "test/oct30_visual_review_test.dart",
+    "sha256": "fbaab57241d2ea07dd85b82d272118fe8336a23d11a1b81bc0663add3a95b9a0"
+  },
+  {
+    "file": "test/peat_characteristics_review_test.dart",
+    "sha256": "d920a39935a4b3d651fde484a4e039ce096571388b6afdfcb5a9d326285cfac3"
+  },
+  {
+    "file": "test/peat_quiz_review_test.dart",
+    "sha256": "173beff4b4ffb461c58c594911fc33aea03dd4d3a71fc551f6794dfdb7366058"
+  },
+  {
+    "file": "test/progressive_reading_text_test.dart",
+    "sha256": "b648880dd4062298425bc8116596c8ba1fd5e44139bf9c948280bd04396ed665"
+  },
+  {
+    "file": "test/reading_integration_test.dart",
+    "sha256": "ce0ea717412b342a2f00194b42209ac7a5967b56b9a0275e31c090b7c3aa931c"
+  },
+  {
+    "file": "test/reading_interaction_test.dart",
+    "sha256": "ad384e92bf528c6b6b53a7f9e371921165359496e950e6d3d4419147f0981630"
+  },
+  {
+    "file": "test/reading_playback_state_test.dart",
+    "sha256": "87ed936cadf74346f3136f3bcc12cda8c5f318be421bcbb7b48627efb3068684"
+  },
+  {
+    "file": "test/reading_review_test.dart",
+    "sha256": "2d0cdb65e57b759682909820b54ad85f00111345070b6e625bc9f9604154c3e5"
+  },
+  {
+    "file": "test/reading_timing_integrity_test.py",
+    "sha256": "e0257d727c4bef25fd6d1205a5c241d801bc394ed963f6dd9439f39fa589d7ea"
+  },
+  {
+    "file": "test/reading_timing_test.dart",
+    "sha256": "1ac23c942eb420228ed1b8a2e8d26fea58a72192cfd5f3fed6fb89f3a8d46a8a"
+  },
+  {
+    "file": "test/score_mapping_test.dart",
+    "sha256": "380dfa05aa536a28139259380f64831ab35d1f10b198b19188cd3b6e260701da"
+  },
+  {
+    "file": "test/speech_bubble_audit_test.dart",
+    "sha256": "52dd2bb8945d2f3b96d610185bfcbc6dae4c594d85d7f6413ce9334a551dce23"
+  },
+  {
+    "file": "test/web_portrait_shell_test.dart",
+    "sha256": "f77c448011f6b20fd96e144908f0b7bb3ff49be9b3f25f8c8d266988e3db177e"
+  },
+  {
+    "file": "test/welcome_conversation_motion_test.dart",
+    "sha256": "f7d8a833def0e878b68ea125e6323e2edcb809010d05bde2118b10756c9124c2"
+  },
+  {
+    "file": "test/welcome_review_test.dart",
+    "sha256": "3514fd712ae3503524583aea036911195d658004059e9794e4f63a9407cbaad7"
+  },
+  {
+    "file": "test/widget_test.dart",
+    "sha256": "be59ad4a72af5eed69157ce1789c28f7c4deca5b070e82d975ba32bd1aa9e771"
+  },
+  {
+    "file": "tool/align_narration_draft.py",
+    "sha256": "9e4a511442ac22b12438da8dec6f489eb471a174f62772a40d253dd9b1a699a1"
+  },
+  {
+    "file": "tool/android/KifcDump.java",
+    "sha256": "f3ff921eb8480d74d10079900dde245e65055cbd79d2659d4aab79eafb08e1f9"
+  },
+  {
+    "file": "tool/android/README.md",
+    "sha256": "e412a2b62909eda95656e345f761153d79c152bd4e462e9cc0450ea48de1a181"
+  },
+  {
+    "file": "tool/android/prepare.ps1",
+    "sha256": "7a1d9768541fd6c7d18b4e15d3da5248cc3628063920b725857cb018036cbfb9"
+  },
+  {
+    "file": "tool/android_greeting_check.mjs",
+    "sha256": "61c173332712c6bd7fd74c93bc83f7f78977976b8dda94c865153b40e5b9abc6"
+  },
+  {
+    "file": "tool/android_happy_revision_check.mjs",
+    "sha256": "d94ff69721d1cd273ce5c6033949e6473cd34076509f7bc3a2b115a4c320169d"
+  },
+  {
+    "file": "tool/android_journey.py",
+    "sha256": "67dd9d2c34cf186a24cc81ba8b73a7333ddfc5e867d4ac958e3a636b94e24828"
+  },
+  {
+    "file": "tool/android_mascot_cdp.mjs",
+    "sha256": "bc4c2f9aa14eaaeff145700124bc5f023260606538a4ccba71371e2d99c16d27"
+  },
+  {
+    "file": "tool/android_mascot_connect.mjs",
+    "sha256": "6a6247b1201e21255af6b9462c094c255ec28f2d05a182162fde05c5be3c6068"
+  },
+  {
+    "file": "tool/android_mascot_fixtures.mjs",
+    "sha256": "8a957497c3474b5a8179b0bac3c4e0407e24c3f4b6db41e6eee75acf3fc28bf7"
+  },
+  {
+    "file": "tool/android_mascot_journey.mjs",
+    "sha256": "d4b4fbf5740609a56ea735722d188693a464406a70da174e83e6cf73b3247b74"
+  },
+  {
+    "file": "tool/android_mascot_revision_check.mjs",
+    "sha256": "1932319194616a726ed6b34d33b5ada4e492448bb44568c338e7afc20481ce0c"
+  },
+  {
+    "file": "tool/android_mascot_start_test.mjs",
+    "sha256": "7476128e0253b5f60676375a51fe7b4f0e96a60f7425c083cfcdf45ea5754383"
+  },
+  {
+    "file": "tool/android_mascot_ui.mjs",
+    "sha256": "620629a70aab9dc040e51431d4fa1a591de3270f13b0c18e952495be28478339"
+  },
+  {
+    "file": "tool/android_narration_check.mjs",
+    "sha256": "d5eba73e2829f4d5d87dd972ea94c38e970838111a1307834eb9ce32e87c866d"
+  },
+  {
+    "file": "tool/android_reading_check.mjs",
+    "sha256": "3f573bea922f0b2a958dee78dc93b11b41366dccdb0279f1c8742db281801b6a"
+  },
+  {
+    "file": "tool/android_reading_pause_check.mjs",
+    "sha256": "2f3de455791e0d8dae8481a3713633d5541ad9a853376990c3b10e4c27973df1"
+  },
+  {
+    "file": "tool/android_review.py",
+    "sha256": "e5a13a761b2119f2083322a20044e99df69270bca3b83ae44d91888f54a73fd4"
+  },
+  {
+    "file": "tool/build_client_delivery.py",
+    "sha256": "d0fba4d361f55104e2229cd92b02dc4e5e5a9e2506b6c97e869b0b1d2608efdf"
+  },
+  {
+    "file": "tool/check_mascot_retention.js",
+    "sha256": "672c59e2d1bcd80b60ff0e2eb3563d046830d662a071d9ff59c21873b636d16c"
+  },
+  {
+    "file": "tool/generate_app_icons.py",
+    "sha256": "f0434dfd9275f0de007e91db091fd87c132cf295590e406b9599738e3a374a0b"
+  },
+  {
+    "file": "tool/inspect_android_mascot.mjs",
+    "sha256": "4fd7a17451e828f45831cf2b7e72413d1bbebc06c987c214a989f363f172d16e"
+  },
+  {
+    "file": "tool/mascot_review_android_main.dart",
+    "sha256": "74a1dda08bb9651c71c862770e9b36554d594f419b5e5e365cb36c0c0bad1d76"
+  },
+  {
+    "file": "tool/mascot_review_main.dart",
+    "sha256": "2b199711c444a509bf1b0202090c26d2efae4abb42794dd374630af890a99357"
+  },
+  {
+    "file": "tool/package_revision_review.py",
+    "sha256": "c59182021df384575274206cc3f4b7a7b66e751daf7d17a1c361ba469d6e3490"
+  },
+  {
+    "file": "tool/prepare_mascot_runtime.py",
+    "sha256": "1f41e385f725e02f57c1ee4def223471406c88f7fb1f4a83a001580834873ecd"
+  },
+  {
+    "file": "tool/prepare_narration_draft.py",
+    "sha256": "5c6a695715179b005a12636a31b183734bb25ac0d8a78c5e3b4106a689d52880"
+  },
+  {
+    "file": "tool/prepare_reading_timing.py",
+    "sha256": "87e369f1207752bdf46a4a0c73026c2565394eaff056630c05b4acfd801bf4e4"
+  },
+  {
+    "file": "tool/prepare_safari_music.py",
+    "sha256": "74839a3938774130442a3519609b0c8cdfbad84a1d2ca3d8c453c9a4e029afe0"
+  },
+  {
+    "file": "tool/prepare_wildfire_video.py",
+    "sha256": "117dab97e24fdfd5dbbeaa272032bff401e2f45c8c6ff45d00ded3efccd10454"
+  },
+  {
+    "file": "tool/reading_review_main.dart",
+    "sha256": "db43e4c68d3aa3270db10dd39477e66571cab2837461b93fe44b4eda7f203844"
+  },
+  {
+    "file": "tool/record_feedback_checks.py",
+    "sha256": "935d5b09fb06087d81966034681c57529204bf3d79753b8522fbdf7daf1cf01b"
+  },
+  {
+    "file": "tool/render_feedback_poster.py",
+    "sha256": "45e02ab3f1b863f3b14953276746b995221fb4c821dfc182337cdca977163c80"
+  },
+  {
+    "file": "tool/review.dart",
+    "sha256": "1f81d2b518e11c31ec806c5a0b2ae811497d6cd9827a01988f6538c109ef0eab"
+  },
+  {
+    "file": "tool/tizen/package_web.py",
+    "sha256": "f4f26f453b9e36f096c3b07d7e3ccc8d94546f9cfb492d5f54042aa0d95d2c48"
+  },
+  {
+    "file": "tool/tizen/simulator_finish_journey.mjs",
+    "sha256": "4816772b23ba525412572edd39a938711ae20f0718c1bf72f29f99a6eb40da18"
+  },
+  {
+    "file": "tool/tizen/simulator_journey.mjs",
+    "sha256": "1294e0940642ad0a825944b544e2dee70467fe57233b70f23f8969249becb284"
+  },
+  {
+    "file": "tool/tizen/simulator_locale_remote.mjs",
+    "sha256": "2ada826a122c402283449de5713d16236c9c0e4da7dcb8176172f76cb1e0d8e1"
+  },
+  {
+    "file": "tool/tizen/simulator_probe.mjs",
+    "sha256": "f8909ae094b5662cef6eb1b85a4398c350bc9ee8e30475ae146f711e6060b0bd"
+  },
+  {
+    "file": "tool/tizen/simulator_sdk.mjs",
+    "sha256": "3a866896363d7a4cd8fdcf9d904ad8f84b1a722b93c5a997c391f63d3053d1bc"
+  },
+  {
+    "file": "tool/verify_apk.py",
+    "sha256": "c7f4c0e42902a140c1145c5483cc694d76432382bec91da88541a943229740a4"
+  },
+  {
+    "file": "tool/verify_apk_test.py",
+    "sha256": "befa4d47a3d78f9156779384b81581891ba0ea1df3a36c575328e257763cc581"
+  },
+  {
+    "file": "tool/verify_feedback_asset.py",
+    "sha256": "acf3a02e9f9bb3e7e2ef2a59390efd6b6d6c19b625791ba36d37d32bbc8058b3"
+  },
+  {
+    "file": "web/favicon.png",
+    "sha256": "c8fab32fb88cc46c905613217922eb3c66a766e9fb35a268ba5ed2568736abc9"
+  },
+  {
+    "file": "web/icons/Icon-192.png",
+    "sha256": "9ee23a37869e294d6065a7561654d1989ed3f213a133d6182d2e9e52ea35dd7d"
+  },
+  {
+    "file": "web/icons/Icon-512.png",
+    "sha256": "32afea18859020f68e5637379d90932d55381eb5feebe10f2a1e0f17a1abc6dd"
+  },
+  {
+    "file": "web/icons/Icon-maskable-192.png",
+    "sha256": "f6cd94686530c8edc13991d58ee2d630cc3e60b0a51e3126d07cba7456a1d602"
+  },
+  {
+    "file": "web/icons/Icon-maskable-512.png",
+    "sha256": "2962f890002522d7b44a58a9054327d1b870b0cbef02d09d44db3c93ade040e9"
+  },
+  {
+    "file": "web/icons/apple-touch-icon.png",
+    "sha256": "1788a8edcfba2a026edc835ee7bbddf2e93dc3884d86215374a51da67a5bb652"
+  },
+  {
+    "file": "web/index.html",
+    "sha256": "ccd952023453068017d094e6d3b8927fee6b08650fbd8cac7c0b83935cd5175a"
+  },
+  {
+    "file": "web/manifest.json",
+    "sha256": "335f956558f75bb8af662452a4c3dbfbeab7cf4b3191e07765ccdf0a80e77cec"
+  }
+]

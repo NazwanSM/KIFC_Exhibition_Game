@@ -1,0 +1,786 @@
+[
+  {
+    "name": "cause-1",
+    "text": "Kembali\nBABAK 3/4\nPengaturan suara\nBABAK 3\nApa penyebabnya?\nBaca situasinya. Apakah api dipicu aktivitas manusia atau faktor alam?\nSITUASI 1\nTanaman dibakar untuk membuka lahan saat cuaca kering.\nAktivitas manusia\nFaktor alam\nMembakar tanaman untuk membuka lahan bisa membuat api merambat ke sekitarnya.",
+    "buttons": [
+      "Kembali",
+      "Pengaturan suara",
+      "Aktivitas manusia",
+      "Faktor alam"
+    ],
+    "models": [
+      {
+        "clip": "Happy",
+        "time": 0.2638000000000176,
+        "paused": false,
+        "loaded": true
+      }
+    ],
+    "media": [
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/tap.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/correct.wav",
+        "paused": false,
+        "time": 0.499229
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/complete.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/animations/forest-burn-loop.mp4",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/animations/forest-burn-loop.mp4",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-definition.mp3",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-cause.mp3",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-prevention.mp3",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/retry.wav",
+        "paused": true,
+        "time": 0
+      }
+    ]
+  },
+  {
+    "name": "cause-2",
+    "text": "Kembali\nBABAK 3/4\nPengaturan suara\nBABAK 3\nApa penyebabnya?\nBaca situasinya. Apakah api dipicu aktivitas manusia atau faktor alam?\nSITUASI 2\nPuntung rokok yang masih menyala dibuang ke rerumputan kering.\nAktivitas manusia\nFaktor alam\nBara pada puntung rokok bisa menyulut rumput kering di sekitarnya.",
+    "buttons": [
+      "Kembali",
+      "Pengaturan suara",
+      "Aktivitas manusia",
+      "Faktor alam"
+    ],
+    "models": [
+      {
+        "clip": "Happy",
+        "time": 0.3125999999999769,
+        "paused": false,
+        "loaded": true
+      }
+    ],
+    "media": [
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/tap.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/correct.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/complete.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/animations/forest-burn-loop.mp4",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/animations/forest-burn-loop.mp4",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-definition.mp3",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-cause.mp3",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-prevention.mp3",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/retry.wav",
+        "paused": true,
+        "time": 0
+      }
+    ]
+  },
+  {
+    "name": "cause-3",
+    "text": "Kembali\nBABAK 3/4\nPengaturan suara\nBABAK 3\nApa penyebabnya?\nBaca situasinya. Apakah api dipicu aktivitas manusia atau faktor alam?\nSITUASI 3\nPetir menyambar tanaman yang sudah kering.\nAktivitas manusia\nFaktor alam\nSambaran petir membawa panas yang bisa menyulut tanaman kering.",
+    "buttons": [
+      "Kembali",
+      "Pengaturan suara",
+      "Aktivitas manusia",
+      "Faktor alam"
+    ],
+    "models": [
+      {
+        "clip": "Happy",
+        "time": 0.32640000000002345,
+        "paused": false,
+        "loaded": true
+      }
+    ],
+    "media": [
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/tap.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/correct.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/complete.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/animations/forest-burn-loop.mp4",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/animations/forest-burn-loop.mp4",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-definition.mp3",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-cause.mp3",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-prevention.mp3",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/retry.wav",
+        "paused": true,
+        "time": 0
+      }
+    ]
+  },
+  {
+    "name": "cause-4",
+    "text": "Kembali\nBABAK 3/4\nPengaturan suara\nBABAK 3\nApa penyebabnya?\nBaca situasinya. Apakah api dipicu aktivitas manusia atau faktor alam?\nSITUASI 4\nApi kecil dibiarkan tanpa pengawasan di dekat lahan kering.\nAktivitas manusia\nFaktor alam\nApi yang dibiarkan menyala bisa merambat ke bahan kering di sekitarnya. Kebakaran bisa dipicu manusia maupun alam. Mencegahnya lebih baik daripada memadamkannya.",
+    "buttons": [
+      "Kembali",
+      "Pengaturan suara",
+      "Aktivitas manusia",
+      "Faktor alam"
+    ],
+    "models": [
+      {
+        "clip": "Happy",
+        "time": 0.10419999999998254,
+        "paused": false,
+        "loaded": true
+      }
+    ],
+    "media": [
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/tap.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/correct.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/complete.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/animations/forest-burn-loop.mp4",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/animations/forest-burn-loop.mp4",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-definition.mp3",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-cause.mp3",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-prevention.mp3",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/retry.wav",
+        "paused": true,
+        "time": 0
+      }
+    ]
+  },
+  {
+    "name": "peat-information",
+    "text": "Kembali\nBABAK 4/4\nPengaturan suara\nBABAK 4\nApa Saja Karakteristik Kebakaran di Ekosistem Gambut?\nSentuh kartu 1–3 untuk mengenali setiap cirinya.\nKartu 1. Api dapat membara di bawah permukaan tanah.\nKartu 2. Kebakaran sulit dipadamkan.\nKartu 3. Api dapat menyala kembali.\nKetiganya bisa terjadi pada kebakaran gambut. Yuk, kenali dampaknya juga.\nKenali Dampaknya",
+    "buttons": [
+      "Kembali",
+      "Pengaturan suara",
+      "Kartu 1. Api dapat membara di bawah permukaan tanah.",
+      "Kartu 2. Kebakaran sulit dipadamkan.",
+      "Kartu 3. Api dapat menyala kembali.",
+      "Kenali Dampaknya"
+    ],
+    "models": [
+      {
+        "clip": "PointIdle",
+        "time": 0.5968999999999941,
+        "paused": false,
+        "loaded": true
+      }
+    ],
+    "media": [
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/tap.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/correct.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/complete.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/animations/forest-burn-loop.mp4",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/animations/forest-burn-loop.mp4",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-definition.mp3",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-cause.mp3",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-prevention.mp3",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/retry.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/flip.wav",
+        "paused": false,
+        "time": 0.607159
+      }
+    ]
+  },
+  {
+    "name": "active-impact",
+    "text": "Kembali\nSisa waktu 26 detik\n26\ndetik\nPengaturan suara\nBABAK 4\nApa Saja Dampak Kebakaran Hutan pada Ekosistem Gambut?\nPilih semua dampak yang sesuai.\nKabut asap\nKerusakan ekosistem\nEmisi karbon tinggi\nPenurunan tinggi permukaan tanah atau subsidens\nPeningkatan kualitas udara\nPeningkatan cadangan karbon dalam tanah gambut\n0 gambar dipilih\nSelesai Memilih\nJika melihat kebakaran, jaga jarak. Laporkan kepada petugas dan ikuti arahannya.",
+    "buttons": [
+      "Kembali",
+      "Pengaturan suara",
+      "Kabut asap",
+      "Kerusakan ekosistem",
+      "Emisi karbon tinggi",
+      "Penurunan tinggi permukaan tanah atau subsidens",
+      "Peningkatan kualitas udara",
+      "Peningkatan cadangan karbon dalam tanah gambut",
+      "Selesai Memilih"
+    ],
+    "models": [],
+    "media": [
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/tap.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/correct.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/complete.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/animations/forest-burn-loop.mp4",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/animations/forest-burn-loop.mp4",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-definition.mp3",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-cause.mp3",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-prevention.mp3",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/retry.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/flip.wav",
+        "paused": true,
+        "time": 0
+      }
+    ]
+  },
+  {
+    "name": "impact-review",
+    "text": "Beranda\nKredit aset\nPengaturan suara\nBABAK 4\nApa Saja Dampak Kebakaran Hutan pada Ekosistem Gambut?\nPilih semua dampak yang sesuai.\n0 benar · 0 salah · 4 terlewat\nBelum ada dampak yang dipilih. Empat dampaknya adalah kabut asap, kerusakan ekosistem, emisi karbon tinggi, dan subsidens.\nLihat Hasil Akhir",
+    "buttons": [
+      "Beranda",
+      "Kredit aset",
+      "Pengaturan suara",
+      "Lihat Hasil Akhir"
+    ],
+    "models": [
+      {
+        "clip": "FeedbackSilent",
+        "time": 0.118,
+        "paused": false,
+        "loaded": true
+      }
+    ],
+    "media": [
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/tap.wav",
+        "paused": false,
+        "time": 0.09712
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/correct.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/complete.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/animations/forest-burn-loop.mp4",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/animations/forest-burn-loop.mp4",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-definition.mp3",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-cause.mp3",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-prevention.mp3",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/retry.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/flip.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/finish.wav",
+        "paused": false,
+        "time": 0.206077
+      }
+    ]
+  },
+  {
+    "name": "score",
+    "text": "Beranda\nBABAK 4/4\nPengaturan suara\nTANTANGAN SELESAI\nMakin Paham Risikonya\nLihat hasilmu, lalu lanjut jelajahi pameran.\n7\n/ 8 poin\nMenyusun unsur\n3/3\nMengenali penyebab\n4/4\nBonus mengenali dampak\n0/1\n0/4 poin di babak akhir = 0 poin bonus\nMencegah Kebakaran Lebih Baik daripada Memadamkan.\nSelesai\nMain Lagi\nSentuh layar untuk lanjut, atau tunggu 15 detik.",
+    "buttons": [
+      "Beranda",
+      "Pengaturan suara",
+      "Selesai",
+      "Main Lagi"
+    ],
+    "models": [],
+    "media": [
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/tap.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/correct.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/complete.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/animations/forest-burn-loop.mp4",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/animations/forest-burn-loop.mp4",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-definition.mp3",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-cause.mp3",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-prevention.mp3",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/retry.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/flip.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/finish.wav",
+        "paused": true,
+        "time": 0
+      }
+    ]
+  },
+  {
+    "name": "closing-speaking",
+    "text": "Beranda\nTANTANGAN SELESAI\nJaga Hutan, Jaga Kehidupan.\nTerima kasih sudah bermain! Jauhkan sumber api dari bahan kering. Jika melihat kebakaran, segera laporkan kepada petugas.\nPengaturan suara\nKorea–Indonesia Forest Cooperation Center\nKerja sama, pengetahuan, dan inovasi untuk mencegah kebakaran hutan dan lahan.\nMain Lagi\nJelajahi Pameran\nSentuh layar untuk lanjut, atau tunggu 28 detik.",
+    "buttons": [
+      "Beranda",
+      "Pengaturan suara",
+      "Main Lagi",
+      "Jelajahi Pameran"
+    ],
+    "models": [
+      {
+        "clip": "Wave",
+        "time": 1.673700000000011,
+        "paused": false,
+        "loaded": true
+      }
+    ],
+    "media": [
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/tap.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/correct.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/complete.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/animations/forest-burn-loop.mp4",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/animations/forest-burn-loop.mp4",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-definition.mp3",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-cause.mp3",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-prevention.mp3",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/retry.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/flip.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/finish.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/closing.mp3",
+        "paused": false,
+        "time": 1.471565
+      }
+    ]
+  },
+  {
+    "name": "closing-after-voice",
+    "text": "Beranda\nTANTANGAN SELESAI\nJaga Hutan, Jaga Kehidupan.\nTerima kasih sudah bermain! Jauhkan sumber api dari bahan kering. Jika melihat kebakaran, segera laporkan kepada petugas.\nPengaturan suara\nKorea–Indonesia Forest Cooperation Center\nKerja sama, pengetahuan, dan inovasi untuk mencegah kebakaran hutan dan lahan.\nMain Lagi\nJelajahi Pameran\nSentuh layar untuk lanjut, atau tunggu 16 detik.",
+    "buttons": [
+      "Beranda",
+      "Pengaturan suara",
+      "Main Lagi",
+      "Jelajahi Pameran"
+    ],
+    "models": [
+      {
+        "clip": "WaveSilent",
+        "time": 8.326899999999885,
+        "paused": false,
+        "loaded": true
+      }
+    ],
+    "media": [
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/tap.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/correct.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/complete.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/animations/forest-burn-loop.mp4",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/animations/forest-burn-loop.mp4",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-definition.mp3",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-cause.mp3",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-prevention.mp3",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/retry.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/flip.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/finish.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/closing.mp3",
+        "paused": true,
+        "time": 0
+      }
+    ]
+  },
+  {
+    "name": "returned-welcome",
+    "text": "Bahasa Indonesia\nEnglish\n한국어\nKIFC EXHIBITION ROOM / MANGGALA AGNI\nPengaturan suara\nFire Prevention Challenge\nHalo! Yuk, kenali penyebab kebakaran dan cari tahu cara menjaga hutan dari api.\nMulai Tantangan",
+    "buttons": [
+      "Bahasa Indonesia",
+      "English",
+      "한국어",
+      "Pengaturan suara",
+      "Mulai Tantangan"
+    ],
+    "models": [
+      {
+        "clip": "Wave",
+        "time": 1.4861000000000315,
+        "paused": false,
+        "loaded": true
+      }
+    ],
+    "media": [
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/tap.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/correct.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/complete.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/animations/forest-burn-loop.mp4",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/animations/forest-burn-loop.mp4",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-definition.mp3",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-cause.mp3",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-prevention.mp3",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/retry.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/flip.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/finish.wav",
+        "paused": true,
+        "time": 0
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/closing.mp3",
+        "paused": true,
+        "time": 0
+      }
+    ]
+  }
+]

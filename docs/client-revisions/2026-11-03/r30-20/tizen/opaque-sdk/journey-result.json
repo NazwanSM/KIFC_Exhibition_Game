@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "steps": [
+    "local-package-welcome",
+    "assembly",
+    "assembly-complete",
+    "silent-video-source",
+    "video-motion",
+    "explanation",
+    "reading-progress",
+    "reading-definition",
+    "unanswered-risk",
+    "wrong-feedback",
+    "correct-feedback",
+    "finished-smoke"
+  ],
+  "scope": "Production WGT pointer drag, video, reading skeletal/morph playback, skip-to-unanswered quiz, wrong/right feedback",
+  "remoteOnlyGame": false
+}

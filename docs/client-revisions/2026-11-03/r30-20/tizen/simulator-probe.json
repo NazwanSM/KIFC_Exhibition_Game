@@ -1,0 +1,109 @@
+{
+  "source": "Official Samsung TV Web Simulator 10.0.6 SDK",
+  "version": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/137.0.7151.69",
+    "revision": "@0000000000000000000000000000000000000000",
+    "userAgent": "Mozilla/5.0 (SMART-TV; Linux; Tizen) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.75 Safari/537.36 Tizen",
+    "jsVersion": "13.7.152.13"
+  },
+  "frames": {
+    "frameTree": {
+      "frame": {
+        "id": "96B871AE19D7DC05A92125014F37E689",
+        "loaderId": "33D4153B78C41E1CEA93B3458063933A",
+        "url": "chrome-extension://oakokfcahinkpjpigcnpagkpjkkbffpl/ripple.html",
+        "domainAndRegistry": "",
+        "securityOrigin": "chrome-extension://oakokfcahinkpjpigcnpagkpjkkbffpl",
+        "securityOriginDetails": {
+          "isLocalhost": false
+        },
+        "mimeType": "text/html",
+        "adFrameStatus": {
+          "adFrameType": "none"
+        },
+        "secureContextType": "Secure",
+        "crossOriginIsolatedContextType": "NotIsolated",
+        "gatedAPIFeatures": [
+          "SharedArrayBuffersTransferAllowed"
+        ]
+      },
+      "childFrames": [
+        {
+          "frame": {
+            "id": "E8A930A6B1DC2785174EB26C7E01D08F",
+            "parentId": "96B871AE19D7DC05A92125014F37E689",
+            "loaderId": "4B76E322C623429EBBDE145EE98A877E",
+            "name": "document",
+            "url": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/index.html",
+            "domainAndRegistry": "",
+            "securityOrigin": "file://",
+            "securityOriginDetails": {
+              "isLocalhost": false
+            },
+            "mimeType": "text/html",
+            "adFrameStatus": {
+              "adFrameType": "none",
+              "explanations": []
+            },
+            "secureContextType": "Secure",
+            "crossOriginIsolatedContextType": "NotIsolatedFeatureDisabled",
+            "gatedAPIFeatures": []
+          }
+        }
+      ]
+    }
+  },
+  "probes": [
+    {
+      "id": 8,
+      "origin": "file://",
+      "data": {
+        "url": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/index.html",
+        "title": "Fire Prevention Challenge",
+        "ready": "complete",
+        "viewport": [
+          1080,
+          1920
+        ],
+        "ua": "Mozilla/5.0 (SMART-TV; Linux; Tizen) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.75 Safari/537.36 Tizen",
+        "frames": [],
+        "body": "Kembali\nBABAK 1/4\nUlangi\nPengaturan suara\nBABAK 1\nPilih tiga unsur api.\nSeret tiga foto yang tepat ke area hutan.\n0/3 unsur\nTemukan ketiga unsur agar api menyala.",
+        "flutter": true,
+        "mascot": [
+          {
+            "loaded": true,
+            "clip": "PointIdle",
+            "time": 5.8962
+          }
+        ],
+        "resources": []
+      }
+    },
+    {
+      "id": 3,
+      "origin": "chrome-extension://oakokfcahinkpjpigcnpagkpjkkbffpl",
+      "data": {
+        "url": "chrome-extension://oakokfcahinkpjpigcnpagkpjkkbffpl/ripple.html",
+        "title": "Samsung Tizen TV Web Simulator",
+        "ready": "complete",
+        "viewport": [
+          1080,
+          1920
+        ],
+        "ua": "Mozilla/5.0 (SMART-TV; Linux; Tizen) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.75 Safari/537.36 Tizen",
+        "frames": [
+          {
+            "id": "document",
+            "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/FirstScreen/index.html"
+          }
+        ],
+        "body": "",
+        "flutter": false,
+        "mascot": [],
+        "resources": []
+      }
+    }
+  ],
+  "events": []
+}

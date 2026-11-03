@@ -1,0 +1,31 @@
+{
+  "version": "1.0.10-r30-review",
+  "versionCode": 2026110331,
+  "git_head": "53ed5fcee0c857ef0c2ad304a7d9687558560c64",
+  "contains_pending_working_tree_integration": true,
+  "apk_signing": "review build signed with existing Android debug key; not store release",
+  "tizen_signing": "unsigned candidate; Samsung certificate required for physical TV installation",
+  "minimum_android_api": 24,
+  "artifacts": {
+    "KIFC-1.0.10-r30-review.apk": {
+      "bytes": 92617243,
+      "sha256": "29bc1337cb222ccf7a7413abc388b3fad4ac4142d12c9ead41bab71d48b277a9"
+    },
+    "KIFC-1.0.10-tizen10-unsigned.wgt": {
+      "bytes": 59878365,
+      "sha256": "749e5f38ef5e1a3175b12e85218ef4f80f7adfc17f6294d2dc9dd942f2fe7a3b"
+    },
+    "KIFC-current-source-review.zip": {
+      "bytes": 137880103,
+      "sha256": "bdd094eec7c25664a099e007d845c5b452443827f2d26f32b047dfa405c36214"
+    },
+    "KIFC-web-offline-resources.zip": {
+      "bytes": 59883861,
+      "sha256": "cf07006e44b9250795a9be57a3dc420835fdba870bb71c54bc08d86e8968056f"
+    }
+  },
+  "shared_asset_bytes_verified_in_apk_and_wgt": true,
+  "android_runtime_tests": "postponed by owner",
+  "physical_tv": "unavailable",
+  "native_tizen_emulator": "not validated; official TV Web Simulator is a separate test tier"
+}

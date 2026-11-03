@@ -1,0 +1,1982 @@
+[
+  {
+    "file": "browser/welcome-ko.png",
+    "pixels": [
+      1280,
+      2276
+    ],
+    "source": "Production web browser screenshot, real-time GLB",
+    "sha256": "d26d4b493ad21ed67adf504ae79c8c644c466bbc066188fc73dfccc04f2f95ca",
+    "review_tier": "browser"
+  },
+  {
+    "file": "tizen/opaque-sdk/english.png",
+    "pixels": [
+      504,
+      675
+    ],
+    "source": "Official Samsung TV Web Simulator screenshot, remote chrome included",
+    "sha256": "06c9d0eaa62a9c4cf65781e666b41fdb44c21aa126c5edcc95081867cec866cc",
+    "review_tier": "latest opaque SDK workaround"
+  },
+  {
+    "file": "tizen/opaque-sdk/korean.png",
+    "pixels": [
+      504,
+      675
+    ],
+    "source": "Official Samsung TV Web Simulator screenshot, remote chrome included",
+    "sha256": "14f3d7c0181184364fb48ad7ed507a464e07ab2e750e9ecb1fc5fd544afda851",
+    "review_tier": "latest opaque SDK workaround"
+  },
+  {
+    "file": "tizen/opaque-sdk/simulator-assembly-complete.png",
+    "pixels": [
+      504,
+      675
+    ],
+    "source": "Official Samsung TV Web Simulator screenshot, remote chrome included",
+    "sha256": "a9df51c63cff0a9376194c3782aa3544da74dbdc69452df94ad61d0588c0387c",
+    "review_tier": "latest opaque SDK workaround"
+  },
+  {
+    "file": "tizen/opaque-sdk/simulator-closing.png",
+    "pixels": [
+      504,
+      675
+    ],
+    "source": "Official Samsung TV Web Simulator screenshot, remote chrome included",
+    "sha256": "ded6b8949c199d64fe582eaead7450084e9491ac668458717018433a852018c3",
+    "review_tier": "latest opaque SDK workaround"
+  },
+  {
+    "file": "tizen/opaque-sdk/simulator-explanation.png",
+    "pixels": [
+      504,
+      675
+    ],
+    "source": "Official Samsung TV Web Simulator screenshot, remote chrome included",
+    "sha256": "66912d3f144bc094407f91e2dfcb274eb2f2e9907061f201cb4421d4722bc29c",
+    "review_tier": "latest opaque SDK workaround"
+  },
+  {
+    "file": "tizen/opaque-sdk/simulator-feedback.png",
+    "pixels": [
+      504,
+      675
+    ],
+    "source": "Official Samsung TV Web Simulator screenshot, remote chrome included",
+    "sha256": "c4ad24692869a3ae8483da5f5ad35ca6d17138ebf6019ada8181c33fdd8ba174",
+    "review_tier": "latest opaque SDK workaround"
+  },
+  {
+    "file": "tizen/opaque-sdk/simulator-reading.png",
+    "pixels": [
+      504,
+      675
+    ],
+    "source": "Official Samsung TV Web Simulator screenshot, remote chrome included",
+    "sha256": "2bbdddcc8b8ce907e993f267c88d5cc6d11af147271d437f5e43d726b8c2391e",
+    "review_tier": "latest opaque SDK workaround"
+  },
+  {
+    "file": "tizen/opaque-sdk/simulator-welcome-local.png",
+    "pixels": [
+      504,
+      675
+    ],
+    "source": "Official Samsung TV Web Simulator screenshot, remote chrome included",
+    "sha256": "710ddfbe01e42e5b078ff8d13db53ff4ecd3a18c585236333b629f0f0e241eb5",
+    "review_tier": "latest opaque SDK workaround"
+  },
+  {
+    "file": "tizen/simulator-assembly-complete.png",
+    "pixels": [
+      840,
+      1205
+    ],
+    "source": "Official Samsung TV Web Simulator screenshot, remote chrome included",
+    "sha256": "49659cc2aad95ef3959c7c2454f65b3c0ff8474d563e6f84c431bbcbefb3c5e8",
+    "review_tier": "earlier transparent SDK diagnostic"
+  },
+  {
+    "file": "tizen/simulator-closing.png",
+    "pixels": [
+      840,
+      1205
+    ],
+    "source": "Official Samsung TV Web Simulator screenshot, remote chrome included",
+    "sha256": "0f73def6486818ba4569a80823697801ff241f7c62d613c89bd2d91c821757aa",
+    "review_tier": "earlier transparent SDK diagnostic"
+  },
+  {
+    "file": "tizen/simulator-current.png",
+    "pixels": [
+      840,
+      1205
+    ],
+    "source": "Official Samsung TV Web Simulator screenshot, remote chrome included",
+    "sha256": "efe62b59f61b13de9d804d17a7673ad5256aa4daea8f34e79112433c4bec0ada",
+    "review_tier": "earlier transparent SDK diagnostic"
+  },
+  {
+    "file": "tizen/simulator-explanation.png",
+    "pixels": [
+      840,
+      1205
+    ],
+    "source": "Official Samsung TV Web Simulator screenshot, remote chrome included",
+    "sha256": "3758eec169c9155118a56b1c1463c6937da98dc40d5fe684fccbf63e18a8a6dd",
+    "review_tier": "earlier transparent SDK diagnostic"
+  },
+  {
+    "file": "tizen/simulator-feedback.png",
+    "pixels": [
+      840,
+      1205
+    ],
+    "source": "Official Samsung TV Web Simulator screenshot, remote chrome included",
+    "sha256": "2fa025b5819addb457997e9244f64ff248e9fbb50e28108890e7cf90cb67e83a",
+    "review_tier": "earlier transparent SDK diagnostic"
+  },
+  {
+    "file": "tizen/simulator-korean.png",
+    "pixels": [
+      840,
+      1205
+    ],
+    "source": "Official Samsung TV Web Simulator screenshot, remote chrome included",
+    "sha256": "9cf25604b563f21c4f23124ea08fcae92a01dcb9413af3fe0b194098a2535e14",
+    "review_tier": "earlier transparent SDK diagnostic"
+  },
+  {
+    "file": "tizen/simulator-reading.png",
+    "pixels": [
+      840,
+      1205
+    ],
+    "source": "Official Samsung TV Web Simulator screenshot, remote chrome included",
+    "sha256": "5108ab10747c841d29e2634f8502a7f083a1ba145aa269a41abc4959af5abe9f",
+    "review_tier": "earlier transparent SDK diagnostic"
+  },
+  {
+    "file": "tizen/simulator-welcome-local.png",
+    "pixels": [
+      840,
+      1205
+    ],
+    "source": "Official Samsung TV Web Simulator screenshot, remote chrome included",
+    "sha256": "59761b06bf96779776145d3c76d7d869cfa1e5159fa82c4f918b745df66a25be",
+    "review_tier": "earlier transparent SDK diagnostic"
+  },
+  {
+    "file": "tizen/simulator-welcome-offline.png",
+    "pixels": [
+      840,
+      1205
+    ],
+    "source": "Official Samsung TV Web Simulator screenshot, remote chrome included",
+    "sha256": "2582fa0d2090aa24a37f214e0a2c9288b0e414d5b9873bdffb0887aa19dbf134",
+    "review_tier": "earlier transparent SDK diagnostic"
+  },
+  {
+    "file": "widget/cause-correct-en-1080x1920.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "af602d90adb686edea1069805df319285a6e0cbc50365aa0348199dcd65df0af",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/cause-correct-en-2160x3840.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "7dac7f0de007617a848a6080934ceef145f0bdeb685e83738a644382d8fcc6c9",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/cause-correct-en-360x640.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "e297795c155c3c2503199557fb9f6e87bcb3bea2237368fe245ea3d90a933c62",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/cause-correct-en-411x731.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "5125b848efe67357ef702bdbd8ea6235bf857635964010ba82413965b4cf6c26",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/cause-correct-en-720x1280.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "e64ecb319e46382887ca72d383b6cbf8dfe341bf14751fcc76194a110d1652fe",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/cause-correct-id-1080x1920.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "7fa7eab936b8f9f48b36634c5d3753efccc1f9e5d9349b57d2e32b4fc1a32b25",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/cause-correct-id-2160x3840.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "44246770b9b46b0bdb7134834e43187225258348fd4c51fb24427f55fc17045e",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/cause-correct-id-360x640.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "cb4d2a8657b94389b7e143037af7f7cd5b5c098e4c160c4b19bd2d02821d35b7",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/cause-correct-id-411x731.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "b6ed147e62f1ce4a2a824cdca92237039c7d01ad7249a5c7de4d0927aa9cb87e",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/cause-correct-id-720x1280.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "856ba364ada6e0a8e42b1204e41b982ecac109db2e3cebd50e6cc8498c6dc336",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/cause-correct-ko-1080x1920.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "28b9c3959ca6bd7e58125b8ef1bf6e7e1b111b1e9894b7102848d5304fca0810",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/cause-correct-ko-2160x3840.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "b970780928682aa72100256af9e3d052192a0b4b995ada89593b27c1dc85274b",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/cause-correct-ko-360x640.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "0d6d0ce912ae4c4d26fed05fee18fe25734b8e96a4eb8f0404acb38eaa952055",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/cause-correct-ko-411x731.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "eb0749c51f9c83a61349d43c7cea8ebda9abbe5c09597cc4677152084e9b31a9",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/cause-correct-ko-720x1280.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "84af48e66d200885ed369ce98998181cbe4d611610a1f5cd16a92c90fe09959f",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/cause-wrong-en-1080x1920.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "6d0e1ffa68bbcabc24b41066404b2b43e67d0335e241ed5f905651767a0e2ff1",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/cause-wrong-en-2160x3840.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "4491b34c5902fae2b5504aff318b53243587e0421db46c7278dea7c77b0f5a95",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/cause-wrong-en-360x640.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "88d70fe2b56a4e6c53d25463a13d3dda69549c187f193835caa18793093e7acd",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/cause-wrong-en-411x731.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "81d951df5e60879116badc05f9c7019cb8a702d6a3c7b1391d811850d2c75265",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/cause-wrong-en-720x1280.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "39315c842101f38f599ffebf71620e437111ca845d291e1573fb4825ba08eefc",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/cause-wrong-id-1080x1920.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "62e9bffa9fbbff9f4d021d923e3c763a94e5a0983e5bc1ee1196e47a6b32cce6",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/cause-wrong-id-2160x3840.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "88b7bd8cc6f298e7cc38f6fabc07f7d67dd31c16384b018f0adae1ee23938728",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/cause-wrong-id-360x640.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "6f29f6f39c8a8570254f6ea21c489f2dae0d70ae0fc731474a4ee9851df805ae",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/cause-wrong-id-411x731.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "eef101909adcd086d1b75a5b273ce0b54622e3fdd15993e259d68914e3211ffc",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/cause-wrong-id-720x1280.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "a95fe6b8d44929b9d24fb0bc4ceaa96e8ef9b34d64c7b3bc8eed9c4796715c5f",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/cause-wrong-ko-1080x1920.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "07fc6630597c426554aed640f6cecb8314df74467c6b2b57447a2d9de71ca52a",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/cause-wrong-ko-2160x3840.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "cd1ac91457efe2c3f5a4c740b1c6998cb3d6e2ce86e9747f5c686ea7edf7374f",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/cause-wrong-ko-360x640.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "cb305c0f0d9a39438558b05593e17d9eed7337ad35d313f3dceaa473d7d92236",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/cause-wrong-ko-411x731.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "30657c3ca72576b735b7d0ea935f183d050a80ee7f6993e72f96bd0dc7417108",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/cause-wrong-ko-720x1280.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "893daedf0eda10b67764061c1effa2dbb149e0be89c20ab95ea0bd6096455d7a",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/closing-en-1080x1920.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "bdb02d3dc872fe41d8289c9e138aedcef9763d3ca3fc2e1f5fd026fabf080c6e",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/closing-en-2160x3840.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "363a06ffdb5bffc8ef3a14ef79ba1535d25d4034ab884dac645626642fafb148",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/closing-en-360x640.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "f09c2b341d2eccbd11269be259fd22d4f16ea5f83a9e43ff45628209c021bc67",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/closing-en-411x731.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "24976654d2ac0f41f45292170af4ef86538a6c5726c0c6e7bfcf9ebbcd904f8d",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/closing-en-720x1280.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "cf15c438e35759963261d7cb998992474c211af4c8d6e388e608d08fb680e8e1",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/closing-id-1080x1920.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "1fb51a1f92953dc57b78114a1cfdb08e8739dd704ece94ffdc060cb30be78ab0",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/closing-id-2160x3840.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "3037b5db654f94728bd0ac3db1501e10664b08a804b63bd35ff45c96429216e5",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/closing-id-360x640.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "68c495f69d530c59151066b4ac745d580cc42aee8f9029eb5490bafbfc793e38",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/closing-id-411x731.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "2b980f0e0d29f43b8a3c15a2ef2c78463ade08182be79fc703af2d82ae4c3c1e",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/closing-id-720x1280.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "ec838b5410d597d6b9f31c360cb6c7375de827c31081c740225171acd08f33e3",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/closing-ko-1080x1920.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "35ade60e0f058c283130c568d066e7a0a3c01ae18a3a9bb7a072c7896fd542b6",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/closing-ko-2160x3840.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "6450a5bc8e5d6666aa8ae25eb82a8d4c1202a24ec4e7ea528646fb89d94255e2",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/closing-ko-360x640.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "86d456263fa58825879e3f431e9e2991171ce8d8f572a9a398aec85ebfac026a",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/closing-ko-411x731.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "c2890b5cce494dd48887dd633bbf0c9c41e4670fc8502d4e4befaf7a8577eafd",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/closing-ko-720x1280.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "2af024a73e11baed6f507284183fa8ad73f779a4f5e45ef412b7d846b9019dc5",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/complete-en-1080x1920.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "df769e6119f7757499f84a3a687ef306ca84225caa5122ddc98a73f279a8df4d",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/complete-en-2160x3840.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "d3476ab1147af8fbd35a861f00a4627adb90cf46888a01d682bce5f8ba3af49d",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/complete-en-360x640.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "5cdb8d4dbe419da5003ec84db65a820b409f69015779e45ab641270245168daa",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/complete-en-411x731.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "818ba4a0dd35c1d7226c109cf7c0b138b664bd188bf09330ce34914fa4a9eb48",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/complete-en-720x1280.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "d7882cf350d915b60fe5906ad64a233d301a0e8a0c995e3a6fb731afecf99d12",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/complete-id-1080x1920.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "05653a61e150c062fa8b05edf195fc1ac400c2834370d7c21392f5c023cb59d9",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/complete-id-2160x3840.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "cf1363f946ab3c309391b60f2eba08341c212ca4879cc60ec455bdc9351d6960",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/complete-id-360x640.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "46a9944be63e52bc898b6e717e686f5cd2c9f50b73ca14cf8974f191d88c5055",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/complete-id-411x731.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "8e672b720778d6f9a18aa18959fedbf8adfba8ba37cf78b840cf4bea471a8245",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/complete-id-720x1280.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "0d8f8f24dbb9ec42f7604f7efd2096cb03e2b17eac34136329d7a6f0de9f65ba",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/complete-ko-1080x1920.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "8df13061cf81c3eb01472e1178c50773ce391f70eaafdb72b883a60a558f4ea4",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/complete-ko-2160x3840.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "7e122bf1d6b52c76a63e1ceae969dcffa67f8e80a7659103acd302f4f8d075a1",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/complete-ko-360x640.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "5af1ca6359483c7504604540069c86e6d1c1a3d146854570b05726c7665fbd6a",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/complete-ko-411x731.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "6922ba86afa0627ae6d4872702b031be06e427b3eb0ecf01d5088fde5a386290",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/complete-ko-720x1280.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "2e762b991c2ae7fb24c0df27c13c89247c878a13067eadd5f9adaf7d02b6e16d",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/explanation-en-1080x1920.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "4daeb791b22e8d1c04b485e54487d417e2d07458079e134d4f743a7d86c0bf40",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/explanation-en-2160x3840.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "445fa9a1fb4eb142fff62061cf76dbca43e1d6dfc509554cb2145a48df8f4319",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/explanation-en-360x640.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "6d9708d55e164c7a91888f9be49e6e0bce739c7d52c88fef68b98accf366f401",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/explanation-en-411x731.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "2fe15a88887020652293de357ec055369081567fdbda128ba74e158542a57edf",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/explanation-en-720x1280.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "066f8ec5f971de8b121ce360d18619f585aaa0b362b417d7e479d7bf350ee67e",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/explanation-id-1080x1920.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "f200c0b6a06f06176e288276791d3808ac170fddfeef308fb437111fa1ce7a8b",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/explanation-id-2160x3840.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "a1cc46be5f78f67b6d9691a7ecc30a0cb6431f10b02b7703e7b5e783a50245cb",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/explanation-id-360x640.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "a600ca8bd5695bf7fd4c5eee19a3b3a6ba00ee73cfd72931b98d06a6419b16d5",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/explanation-id-411x731.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "1f4563c34adc9733f301584fdbfe356fc52b1e260fabc48da23817537120b105",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/explanation-id-720x1280.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "f6ed184c6db161edbf34482a7c80bb329dc183eb3b00b2b67c21d10de2c8eb44",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/explanation-ko-1080x1920.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "2fa4b12572356ead09ded842e65fbeca8ef6da8cc8eead7ed0f2554440779db2",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/explanation-ko-2160x3840.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "7bb726ec17be1a243b4d12c4fc3647b2bdd29e68733afc29fbeb2e20713e6ee7",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/explanation-ko-360x640.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "3e3f2d8a9a99cf57f89308f0a5315f9ce8910a1a6d2f008f47122be572259965",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/explanation-ko-411x731.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "e7cca6b4eab8a432f997e6681f091fd142cd8b741e6f4097924bb4d8423eb49f",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/explanation-ko-720x1280.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "13fbd51878a8b8e25c167a9f5696f0639d01e4b55e18e66e23f15898c065c468",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/impact-review-en-1080x1920.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "c70fa77b014894d57a8160c6ccf43728c9a64700e05b7ad6e63e7ed7d1adf865",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/impact-review-en-2160x3840.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "e1d987da7263e2816700f8c874ab29946015b6eada7f16dde730c306c9a66c01",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/impact-review-en-360x640.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "29b5eb4890451855eb54be4986e33784c9b52df60fa8b9bbb99dcc3c0d2100b6",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/impact-review-en-411x731.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "18c13bc2f94aeb176ef66c9f376c7210a97f8f1937e01da0f3213a5414facb17",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/impact-review-en-720x1280.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "a88a5bfd213d3133f8d07c427ebde18207a6fb2c57d67bb1d3c44dac40b20d97",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/impact-review-id-1080x1920.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "4a5ebab8434d6935718af90830091005602ff81b2698bc20a2b8ead7d7610bd7",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/impact-review-id-2160x3840.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "2378dd19830ea74b88cd5c930e96698bce6a6b6a46672e34626ac15af18a4d48",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/impact-review-id-360x640.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "745a31a3b0ad597b592134619ca937e164175ac0773973aee7c34a32c373282d",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/impact-review-id-411x731.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "f31b6ead8b4fa3af68e916476351e25f6772e27390b1764befb9e6c535f03d78",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/impact-review-id-720x1280.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "fc4848f58111504dacabf7e5c9f35819d0932d3645bbf802b7386f8d7ecee4b2",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/impact-review-ko-1080x1920.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "e867c311e3ed55c7b036dc2aa4e8fba8f141e18e59fbbfb2c4e54f1c06d50bb9",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/impact-review-ko-2160x3840.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "a17289393249780cb7a51c6c133ae1ab23c2e0e2e0d5719310287a8b47217eb6",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/impact-review-ko-360x640.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "a30c2828357c7d51a5003bb2a8bf13812c09c40202c95ec5321b0699182057ce",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/impact-review-ko-411x731.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "f688752d92fe9292b09f96a217895c560dea8e978a870aa4f3c5be9df0c2dc0e",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/impact-review-ko-720x1280.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "bf87a327f5d0c948a405c9574c0b896b3dd2f06d1699c496f15a1381ab74d9de",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/incorrect-en-1080x1920.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "6dc2c8921d7cb4d46d6da508b9f5ccfa429f0a8996aa0ea563d634c7a5e95ee1",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/incorrect-en-2160x3840.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "8f070d180ea6b58948d788b21e275603ef224090ff62f3650d36effebb1deda0",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/incorrect-en-360x640.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "d1931dad0b9830fdac2698896f78482cb6375e86fdf56bc41cf24be5da45f962",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/incorrect-en-411x731.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "8f941ff932058242478f8eab2f7088935897d808259a421516c2e07a23559c3c",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/incorrect-en-720x1280.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "b64dd73f469d6bd1f594384c4e38a347b14e2d14bba0de11fe8b1996aa82abe0",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/incorrect-id-1080x1920.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "0724ae0c0f0ef6444621614733bfbf7d6d0966796d66ad2ab82fc56bd49a0ab0",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/incorrect-id-2160x3840.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "89ab3d0491a66fe2f401a3f9e9d3fc63a52adb300e299ae23621fa17bcfa46af",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/incorrect-id-360x640.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "e3c792e797543d0996990dfc512b4225394df3236ccf472e21331a331941df8c",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/incorrect-id-411x731.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "3ac0c40d84bda77883f9c5aaba9d7338e3f86fb88dc845db4c043a0597f0fd3a",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/incorrect-id-720x1280.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "5df818c77dd2568c8569872f0c83ad7d671f26c6e983f5a1235942eedeb86f55",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/incorrect-ko-1080x1920.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "b4ac1e6a55b3d9d70ecf98b0cf081408bc5e71cfe6a56730679ca732900cb215",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/incorrect-ko-2160x3840.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "5fe6ac728a534819f637bf95fd794f583429e2bec92642dc645612159e782bf8",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/incorrect-ko-360x640.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "57311711919c082dcbbc40f1f08190fd046faa2d036fe8020021ed8c8b444307",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/incorrect-ko-411x731.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "e38d8459e5e8c02ce28255d7574c6fe5e930caff9ab666716463e44e6572daf1",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/incorrect-ko-720x1280.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "0906f80d6dba6d28008edc2fde62a3899bf78c294267e16b321896a5fae14813",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/initial-en-1080x1920.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "e9c39572d1ae7617007cbd96823ab94567ab325bdbf2075439c10dcae6a3d2e1",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/initial-en-2160x3840.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "5b80c78e7f9ba44360583b11ab70931a3515818139f1c0ca9d4f83b89712b323",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/initial-en-360x640.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "b9d4591a1a3247ab9f02b390e97c9aba488ae540b348edf9fa05111df86da7d7",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/initial-en-411x731.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "a2beb66a161e95dc77c19d8f0424dd5135745522fbd407e24f53d1521704360d",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/initial-en-720x1280.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "81be94cc9c9ae5ed81a120bb07808bf41a2f397b2ad7d940966ec44b6d92d79e",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/initial-id-1080x1920.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "38bae78fca61870a6160321c1b91df12ed8d694a3ad8ac8e4df377483e4029e7",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/initial-id-2160x3840.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "c296e69c2b8b3f3713892f2e6a27b7c97a4058c635120d5a75c98e852db9c283",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/initial-id-360x640.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "d47a633ea44c0676740fca6d0f36aa01e2d5f53b91d816b447410fe0c0e99843",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/initial-id-411x731.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "35d8f6f246063f3aa11a91828a2ef7633fabd15c9f54e3527bf2a92066d436c9",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/initial-id-720x1280.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "6f57e686d6fb4b86e8eecbdd70221dec74666fd5939d9f9f711f953fc159804a",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/initial-ko-1080x1920.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "f488b0e6a46718287ee78c0ba9591a40b75ef2f94dc86f8f1c74843099feaffd",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/initial-ko-2160x3840.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "a1fe41799cda2192175b21d88d4e272ddfdab83620756c5859f8162595f1cd09",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/initial-ko-360x640.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "575c3f44445bf6ef00644db3e1625a51c0c06e8d0ea9c8adcc50f2b57db8a787",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/initial-ko-411x731.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "0dbaa16383af41bb9683096dec1531113925f455eb57df1f91e8a08e2b4b0efe",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/initial-ko-720x1280.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "a40b1f513f0d178b2bcd6e47c2428e7fb35549af05c6bcc2db4af43f1e5fc635",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/partial-en-1080x1920.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "a929869ae7131f928ac84b36f7958cc8f9716476fdaab727d4eeac85601eeffd",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/partial-en-2160x3840.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "8a6927670ddb1818da5d49a031d41a182fbc28cb1e32e721c9cd62395d963354",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/partial-en-360x640.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "08b63aff4cd8ebca9e72c85e0390769b15fb818e0844c065f2395a405ebe0793",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/partial-en-411x731.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "7e8febbb42c771a6edf54dd3140264271ead8f983baab5f4d2a367c03cb6fcd0",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/partial-en-720x1280.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "7aff73b8d7ec6e4f99c6df9048638b40d7eee11b5800cad08405078f86401d25",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/partial-id-1080x1920.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "aef6cf151da046cdd45cf756449c573ee12212c56211f033a708774f1991d6dd",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/partial-id-2160x3840.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "caa8f095e4645050c32ebdb8d7d276830088816c2f311e40015e2df2ae31d051",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/partial-id-360x640.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "1053a778c8d95b1d979ab24b57688b430806a2e8e14d10c80503edcceecf65d8",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/partial-id-411x731.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "845ba25ba7d6bd3889397001fb6c23e0c16f5ac84d715003bbbfabff2731c47e",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/partial-id-720x1280.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "283ac0610f46623ba4ec799316aeb94e8b3eb35840ab3988115d5120b2a58575",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/partial-ko-1080x1920.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "cbcef9fa433fbbd0f1fc7f24eec157f449a635da10750349f6bca7bb0ffbde0c",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/partial-ko-2160x3840.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "a6efbdecbb7abc04d4a7313c92e93ea8c626b62d82e7b7ec6cc4aeee54e5570e",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/partial-ko-360x640.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "35a11c1e492199f4ef71d83ed3c25564047b2b6b2dfcaa876f6c87e8de1714ba",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/partial-ko-411x731.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "4093b7b13956ce793402bacfc1ae27445d56e7e6bbea42c32d79e9c10a5ec990",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/partial-ko-720x1280.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "df609493b1ea2302b33541147458c98dae8244d0f99d7c3c344f15edaa5073d3",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/peat-correct-en-1080x1920.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "ae9a6e64474c3ebc6eac56fcb77d55d63ab367105cc327c167421c349a4ee2cd",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/peat-correct-en-2160x3840.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "4d291f6fe81bc9287ea2812e917cfa69a5a47ace5678b1231c8f8250f6bbe5e2",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/peat-correct-en-360x640.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "6150462db966348f3fb0666725fd380df405af7dbd3fe1835d75ae8196e540d1",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/peat-correct-en-411x731.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "ae71a5ef01c8845233227e1c3d909bcd3cfd21fd4b205623d52d9a79828370db",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/peat-correct-en-720x1280.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "7fe6d1dc1a62ae65befd58d714e45a93c6c94ec2fa6a6bc43f20f15a239cfb5a",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/peat-correct-id-1080x1920.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "360300f25c728553feb211da44c96116eaa9728834f578819c9a101cb1d579e7",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/peat-correct-id-2160x3840.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "caa4635f1e89f8b012841fc83f65637304cdf64bec253b7046702b90e9e7d071",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/peat-correct-id-360x640.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "ea5d181ded75a6b0e27ab96fc2a21f817a7d17399e39f300395b1089c9958887",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/peat-correct-id-411x731.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "82f96afeb531baf9a021480d524aada07846bea66e3894ecfb0e78e4da3bfb9c",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/peat-correct-id-720x1280.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "6c87ddd5272f85265065d87990f6a125ee9754bbc528210bdc6eb6ee4177b038",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/peat-correct-ko-1080x1920.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "a82bbfb45a5bbec78dfcf79b05a6980e33996cb58c21ad7103306362684c7ba8",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/peat-correct-ko-2160x3840.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "25e78e80c7c7aeefae71f936b4242378b278016181fa69c719c5108e64b9e56a",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/peat-correct-ko-360x640.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "a67fc13a691236d31f0fbe4a15ec58c4af868a6d0b8d78f506552e4d90714427",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/peat-correct-ko-411x731.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "3d6ade0c93b2d240dd7f3611dbb43b641dedf738103885bde0cec6431b89f165",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/peat-correct-ko-720x1280.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "34bbdf5494a8b9dcba27ff1cf26eb0a4e6b60b2eb6ad76fb5ea75afddace5387",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/peat-revealed-en-1080x1920.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "8ba1cf29486588bee5e2245d8bb19c7ed3e42c3fc2c5f55aa0c5718791eadefa",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/peat-revealed-en-2160x3840.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "23240d3ca8bf19741cea4f6efc06180f04c0d09c4852f0947419a4fd4c8758e8",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/peat-revealed-en-360x640.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "3fde25ea6041aeb0c4ae415e6fc296f62783250e53f47bb37674b0c75f1dce8b",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/peat-revealed-en-411x731.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "a8a2c56572bafec24952340d700c570fc7e0d13a56568ba88c4a12b232b49169",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/peat-revealed-en-720x1280.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "adf72a628fc33b111e5c7363502b62dfbb4925001ef8ba430b1da90b70b00ad1",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/peat-revealed-id-1080x1920.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "b03d5dae58aa6f6dd1f11e286f853c38ab5f31efd5aa975df7ae0f8c2c765059",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/peat-revealed-id-2160x3840.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "13406aed3310494f07caff2d9d973f695628718625d8cf5c60a1d1be0808e5d8",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/peat-revealed-id-360x640.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "d9c1fed74dfed735b3d44e35798cacaa4aa5cd8863dd0af91b6e2262389536f3",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/peat-revealed-id-411x731.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "a1a242348e506443a74f757fc62d5f60629ad793ed4faafc5be2b4e9c5f5d880",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/peat-revealed-id-720x1280.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "f8a7700d3603ef594697ea838c65bbc8de340a28e7fbfb522d3f03f4812d5d84",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/peat-revealed-ko-1080x1920.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "3b8bbe8ec839ba23935139d9dddb266f3c44e1769a7fcee033552dc1517df92a",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/peat-revealed-ko-2160x3840.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "4c407bb548f6669a344879617ae62520d13293985fdcf417953fbb32a0d62585",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/peat-revealed-ko-360x640.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "da77cec3fe772c026366e2cf6983d87f4b3aced8c2c2d221f0afe36d5d544422",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/peat-revealed-ko-411x731.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "36df43eca4c266ceb0c8ce6a7072a75429c57c50491533b212dfe36bb497b62e",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/peat-revealed-ko-720x1280.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "0afff217109ad14d77d4129a1aaa8425ad2abf55ae4f90559067721a0a2fd95d",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/score-en-1080x1920.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "5faf5dad89663b0c49b88d45c48edae5e65cc4e16ded941a48508efeb2a11db0",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/score-en-2160x3840.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "df2e133fdfac8938a50dc2ca9d3a8d179f66180d17af0fe7610ec0426405272d",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/score-en-360x640.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "54ed5d61807d3146e214f3c997a0d8a1a8654273e9b6e41d348dec33b8eee1ac",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/score-en-411x731.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "148a2d966f47dfdc65ed50bd36b87f5dc5fc36473af99bca833023aa5924adca",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/score-en-720x1280.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "07d5c9324f75ee3477626eeeb3c8095569005f67b0b56285c2aba10f99689f94",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/score-id-1080x1920.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "c4c6e4b29e05e9b71caadc7a094f1d11fa6828af193fce1a4addd2b1660e3f1e",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/score-id-2160x3840.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "3794e412135454669d91c5095175f2e59889df429220d089c32a0a98793ab590",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/score-id-360x640.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "ac4a44aa6c3249c1bbb30fe488bc5d32cca761e0df31a0e3f2e63f080cd125fa",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/score-id-411x731.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "6be090c3200d68261ab7a57a9bee5f5994a31d5d0b3df868e7c87d5fe24b4d84",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/score-id-720x1280.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "c8007b172ae9765ec4dd592c88f14f12ff1e80f42bcde2f8a129fabb892a5642",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/score-ko-1080x1920.png",
+    "pixels": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "412c279d3b0cb4b98bf1cb39c287aa9f20bfb74e00a7c1a190728bd12cde9cab",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/score-ko-2160x3840.png",
+    "pixels": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "54584aec72e41c8d510557a15920374a34aa2aa0b51114d0e1b94e16a9e045cf",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/score-ko-360x640.png",
+    "pixels": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "109db9dc73236a23a6e896d959cbdf80c2dff51d37e0f80c7fda77d603bf881b",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/score-ko-411x731.png",
+    "pixels": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "d05c7eee7a51b7b8a021871e0d2e74295d292fa8e7d8f4b6884ddd93eac4d45d",
+    "review_tier": "five-size three-language layout matrix"
+  },
+  {
+    "file": "widget/score-ko-720x1280.png",
+    "pixels": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render, static mascot fallback",
+    "sha256": "23856ffda1b8103c9471fe8489f105aa463a81e8572c3f86760a03543011c61a",
+    "review_tier": "five-size three-language layout matrix"
+  }
+]

@@ -61,6 +61,7 @@ flutter:
     - assets/audio/narration/prepared/id/
     - assets/audio/narration/prepared/en/
     - assets/audio/narration/prepared/ko/
+    - assets/fonts/Roboto-LICENSE.txt
     - assets/animations/forest-burn-loop.mp4
     - assets/animations/forest-burn-poster.jpg
     - assets/animations/fire-loop.webp
@@ -77,6 +78,10 @@ flutter:
     - assets/images/logos/
     - assets/images/forest/kereng-bangkirai.jpg
   fonts:
+    # CanvasKit otherwise downloads its default fallback from fonts.gstatic.com.
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-Regular.woff2
     - family: Archivo
       fonts:
         - asset: assets/fonts/Archivo-Regular.ttf

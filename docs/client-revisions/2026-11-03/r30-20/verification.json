@@ -1,0 +1,28 @@
+{
+  "flutter_tests_passed": 465,
+  "visual_matrix_tests_passed": 30,
+  "analysis": "No issues found",
+  "timing_integrity": "9 MP3 hashes and ordered cues passed; 15 Korean estimated cues require listening",
+  "official_samsung_simulator": {
+    "version": "10.0.6",
+    "engine": "Chromium 137.0.7151.69 / NW.js 0.100.1",
+    "device_viewport": [
+      1080,
+      1920
+    ],
+    "sdk_window_workaround": "transparent=false",
+    "id_production_journey": "passed through score 7/8 and 30-second return",
+    "en_ko_idle_voice": "passed",
+    "skeletal_and_mouth_morph_changes": "passed",
+    "remote_key_delivery": "37/39/40/13 received; full remote-only gameplay not supported",
+    "native_tizen_os": false,
+    "full_os_offline_certification": false
+  },
+  "android": {
+    "build": "release passed",
+    "runtime": "deferred by owner"
+  },
+  "widget_capture_count": 180,
+  "physical_tv": "unavailable",
+  "sample_sources": "widget, browser and SDK simulator are separate evidence tiers"
+}

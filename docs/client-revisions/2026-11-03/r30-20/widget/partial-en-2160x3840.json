@@ -1,0 +1,8 @@
+{
+  "ticket": "KIFC-02",
+  "language": "en",
+  "width": 2160.0,
+  "height": 3840.0,
+  "physicalTVReachValidated": false,
+  "source": "Flutter widget render"
+}

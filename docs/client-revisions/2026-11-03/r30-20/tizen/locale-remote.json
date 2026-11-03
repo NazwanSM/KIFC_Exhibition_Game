@@ -1,0 +1,599 @@
+[
+  {
+    "name": "english-welcome",
+    "text": "Bahasa Indonesia\nEnglish\n한국어\nKIFC EXHIBITION ROOM / MANGGALA AGNI\nSound settings\nFire Prevention Challenge\nHello! Discover how fires start and what we can do to protect the forest.\nStart Challenge",
+    "keys": [],
+    "active": "<flt-semantics id=\"flt-semantic-node-227\" role=\"button\" tabindex=\"0\" flt-tappable=\"\" style=\"position: absolute; overflow: visible; pointer-events: all; z-index: 7; width: 98.3333px; height: 38px; transform-origin: 0px 0px 0px; transform: matrix(1, 0,",
+    "model": [
+      {
+        "loaded": true,
+        "clip": "Wave",
+        "time": 0.708399999999994
+      }
+    ],
+    "media": [
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/forest-music.mp3",
+        "time": 216.468123,
+        "paused": false,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/forest-birds.mp3",
+        "time": 6.405921,
+        "paused": false,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/tap.wav",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/correct.wav",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/complete.wav",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/animations/forest-burn-loop.mp4",
+        "time": 0,
+        "paused": true,
+        "volume": 0.6
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/animations/forest-burn-loop.mp4",
+        "time": 0,
+        "paused": true,
+        "volume": 0.6
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-definition.mp3",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-cause.mp3",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-prevention.mp3",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/retry.wav",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/flip.wav",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/finish.wav",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/closing.mp3",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/welcome.mp3",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      }
+    ],
+    "externalResources": []
+  },
+  {
+    "name": "english-idle-voice",
+    "text": "Bahasa Indonesia\nEnglish\n한국어\nKIFC EXHIBITION ROOM / MANGGALA AGNI\nSound settings\nFire Prevention Challenge\nHello! Discover how fires start and what we can do to protect the forest.\nStart Challenge",
+    "keys": [],
+    "active": "<flt-semantics id=\"flt-semantic-node-227\" role=\"button\" tabindex=\"0\" flt-tappable=\"\" style=\"position: absolute; overflow: visible; pointer-events: all; z-index: 7; width: 98.3333px; height: 38px; transform-origin: 0px 0px 0px; transform: matrix(1, 0,",
+    "model": [
+      {
+        "loaded": true,
+        "clip": "Wave",
+        "time": 21.230400000000508
+      }
+    ],
+    "media": [
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/forest-music.mp3",
+        "time": 15.260056,
+        "paused": false,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/forest-birds.mp3",
+        "time": 26.928099,
+        "paused": false,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/tap.wav",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/correct.wav",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/complete.wav",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/animations/forest-burn-loop.mp4",
+        "time": 0,
+        "paused": true,
+        "volume": 0.6
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/animations/forest-burn-loop.mp4",
+        "time": 0,
+        "paused": true,
+        "volume": 0.6
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-definition.mp3",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-cause.mp3",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-prevention.mp3",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/retry.wav",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/flip.wav",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/finish.wav",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/closing.mp3",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/welcome.mp3",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/en/welcome.mp3",
+        "time": 1.212052,
+        "paused": false,
+        "volume": 1
+      }
+    ],
+    "externalResources": []
+  },
+  {
+    "name": "korean-welcome",
+    "text": "Bahasa Indonesia\nEnglish\n한국어\nKIFC 전시관 / 망갈라 아그니\n소리 설정\n산불 예방 챌린지\n안녕하세요! 산불의 원인을 알아보고 숲을 지키는 방법을 함께 배워 봐요.\n도전 시작",
+    "keys": [],
+    "active": "<flt-semantics id=\"flt-semantic-node-228\" role=\"button\" tabindex=\"0\" flt-tappable=\"\" style=\"position: absolute; overflow: visible; pointer-events: all; z-index: 8; width: 98.3333px; height: 38px; transform-origin: 0px 0px 0px; transform: matrix(1, 0,",
+    "model": [
+      {
+        "loaded": true,
+        "clip": "Wave",
+        "time": 0.7223000000000174
+      }
+    ],
+    "media": [
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/forest-music.mp3",
+        "time": 16.039184,
+        "paused": false,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/forest-birds.mp3",
+        "time": 27.710113,
+        "paused": false,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/tap.wav",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/correct.wav",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/complete.wav",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/animations/forest-burn-loop.mp4",
+        "time": 0,
+        "paused": true,
+        "volume": 0.6
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/animations/forest-burn-loop.mp4",
+        "time": 0,
+        "paused": true,
+        "volume": 0.6
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-definition.mp3",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-cause.mp3",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-prevention.mp3",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/retry.wav",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/flip.wav",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/finish.wav",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/closing.mp3",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/welcome.mp3",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/en/welcome.mp3",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      }
+    ],
+    "externalResources": []
+  },
+  {
+    "name": "korean-idle-voice",
+    "text": "Bahasa Indonesia\nEnglish\n한국어\nKIFC 전시관 / 망갈라 아그니\n소리 설정\n산불 예방 챌린지\n안녕하세요! 산불의 원인을 알아보고 숲을 지키는 방법을 함께 배워 봐요.\n도전 시작",
+    "keys": [],
+    "active": "<flt-semantics id=\"flt-semantic-node-228\" role=\"button\" tabindex=\"0\" flt-tappable=\"\" style=\"position: absolute; overflow: visible; pointer-events: all; z-index: 8; width: 98.3333px; height: 38px; transform-origin: 0px 0px 0px; transform: matrix(1, 0,",
+    "model": [
+      {
+        "loaded": true,
+        "clip": "Wave",
+        "time": 21.237400000000463
+      }
+    ],
+    "media": [
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/forest-music.mp3",
+        "time": 36.559819,
+        "paused": false,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/forest-birds.mp3",
+        "time": 6.220045,
+        "paused": false,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/tap.wav",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/correct.wav",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/complete.wav",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/animations/forest-burn-loop.mp4",
+        "time": 0,
+        "paused": true,
+        "volume": 0.6
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/animations/forest-burn-loop.mp4",
+        "time": 0,
+        "paused": true,
+        "volume": 0.6
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-definition.mp3",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-cause.mp3",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-prevention.mp3",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/retry.wav",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/flip.wav",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/finish.wav",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/closing.mp3",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/welcome.mp3",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/en/welcome.mp3",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/ko/welcome.mp3",
+        "time": 1.201633,
+        "paused": false,
+        "volume": 1
+      }
+    ],
+    "externalResources": []
+  },
+  {
+    "name": "sdk-remote-input",
+    "text": "Bahasa Indonesia\nEnglish\n한국어\nKIFC 전시관 / 망갈라 아그니\n소리 설정\n산불 예방 챌린지\n안녕하세요! 산불의 원인을 알아보고 숲을 지키는 방법을 함께 배워 봐요.\n도전 시작",
+    "keys": [
+      {
+        "keyCode": 37
+      },
+      {
+        "keyCode": 39
+      },
+      {
+        "keyCode": 40
+      },
+      {
+        "keyCode": 13
+      },
+      {
+        "keyCode": 37
+      },
+      {
+        "keyCode": 39
+      },
+      {
+        "keyCode": 40
+      },
+      {
+        "keyCode": 37
+      },
+      {
+        "keyCode": 39
+      },
+      {
+        "keyCode": 40
+      }
+    ],
+    "active": "<flt-semantics id=\"flt-semantic-node-228\" role=\"button\" tabindex=\"0\" flt-tappable=\"\" style=\"position: absolute; overflow: visible; pointer-events: all; z-index: 8; width: 98.3333px; height: 38px; transform-origin: 0px 0px 0px; transform: matrix(1, 0,",
+    "model": [
+      {
+        "loaded": true,
+        "clip": "Wave",
+        "time": 22.154300000000482
+      }
+    ],
+    "media": [
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/forest-music.mp3",
+        "time": 37.479909,
+        "paused": false,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/forest-birds.mp3",
+        "time": 7.140136,
+        "paused": false,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/tap.wav",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/correct.wav",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/complete.wav",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/animations/forest-burn-loop.mp4",
+        "time": 0,
+        "paused": true,
+        "volume": 0.6
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/animations/forest-burn-loop.mp4",
+        "time": 0,
+        "paused": true,
+        "volume": 0.6
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-definition.mp3",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-cause.mp3",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/karhutla-prevention.mp3",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/retry.wav",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/flip.wav",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/finish.wav",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/closing.mp3",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/id/welcome.mp3",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/en/welcome.mp3",
+        "time": 0,
+        "paused": true,
+        "volume": 1
+      },
+      {
+        "src": "file:///D:/KIFC-tizen-tools/sdk/data/tools/sec-tv-simulator/appLauncher/app/KIFCGameTV/assets/assets/audio/narration/prepared/ko/welcome.mp3",
+        "time": 2.121723,
+        "paused": false,
+        "volume": 1
+      }
+    ],
+    "externalResources": []
+  }
+]
