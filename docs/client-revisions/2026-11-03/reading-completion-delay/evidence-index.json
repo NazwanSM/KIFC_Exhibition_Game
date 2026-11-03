@@ -1,0 +1,17 @@
+[
+  {
+    "file": "widget/reading-cause-hold-999ms.png",
+    "source": "Flutter widget render with controlled speech completion, 411x900",
+    "sha256": "f46e409dfc66a8737113a8455b239d7ec4eb232a340ac7cfd1b560d6a7e1c3c1"
+  },
+  {
+    "file": "widget/reading-definition-hold-999ms.png",
+    "source": "Flutter widget render with controlled speech completion, 411x900",
+    "sha256": "207c3d9a85c5f6cccc96d5a2956759e698091bb625d71c81e1cda90e8a82c374"
+  },
+  {
+    "file": "widget/reading-prevention-hold-999ms.png",
+    "source": "Flutter widget render with controlled speech completion, 411x900",
+    "sha256": "55bad49bcd1d49f027722734d8a0e799b98d4cd5ad48d337c72554cda66e8e88"
+  }
+]

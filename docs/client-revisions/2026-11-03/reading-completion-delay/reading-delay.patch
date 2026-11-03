@@ -1,0 +1,237 @@
+--- a/lib/features/game/exhibition_game.dart
++++ b/lib/features/game/exhibition_game.dart
+@@ -173,6 +173,8 @@
+   ReadingTiming? _readingTiming;
+   StreamSubscription<Duration>? _readingPositions;
+   Timer? _readingTimer, _readingVoiceTimeout, _readingTransitionTimer;
++  Timer? _readingCompletionTimer;
++  int _readingCompletionTicks = 0;
+   late final Stopwatch _readingClock = widget.readingStopwatchFactory();
+   Duration _readingOffset = Duration.zero;
+   int _readingSession = 0, _readingEpoch = 0;
+@@ -183,6 +185,8 @@
+       _readingTransitioning = false;
+ 
+   void _stopReading() {
++    _readingCompletionTimer?.cancel();
++    _readingCompletionTicks = 0;
+     _readingSession++;
+     _readingTimer?.cancel();
+     _readingTimer = null;
+@@ -313,7 +317,7 @@
+         : null;
+     final advance = _readingState.update(_readingEpoch, position);
+     if (advance) {
+-      _advanceReading(claimed: true);
++      _queueReadingAdvance();
+       return;
+     }
+     final nextEnd = _readingTiming?.visibleText(_readingState.position).length;
+@@ -335,8 +339,36 @@
+       return;
+     }
+     if (_readingState.advanceOnce(_readingEpoch)) {
+-      _advanceReading(claimed: true);
++      _queueReadingAdvance();
+     }
++  }
++
++  void _queueReadingAdvance() {
++    if (_readingCompletionTicks > 0) return;
++    _readingTimer?.cancel();
++    _readingClock.stop();
++    setState(() {
++      _readingStarted = true;
++      _readingState.position = _readingTiming?.duration ?? _readingState.position;
++      _readingCompletionTicks = 10;
++    });
++    _runReadingCompletionDelay();
++  }
++
++  void _runReadingCompletionDelay() {
++    _readingCompletionTimer?.cancel();
++    final session = _readingSession;
++    _readingCompletionTimer = Timer.periodic(const Duration(milliseconds: 100), (timer) {
++      if (!mounted || session != _readingSession || _page != _Page.karhutlaCards) {
++        timer.cancel();
++        return;
++      }
++      if (_readingPaused || !_appForeground) return;
++      if (--_readingCompletionTicks == 0) {
++        timer.cancel();
++        _advanceReading(claimed: true);
++      }
++    });
+   }
+ 
+   void _readingError(int session) {
+@@ -346,6 +378,8 @@
+       return;
+     }
+     _readingState.fail();
++    _readingCompletionTimer?.cancel();
++    _readingCompletionTicks = 0;
+     _readingTimer?.cancel();
+     setState(() => _readingFailed = true);
+   }
+@@ -354,11 +388,16 @@
+     if (_page != _Page.karhutlaCards || _readingPaused == paused) return;
+     _readingPaused = paused;
+     if (paused) {
++      _readingCompletionTimer?.cancel();
+       _readingState.pause();
+       _readingClock.stop();
+       if (!_readingSilent) _voice.pause();
+     } else {
+       _readingState.resume();
++      if (_readingCompletionTicks > 0) {
++        _runReadingCompletionDelay();
++        return;
++      }
+       if (_readingFinishPending) {
+         _readingFinishPending = false;
+         _readingFinished(_readingSession);
+@@ -761,6 +800,7 @@
+     if (_page != _Page.karhutlaCards) return;
+     if (_readingTransitioning) return;
+     if (!claimed &&
++        _readingCompletionTicks == 0 &&
+         _readingTiming != null &&
+         !_readingState.advanceOnce(_readingEpoch)) {
+       return;
+--- a/test/reading_integration_test.dart
++++ b/test/reading_integration_test.dart
+@@ -159,6 +159,7 @@
+       await tester.pump();
+       clock.advance(const Duration(seconds: 60));
+       await tester.pump(const Duration(milliseconds: 200));
++      await tester.pump(const Duration(seconds: 1));
+       await tester.pump(const Duration(milliseconds: 400));
+       expect(find.byKey(const ValueKey('karhutla-cause')), findsOneWidget);
+       expect(player.played, isEmpty);
+@@ -252,6 +253,7 @@
+       expect(player.played.last, 'id/karhutla-cause.mp3');
+       player.sessions.last.complete();
+       await tester.pump();
++      await tester.pump(const Duration(seconds: 1));
+       await tester.pump(const Duration(milliseconds: 400));
+       await waitForReading(tester, card: 'karhutla-prevention');
+       await tester.pump(const Duration(seconds: 4));
+@@ -259,6 +261,7 @@
+       expect(player.played.last, 'id/karhutla-prevention.mp3');
+       player.sessions.last.complete();
+       await tester.pump();
++      await tester.pump(const Duration(seconds: 1));
+       await tester.pump(const Duration(milliseconds: 400));
+       expect(
+         find.text('Pilih jenis hutan yang memiliki lapisan gambut.'),
+--- /dev/null
++++ b/test/reading_completion_delay_test.dart
+@@ -0,0 +1,107 @@
++import 'package:flutter/material.dart';
++import 'package:flutter_test/flutter_test.dart';
++import 'package:flutter/services.dart';
++import 'package:fire_prevention_challenge/core/audio/game_audio.dart';
++import 'package:fire_prevention_challenge/core/theme/kifc_theme.dart';
++import 'package:fire_prevention_challenge/features/game/exhibition_game.dart';
++import 'game_flow_test.dart' show loadGameFonts;
++import 'reading_integration_test.dart' show ReadingPlayer, waitForReading;
++import 'chapter2_review_test.dart' show captureScreen;
++
++void main() {
++  setUpAll(() async {
++    await loadGameFonts();
++    await rootBundle.loadString('assets/audio/narration/reading_timing.json');
++  });
++  Future<ReadingPlayer> launch(WidgetTester t) async {
++    t.view.physicalSize = const Size(411, 900);
++    t.view.devicePixelRatio = 1;
++    addTearDown(t.view.resetPhysicalSize);
++    addTearDown(t.view.resetDevicePixelRatio);
++    final p = ReadingPlayer();
++    await t.pumpWidget(
++      MaterialApp(
++        theme: KifcTheme.light(),
++        home: RepaintBoundary(
++          key: const ValueKey('review-target'),
++          child: ExhibitionGame(
++            initialPage: 'triangleExplanation',
++            audioBackend: const SilentGameAudioBackend(),
++            narrationPlayer: p,
++          ),
++        ),
++      ),
++    );
++    await t.tap(find.text('Lanjut'));
++    await t.pump();
++    await t.pump(const Duration(milliseconds: 400));
++    await waitForReading(t);
++    await t.pump(const Duration(seconds: 4));
++    await t.pump();
++    return p;
++  }
++
++  testWidgets(
++    'each reading holds for one second after speech including before quiz',
++    (t) async {
++      final p = await launch(t);
++      for (final key in ['definition', 'cause', 'prevention']) {
++        p.sessions.last.complete();
++        await t.pump();
++        await t.pump(const Duration(milliseconds: 999));
++        expect(find.byKey(ValueKey('karhutla-$key')), findsOneWidget);
++        await captureScreen(t, 'reading-$key-hold-999ms', {
++          'source': 'Flutter widget render, controlled narration completion',
++          'width': 411,
++          'height': 900,
++          'afterSpeechMilliseconds': 999,
++        });
++        await t.pump(const Duration(milliseconds: 1));
++        await t.pump(const Duration(milliseconds: 400));
++        if (key != 'prevention') {
++          await waitForReading(t);
++          await t.pump(const Duration(seconds: 4));
++          await t.pump();
++        }
++      }
++      expect(
++        find.text('Pilih jenis hutan yang memiliki lapisan gambut.'),
++        findsOneWidget,
++      );
++      await t.pumpWidget(const SizedBox.shrink());
++    },
++  );
++  testWidgets(
++    'manual next cancels speech completion delay and cannot skip another page',
++    (t) async {
++      final p = await launch(t);
++      p.sessions.last.complete();
++      await t.pump();
++      await t.tap(find.text('Lanjut'));
++      await t.pump();
++      await t.pump(const Duration(milliseconds: 400));
++      expect(find.byKey(const ValueKey('karhutla-cause')), findsOneWidget);
++      await t.pump(const Duration(seconds: 2));
++      expect(find.byKey(const ValueKey('karhutla-cause')), findsOneWidget);
++      await t.pumpWidget(const SizedBox.shrink());
++    },
++  );
++  testWidgets('background pauses the post-speech allowance', (t) async {
++    final p = await launch(t);
++    p.sessions.last.complete();
++    await t.pump();
++    await t.pump(const Duration(milliseconds: 400));
++    t.binding.handleAppLifecycleStateChanged(AppLifecycleState.paused);
++    await t.pump();
++    await t.pump(const Duration(seconds: 3));
++    expect(find.byKey(const ValueKey('karhutla-definition')), findsOneWidget);
++    t.binding.handleAppLifecycleStateChanged(AppLifecycleState.resumed);
++    await t.pump();
++    await t.pump(const Duration(milliseconds: 599));
++    expect(find.byKey(const ValueKey('karhutla-definition')), findsOneWidget);
++    await t.pump(const Duration(milliseconds: 1));
++    await t.pump(const Duration(milliseconds: 400));
++    expect(find.byKey(const ValueKey('karhutla-cause')), findsOneWidget);
++    await t.pumpWidget(const SizedBox.shrink());
++  });
++}

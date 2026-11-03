@@ -1,0 +1,14 @@
+[
+  {
+    "file": "lib/features/game/exhibition_game.dart",
+    "sha256": "5312e85cb571e1f39bdf1f3842a1ba83dd684860f7a4de4841f2ccd4d898bcb5"
+  },
+  {
+    "file": "test/reading_integration_test.dart",
+    "sha256": "8f0f7a8316fc1575fb405e2a5b8d20f09a4cae703fb4a1b1d81dcf41b2c99fec"
+  },
+  {
+    "file": "test/reading_completion_delay_test.dart",
+    "sha256": "2752b2ede320aa6b400f7aea363bdc518819bd5d3a25699e40b7e10299e06db8"
+  }
+]
