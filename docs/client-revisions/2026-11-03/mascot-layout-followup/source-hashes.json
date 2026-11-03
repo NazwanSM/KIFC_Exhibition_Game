@@ -1,0 +1,10 @@
+[
+  {
+    "file": "lib\\features\\game\\exhibition_game.dart",
+    "sha256": "b051ba5f9c49903f90d484229a0c7e089b83fea1eb7a0cff5a8ec52473254b5f"
+  },
+  {
+    "file": "test\\mascot_layout_followup_test.dart",
+    "sha256": "ea5ef8f1ea5854f8aed454e219c7b652d35b8eba4b36d3167680aadcaa668529"
+  }
+]
