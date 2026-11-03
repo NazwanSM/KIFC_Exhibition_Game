@@ -1,0 +1,20 @@
+{
+  "before": {
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 2.1132000000000004
+  },
+  "dialog": {
+    "clip": "Talk",
+    "loaded": true,
+    "paused": true,
+    "time": 2.6456000000000004
+  },
+  "resumed": {
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 3.8077000000000023
+  }
+}

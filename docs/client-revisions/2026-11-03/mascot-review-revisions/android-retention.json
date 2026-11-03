@@ -1,0 +1,562 @@
+{
+  "scope": "After initial load settles through automatic continuation to next reading",
+  "sameTarget": true,
+  "noAdditionalLoad": true,
+  "clipRestartObserved": true,
+  "samples": [
+    {
+      "ms": 82,
+      "target": "9EEB9C390B06D9C538539ED899CE8DAC",
+      "clip": "PointIdle",
+      "loaded": true,
+      "paused": false,
+      "time": 2.389799999999999,
+      "marker": "retained",
+      "extraLoads": 0,
+      "mouth": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "ms": 505,
+      "error": "Error: No app WebView target"
+    },
+    {
+      "ms": 924,
+      "target": "607476295962DA9337F8507D730FED71",
+      "clip": "Talk",
+      "loaded": false,
+      "paused": true,
+      "time": 0,
+      "mouth": null
+    },
+    {
+      "ms": 1468,
+      "target": "607476295962DA9337F8507D730FED71",
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "time": 0,
+      "marker": "retained",
+      "extraLoads": 0,
+      "mouth": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "ms": 1895,
+      "target": "607476295962DA9337F8507D730FED71",
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "time": 0.38729999999999987,
+      "marker": "retained",
+      "extraLoads": 1,
+      "mouth": [
+        0.7873913790944229,
+        0.2088233825447604,
+        0
+      ]
+    },
+    {
+      "ms": 2300,
+      "target": "607476295962DA9337F8507D730FED71",
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "time": 0.7965999999999999,
+      "marker": "retained",
+      "extraLoads": 1,
+      "mouth": [
+        0.192395476304294,
+        0.8233310521461046,
+        0.006634290732222053
+      ]
+    },
+    {
+      "ms": 2756,
+      "target": "607476295962DA9337F8507D730FED71",
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "time": 1.2171000000000003,
+      "marker": "retained",
+      "extraLoads": 1,
+      "mouth": [
+        0.29806987257136874,
+        0.7028800907998339,
+        0
+      ]
+    },
+    {
+      "ms": 3198,
+      "target": "607476295962DA9337F8507D730FED71",
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "time": 1.6706999999999999,
+      "marker": "retained",
+      "extraLoads": 1,
+      "mouth": [
+        0.4194758922537395,
+        0.5812716536113735,
+        0
+      ]
+    },
+    {
+      "ms": 4062,
+      "target": "607476295962DA9337F8507D730FED71",
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "time": 2.5668,
+      "marker": "retained",
+      "extraLoads": 1,
+      "mouth": [
+        0.011146736150511677,
+        0.9254941133556039,
+        0.0381495494877422
+      ]
+    },
+    {
+      "ms": 4498,
+      "target": "607476295962DA9337F8507D730FED71",
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "time": 2.976100000000001,
+      "marker": "retained",
+      "extraLoads": 1,
+      "mouth": [
+        0.191606128111701,
+        0.8073276382786634,
+        0.00563979827631472
+      ]
+    },
+    {
+      "ms": 4911,
+      "target": "607476295962DA9337F8507D730FED71",
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "time": 3.4076000000000004,
+      "marker": "retained",
+      "extraLoads": 1,
+      "mouth": [
+        0.5741630181281496,
+        0.42620100608858713,
+        0
+      ]
+    },
+    {
+      "ms": 5325,
+      "target": "607476295962DA9337F8507D730FED71",
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "time": 3.816900000000001,
+      "marker": "retained",
+      "extraLoads": 1,
+      "mouth": [
+        0.40915475101278515,
+        0.5908305852457376,
+        0
+      ]
+    },
+    {
+      "ms": 5747,
+      "target": "607476295962DA9337F8507D730FED71",
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "time": 4.259500000000003,
+      "marker": "retained",
+      "extraLoads": 1,
+      "mouth": [
+        2.3279909837852562e-17,
+        0.6422636218607705,
+        0.3583265916877498
+      ]
+    },
+    {
+      "ms": 6190,
+      "target": "607476295962DA9337F8507D730FED71",
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "time": 4.680000000000003,
+      "marker": "retained",
+      "extraLoads": 1,
+      "mouth": [
+        0.9734780607177081,
+        0.027242080442552857,
+        0
+      ]
+    },
+    {
+      "ms": 6611,
+      "target": "607476295962DA9337F8507D730FED71",
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "time": 5.111300000000002,
+      "marker": "retained",
+      "extraLoads": 1,
+      "mouth": [
+        0.1656361560948032,
+        0.7959411478955747,
+        0.03550270309696966
+      ]
+    },
+    {
+      "ms": 7058,
+      "target": "607476295962DA9337F8507D730FED71",
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "time": 5.553800000000002,
+      "marker": "retained",
+      "extraLoads": 1,
+      "mouth": [
+        0.9570715697011014,
+        0.04292882394977971,
+        0
+      ]
+    },
+    {
+      "ms": 7480,
+      "target": "607476295962DA9337F8507D730FED71",
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "time": 5.985300000000002,
+      "marker": "retained",
+      "extraLoads": 1,
+      "mouth": [
+        6.206142038381811e-17,
+        0.2872043324049498,
+        0.712765595882112
+      ]
+    },
+    {
+      "ms": 7928,
+      "target": "607476295962DA9337F8507D730FED71",
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "time": 6.427800000000003,
+      "marker": "retained",
+      "extraLoads": 1,
+      "mouth": [
+        0.1117994405341911,
+        0.8755722007424209,
+        0.026233601346863932
+      ]
+    },
+    {
+      "ms": 8377,
+      "target": "607476295962DA9337F8507D730FED71",
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "time": 6.859200000000003,
+      "marker": "retained",
+      "extraLoads": 1,
+      "mouth": [
+        0,
+        0.5105811787269992,
+        0.48940698743416217
+      ]
+    },
+    {
+      "ms": 9248,
+      "target": "607476295962DA9337F8507D730FED71",
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "time": 7.733200000000004,
+      "marker": "retained",
+      "extraLoads": 1,
+      "mouth": [
+        0,
+        0.44614981892807715,
+        0.5541814579259812
+      ]
+    },
+    {
+      "ms": 9700,
+      "target": "607476295962DA9337F8507D730FED71",
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "time": 8.175800000000002,
+      "marker": "retained",
+      "extraLoads": 1,
+      "mouth": [
+        0,
+        0.06851804010190593,
+        0.9314345059391974
+      ]
+    },
+    {
+      "ms": 10124,
+      "target": "607476295962DA9337F8507D730FED71",
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "time": 8.607400000000002,
+      "marker": "retained",
+      "extraLoads": 1,
+      "mouth": [
+        0.6800460209889749,
+        0.3205882955267889,
+        0
+      ]
+    },
+    {
+      "ms": 10547,
+      "target": "607476295962DA9337F8507D730FED71",
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "time": 9.0388,
+      "marker": "retained",
+      "extraLoads": 1,
+      "mouth": [
+        9.103226552311465e-18,
+        0.6133105518184918,
+        0.3880756952048541
+      ]
+    },
+    {
+      "ms": 10989,
+      "target": "607476295962DA9337F8507D730FED71",
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "time": 9.4703,
+      "marker": "retained",
+      "extraLoads": 1,
+      "mouth": [
+        0.013119325720096482,
+        0.9569050614073372,
+        0.023288709171718023
+      ]
+    },
+    {
+      "ms": 11423,
+      "target": "607476295962DA9337F8507D730FED71",
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "time": 0.3871000000000003,
+      "marker": "retained",
+      "extraLoads": 1,
+      "mouth": [
+        0.7873818050381807,
+        0.20875781746140193,
+        0
+      ]
+    },
+    {
+      "ms": 11844,
+      "target": "607476295962DA9337F8507D730FED71",
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "time": 0.8073999999999997,
+      "marker": "retained",
+      "extraLoads": 1,
+      "mouth": [
+        0.22978656274840603,
+        0.7922821907835081,
+        0
+      ]
+    },
+    {
+      "ms": 12272,
+      "target": "607476295962DA9337F8507D730FED71",
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "time": 1.2389000000000001,
+      "marker": "retained",
+      "extraLoads": 1,
+      "mouth": [
+        0.47240656745187637,
+        0.5267601195165743,
+        0
+      ]
+    },
+    {
+      "ms": 12694,
+      "target": "607476295962DA9337F8507D730FED71",
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "time": 1.6706000000000008,
+      "marker": "retained",
+      "extraLoads": 1,
+      "mouth": [
+        0.41916321160743886,
+        0.5815879219710431,
+        0
+      ]
+    },
+    {
+      "ms": 13114,
+      "target": "607476295962DA9337F8507D730FED71",
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "time": 2.101799999999999,
+      "marker": "retained",
+      "extraLoads": 1,
+      "mouth": [
+        0,
+        0.6359107397613358,
+        0.36443531684226993
+      ]
+    },
+    {
+      "ms": 13559,
+      "target": "607476295962DA9337F8507D730FED71",
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "time": 2.5222999999999995,
+      "marker": "retained",
+      "extraLoads": 1,
+      "mouth": [
+        0.25530570507521777,
+        0.7574413333525968,
+        0
+      ]
+    },
+    {
+      "ms": 13989,
+      "target": "607476295962DA9337F8507D730FED71",
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "time": 2.9648000000000003,
+      "marker": "retained",
+      "extraLoads": 1,
+      "mouth": [
+        0.2713600501772824,
+        0.746446207861292,
+        0
+      ]
+    },
+    {
+      "ms": 14411,
+      "target": "607476295962DA9337F8507D730FED71",
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "time": 3.385300000000001,
+      "marker": "retained",
+      "extraLoads": 1,
+      "mouth": [
+        0.5228520584387407,
+        0.47554507565386694,
+        0
+      ]
+    },
+    {
+      "ms": 14839,
+      "target": "607476295962DA9337F8507D730FED71",
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "time": 3.827800000000001,
+      "marker": "retained",
+      "extraLoads": 1,
+      "mouth": [
+        0.28998862600384057,
+        0.7097802363794229,
+        0
+      ]
+    },
+    {
+      "ms": 15704,
+      "target": "607476295962DA9337F8507D730FED71",
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "time": 4.6685,
+      "marker": "retained",
+      "extraLoads": 1,
+      "mouth": [
+        0.9890672603457795,
+        0.011023790134496073,
+        0
+      ]
+    },
+    {
+      "ms": 16138,
+      "target": "607476295962DA9337F8507D730FED71",
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "time": 5.122,
+      "marker": "retained",
+      "extraLoads": 1,
+      "mouth": [
+        0.0851981637301794,
+        0.85550695577769,
+        0.06805455576126626
+      ]
+    },
+    {
+      "ms": 16582,
+      "target": "607476295962DA9337F8507D730FED71",
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "time": 5.542600000000001,
+      "marker": "retained",
+      "extraLoads": 1,
+      "mouth": [
+        0.927818148629646,
+        0.07218236393261497,
+        0
+      ]
+    },
+    {
+      "ms": 16992,
+      "target": "607476295962DA9337F8507D730FED71",
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "time": 5.951900000000001,
+      "marker": "retained",
+      "extraLoads": 1,
+      "mouth": [
+        0,
+        0.20919506770487017,
+        0.7908158300983338
+      ]
+    },
+    {
+      "ms": 17413,
+      "target": "607476295962DA9337F8507D730FED71",
+      "clip": "Talk",
+      "loaded": true,
+      "paused": false,
+      "time": 6.394299999999996,
+      "marker": "retained",
+      "extraLoads": 1,
+      "mouth": [
+        8.909317158278237e-05,
+        0.8127462375687298,
+        0.1845771774462203
+      ]
+    }
+  ],
+  "initialLoadEvents": 1
+}

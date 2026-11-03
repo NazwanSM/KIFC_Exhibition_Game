@@ -1,0 +1,11 @@
+00:00 +0: loading D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_completion_delay_test.dart
+00:00 +0: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_completion_delay_test.dart: (setUpAll)
+00:00 +0: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_completion_delay_test.dart: each reading holds for one second after speech including before quiz
+00:00 +1: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_completion_delay_test.dart: each reading holds for one second after speech including before quiz
+00:01 +2: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_integration_test.dart: failed narration exposes the whole text and stays manual
+00:01 +3: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_completion_delay_test.dart: manual next cancels speech completion delay and cannot skip another page
+00:01 +4: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_integration_test.dart: silent reading uses recording duration and pauses in background
+00:01 +5: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_completion_delay_test.dart: background pauses the post-speech allowance
+00:01 +6: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_integration_test.dart: reading follows audio position and ignores old completion after skip
+00:01 +7: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_integration_test.dart: (tearDownAll)
+00:01 +7: All tests passed!

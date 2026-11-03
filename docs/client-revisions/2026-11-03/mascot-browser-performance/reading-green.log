@@ -1,0 +1,13 @@
+00:00 +0: loading D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_render_updates_test.dart
+00:00 +0: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_render_updates_test.dart: (setUpAll)
+00:00 +0: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_render_updates_test.dart: audio positions between words do not schedule identical UI frames
+00:00 +1: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_render_updates_test.dart: audio positions between words do not schedule identical UI frames
+00:00 +2: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_render_updates_test.dart: audio positions between words do not schedule identical UI frames
+00:00 +3: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_render_updates_test.dart: audio positions between words do not schedule identical UI frames
+00:00 +4: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_render_updates_test.dart: audio positions between words do not schedule identical UI frames
+00:01 +5: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_render_updates_test.dart: audio positions between words do not schedule identical UI frames
+00:01 +6: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_integration_test.dart: failed narration exposes the whole text and stays manual
+00:01 +7: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_integration_test.dart: silent reading uses recording duration and pauses in background
+00:01 +8: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_integration_test.dart: reading follows audio position and ignores old completion after skip
+00:01 +9: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_integration_test.dart: (tearDownAll)
+00:01 +9: All tests passed!

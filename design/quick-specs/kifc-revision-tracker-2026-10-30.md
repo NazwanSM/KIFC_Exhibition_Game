@@ -57,9 +57,9 @@ Keputusan ini menggantikan ketentuan lama tentang demo yang wajib dicoba, seluru
 | KIFC-R30-14 | Buktikan desain maskot 3D langsung dari GLB | Prototipe aset maskot | Sulit | Referensi dan akses produksi | Selesai: sumber final dipilih pemilik dan prototipe web teruji | `4203eda` |
 | KIFC-R30-15 | Produksi gerakan maskot yang dapat dipakai ulang | Aset animasi maskot | Sulit | 14 | Selesai: paket runtime, poster dan varian silent tersedia | `786ab35` |
 | KIFC-R30-16 | Integrasikan animasi maskot di seluruh halaman | Semua kemunculan maskot | Sulit | 15 | Siap ditinjau: web dan Android teruji, review visual pemilik tersisa | `c78f2cc` |
-| KIFC-R30-17 | Tambahkan salam bersuara pada penutup | Penutup terakhir | Sulit karena dependensi | 03, 04, 09, 13, 16 | Siap ditinjau: Android tiga bahasa dan regresi teruji | — |
-| KIFC-R30-18 | Tambahkan sapaan idle berkala | Pembuka | Sulit | 01, 09, 13, 16 | Siap ditinjau: playback web/Android teruji, review kenyamanan tersisa | — |
-| KIFC-R30-19 | Sinkronkan narasi, teks per kata, dan navigasi bacaan | Tiga bacaan Karhutla | Paling sulit secara integrasi | 05, 07, 09, 13, 16 | Siap ditinjau: playback dan teks teruji; timing perkiraan perlu didengar | — |
+| KIFC-R30-17 | Tambahkan salam bersuara pada penutup | Penutup terakhir | Sulit karena dependensi | 03, 04, 09, 13, 16 | Siap ditinjau: Android tiga bahasa dan regresi teruji | `d1a4278` integrasi bersama |
+| KIFC-R30-18 | Tambahkan sapaan idle berkala | Pembuka | Sulit | 01, 09, 13, 16 | Siap ditinjau: playback web/Android teruji, review kenyamanan tersisa | `d1a4278` integrasi bersama |
+| KIFC-R30-19 | Sinkronkan narasi, teks per kata, dan navigasi bacaan | Tiga bacaan Karhutla | Paling sulit secara integrasi | 05, 07, 09, 13, 16 | Siap ditinjau: playback dan teks teruji; timing perkiraan perlu didengar | `d1a4278` integrasi bersama |
 | KIFC-R30-20 | Verifikasi terpadu dan kemas hasil revisi | Web, APK dan Samsung Tizen | Luas, lintas fitur | 01–19 | Dikerjakan: paket review dan simulator tersedia; Android ditunda pemilik | `ab13abf` checkpoint verifikasi; belum selesai |
 
 Nomor pendek pada dependensi merujuk tiket dengan awalan yang sama. Tiket sumber aset 09, 10, 12, dan 14 dapat dipersiapkan lebih awal bila perlu agar integrasi tidak tertahan; ini tidak mengubah urutan kesulitan.
@@ -413,6 +413,8 @@ Status diperbarui setelah implementasi dan pemeriksaan nyata. Selesai secara imp
 | 3 November 2026 | KIFC-R30-20 koreksi target | QM43B-T dipulihkan dari informasi pemilik sebelumnya; belum lulus performa | — | Samsung mencantumkan Tizen 6.5; WGT percobaan meminta 10.0. Audit GLB 6.77 MB/17.333 segitiga; renderer membutuhkan WebGL2 | Peninjau teknis: agen. Tidak ada data FPS/RAM/latensi target; hasil simulator tidak mengesahkan QM43B-T. Android tetap ditunda |
 
 ### Follow-up pemilik — Feedback_User_Pose dan proporsi maskot (3 November)
+
+- Persiapan push GitHub atas instruksi pemilik: aset terbaru dicommit `9a1c510`, source integrasi bersama R30-17–19/optimasi/layout dicommit `d1a4278`. Regresi ulang 475 tes lulus, analisis bersih, integritas sembilan bacaan lulus. Ini snapshot integrasi bersama, bukan penutupan tiga tiket secara terpisah; status review dan uji perangkat tetap terbuka. [Cakupan checkpoint](../../docs/client-revisions/2026-11-03/github-integration-checkpoint.md).
 
 - Welcome diperbesar dari tinggi komponen 180/216 menjadi 230/275 logical pixels, agar setidaknya sebesar Babak 2. Perbandingan geometri layar kecil/Full HD/4K dan matriks welcome lima ukuran × tiga bahasa lulus. Model, kamera dan Wave tetap. [Bukti dan batas validasi](../../docs/client-revisions/2026-11-03/welcome-mascot-enlarged/README.md).
 

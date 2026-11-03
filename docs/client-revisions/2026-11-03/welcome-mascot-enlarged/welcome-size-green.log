@@ -1,0 +1,32 @@
+00:00 +0: loading D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_mascot_size_test.dart
+00:00 +0: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_mascot_size_test.dart: (setUpAll)
+00:00 +0: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_mascot_size_test.dart: welcome mascot is at least as tall as Chapter 2 at Size(360.0, 640.0)
+00:01 +1: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_review_test.dart: welcome fits and starts without scrolling id-360x640
+00:01 +2: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_conversation_motion_test.dart: welcome tail follows bubble for every language at 360x640
+00:02 +3: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_mascot_size_test.dart: welcome mascot is at least as tall as Chapter 2 at Size(411.0, 731.0)
+00:02 +4: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_review_test.dart: welcome fits and starts without scrolling en-360x640
+00:02 +5: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_conversation_motion_test.dart: welcome tail follows bubble for every language at 411x731
+00:02 +6: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_mascot_size_test.dart: welcome mascot is at least as tall as Chapter 2 at Size(1080.0, 1920.0)
+00:03 +7: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_mascot_size_test.dart: welcome mascot is at least as tall as Chapter 2 at Size(1080.0, 1920.0)
+00:03 +8: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_conversation_motion_test.dart: welcome tail follows bubble for every language at 720x1280
+00:03 +9: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_review_test.dart: welcome fits and starts without scrolling id-411x731
+00:03 +10: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_mascot_size_test.dart: welcome mascot is at least as tall as Chapter 2 at Size(2160.0, 3840.0)
+00:03 +11: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_mascot_size_test.dart: welcome mascot is at least as tall as Chapter 2 at Size(2160.0, 3840.0)
+00:03 +12: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_review_test.dart: welcome fits and starts without scrolling en-411x731
+00:04 +13: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_conversation_motion_test.dart: welcome tail follows bubble for every language at 2160x3840
+00:04 +14: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_review_test.dart: welcome fits and starts without scrolling ko-411x731
+00:04 +15: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_review_test.dart: welcome fits and starts without scrolling ko-411x731
+00:04 +16: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_conversation_motion_test.dart: shared closing bubble keeps its pointer on the mascot side
+00:05 +17: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_review_test.dart: welcome fits and starts without scrolling id-720x1280
+00:05 +18: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_conversation_motion_test.dart: welcome bubble has no dividing border at the tail connection
+00:05 +19: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_review_test.dart: welcome fits and starts without scrolling en-720x1280
+00:05 +20: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_review_test.dart: welcome fits and starts without scrolling ko-720x1280
+00:06 +21: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_review_test.dart: welcome fits and starts without scrolling id-1080x1920
+00:07 +22: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_review_test.dart: welcome fits and starts without scrolling en-1080x1920
+00:08 +23: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_review_test.dart: welcome fits and starts without scrolling ko-1080x1920
+00:09 +24: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_review_test.dart: welcome fits and starts without scrolling id-2160x3840
+00:12 +25: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_review_test.dart: welcome fits and starts without scrolling en-2160x3840
+00:14 +26: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_review_test.dart: welcome fits and starts without scrolling ko-2160x3840
+00:17 +27: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_review_test.dart: start gives press feedback and cancels without starting
+00:18 +28: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_review_test.dart: (tearDownAll)
+00:18 +28: All tests passed!

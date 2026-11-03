@@ -1,0 +1,178 @@
+[
+  {
+    "ms": 213,
+    "clip": "PointIdle",
+    "loaded": true,
+    "paused": true,
+    "time": 2.323499999999997
+  },
+  {
+    "ms": 706,
+    "error": "Error: WebView target closed"
+  },
+  {
+    "ms": 1084,
+    "clip": "Talk",
+    "loaded": false,
+    "paused": true,
+    "time": 0
+  },
+  {
+    "ms": 1487,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 0.022099999999999908
+  },
+  {
+    "ms": 1892,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 0.4205999999999999
+  },
+  {
+    "ms": 2305,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 0.8407999999999999
+  },
+  {
+    "ms": 3163,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 1.6817
+  },
+  {
+    "ms": 3572,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 2.1021
+  },
+  {
+    "ms": 4015,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 2.5335
+  },
+  {
+    "ms": 4432,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 2.9429000000000007
+  },
+  {
+    "ms": 4847,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 3.3747000000000007
+  },
+  {
+    "ms": 5259,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 3.7948000000000013
+  },
+  {
+    "ms": 5664,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 4.204100000000002
+  },
+  {
+    "ms": 6094,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 4.613400000000002
+  },
+  {
+    "ms": 6974,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 5.4985
+  },
+  {
+    "ms": 7387,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 5.9299
+  },
+  {
+    "ms": 7795,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 6.328199999999998
+  },
+  {
+    "ms": 8241,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 6.7597999999999985
+  },
+  {
+    "ms": 8667,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 7.180199999999999
+  },
+  {
+    "ms": 9100,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 7.622699999999998
+  },
+  {
+    "ms": 9515,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 8.043099999999997
+  },
+  {
+    "ms": 9923,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 8.452399999999997
+  },
+  {
+    "ms": 10392,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": true,
+    "time": 8.563199999999997
+  },
+  {
+    "ms": 11279,
+    "error": "Error: WebView target closed"
+  },
+  {
+    "ms": 11708,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 0.6082999999999997
+  },
+  {
+    "ms": 12127,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 1.0174999999999996
+  }
+]

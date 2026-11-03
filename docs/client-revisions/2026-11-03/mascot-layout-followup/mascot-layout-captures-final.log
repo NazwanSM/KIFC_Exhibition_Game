@@ -1,0 +1,36 @@
+00:00 +0: loading D:/KIFC Game Exhibition/fire_prevention_challenge/test/mascot_layout_followup_test.dart
+00:00 +0: D:/KIFC Game Exhibition/fire_prevention_challenge/test/mascot_layout_followup_test.dart: (setUpAll)
+00:00 +0: D:/KIFC Game Exhibition/fire_prevention_challenge/test/mascot_layout_followup_test.dart: impact review uses a large cropped half-body mascot
+00:01 +1: D:/KIFC Game Exhibition/fire_prevention_challenge/test/impact_review_test.dart: KIFC-10 impacts and review id-360x640
+00:02 +2: D:/KIFC Game Exhibition/fire_prevention_challenge/test/impact_review_test.dart: KIFC-10 impacts and review id-360x640
+00:02 +3: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-360x640
+00:03 +4: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-360x640
+00:05 +5: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-360x640
+00:05 +6: D:/KIFC Game Exhibition/fire_prevention_challenge/test/impact_review_test.dart: KIFC-10 impacts and review id-411x731
+00:06 +7: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit en-360x640
+00:07 +8: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit en-360x640
+00:08 +9: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit en-360x640
+00:09 +10: D:/KIFC Game Exhibition/fire_prevention_challenge/test/impact_review_test.dart: KIFC-10 impacts and review id-720x1280
+00:09 +11: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit ko-360x640
+00:10 +12: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit ko-360x640
+00:12 +13: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit ko-360x640
+00:12 +14: D:/KIFC Game Exhibition/fire_prevention_challenge/test/impact_review_test.dart: KIFC-10 impacts and review id-1080x1920
+00:13 +15: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-411x731
+00:16 +16: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-411x731
+00:18 +17: D:/KIFC Game Exhibition/fire_prevention_challenge/test/impact_review_test.dart: KIFC-10 impacts and review ko-1080x1920
+00:22 +18: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit en-411x731
+00:30 +19: D:/KIFC Game Exhibition/fire_prevention_challenge/test/impact_review_test.dart: KIFC-10 impacts and review id-2160x3840
+00:34 +20: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit ko-411x731
+00:37 +21: D:/KIFC Game Exhibition/fire_prevention_challenge/test/impact_review_test.dart: KIFC-10 impacts and review en-2160x3840
+00:39 +22: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-720x1280
+00:41 +23: D:/KIFC Game Exhibition/fire_prevention_challenge/test/impact_review_test.dart: KIFC-10 impacts and review ko-2160x3840
+00:43 +24: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit en-720x1280
+00:45 +25: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit ko-720x1280
+00:50 +26: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-1080x1920
+01:00 +27: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit en-1080x1920
+01:06 +28: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit ko-1080x1920
+01:11 +29: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-2160x3840
+01:19 +30: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit en-2160x3840
+01:34 +31: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit ko-2160x3840
+01:52 +32: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: (tearDownAll)
+01:58 +32: All tests passed!

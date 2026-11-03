@@ -1,0 +1,26 @@
+{
+  "preserved_clips": [
+    "Idle",
+    "Talk",
+    "Wave",
+    "Happy",
+    "PointIdle"
+  ],
+  "feedback_changed": true,
+  "materials_textures_meshes_skins_morphs_cameras_preserved": true,
+  "source_six_clips_and_binary_preserved_in_runtime": true,
+  "runtime_sha256": "e608bce08384d85bd7a92a40325c997d92d6fadc06090b878fe07d912731fcb1",
+  "poster": {
+    "file": "assets/images/mascot3d/hintSafety.png",
+    "sha256": "c2074c2e779ac75b3a7079fc6b3c075e1e3bc503988ce8e44d4acf8f6642579f",
+    "bytes": 387190,
+    "size": [
+      757,
+      1009
+    ],
+    "rgba": true,
+    "transparent_corner": true,
+    "source": "Feedback_User_Pose/Review/Manggala_FEEDBACK_USER_POSE_REVIEW.blend; Feedback frame 1; approved camera; Blender RGBA render, centered crop"
+  },
+  "anatomy_note": "Owner-authored hand/arm overlap retained per source REVIEW_REPORT.md."
+}

@@ -1,0 +1,13 @@
+### Result
+{
+  "sameNode": true,
+  "loaded": true,
+  "extraLoads": 0,
+  "clip": "Talk",
+  "placeholder": false,
+  "transitionMs": 632
+}
+### Ran Playwright code
+```js
+await page.evaluate('() => (window.mascotRetentionResult)');
+```

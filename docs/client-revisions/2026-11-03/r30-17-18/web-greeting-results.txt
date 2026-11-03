@@ -1,0 +1,16 @@
+### Result
+{
+  "before": [],
+  "during": [
+    {
+      "src": "http://127.0.0.1:8768/assets/assets/audio/narration/prepared/en/welcome.mp3",
+      "at": 1793641052469,
+      "result": "playing"
+    }
+  ],
+  "stopped": true
+}
+### Ran Playwright code
+```js
+await page.evaluate('() => (window.narrationTestResults)');
+```

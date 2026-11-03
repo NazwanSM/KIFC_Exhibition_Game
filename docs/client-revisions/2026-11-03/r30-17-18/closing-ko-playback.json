@@ -1,0 +1,223 @@
+[
+  {
+    "ms": 83,
+    "error": "Error: No app WebView target"
+  },
+  {
+    "ms": 505,
+    "clip": "Wave",
+    "loaded": false,
+    "paused": true,
+    "time": 0,
+    "mouth": null
+  },
+  {
+    "ms": 906,
+    "clip": "Wave",
+    "loaded": false,
+    "paused": true,
+    "time": 0,
+    "mouth": null
+  },
+  {
+    "ms": 1335,
+    "clip": "Wave",
+    "loaded": true,
+    "paused": false,
+    "time": 0.05539999999999986,
+    "mouth": [
+      0.6107740457736326,
+      0.38914598262719247,
+      0
+    ],
+    "screenshot": true
+  },
+  {
+    "ms": 2649,
+    "clip": "Wave",
+    "loaded": true,
+    "paused": false,
+    "time": 1.3940999999999992,
+    "mouth": [
+      0.062256991731284565,
+      0.8871250944958892,
+      0.058416032688637584
+    ]
+  },
+  {
+    "ms": 3061,
+    "clip": "Wave",
+    "loaded": true,
+    "paused": false,
+    "time": 1.792299999999998,
+    "mouth": [
+      0.9294555317156667,
+      0.0705427996550605,
+      0
+    ]
+  },
+  {
+    "ms": 3466,
+    "clip": "Wave",
+    "loaded": true,
+    "paused": false,
+    "time": 2.2126999999999986,
+    "mouth": [
+      0,
+      0.21052618469287604,
+      0.7895784768213892
+    ]
+  },
+  {
+    "ms": 3878,
+    "clip": "Wave",
+    "loaded": true,
+    "paused": false,
+    "time": 2.621999999999999,
+    "mouth": [
+      9.436929855118685e-18,
+      0.7168866223213403,
+      0.2850079780707786
+    ]
+  },
+  {
+    "ms": 4289,
+    "clip": "Wave",
+    "loaded": true,
+    "paused": false,
+    "time": 3.0202999999999998,
+    "mouth": [
+      0.012616005579343052,
+      0.9065631847345632,
+      0.07756423945988394
+    ]
+  },
+  {
+    "ms": 4706,
+    "clip": "Wave",
+    "loaded": true,
+    "paused": false,
+    "time": 3.4629000000000003,
+    "mouth": [
+      0.50515720545533,
+      0.49484279454466995,
+      0
+    ]
+  },
+  {
+    "ms": 5107,
+    "clip": "Wave",
+    "loaded": true,
+    "paused": false,
+    "time": 3.8500000000000005,
+    "mouth": [
+      0.17853819478356056,
+      0.8187615373957267,
+      0.00004787963665075275
+    ]
+  },
+  {
+    "ms": 5494,
+    "clip": "Wave",
+    "loaded": true,
+    "paused": false,
+    "time": 4.237400000000004,
+    "mouth": [
+      9.478634129892102e-18,
+      0.8348379212771219,
+      0.16784431124151525
+    ]
+  },
+  {
+    "ms": 5920,
+    "clip": "Wave",
+    "loaded": true,
+    "paused": false,
+    "time": 4.669000000000006,
+    "mouth": [
+      0.9883894690575946,
+      0.011728933191376273,
+      0
+    ]
+  },
+  {
+    "ms": 6309,
+    "clip": "WaveSilent",
+    "loaded": false,
+    "paused": true,
+    "time": 0,
+    "mouth": null
+  },
+  {
+    "ms": 6804,
+    "clip": "WaveSilent",
+    "loaded": true,
+    "paused": false,
+    "time": 0,
+    "mouth": [
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "ms": 7210,
+    "clip": "WaveSilent",
+    "loaded": true,
+    "paused": false,
+    "time": 0.4094999999999998,
+    "mouth": [
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "ms": 7638,
+    "clip": "WaveSilent",
+    "loaded": true,
+    "paused": false,
+    "time": 0.8296999999999995,
+    "mouth": [
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "ms": 8060,
+    "clip": "WaveSilent",
+    "loaded": true,
+    "paused": false,
+    "time": 1.2279999999999984,
+    "mouth": [
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "ms": 8455,
+    "clip": "WaveSilent",
+    "loaded": true,
+    "paused": false,
+    "time": 1.6595999999999969,
+    "mouth": [
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "ms": 8869,
+    "clip": "WaveSilent",
+    "loaded": true,
+    "paused": false,
+    "time": 2.068799999999996,
+    "mouth": [
+      1,
+      0,
+      0
+    ]
+  }
+]

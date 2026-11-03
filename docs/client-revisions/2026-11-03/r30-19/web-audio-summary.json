@@ -1,0 +1,21 @@
+{
+  "source": "Flutter web with production audio backend",
+  "first": {
+    "src": "http://127.0.0.1:8770/assets/assets/audio/narration/prepared/id/karhutla-definition.mp3",
+    "time": 0.252517,
+    "paused": false
+  },
+  "second": {
+    "src": "http://127.0.0.1:8770/assets/assets/audio/narration/prepared/id/karhutla-cause.mp3",
+    "time": 0.219368,
+    "paused": false
+  },
+  "third": {
+    "src": "http://127.0.0.1:8770/assets/assets/audio/narration/prepared/id/karhutla-prevention.mp3",
+    "time": 0.211882,
+    "paused": false
+  },
+  "allNarrationPausedAtQuiz": true,
+  "unansweredQuizVisible": true,
+  "note": "Raw capture instruments media.play twice because the same browser context was reused; duplicate event records do not imply duplicate players."
+}

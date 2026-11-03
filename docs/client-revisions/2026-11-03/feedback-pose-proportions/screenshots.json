@@ -1,0 +1,2837 @@
+[
+  {
+    "file": "widget/complete-en-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "05b00c8ad87a043ba1a653bb58778100f86ac678566ce3b8ead8a074ed294e48"
+  },
+  {
+    "file": "widget/complete-en-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "3bccef57aca4ae225b9b1a2bf8cd9e07503133fc3590a4b49b71a88b8c6adfba"
+  },
+  {
+    "file": "widget/complete-en-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "da0cc062a86d3820d9d2dfbf25ed5b42cca0a34a4bdd298ac922e7a15cd0a9f5"
+  },
+  {
+    "file": "widget/complete-en-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "57beb487c4ce91e0235271d6b62e791007f86780348a3df1d21a27957e0d6106"
+  },
+  {
+    "file": "widget/complete-en-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "e85b82b9fdd3ca7e0c0fe778ddd0c94ddb33f8efd9c88713b62a25194ecfdf80"
+  },
+  {
+    "file": "widget/complete-id-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "5fc1716d5177c53d0466941f743715eeeb4b444b9d75fa9319cb648745c52393"
+  },
+  {
+    "file": "widget/complete-id-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "c4a73cadb41acdf91f56c889f483918ed1ffa1687362913eb47debe465662b63"
+  },
+  {
+    "file": "widget/complete-id-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "94a8f13fd167961bdcfe5e8f55aaf327a158b14de0f1f74c95a0838dd9a636b4"
+  },
+  {
+    "file": "widget/complete-id-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "99c26d84197f82c674f74d367ae8bc03783742ace396813ff1164f4b78f68426"
+  },
+  {
+    "file": "widget/complete-id-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "7a9f583551c57e8c9fe380a467d8e1fc41fca6edf513be793b2317a82a433f95"
+  },
+  {
+    "file": "widget/complete-ko-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "9afd5c31c5384555273fd0c791defefcedd990ccddb25f40029bc9578a403946"
+  },
+  {
+    "file": "widget/complete-ko-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "11bed69b80c4acd5bab68fadf7b2810693b771da2c8ae1852ea5dd864b022cb9"
+  },
+  {
+    "file": "widget/complete-ko-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "ec1d589f685cb5e65b9a2050b29efb923098314df94e9b08a741cbb4fb814e8d"
+  },
+  {
+    "file": "widget/complete-ko-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "68b3e69965c0b0a82713485f4857bc5751b5d19c04925f443c97b9dc10b4119b"
+  },
+  {
+    "file": "widget/complete-ko-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "e743504f981d4006622146ae58b7723534331811da6439c20deec74ae68bada0"
+  },
+  {
+    "file": "widget/correct-en-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "98986f9b5d865cb5b0c9748e8664217b3002174cf080645bf1ee4347758aa383"
+  },
+  {
+    "file": "widget/correct-en-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "615a335f2d6fe19dafaf2446713a69e8fee5dd56625a60072a16fec3ca46cd35"
+  },
+  {
+    "file": "widget/correct-en-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "2df5e233b48c0cdebe8f933c92e1b0120fb6a9c47e9f2a1f9b162c889891dbd2"
+  },
+  {
+    "file": "widget/correct-en-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "7e3b7db67288d07f8b06522d420873a162bff3ecea30ba349859b0b7d2ea9564"
+  },
+  {
+    "file": "widget/correct-en-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "115163ebdee5570878e100dc65db944e510a756c967987081053b35c85479a5a"
+  },
+  {
+    "file": "widget/correct-id-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "1e850fe0b5d9d602eb4484898e6ffc3a03db7549f02584c28a1b120db9aca5ca"
+  },
+  {
+    "file": "widget/correct-id-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "723a870edfe98ab348e6e31b55df0fbc561ae671691c87c234df747d8945425a"
+  },
+  {
+    "file": "widget/correct-id-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "a243961b7e74d2def84e64f75027eba90b76c1edceb70f3393b8eec9b4bcff8b"
+  },
+  {
+    "file": "widget/correct-id-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "eda59971062590cc7231d8b4b52303ad9074e31b64276170d3addcbea3222393"
+  },
+  {
+    "file": "widget/correct-id-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "cd317374217623ae742ab7d2fd85adb54a26a191de23f290ed2fa6afcae16625"
+  },
+  {
+    "file": "widget/correct-ko-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "1adc05a0b75428454e5635e0efc912cba0c4be4c503d687bc6a0c6af2e4ba374"
+  },
+  {
+    "file": "widget/correct-ko-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "81fb6c328f82fb1902f39f7760083ab128bdadfc597acfecf97515b9e24fe50f"
+  },
+  {
+    "file": "widget/correct-ko-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "3f0468d392b51d972c8d15d53b0063e725df0f5cc42f7a01c7c31ec7bc5786c7"
+  },
+  {
+    "file": "widget/correct-ko-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "3a25c90646cf65f026ff40ae314ea4e0f88a1785a183a690b979464412241c90"
+  },
+  {
+    "file": "widget/correct-ko-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "7df77aff5aa61daa97c700b20cd13ecf22a83c05d37ad700e219a38307447693"
+  },
+  {
+    "file": "widget/explanation-en-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "703172c7eb75b94c6292c28682e4a12bfbb6352f1e8ac4d43dc5fa49e1b9a69d"
+  },
+  {
+    "file": "widget/explanation-en-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "0a6d23959efdb8667a6360f404ac2af20e6d674770159554d6c19a55267039ed"
+  },
+  {
+    "file": "widget/explanation-en-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "34d7d09375ed53a2f975825313454fa9b6cbc58fd3c982b360da855cad8eb310"
+  },
+  {
+    "file": "widget/explanation-en-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "e29dffe1227904a06723a7a257105b47c1d5ec7bb1a815377f304ae4169a0019"
+  },
+  {
+    "file": "widget/explanation-en-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "714e38dda56b9c1156228d8e466646e4858bd44f13ebb156adaa3b3e733fa7d3"
+  },
+  {
+    "file": "widget/explanation-id-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "7d216113f38c31a4598c261f90fb83a61ebaa710a69599ecf7676ddb5e3ca37a"
+  },
+  {
+    "file": "widget/explanation-id-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "e37c42f396f3719b8f84108d52a162c695059a41b667d70d58efff19eab70953"
+  },
+  {
+    "file": "widget/explanation-id-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "c0eb7dc3309ea847ea0e334c84028a0cb5b2256a48479ff77b72e2b6ad394236"
+  },
+  {
+    "file": "widget/explanation-id-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "7864fc629a01d41db5b3d63672c0db29a51ebd0c1486630a5527ed15a8053a13"
+  },
+  {
+    "file": "widget/explanation-id-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "1558c8819176a9fe2aa1f1e18c0a138b68af9ff23b2ab32daaca5d97f08302c3"
+  },
+  {
+    "file": "widget/explanation-ko-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "a730cb59bfcd04e2b2270b9cb5ed5944c9fba599ffa57d3861c6ddd6cd78559d"
+  },
+  {
+    "file": "widget/explanation-ko-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "266aa41e152ff7152a6c4c066744a2c37ff569de7e1dcc6b6696ae22ca179e7e"
+  },
+  {
+    "file": "widget/explanation-ko-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "b10c2e0d2979761bd7e658bb41c0a0f40b5f84bc00eed0f2330b9c52511ec07c"
+  },
+  {
+    "file": "widget/explanation-ko-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "083aadfb08a5f666c3b6faa12bb7d5eea6953231a1c7a0c41d621051a3bcdc8c"
+  },
+  {
+    "file": "widget/explanation-ko-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "f3f99f3bbf9c60a94c1719749acc3a7af438d71f938731199051fcf68107d9ac"
+  },
+  {
+    "file": "widget/hint-en-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "2c6e2b410fa6a7a9b16b32c051cfdfdf1e3623191b41e41f7e0a6c39bdfe7195"
+  },
+  {
+    "file": "widget/hint-en-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "cd0f2e762806906a4363a9f871b10574ccac840ad3fcd95cabd38e07713320b4"
+  },
+  {
+    "file": "widget/hint-en-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "fcd39edcc76fe18f7bcbf1884489361cae13a1644ca8552778f0dfa2dc5e36b6"
+  },
+  {
+    "file": "widget/hint-en-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "7768bf4bd6daa616a72de0c2b9c930a91ef34d43e9f99afacd0982277d95b7f4"
+  },
+  {
+    "file": "widget/hint-en-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "19beb73dcb2bb509c18e2196fb9a4dad5413ea88c90da721b906898b9fc8269e"
+  },
+  {
+    "file": "widget/hint-id-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "9193cdcd32e2cb8f38999fe4db72361766026fb72547c86085aae019284d0e31"
+  },
+  {
+    "file": "widget/hint-id-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "e6dd6b35acb3fcb97cfc85b30bfaa6e58588035ddec71618371c3daef8261469"
+  },
+  {
+    "file": "widget/hint-id-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "dfcd1bea86c6f2c20724da8364443be01737d1c2a636bb169816a5681e8bb851"
+  },
+  {
+    "file": "widget/hint-id-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "756d72059c74d5c66890356c576d72ab084e60eaea61a5540d46241e56cc1921"
+  },
+  {
+    "file": "widget/hint-id-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "c3361cbf7df02ea4b66cf082540da26f14c62ae22728e800dc0d0900534588b0"
+  },
+  {
+    "file": "widget/hint-ko-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "626838ad8ecda04e1dabf4e3df8640ebf6cd7d71bb59a965a6bfa22e17272b06"
+  },
+  {
+    "file": "widget/hint-ko-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "43b27ba71c1983a4a3f014d5be1b53d29048bdd280eb8d53c47923fc55f3591b"
+  },
+  {
+    "file": "widget/hint-ko-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "56256db11f28b0ca69c07023aca9583b37f305fdd01836d45443723a0bb85d40"
+  },
+  {
+    "file": "widget/hint-ko-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "5e55760c1d2f6d9c9e3e7346d69a2d3fa260b31ab2fe1ce44d2b35f33b141b2f"
+  },
+  {
+    "file": "widget/hint-ko-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "334e0026e8e9ec141e373e27c0c64f2771610954158a46a009a67fce109c94dd"
+  },
+  {
+    "file": "widget/impact-play-en-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "cafbf63106efe1db87385f478ea137147bb09350a5a284328a8498472d8e33ab"
+  },
+  {
+    "file": "widget/impact-play-en-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "734d7b1e300e35a12478afe26e72d03ed8682d32e46ae593b4b5d50a42ddc1e0"
+  },
+  {
+    "file": "widget/impact-play-en-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "3ce3bd8ddc99aa0c2a7967e9e0cce435692d7b4ac2cda5f2409cd6cb03b2ee9a"
+  },
+  {
+    "file": "widget/impact-play-en-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "499c6c5eecbd10673fdaf4f38c20e8db13262728e8837e0008067cc48ea60651"
+  },
+  {
+    "file": "widget/impact-play-en-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "65ce43a823a70a029126c45238cfecef896af9c353d036c1348db931a1e22456"
+  },
+  {
+    "file": "widget/impact-play-id-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "2b10b53f1ecf9fa6b2093a5c6096e54ca250cbb35c987c23dd7b6eaa9041fe1d"
+  },
+  {
+    "file": "widget/impact-play-id-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "9434335d5099995d4cfa7b106c6ff9d88f99412d644437ccde38adc09ccdc609"
+  },
+  {
+    "file": "widget/impact-play-id-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "dba2150bb95c86d5edec2a4da169857494dce752eea7a43c2289c6bd665adbb8"
+  },
+  {
+    "file": "widget/impact-play-id-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "793cf22f6d9d9c845e5a0616938888a22a581fd1ad295a18cb317a09bc0f9e9a"
+  },
+  {
+    "file": "widget/impact-play-id-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "69f91e8c987e164daf04709e44bed99fea066093a0363a57351ee2361fc7aa7f"
+  },
+  {
+    "file": "widget/impact-play-ko-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "164fc8f0f1574b761d83837ee9e50e6189b6a66e1d630448e4b6ccb589b89ba6"
+  },
+  {
+    "file": "widget/impact-play-ko-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "f0f33380bcbbac69c1876c932587868578b79d6baf3f12d0b900fa53d72e5e1e"
+  },
+  {
+    "file": "widget/impact-play-ko-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "06cab3686b4abd42a5e701f6ae3ef20efa77db778e9415895f7174a7e572c1c0"
+  },
+  {
+    "file": "widget/impact-play-ko-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "b5c910d5d476cced64639efb38ceda143f91f7088ff8b8e46e286012e5a4eac7"
+  },
+  {
+    "file": "widget/impact-play-ko-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "b9ecf3ca8203fd9f0d748c4efa620868084183d35f9f9a7d50aba964f296e541"
+  },
+  {
+    "file": "widget/impact-review-en-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "98b63afc105cc108f70193c2a0851cfd7b63de358e8ef630d1e5ada64dd65fee"
+  },
+  {
+    "file": "widget/impact-review-en-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "23db4ae5e74d65d665e862d39a9079620671799ccb7e95282bf4869e36ed793a"
+  },
+  {
+    "file": "widget/impact-review-en-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "8d6bac3155be70bb4763f4145a75b89fd1b3f6927bc8bb8588dddd2f9b844aa0"
+  },
+  {
+    "file": "widget/impact-review-en-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "7eaf7620004cb365101ff75aff38d2c129c4817dea4e97b3cd48c553d313be4d"
+  },
+  {
+    "file": "widget/impact-review-en-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "d50afa102df8e6c5034639391a66e195d2ae0124d78a2b6123174336b2e48369"
+  },
+  {
+    "file": "widget/impact-review-id-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "4efb1d7534fd1323dc41e83792912754a7d9d205cd12fc067177b31b3c87a897"
+  },
+  {
+    "file": "widget/impact-review-id-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "0ad048d8fd3e3f17b573c487bd6e7592785cd06cbdc840ff10a09fac8f2adb59"
+  },
+  {
+    "file": "widget/impact-review-id-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "b3ef628974413c0e50369ae215f77c0de663fffe43c573fbee21ab08d29160ba"
+  },
+  {
+    "file": "widget/impact-review-id-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "1013d784bf5d90ce88e8cd807590e213380e3a7d39c255407013183c31a91b85"
+  },
+  {
+    "file": "widget/impact-review-id-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "35b493a077795082d340e9baf538256db08694ecd46b0434d24c627202e2176a"
+  },
+  {
+    "file": "widget/impact-review-ko-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "5c0f7a3920653ef38839ef8a1abef07140cb62ebb80e669ee408c18ef4c27741"
+  },
+  {
+    "file": "widget/impact-review-ko-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "09684fbfd6f5127dcb48f3411aad3a3ba14ce9318f02bd0476a013d74ad43326"
+  },
+  {
+    "file": "widget/impact-review-ko-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "328865156cb50ad3b047e52dc5bbf94bbcb52a0e4fc81edf90d7ae5a086f7a2f"
+  },
+  {
+    "file": "widget/impact-review-ko-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "fa481951dc3f05324951b52abca8756b2b053e57f82320a3a0abf112b8a318e1"
+  },
+  {
+    "file": "widget/impact-review-ko-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "8e49ae539828170db3c51d6eded2739f8d090f19d5a2277dc895594cbff7e4fb"
+  },
+  {
+    "file": "widget/impact-score-en-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "d391a863999d79f994bb45a684cb3faf1b7617c1a14b6d05df3fa5b71bf1e59f"
+  },
+  {
+    "file": "widget/impact-score-en-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "93e4dfe84e76d9d850259dd2dab55d49c97f0d477c670d20b509cbd63a59ced3"
+  },
+  {
+    "file": "widget/impact-score-en-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "1551432ac9ed85cb5f3c088759a4d59822b0f09bfef90cd78274584f140f99ed"
+  },
+  {
+    "file": "widget/impact-score-en-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "8df03eae3ff1f21e11e145562286306fdf2c671cbfc8f3738f2f1fba7f90a9f3"
+  },
+  {
+    "file": "widget/impact-score-en-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "d1badaf602fcf011a46561b7800e1c58f7911cfd094875b4d4a8be2727ea0a56"
+  },
+  {
+    "file": "widget/impact-score-id-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "53dd3f242c827ff8261827063d663074221609fc011fc48f50ffb7557ea53d5f"
+  },
+  {
+    "file": "widget/impact-score-id-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "637f4a0bab453dda1685166b1807875224caa05dc2af7631e72799e7548759c1"
+  },
+  {
+    "file": "widget/impact-score-id-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "ac52b0ce698f5d59ef63ac994d0e9edf52e1a408c67f85afa9f46b4907c04ba6"
+  },
+  {
+    "file": "widget/impact-score-id-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "d3038ff4b42584235572e52c094703413c35713d0080e6491e2e8cf247384c09"
+  },
+  {
+    "file": "widget/impact-score-id-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "b8df5c92670bf31990e6f04027d5d3b4fb8c5895b20bca05b293afb77c9bd467"
+  },
+  {
+    "file": "widget/impact-score-ko-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "299d66ceb3ecbf8108ff683572dd4c594c71e3cdd0977c04f6cdd2980ce456ac"
+  },
+  {
+    "file": "widget/impact-score-ko-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "4232c6be1efa121a8a66bf367583d8702e9490c09672913ba00b8417fd9d0165"
+  },
+  {
+    "file": "widget/impact-score-ko-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "832e85ef4641d12fe3788bd9afba0ac72b6181dd0996c2b8d69d80344038ee5e"
+  },
+  {
+    "file": "widget/impact-score-ko-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "b51e9916a6d7eb3d4697fca53ee4d135a5a0dc49d92666bfbe516f8420a5ed48"
+  },
+  {
+    "file": "widget/impact-score-ko-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "c3a4df6477db9ffabffab19e9e0e4775c608b7755d6dfc4e94d0903298af49ba"
+  },
+  {
+    "file": "widget/impact-selected-en-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "ccdaf4548804281a56369e51f787dc7db3991c2dbcadeae90db692b1b002d2bf"
+  },
+  {
+    "file": "widget/impact-selected-en-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "bfc64326d83427082e8d59493f222b0b4ea71cbcb798639fefb29801051be2aa"
+  },
+  {
+    "file": "widget/impact-selected-en-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "66bd45dc94252a7af9c1f357b271b879adb64bbdb72ffd775525b069331f0af8"
+  },
+  {
+    "file": "widget/impact-selected-en-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "732d643bf89910eb5711e75454ccb4104b8753251ef57a330a7cdfcdf42400f4"
+  },
+  {
+    "file": "widget/impact-selected-en-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "26d561ab4418b3dfc0bc1f6a442d67c57a1121935638f6a6965cefba63ef12c5"
+  },
+  {
+    "file": "widget/impact-selected-id-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "d0025465f00783abb55561e9cfd30f422a058133ef53e9f664fc0ef1087f8313"
+  },
+  {
+    "file": "widget/impact-selected-id-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "ab264550dbbec11197e8bdbda8b3913f55d60a298940dd12f33913b9ae32f279"
+  },
+  {
+    "file": "widget/impact-selected-id-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "c8f6883f591772b2b7aab981e01e89c57417dfee4f1ef244caaea7bdd304c782"
+  },
+  {
+    "file": "widget/impact-selected-id-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "1e31cf797292cc71d09ca5458dc79c9e885dd20a530e63ff7098b7475c76e239"
+  },
+  {
+    "file": "widget/impact-selected-id-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "d104a2ccd80a12f07c275910fd920f23b65bba653ab7270641c8de6ad827b09e"
+  },
+  {
+    "file": "widget/impact-selected-ko-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "1b5e5e177d53e982f1102a1d214ad51c2d23f1aca3c47b9f84073bd8a535e0cd"
+  },
+  {
+    "file": "widget/impact-selected-ko-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "25d6bea64740731042084fec44ba2a90173aacbeab2ea36e874808a13769f0f0"
+  },
+  {
+    "file": "widget/impact-selected-ko-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "b1d38ac30ac3870107ccb2eb4191b831d2c6e547f3f2fef30ea219a0d5ef8cc5"
+  },
+  {
+    "file": "widget/impact-selected-ko-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "7555e2b5415a9745951e03b9d83931dc11dfe5b8b129a092282ad96735819d50"
+  },
+  {
+    "file": "widget/impact-selected-ko-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "ac5a70395d608d7dd5afee1dd3570bc0ee164b566413cfa022060c169da5d8c6"
+  },
+  {
+    "file": "widget/incorrect-en-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "6dc2c8921d7cb4d46d6da508b9f5ccfa429f0a8996aa0ea563d634c7a5e95ee1"
+  },
+  {
+    "file": "widget/incorrect-en-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "8f070d180ea6b58948d788b21e275603ef224090ff62f3650d36effebb1deda0"
+  },
+  {
+    "file": "widget/incorrect-en-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "d1931dad0b9830fdac2698896f78482cb6375e86fdf56bc41cf24be5da45f962"
+  },
+  {
+    "file": "widget/incorrect-en-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "8f941ff932058242478f8eab2f7088935897d808259a421516c2e07a23559c3c"
+  },
+  {
+    "file": "widget/incorrect-en-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "b64dd73f469d6bd1f594384c4e38a347b14e2d14bba0de11fe8b1996aa82abe0"
+  },
+  {
+    "file": "widget/incorrect-id-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "0724ae0c0f0ef6444621614733bfbf7d6d0966796d66ad2ab82fc56bd49a0ab0"
+  },
+  {
+    "file": "widget/incorrect-id-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "89ab3d0491a66fe2f401a3f9e9d3fc63a52adb300e299ae23621fa17bcfa46af"
+  },
+  {
+    "file": "widget/incorrect-id-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "e3c792e797543d0996990dfc512b4225394df3236ccf472e21331a331941df8c"
+  },
+  {
+    "file": "widget/incorrect-id-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "3ac0c40d84bda77883f9c5aaba9d7338e3f86fb88dc845db4c043a0597f0fd3a"
+  },
+  {
+    "file": "widget/incorrect-id-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "5df818c77dd2568c8569872f0c83ad7d671f26c6e983f5a1235942eedeb86f55"
+  },
+  {
+    "file": "widget/incorrect-ko-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "b4ac1e6a55b3d9d70ecf98b0cf081408bc5e71cfe6a56730679ca732900cb215"
+  },
+  {
+    "file": "widget/incorrect-ko-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "5fe6ac728a534819f637bf95fd794f583429e2bec92642dc645612159e782bf8"
+  },
+  {
+    "file": "widget/incorrect-ko-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "57311711919c082dcbbc40f1f08190fd046faa2d036fe8020021ed8c8b444307"
+  },
+  {
+    "file": "widget/incorrect-ko-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "e38d8459e5e8c02ce28255d7574c6fe5e930caff9ab666716463e44e6572daf1"
+  },
+  {
+    "file": "widget/incorrect-ko-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "0906f80d6dba6d28008edc2fde62a3899bf78c294267e16b321896a5fae14813"
+  },
+  {
+    "file": "widget/initial-en-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "e9c39572d1ae7617007cbd96823ab94567ab325bdbf2075439c10dcae6a3d2e1"
+  },
+  {
+    "file": "widget/initial-en-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "5b80c78e7f9ba44360583b11ab70931a3515818139f1c0ca9d4f83b89712b323"
+  },
+  {
+    "file": "widget/initial-en-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "b9d4591a1a3247ab9f02b390e97c9aba488ae540b348edf9fa05111df86da7d7"
+  },
+  {
+    "file": "widget/initial-en-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "a2beb66a161e95dc77c19d8f0424dd5135745522fbd407e24f53d1521704360d"
+  },
+  {
+    "file": "widget/initial-en-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "81be94cc9c9ae5ed81a120bb07808bf41a2f397b2ad7d940966ec44b6d92d79e"
+  },
+  {
+    "file": "widget/initial-id-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "38bae78fca61870a6160321c1b91df12ed8d694a3ad8ac8e4df377483e4029e7"
+  },
+  {
+    "file": "widget/initial-id-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "c296e69c2b8b3f3713892f2e6a27b7c97a4058c635120d5a75c98e852db9c283"
+  },
+  {
+    "file": "widget/initial-id-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "d47a633ea44c0676740fca6d0f36aa01e2d5f53b91d816b447410fe0c0e99843"
+  },
+  {
+    "file": "widget/initial-id-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "35d8f6f246063f3aa11a91828a2ef7633fabd15c9f54e3527bf2a92066d436c9"
+  },
+  {
+    "file": "widget/initial-id-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "6f57e686d6fb4b86e8eecbdd70221dec74666fd5939d9f9f711f953fc159804a"
+  },
+  {
+    "file": "widget/initial-ko-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "f488b0e6a46718287ee78c0ba9591a40b75ef2f94dc86f8f1c74843099feaffd"
+  },
+  {
+    "file": "widget/initial-ko-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "a1fe41799cda2192175b21d88d4e272ddfdab83620756c5859f8162595f1cd09"
+  },
+  {
+    "file": "widget/initial-ko-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "575c3f44445bf6ef00644db3e1625a51c0c06e8d0ea9c8adcc50f2b57db8a787"
+  },
+  {
+    "file": "widget/initial-ko-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "0dbaa16383af41bb9683096dec1531113925f455eb57df1f91e8a08e2b4b0efe"
+  },
+  {
+    "file": "widget/initial-ko-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "a40b1f513f0d178b2bcd6e47c2428e7fb35549af05c6bcc2db4af43f1e5fc635"
+  },
+  {
+    "file": "widget/kifc05-definition-en-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "c6adeb564e7a928e96c2d452943ccc92b6fa0628fcca7899bbc7bc7af14d0a9c"
+  },
+  {
+    "file": "widget/kifc05-definition-en-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "5e15ecdec79b167231640590aaa2715a5f2f166a83242ff5b863f5a49e901697"
+  },
+  {
+    "file": "widget/kifc05-definition-en-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "f1e0c1039e09f308c32e4ac16408426b2f3897d68cbb69673a66c30bbb843c82"
+  },
+  {
+    "file": "widget/kifc05-definition-en-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "4a1eda979e58728f08e204ef60ed6886bf209833600bcf380e4f4acc402469b2"
+  },
+  {
+    "file": "widget/kifc05-definition-en-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "58eb4aa04a3fd002e163e893fa3bf2eb7b5a6dafb16f4f90146b9bc4d3a9a410"
+  },
+  {
+    "file": "widget/kifc05-definition-id-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "1c9ec7a4beaacef1dbda676aae06d41f5b2cd2b81c6e284eadb95bca049bf925"
+  },
+  {
+    "file": "widget/kifc05-definition-id-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "ce99faf5609c01e8f24ba09782b4b5f694907025ba5a06460fee0bcb5de8258b"
+  },
+  {
+    "file": "widget/kifc05-definition-id-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "0a09910147dc389441cc0187d1eee8215706d4fd8582615e390bd61d852a12d4"
+  },
+  {
+    "file": "widget/kifc05-definition-id-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "9fef22e9a1d085848a06af330d1d16ee1abb334ecc0ba290455a4fef73e32249"
+  },
+  {
+    "file": "widget/kifc05-definition-id-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "034f1cf5a6fc9dd22d98901ae42c77386e71106b921b7721633c64cabe1fc0ee"
+  },
+  {
+    "file": "widget/kifc05-definition-ko-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "0c734841ccdeb20140311cd939c7a16a836144b455bea1158c86acb2b7d51164"
+  },
+  {
+    "file": "widget/kifc05-definition-ko-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "6cde2d946ef9aaf2978d02b6bfde361bdac5b679870351efc0edf7a994a81ad6"
+  },
+  {
+    "file": "widget/kifc05-definition-ko-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "29253ac2101510f2eb5fe3cadc79ce20efa609cfe8d7fed7cff8ea3e5e2380d1"
+  },
+  {
+    "file": "widget/kifc05-definition-ko-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "6d84838c70942225a084775645b927b690891c143bf8c1eec0c31bccf24c0f6a"
+  },
+  {
+    "file": "widget/kifc05-definition-ko-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "da20fb009c5c8b85a02bcaa685adc1049070ad27b9b4e9e938fa7f1973cb37ae"
+  },
+  {
+    "file": "widget/kifc06-cause-en-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "8d5e779227c0790a8c6a9f2746c4c0a6f8719bea2bf89c0480fea5d29a83b5c6"
+  },
+  {
+    "file": "widget/kifc06-cause-en-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "a9bbcf6e9ce6a0573a1a8e22ddc88fcc45e4822fa9328c037cb809fd82ef7011"
+  },
+  {
+    "file": "widget/kifc06-cause-en-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "07082d4154c546c10fcade8ee0d02ae14786df969df4580f966c7fb0ec3959fe"
+  },
+  {
+    "file": "widget/kifc06-cause-en-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "5c093b6f121794cf20915614e2885c9ad52c67e1180e1fd1e1ac9c530c320495"
+  },
+  {
+    "file": "widget/kifc06-cause-en-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "7ccd62fa7237359f70fb757b4ecef6f739d1c01fe6e36617f4a025d7fe9feadd"
+  },
+  {
+    "file": "widget/kifc06-cause-id-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "c546cd9c1b6c8a6a8babb9ecca90dc82459035e189b888a599d59a6a1d6bb74d"
+  },
+  {
+    "file": "widget/kifc06-cause-id-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "14f6a5254de1f0a033a019d1221377d2e30eb487d404b353397920d9f7664fd0"
+  },
+  {
+    "file": "widget/kifc06-cause-id-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "68d267fcb0d0af0151fc4b0acadb2b08585ff958c2d0ac8d0572d17c432ca3e9"
+  },
+  {
+    "file": "widget/kifc06-cause-id-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "4caf40f4af2433911579042cc2f82d224c27d6f949826e871bd522db691eb494"
+  },
+  {
+    "file": "widget/kifc06-cause-id-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "2ced9cc0feeebdc1deaeb174d2431837b55e9255c0fc0ca00d9d9eefa0759c83"
+  },
+  {
+    "file": "widget/kifc06-cause-ko-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "4b51fae0f9d4ee6fcdcd72813249b5f4232445234dd5a12b724167464588d0b2"
+  },
+  {
+    "file": "widget/kifc06-cause-ko-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "25b3f5eb0f635166cd16c377877f79728558e05b13db5c0b87f1d21b22cc8e14"
+  },
+  {
+    "file": "widget/kifc06-cause-ko-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "957699151f8e2ad5ddb980c499b9589985d7c75dbb015a1cc29e9e41b4e6d97a"
+  },
+  {
+    "file": "widget/kifc06-cause-ko-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "759c741bfa4c03dd118eb7b509a0608f5ebc1739ab73e3a152170f7f91382af2"
+  },
+  {
+    "file": "widget/kifc06-cause-ko-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "0bcb739c2b5a1f1553328ec3f85ed05176c2262708b641d69ec420f60639d9b0"
+  },
+  {
+    "file": "widget/kifc07-prevention-en-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "f83b2598d875eb02e8bfe83d86525426310d19f5884be7e7ce0e92adcc42e2b2"
+  },
+  {
+    "file": "widget/kifc07-prevention-en-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "69aee81648d0e757e01e42d909dd8268ad92fe7be96097175a8de00d356d77b7"
+  },
+  {
+    "file": "widget/kifc07-prevention-en-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "a0623ca75173f2de74e0a571cc15fe4f839011cde318e60c813afb534957d3a3"
+  },
+  {
+    "file": "widget/kifc07-prevention-en-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "c9b7d041ade135e9713f446f5492474dc1fe9e222e8e6250f68b10cdc629b0e2"
+  },
+  {
+    "file": "widget/kifc07-prevention-en-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "eaae604ec56834b0f19fe5cc99ac639d88fd5518da79b43727bf0c2016a62f9d"
+  },
+  {
+    "file": "widget/kifc07-prevention-id-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "242005e649c647bc1fa173d46550e3dabb69099ebe08a9bae50c41405274c841"
+  },
+  {
+    "file": "widget/kifc07-prevention-id-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "316e3dcf65300c481ca8e97ea5f186e43dd2a27b5579aaa6f3d878ac5ffbff9c"
+  },
+  {
+    "file": "widget/kifc07-prevention-id-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "07cd7449ac7ecfcffc9f2d98168992726d066533b47f7c15e97ccd7705089501"
+  },
+  {
+    "file": "widget/kifc07-prevention-id-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "b2a3e89aa2ea44a9048b83ab0dc1a17737e231f60f51e87d464699ac25af597e"
+  },
+  {
+    "file": "widget/kifc07-prevention-id-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "bb5fab625b0f288774fa36757ccde740ba4039cd7484dbeb830ede60951269c3"
+  },
+  {
+    "file": "widget/kifc07-prevention-ko-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "3212a75622575dfa5ee1a255ff6278a4a44d00e5911f5141b5e76e449e7583ae"
+  },
+  {
+    "file": "widget/kifc07-prevention-ko-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "b5633801e7a27c5ef2efe9b5ca9755d66f0a0358b33bb58632ccfabe28942c5b"
+  },
+  {
+    "file": "widget/kifc07-prevention-ko-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "da6ba8ee35d3477a8cb029b16037da62ebf99826fd4b7565ec03b24b6b507023"
+  },
+  {
+    "file": "widget/kifc07-prevention-ko-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "41d3c784abe2fb1359c2fa0f0445cad781cfd87c0472fba9334e89481ebf5ae3"
+  },
+  {
+    "file": "widget/kifc07-prevention-ko-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "bd1ef1c43832fb18e1d37356986a07ac61f7eb8fa09ceed2bc9a5028902ba64e"
+  },
+  {
+    "file": "widget/kifc11-score-en-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "e987f6035a1c53591c533f63178c37d5524b0e0429008c998619d311b0360ad0"
+  },
+  {
+    "file": "widget/kifc11-score-en-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "b3785782e9f18fb924fce3d1e034ff867e1edd84a6c035078fc30469307d300b"
+  },
+  {
+    "file": "widget/kifc11-score-en-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "b7bb008a2e23be30408e6a52acaaa010945b5b60b24c6224ab297ffd40aeadda"
+  },
+  {
+    "file": "widget/kifc11-score-en-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "f5799e6a91e962a0e397d63494265157d3342a43b79a8ec690b31f11c94fed93"
+  },
+  {
+    "file": "widget/kifc11-score-en-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "8ad522f9f2b5136d076bf3a0b20fa60fbf638818b26ffda5921785dd77218647"
+  },
+  {
+    "file": "widget/kifc11-score-id-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "14680b059e107671dc7f4f6fa69f64cc4ba06587bd55a08058631b320c136f5e"
+  },
+  {
+    "file": "widget/kifc11-score-id-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "58b9c483510c447a083b0fe596c4b8aea462b198d7526de44c4004653686e169"
+  },
+  {
+    "file": "widget/kifc11-score-id-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "0b1eb29f7e5fd021f445c5a57fb2b43781d70c08f21a03f21d2510751a45f0d6"
+  },
+  {
+    "file": "widget/kifc11-score-id-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "811670e61dbea8964cd73e10f35cfb8847a83cd6b15935b205421242c6f31f51"
+  },
+  {
+    "file": "widget/kifc11-score-id-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "250ee25ae343309f6f22288018c4583975f9fbf9a1016fd5f81ec4353ad05370"
+  },
+  {
+    "file": "widget/kifc11-score-ko-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "27b4fe947dc2575208611b65be16c37dfde86b4a91948d6fcc5df1e3350cf35f"
+  },
+  {
+    "file": "widget/kifc11-score-ko-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "1a18d3701dc24e72e969e5e6299ffcff0bc1dc7e196989c1f2774a1693d344df"
+  },
+  {
+    "file": "widget/kifc11-score-ko-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "b2170fd9e89966b543fe7b99a603b5bfa4d7938537afe5177b4da07f875868bd"
+  },
+  {
+    "file": "widget/kifc11-score-ko-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "0f012accf774c853a6a6018bc6e030dd596786f947a698d001b7ca2bc91b25a2"
+  },
+  {
+    "file": "widget/kifc11-score-ko-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "eae9312ea49f42979c9296280e35543c9105248cbe460e2e8ded20d742d95616"
+  },
+  {
+    "file": "widget/partial-en-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "a929869ae7131f928ac84b36f7958cc8f9716476fdaab727d4eeac85601eeffd"
+  },
+  {
+    "file": "widget/partial-en-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "8a6927670ddb1818da5d49a031d41a182fbc28cb1e32e721c9cd62395d963354"
+  },
+  {
+    "file": "widget/partial-en-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "08b63aff4cd8ebca9e72c85e0390769b15fb818e0844c065f2395a405ebe0793"
+  },
+  {
+    "file": "widget/partial-en-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "7e8febbb42c771a6edf54dd3140264271ead8f983baab5f4d2a367c03cb6fcd0"
+  },
+  {
+    "file": "widget/partial-en-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "7aff73b8d7ec6e4f99c6df9048638b40d7eee11b5800cad08405078f86401d25"
+  },
+  {
+    "file": "widget/partial-id-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "aef6cf151da046cdd45cf756449c573ee12212c56211f033a708774f1991d6dd"
+  },
+  {
+    "file": "widget/partial-id-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "caa8f095e4645050c32ebdb8d7d276830088816c2f311e40015e2df2ae31d051"
+  },
+  {
+    "file": "widget/partial-id-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "1053a778c8d95b1d979ab24b57688b430806a2e8e14d10c80503edcceecf65d8"
+  },
+  {
+    "file": "widget/partial-id-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "845ba25ba7d6bd3889397001fb6c23e0c16f5ac84d715003bbbfabff2731c47e"
+  },
+  {
+    "file": "widget/partial-id-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "283ac0610f46623ba4ec799316aeb94e8b3eb35840ab3988115d5120b2a58575"
+  },
+  {
+    "file": "widget/partial-ko-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "cbcef9fa433fbbd0f1fc7f24eec157f449a635da10750349f6bca7bb0ffbde0c"
+  },
+  {
+    "file": "widget/partial-ko-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "a6efbdecbb7abc04d4a7313c92e93ea8c626b62d82e7b7ec6cc4aeee54e5570e"
+  },
+  {
+    "file": "widget/partial-ko-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "35a11c1e492199f4ef71d83ed3c25564047b2b6b2dfcaa876f6c87e8de1714ba"
+  },
+  {
+    "file": "widget/partial-ko-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "4093b7b13956ce793402bacfc1ae27445d56e7e6bbea42c32d79e9c10a5ec990"
+  },
+  {
+    "file": "widget/partial-ko-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "df609493b1ea2302b33541147458c98dae8244d0f99d7c3c344f15edaa5073d3"
+  },
+  {
+    "file": "widget/peat-cards-flip-en-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "9a49416df9a2829ef7525bce04e595602db8717f772381214d50d039d2ce541f"
+  },
+  {
+    "file": "widget/peat-cards-flip-en-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "724b72e9d00d555a7dae7a11e6dfa8048bf50ddfb4af2237ccaceca0c3c57556"
+  },
+  {
+    "file": "widget/peat-cards-flip-en-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "fa2c53bcfbabe5bc4c7688ff10434a51cea2f35d42ef7b6c9fce1b19217b1636"
+  },
+  {
+    "file": "widget/peat-cards-flip-en-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "399525202e0916cf42e7e6934382d7eb0394bab445725cedd38cdac8f79e4347"
+  },
+  {
+    "file": "widget/peat-cards-flip-en-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "524c5f3d2b13f417bb66363fc95f189ec6258fbc90ddf440e49a9a1aeb866b5e"
+  },
+  {
+    "file": "widget/peat-cards-flip-id-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "12516f59ed2cc957783902c0b62af8bbd64789d6b1bd26dee9f6cd9c7541988b"
+  },
+  {
+    "file": "widget/peat-cards-flip-id-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "eabd688350e6e20ced31d2655722e66f4a54a409e256be1f1338a28f2cbd20ce"
+  },
+  {
+    "file": "widget/peat-cards-flip-id-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "684ec05e62a9396a58e8101e031d21277f996158a6b2b9a9e7e5fdba793ac476"
+  },
+  {
+    "file": "widget/peat-cards-flip-id-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "911657aff90a5264594ea843aa49fee3159aaf58484fa62021fa28af9bd4cdf5"
+  },
+  {
+    "file": "widget/peat-cards-flip-id-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "16290110f3acf9dfc047fc4b18c57ac2f6df9da045a823676c23bafc77c5b300"
+  },
+  {
+    "file": "widget/peat-cards-flip-ko-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "ddd4f68c73ea89fd9d6d6c8f77aef4992fad53fefcf111b9e4da91dde28fb6b6"
+  },
+  {
+    "file": "widget/peat-cards-flip-ko-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "ab77293fbda34fda739df07a9b2e92c9ff9a6a921030f7570bbe030e04bd1535"
+  },
+  {
+    "file": "widget/peat-cards-flip-ko-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "f2dd07107efe45ee67e5719343099b6f1053491dbf4335a7ea700a8a1181c2af"
+  },
+  {
+    "file": "widget/peat-cards-flip-ko-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "eb9a487788a3d58e71cb90b334e86e36b4c4ef54048213917ce6b6918d72061c"
+  },
+  {
+    "file": "widget/peat-cards-flip-ko-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "ccb456f7085d31c55af8063b6782eac1b09c3a2dc809470c66b65dbec6b22234"
+  },
+  {
+    "file": "widget/peat-cards-front-en-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "e73542ff7b5271a39d509a081b5ec40fad96a52e16628f4eef16290be079b8ad"
+  },
+  {
+    "file": "widget/peat-cards-front-en-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "9f79e7ffa56f7d56fec57893ac5bb2e2bbdcf22cae557e7295a6edb9af091330"
+  },
+  {
+    "file": "widget/peat-cards-front-en-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "269de74fb2c7dd014d36220f74dcc04a0dcc59b076e3f38ce38bca7328eed4b6"
+  },
+  {
+    "file": "widget/peat-cards-front-en-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "eb485ff4f4b77370eb854955fcca3d379da2e5dc276d4082e286efaf06a584a5"
+  },
+  {
+    "file": "widget/peat-cards-front-en-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "d23e58f033a1572d4282c4fdb1dbe77b01c852951ce65425ea8f9f42c625cb8e"
+  },
+  {
+    "file": "widget/peat-cards-front-id-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "538d80639a7b042ff09a8e38bcf34d295f03afe39024b9fd243d55e9339d5fd1"
+  },
+  {
+    "file": "widget/peat-cards-front-id-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "eb4ffadb2eeac6f6c6042db1e75b0f0422e4c3ada7bc86db2cc289b680478b5c"
+  },
+  {
+    "file": "widget/peat-cards-front-id-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "22fb9ce5adac1a1196a9a3d9b196c045fedf33fb6c0c4f633176b5d6e5fa1d6d"
+  },
+  {
+    "file": "widget/peat-cards-front-id-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "0134c073be1deabf4565e0c41d4894222ad60cccd3d04ee820c3ec68853b2ae6"
+  },
+  {
+    "file": "widget/peat-cards-front-id-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "6088fadbe1aa1f0615a23d895e2e9d8a77392014499f9ba3d9edb3edcaf9d9d6"
+  },
+  {
+    "file": "widget/peat-cards-front-ko-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "ab5945520702538d18c88c492fe7c7a0144625d739fb5dceeee9d216ad3b5c01"
+  },
+  {
+    "file": "widget/peat-cards-front-ko-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "572aa8dc89671c473a27c07b7b36590ca78b817f9d69d58751ec42d87045c493"
+  },
+  {
+    "file": "widget/peat-cards-front-ko-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "af20ba8fd479753afdd3fb940aa364c8744f2b64dd4dee71edb00f7f677245ac"
+  },
+  {
+    "file": "widget/peat-cards-front-ko-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "5728d0e403848d3c0add4852d169bb4070c41efc24d15964637d0cb929f8ca19"
+  },
+  {
+    "file": "widget/peat-cards-front-ko-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "a4cf239a0f1f6f71f43179f0efc0706fecee063ed13ae21143bcab102c633ce6"
+  },
+  {
+    "file": "widget/peat-cards-partial-en-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "1ef8ca5c883349f2b31f6c81cb4f5844558403da6639fa60ea7f515f8f28eb1c"
+  },
+  {
+    "file": "widget/peat-cards-partial-en-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "4db9a690a91ad8f2c7fae2fa1c483003ba0ab1cabd66e88756e79561c910ac8f"
+  },
+  {
+    "file": "widget/peat-cards-partial-en-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "ff693bebd5a4a3d6ab7651edf56026f070145caf444a46be59cf8ac0aa35f70f"
+  },
+  {
+    "file": "widget/peat-cards-partial-en-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "73c4d686995d4f81ffd8ead45acb21c57bf5e1bdcac8a10f54d4fcebe8b98946"
+  },
+  {
+    "file": "widget/peat-cards-partial-en-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "befce9ad1927c4df096118490d3e31c0ea7ea74125201e47d6539deb0dd49e4d"
+  },
+  {
+    "file": "widget/peat-cards-partial-id-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "f6c06f26b7a61f5aa5bcb898c83ca994f22779fa4470f83213e47cbf43bf1db5"
+  },
+  {
+    "file": "widget/peat-cards-partial-id-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "eb9e10a197870a1e0093ec978de6660bdd9490212c63f06afab7cf9f53409d9b"
+  },
+  {
+    "file": "widget/peat-cards-partial-id-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "11b4fff723b1a64c3cf7bb2c2acd3c5b5b4dbe252b30591076f476a0f7d961d2"
+  },
+  {
+    "file": "widget/peat-cards-partial-id-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "44b07454837dee57d4b3e2016698fe709a683e3127a6549cf3502af3e6fee3a1"
+  },
+  {
+    "file": "widget/peat-cards-partial-id-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "420d5e0c1cd48984ea7c97ba3ce0b8cb4f29078055706332c6271e744905d7b1"
+  },
+  {
+    "file": "widget/peat-cards-partial-ko-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "708017666fdf444a87a8b273ca35e988d9ed995cce320641329d356215ced078"
+  },
+  {
+    "file": "widget/peat-cards-partial-ko-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "eac781e1774d87a05a7ce274485fd5935a6d2ded46808b83db44375037d908e3"
+  },
+  {
+    "file": "widget/peat-cards-partial-ko-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "01c3d4458ca435eee413d20f4a0db1154e6fa3f4717a726998682511cf79fa47"
+  },
+  {
+    "file": "widget/peat-cards-partial-ko-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "db4d4adfcc7b1c0994677dddf4e6402c18d863e091f669dec8c95034f630ca39"
+  },
+  {
+    "file": "widget/peat-cards-partial-ko-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "f6026c7178f7aa271dd6f76525f41bd408fb10fd3c1f4fba97a9c41c830249da"
+  },
+  {
+    "file": "widget/peat-cards-read-en-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "be3e9ab47190d722ed4f019c6bde24cbf2d034e85bf708a86b8acefadcd9e908"
+  },
+  {
+    "file": "widget/peat-cards-read-en-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "9fed7b3a42f6e0a521ff488de6f7601a0e0d8fcfea6924c157b6e5525919ec5e"
+  },
+  {
+    "file": "widget/peat-cards-read-en-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "67c1c6b77e7f4e37eb33c293243278f124f6c9016d723a0377264c5527bfb090"
+  },
+  {
+    "file": "widget/peat-cards-read-en-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "a65b50e08cbd267abd9bd0ad0eaaabf8d88625c1a052b9e25a47002166026215"
+  },
+  {
+    "file": "widget/peat-cards-read-en-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "20931c737ce5b4d07b60ef8fd75c8072f84afbb9c42775022c23d2c84c680a55"
+  },
+  {
+    "file": "widget/peat-cards-read-id-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "094c8dd7a134c0adba1488e59ccac281b12316ec757715d9c86b433797231423"
+  },
+  {
+    "file": "widget/peat-cards-read-id-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "8812cc42fd6dfbb0eb450da37e22cc3e2b9756021017cb2dba6f9e7900bc62ce"
+  },
+  {
+    "file": "widget/peat-cards-read-id-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "e567ce74f4f9a9b08901c6d1440818867254dae91b48cfdadac95f93e250ba5c"
+  },
+  {
+    "file": "widget/peat-cards-read-id-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "d6ec0c04a7760c11254bad943913ca4d3f0d94a8a031a119e64479bb8416c824"
+  },
+  {
+    "file": "widget/peat-cards-read-id-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "1157dcff716c0b6a1b216531d98a7a9a96a4b3de03ffe77eb908faf8f2058610"
+  },
+  {
+    "file": "widget/peat-cards-read-ko-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "c56dc1153d247cbd41df243a1e2692e653f7a593756dedeff2ab67fc8ebbfdf1"
+  },
+  {
+    "file": "widget/peat-cards-read-ko-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "240424e18e3ce76968ee383538bc6e527f8db3a44522cb025e86b6bbc0830b05"
+  },
+  {
+    "file": "widget/peat-cards-read-ko-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "5281eb7e980df1b03b0d66970ff14868541cca3d682ea17c5a0823bcc719d5e3"
+  },
+  {
+    "file": "widget/peat-cards-read-ko-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "319246252364e07d8fa1fb7d1bff78eebd95628a6f8f5d2f7f1e27f00dc03daf"
+  },
+  {
+    "file": "widget/peat-cards-read-ko-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "db8b04356d8cbb2bfc5bca5538406930236d72ae69f2b8eaedab400cc007a15f"
+  },
+  {
+    "file": "widget/question-en-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "70af4064fc8d6e486647c9c0ed54b010cf895b395712fcba83a77abcef986dcd"
+  },
+  {
+    "file": "widget/question-en-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "667e83a653c34197c3a9f2889ac9a100ddae8d3428e737f6fd6592b99eedd1bb"
+  },
+  {
+    "file": "widget/question-en-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "def5b73a5dd41873a401a5c2d2f98195b6777ac909afa6ab2e46ed9201ad8c59"
+  },
+  {
+    "file": "widget/question-en-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "b1466f103d2793468d9d4a411e407c39d5c8d9a1984158136b80ded1dcaa50ad"
+  },
+  {
+    "file": "widget/question-en-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "f6a7812ab24645453a03bc677b35592d5d85cf1bdf6adc3d60cb4d6ffe34255e"
+  },
+  {
+    "file": "widget/question-id-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "ef4239b84f3b8afa576f5864ac9d12684b91671e1b6b37cdc9e1d36dc66517ca"
+  },
+  {
+    "file": "widget/question-id-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "0db768a7c901e9b2d3ba3c75d06637c2701f2247b7bb8407dedbfb0c87a4e01a"
+  },
+  {
+    "file": "widget/question-id-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "6bd816c6a74bc1337b35bf79faca39d0d61b2dd666fdffd6c3a2c35075b72620"
+  },
+  {
+    "file": "widget/question-id-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "e626a37ff18ea081a0ad2920aceb79f4ad659ba8711799a4cc6b2da988b231af"
+  },
+  {
+    "file": "widget/question-id-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "756c0f9b426288c32c24d9ac8493fd1f2460f6edc2e4a128696f449191806eeb"
+  },
+  {
+    "file": "widget/question-ko-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "a23874c6652513ffde189735ee398950e77cd31ca146b64896f69057baea11a7"
+  },
+  {
+    "file": "widget/question-ko-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "4cd275eb82170d0bef911139abf561355029cfdff1c90cb80465ffdbf682bd02"
+  },
+  {
+    "file": "widget/question-ko-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "e85e70a1db58b61f81cb0dffb914efe00a79b92b74914d75850bc7183855a1f6"
+  },
+  {
+    "file": "widget/question-ko-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "cd279ab6875b91d7f5be70a37874e2c022e0b4493b33b55b8371b5a0fda7e104"
+  },
+  {
+    "file": "widget/question-ko-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "eba8273f8bb2fe7a4822d40993cd55fa5e752396bbf8107a8b4e496f122341aa"
+  },
+  {
+    "file": "widget/reveal-en-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "678449aacb4a9640f9f56e7cf2141385631041ce9246f7616a2e6ad7f27d765c"
+  },
+  {
+    "file": "widget/reveal-en-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "11e1d906e03d374a581a1c09d3500017edc1afab619120db7c52602fa1d90eba"
+  },
+  {
+    "file": "widget/reveal-en-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "c44999efeb267e4456d6588944d24ce6e113845427f6d02fb6781fb60781bda8"
+  },
+  {
+    "file": "widget/reveal-en-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "ef491dd99dc2a0336cd9073c075d00e454ee937de2eaed1fc49c229d3fd83d7e"
+  },
+  {
+    "file": "widget/reveal-en-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "95e24cfc30c34d1ea943c5d66923d4123354c71a963a01600c60589e2a7a469a"
+  },
+  {
+    "file": "widget/reveal-id-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "a63f0739021d9d9f7722927a61c8a24c45dc6507009e32e9d54709921ef03931"
+  },
+  {
+    "file": "widget/reveal-id-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "96885b8d539a503a3fc360234c314226511c9970929d46cf3b255fd60b194842"
+  },
+  {
+    "file": "widget/reveal-id-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "9f4e0ee4b03ce9efd0d8e1883d621eff999b72e0ddb2e3d1878dac2eb82b4ad2"
+  },
+  {
+    "file": "widget/reveal-id-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "56078b91fb82abbd0ed5c2a310dac614ecb8baeacd41ec864d0080459fbf211c"
+  },
+  {
+    "file": "widget/reveal-id-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "92fc09dfd10638ddfb89ffb8acad1c313bf62d4b4519b80c5faecd3044a22606"
+  },
+  {
+    "file": "widget/reveal-ko-1080x1920.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "7ef556efdbbd0b221476af9b8cf49a5eef44353116a033a66f272b574bbfa079"
+  },
+  {
+    "file": "widget/reveal-ko-2160x3840.png",
+    "size": [
+      2160,
+      3840
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "72398f76804ce82c4458720b8031da23be70240d95e7a4bea2e6bb8f78e2d2d4"
+  },
+  {
+    "file": "widget/reveal-ko-360x640.png",
+    "size": [
+      360,
+      640
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "0fa4a514fa23136d3f7b173b704622072aee5a4869114c4ed2ab322f8d36dbfa"
+  },
+  {
+    "file": "widget/reveal-ko-411x731.png",
+    "size": [
+      411,
+      731
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "97a1713f7d383339958289737bb98c223deefb5fd4fd9f51d5f805ffdc8921f7"
+  },
+  {
+    "file": "widget/reveal-ko-720x1280.png",
+    "size": [
+      720,
+      1280
+    ],
+    "source": "Flutter widget render; static mascot fallback",
+    "sha256": "e91e56722c281cf1283f90c5319c02cd91f72756e05a581389de67ad4710b023"
+  }
+]

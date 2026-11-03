@@ -1,0 +1,12 @@
+11-03 00:35:05.503  2215  2215 I flutter : [KIFC audio] music=playing:0.09100000000000001 nature=playing:0.0325 effects=0.325
+11-03 00:35:11.113  2215  2215 I flutter : [KIFC audio] music=playing:0.325 nature=playing:0.065 effects=0.325
+11-03 00:35:31.157  2215  2215 I flutter : [KIFC audio] music=playing:0.09100000000000001 nature=playing:0.0325 effects=0.325
+11-03 00:35:36.678  2215  2215 I flutter : [KIFC audio] music=playing:0.325 nature=playing:0.065 effects=0.325
+11-03 00:35:56.703  2215  2215 I flutter : [KIFC audio] music=playing:0.09100000000000001 nature=playing:0.0325 effects=0.325
+11-03 00:36:02.269  2215  2215 I flutter : [KIFC audio] music=playing:0.325 nature=playing:0.065 effects=0.325
+11-03 00:36:22.294  2215  2215 I flutter : [KIFC audio] music=playing:0.09100000000000001 nature=playing:0.0325 effects=0.325
+11-03 00:36:27.891  2215  2215 I flutter : [KIFC audio] music=playing:0.325 nature=playing:0.065 effects=0.325
+11-03 00:36:47.946  2215  2215 I flutter : [KIFC audio] music=playing:0.09100000000000001 nature=playing:0.0325 effects=0.325
+11-03 00:36:53.493  2215  2215 I flutter : [KIFC audio] music=playing:0.325 nature=playing:0.065 effects=0.325
+11-03 00:37:13.502  2215  2215 I flutter : [KIFC audio] music=playing:0.09100000000000001 nature=playing:0.0325 effects=0.325
+11-03 00:37:19.089  2215  2215 I flutter : [KIFC audio] music=playing:0.325 nature=playing:0.065 effects=0.325

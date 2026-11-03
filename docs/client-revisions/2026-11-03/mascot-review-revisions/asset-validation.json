@@ -1,0 +1,9 @@
+{
+  "source_sha256": "81178f90c8e284c179c8fdd56d8247e71aec868fe070bf26d958e6277e26d8a3",
+  "runtime_sha256": "f3d1c09f43804fb0f9fb8141313fe57a123b637c877aa1c6e45697727c111705",
+  "runtime_bytes": 6726328,
+  "six_source_clips_preserved": true,
+  "materials_textures_mesh_skin_camera_preserved": true,
+  "apk_runtime_matches": true,
+  "posters_match_manifest": true
+}

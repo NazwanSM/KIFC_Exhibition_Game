@@ -1,0 +1,108 @@
+00:00 +0: loading D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_mascot_size_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: welcome mascot is at least as tall as Chapter 2 at Size(360.0, 640.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value greater than or equal to <210.0>
+  Actual: <180.0>
+   Which: is not a value greater than or equal to <210.0>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///D:/KIFC%20Game%20Exhibition/fire_prevention_challenge/test/welcome_mascot_size_test.dart:18:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1059:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///D:/KIFC%20Game%20Exhibition/fire_prevention_challenge/test/welcome_mascot_size_test.dart line 18
+The test description was:
+  welcome mascot is at least as tall as Chapter 2 at Size(360.0, 640.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -1: welcome mascot is at least as tall as Chapter 2 at Size(360.0, 640.0) [E]
+  Test failed. See exception logs above.
+  The test description was: welcome mascot is at least as tall as Chapter 2 at Size(360.0, 640.0)
+  
+00:01 +0 -1: welcome mascot is at least as tall as Chapter 2 at Size(411.0, 731.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value greater than or equal to <250.0>
+  Actual: <216.0>
+   Which: is not a value greater than or equal to <250.0>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///D:/KIFC%20Game%20Exhibition/fire_prevention_challenge/test/welcome_mascot_size_test.dart:18:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1059:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///D:/KIFC%20Game%20Exhibition/fire_prevention_challenge/test/welcome_mascot_size_test.dart line 18
+The test description was:
+  welcome mascot is at least as tall as Chapter 2 at Size(411.0, 731.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +0 -2: welcome mascot is at least as tall as Chapter 2 at Size(411.0, 731.0) [E]
+  Test failed. See exception logs above.
+  The test description was: welcome mascot is at least as tall as Chapter 2 at Size(411.0, 731.0)
+  
+00:02 +0 -2: welcome mascot is at least as tall as Chapter 2 at Size(1080.0, 1920.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value greater than or equal to <551.5731874145006>
+  Actual: <476.5592339261285>
+   Which: is not a value greater than or equal to <551.5731874145006>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///D:/KIFC%20Game%20Exhibition/fire_prevention_challenge/test/welcome_mascot_size_test.dart:18:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1059:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///D:/KIFC%20Game%20Exhibition/fire_prevention_challenge/test/welcome_mascot_size_test.dart line 18
+The test description was:
+  welcome mascot is at least as tall as Chapter 2 at Size(1080.0, 1920.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +0 -3: welcome mascot is at least as tall as Chapter 2 at Size(1080.0, 1920.0) [E]
+  Test failed. See exception logs above.
+  The test description was: welcome mascot is at least as tall as Chapter 2 at Size(1080.0, 1920.0)
+  
+00:02 +0 -3: welcome mascot is at least as tall as Chapter 2 at Size(2160.0, 3840.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value greater than or equal to <1103.1463748290012>
+  Actual: <953.118467852257>
+   Which: is not a value greater than or equal to <1103.1463748290012>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///D:/KIFC%20Game%20Exhibition/fire_prevention_challenge/test/welcome_mascot_size_test.dart:18:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1059:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///D:/KIFC%20Game%20Exhibition/fire_prevention_challenge/test/welcome_mascot_size_test.dart line 18
+The test description was:
+  welcome mascot is at least as tall as Chapter 2 at Size(2160.0, 3840.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +0 -4: welcome mascot is at least as tall as Chapter 2 at Size(2160.0, 3840.0) [E]
+  Test failed. See exception logs above.
+  The test description was: welcome mascot is at least as tall as Chapter 2 at Size(2160.0, 3840.0)
+  
+00:03 +0 -4: (tearDownAll)
+00:03 +0 -4: Some tests failed.

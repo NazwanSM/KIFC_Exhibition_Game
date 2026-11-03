@@ -1,0 +1,49 @@
+### Result
+[
+  {
+    "clip": "Idle",
+    "duration": 30,
+    "from": 29.8,
+    "to": 0.5015000000000182,
+    "wrapped": true
+  },
+  {
+    "clip": "Talk",
+    "duration": 30,
+    "from": 29.8,
+    "to": 0.501500000000017,
+    "wrapped": true
+  },
+  {
+    "clip": "Wave",
+    "duration": 30,
+    "from": 29.8,
+    "to": 0.501300000000009,
+    "wrapped": true
+  },
+  {
+    "clip": "Happy",
+    "duration": 30,
+    "from": 29.8,
+    "to": 0.5084000000000194,
+    "wrapped": true
+  },
+  {
+    "clip": "Feedback",
+    "duration": 30,
+    "from": 29.8,
+    "to": 0.5015000000000235,
+    "wrapped": true
+  },
+  {
+    "clip": "PointIdle",
+    "duration": 30,
+    "from": 29.8,
+    "to": 0.5014000000000397,
+    "wrapped": true
+  }
+]
+### Ran Playwright code
+```js
+await page.evaluate('async () => { const v=document.querySelector(\'model-viewer\'); v.pause(); v.animationCrossfadeDuration=0; const out=[]; for(const clip of v.availableAnimations){v.animationName=clip;await v.updateComplete;v.play();v.currentTime=29.8;const from=v.currentTime;await new Promise(r=>setTimeout(r,700));v.pause();out.push({clip,duration:v.duration,from,to:v.currentTime,wrapped:v.currentTime<from});}v.animationName=\'Wave\';await v.updateComplete;v.play();return out;}');
+```

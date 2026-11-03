@@ -1,0 +1,217 @@
+### Result
+[
+  {
+    "lang": "id",
+    "viewport": [
+      360,
+      640
+    ],
+    "card": 1,
+    "filename": "docs/client-revisions/2026-11-03/mascot-review-revisions/web-id-360-card1.jpg",
+    "source": "Flutter web review; silent timeline"
+  },
+  {
+    "lang": "en",
+    "viewport": [
+      360,
+      640
+    ],
+    "card": 1,
+    "filename": "docs/client-revisions/2026-11-03/mascot-review-revisions/web-en-360-card1.jpg",
+    "source": "Flutter web review; silent timeline"
+  },
+  {
+    "lang": "ko",
+    "viewport": [
+      360,
+      640
+    ],
+    "card": 1,
+    "filename": "docs/client-revisions/2026-11-03/mascot-review-revisions/web-ko-360-card1.jpg",
+    "source": "Flutter web review; silent timeline"
+  },
+  {
+    "lang": "id",
+    "viewport": [
+      411,
+      731
+    ],
+    "card": 1,
+    "filename": "docs/client-revisions/2026-11-03/mascot-review-revisions/web-id-411-card1.jpg",
+    "source": "Flutter web review; silent timeline"
+  },
+  {
+    "lang": "en",
+    "viewport": [
+      411,
+      731
+    ],
+    "card": 1,
+    "filename": "docs/client-revisions/2026-11-03/mascot-review-revisions/web-en-411-card1.jpg",
+    "source": "Flutter web review; silent timeline"
+  },
+  {
+    "lang": "ko",
+    "viewport": [
+      411,
+      731
+    ],
+    "card": 1,
+    "filename": "docs/client-revisions/2026-11-03/mascot-review-revisions/web-ko-411-card1.jpg",
+    "source": "Flutter web review; silent timeline"
+  },
+  {
+    "lang": "id",
+    "viewport": [
+      720,
+      1280
+    ],
+    "card": 1,
+    "filename": "docs/client-revisions/2026-11-03/mascot-review-revisions/web-id-720-card1.jpg",
+    "source": "Flutter web review; silent timeline"
+  },
+  {
+    "lang": "en",
+    "viewport": [
+      720,
+      1280
+    ],
+    "card": 1,
+    "filename": "docs/client-revisions/2026-11-03/mascot-review-revisions/web-en-720-card1.jpg",
+    "source": "Flutter web review; silent timeline"
+  },
+  {
+    "lang": "ko",
+    "viewport": [
+      720,
+      1280
+    ],
+    "card": 1,
+    "filename": "docs/client-revisions/2026-11-03/mascot-review-revisions/web-ko-720-card1.jpg",
+    "source": "Flutter web review; silent timeline"
+  },
+  {
+    "lang": "id",
+    "viewport": [
+      1080,
+      1920
+    ],
+    "card": 1,
+    "filename": "docs/client-revisions/2026-11-03/mascot-review-revisions/web-id-1080-card1.jpg",
+    "source": "Flutter web review; silent timeline"
+  },
+  {
+    "lang": "id",
+    "viewport": [
+      1080,
+      1920
+    ],
+    "card": 2,
+    "filename": "docs/client-revisions/2026-11-03/mascot-review-revisions/web-id-1080-card2.jpg",
+    "source": "Flutter web review; silent timeline"
+  },
+  {
+    "lang": "id",
+    "viewport": [
+      1080,
+      1920
+    ],
+    "card": 3,
+    "filename": "docs/client-revisions/2026-11-03/mascot-review-revisions/web-id-1080-card3.jpg",
+    "source": "Flutter web review; silent timeline"
+  },
+  {
+    "lang": "en",
+    "viewport": [
+      1080,
+      1920
+    ],
+    "card": 1,
+    "filename": "docs/client-revisions/2026-11-03/mascot-review-revisions/web-en-1080-card1.jpg",
+    "source": "Flutter web review; silent timeline"
+  },
+  {
+    "lang": "en",
+    "viewport": [
+      1080,
+      1920
+    ],
+    "card": 2,
+    "filename": "docs/client-revisions/2026-11-03/mascot-review-revisions/web-en-1080-card2.jpg",
+    "source": "Flutter web review; silent timeline"
+  },
+  {
+    "lang": "en",
+    "viewport": [
+      1080,
+      1920
+    ],
+    "card": 3,
+    "filename": "docs/client-revisions/2026-11-03/mascot-review-revisions/web-en-1080-card3.jpg",
+    "source": "Flutter web review; silent timeline"
+  },
+  {
+    "lang": "ko",
+    "viewport": [
+      1080,
+      1920
+    ],
+    "card": 1,
+    "filename": "docs/client-revisions/2026-11-03/mascot-review-revisions/web-ko-1080-card1.jpg",
+    "source": "Flutter web review; silent timeline"
+  },
+  {
+    "lang": "ko",
+    "viewport": [
+      1080,
+      1920
+    ],
+    "card": 2,
+    "filename": "docs/client-revisions/2026-11-03/mascot-review-revisions/web-ko-1080-card2.jpg",
+    "source": "Flutter web review; silent timeline"
+  },
+  {
+    "lang": "ko",
+    "viewport": [
+      1080,
+      1920
+    ],
+    "card": 3,
+    "filename": "docs/client-revisions/2026-11-03/mascot-review-revisions/web-ko-1080-card3.jpg",
+    "source": "Flutter web review; silent timeline"
+  },
+  {
+    "lang": "id",
+    "viewport": [
+      2160,
+      3840
+    ],
+    "card": 1,
+    "filename": "docs/client-revisions/2026-11-03/mascot-review-revisions/web-id-2160-card1.jpg",
+    "source": "Flutter web review; silent timeline"
+  },
+  {
+    "lang": "en",
+    "viewport": [
+      2160,
+      3840
+    ],
+    "card": 1,
+    "filename": "docs/client-revisions/2026-11-03/mascot-review-revisions/web-en-2160-card1.jpg",
+    "source": "Flutter web review; silent timeline"
+  },
+  {
+    "lang": "ko",
+    "viewport": [
+      2160,
+      3840
+    ],
+    "card": 1,
+    "filename": "docs/client-revisions/2026-11-03/mascot-review-revisions/web-ko-2160-card1.jpg",
+    "source": "Flutter web review; silent timeline"
+  }
+]
+### Ran Playwright code
+```js
+await page.evaluate('() => (window.readingCaptures)');
+```

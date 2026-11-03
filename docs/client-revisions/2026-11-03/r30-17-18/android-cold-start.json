@@ -1,0 +1,8 @@
+{
+  "device": "TECNO LG7n Android 12",
+  "processId": "3455",
+  "observedSeconds": 23,
+  "visitorInteraction": false,
+  "mixerEvents": 0,
+  "interpretation": "The app waits for visitor interaction; this does not test whether Android permits autoplay."
+}

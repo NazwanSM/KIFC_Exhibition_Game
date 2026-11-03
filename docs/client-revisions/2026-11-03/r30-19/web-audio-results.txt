@@ -1,0 +1,51 @@
+### Result
+{
+  "first": {
+    "src": "http://127.0.0.1:8770/assets/assets/audio/narration/prepared/id/karhutla-definition.mp3",
+    "time": 0.252517,
+    "paused": false
+  },
+  "second": {
+    "src": "http://127.0.0.1:8770/assets/assets/audio/narration/prepared/id/karhutla-cause.mp3",
+    "time": 0.219368,
+    "paused": false
+  },
+  "third": {
+    "src": "http://127.0.0.1:8770/assets/assets/audio/narration/prepared/id/karhutla-prevention.mp3",
+    "time": 0.211882,
+    "paused": false
+  },
+  "final": {
+    "voice": [
+      {
+        "src": "http://127.0.0.1:8770/",
+        "paused": true
+      },
+      {
+        "src": "http://127.0.0.1:8770/",
+        "paused": true
+      },
+      {
+        "src": "http://127.0.0.1:8770/",
+        "paused": true
+      },
+      {
+        "src": "http://127.0.0.1:8770/",
+        "paused": true
+      },
+      {
+        "src": "http://127.0.0.1:8770/assets/assets/audio/narration/prepared/id/karhutla-prevention.mp3",
+        "paused": true
+      },
+      {
+        "src": "http://127.0.0.1:8770/assets/assets/audio/narration/prepared/id/karhutla-prevention.mp3",
+        "paused": true
+      }
+    ],
+    "text": "Kembali\nBABAK 2/4\nPengaturan suara\nBABAK 2\nPada jenis hutan manakah kebakaran dapat membara di bawah permukaan tanah sehingga sulit dipadamkan?\nPilih jenis hutan yang memiliki lapisan gambut.\nA. Hutan mangrove\nB. Hutan rawa gambut\nC. Hutan pada tanah mineral\nPilih satu jawaban."
+  }
+}
+### Ran Playwright code
+```js
+await page.evaluate('() => (window.readingAudioResults)');
+```

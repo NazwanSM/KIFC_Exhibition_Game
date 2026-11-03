@@ -1,0 +1,24 @@
+{
+  passed: false,
+  failures: [ 'Audio-only sampling scheduled a Flutter paint.' ],
+  samples: 5,
+  positionPreserved: true
+}
+node:internal/modules/run_main:123
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Browser audio sampling contract: Audio-only sampling scheduled a Flutter paint.
+
+false !== true
+
+    at file:///D:/KIFC%20Game%20Exhibition/fire_prevention_challenge/tool/run_narration_sampler_check.mjs:15:10 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v22.20.0

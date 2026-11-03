@@ -1,0 +1,32 @@
+### Result
+[
+  {
+    "src": "http://127.0.0.1:8768/assets/assets/audio/forest-music.mp3",
+    "at": 1793640863415,
+    "result": "playing"
+  },
+  {
+    "src": "http://127.0.0.1:8768/assets/assets/audio/forest-birds.mp3",
+    "at": 1793640863417,
+    "result": "playing"
+  },
+  {
+    "src": "http://127.0.0.1:8768/assets/assets/audio/tap.wav",
+    "at": 1793640863421,
+    "result": "playing"
+  },
+  {
+    "src": "http://127.0.0.1:8768/assets/assets/audio/narration/prepared/en/welcome.mp3",
+    "at": 1793640882744,
+    "result": "playing"
+  },
+  {
+    "src": "http://127.0.0.1:8768/assets/assets/audio/tap.wav",
+    "at": 1793640883308,
+    "result": "playing"
+  }
+]
+### Ran Playwright code
+```js
+await page.evaluate('() => (window.voiceEvents)');
+```

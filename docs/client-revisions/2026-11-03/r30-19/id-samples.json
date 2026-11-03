@@ -1,0 +1,184 @@
+[
+  {
+    "ms": 317,
+    "clip": "PointIdle",
+    "loaded": true,
+    "paused": false,
+    "time": 0.8633999999999997
+  },
+  {
+    "ms": 855,
+    "clip": "PointIdle",
+    "loaded": true,
+    "paused": true,
+    "time": 1.2071999999999998
+  },
+  {
+    "ms": 1527,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 0
+  },
+  {
+    "ms": 1975,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 0.4316000000000002
+  },
+  {
+    "ms": 2426,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 0.8851000000000003
+  },
+  {
+    "ms": 2838,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 1.3166000000000002
+  },
+  {
+    "ms": 3807,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 2.2790999999999997
+  },
+  {
+    "ms": 4227,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 2.7105000000000006
+  },
+  {
+    "ms": 4665,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 3.1198000000000006
+  },
+  {
+    "ms": 5092,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 3.562500000000001
+  },
+  {
+    "ms": 5520,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 4.004800000000001
+  },
+  {
+    "ms": 5955,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 4.4475000000000025
+  },
+  {
+    "ms": 6428,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 4.89
+  },
+  {
+    "ms": 6856,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 5.321400000000001
+  },
+  {
+    "ms": 7751,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 6.239800000000003
+  },
+  {
+    "ms": 8158,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 6.649100000000003
+  },
+  {
+    "ms": 8592,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 7.047400000000003
+  },
+  {
+    "ms": 9014,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 7.478800000000004
+  },
+  {
+    "ms": 9457,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 7.932500000000003
+  },
+  {
+    "ms": 9871,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 8.341700000000007
+  },
+  {
+    "ms": 10333,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 8.795300000000008
+  },
+  {
+    "ms": 10739,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 9.204700000000006
+  },
+  {
+    "ms": 11152,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 9.625300000000008
+  },
+  {
+    "ms": 12270,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 0
+  },
+  {
+    "ms": 12684,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 0.40929999999999994
+  },
+  {
+    "ms": 13126,
+    "clip": "Talk",
+    "loaded": true,
+    "paused": false,
+    "time": 0.874
+  }
+]

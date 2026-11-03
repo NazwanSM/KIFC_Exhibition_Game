@@ -1,0 +1,14 @@
+{
+  "tests_passed": 127,
+  "analyze": "No issues found",
+  "web_build": "passed",
+  "web_server_restarted": true,
+  "served_bytes_match_current_assets": [
+    "assets/models/manggala_game_states.glb",
+    "assets/images/mascot3d/hintSafety.png"
+  ],
+  "served_asset_manifest": "HTTP 200",
+  "widget_screenshots": 315,
+  "native_latest_feedback_playback_tested": false,
+  "physical_tv_tested": false
+}
