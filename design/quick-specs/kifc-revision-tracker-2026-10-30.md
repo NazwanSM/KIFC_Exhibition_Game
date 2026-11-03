@@ -8,7 +8,7 @@ ID `KIFC-R30-01` sampai `KIFC-R30-20` khusus untuk putaran ini, bukan nomor hala
 
 ## Keputusan dan batas cakupan
 
-- Target pengujian ditambah Samsung Tizen atas instruksi pemilik. TV fisik belum tersedia; gunakan simulator resmi sebagai lapisan uji tambahan, terpisah dari emulator Tizen OS asli dan perangkat nyata. Pengujian Android ditunda atas instruksi pemilik 3 November. [Cakupan dan hasil](../../docs/client-revisions/2026-11-03/r30-20/README.md).
+- Target yang sebelumnya diberikan pemilik adalah **Samsung QM43B-T, 43 inci 4K, Tizen 6.5**. Model ini terlewat saat persiapan simulator dan dipulihkan dari percakapan 3 November. TV fisik belum tersedia; simulator resmi hanya lapisan uji tambahan. WGT percobaan mensyaratkan Tizen 10 dan **bukan paket target QM43B-T**. Performa FPS/RAM/respons sentuh pada target belum diukur. Pengujian Android tetap ditunda atas instruksi pemilik. [Koreksi target, cakupan dan hasil](../../docs/client-revisions/2026-11-03/r30-20/README.md).
 
 - Musik pilihan final adalah **Safari oleh syncopika versi penuh**. `a3-0-30s.mp3` adalah cuplikan acuan, bukan berkas loop produksi. Kredit dan lisensi CC BY 3.0 harus dicantumkan. Sumber pilihan ada di [kurasi putaran kedua](../../docs/audio-options/2026-10-29/round-2/sources.json).
 - Keputusan pemilik 2 November menggantikan rencana prerender: gunakan GLB rigged langsung di Flutter, bersumber dari `Welcome_Wave/Review/Manggala_WELCOME_WAVE_30s_REVIEW.glb` dengan kamera `CAM-UserApprovedView`. Pertahankan enam klip asli, material, tekstur, badge dan morph. Wave welcome terus bergerak dengan mulut aktif; feedback tanpa narasi memakai varian tanpa gerak mulut. Suara tetap diintegrasikan pada R30-17–19.
@@ -406,6 +406,8 @@ Status diperbarui setelah implementasi dan pemeriksaan nyata. Selesai secara imp
 
 | 3 November 2026 | KIFC-R30-10 | Persetujuan visual direkonsiliasi; selesai | `0961f1c` | Video sama persis dengan aset yang telah diterima pada R30-11; SHA-256 dibandingkan | Tidak meminta persetujuan ulang untuk footage yang sama |
 | 3 November 2026 | KIFC-R30-20 | Checkpoint verifikasi dan paket review; masih dikerjakan | `ab13abf` | 465 tes + 30 tes visual lulus, analisis bersih; APK/web/WGT dan checksum; alur Indonesia pada simulator resmi | Peninjau teknis: agen. Android ditunda pemilik; TV fisik belum tersedia, native Tizen OS/signing/review pemilik masih terbuka |
+
+| 3 November 2026 | KIFC-R30-20 koreksi target | QM43B-T dipulihkan dari informasi pemilik sebelumnya; belum lulus performa | — | Samsung mencantumkan Tizen 6.5; WGT percobaan meminta 10.0. Audit GLB 6.77 MB/17.333 segitiga; renderer membutuhkan WebGL2 | Peninjau teknis: agen. Tidak ada data FPS/RAM/latensi target; hasil simulator tidak mengesahkan QM43B-T. Android tetap ditunda |
 
 ### Follow-up pemilik — Feedback_User_Pose dan proporsi maskot (3 November)
 

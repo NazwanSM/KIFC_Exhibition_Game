@@ -24,5 +24,46 @@
   },
   "widget_capture_count": 180,
   "physical_tv": "unavailable",
-  "sample_sources": "widget, browser and SDK simulator are separate evidence tiers"
+  "sample_sources": "widget, browser and SDK simulator are separate evidence tiers",
+  "target_display": {
+    "model": "Samsung QM43B-T",
+    "panel_pixels": [
+      3840,
+      2160
+    ],
+    "os_listed_by_samsung": "Tizen 6.5",
+    "flash_storage_gb": 16,
+    "ram_gpu_actual_firmware": "not measured",
+    "prior_simulator_target_mismatch": true,
+    "experimental_wgt_required_version": "10.0",
+    "experimental_wgt_is_qm43bt_package": false
+  },
+  "target_performance": {
+    "verdict": "NOT ASSESSED — NO DATA",
+    "missing": [
+      "target FPS/frame times",
+      "target RAM/GPU allocation",
+      "target touch latency",
+      "sustained-session profile"
+    ],
+    "static_glb": {
+      "bytes": 6768320,
+      "triangles_across_four_primitives": 17333,
+      "skin_joints": 66,
+      "image_pixels": [
+        [
+          2048,
+          2048
+        ],
+        [
+          1456,
+          1600
+        ]
+      ],
+      "rgba8_base_images_bytes_estimate_only": 26095616
+    },
+    "bundled_threejs_revision": "169",
+    "bundled_renderer_requires": "WebGL2",
+    "android_runtime_test_started": false
+  }
 }
