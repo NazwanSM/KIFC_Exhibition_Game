@@ -1,0 +1,25 @@
+00:00 +0: loading D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_review_test.dart
+00:00 +0: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_review_test.dart: (setUpAll)
+00:00 +0: D:/KIFC Game Exhibition/fire_prevention_challenge/test/app_locale_test.dart: welcome title updates immediately on every language switch
+00:01 +1: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_review_test.dart: welcome fits and starts without scrolling id-360x640
+00:01 +2: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_review_test.dart: welcome fits and starts without scrolling id-360x640
+00:01 +3: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_review_test.dart: welcome fits and starts without scrolling id-360x640
+00:01 +4: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_review_test.dart: welcome fits and starts without scrolling id-360x640
+00:01 +5: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_review_test.dart: welcome fits and starts without scrolling id-360x640
+00:02 +6: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_review_test.dart: welcome fits and starts without scrolling en-360x640
+00:03 +7: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_review_test.dart: welcome fits and starts without scrolling ko-360x640
+00:04 +8: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_review_test.dart: welcome fits and starts without scrolling id-411x731
+00:04 +9: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_review_test.dart: welcome fits and starts without scrolling en-411x731
+00:05 +10: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_review_test.dart: welcome fits and starts without scrolling ko-411x731
+00:06 +11: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_review_test.dart: welcome fits and starts without scrolling id-720x1280
+00:07 +12: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_review_test.dart: welcome fits and starts without scrolling en-720x1280
+00:08 +13: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_review_test.dart: welcome fits and starts without scrolling ko-720x1280
+00:09 +14: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_review_test.dart: welcome fits and starts without scrolling id-1080x1920
+00:11 +15: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_review_test.dart: welcome fits and starts without scrolling en-1080x1920
+00:13 +16: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_review_test.dart: welcome fits and starts without scrolling ko-1080x1920
+00:15 +17: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_review_test.dart: welcome fits and starts without scrolling id-2160x3840
+00:20 +18: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_review_test.dart: welcome fits and starts without scrolling en-2160x3840
+00:27 +19: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_review_test.dart: welcome fits and starts without scrolling ko-2160x3840
+00:32 +20: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_review_test.dart: start gives press feedback and cancels without starting
+00:33 +21: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_review_test.dart: (tearDownAll)
+00:33 +21: All tests passed!

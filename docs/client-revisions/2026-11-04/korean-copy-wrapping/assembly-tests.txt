@@ -1,0 +1,19 @@
+00:00 +0: loading D:/KIFC Game Exhibition/fire_prevention_challenge/test/assembly_review_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: assembly interaction and layout id-360x640
+00:02 +1: assembly interaction and layout en-360x640
+00:02 +2: assembly interaction and layout ko-360x640
+00:03 +3: assembly interaction and layout id-411x731
+00:04 +4: assembly interaction and layout en-411x731
+00:05 +5: assembly interaction and layout ko-411x731
+00:05 +6: assembly interaction and layout id-720x1280
+00:06 +7: assembly interaction and layout en-720x1280
+00:06 +8: assembly interaction and layout ko-720x1280
+00:07 +9: assembly interaction and layout id-1080x1920
+00:08 +10: assembly interaction and layout en-1080x1920
+00:09 +11: assembly interaction and layout ko-1080x1920
+00:10 +12: assembly interaction and layout id-2160x3840
+00:13 +13: assembly interaction and layout en-2160x3840
+00:13 +14: assembly interaction and layout ko-2160x3840
+00:14 +15: (tearDownAll)
+00:14 +15: All tests passed!
