@@ -1427,6 +1427,17 @@ class _HostConversation extends StatelessWidget {
         Expanded(
           child: _SpeechBubble(
             text: text,
+            content: opening
+                ? LocalizedText(
+                    text,
+                    keepKoreanWordsTogether: true,
+                    style: const TextStyle(
+                      color: KifcTheme.ink,
+                      fontSize: 14,
+                      height: 1.4,
+                    ),
+                  )
+                : null,
             tailOnRight: mascotOnRight,
             padding: EdgeInsets.all(opening ? 17 : 14),
             radius: opening ? 20 : 18,

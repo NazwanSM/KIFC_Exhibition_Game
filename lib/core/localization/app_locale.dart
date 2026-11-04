@@ -176,6 +176,7 @@ class LocalizedText extends StatelessWidget {
     this.semanticsLabel,
     this.textWidthBasis,
     this.textHeightBehavior,
+    this.keepKoreanWordsTogether = false,
   });
 
   final String data;
@@ -192,11 +193,26 @@ class LocalizedText extends StatelessWidget {
   final TextWidthBasis? textWidthBasis;
   final TextHeightBehavior? textHeightBehavior;
 
+  /// Keep Korean particles attached to their word in narrow speech bubbles.
+  /// This only affects display wrapping; translation and semantics stay plain.
+  final bool keepKoreanWordsTogether;
+
+  String _displayText() {
+    final translated = AppCopy.translate(data);
+    if (!keepKoreanWordsTogether || AppCopy.locale != AppLocale.korean) {
+      return translated;
+    }
+    return translated.replaceAllMapped(RegExp(r'\S+'), (match) {
+      final word = match[0]!;
+      return word.runes.map(String.fromCharCode).join('\u2060');
+    });
+  }
+
   @override
   Widget build(BuildContext context) => ValueListenableBuilder<AppLocale>(
     valueListenable: AppCopy._locale,
     builder: (context, _, _) => Text(
-      AppCopy.translate(data),
+      _displayText(),
       style: AppCopy.koreanStyle(style),
       strutStyle: strutStyle,
       textAlign: textAlign,
@@ -207,7 +223,9 @@ class LocalizedText extends StatelessWidget {
       textScaler: textScaler,
       maxLines: maxLines,
       semanticsLabel: semanticsLabel == null
-          ? null
+          ? (keepKoreanWordsTogether && AppCopy.locale == AppLocale.korean
+                ? AppCopy.translate(data)
+                : null)
           : AppCopy.translate(semanticsLabel!),
       textWidthBasis: textWidthBasis,
       textHeightBehavior: textHeightBehavior,
@@ -344,8 +362,8 @@ const Map<String, String> _korean = <String, String>{
       '충분한 열, 연료, 산소가 만나면 불이 날 수 있어요. 사람의 활동으로 이 세 요소가 한곳에 모일 수 있어요. 그래서 불이 나지 않도록 미리 예방하는 것이 중요해요.',
   'Fire can occur when sufficient heat, fuel, and oxygen meet. Human activity can bring these three elements together. Prevention helps keep a fire from starting.':
       '충분한 열, 연료, 산소가 만나면 불이 날 수 있어요. 사람의 활동으로 이 세 요소가 한곳에 모일 수 있어요. 그래서 불이 나지 않도록 미리 예방하는 것이 중요해요.',
-  'Choose three elements.': '불의 세 요소를 고르세요.',
-  'Pilih tiga unsur api.': '불의 세 요소를 고르세요.',
+  'Choose three elements.': '산불의 세 가지 요소를 고르세요.',
+  'Pilih tiga unsur api.': '산불의 세 가지 요소를 고르세요.',
   'Forest area for dropping fire elements': '불의 요소를 놓는 숲 영역',
   'Area hutan untuk meletakkan unsur api': '불의 요소를 놓는 숲 영역',
   'Drag the three correct photos into the forest.':

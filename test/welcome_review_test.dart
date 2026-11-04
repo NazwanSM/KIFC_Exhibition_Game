@@ -103,6 +103,36 @@ void main() {
         await tester.pump(const Duration(milliseconds: 300));
         expect(tester.takeException(), isNull);
 
+        if (language == AppLocale.korean) {
+          final greeting = find.descendant(
+            of: find.byKey(const ValueKey('welcome-conversation')),
+            matching: find.byWidgetPredicate(
+              (widget) =>
+                  widget is Text &&
+                  (widget.data ?? '')
+                      .replaceAll('\u2060', '')
+                      .startsWith('안녕하세요!'),
+            ),
+          );
+          final displayed = tester.widget<Text>(greeting);
+          final plain = displayed.data!.replaceAll('\u2060', '');
+          expect(displayed.semanticsLabel, plain);
+          final paragraph = tester.renderObject<RenderParagraph>(
+            find.descendant(of: greeting, matching: find.byType(RichText)),
+          );
+          final word = '원\u2060인\u2060을';
+          final start = displayed.data!.indexOf(word);
+          expect(start, greaterThanOrEqualTo(0));
+          final boxes = paragraph.getBoxesForSelection(
+            TextSelection(baseOffset: start, extentOffset: start + word.length),
+          );
+          expect(
+            boxes.map((box) => box.top).toSet(),
+            hasLength(1),
+            reason: 'Keep 원인을 together instead of leaving 을 on a new line.',
+          );
+        }
+
         // All language choices must remain on one line, including the longest.
         expect(
           tester.getSize(find.text('Bahasa Indonesia')).height,
@@ -147,11 +177,19 @@ void main() {
         });
         await tester.tap(start);
         await tester.pump(const Duration(milliseconds: 400));
+        await tester.pump(const Duration(milliseconds: 500));
+        expect(find.byKey(const ValueKey('welcome-conversation')), findsNothing);
         expect(
           find.text('Pilih tiga unsur api.'),
           language == AppLocale.indonesian ? findsOneWidget : findsNothing,
         );
         expect(tester.takeException(), isNull);
+        await captureWelcome(tester, 'assembly-$name', {
+          'source': 'Flutter widget render, static mascot fallback',
+          'language': code,
+          'width': size.width,
+          'height': size.height,
+        });
         await tester.pumpWidget(const SizedBox.shrink());
       });
     }
