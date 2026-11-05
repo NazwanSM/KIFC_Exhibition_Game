@@ -67,3 +67,5 @@ Ada satu batas per bacaan yang diestimasi di dalam kata gabungan ASR; review pen
 Commit implementasi PDF: `4ebf03cfb646986054cc5458695668cccc73d285`.
 
 Validasi pembaruan audio: 496 tes Flutter lulus, analisis bersih, build web berhasil; 4 hash MP3 dalam bundle web cocok.
+
+Commit integrasi audio dan timing: `4e855d7a6be8f3bb7a61fbaee3713923d1a747eb`.

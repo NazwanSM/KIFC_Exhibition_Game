@@ -33,3 +33,5 @@ Existing narration completion controls the mascot Talk/mouth state for all four 
 | 720x1280 | [Open](images/karhutla-cause-partial-720x1280.png) | [Open](images/karhutla-cause-complete-720x1280.png) | [Open](images/karhutla-prevention-partial-720x1280.png) | [Open](images/karhutla-prevention-complete-720x1280.png) |
 | 1080x1920 | [Open](images/karhutla-cause-partial-1080x1920.png) | [Open](images/karhutla-cause-complete-1080x1920.png) | [Open](images/karhutla-prevention-partial-1080x1920.png) | [Open](images/karhutla-prevention-complete-1080x1920.png) |
 | 2160x3840 | [Open](images/karhutla-cause-partial-2160x3840.png) | [Open](images/karhutla-cause-complete-2160x3840.png) | [Open](images/karhutla-prevention-partial-2160x3840.png) | [Open](images/karhutla-prevention-complete-2160x3840.png) |
+
+Commit integrasi audio dan timing: `4e855d7a6be8f3bb7a61fbaee3713923d1a747eb`.
