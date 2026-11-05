@@ -1,0 +1,5 @@
+ffmpeg decoded all four normalized replacements.
+All four source and prepared SHA-256 values recorded in recordings-and-timings.json.
+Normalized script matches ASR text exactly after removing whitespace and punctuation (closing prefix checked separately).
+7 other reading timelines unchanged, including Indonesian/English and Korean reading 1.
+python test/reading_timing_integrity_test.py: 1 test OK, all 9 bundled audio digests/cues validated.

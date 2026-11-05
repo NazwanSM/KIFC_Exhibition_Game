@@ -1,0 +1,875 @@
+{
+  "status": "integrated; automatic word timestamps; listening review recommended",
+  "source": "Four regenerated Korean recordings supplied by owner on 2026-11-05",
+  "normalization": "Two-pass loudnorm -18 LUFS, -1.5 dBTP, LRA11; MP3 192kbps 44.1kHz",
+  "generation_settings": "not supplied by owner",
+  "items": [
+    {
+      "key": "welcome",
+      "locale": "ko",
+      "script": "안녕하세요! 산불의 원인을 알아보고 숲을 지키는 방법을 함께 배워봐요.",
+      "source_file": "assets/audio/narration/incoming/revisions/2026-11-05/ko/welcome.mp3",
+      "source_sha256": "421efe02c2e76f8199453cff44ba00296e4df020d7af4698c16ede5cf196badc",
+      "output_sha256": "78f2dc178e0b0fe44f896d12e5ead0520e4c53e0a74ac3c759dd4906bb6b6036",
+      "duration_seconds": 5.433469,
+      "source_loudness": {
+        "input_i": "-20.08",
+        "input_tp": "-4.60",
+        "input_lra": "1.60",
+        "input_thresh": "-30.29",
+        "output_i": "-18.23",
+        "output_tp": "-3.21",
+        "output_lra": "1.00",
+        "output_thresh": "-28.49",
+        "normalization_type": "dynamic",
+        "target_offset": "0.23"
+      },
+      "words": [
+        {
+          "text": "안녕하세요!",
+          "start": 0.0,
+          "end": 0.42,
+          "probability": 0.894
+        },
+        {
+          "text": "산불의",
+          "start": 1.12,
+          "end": 1.64,
+          "probability": 0.456
+        },
+        {
+          "text": "원인을",
+          "start": 1.64,
+          "end": 1.96,
+          "probability": 0.984
+        },
+        {
+          "text": "알아보고,",
+          "start": 1.96,
+          "end": 2.64,
+          "probability": 0.986
+        },
+        {
+          "text": "숲을",
+          "start": 2.9,
+          "end": 3.2,
+          "probability": 0.523
+        },
+        {
+          "text": "지키는",
+          "start": 3.2,
+          "end": 3.56,
+          "probability": 0.989
+        },
+        {
+          "text": "방법을",
+          "start": 3.56,
+          "end": 4.12,
+          "probability": 0.997
+        },
+        {
+          "text": "함께",
+          "start": 4.12,
+          "end": 4.44,
+          "probability": 0.994
+        },
+        {
+          "text": "배워봐요.",
+          "start": 4.44,
+          "end": 5.02,
+          "probability": 0.975
+        }
+      ],
+      "display_text": "안녕하세요!\n산불의 원인을 알아보고\n숲을 지키는 방법을\n함께 배워봐요.",
+      "cues": [
+        {
+          "end": 6,
+          "time": 0.0,
+          "estimated_split": false
+        },
+        {
+          "end": 10,
+          "time": 1.12,
+          "estimated_split": false
+        },
+        {
+          "end": 14,
+          "time": 1.64,
+          "estimated_split": false
+        },
+        {
+          "end": 19,
+          "time": 1.96,
+          "estimated_split": false
+        },
+        {
+          "end": 22,
+          "time": 2.9,
+          "estimated_split": false
+        },
+        {
+          "end": 26,
+          "time": 3.2,
+          "estimated_split": false
+        },
+        {
+          "end": 30,
+          "time": 3.56,
+          "estimated_split": false
+        },
+        {
+          "end": 33,
+          "time": 4.12,
+          "estimated_split": false
+        },
+        {
+          "end": 39,
+          "time": 4.44,
+          "estimated_split": false
+        }
+      ],
+      "timing_source": "faster-whisper-base word timestamps on new owner recording; exact normalized script match; within-word splits estimated",
+      "closing_prefix_verified_separately": false,
+      "output_file": "assets/audio/narration/prepared/ko/welcome.mp3",
+      "prepared_loudness": {
+        "input_i": "-18.27",
+        "input_tp": "-2.79",
+        "input_lra": "1.60",
+        "input_thresh": "-28.48",
+        "output_i": "-18.22",
+        "output_tp": "-3.21",
+        "output_lra": "1.00",
+        "output_thresh": "-28.48",
+        "normalization_type": "dynamic",
+        "target_offset": "0.22"
+      }
+    },
+    {
+      "key": "closing",
+      "locale": "ko",
+      "script": "함께 해줘서 고마워요! 불씨를 마른 식물에서 멀리 하세요. 불을 발견하면 담당자에게 알려 주세요.",
+      "source_file": "assets/audio/narration/incoming/revisions/2026-11-05/ko/closing.mp3",
+      "source_sha256": "1c1aa98a4784ef7fd520ebf0eccd2068bce4f938a9e213a953df328cccbcd995",
+      "output_sha256": "30b10d4cbb809c1eb2c231f06b1559e17ac92dc7c6df37a5ba0a2f813c77b175",
+      "duration_seconds": 7.340408,
+      "source_loudness": {
+        "input_i": "-18.78",
+        "input_tp": "-3.43",
+        "input_lra": "0.60",
+        "input_thresh": "-29.38",
+        "output_i": "-17.94",
+        "output_tp": "-2.73",
+        "output_lra": "0.90",
+        "output_thresh": "-28.53",
+        "normalization_type": "dynamic",
+        "target_offset": "-0.06"
+      },
+      "words": [
+        {
+          "text": "함께",
+          "start": 0.0,
+          "end": 0.3,
+          "probability": 0.9342758655548096
+        },
+        {
+          "text": "해줘서",
+          "start": 0.3,
+          "end": 0.68,
+          "probability": 0.7693337102731069
+        },
+        {
+          "text": "고마워요!",
+          "start": 0.68,
+          "end": 1.24,
+          "probability": 0.9888000090916952
+        },
+        {
+          "text": "불씨를",
+          "start": 1.48,
+          "end": 2.32,
+          "probability": 0.529
+        },
+        {
+          "text": "마른",
+          "start": 2.32,
+          "end": 2.6,
+          "probability": 0.582
+        },
+        {
+          "text": "식물에서",
+          "start": 2.6,
+          "end": 3.14,
+          "probability": 0.907
+        },
+        {
+          "text": "멀리",
+          "start": 3.14,
+          "end": 3.6,
+          "probability": 0.988
+        },
+        {
+          "text": "하세요.",
+          "start": 3.6,
+          "end": 3.98,
+          "probability": 0.799
+        },
+        {
+          "text": "불을",
+          "start": 4.36,
+          "end": 4.84,
+          "probability": 0.92
+        },
+        {
+          "text": "발견하면",
+          "start": 4.84,
+          "end": 5.46,
+          "probability": 0.984
+        },
+        {
+          "text": "담당자에게",
+          "start": 5.46,
+          "end": 6.26,
+          "probability": 0.95
+        },
+        {
+          "text": "알려",
+          "start": 6.26,
+          "end": 6.54,
+          "probability": 0.982
+        },
+        {
+          "text": "주세요.",
+          "start": 6.54,
+          "end": 6.84,
+          "probability": 0.314
+        }
+      ],
+      "display_text": "함께 해줘서 고마워요!\n불씨를 마른 식물에서 멀리 하세요.\n불을 발견하면 담당자에게 알려 주세요.",
+      "cues": [
+        {
+          "end": 2,
+          "time": 0.0,
+          "estimated_split": false
+        },
+        {
+          "end": 6,
+          "time": 0.3,
+          "estimated_split": false
+        },
+        {
+          "end": 12,
+          "time": 0.68,
+          "estimated_split": false
+        },
+        {
+          "end": 16,
+          "time": 1.48,
+          "estimated_split": false
+        },
+        {
+          "end": 19,
+          "time": 2.32,
+          "estimated_split": false
+        },
+        {
+          "end": 24,
+          "time": 2.6,
+          "estimated_split": false
+        },
+        {
+          "end": 27,
+          "time": 3.14,
+          "estimated_split": false
+        },
+        {
+          "end": 32,
+          "time": 3.6,
+          "estimated_split": false
+        },
+        {
+          "end": 35,
+          "time": 4.36,
+          "estimated_split": false
+        },
+        {
+          "end": 40,
+          "time": 4.84,
+          "estimated_split": false
+        },
+        {
+          "end": 46,
+          "time": 5.46,
+          "estimated_split": false
+        },
+        {
+          "end": 49,
+          "time": 6.26,
+          "estimated_split": false
+        },
+        {
+          "end": 54,
+          "time": 6.54,
+          "estimated_split": false
+        }
+      ],
+      "timing_source": "faster-whisper-base word timestamps on new owner recording; exact normalized script match; within-word splits estimated",
+      "closing_prefix_verified_separately": true,
+      "output_file": "assets/audio/narration/prepared/ko/closing.mp3",
+      "prepared_loudness": {
+        "input_i": "-18.32",
+        "input_tp": "-2.90",
+        "input_lra": "0.70",
+        "input_thresh": "-28.87",
+        "output_i": "-17.92",
+        "output_tp": "-2.72",
+        "output_lra": "0.90",
+        "output_thresh": "-28.51",
+        "normalization_type": "dynamic",
+        "target_offset": "-0.08"
+      }
+    },
+    {
+      "key": "karhutla-prevention",
+      "locale": "ko",
+      "script": "산불은 환경을 파괴하고 생태적, 경제적, 사회문화적, 정치적 피해를 일으켜요. 이러한 피해는 숲이 제 기능을 제대로 수행하지 못 하게 해요.",
+      "source_file": "assets/audio/narration/incoming/revisions/2026-11-05/ko/karhutla-prevention.mp3",
+      "source_sha256": "64f6c1dd553bb6b41879aea6ae8c3b9a328edc4d06d713535895e9c5317e8d0f",
+      "output_sha256": "caae1cbb322aa94e2bf85804e681be12c975e86e7b906f85385078af09616523",
+      "duration_seconds": 11.180408,
+      "source_loudness": {
+        "input_i": "-20.74",
+        "input_tp": "-4.41",
+        "input_lra": "2.40",
+        "input_thresh": "-31.03",
+        "output_i": "-18.21",
+        "output_tp": "-1.74",
+        "output_lra": "2.70",
+        "output_thresh": "-28.49",
+        "normalization_type": "dynamic",
+        "target_offset": "0.21"
+      },
+      "words": [
+        {
+          "text": "산불은",
+          "start": 0.0,
+          "end": 0.7,
+          "probability": 0.729
+        },
+        {
+          "text": "환경을",
+          "start": 0.7,
+          "end": 1.28,
+          "probability": 0.993
+        },
+        {
+          "text": "파괴하고",
+          "start": 1.28,
+          "end": 1.92,
+          "probability": 0.943
+        },
+        {
+          "text": "생태적,",
+          "start": 1.92,
+          "end": 2.8,
+          "probability": 0.949
+        },
+        {
+          "text": "경제적,",
+          "start": 3.08,
+          "end": 3.68,
+          "probability": 0.982
+        },
+        {
+          "text": "사회문화적,",
+          "start": 3.96,
+          "end": 4.7,
+          "probability": 0.834
+        },
+        {
+          "text": "정치적",
+          "start": 5.0,
+          "end": 5.48,
+          "probability": 0.992
+        },
+        {
+          "text": "피해를",
+          "start": 5.48,
+          "end": 5.88,
+          "probability": 0.962
+        },
+        {
+          "text": "일으켜요.",
+          "start": 5.88,
+          "end": 6.56,
+          "probability": 0.747
+        },
+        {
+          "text": "이러한",
+          "start": 6.94,
+          "end": 7.44,
+          "probability": 0.965
+        },
+        {
+          "text": "피해는",
+          "start": 7.44,
+          "end": 7.9,
+          "probability": 0.841
+        },
+        {
+          "text": "숲이",
+          "start": 7.9,
+          "end": 8.48,
+          "probability": 0.374
+        },
+        {
+          "text": "제",
+          "start": 8.48,
+          "end": 8.64,
+          "probability": 0.454
+        },
+        {
+          "text": "기능을",
+          "start": 8.64,
+          "end": 9.08,
+          "probability": 0.931
+        },
+        {
+          "text": "제대로",
+          "start": 9.08,
+          "end": 9.42,
+          "probability": 0.997
+        },
+        {
+          "text": "수행하지",
+          "start": 9.42,
+          "end": 9.94,
+          "probability": 0.975
+        },
+        {
+          "text": "못하게",
+          "start": 9.94,
+          "end": 10.44,
+          "probability": 0.964
+        },
+        {
+          "text": "해요.",
+          "start": 10.44,
+          "end": 10.68,
+          "probability": 0.96
+        }
+      ],
+      "display_text": "산불은 환경을 파괴하고 생태적,\n경제적, 사회문화적, 정치적 피해를\n일으켜요. 이러한 피해는 숲이\n제 기능을 제대로 수행하지 못 하게 해요.",
+      "cues": [
+        {
+          "end": 3,
+          "time": 0.0,
+          "estimated_split": false
+        },
+        {
+          "end": 7,
+          "time": 0.7,
+          "estimated_split": false
+        },
+        {
+          "end": 12,
+          "time": 1.28,
+          "estimated_split": false
+        },
+        {
+          "end": 17,
+          "time": 1.92,
+          "estimated_split": false
+        },
+        {
+          "end": 22,
+          "time": 3.08,
+          "estimated_split": false
+        },
+        {
+          "end": 29,
+          "time": 3.96,
+          "estimated_split": false
+        },
+        {
+          "end": 33,
+          "time": 5.0,
+          "estimated_split": false
+        },
+        {
+          "end": 37,
+          "time": 5.48,
+          "estimated_split": false
+        },
+        {
+          "end": 43,
+          "time": 5.88,
+          "estimated_split": false
+        },
+        {
+          "end": 47,
+          "time": 6.94,
+          "estimated_split": false
+        },
+        {
+          "end": 51,
+          "time": 7.44,
+          "estimated_split": false
+        },
+        {
+          "end": 54,
+          "time": 7.9,
+          "estimated_split": false
+        },
+        {
+          "end": 56,
+          "time": 8.48,
+          "estimated_split": false
+        },
+        {
+          "end": 60,
+          "time": 8.64,
+          "estimated_split": false
+        },
+        {
+          "end": 64,
+          "time": 9.08,
+          "estimated_split": false
+        },
+        {
+          "end": 69,
+          "time": 9.42,
+          "estimated_split": false
+        },
+        {
+          "end": 71,
+          "time": 9.94,
+          "estimated_split": false
+        },
+        {
+          "end": 74,
+          "time": 10.1067,
+          "estimated_split": true
+        },
+        {
+          "end": 78,
+          "time": 10.44,
+          "estimated_split": false
+        }
+      ],
+      "timing_source": "faster-whisper-base word timestamps on new owner recording; exact normalized script match; within-word splits estimated",
+      "closing_prefix_verified_separately": false,
+      "output_file": "assets/audio/narration/prepared/ko/karhutla-prevention.mp3",
+      "prepared_loudness": {
+        "input_i": "-18.27",
+        "input_tp": "-1.94",
+        "input_lra": "2.40",
+        "input_thresh": "-28.55",
+        "output_i": "-18.21",
+        "output_tp": "-1.74",
+        "output_lra": "2.70",
+        "output_thresh": "-28.49",
+        "normalization_type": "dynamic",
+        "target_offset": "0.21"
+      }
+    },
+    {
+      "key": "karhutla-cause",
+      "locale": "ko",
+      "script": "산불은 불이 붙기 위한 세 가지 요소인 '열, 연료, 산소'가 서로 만날 때 발생해요. 사람들의 행동이 이 요소들을 결합하게 만들어 산불 위험을 높이곤 합니다.",
+      "source_file": "assets/audio/narration/incoming/revisions/2026-11-05/ko/karhutla-cause.mp3",
+      "source_sha256": "f5f7407351b5c6c9f23f1b352b69cc2114bd224e179c0f647e067cbff7152f3b",
+      "output_sha256": "1e8dc02f4ad5b80c96329f75ba710ccd1f606e204002939a32b849447d902f94",
+      "duration_seconds": 12.382041,
+      "source_loudness": {
+        "input_i": "-20.41",
+        "input_tp": "-3.47",
+        "input_lra": "1.00",
+        "input_thresh": "-30.47",
+        "output_i": "-18.02",
+        "output_tp": "-1.50",
+        "output_lra": "0.90",
+        "output_thresh": "-28.09",
+        "normalization_type": "dynamic",
+        "target_offset": "0.02"
+      },
+      "words": [
+        {
+          "text": "산불은",
+          "start": 0.0,
+          "end": 0.68,
+          "probability": 0.74
+        },
+        {
+          "text": "불이",
+          "start": 0.68,
+          "end": 1.08,
+          "probability": 0.597
+        },
+        {
+          "text": "붙기",
+          "start": 1.08,
+          "end": 1.34,
+          "probability": 0.899
+        },
+        {
+          "text": "위한",
+          "start": 1.34,
+          "end": 1.6,
+          "probability": 0.972
+        },
+        {
+          "text": "세",
+          "start": 1.6,
+          "end": 1.9,
+          "probability": 0.793
+        },
+        {
+          "text": "가지",
+          "start": 1.9,
+          "end": 2.18,
+          "probability": 0.575
+        },
+        {
+          "text": "요소인,",
+          "start": 2.18,
+          "end": 2.68,
+          "probability": 0.963
+        },
+        {
+          "text": "열,",
+          "start": 3.04,
+          "end": 3.22,
+          "probability": 0.685
+        },
+        {
+          "text": "연료,",
+          "start": 3.6,
+          "end": 4.02,
+          "probability": 0.755
+        },
+        {
+          "text": "산소가",
+          "start": 4.36,
+          "end": 5.18,
+          "probability": 0.803
+        },
+        {
+          "text": "서로",
+          "start": 5.18,
+          "end": 5.56,
+          "probability": 0.996
+        },
+        {
+          "text": "만날",
+          "start": 5.56,
+          "end": 5.98,
+          "probability": 0.978
+        },
+        {
+          "text": "때",
+          "start": 5.98,
+          "end": 6.08,
+          "probability": 0.961
+        },
+        {
+          "text": "발생해요.",
+          "start": 6.08,
+          "end": 6.74,
+          "probability": 0.947
+        },
+        {
+          "text": "사람들의",
+          "start": 7.3,
+          "end": 7.9,
+          "probability": 0.766
+        },
+        {
+          "text": "행동이",
+          "start": 7.9,
+          "end": 8.4,
+          "probability": 0.991
+        },
+        {
+          "text": "이",
+          "start": 8.4,
+          "end": 8.72,
+          "probability": 0.99
+        },
+        {
+          "text": "요소들을",
+          "start": 8.72,
+          "end": 9.18,
+          "probability": 0.986
+        },
+        {
+          "text": "결합하게",
+          "start": 9.18,
+          "end": 9.8,
+          "probability": 0.957
+        },
+        {
+          "text": "만들어",
+          "start": 9.8,
+          "end": 10.04,
+          "probability": 0.57
+        },
+        {
+          "text": "산불",
+          "start": 10.04,
+          "end": 10.84,
+          "probability": 0.992
+        },
+        {
+          "text": "위험을",
+          "start": 10.84,
+          "end": 11.32,
+          "probability": 0.962
+        },
+        {
+          "text": "높이곤합니다.",
+          "start": 11.32,
+          "end": 11.92,
+          "probability": 0.684
+        }
+      ],
+      "display_text": "산불은 불이 붙기 위한 세 가지 요소인\n'열, 연료, 산소'가 서로 만날 때 발생해요.\n사람들의 행동이 이 요소들을 결합하게 만들어\n산불 위험을 높이곤 합니다.",
+      "cues": [
+        {
+          "end": 3,
+          "time": 0.0,
+          "estimated_split": false
+        },
+        {
+          "end": 6,
+          "time": 0.68,
+          "estimated_split": false
+        },
+        {
+          "end": 9,
+          "time": 1.08,
+          "estimated_split": false
+        },
+        {
+          "end": 12,
+          "time": 1.34,
+          "estimated_split": false
+        },
+        {
+          "end": 14,
+          "time": 1.6,
+          "estimated_split": false
+        },
+        {
+          "end": 17,
+          "time": 1.9,
+          "estimated_split": false
+        },
+        {
+          "end": 21,
+          "time": 2.18,
+          "estimated_split": false
+        },
+        {
+          "end": 25,
+          "time": 3.04,
+          "estimated_split": false
+        },
+        {
+          "end": 29,
+          "time": 3.6,
+          "estimated_split": false
+        },
+        {
+          "end": 34,
+          "time": 4.36,
+          "estimated_split": false
+        },
+        {
+          "end": 37,
+          "time": 5.18,
+          "estimated_split": false
+        },
+        {
+          "end": 40,
+          "time": 5.56,
+          "estimated_split": false
+        },
+        {
+          "end": 42,
+          "time": 5.98,
+          "estimated_split": false
+        },
+        {
+          "end": 48,
+          "time": 6.08,
+          "estimated_split": false
+        },
+        {
+          "end": 53,
+          "time": 7.3,
+          "estimated_split": false
+        },
+        {
+          "end": 57,
+          "time": 7.9,
+          "estimated_split": false
+        },
+        {
+          "end": 59,
+          "time": 8.4,
+          "estimated_split": false
+        },
+        {
+          "end": 64,
+          "time": 8.72,
+          "estimated_split": false
+        },
+        {
+          "end": 69,
+          "time": 9.18,
+          "estimated_split": false
+        },
+        {
+          "end": 73,
+          "time": 9.8,
+          "estimated_split": false
+        },
+        {
+          "end": 76,
+          "time": 10.04,
+          "estimated_split": false
+        },
+        {
+          "end": 80,
+          "time": 10.84,
+          "estimated_split": false
+        },
+        {
+          "end": 84,
+          "time": 11.32,
+          "estimated_split": false
+        },
+        {
+          "end": 89,
+          "time": 11.62,
+          "estimated_split": true
+        }
+      ],
+      "timing_source": "faster-whisper-base word timestamps on new owner recording; exact normalized script match; within-word splits estimated",
+      "closing_prefix_verified_separately": false,
+      "output_file": "assets/audio/narration/prepared/ko/karhutla-cause.mp3",
+      "prepared_loudness": {
+        "input_i": "-18.40",
+        "input_tp": "-1.75",
+        "input_lra": "1.10",
+        "input_thresh": "-28.46",
+        "output_i": "-18.12",
+        "output_tp": "-1.53",
+        "output_lra": "1.00",
+        "output_thresh": "-28.20",
+        "normalization_type": "dynamic",
+        "target_offset": "0.12"
+      }
+    }
+  ]
+}

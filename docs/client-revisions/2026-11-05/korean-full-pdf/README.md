@@ -6,9 +6,11 @@ The owner's 26-page [source PDF](source.pdf) supersedes the previous Korean copy
 
 Approved lines are fitted as a single text block to the available width/height using the bundled Noto Sans KR font. The fitter measures the actual rendered word joiners, inherited letter spacing and current text scaling. It scales down only when a complete approved line cannot fit. Progressive narration measures the complete paragraph so its layout does not jump as characters appear. Translation data and accessibility labels retain the plain original text.
 
-## Audio remains pending
+## Audio state at initial PDF integration (superseded)
 
-Owner instruction: record the work now; regenerate Korean voices later. Existing MP3 files are retained. Text on screen follows this PDF while speech still reads the earlier recording. The four [pending voice scripts](pending-voice-scripts.json) are welcome, Chapter 2 readings 2 and 3, and closing. Chapter 2 reading 1 changed only its subtitle.
+**Update:** The owner subsequently supplied all four regenerated recordings. [They are now integrated with new Chapter 2 word cues](../korean-audio-refresh/README.md). The following paragraph describes the earlier temporary state only.
+
+Original owner instruction: record the work now; regenerate Korean voices later. Existing MP3 files are retained. Text on screen follows this PDF while speech still reads the earlier recording. The four [pending voice scripts](pending-voice-scripts.json) are welcome, Chapter 2 readings 2 and 3, and closing. Chapter 2 reading 1 changed only its subtitle.
 
 Korean readings 2 and 3 temporarily reveal the revised display text using estimated proportional cues over the existing recording duration; these are not word-aligned to revised speech. The original audio script, MP3 digest and duration remain recorded in reading_timing.json with pending_audio_regeneration metadata. After replacement audio is supplied/generated, rebuild alignment, replace the recordings and verify playback, mouth animation and the one-second continuation delay. No audio was generated in this revision.
 
@@ -70,4 +72,4 @@ Screenshots below are actual Flutter widget renders with the static mascot fallb
 | 1080x1920 | [Open](images/final-F03-indonesian-1080x1920.png) | [Open](images/final-F03-english-1080x1920.png) | [Open](images/final-F03-korean-1080x1920.png) | [Open](images/reading-2-1080x1920.png) | [Open](images/welcome-1080x1920.png) |
 | 2160x3840 | [Open](images/final-F03-indonesian-2160x3840.png) | [Open](images/final-F03-english-2160x3840.png) | [Open](images/final-F03-korean-2160x3840.png) | [Open](images/reading-2-2160x3840.png) | [Open](images/welcome-2160x3840.png) |
 
-Commit implementasi: `4ebf03cfb646986054cc5458695668cccc73d285`. Regenerasi audio tetap tertunda atas instruksi pemilik.
+Commit implementasi: `4ebf03cfb646986054cc5458695668cccc73d285`. Penundaan audio saat commit ini telah digantikan oleh integrasi rekaman baru pada pembaruan berikutnya.

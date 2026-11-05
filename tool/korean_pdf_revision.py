@@ -82,6 +82,7 @@ if __name__ == '__main__':
   for item in timings['items']:
    entry={'karhutla-cause':'reading-2-body','karhutla-prevention':'reading-3-body'}.get(item['key'])
    if item['locale']!='ko' or not entry: continue
+   if item.get('alignment_revision')=='2026-11-05-ko-recordings': continue
    item.setdefault('audio_script_text',item['text'])
    item['text']=approved[entry]['text']
    item['pending_audio_regeneration']=True
@@ -94,5 +95,7 @@ if __name__ == '__main__':
   timing_path.write_text(json.dumps(timings,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
   voices=[{'key':key,'locale':'ko','script':approved[entry]['text'].replace('\n',' '),'status':'pending_regeneration'}
     for key,entry in [('welcome','welcome'),('karhutla-cause','reading-2-body'),('karhutla-prevention','reading-3-body'),('closing','closing')]]
-  (ROOT/'docs/client-revisions/2026-11-05/korean-full-pdf/pending-voice-scripts.json').write_text(json.dumps(voices,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
+  voice_path=ROOT/'docs/client-revisions/2026-11-05/korean-full-pdf/pending-voice-scripts.json'
+  if not voice_path.exists():
+   voice_path.write_text(json.dumps(voices,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
   print(f'Applied approved copy to {len(replacements)} localization keys.')

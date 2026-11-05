@@ -38,5 +38,18 @@ for item in draft['items']:
                   'duration': item['duration_seconds'], 'cues': cues,
                   'audio_sha256': item['output_sha256']})
 assert len(items) == 9
+# Preserve the owner's regenerated Korean recordings when rebuilding the
+# historical October draft. Their approved PDF text includes explicit lines.
+refresh = ROOT / 'docs/client-revisions/2026-11-05/korean-audio-refresh/recordings-and-timings.json'
+if refresh.exists():
+    for replacement in json.loads(refresh.read_text(encoding='utf-8'))['items']:
+        if not replacement['key'].startswith('karhutla-'):
+            continue
+        item = next(x for x in items if x['key'] == replacement['key'] and x['locale'] == 'ko')
+        item.update(text=replacement['display_text'], cues=replacement['cues'],
+                    duration=round(replacement['duration_seconds'], 6),
+                    audio_sha256=replacement['output_sha256'],
+                    timing_source=replacement['timing_source'],
+                    alignment_revision='2026-11-05-ko-recordings')
 TARGET.write_text(json.dumps({'status': 'estimated_splits_require_listening_review', 'items': items}, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 print(f'Prepared {len(items)} readings with {sum(c["estimated_split"] for i in items for c in i["cues"])} estimated word cues.')

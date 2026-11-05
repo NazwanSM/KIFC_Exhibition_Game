@@ -1,0 +1,3 @@
+Release bundle build/browser-perf/feedback-fixed-live:
+Four narration paths present in AssetManifest.bin.
+SHA-256 of all four served-bundle MP3 files matches recordings-and-timings.json.

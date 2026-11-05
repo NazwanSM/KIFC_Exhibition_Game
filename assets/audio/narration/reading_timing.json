@@ -645,133 +645,132 @@
       "key": "karhutla-cause",
       "locale": "ko",
       "text": "산불은 불이 붙기 위한 세 가지 요소인\n'열, 연료, 산소'가 서로 만날 때 발생해요.\n사람들의 행동이 이 요소들을 결합하게 만들어\n산불 위험을 높이곤 합니다.",
-      "duration": 11.572,
+      "duration": 12.382041,
       "cues": [
         {
           "end": 3,
           "time": 0.0,
-          "estimated_split": true
+          "estimated_split": false
         },
         {
           "end": 6,
-          "time": 0.4997,
-          "estimated_split": true
+          "time": 0.68,
+          "estimated_split": false
         },
         {
           "end": 9,
-          "time": 0.8328,
-          "estimated_split": true
+          "time": 1.08,
+          "estimated_split": false
         },
         {
           "end": 12,
-          "time": 1.166,
-          "estimated_split": true
+          "time": 1.34,
+          "estimated_split": false
         },
         {
           "end": 14,
-          "time": 1.4991,
-          "estimated_split": true
+          "time": 1.6,
+          "estimated_split": false
         },
         {
           "end": 17,
-          "time": 1.6657,
-          "estimated_split": true
+          "time": 1.9,
+          "estimated_split": false
         },
         {
           "end": 21,
-          "time": 1.9988,
-          "estimated_split": true
+          "time": 2.18,
+          "estimated_split": false
         },
         {
           "end": 25,
-          "time": 2.4985,
-          "estimated_split": true
+          "time": 3.04,
+          "estimated_split": false
         },
         {
           "end": 29,
-          "time": 2.9982,
-          "estimated_split": true
+          "time": 3.6,
+          "estimated_split": false
         },
         {
           "end": 34,
-          "time": 3.4979,
-          "estimated_split": true
+          "time": 4.36,
+          "estimated_split": false
         },
         {
           "end": 37,
-          "time": 4.1642,
-          "estimated_split": true
+          "time": 5.18,
+          "estimated_split": false
         },
         {
           "end": 40,
-          "time": 4.4973,
-          "estimated_split": true
+          "time": 5.56,
+          "estimated_split": false
         },
         {
           "end": 42,
-          "time": 4.8304,
-          "estimated_split": true
+          "time": 5.98,
+          "estimated_split": false
         },
         {
           "end": 48,
-          "time": 4.997,
-          "estimated_split": true
+          "time": 6.08,
+          "estimated_split": false
         },
         {
           "end": 53,
-          "time": 5.8298,
-          "estimated_split": true
+          "time": 7.3,
+          "estimated_split": false
         },
         {
           "end": 57,
-          "time": 6.4961,
-          "estimated_split": true
+          "time": 7.9,
+          "estimated_split": false
         },
         {
           "end": 59,
-          "time": 6.9958,
-          "estimated_split": true
+          "time": 8.4,
+          "estimated_split": false
         },
         {
           "end": 64,
-          "time": 7.1624,
-          "estimated_split": true
+          "time": 8.72,
+          "estimated_split": false
         },
         {
           "end": 69,
-          "time": 7.8286,
-          "estimated_split": true
+          "time": 9.18,
+          "estimated_split": false
         },
         {
           "end": 73,
-          "time": 8.4949,
-          "estimated_split": true
+          "time": 9.8,
+          "estimated_split": false
         },
         {
           "end": 76,
-          "time": 8.9946,
-          "estimated_split": true
+          "time": 10.04,
+          "estimated_split": false
         },
         {
           "end": 80,
-          "time": 9.3277,
-          "estimated_split": true
+          "time": 10.84,
+          "estimated_split": false
         },
         {
           "end": 84,
-          "time": 9.8274,
-          "estimated_split": true
+          "time": 11.32,
+          "estimated_split": false
         },
         {
           "end": 89,
-          "time": 10.3271,
+          "time": 11.62,
           "estimated_split": true
         }
       ],
-      "audio_sha256": "985ba047bd829bada3e8d973637e7115e6c37049d21fa6ecc13e23f1d1676699",
-      "audio_script_text": "산불은 충분한 열, 연료, 산소가 불이 붙을 수 있는 조건에서 만날 때 발생해요. 사람의 활동은 이 세 요소를 만나게 하여 산불 위험을 높일 수 있어요.",
-      "pending_audio_regeneration": true,
-      "display_revision": "Korean PDF 2026-11-05; provisional display cues, old audio retained by owner instruction"
+      "audio_sha256": "1e8dc02f4ad5b80c96329f75ba710ccd1f606e204002939a32b849447d902f94",
+      "timing_source": "faster-whisper-base word timestamps on new owner recording; exact normalized script match; within-word splits estimated",
+      "alignment_revision": "2026-11-05-ko-recordings"
     },
     {
       "key": "karhutla-prevention",
@@ -1030,108 +1029,107 @@
       "key": "karhutla-prevention",
       "locale": "ko",
       "text": "산불은 환경을 파괴하고 생태적,\n경제적, 사회문화적, 정치적 피해를\n일으켜요. 이러한 피해는 숲이\n제 기능을 제대로 수행하지 못 하게 해요.",
-      "duration": 11.494,
+      "duration": 11.180408,
       "cues": [
         {
           "end": 3,
           "time": 0.0,
-          "estimated_split": true
+          "estimated_split": false
         },
         {
           "end": 7,
-          "time": 0.546,
-          "estimated_split": true
+          "time": 0.7,
+          "estimated_split": false
         },
         {
           "end": 12,
-          "time": 1.0919,
-          "estimated_split": true
+          "time": 1.28,
+          "estimated_split": false
         },
         {
           "end": 17,
-          "time": 1.8199,
-          "estimated_split": true
+          "time": 1.92,
+          "estimated_split": false
         },
         {
           "end": 22,
-          "time": 2.5478,
-          "estimated_split": true
+          "time": 3.08,
+          "estimated_split": false
         },
         {
           "end": 29,
-          "time": 3.2758,
-          "estimated_split": true
+          "time": 3.96,
+          "estimated_split": false
         },
         {
           "end": 33,
-          "time": 4.3677,
-          "estimated_split": true
+          "time": 5.0,
+          "estimated_split": false
         },
         {
           "end": 37,
-          "time": 4.9137,
-          "estimated_split": true
+          "time": 5.48,
+          "estimated_split": false
         },
         {
           "end": 43,
-          "time": 5.4596,
-          "estimated_split": true
+          "time": 5.88,
+          "estimated_split": false
         },
         {
           "end": 47,
-          "time": 6.3696,
-          "estimated_split": true
+          "time": 6.94,
+          "estimated_split": false
         },
         {
           "end": 51,
-          "time": 6.9156,
-          "estimated_split": true
+          "time": 7.44,
+          "estimated_split": false
         },
         {
           "end": 54,
-          "time": 7.4615,
-          "estimated_split": true
+          "time": 7.9,
+          "estimated_split": false
         },
         {
           "end": 56,
-          "time": 7.8255,
-          "estimated_split": true
+          "time": 8.48,
+          "estimated_split": false
         },
         {
           "end": 60,
-          "time": 8.0075,
-          "estimated_split": true
+          "time": 8.64,
+          "estimated_split": false
         },
         {
           "end": 64,
-          "time": 8.5535,
-          "estimated_split": true
+          "time": 9.08,
+          "estimated_split": false
         },
         {
           "end": 69,
-          "time": 9.0994,
-          "estimated_split": true
+          "time": 9.42,
+          "estimated_split": false
         },
         {
           "end": 71,
-          "time": 9.8274,
-          "estimated_split": true
+          "time": 9.94,
+          "estimated_split": false
         },
         {
           "end": 74,
-          "time": 10.0094,
+          "time": 10.1067,
           "estimated_split": true
         },
         {
           "end": 78,
-          "time": 10.3733,
-          "estimated_split": true
+          "time": 10.44,
+          "estimated_split": false
         }
       ],
-      "audio_sha256": "e20041a83b57862e6e7261c93a22e2eef3899cc9056a3cae5335095264d5c216",
-      "audio_script_text": "산불은 환경을 파괴하고 생태적, 경제적, 사회문화적, 정치적 피해를 일으켜요. 이러한 피해는 숲이 제 기능을 제대로 수행하는 능력을 방해해요.",
-      "pending_audio_regeneration": true,
-      "display_revision": "Korean PDF 2026-11-05; provisional display cues, old audio retained by owner instruction"
+      "audio_sha256": "caae1cbb322aa94e2bf85804e681be12c975e86e7b906f85385078af09616523",
+      "timing_source": "faster-whisper-base word timestamps on new owner recording; exact normalized script match; within-word splits estimated",
+      "alignment_revision": "2026-11-05-ko-recordings"
     }
   ]
 }

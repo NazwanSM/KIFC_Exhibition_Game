@@ -1,0 +1,23 @@
+00:00 +0: loading D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_narration_revision_test.dart
+00:00 +0: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_narration_revision_test.dart: (setUpAll)
+00:00 +0: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_narration_revision_test.dart: new Korean recordings replace provisional old-audio cues
+00:00 +1: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_narration_revision_test.dart: Korean refreshed narration reveals words and holds completion karhutla-cause Size(360.0, 640.0)
+00:00 +2: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_narration_revision_test.dart: Korean refreshed narration reveals words and holds completion karhutla-cause Size(360.0, 640.0)
+00:01 +3: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_narration_revision_test.dart: Korean refreshed narration reveals words and holds completion karhutla-cause Size(360.0, 640.0)
+00:02 +4: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_completion_delay_test.dart: each reading holds for one second after speech including before quiz
+00:02 +5: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_completion_delay_test.dart: each reading holds for one second after speech including before quiz
+00:02 +6: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_narration_revision_test.dart: Korean refreshed narration reveals words and holds completion karhutla-prevention Size(360.0, 640.0)
+00:02 +7: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_narration_revision_test.dart: Korean refreshed narration reveals words and holds completion karhutla-prevention Size(360.0, 640.0)
+00:02 +8: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_narration_revision_test.dart: Korean refreshed narration reveals words and holds completion karhutla-prevention Size(360.0, 640.0)
+00:02 +9: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_narration_revision_test.dart: Korean refreshed narration reveals words and holds completion karhutla-prevention Size(360.0, 640.0)
+00:02 +10: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_integration_test.dart: reading follows audio position and ignores old completion after skip
+00:03 +11: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_narration_revision_test.dart: Korean refreshed narration reveals words and holds completion karhutla-cause Size(411.0, 731.0)
+00:03 +12: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_narration_revision_test.dart: Korean refreshed narration reveals words and holds completion karhutla-prevention Size(411.0, 731.0)
+00:03 +13: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_narration_revision_test.dart: Korean refreshed narration reveals words and holds completion karhutla-cause Size(720.0, 1280.0)
+00:03 +14: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_narration_revision_test.dart: Korean refreshed narration reveals words and holds completion karhutla-prevention Size(720.0, 1280.0)
+00:04 +15: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_narration_revision_test.dart: Korean refreshed narration reveals words and holds completion karhutla-cause Size(1080.0, 1920.0)
+00:04 +16: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_narration_revision_test.dart: Korean refreshed narration reveals words and holds completion karhutla-prevention Size(1080.0, 1920.0)
+00:05 +17: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_narration_revision_test.dart: Korean refreshed narration reveals words and holds completion karhutla-cause Size(2160.0, 3840.0)
+00:06 +18: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_narration_revision_test.dart: Korean refreshed narration reveals words and holds completion karhutla-prevention Size(2160.0, 3840.0)
+00:07 +19: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_narration_revision_test.dart: (tearDownAll)
+00:07 +19: All tests passed!

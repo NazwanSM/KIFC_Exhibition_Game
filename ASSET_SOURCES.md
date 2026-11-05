@@ -116,3 +116,6 @@ All runtime audio is bundled locally, without generation or paid licensing. Mixe
 ## KIFC-R30-13 narration preparation
 
 Fifteen narration recordings supplied by the project owner were generated with ElevenLabs using `mw_animated_The Plucky Hero` (voice ID `QZt6b1wd97jPRMrPdClY`). The actual model and generation settings used for each export were not recorded. Prepared offline MP3 copies and per-file source/output hashes, duration and draft speech timings are listed in [the preparation manifest](docs/client-revisions/2026-10-30/narration/timings-draft.json). The copies were normalized with two-pass loudnorm; timing remains under review and narration playback is not yet integrated.
+
+
+5 November Korean narration refresh: the owner supplied four regenerated recordings (welcome, Chapter 2 cause/prevention, closing) for the approved Korean PDF. Their runtime copies replace the earlier Korean exports. Current source/output hashes, durations, two-pass normalization and word timestamps are in the [refresh manifest](docs/client-revisions/2026-11-05/korean-audio-refresh/recordings-and-timings.json); the October manifest remains historical for those four files. New export voice/model/settings were not supplied. [Integration and verification](docs/client-revisions/2026-11-05/korean-audio-refresh/README.md).

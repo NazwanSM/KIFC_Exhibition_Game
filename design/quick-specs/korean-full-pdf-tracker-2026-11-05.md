@@ -44,7 +44,7 @@ Kolom revisi bertulisan Korea menjadi acuan. Keterangan Indonesia dalam tanda ku
 | cause-4-wrong | 18 | [x] Diterapkan; lolos 5 ukuran |
 | reference-8 | 8 | Diperiksa; tidak ada teks pengganti |
 | reference-16 | 16 | Diperiksa; tidak ada teks pengganti |
-| audio-ko-regenerate | 1, 6–7, 22 | Belum dikerjakan — pemilik meminta dicatat; regenerasi nanti |
+| audio-ko-regenerate | 1, 6–7, 22 | [x] Rekaman baru diterima dan terintegrasi 5 November |
 
 ## Hasil implementasi
 
@@ -52,16 +52,18 @@ Kolom revisi bertulisan Korea menjadi acuan. Keterangan Indonesia dalam tanda ku
 
 Pemeriksaan akhir: 485 tes Flutter lulus, analisis bersih, build web release berhasil. Integritas digest MP3 dan cue bacaan (9 entri) lulus.
 
-## Catatan audio
+## Catatan audio - pembaruan 5 November
 
-PDF mengubah naskah Korea, terutama bacaan kedua dan ketiga serta salam pembuka/penutup. MP3 yang tersedia masih naskah lama. Rekaman dan alignment baru perlu dibuat kemudian sesuai instruksi pemilik. Validasi teks/layout tidak menandakan narasi baru sudah selesai.
+Instruksi tunda sebelumnya digantikan oleh empat MP3 hasil regenerasi yang dikirim pemilik. Keempat rekaman telah dipasang; bacaan kedua dan ketiga Babak 2 menggunakan durasi, hash dan cue kata rekaman baru. Catatan audio lama/provisional dihapus dari runtime. Teks dan baris PDF tetap utuh.
 
-- [ ] Rekam ulang welcome Korea.
-- [ ] Rekam ulang bacaan kedua Babak 2 Korea.
-- [ ] Rekam ulang bacaan ketiga Babak 2 Korea.
-- [ ] Rekam ulang closing Korea.
-- [ ] Buat alignment baru dan uji sinkronisasi audio, teks bertahap, mulut maskot, serta jeda lanjut 1 detik.
+- [x] Welcome Korea baru dipasang.
+- [x] Bacaan kedua Babak 2 Korea baru dipasang.
+- [x] Bacaan ketiga Babak 2 Korea baru dipasang.
+- [x] Closing Korea baru dipasang.
+- [x] Alignment dari rekaman baru dibuat; tes terkontrol menguji teks bertahap, status bicara maskot, dan jeda lanjut 1 detik pada lima ukuran layar.
 
-Sementara: teks layar mengikuti PDF; MP3 lama dipertahankan. Cue bacaan kedua/ketiga diestimasi mengikuti durasi rekaman lama dan ditandai pending_audio_regeneration; belum sinkron kata demi kata dengan rekaman baru. Naskah bacaan pertama tidak berubah, hanya subjudulnya. [Daftar naskah siap rekam](../../docs/client-revisions/2026-11-05/korean-full-pdf/pending-voice-scripts.json).
+Ada satu batas per bacaan yang diestimasi di dalam kata gabungan ASR; review pendengaran dapat menyempurnakannya. Screenshot menggunakan fallback statis, bukan bukti gerak mulut WebGL atau speaker perangkat. Android/TV fisik tetap ditunda. [Bukti dan batas validasi audio baru](../../docs/client-revisions/2026-11-05/korean-audio-refresh/README.md).
 
-Commit implementasi: `4ebf03cfb646986054cc5458695668cccc73d285`. Regenerasi audio tetap tertunda atas instruksi pemilik.
+Commit implementasi PDF: `4ebf03cfb646986054cc5458695668cccc73d285`.
+
+Validasi pembaruan audio: 496 tes Flutter lulus, analisis bersih, build web berhasil; 4 hash MP3 dalam bundle web cocok.

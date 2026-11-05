@@ -1,0 +1,13 @@
+00:00 +0: loading D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_narration_revision_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: new Korean recordings replace provisional old-audio cues
+00:00 +0 -1: new Korean recordings replace provisional old-audio cues [E]
+  Expected: not <true>
+    Actual: <true>
+
+  package:matcher                                     expect
+  package:flutter_test/src/widget_tester.dart 473:18  expect
+  test\korean_narration_revision_test.dart 24:23      main.<fn>
+
+00:00 +0 -1: (tearDownAll)
+00:00 +0 -1: Some tests failed.
