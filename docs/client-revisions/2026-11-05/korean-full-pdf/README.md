@@ -69,3 +69,5 @@ Screenshots below are actual Flutter widget renders with the static mascot fallb
 | 720x1280 | [Open](images/final-F03-indonesian-720x1280.png) | [Open](images/final-F03-english-720x1280.png) | [Open](images/final-F03-korean-720x1280.png) | [Open](images/reading-2-720x1280.png) | [Open](images/welcome-720x1280.png) |
 | 1080x1920 | [Open](images/final-F03-indonesian-1080x1920.png) | [Open](images/final-F03-english-1080x1920.png) | [Open](images/final-F03-korean-1080x1920.png) | [Open](images/reading-2-1080x1920.png) | [Open](images/welcome-1080x1920.png) |
 | 2160x3840 | [Open](images/final-F03-indonesian-2160x3840.png) | [Open](images/final-F03-english-2160x3840.png) | [Open](images/final-F03-korean-2160x3840.png) | [Open](images/reading-2-2160x3840.png) | [Open](images/welcome-2160x3840.png) |
+
+Commit implementasi: `4ebf03cfb646986054cc5458695668cccc73d285`. Regenerasi audio tetap tertunda atas instruksi pemilik.

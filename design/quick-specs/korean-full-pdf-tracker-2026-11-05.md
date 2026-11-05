@@ -63,3 +63,5 @@ PDF mengubah naskah Korea, terutama bacaan kedua dan ketiga serta salam pembuka/
 - [ ] Buat alignment baru dan uji sinkronisasi audio, teks bertahap, mulut maskot, serta jeda lanjut 1 detik.
 
 Sementara: teks layar mengikuti PDF; MP3 lama dipertahankan. Cue bacaan kedua/ketiga diestimasi mengikuti durasi rekaman lama dan ditandai pending_audio_regeneration; belum sinkron kata demi kata dengan rekaman baru. Naskah bacaan pertama tidak berubah, hanya subjudulnya. [Daftar naskah siap rekam](../../docs/client-revisions/2026-11-05/korean-full-pdf/pending-voice-scripts.json).
+
+Commit implementasi: `4ebf03cfb646986054cc5458695668cccc73d285`. Regenerasi audio tetap tertunda atas instruksi pemilik.
