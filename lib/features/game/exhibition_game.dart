@@ -1883,7 +1883,7 @@ class _KarhutlaCards extends StatelessWidget {
           ),
           if (failed) ...[
             const SizedBox(height: 8),
-            Text(switch (AppCopy.locale) {
+            LocalizedText(switch (AppCopy.locale) {
               AppLocale.indonesian =>
                 'Audio belum tersedia. Silakan baca, lalu lanjutkan.',
               AppLocale.english =>

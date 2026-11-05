@@ -93,7 +93,7 @@ void main() {
               .widget<Text>(
                 find.descendant(
                   of: kind('_Eyebrow'),
-                  matching: find.byType(Text),
+                  matching: find.byWidgetPredicate((widget) => widget is Text),
                 ),
               )
               .data!;
@@ -146,7 +146,10 @@ void main() {
         expect(tester.takeException(), isNull);
         final title = find.byKey(const ValueKey('closing-title'));
         final text = tester.widget<Text>(
-          find.descendant(of: title, matching: find.byType(Text)),
+          find.descendant(
+            of: title,
+            matching: find.byWidgetPredicate((widget) => widget is Text),
+          ),
         );
         expect(text.data, switch (locale) {
           AppLocale.indonesian => 'Jaga Hutan,\nJaga Kehidupan.',

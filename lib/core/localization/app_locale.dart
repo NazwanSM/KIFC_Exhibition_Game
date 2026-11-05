@@ -13,6 +13,13 @@ extension AppLocaleLabel on AppLocale {
 /// Current exhibition locale. The app has one game surface and updates this
 /// together with its locale state when the visitor changes language.
 abstract final class AppCopy {
+  /// Prevent breaks inside Korean space-delimited words without changing copy.
+  static String keepKoreanWordBreaks(String text) =>
+      text.replaceAllMapped(RegExp(r'\S+'), (match) {
+        final word = match[0]!;
+        if (!RegExp(r'[가-힣]').hasMatch(word)) return word;
+        return word.runes.map(String.fromCharCode).join('\u2060');
+      });
   static final _locale = ValueNotifier<AppLocale>(AppLocale.indonesian);
 
   static ValueNotifier<AppLocale> get localeListenable => _locale;
@@ -176,7 +183,7 @@ class LocalizedText extends StatelessWidget {
     this.semanticsLabel,
     this.textWidthBasis,
     this.textHeightBehavior,
-    this.keepKoreanWordsTogether = false,
+    this.keepKoreanWordsTogether = true,
   });
 
   final String data;
@@ -197,22 +204,12 @@ class LocalizedText extends StatelessWidget {
   /// This only affects display wrapping; translation and semantics stay plain.
   final bool keepKoreanWordsTogether;
 
-  String _displayText() {
-    final translated = AppCopy.translate(data);
-    if (!keepKoreanWordsTogether || AppCopy.locale != AppLocale.korean) {
-      return translated;
-    }
-    return translated.replaceAllMapped(RegExp(r'\S+'), (match) {
-      final word = match[0]!;
-      return word.runes.map(String.fromCharCode).join('\u2060');
-    });
-  }
-
   @override
   Widget build(BuildContext context) => ValueListenableBuilder<AppLocale>(
     valueListenable: AppCopy._locale,
-    builder: (context, _, _) => Text(
-      _displayText(),
+    builder: (context, _, _) => _WrappedLocalizedText(
+      AppCopy.translate(data),
+      joinWords: keepKoreanWordsTogether && AppCopy.locale == AppLocale.korean,
       style: AppCopy.koreanStyle(style),
       strutStyle: strutStyle,
       textAlign: textAlign,
@@ -231,6 +228,45 @@ class LocalizedText extends StatelessWidget {
       textHeightBehavior: textHeightBehavior,
     ),
   );
+}
+
+/// Keep Text.data and semantics as the original text for accessibility and
+/// callers while supplying invisible word joiners only to the paragraph.
+class _WrappedLocalizedText extends Text {
+  const _WrappedLocalizedText(
+    super.data, {
+    required this.joinWords,
+    super.style,
+    super.strutStyle,
+    super.textAlign,
+    super.textDirection,
+    super.locale,
+    super.softWrap,
+    super.overflow,
+    super.textScaler,
+    super.maxLines,
+    super.semanticsLabel,
+    super.textWidthBasis,
+    super.textHeightBehavior,
+  });
+  final bool joinWords;
+
+  @override
+  Widget build(BuildContext context) => Text(
+    joinWords ? AppCopy.keepKoreanWordBreaks(data!) : data!,
+    style: style,
+    strutStyle: strutStyle,
+    textAlign: textAlign,
+    textDirection: textDirection,
+    locale: locale,
+    softWrap: softWrap,
+    overflow: overflow,
+    textScaler: textScaler,
+    maxLines: maxLines,
+    semanticsLabel: semanticsLabel,
+    textWidthBasis: textWidthBasis,
+    textHeightBehavior: textHeightBehavior,
+  ).build(context);
 }
 
 const Map<String, String> _korean = <String, String>{

@@ -137,7 +137,7 @@ void main() {
         for (final slot in assemblyType('_DropSlot').evaluate()) {
           final labels = find.descendant(
             of: find.byElementPredicate((e) => e == slot),
-            matching: find.byType(Text),
+            matching: find.byWidgetPredicate((widget) => widget is Text),
           );
           expect(
             tester
@@ -232,7 +232,7 @@ void main() {
         void expectNormalFeedbackText() {
           final message = find.descendant(
             of: find.byKey(const ValueKey('feedback-message')),
-            matching: find.byType(Text),
+            matching: find.byWidgetPredicate((widget) => widget is Text),
           );
           expect(tester.widget<Text>(message.first).style?.fontSize, 13);
         }

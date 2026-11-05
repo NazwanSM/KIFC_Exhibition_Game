@@ -16,7 +16,7 @@ String renderedTextByKey(WidgetTester tester, String key) => tester
     .widget<Text>(
       find.descendant(
         of: find.byKey(ValueKey(key)),
-        matching: find.byType(Text),
+        matching: find.byWidgetPredicate((widget) => widget is Text),
       ),
     )
     .data!;
@@ -106,7 +106,10 @@ class GameFlow {
         final rect = tester.getRect(finder);
         final labels = tester
             .widgetList<Text>(
-              find.descendant(of: finder, matching: find.byType(Text)),
+              find.descendant(
+                of: finder,
+                matching: find.byWidgetPredicate((widget) => widget is Text),
+              ),
             )
             .map((text) => text.data ?? '')
             .join(' / ');
@@ -161,7 +164,9 @@ class GameFlow {
         'English',
         'Korea–Indonesia Forest Cooperation Center',
       ];
-      for (final label in tester.widgetList<Text>(find.byType(Text))) {
+      for (final label in tester.widgetList<Text>(
+        find.byWidgetPredicate((widget) => widget is Text),
+      )) {
         final value = label.data ?? '';
         if (branding.contains(value)) continue;
         expect(

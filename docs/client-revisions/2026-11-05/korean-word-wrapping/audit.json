@@ -1,0 +1,2402 @@
+[
+  {
+    "state": "welcome",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 5,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "triangleExplanation",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 11,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 9,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "finalChallenge",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 14,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "score",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 14,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "closing",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 9,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-initial",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 14,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-wrong-1",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 14,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-wrong-3",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 14,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-wrong-5",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 14,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-complete",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 11,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "reading-1",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 7,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "reading-2",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 7,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "reading-3",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 7,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk-0",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 9,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk-1",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 9,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk-0-1",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 9,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk-0-2",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 9,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-1-initial",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-1-correct",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-2-initial",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-2-correct",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-3-initial",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-3-correct",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-4-initial",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-4-correct",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-1-initial",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-1-wrong",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-2-initial",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-2-wrong",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-3-initial",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-3-wrong",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-4-initial",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-4-wrong",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "peat-cards-front",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 7,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "peat-cards-1-open",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 8,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "peat-cards-2-open",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 9,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "peat-cards-3-open",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F01",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F02",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F03",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F04",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F05",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F06",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F06-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F07",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F08",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F08-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F09",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "audio-settings",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 12,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "welcome",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 5,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "welcome-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "triangleExplanation",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 11,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 9,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "finalChallenge",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 14,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "score",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 14,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "closing",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 9,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "closing-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-initial",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 14,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-wrong-1",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 14,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-wrong-3",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 14,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-wrong-5",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 14,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-complete",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 11,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "reading-1",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 7,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "reading-2",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 7,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "reading-2-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "reading-3",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 7,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "reading-3-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk-0",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 9,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk-1",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 9,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "risk-1-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk-0-1",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 9,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk-0-2",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 9,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-1-initial",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-1-correct",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-1-correct-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-2-initial",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-2-correct",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-3-initial",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-3-correct",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-4-initial",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-4-correct",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-1-initial",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-1-wrong",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-2-initial",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-2-wrong",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-3-initial",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-3-wrong",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-4-initial",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-4-wrong",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "peat-cards-front",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 7,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "peat-cards-1-open",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 8,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "peat-cards-2-open",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 9,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "peat-cards-3-open",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F01",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F01-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F02",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F02-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F03",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F03-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F04",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F04-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F05",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F05-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F06",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F06-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F07",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F07-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F08",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F08-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F09",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F09-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "audio-settings",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 12,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "welcome",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 5,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "triangleExplanation",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 11,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 9,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "finalChallenge",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 14,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "score",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 14,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "closing",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 9,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-initial",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 14,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-wrong-1",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 14,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-wrong-3",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 14,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-wrong-5",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 14,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-complete",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 11,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "reading-1",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 7,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "reading-2",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 7,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "reading-3",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 7,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk-0",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 9,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk-1",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 9,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk-0-1",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 9,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk-0-2",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 9,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-1-initial",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-1-correct",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-2-initial",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-2-correct",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-3-initial",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-3-correct",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-4-initial",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-4-correct",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-1-initial",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-1-wrong",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-2-initial",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-2-wrong",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-3-initial",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-3-wrong",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-4-initial",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-4-wrong",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "peat-cards-front",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 7,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "peat-cards-1-open",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 8,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "peat-cards-2-open",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 9,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "peat-cards-3-open",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F01",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F02",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F03",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F04",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F05",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F06",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F07",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F08",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F09",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "audio-settings",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 12,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "welcome",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 5,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "welcome-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "triangleExplanation",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 11,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 9,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "finalChallenge",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 14,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "score",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 14,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "closing",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 9,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "closing-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-initial",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 14,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-wrong-1",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 14,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-wrong-3",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 14,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-wrong-5",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 14,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-complete",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 11,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "reading-1",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 7,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "reading-2",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 7,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "reading-2-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "reading-3",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 7,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "reading-3-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk-0",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 9,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk-1",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 9,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "risk-1-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk-0-1",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 9,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk-0-2",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 9,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-1-initial",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-1-correct",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-1-correct-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-2-initial",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-2-correct",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-3-initial",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-3-correct",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-4-initial",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-4-correct",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-1-initial",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-1-wrong",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-2-initial",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-2-wrong",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-3-initial",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-3-wrong",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-4-initial",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-4-wrong",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "peat-cards-front",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 7,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "peat-cards-1-open",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 8,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "peat-cards-2-open",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 9,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "peat-cards-3-open",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F01",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F01-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F02",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F02-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F03",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F03-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F04",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F04-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F05",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F05-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F06",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F06-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F07",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F07-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F08",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F08-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F09",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F09-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "audio-settings",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 12,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "welcome",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 5,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "triangleExplanation",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 11,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 9,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "finalChallenge",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 14,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "score",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 14,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "closing",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 9,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-initial",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 14,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-wrong-1",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 14,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-wrong-3",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 14,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-wrong-5",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 14,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-complete",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 11,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "reading-1",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 7,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "reading-2",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 7,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "reading-2-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "reading-3",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 7,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk-0",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 9,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk-1",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 9,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk-0-1",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 9,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk-0-2",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 9,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-1-initial",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-1-correct",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-2-initial",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-2-correct",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-3-initial",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-3-correct",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-4-initial",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-4-correct",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-1-initial",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-1-wrong",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-2-initial",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-2-wrong",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-3-initial",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-3-wrong",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-4-initial",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-4-wrong",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "peat-cards-front",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 7,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "peat-cards-1-open",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 8,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "peat-cards-2-open",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 9,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "peat-cards-3-open",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 10,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F01",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F02",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F03",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F03-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F04",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F05",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F06",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F07",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F08",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F09",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 13,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "audio-settings",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 12,
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": null,
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  }
+]

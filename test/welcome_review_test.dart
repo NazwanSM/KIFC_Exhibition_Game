@@ -121,7 +121,7 @@ void main() {
             find.descendant(of: greeting, matching: find.byType(RichText)),
           );
           final word = '원\u2060인\u2060을';
-          final start = displayed.data!.indexOf(word);
+          final start = paragraph.text.toPlainText().indexOf(word);
           expect(start, greaterThanOrEqualTo(0));
           final boxes = paragraph.getBoxesForSelection(
             TextSelection(baseOffset: start, extentOffset: start + word.length),

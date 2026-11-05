@@ -62,8 +62,13 @@ void main() {
           find.byKey(const ValueKey('feedback-mascot-crop')),
         );
         expect(mascotRect.right, lessThanOrEqualTo(actionRect.left + 1));
-        final label = find.descendant(of: action, matching: find.byType(Text));
-        final paragraph = tester.renderObject<RenderParagraph>(label);
+        final label = find.descendant(
+          of: action,
+          matching: find.byWidgetPredicate((widget) => widget is Text),
+        );
+        final paragraph = tester.renderObject<RenderParagraph>(
+          find.descendant(of: label, matching: find.byType(RichText)),
+        );
         expect(
           paragraph.getBoxesForSelection(
             TextSelection(
