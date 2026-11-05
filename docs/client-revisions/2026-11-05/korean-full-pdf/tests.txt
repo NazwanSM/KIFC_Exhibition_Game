@@ -1,0 +1,497 @@
+00:00 +0: loading D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart
+00:00 +0: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: (setUpAll)
+00:00 +0: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens id
+00:00 +1: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens id
+00:02 +2: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens id
+00:02 +3: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens id
+00:02 +4: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens id
+00:02 +5: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens id
+00:02 +6: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens id
+00:03 +7: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens id
+00:03 +8: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens id
+00:03 +9: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens id
+00:04 +10: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens id
+00:04 +11: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens id
+00:04 +12: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens id
+00:04 +13: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens id
+00:05 +14: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens id
+00:05 +15: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens id
+00:05 +16: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens id
+00:05 +17: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens id
+00:05 +18: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens id
+00:05 +19: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens id
+00:06 +20: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens id
+00:06 +21: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens id
+00:06 +22: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens id
+00:06 +23: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens id
+00:07 +24: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens id
+00:07 +25: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens id
+00:07 +26: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens id
+00:07 +27: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens id
+00:07 +28: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens id
+00:08 +29: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens id
+00:08 +30: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens id
+00:08 +31: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens id
+00:08 +32: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens id
+00:08 +33: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens id
+00:08 +34: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens id
+00:08 +35: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens id
+00:08 +36: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens id
+00:08 +37: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens id
+00:09 +38: D:/KIFC Game Exhibition/fire_prevention_challenge/test/audio_gameplay_test.dart: final deadline sounds once and navigation/dialog buttons sound
+00:09 +39: D:/KIFC Game Exhibition/fire_prevention_challenge/test/audio_gameplay_test.dart: final deadline sounds once and navigation/dialog buttons sound
+00:09 +40: D:/KIFC Game Exhibition/fire_prevention_challenge/test/audio_gameplay_test.dart: final deadline sounds once and navigation/dialog buttons sound
+00:09 +41: D:/KIFC Game Exhibition/fire_prevention_challenge/test/audio_gameplay_test.dart: final deadline sounds once and navigation/dialog buttons sound
+00:10 +42: D:/KIFC Game Exhibition/fire_prevention_challenge/test/audio_gameplay_test.dart: final deadline sounds once and navigation/dialog buttons sound
+00:10 +43: D:/KIFC Game Exhibition/fire_prevention_challenge/test/audio_gameplay_test.dart: final deadline sounds once and navigation/dialog buttons sound
+00:10 +44: D:/KIFC Game Exhibition/fire_prevention_challenge/test/audio_gameplay_test.dart: final deadline sounds once and navigation/dialog buttons sound
+00:10 +45: D:/KIFC Game Exhibition/fire_prevention_challenge/test/audio_gameplay_test.dart: final deadline sounds once and navigation/dialog buttons sound
+00:10 +46: D:/KIFC Game Exhibition/fire_prevention_challenge/test/audio_gameplay_test.dart: final deadline sounds once and navigation/dialog buttons sound
+00:10 +46: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_audio_test.dart: a failed effect leaves loops running and the next effect works
+[KIFC audio] effect correct failed: Bad state: transient effect failure
+00:10 +47: D:/KIFC Game Exhibition/fire_prevention_challenge/test/audio_gameplay_test.dart: final deadline sounds once and navigation/dialog buttons sound
+00:10 +47: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_audio_test.dart: next gesture retries output after backoff without undoing mute
+[KIFC audio] output unavailable: Bad state: unavailable
+00:10 +48: D:/KIFC Game Exhibition/fire_prevention_challenge/test/audio_gameplay_test.dart: final deadline sounds once and navigation/dialog buttons sound
+00:10 +48: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_audio_test.dart: failures are recoverable and do not throw through gameplay
+[KIFC audio] output unavailable: Bad state: unavailable
+00:10 +49: D:/KIFC Game Exhibition/fire_prevention_challenge/test/audio_gameplay_test.dart: final deadline sounds once and navigation/dialog buttons sound
+00:10 +50: D:/KIFC Game Exhibition/fire_prevention_challenge/test/audio_gameplay_test.dart: final deadline sounds once and navigation/dialog buttons sound
+00:10 +51: D:/KIFC Game Exhibition/fire_prevention_challenge/test/audio_gameplay_test.dart: final deadline sounds once and navigation/dialog buttons sound
+00:10 +52: D:/KIFC Game Exhibition/fire_prevention_challenge/test/audio_gameplay_test.dart: final deadline sounds once and navigation/dialog buttons sound
+00:10 +53: D:/KIFC Game Exhibition/fire_prevention_challenge/test/audio_gameplay_test.dart: final deadline sounds once and navigation/dialog buttons sound
+00:11 +54: D:/KIFC Game Exhibition/fire_prevention_challenge/test/audio_gameplay_test.dart: final deadline sounds once and navigation/dialog buttons sound
+00:11 +55: D:/KIFC Game Exhibition/fire_prevention_challenge/test/audio_gameplay_test.dart: final deadline sounds once and navigation/dialog buttons sound
+00:11 +56: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens en
+00:11 +57: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens en
+00:12 +58: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens en
+00:12 +59: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens en
+00:12 +60: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens en
+00:12 +61: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens en
+00:13 +62: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens en
+00:13 +63: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens en
+00:13 +64: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens en
+00:13 +65: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens en
+00:13 +66: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens en
+00:13 +67: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens en
+00:14 +68: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens en
+00:14 +69: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens en
+00:14 +70: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens en
+00:14 +71: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens en
+00:15 +72: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens en
+00:15 +73: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens en
+00:15 +74: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens en
+00:15 +75: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens en
+00:15 +76: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens en
+00:16 +77: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens en
+00:16 +78: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens en
+00:16 +79: D:/KIFC Game Exhibition/fire_prevention_challenge/test/audio_gameplay_test.dart: final choices and information cards never reveal correctness through sound
+00:16 +80: D:/KIFC Game Exhibition/fire_prevention_challenge/test/audio_gameplay_test.dart: final choices and information cards never reveal correctness through sound
+00:16 +81: D:/KIFC Game Exhibition/fire_prevention_challenge/test/audio_gameplay_test.dart: final choices and information cards never reveal correctness through sound
+00:16 +82: D:/KIFC Game Exhibition/fire_prevention_challenge/test/audio_gameplay_test.dart: final choices and information cards never reveal correctness through sound
+00:16 +83: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: final choices stay neutral until time expires (false)
+00:17 +84: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: final choices stay neutral until time expires (false)
+00:17 +85: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: final choices stay neutral until time expires (false)
+00:17 +86: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: final choices stay neutral until time expires (false)
+00:17 +87: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: final choices stay neutral until time expires (false)
+00:18 +88: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: final choices stay neutral until time expires (false)
+00:18 +89: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: final choices stay neutral until time expires (false)
+00:18 +90: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: final choices stay neutral until time expires (false)
+00:18 +91: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: final choices stay neutral until time expires (false)
+00:18 +92: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: final choices stay neutral until time expires (false)
+00:19 +93: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: final choices stay neutral until time expires (false)
+00:19 +94: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: final choices stay neutral until time expires (false)
+00:19 +95: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: final choices stay neutral until time expires (false)
+00:19 +96: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: final choices stay neutral until time expires (false)
+00:20 +97: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: final choices stay neutral until time expires (false)
+00:20 +98: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens ko
+00:20 +99: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens ko
+00:20 +100: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens ko
+00:21 +101: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens ko
+00:21 +102: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens ko
+00:21 +103: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens ko
+00:21 +104: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens ko
+00:21 +105: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens ko
+00:22 +106: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens ko
+00:22 +107: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens ko
+00:22 +108: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens ko
+00:22 +109: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens ko
+00:22 +110: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens ko
+00:22 +111: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens ko
+00:22 +112: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens ko
+00:23 +113: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens ko
+00:23 +114: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens ko
+00:23 +115: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens ko
+00:23 +116: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens ko
+00:23 +116: D:/KIFC Game Exhibition/fire_prevention_challenge/test/audio_controls_review_test.dart: sound errors can be retried and lifecycle respects mute
+[KIFC audio] output unavailable: Bad state: unavailable
+00:23 +117: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens ko
+00:23 +118: D:/KIFC Game Exhibition/fire_prevention_challenge/test/android_insets_test.dart: Android cutout preserves assembly and other screens ko
+00:23 +119: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: final choices stay neutral until time expires (true)
+00:23 +120: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: final choices stay neutral until time expires (true)
+00:23 +121: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: final choices stay neutral until time expires (true)
+00:24 +122: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: final choices stay neutral until time expires (true)
+00:24 +123: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: final choices stay neutral until time expires (true)
+00:24 +124: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: final choices stay neutral until time expires (true)
+00:24 +125: D:/KIFC Game Exhibition/fire_prevention_challenge/test/impact_review_test.dart: KIFC-10 impacts and review en-360x640
+00:24 +126: D:/KIFC Game Exhibition/fire_prevention_challenge/test/interaction_motion_review_test.dart: feedback motion preserves reading and targets id-360x640
+00:25 +127: D:/KIFC Game Exhibition/fire_prevention_challenge/test/interaction_motion_review_test.dart: feedback motion preserves reading and targets id-360x640
+00:25 +128: D:/KIFC Game Exhibition/fire_prevention_challenge/test/interaction_motion_review_test.dart: feedback motion preserves reading and targets id-360x640
+00:25 +129: D:/KIFC Game Exhibition/fire_prevention_challenge/test/interaction_motion_review_test.dart: feedback motion preserves reading and targets id-360x640
+00:25 +130: D:/KIFC Game Exhibition/fire_prevention_challenge/test/interaction_motion_review_test.dart: feedback motion preserves reading and targets id-360x640
+00:26 +131: D:/KIFC Game Exhibition/fire_prevention_challenge/test/interaction_motion_review_test.dart: feedback motion preserves reading and targets id-360x640
+00:26 +132: D:/KIFC Game Exhibition/fire_prevention_challenge/test/interaction_motion_review_test.dart: feedback motion preserves reading and targets id-360x640
+00:26 +133: D:/KIFC Game Exhibition/fire_prevention_challenge/test/interaction_motion_review_test.dart: feedback motion preserves reading and targets id-360x640
+00:26 +134: D:/KIFC Game Exhibition/fire_prevention_challenge/test/interaction_motion_review_test.dart: feedback motion preserves reading and targets id-360x640
+00:27 +135: D:/KIFC Game Exhibition/fire_prevention_challenge/test/interaction_motion_review_test.dart: feedback motion preserves reading and targets id-360x640
+00:28 +136: D:/KIFC Game Exhibition/fire_prevention_challenge/test/interaction_motion_review_test.dart: feedback motion preserves reading and targets id-360x640
+00:28 +137: D:/KIFC Game Exhibition/fire_prevention_challenge/test/interaction_motion_review_test.dart: feedback motion preserves reading and targets id-360x640
+00:28 +138: D:/KIFC Game Exhibition/fire_prevention_challenge/test/interaction_motion_review_test.dart: feedback motion preserves reading and targets id-360x640
+00:28 +139: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_flow_test.dart: Korean complete flow and fresh replay Size(411.0, 731.0)
+00:28 +140: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_flow_test.dart: Korean complete flow and fresh replay Size(411.0, 731.0)
+00:28 +141: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_flow_test.dart: Korean complete flow and fresh replay Size(411.0, 731.0)
+00:29 +142: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_flow_test.dart: Korean complete flow and fresh replay Size(411.0, 731.0)
+00:29 +143: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_flow_test.dart: Korean complete flow and fresh replay Size(411.0, 731.0)
+00:29 +144: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_flow_test.dart: Korean complete flow and fresh replay Size(411.0, 731.0)
+00:29 +145: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_flow_test.dart: Korean complete flow and fresh replay Size(411.0, 731.0)
+00:29 +146: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_flow_test.dart: Korean complete flow and fresh replay Size(411.0, 731.0)
+00:30 +147: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_flow_test.dart: Korean complete flow and fresh replay Size(411.0, 731.0)
+00:30 +148: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_flow_test.dart: Korean complete flow and fresh replay Size(411.0, 731.0)
+00:30 +149: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_flow_test.dart: Korean complete flow and fresh replay Size(411.0, 731.0)
+00:31 +150: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_flow_test.dart: Korean complete flow and fresh replay Size(411.0, 731.0)
+00:31 +151: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_flow_test.dart: Korean complete flow and fresh replay Size(411.0, 731.0)
+00:31 +152: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_flow_test.dart: Korean complete flow and fresh replay Size(411.0, 731.0)
+00:31 +153: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_flow_test.dart: Korean complete flow and fresh replay Size(411.0, 731.0)
+00:31 +154: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_flow_test.dart: Korean complete flow and fresh replay Size(411.0, 731.0)
+00:31 +155: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_flow_test.dart: Korean complete flow and fresh replay Size(411.0, 731.0)
+00:31 +156: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_flow_test.dart: Korean complete flow and fresh replay Size(411.0, 731.0)
+00:31 +157: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_flow_test.dart: Korean complete flow and fresh replay Size(411.0, 731.0)
+00:31 +158: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_flow_test.dart: Korean complete flow and fresh replay Size(411.0, 731.0)
+00:31 +159: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_flow_test.dart: Korean complete flow and fresh replay Size(411.0, 731.0)
+00:31 +160: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_flow_test.dart: Korean complete flow and fresh replay Size(411.0, 731.0)
+00:31 +161: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_flow_test.dart: Korean complete flow and fresh replay Size(411.0, 731.0)
+00:32 +162: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_flow_test.dart: Korean complete flow and fresh replay Size(411.0, 731.0)
+00:32 +163: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_flow_test.dart: Korean complete flow and fresh replay Size(411.0, 731.0)
+00:32 +164: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_flow_test.dart: Korean complete flow and fresh replay Size(411.0, 731.0)
+00:32 +165: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_flow_test.dart: Korean complete flow and fresh replay Size(411.0, 731.0)
+00:32 +166: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_flow_test.dart: Korean complete flow and fresh replay Size(411.0, 731.0)
+00:33 +167: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_flow_test.dart: Korean complete flow and fresh replay Size(411.0, 731.0)
+00:33 +168: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_flow_test.dart: Korean complete flow and fresh replay Size(411.0, 731.0)
+00:33 +169: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_flow_test.dart: Korean complete flow and fresh replay Size(411.0, 731.0)
+00:33 +170: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_flow_test.dart: Korean complete flow and fresh replay Size(411.0, 731.0)
+00:33 +171: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_flow_test.dart: Korean complete flow and fresh replay Size(411.0, 731.0)
+00:33 +172: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_flow_test.dart: Korean complete flow and fresh replay Size(411.0, 731.0)
+00:33 +173: D:/KIFC Game Exhibition/fire_prevention_challenge/test/korean_flow_test.dart: Korean complete flow and fresh replay Size(411.0, 731.0)
+00:33 +174: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: reduced motion preserves time to read feedback
+00:34 +175: D:/KIFC Game Exhibition/fire_prevention_challenge/test/interaction_motion_review_test.dart: feedback motion preserves reading and targets ko-360x640
+00:34 +176: D:/KIFC Game Exhibition/fire_prevention_challenge/test/interaction_motion_review_test.dart: feedback motion preserves reading and targets ko-360x640
+00:34 +177: D:/KIFC Game Exhibition/fire_prevention_challenge/test/interaction_motion_review_test.dart: feedback motion preserves reading and targets ko-360x640
+00:35 +178: D:/KIFC Game Exhibition/fire_prevention_challenge/test/interaction_motion_review_test.dart: feedback motion preserves reading and targets ko-360x640
+00:36 +179: D:/KIFC Game Exhibition/fire_prevention_challenge/test/interaction_motion_review_test.dart: feedback motion preserves reading and targets ko-360x640
+00:36 +180: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_drop_recording_test.dart: R30-08 full application gesture frames include the drag overlay
+00:36 +181: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_drop_recording_test.dart: R30-08 full application gesture frames include the drag overlay
+00:36 +182: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_drop_recording_test.dart: R30-08 full application gesture frames include the drag overlay
+00:37 +183: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_flow_drop_test.dart: R30-08 whole forest accepts and auto-places elements indonesian-360x640
+00:37 +184: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_flow_drop_test.dart: R30-08 whole forest accepts and auto-places elements indonesian-360x640
+00:37 +185: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_flow_drop_test.dart: R30-08 whole forest accepts and auto-places elements indonesian-360x640
+00:38 +186: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_flow_drop_test.dart: R30-08 whole forest accepts and auto-places elements indonesian-360x640
+00:38 +187: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_flow_drop_test.dart: R30-08 whole forest accepts and auto-places elements indonesian-360x640
+00:38 +188: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_flow_drop_test.dart: R30-08 whole forest accepts and auto-places elements indonesian-360x640
+00:38 +189: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_flow_drop_test.dart: R30-08 whole forest accepts and auto-places elements indonesian-360x640
+00:38 +190: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_flow_drop_test.dart: R30-08 whole forest accepts and auto-places elements indonesian-360x640
+00:39 +191: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_flow_drop_test.dart: R30-08 whole forest accepts and auto-places elements indonesian-360x640
+00:39 +192: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_flow_drop_test.dart: R30-08 whole forest accepts and auto-places elements indonesian-360x640
+00:39 +193: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_flow_drop_test.dart: R30-08 whole forest accepts and auto-places elements indonesian-360x640
+00:39 +194: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_flow_drop_test.dart: R30-08 whole forest accepts and auto-places elements indonesian-360x640
+00:40 +195: D:/KIFC Game Exhibition/fire_prevention_challenge/test/interaction_motion_review_test.dart: feedback motion preserves reading and targets id-1080x1920
+00:40 +196: D:/KIFC Game Exhibition/fire_prevention_challenge/test/interaction_motion_review_test.dart: feedback motion preserves reading and targets id-1080x1920
+00:40 +197: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_round_b_visual_test.dart: R30-04 closing allowance display indonesian-360x640
+00:40 +198: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_round_b_visual_test.dart: R30-04 closing allowance display indonesian-360x640
+00:41 +199: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_round_b_visual_test.dart: R30-04 closing allowance display indonesian-360x640
+00:41 +200: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_round_b_visual_test.dart: R30-04 closing allowance display indonesian-360x640
+00:41 +201: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: Bilingual complete flow and scoring false Size(411.0, 731.0)
+00:41 +202: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: Bilingual complete flow and scoring false Size(411.0, 731.0)
+00:41 +203: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: Bilingual complete flow and scoring false Size(411.0, 731.0)
+00:42 +204: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: Bilingual complete flow and scoring false Size(411.0, 731.0)
+00:42 +205: D:/KIFC Game Exhibition/fire_prevention_challenge/test/interaction_motion_review_test.dart: feedback motion preserves reading and targets en-1080x1920
+00:42 +206: D:/KIFC Game Exhibition/fire_prevention_challenge/test/interaction_motion_review_test.dart: feedback motion preserves reading and targets en-1080x1920
+00:43 +207: D:/KIFC Game Exhibition/fire_prevention_challenge/test/interaction_motion_review_test.dart: feedback motion preserves reading and targets en-1080x1920
+00:43 +208: D:/KIFC Game Exhibition/fire_prevention_challenge/test/interaction_motion_review_test.dart: feedback motion preserves reading and targets en-1080x1920
+00:43 +209: D:/KIFC Game Exhibition/fire_prevention_challenge/test/interaction_motion_review_test.dart: feedback motion preserves reading and targets en-1080x1920
+00:43 +210: D:/KIFC Game Exhibition/fire_prevention_challenge/test/interaction_motion_review_test.dart: feedback motion preserves reading and targets en-1080x1920
+00:43 +211: D:/KIFC Game Exhibition/fire_prevention_challenge/test/interaction_motion_review_test.dart: feedback motion preserves reading and targets en-1080x1920
+00:43 +212: D:/KIFC Game Exhibition/fire_prevention_challenge/test/interaction_motion_review_test.dart: feedback motion preserves reading and targets en-1080x1920
+00:44 +213: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-01 welcome controls indonesian-360x640
+00:44 +214: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-01 welcome controls indonesian-360x640
+00:44 +215: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-01 welcome controls indonesian-360x640
+00:44 +216: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-01 welcome controls indonesian-360x640
+00:44 +217: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: Bilingual complete flow and scoring false Size(360.0, 640.0)
+00:44 +218: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: Bilingual complete flow and scoring false Size(360.0, 640.0)
+00:45 +219: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: Bilingual complete flow and scoring false Size(360.0, 640.0)
+00:45 +220: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: Bilingual complete flow and scoring false Size(360.0, 640.0)
+00:45 +221: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: Bilingual complete flow and scoring false Size(360.0, 640.0)
+00:46 +222: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: Bilingual complete flow and scoring false Size(360.0, 640.0)
+00:46 +223: D:/KIFC Game Exhibition/fire_prevention_challenge/test/interaction_motion_review_test.dart: feedback motion preserves reading and targets ko-1080x1920
+00:46 +224: D:/KIFC Game Exhibition/fire_prevention_challenge/test/interaction_motion_review_test.dart: feedback motion preserves reading and targets ko-1080x1920
+00:46 +225: D:/KIFC Game Exhibition/fire_prevention_challenge/test/interaction_motion_review_test.dart: feedback motion preserves reading and targets ko-1080x1920
+00:46 +226: D:/KIFC Game Exhibition/fire_prevention_challenge/test/interaction_motion_review_test.dart: feedback motion preserves reading and targets ko-1080x1920
+00:46 +227: D:/KIFC Game Exhibition/fire_prevention_challenge/test/interaction_motion_review_test.dart: feedback motion preserves reading and targets ko-1080x1920
+00:47 +228: D:/KIFC Game Exhibition/fire_prevention_challenge/test/interaction_motion_review_test.dart: feedback motion preserves reading and targets ko-1080x1920
+00:48 +229: D:/KIFC Game Exhibition/fire_prevention_challenge/test/interaction_motion_review_test.dart: feedback motion preserves reading and targets ko-1080x1920
+00:48 +230: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages indonesian-360x640
+00:48 +231: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages indonesian-360x640
+00:48 +232: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages indonesian-360x640
+00:49 +233: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages indonesian-360x640
+00:49 +234: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages indonesian-360x640
+00:49 +235: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages indonesian-360x640
+00:49 +236: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages indonesian-360x640
+00:50 +237: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages indonesian-360x640
+00:50 +238: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages indonesian-360x640
+00:50 +239: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages indonesian-360x640
+00:51 +240: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages indonesian-360x640
+00:51 +241: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages indonesian-360x640
+00:51 +242: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages indonesian-360x640
+00:51 +243: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages indonesian-360x640
+00:52 +244: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages indonesian-360x640
+00:52 +245: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages indonesian-360x640
+00:52 +246: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages indonesian-360x640
+00:52 +247: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages indonesian-360x640
+00:52 +248: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages indonesian-360x640
+00:52 +249: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages indonesian-360x640
+00:53 +250: D:/KIFC Game Exhibition/fire_prevention_challenge/test/peat_quiz_review_test.dart: finished feedback enables background taps and preserves its controls
+00:53 +251: D:/KIFC Game Exhibition/fire_prevention_challenge/test/peat_quiz_review_test.dart: finished feedback enables background taps and preserves its controls
+00:53 +252: D:/KIFC Game Exhibition/fire_prevention_challenge/test/peat_quiz_review_test.dart: finished feedback enables background taps and preserves its controls
+00:53 +253: D:/KIFC Game Exhibition/fire_prevention_challenge/test/peat_quiz_review_test.dart: finished feedback enables background taps and preserves its controls
+00:53 +254: D:/KIFC Game Exhibition/fire_prevention_challenge/test/peat_quiz_review_test.dart: finished feedback enables background taps and preserves its controls
+00:54 +255: D:/KIFC Game Exhibition/fire_prevention_challenge/test/interaction_motion_review_test.dart: feedback motion preserves reading and targets en-2160x3840
+00:54 +256: D:/KIFC Game Exhibition/fire_prevention_challenge/test/interaction_motion_review_test.dart: feedback motion preserves reading and targets en-2160x3840
+00:54 +257: D:/KIFC Game Exhibition/fire_prevention_challenge/test/interaction_motion_review_test.dart: feedback motion preserves reading and targets en-2160x3840
+00:54 +258: D:/KIFC Game Exhibition/fire_prevention_challenge/test/interaction_motion_review_test.dart: feedback motion preserves reading and targets en-2160x3840
+00:55 +259: D:/KIFC Game Exhibition/fire_prevention_challenge/test/interaction_motion_review_test.dart: feedback motion preserves reading and targets en-2160x3840
+00:55 +260: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: Bilingual complete flow and scoring true Size(411.0, 731.0)
+00:55 +261: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: Bilingual complete flow and scoring true Size(411.0, 731.0)
+00:55 +262: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: Bilingual complete flow and scoring true Size(411.0, 731.0)
+00:55 +263: D:/KIFC Game Exhibition/fire_prevention_challenge/test/peat_quiz_review_test.dart: peat quiz and feedback fit id-360x640
+00:55 +264: D:/KIFC Game Exhibition/fire_prevention_challenge/test/peat_quiz_review_test.dart: peat quiz and feedback fit id-360x640
+00:56 +265: D:/KIFC Game Exhibition/fire_prevention_challenge/test/peat_quiz_review_test.dart: peat quiz and feedback fit id-360x640
+00:56 +266: D:/KIFC Game Exhibition/fire_prevention_challenge/test/peat_quiz_review_test.dart: peat quiz and feedback fit id-360x640
+00:56 +267: D:/KIFC Game Exhibition/fire_prevention_challenge/test/peat_quiz_review_test.dart: peat quiz and feedback fit id-360x640
+00:56 +268: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-360x640
+00:57 +269: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-360x640
+00:57 +270: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-360x640
+00:58 +271: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-360x640
+00:58 +272: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-360x640
+00:58 +273: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-360x640
+00:58 +274: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-360x640
+00:58 +275: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-360x640
+00:58 +276: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-360x640
+00:58 +277: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-360x640
+00:59 +278: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-360x640
+00:59 +279: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-360x640
+00:59 +280: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-360x640
+01:00 +281: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-360x640
+01:00 +282: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-360x640
+01:00 +283: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-360x640
+01:01 +284: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-360x640
+01:01 +285: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-360x640
+01:01 +286: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-360x640
+01:01 +287: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-360x640
+01:01 +288: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-360x640
+01:02 +289: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-360x640
+01:02 +290: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-360x640
+01:02 +291: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-360x640
+01:02 +292: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-360x640
+01:02 +293: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-360x640
+01:02 +294: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_integration_test.dart: reduced motion exposes the complete paragraph immediately
+01:02 +295: D:/KIFC Game Exhibition/fire_prevention_challenge/test/peat_characteristics_review_test.dart: KIFC-09 flip information cards en-1080x1920
+01:03 +296: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_round_b_visual_test.dart: R30-05 definition title groups words english-720x1280
+01:03 +297: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_flow_drop_test.dart: R30-08 whole forest accepts and auto-places elements english-720x1280
+01:03 +298: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_flow_drop_test.dart: R30-08 whole forest accepts and auto-places elements english-720x1280
+01:03 +299: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_flow_drop_test.dart: R30-08 whole forest accepts and auto-places elements english-720x1280
+01:04 +300: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_flow_drop_test.dart: R30-08 whole forest accepts and auto-places elements english-720x1280
+01:04 +301: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_flow_drop_test.dart: R30-08 whole forest accepts and auto-places elements english-720x1280
+01:04 +302: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_flow_drop_test.dart: R30-08 whole forest accepts and auto-places elements english-720x1280
+01:04 +303: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_flow_drop_test.dart: R30-08 whole forest accepts and auto-places elements english-720x1280
+01:04 +304: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_flow_drop_test.dart: R30-08 whole forest accepts and auto-places elements english-720x1280
+01:04 +305: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: Bilingual complete flow and scoring true Size(1080.0, 1920.0)
+01:05 +306: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: Bilingual complete flow and scoring true Size(1080.0, 1920.0)
+01:05 +307: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: Bilingual complete flow and scoring true Size(1080.0, 1920.0)
+01:05 +308: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: Bilingual complete flow and scoring true Size(1080.0, 1920.0)
+01:05 +309: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: Bilingual complete flow and scoring true Size(1080.0, 1920.0)
+01:06 +310: D:/KIFC Game Exhibition/fire_prevention_challenge/test/game_flow_test.dart: Bilingual complete flow and scoring true Size(1080.0, 1920.0)
+01:06 +311: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_interaction_test.dart: cause feedback offers reading time and an early tap advances (true)
+01:06 +312: D:/KIFC Game Exhibition/fire_prevention_challenge/test/peat_quiz_review_test.dart: peat quiz and feedback fit ko-411x731
+01:06 +313: D:/KIFC Game Exhibition/fire_prevention_challenge/test/peat_quiz_review_test.dart: peat quiz and feedback fit ko-411x731
+01:06 +314: D:/KIFC Game Exhibition/fire_prevention_challenge/test/peat_quiz_review_test.dart: peat quiz and feedback fit ko-411x731
+01:06 +315: D:/KIFC Game Exhibition/fire_prevention_challenge/test/peat_quiz_review_test.dart: peat quiz and feedback fit ko-411x731
+01:06 +316: D:/KIFC Game Exhibition/fire_prevention_challenge/test/peat_quiz_review_test.dart: peat quiz and feedback fit ko-411x731
+01:06 +317: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages korean-360x640
+01:06 +318: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages korean-360x640
+01:07 +319: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages korean-360x640
+01:07 +320: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages korean-360x640
+01:07 +321: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages korean-360x640
+01:08 +322: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages korean-360x640
+01:08 +323: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages korean-360x640
+01:08 +324: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages korean-360x640
+01:08 +325: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages korean-360x640
+01:08 +326: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages korean-360x640
+01:09 +327: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages korean-360x640
+01:09 +328: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages korean-360x640
+01:09 +329: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages korean-360x640
+01:09 +330: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages korean-360x640
+01:09 +331: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages korean-360x640
+01:10 +332: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages korean-360x640
+01:10 +333: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages korean-360x640
+01:11 +334: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages korean-360x640
+01:11 +335: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages korean-360x640
+01:11 +336: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages korean-360x640
+01:11 +337: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages korean-360x640
+01:11 +338: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages korean-360x640
+01:12 +339: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages korean-360x640
+01:12 +340: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages korean-360x640
+01:12 +341: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages korean-360x640
+01:13 +342: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages korean-360x640
+01:13 +343: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages korean-360x640
+01:13 +344: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages korean-360x640
+01:13 +345: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-360x640
+01:14 +346: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-360x640
+01:14 +347: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-360x640
+01:14 +348: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-360x640
+01:14 +349: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-360x640
+01:15 +350: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-360x640
+01:15 +351: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-360x640
+01:15 +352: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-360x640
+01:15 +353: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-360x640
+01:15 +354: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-360x640
+01:16 +355: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-360x640
+01:16 +356: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-360x640
+01:16 +357: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-360x640
+01:17 +358: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-360x640
+01:17 +359: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-360x640
+01:17 +360: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-360x640
+01:17 +361: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-360x640
+01:18 +362: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-360x640
+01:18 +363: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-360x640
+01:18 +364: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-360x640
+01:18 +365: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-360x640
+01:18 +366: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-360x640
+01:18 +367: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-360x640
+01:19 +368: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-360x640
+01:19 +369: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-360x640
+01:19 +370: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-360x640
+01:20 +371: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-360x640
+01:20 +372: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages indonesian-411x731
+01:20 +373: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages indonesian-411x731
+01:20 +374: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages indonesian-411x731
+01:20 +375: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages indonesian-411x731
+01:21 +376: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages indonesian-411x731
+01:21 +377: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages indonesian-411x731
+01:22 +378: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages indonesian-411x731
+01:23 +379: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages indonesian-411x731
+01:23 +380: D:/KIFC Game Exhibition/fire_prevention_challenge/test/score_mapping_test.dart: unscored peat cards preserve proportional category at 7,25
+01:23 +381: D:/KIFC Game Exhibition/fire_prevention_challenge/test/score_mapping_test.dart: unscored peat cards preserve proportional category at 7,25
+01:23 +382: D:/KIFC Game Exhibition/fire_prevention_challenge/test/score_mapping_test.dart: unscored peat cards preserve proportional category at 7,25
+01:23 +383: D:/KIFC Game Exhibition/fire_prevention_challenge/test/score_mapping_test.dart: unscored peat cards preserve proportional category at 7,25
+01:24 +384: D:/KIFC Game Exhibition/fire_prevention_challenge/test/score_mapping_test.dart: unscored peat cards preserve proportional category at 7,25
+01:24 +385: D:/KIFC Game Exhibition/fire_prevention_challenge/test/score_mapping_test.dart: unscored peat cards preserve proportional category at 7,25
+01:24 +386: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit en-360x640
+01:24 +387: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit en-360x640
+01:24 +388: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit en-360x640
+01:25 +389: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit en-360x640
+01:25 +390: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit en-360x640
+01:25 +391: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit en-360x640
+01:25 +392: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit en-360x640
+01:26 +393: D:/KIFC Game Exhibition/fire_prevention_challenge/test/welcome_mascot_size_test.dart: welcome mascot is at least as tall as Chapter 2 at Size(360.0, 640.0)
+01:26 +394: D:/KIFC Game Exhibition/fire_prevention_challenge/test/score_mapping_test.dart: unscored peat cards preserve proportional category at 5,25
+01:26 +395: D:/KIFC Game Exhibition/fire_prevention_challenge/test/score_mapping_test.dart: unscored peat cards preserve proportional category at 5,25
+01:26 +396: D:/KIFC Game Exhibition/fire_prevention_challenge/test/score_mapping_test.dart: unscored peat cards preserve proportional category at 5,25
+01:26 +397: D:/KIFC Game Exhibition/fire_prevention_challenge/test/score_mapping_test.dart: unscored peat cards preserve proportional category at 5,25
+01:27 +398: D:/KIFC Game Exhibition/fire_prevention_challenge/test/score_mapping_test.dart: unscored peat cards preserve proportional category at 5,25
+01:27 +399: D:/KIFC Game Exhibition/fire_prevention_challenge/test/score_mapping_test.dart: unscored peat cards preserve proportional category at 5,25
+01:27 +400: D:/KIFC Game Exhibition/fire_prevention_challenge/test/score_mapping_test.dart: unscored peat cards preserve proportional category at 5,25
+01:27 +401: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-411x731
+01:27 +402: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-411x731
+01:27 +403: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-411x731
+01:27 +404: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-411x731
+01:28 +405: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-411x731
+01:28 +406: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-411x731
+01:28 +407: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-411x731
+01:29 +408: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-411x731
+01:29 +409: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-411x731
+01:29 +410: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-411x731
+01:29 +411: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-411x731
+01:29 +412: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-411x731
+01:29 +413: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-411x731
+01:29 +414: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-411x731
+01:30 +415: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-411x731
+01:30 +416: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-411x731
+01:30 +417: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-411x731
+01:31 +418: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-411x731
+01:31 +419: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-411x731
+01:31 +420: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-411x731
+01:31 +421: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-411x731
+01:31 +422: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-411x731
+01:31 +423: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-411x731
+01:31 +424: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-411x731
+01:32 +425: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit ko-360x640
+01:32 +426: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit ko-360x640
+01:32 +427: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit ko-360x640
+01:32 +428: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit ko-360x640
+01:32 +429: D:/KIFC Game Exhibition/fire_prevention_challenge/test/widget_test.dart: renders the Figma welcome flow
+01:33 +430: D:/KIFC Game Exhibition/fire_prevention_challenge/test/widget_test.dart: renders the Figma welcome flow
+01:33 +431: D:/KIFC Game Exhibition/fire_prevention_challenge/test/widget_test.dart: renders the Figma welcome flow
+01:33 +432: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-01 welcome controls korean-411x731
+01:33 +433: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-01 welcome controls korean-411x731
+01:33 +434: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-411x731
+01:33 +435: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-411x731
+01:34 +436: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-411x731
+01:34 +437: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-411x731
+01:35 +438: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-411x731
+01:35 +439: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-411x731
+01:36 +440: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-411x731
+01:36 +441: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages korean-411x731
+01:36 +442: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages korean-411x731
+01:37 +443: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages korean-411x731
+01:37 +444: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages korean-411x731
+01:37 +445: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages korean-411x731
+01:38 +446: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit en-411x731
+01:38 +447: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit en-411x731
+01:38 +448: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit en-411x731
+01:39 +449: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages indonesian-720x1280
+01:42 +450: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages indonesian-720x1280
+01:42 +451: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-720x1280
+01:43 +452: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-720x1280
+01:43 +453: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-720x1280
+01:44 +454: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-720x1280
+01:47 +455: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit en-720x1280
+01:47 +456: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-03 closing title layout english-720x1280
+01:47 +457: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit ko-720x1280
+01:48 +458: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit ko-720x1280
+01:50 +459: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages korean-720x1280
+01:52 +460: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-1080x1920
+01:53 +461: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-1080x1920
+01:53 +462: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit id-1080x1920
+01:53 +463: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages indonesian-1080x1920
+01:56 +464: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages indonesian-1080x1920
+01:57 +465: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit ko-1080x1920
+01:58 +466: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit ko-1080x1920
+01:58 +467: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit ko-1080x1920
+01:59 +468: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-1080x1920
+02:02 +469: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-1080x1920
+02:02 +470: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit en-2160x3840
+02:03 +471: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit en-2160x3840
+02:03 +472: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit en-2160x3840
+02:05 +473: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages korean-1080x1920
+02:08 +474: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit ko-2160x3840
+02:08 +475: D:/KIFC Game Exhibition/fire_prevention_challenge/test/reading_review_test.dart: 15-second feedback and results fit ko-2160x3840
+02:08 +476: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-01 welcome controls indonesian-2160x3840
+02:08 +477: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages indonesian-2160x3840
+02:12 +478: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-03 closing title layout indonesian-2160x3840
+02:13 +479: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-01 welcome controls english-2160x3840
+02:13 +480: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages english-2160x3840
+02:17 +481: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-03 closing title layout english-2160x3840
+02:17 +482: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-01 welcome controls korean-2160x3840
+02:17 +483: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-02 chapter labels across pages korean-2160x3840
+02:21 +484: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: R30-03 closing title layout korean-2160x3840
+02:22 +485: D:/KIFC Game Exhibition/fire_prevention_challenge/test/oct30_visual_review_test.dart: (tearDownAll)
+02:22 +485: All tests passed!

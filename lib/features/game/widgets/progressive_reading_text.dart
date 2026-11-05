@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../core/localization/app_locale.dart';
+import '../../../core/localization/korean_pdf_copy.dart';
+import '../../../core/localization/korean_pdf_layout.dart';
 
 /// Lay out the complete paragraph while revealing only its current prefix.
 class ProgressiveReadingText extends StatelessWidget {
@@ -31,21 +33,31 @@ class ProgressiveReadingText extends StatelessWidget {
         display.codeUnitAt(displayEnd) == 0x2060) {
       displayEnd++;
     }
+    final pdf = korean && koreanPdfBlocks.contains(text);
+    Widget paragraph(TextStyle? fittedStyle) => Text.rich(
+      TextSpan(
+        style: fittedStyle,
+        children: [
+          TextSpan(text: display.substring(0, displayEnd)),
+          TextSpan(
+            text: display.substring(displayEnd),
+            style: const TextStyle(color: Colors.transparent),
+          ),
+        ],
+      ),
+      softWrap: pdf ? false : null,
+    );
+    final koreanStyle = korean ? AppCopy.koreanStyle(style) : style;
     return Semantics(
       label: visible,
       child: ExcludeSemantics(
-        child: Text.rich(
-          TextSpan(
-            style: korean ? AppCopy.koreanStyle(style) : style,
-            children: [
-              TextSpan(text: display.substring(0, displayEnd)),
-              TextSpan(
-                text: display.substring(displayEnd),
-                style: const TextStyle(color: Colors.transparent),
-              ),
-            ],
-          ),
-        ),
+        child: pdf
+            ? KoreanPdfLayout(
+                text: display,
+                style: koreanStyle,
+                builder: paragraph,
+              )
+            : paragraph(koreanStyle),
       ),
     );
   }

@@ -1,0 +1,26 @@
+[
+  {
+    "key": "welcome",
+    "locale": "ko",
+    "script": "안녕하세요! 산불의 원인을 알아보고 숲을 지키는 방법을 함께 배워봐요.",
+    "status": "pending_regeneration"
+  },
+  {
+    "key": "karhutla-cause",
+    "locale": "ko",
+    "script": "산불은 불이 붙기 위한 세 가지 요소인 '열, 연료, 산소'가 서로 만날 때 발생해요. 사람들의 행동이 이 요소들을 결합하게 만들어 산불 위험을 높이곤 합니다.",
+    "status": "pending_regeneration"
+  },
+  {
+    "key": "karhutla-prevention",
+    "locale": "ko",
+    "script": "산불은 환경을 파괴하고 생태적, 경제적, 사회문화적, 정치적 피해를 일으켜요. 이러한 피해는 숲이 제 기능을 제대로 수행하지 못 하게 해요.",
+    "status": "pending_regeneration"
+  },
+  {
+    "key": "closing",
+    "locale": "ko",
+    "script": "함께 해줘서 고마워요! 불씨를 마른 식물에서 멀리 하세요. 불을 발견하면 담당자에게 알려 주세요.",
+    "status": "pending_regeneration"
+  }
+]

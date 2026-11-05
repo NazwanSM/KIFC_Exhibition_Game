@@ -1,0 +1,24 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:fire_prevention_challenge/core/localization/app_locale.dart';
+import '../../../../test/chapter2_review_test.dart' show launchScreen,captureScreen;
+import '../../../../test/game_flow_test.dart' show loadGameFonts;
+void main(){
+ setUpAll(() async {await loadGameFonts();await (FontLoader('NotoSansKR')..addFont(rootBundle.load('assets/fonts/NotoSansKR-Variable.ttf'))).load();});
+ for(final size in const [Size(360,640),Size(411,731),Size(720,1280),Size(1080,1920),Size(2160,3840)]){
+  for(final locale in AppLocale.values){
+   testWidgets('review F03 $size ${locale.name}',(t)async{
+    await launchScreen(t,size:size,locale:locale,page:'finalChallenge');
+    await t.tap(find.byKey(const ValueKey('impact-cleanAir')));await t.pump();
+    await t.tap(find.byKey(const ValueKey('impact-carbonStorage')));await t.pump();
+    await t.tap(find.byKey(const ValueKey('final-finish-early')));await t.pump();await t.pump(const Duration(milliseconds:700));
+    expect(t.takeException(),isNull);
+    expect(find.byKey(const ValueKey('final-review-message')),findsOneWidget);
+    await captureScreen(t,'final-F03-${locale.name}-${size.width.toInt()}x${size.height.toInt()}',{
+      'source':'Flutter widget render; static mascot fallback', 'language':locale.name,'width':size.width,'height':size.height});
+    await t.pumpWidget(const SizedBox.shrink());
+   });
+  }
+ }
+}

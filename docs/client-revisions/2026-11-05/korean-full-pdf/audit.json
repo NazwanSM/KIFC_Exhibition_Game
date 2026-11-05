@@ -1,0 +1,3272 @@
+[
+  {
+    "state": "welcome",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 5,
+    "approvedIds": [
+      "welcome"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "welcome-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "triangleExplanation",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 11,
+    "approvedIds": [
+      "triangle-explanation"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "triangleExplanation-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 9,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "risk-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "finalChallenge",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 14,
+    "approvedIds": [
+      "safety"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "finalChallenge-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "score",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 14,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "score-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "closing",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 9,
+    "approvedIds": [
+      "closing"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "closing-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-initial",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 14,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "assembly-initial-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-wrong-1",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 14,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "assembly-wrong-1-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-wrong-3",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 14,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "assembly-wrong-3-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-wrong-5",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 14,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "assembly-wrong-5-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-partial-1",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 15,
+    "approvedIds": [
+      "assembly-partial"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "assembly-partial-1-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-partial-2",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 16,
+    "approvedIds": [
+      "assembly-partial"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "assembly-partial-2-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-complete",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 11,
+    "approvedIds": [
+      "assembly-complete"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "assembly-complete-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "reading-1",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 7,
+    "approvedIds": [
+      "reading-1-subtitle"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "reading-1-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "reading-2",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 7,
+    "approvedIds": [
+      "reading-2-subtitle",
+      "reading-2-body"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "reading-2-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "reading-3",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 7,
+    "approvedIds": [
+      "reading-3-body"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "reading-3-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk-0",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 9,
+    "approvedIds": [
+      "risk-hint"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "risk-0-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk-1",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 9,
+    "approvedIds": [
+      "risk-correct"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "risk-1-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk-0-1",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 9,
+    "approvedIds": [
+      "risk-correct"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "risk-0-1-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk-0-2",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 9,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "risk-0-2-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-1-initial",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-1-situation"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-1-initial-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-1-correct",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-1-situation",
+      "cause-1-correct"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-1-correct-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-2-initial",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-2-initial-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-2-correct",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-2-correct"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-2-correct-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-3-initial",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-3-initial-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-3-correct",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-3-correct"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-3-correct-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-4-initial",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-4-situation"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-4-initial-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-4-correct",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-4-situation",
+      "cause-4-reason",
+      "cause-4-summary",
+      "cause-4-correct"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-4-correct-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-1-initial",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-1-situation"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-1-initial-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-1-wrong",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-1-situation",
+      "cause-1-correct",
+      "cause-1-wrong"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-1-wrong-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-2-initial",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-2-initial-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-2-wrong",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-2-correct",
+      "cause-2-wrong"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-2-wrong-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-3-initial",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-3-initial-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-3-wrong",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-3-correct"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-3-wrong-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-4-initial",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-4-situation"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-4-initial-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-4-wrong",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-4-situation",
+      "cause-4-reason",
+      "cause-4-summary",
+      "cause-4-correct",
+      "cause-4-wrong"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-4-wrong-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "peat-cards-front",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 7,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "peat-cards-front-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "peat-cards-1-open",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 8,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "peat-cards-1-open-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "peat-cards-2-open",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 9,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "peat-cards-2-open-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "peat-cards-3-open",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "peat-complete"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "peat-cards-3-open-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F01",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F01"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F01-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F02",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F02"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F02-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F03",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F03"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F03-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F04",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F04"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F04-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F05",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F05"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F05-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F06",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F06"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F06-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F07",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F07"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F07-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F08",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F08"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F08-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F09",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F09"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F09-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "audio-settings",
+    "width": 360.0,
+    "height": 640.0,
+    "paragraphs": 12,
+    "approvedIds": [
+      "welcome"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "audio-settings-360x640.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "welcome",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 5,
+    "approvedIds": [
+      "welcome"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "welcome-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "triangleExplanation",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 11,
+    "approvedIds": [
+      "triangle-explanation"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "triangleExplanation-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 9,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "risk-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "finalChallenge",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 14,
+    "approvedIds": [
+      "safety"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "finalChallenge-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "score",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 14,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "score-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "closing",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 9,
+    "approvedIds": [
+      "closing"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "closing-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-initial",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 14,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "assembly-initial-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-wrong-1",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 14,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "assembly-wrong-1-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-wrong-3",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 14,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "assembly-wrong-3-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-wrong-5",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 14,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "assembly-wrong-5-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-partial-1",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 15,
+    "approvedIds": [
+      "assembly-partial"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "assembly-partial-1-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-partial-2",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 16,
+    "approvedIds": [
+      "assembly-partial"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "assembly-partial-2-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-complete",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 11,
+    "approvedIds": [
+      "assembly-complete"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "assembly-complete-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "reading-1",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 7,
+    "approvedIds": [
+      "reading-1-subtitle"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "reading-1-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "reading-2",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 7,
+    "approvedIds": [
+      "reading-2-subtitle",
+      "reading-2-body"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "reading-2-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "reading-3",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 7,
+    "approvedIds": [
+      "reading-3-body"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "reading-3-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk-0",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 9,
+    "approvedIds": [
+      "risk-hint"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "risk-0-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk-1",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 9,
+    "approvedIds": [
+      "risk-correct"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "risk-1-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk-0-1",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 9,
+    "approvedIds": [
+      "risk-correct"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "risk-0-1-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk-0-2",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 9,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "risk-0-2-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-1-initial",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-1-situation"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-1-initial-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-1-correct",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-1-situation",
+      "cause-1-correct"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-1-correct-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-2-initial",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-2-initial-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-2-correct",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-2-correct"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-2-correct-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-3-initial",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-3-initial-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-3-correct",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-3-correct"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-3-correct-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-4-initial",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-4-situation"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-4-initial-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-4-correct",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-4-situation",
+      "cause-4-reason",
+      "cause-4-summary",
+      "cause-4-correct"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-4-correct-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-1-initial",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-1-situation"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-1-initial-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-1-wrong",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-1-situation",
+      "cause-1-correct",
+      "cause-1-wrong"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-1-wrong-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-2-initial",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-2-initial-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-2-wrong",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-2-correct",
+      "cause-2-wrong"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-2-wrong-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-3-initial",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-3-initial-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-3-wrong",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-3-correct"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-3-wrong-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-4-initial",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-4-situation"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-4-initial-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-4-wrong",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-4-situation",
+      "cause-4-reason",
+      "cause-4-summary",
+      "cause-4-correct",
+      "cause-4-wrong"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-4-wrong-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "peat-cards-front",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 7,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "peat-cards-front-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "peat-cards-1-open",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 8,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "peat-cards-1-open-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "peat-cards-2-open",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 9,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "peat-cards-2-open-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "peat-cards-3-open",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "peat-complete"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "peat-cards-3-open-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F01",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F01"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F01-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F02",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F02"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F02-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F03",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F03"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F03-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F04",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F04"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F04-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F05",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F05"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F05-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F06",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F06"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F06-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F07",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F07"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F07-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F08",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F08"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F08-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F09",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F09"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F09-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "audio-settings",
+    "width": 411.0,
+    "height": 731.0,
+    "paragraphs": 12,
+    "approvedIds": [
+      "welcome"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "audio-settings-411x731.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "welcome",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 5,
+    "approvedIds": [
+      "welcome"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "welcome-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "triangleExplanation",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 11,
+    "approvedIds": [
+      "triangle-explanation"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "triangleExplanation-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 9,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "risk-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "finalChallenge",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 14,
+    "approvedIds": [
+      "safety"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "finalChallenge-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "score",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 14,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "score-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "closing",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 9,
+    "approvedIds": [
+      "closing"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "closing-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-initial",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 14,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "assembly-initial-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-wrong-1",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 14,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "assembly-wrong-1-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-wrong-3",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 14,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "assembly-wrong-3-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-wrong-5",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 14,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "assembly-wrong-5-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-partial-1",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 15,
+    "approvedIds": [
+      "assembly-partial"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "assembly-partial-1-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-partial-2",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 16,
+    "approvedIds": [
+      "assembly-partial"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "assembly-partial-2-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-complete",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 11,
+    "approvedIds": [
+      "assembly-complete"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "assembly-complete-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "reading-1",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 7,
+    "approvedIds": [
+      "reading-1-subtitle"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "reading-1-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "reading-2",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 7,
+    "approvedIds": [
+      "reading-2-subtitle",
+      "reading-2-body"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "reading-2-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "reading-3",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 7,
+    "approvedIds": [
+      "reading-3-body"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "reading-3-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk-0",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 9,
+    "approvedIds": [
+      "risk-hint"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "risk-0-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk-1",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 9,
+    "approvedIds": [
+      "risk-correct"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "risk-1-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk-0-1",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 9,
+    "approvedIds": [
+      "risk-correct"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "risk-0-1-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk-0-2",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 9,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "risk-0-2-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-1-initial",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-1-situation"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-1-initial-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-1-correct",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-1-situation",
+      "cause-1-correct"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-1-correct-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-2-initial",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-2-initial-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-2-correct",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-2-correct"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-2-correct-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-3-initial",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-3-initial-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-3-correct",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-3-correct"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-3-correct-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-4-initial",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-4-situation"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-4-initial-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-4-correct",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-4-situation",
+      "cause-4-reason",
+      "cause-4-summary",
+      "cause-4-correct"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-4-correct-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-1-initial",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-1-situation"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-1-initial-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-1-wrong",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-1-situation",
+      "cause-1-correct",
+      "cause-1-wrong"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-1-wrong-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-2-initial",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-2-initial-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-2-wrong",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-2-correct",
+      "cause-2-wrong"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-2-wrong-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-3-initial",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-3-initial-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-3-wrong",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-3-correct"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-3-wrong-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-4-initial",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-4-situation"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-4-initial-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-4-wrong",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-4-situation",
+      "cause-4-reason",
+      "cause-4-summary",
+      "cause-4-correct",
+      "cause-4-wrong"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-4-wrong-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "peat-cards-front",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 7,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "peat-cards-front-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "peat-cards-1-open",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 8,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "peat-cards-1-open-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "peat-cards-2-open",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 9,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "peat-cards-2-open-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "peat-cards-3-open",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "peat-complete"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "peat-cards-3-open-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F01",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F01"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F01-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F02",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F02"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F02-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F03",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F03"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F03-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F04",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F04"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F04-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F05",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F05"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F05-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F06",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F06"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F06-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F07",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F07"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F07-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F08",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F08"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F08-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F09",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F09"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F09-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "audio-settings",
+    "width": 720.0,
+    "height": 1280.0,
+    "paragraphs": 12,
+    "approvedIds": [
+      "welcome"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "audio-settings-720x1280.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "welcome",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 5,
+    "approvedIds": [
+      "welcome"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "welcome-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "triangleExplanation",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 11,
+    "approvedIds": [
+      "triangle-explanation"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "triangleExplanation-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 9,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "risk-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "finalChallenge",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 14,
+    "approvedIds": [
+      "safety"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "finalChallenge-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "score",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 14,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "score-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "closing",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 9,
+    "approvedIds": [
+      "closing"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "closing-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-initial",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 14,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "assembly-initial-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-wrong-1",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 14,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "assembly-wrong-1-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-wrong-3",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 14,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "assembly-wrong-3-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-wrong-5",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 14,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "assembly-wrong-5-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-partial-1",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 15,
+    "approvedIds": [
+      "assembly-partial"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "assembly-partial-1-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-partial-2",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 16,
+    "approvedIds": [
+      "assembly-partial"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "assembly-partial-2-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-complete",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 11,
+    "approvedIds": [
+      "assembly-complete"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "assembly-complete-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "reading-1",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 7,
+    "approvedIds": [
+      "reading-1-subtitle"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "reading-1-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "reading-2",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 7,
+    "approvedIds": [
+      "reading-2-subtitle",
+      "reading-2-body"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "reading-2-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "reading-3",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 7,
+    "approvedIds": [
+      "reading-3-body"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "reading-3-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk-0",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 9,
+    "approvedIds": [
+      "risk-hint"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "risk-0-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk-1",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 9,
+    "approvedIds": [
+      "risk-correct"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "risk-1-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk-0-1",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 9,
+    "approvedIds": [
+      "risk-correct"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "risk-0-1-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk-0-2",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 9,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "risk-0-2-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-1-initial",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-1-situation"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-1-initial-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-1-correct",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-1-situation",
+      "cause-1-correct"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-1-correct-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-2-initial",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-2-initial-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-2-correct",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-2-correct"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-2-correct-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-3-initial",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-3-initial-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-3-correct",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-3-correct"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-3-correct-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-4-initial",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-4-situation"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-4-initial-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-4-correct",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-4-situation",
+      "cause-4-reason",
+      "cause-4-summary",
+      "cause-4-correct"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-4-correct-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-1-initial",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-1-situation"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-1-initial-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-1-wrong",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-1-situation",
+      "cause-1-correct",
+      "cause-1-wrong"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-1-wrong-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-2-initial",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-2-initial-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-2-wrong",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-2-correct",
+      "cause-2-wrong"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-2-wrong-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-3-initial",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-3-initial-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-3-wrong",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-3-correct"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-3-wrong-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-4-initial",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-4-situation"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-4-initial-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-4-wrong",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-4-situation",
+      "cause-4-reason",
+      "cause-4-summary",
+      "cause-4-correct",
+      "cause-4-wrong"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-4-wrong-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "peat-cards-front",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 7,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "peat-cards-front-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "peat-cards-1-open",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 8,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "peat-cards-1-open-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "peat-cards-2-open",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 9,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "peat-cards-2-open-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "peat-cards-3-open",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "peat-complete"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "peat-cards-3-open-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F01",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F01"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F01-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F02",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F02"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F02-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F03",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F03"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F03-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F04",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F04"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F04-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F05",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F05"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F05-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F06",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F06"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F06-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F07",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F07"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F07-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F08",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F08"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F08-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F09",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F09"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F09-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "audio-settings",
+    "width": 1080.0,
+    "height": 1920.0,
+    "paragraphs": 12,
+    "approvedIds": [
+      "welcome"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "audio-settings-1080x1920.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "welcome",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 5,
+    "approvedIds": [
+      "welcome"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "welcome-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "triangleExplanation",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 11,
+    "approvedIds": [
+      "triangle-explanation"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "triangleExplanation-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 9,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "risk-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "finalChallenge",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 14,
+    "approvedIds": [
+      "safety"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "finalChallenge-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "score",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 14,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "score-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "closing",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 9,
+    "approvedIds": [
+      "closing"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "closing-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-initial",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 14,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "assembly-initial-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-wrong-1",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 14,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "assembly-wrong-1-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-wrong-3",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 14,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "assembly-wrong-3-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-wrong-5",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 14,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "assembly-wrong-5-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-partial-1",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 15,
+    "approvedIds": [
+      "assembly-partial"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "assembly-partial-1-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-partial-2",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 16,
+    "approvedIds": [
+      "assembly-partial"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "assembly-partial-2-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "assembly-complete",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 11,
+    "approvedIds": [
+      "assembly-complete"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "assembly-complete-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "reading-1",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 7,
+    "approvedIds": [
+      "reading-1-subtitle"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "reading-1-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "reading-2",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 7,
+    "approvedIds": [
+      "reading-2-subtitle",
+      "reading-2-body"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "reading-2-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "reading-3",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 7,
+    "approvedIds": [
+      "reading-3-body"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "reading-3-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk-0",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 9,
+    "approvedIds": [
+      "risk-hint"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "risk-0-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk-1",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 9,
+    "approvedIds": [
+      "risk-correct"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "risk-1-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk-0-1",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 9,
+    "approvedIds": [
+      "risk-correct"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "risk-0-1-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "risk-0-2",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 9,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "risk-0-2-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-1-initial",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-1-situation"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-1-initial-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-1-correct",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-1-situation",
+      "cause-1-correct"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-1-correct-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-2-initial",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-2-initial-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-2-correct",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-2-correct"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-2-correct-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-3-initial",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-3-initial-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-3-correct",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-3-correct"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-3-correct-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-4-initial",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-4-situation"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-4-initial-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-4-correct",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-4-situation",
+      "cause-4-reason",
+      "cause-4-summary",
+      "cause-4-correct"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-4-correct-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-1-initial",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-1-situation"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-1-initial-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-1-wrong",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-1-situation",
+      "cause-1-correct",
+      "cause-1-wrong"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-1-wrong-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-2-initial",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-2-initial-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-2-wrong",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-2-correct",
+      "cause-2-wrong"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-2-wrong-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-3-initial",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-3-initial-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-3-wrong",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-3-correct"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-3-wrong-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-4-initial",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-4-situation"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-4-initial-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "cause-4-wrong",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "cause-title",
+      "cause-4-situation",
+      "cause-4-reason",
+      "cause-4-summary",
+      "cause-4-correct",
+      "cause-4-wrong"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "cause-4-wrong-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "peat-cards-front",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 7,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "peat-cards-front-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "peat-cards-1-open",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 8,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "peat-cards-1-open-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "peat-cards-2-open",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 9,
+    "approvedIds": [],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "peat-cards-2-open-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "peat-cards-3-open",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 10,
+    "approvedIds": [
+      "peat-complete"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "peat-cards-3-open-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F01",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F01"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F01-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F02",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F02"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F02-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F03",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F03"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F03-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F04",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F04"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F04-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F05",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F05"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F05-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F06",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F06"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F06-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F07",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F07"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F07-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F08",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F08"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F08-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "final-feedback-F09",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 13,
+    "approvedIds": [
+      "final-F09"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "final-feedback-F09-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  },
+  {
+    "state": "audio-settings",
+    "width": 2160.0,
+    "height": 3840.0,
+    "paragraphs": 12,
+    "approvedIds": [
+      "welcome"
+    ],
+    "issues": [],
+    "layoutErrors": [],
+    "screenshot": "audio-settings-2160x3840.png",
+    "source": "Flutter widget render; geometry-based word-break audit; static mascot fallback"
+  }
+]

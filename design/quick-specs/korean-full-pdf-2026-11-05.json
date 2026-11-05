@@ -1,0 +1,543 @@
+{
+  "source": "revisi game korean version.pdf",
+  "sha256": "bb8f46c48260f60ec75fd5c9bd1d24c3c7fff8632dd97b58747c765db35698ea",
+  "pageCount": 26,
+  "items": [
+    {
+      "id": "welcome",
+      "pages": [
+        1
+      ],
+      "lines": [
+        "안녕하세요!",
+        "산불의 원인을 알아보고",
+        "숲을 지키는 방법을",
+        "함께 배워봐요."
+      ],
+      "keys": [
+        "Hello! Discover how fires start and what we can do to protect the forest.",
+        "Halo! Yuk, kenali penyebab kebakaran dan cari tahu cara menjaga hutan dari api."
+      ],
+      "text": "안녕하세요!\n산불의 원인을 알아보고\n숲을 지키는 방법을\n함께 배워봐요."
+    },
+    {
+      "id": "assembly-partial",
+      "pages": [
+        2
+      ],
+      "lines": [
+        "잘 맞혔어요.",
+        "나머지 요소도 찾아보세요."
+      ],
+      "keys": [
+        "That fits. Find the remaining elements.",
+        "Sudah cocok. Temukan unsur lainnya."
+      ],
+      "text": "잘 맞혔어요.\n나머지 요소도 찾아보세요."
+    },
+    {
+      "id": "assembly-complete",
+      "pages": [
+        3
+      ],
+      "lines": [
+        "맞아요! 충분한 열과 연료, 산소가 만나면 불이 붙을 수 있어요.",
+        "이 세 가지를 불의 3 요소라고 해요. 그 중 하나를 줄이면",
+        "불을 통제하는 데 도움이 돼요."
+      ],
+      "keys": [
+        "Correct! Fire can start when sufficient heat, fuel, and oxygen meet. These three elements form the fire triangle. Reducing any one of them can help control fire.",
+        "Tepat! Api dapat menyala ketika panas yang cukup, bahan bakar, dan oksigen bertemu. Ketiga unsur ini disebut Segitiga Api. Mengurangi salah satu unsur dapat membantu mengendalikan api."
+      ],
+      "text": "맞아요! 충분한 열과 연료, 산소가 만나면 불이 붙을 수 있어요.\n이 세 가지를 불의 3 요소라고 해요. 그 중 하나를 줄이면\n불을 통제하는 데 도움이 돼요."
+    },
+    {
+      "id": "triangle-explanation",
+      "pages": [
+        4
+      ],
+      "lines": [
+        "충분한 열, 연료, 산소가 만나면 불이 날 수 있어요.",
+        "사람의 활동으로 이 세 가지 요소가 한 곳에 모일 수 있어요.",
+        "그래서 불이 나지 않도록 미리 예방하는 것이 중요해요."
+      ],
+      "keys": [
+        "Kebakaran dapat terjadi ketika panas yang cukup, bahan bakar, dan oksigen bertemu. Aktivitas manusia dapat mempertemukan ketiga unsur tersebut. Karena itu, pencegahan penting dilakukan agar kebakaran tidak terjadi.",
+        "Fire can occur when sufficient heat, fuel, and oxygen meet. Human activity can bring these three elements together. Prevention helps keep a fire from starting."
+      ],
+      "text": "충분한 열, 연료, 산소가 만나면 불이 날 수 있어요.\n사람의 활동으로 이 세 가지 요소가 한 곳에 모일 수 있어요.\n그래서 불이 나지 않도록 미리 예방하는 것이 중요해요."
+    },
+    {
+      "id": "reading-1-subtitle",
+      "pages": [
+        5
+      ],
+      "lines": [
+        "불이 어떻게 시작되는지 살펴봤어요.",
+        "불길이 번지면 어떤 일이 생길까요?"
+      ],
+      "keys": [
+        "You have seen how fire starts. What happens when it spreads?",
+        "Tadi kamu melihat api menyala. Bagaimana jika api itu menjalar?"
+      ],
+      "text": "불이 어떻게 시작되는지 살펴봤어요.\n불길이 번지면 어떤 일이 생길까요?"
+    },
+    {
+      "id": "reading-2-subtitle",
+      "pages": [
+        6
+      ],
+      "lines": [
+        "산불의 세 가지 요소가 만나면 불이 발생할 수 있어요."
+      ],
+      "keys": [
+        "Kebakaran hutan dapat terjadi ketika tiga unsur api bertemu.",
+        "A forest fire can occur when the three elements of fire meet."
+      ],
+      "text": "산불의 세 가지 요소가 만나면 불이 발생할 수 있어요."
+    },
+    {
+      "id": "reading-2-body",
+      "pages": [
+        6
+      ],
+      "lines": [
+        "산불은 불이 붙기 위한 세 가지 요소인",
+        "'열, 연료, 산소'가 서로 만날 때 발생해요.",
+        "사람들의 행동이 이 요소들을 결합하게 만들어",
+        "산불 위험을 높이곤 합니다."
+      ],
+      "keys": [
+        "Kebakaran hutan dapat terjadi ketika panas yang cukup, bahan bakar, dan oksigen bertemu dalam kondisi yang memungkinkan api menyala. Aktivitas manusia dapat mempertemukan ketiga unsur tersebut sehingga meningkatkan risiko kebakaran.",
+        "A forest fire can occur when sufficient heat, fuel, and oxygen meet under conditions that allow fire to ignite. Human activities can bring these three elements together, increasing the risk of fire."
+      ],
+      "text": "산불은 불이 붙기 위한 세 가지 요소인\n'열, 연료, 산소'가 서로 만날 때 발생해요.\n사람들의 행동이 이 요소들을 결합하게 만들어\n산불 위험을 높이곤 합니다."
+    },
+    {
+      "id": "reading-3-body",
+      "pages": [
+        7
+      ],
+      "lines": [
+        "산불은 환경을 파괴하고 생태적,",
+        "경제적, 사회문화적, 정치적 피해를",
+        "일으켜요. 이러한 피해는 숲이",
+        "제 기능을 제대로 수행하지 못 하게 해요."
+      ],
+      "keys": [
+        "Kebakaran hutan merusak lingkungan dan menimbulkan kerugian ekologis, ekonomi, sosial budaya, serta politik. Kerusakan tersebut mengganggu kemampuan hutan untuk menjalankan fungsinya dengan baik.",
+        "Forest fires damage the environment and cause ecological, economic, socio-cultural, and political losses. Such damage disrupts the forest’s ability to perform its functions properly."
+      ],
+      "text": "산불은 환경을 파괴하고 생태적,\n경제적, 사회문화적, 정치적 피해를\n일으켜요. 이러한 피해는 숲이\n제 기능을 제대로 수행하지 못 하게 해요."
+    },
+    {
+      "id": "risk-correct",
+      "pages": [
+        9
+      ],
+      "lines": [
+        "맞아요! 메마른 이탄습지 숲의",
+        "화재는 불씨가 지표면 아래에서",
+        "타들어 갈 수 있어 진압하기",
+        "어려워요. 땅속의 불씨는",
+        "발견하기 어렵고, 지표면의 불이",
+        "꺼진 뒤에도 다시 불길을",
+        "일으킬 수 있어요."
+      ],
+      "keys": [
+        "Tepat! Kebakaran di hutan rawa gambut yang mengering sulit dipadamkan karena api dapat membara di bawah permukaan tanah. Bara sulit terdeteksi dan dapat memicu api kembali meskipun api di permukaan sudah padam.",
+        "Correct! Fires in dried-out peat swamp forests are difficult to extinguish because fire can smolder beneath the ground surface. Embers are hard to detect and can rekindle flames even after the surface fire is out."
+      ],
+      "text": "맞아요! 메마른 이탄습지 숲의\n화재는 불씨가 지표면 아래에서\n타들어 갈 수 있어 진압하기\n어려워요. 땅속의 불씨는\n발견하기 어렵고, 지표면의 불이\n꺼진 뒤에도 다시 불길을\n일으킬 수 있어요."
+    },
+    {
+      "id": "risk-hint",
+      "pages": [
+        10
+      ],
+      "lines": [
+        "아직 아니에요. 유기물 토양층이",
+        "두껍게 쌓인 숲 유형을 떠올려보세요.",
+        "불길이 그 층 안에서 타 들어가",
+        "진압하기 어려워져요."
+      ],
+      "keys": [
+        "Belum tepat. Coba ingat jenis hutan yang memiliki lapisan tanah organik tebal. Api dapat membara di dalam lapisan tersebut sehingga sulit dipadamkan.",
+        "Not quite. Think about the forest type with a thick organic soil layer. Fire can smolder inside that layer, making it difficult to extinguish."
+      ],
+      "text": "아직 아니에요. 유기물 토양층이\n두껍게 쌓인 숲 유형을 떠올려보세요.\n불길이 그 층 안에서 타 들어가\n진압하기 어려워져요."
+    },
+    {
+      "id": "cause-title",
+      "pages": [
+        11
+      ],
+      "lines": [
+        "무엇이 산불 위험을 일으켰을까요?"
+      ],
+      "keys": [
+        "What most likely triggered this risk?",
+        "Apa penyebabnya?"
+      ],
+      "text": "무엇이 산불 위험을 일으켰을까요?"
+    },
+    {
+      "id": "cause-1-situation",
+      "pages": [
+        11
+      ],
+      "lines": [
+        "건조한 날씨에 땅을 개간하려고",
+        "풀과 나무를 태워요."
+      ],
+      "keys": [
+        "Vegetation is burned to clear land while conditions are dry.",
+        "Tanaman dibakar untuk membuka lahan saat cuaca kering."
+      ],
+      "text": "건조한 날씨에 땅을 개간하려고\n풀과 나무를 태워요."
+    },
+    {
+      "id": "cause-1-correct",
+      "pages": [
+        12
+      ],
+      "lines": [
+        "땅을 개간하려고 식물을 태우면",
+        "주변으로 불이 번질 수 있어요."
+      ],
+      "keys": [
+        "Burning vegetation to clear land is a human activity.",
+        "Membakar tanaman untuk membuka lahan bisa membuat api merambat ke sekitarnya."
+      ],
+      "text": "땅을 개간하려고 식물을 태우면\n주변으로 불이 번질 수 있어요."
+    },
+    {
+      "id": "cause-2-correct",
+      "pages": [
+        14
+      ],
+      "lines": [
+        "담배꽁초의 불씨가 주변의",
+        "마른 풀에 옮겨 붙을 수 있어요."
+      ],
+      "keys": [
+        "Bara pada puntung rokok bisa menyulut rumput kering di sekitarnya."
+      ],
+      "text": "담배꽁초의 불씨가 주변의\n마른 풀에 옮겨 붙을 수 있어요."
+    },
+    {
+      "id": "cause-3-correct",
+      "pages": [
+        17
+      ],
+      "lines": [
+        "번개는 마른 식물에 불을 붙일 수",
+        "있는 자연 발화 원인이에요."
+      ],
+      "keys": [
+        "Lightning is a natural ignition source that can ignite dry vegetation.",
+        "Sambaran petir membawa panas yang bisa menyulut tanaman kering."
+      ],
+      "text": "번개는 마른 식물에 불을 붙일 수\n있는 자연 발화 원인이에요."
+    },
+    {
+      "id": "cause-4-situation",
+      "pages": [
+        18
+      ],
+      "lines": [
+        "작은 불을 마른 땅 근처에 피워두고",
+        "자리를 비웠어요."
+      ],
+      "keys": [
+        "A small fire is left unattended near dry land.",
+        "Api kecil dibiarkan tanpa pengawasan di dekat lahan kering."
+      ],
+      "text": "작은 불을 마른 땅 근처에 피워두고\n자리를 비웠어요."
+    },
+    {
+      "id": "cause-4-reason",
+      "pages": [
+        18,
+        19
+      ],
+      "lines": [
+        "불을 지켜보지 않고 두면 주변의",
+        "마른 연료로 번질 수 있어요."
+      ],
+      "keys": [
+        "Api yang dibiarkan menyala bisa merambat ke bahan kering di sekitarnya."
+      ],
+      "text": "불을 지켜보지 않고 두면 주변의\n마른 연료로 번질 수 있어요."
+    },
+    {
+      "id": "cause-4-summary",
+      "pages": [
+        18,
+        19
+      ],
+      "lines": [
+        "산불은 사람의 행동이나",
+        "자연 현상으로 시작될 수 있어요.",
+        "불이 나기 전에 예방하는 것이",
+        "가장 좋아요."
+      ],
+      "keys": [
+        "Risk can come from people or nature. The best prevention happens before there is a flame.",
+        "Kebakaran bisa dipicu manusia maupun alam. Mencegahnya lebih baik daripada memadamkannya."
+      ],
+      "text": "산불은 사람의 행동이나\n자연 현상으로 시작될 수 있어요.\n불이 나기 전에 예방하는 것이\n가장 좋아요."
+    },
+    {
+      "id": "peat-complete",
+      "pages": [
+        20
+      ],
+      "lines": [
+        "이탄지 화재에는 이 세 가지",
+        "특징이 있어요.",
+        "이제 그 영향도 알아볼까요?"
+      ],
+      "keys": [
+        "All three can happen in peatland fires. Ready to explore their impacts?",
+        "Ketiganya bisa terjadi pada kebakaran gambut. Yuk, kenali dampaknya juga."
+      ],
+      "text": "이탄지 화재에는 이 세 가지\n특징이 있어요.\n이제 그 영향도 알아볼까요?"
+    },
+    {
+      "id": "safety",
+      "pages": [
+        21
+      ],
+      "lines": [
+        "실제 화재에 가까이 가지 마세요. 신고하고 담당자의 안내를 따르세요."
+      ],
+      "keys": [
+        "Do not approach a real fire. Report it and follow trained personnel.",
+        "Jika melihat kebakaran, jaga jarak. Laporkan kepada petugas dan ikuti arahannya."
+      ],
+      "text": "실제 화재에 가까이 가지 마세요. 신고하고 담당자의 안내를 따르세요."
+    },
+    {
+      "id": "closing",
+      "pages": [
+        22
+      ],
+      "lines": [
+        "함께 해줘서 고마워요!",
+        "불씨를 마른 식물에서 멀리 하세요.",
+        "불을 발견하면 담당자에게 알려 주세요."
+      ],
+      "keys": [
+        "Thanks for playing! Keep fire away from dry vegetation. If you see a fire, report it to trained personnel.",
+        "Terima kasih sudah bermain! Jauhkan sumber api dari bahan kering. Jika melihat kebakaran, segera laporkan kepada petugas."
+      ],
+      "text": "함께 해줘서 고마워요!\n불씨를 마른 식물에서 멀리 하세요.\n불을 발견하면 담당자에게 알려 주세요."
+    },
+    {
+      "id": "final-F01",
+      "pages": [
+        23
+      ],
+      "lines": [
+        "선택한 영향이 없어요. 네 가지 영향은",
+        "연무, 생태계 훼손, 많은 탄소 배출,",
+        "지반 침하예요."
+      ],
+      "keys": [
+        "No impacts were selected. The four impacts are haze, ecosystem damage, high carbon emissions, and subsidence.",
+        "Belum ada dampak yang dipilih. Empat dampaknya adalah kabut asap, kerusakan ekosistem, emisi karbon tinggi, dan subsidens."
+      ],
+      "text": "선택한 영향이 없어요. 네 가지 영향은\n연무, 생태계 훼손, 많은 탄소 배출,\n지반 침하예요."
+    },
+    {
+      "id": "final-F02",
+      "pages": [
+        23
+      ],
+      "lines": [
+        "네 가지 영향을 모두 찾았어요.",
+        "화재는 생태계를 훼손하고 이탄에",
+        "저장된 탄소를 방출해요."
+      ],
+      "keys": [
+        "You found all four impacts. Fire damages ecosystems and releases carbon stored in peat.",
+        "Keempat dampak sudah kamu temukan. Kebakaran merusak ekosistem dan melepaskan karbon yang tersimpan dalam gambut."
+      ],
+      "text": "네 가지 영향을 모두 찾았어요.\n화재는 생태계를 훼손하고 이탄에\n저장된 탄소를 방출해요."
+    },
+    {
+      "id": "final-F03",
+      "pages": [
+        23,
+        24
+      ],
+      "lines": [
+        "화재는 대기 질을 악화시키고",
+        "이탄의 탄소 저장량을 줄여요.",
+        "두 가지 증가나 개선은 화재의 영향이",
+        "아니에요."
+      ],
+      "keys": [
+        "Fire worsens air quality and reduces peat carbon stores. Neither improvement is an impact of fire.",
+        "Kebakaran memperburuk kualitas udara dan mengurangi cadangan karbon gambut. Kedua peningkatan itu bukan dampaknya."
+      ],
+      "text": "화재는 대기 질을 악화시키고\n이탄의 탄소 저장량을 줄여요.\n두 가지 증가나 개선은 화재의 영향이\n아니에요."
+    },
+    {
+      "id": "final-F04",
+      "pages": [
+        24
+      ],
+      "lines": [
+        "연기는 대기 질을 악화시켜요. 더 깨끗한 공기는",
+        "화재의 영향이 아니에요.",
+        "놓친 영향도 확인해 보세요."
+      ],
+      "keys": [
+        "Smoke worsens air quality. Cleaner air is not an impact of fire. Check the missed impacts too.",
+        "Asap memperburuk kualitas udara. Udara yang lebih bersih bukan dampak kebakaran. Cermati juga dampak yang terlewat."
+      ],
+      "text": "연기는 대기 질을 악화시켜요. 더 깨끗한 공기는\n화재의 영향이 아니에요.\n놓친 영향도 확인해 보세요."
+    },
+    {
+      "id": "final-F05",
+      "pages": [
+        24
+      ],
+      "lines": [
+        "화재로 저장된 탄소가 방출되면",
+        "이탄의 탄소 저장량이 줄어들어요.",
+        "놓친 영향도 확인해 보세요."
+      ],
+      "keys": [
+        "Fire releases stored carbon, so peat carbon stores decrease. Check the missed impacts too.",
+        "Kebakaran melepaskan karbon yang tersimpan, sehingga cadangan karbon gambut berkurang. Cermati juga dampak yang terlewat."
+      ],
+      "text": "화재로 저장된 탄소가 방출되면\n이탄의 탄소 저장량이 줄어들어요.\n놓친 영향도 확인해 보세요."
+    },
+    {
+      "id": "final-F06",
+      "pages": [
+        25
+      ],
+      "lines": [
+        "이탄 화재의 연기는 연무를",
+        "만들고 대기 질을 악화시켜요.",
+        "이 영향을 놓쳤어요."
+      ],
+      "keys": [
+        "Smoke from peat fires creates haze and worsens air quality. This impact was missed.",
+        "Asap kebakaran gambut menimbulkan kabut asap dan memperburuk kualitas udara. Dampak ini masih terlewat."
+      ],
+      "text": "이탄 화재의 연기는 연무를\n만들고 대기 질을 악화시켜요.\n이 영향을 놓쳤어요."
+    },
+    {
+      "id": "final-F07",
+      "pages": [
+        25
+      ],
+      "lines": [
+        "화재는 이탄지 생태계의 식물과",
+        "서식지를 훼손해요.",
+        "이 영향을 놓쳤어요."
+      ],
+      "keys": [
+        "Fire damages vegetation and habitats in peatland ecosystems. This impact was missed.",
+        "Kebakaran merusak vegetasi dan habitat pada ekosistem gambut. Dampak ini masih terlewat."
+      ],
+      "text": "화재는 이탄지 생태계의 식물과\n서식지를 훼손해요.\n이 영향을 놓쳤어요."
+    },
+    {
+      "id": "final-F08",
+      "pages": [
+        25,
+        26
+      ],
+      "lines": [
+        "이탄이 타면 저장된 탄소가",
+        "대기로 방출돼요.",
+        "이 영향을 놓쳤어요."
+      ],
+      "keys": [
+        "Burning peat releases stored carbon into the atmosphere. This impact was missed.",
+        "Gambut yang terbakar melepaskan karbon tersimpan ke atmosfer. Dampak ini masih terlewat."
+      ],
+      "text": "이탄이 타면 저장된 탄소가\n대기로 방출돼요.\n이 영향을 놓쳤어요."
+    },
+    {
+      "id": "final-F09",
+      "pages": [
+        26
+      ],
+      "lines": [
+        "이탄층이 사라지면 지표면이",
+        "낮아질 수 있어요.",
+        "이것을 지반 침하라고 해요."
+      ],
+      "keys": [
+        "Loss of peat can lower the ground surface. This is called subsidence, another impact to recognize.",
+        "Hilangnya lapisan gambut dapat menurunkan permukaan tanah. Inilah subsidens, salah satu dampak yang perlu dikenali."
+      ],
+      "text": "이탄층이 사라지면 지표면이\n낮아질 수 있어요.\n이것을 지반 침하라고 해요."
+    }
+  ],
+  "composed": [
+    {
+      "id": "cause-1-wrong",
+      "pages": [
+        13
+      ],
+      "lines": [
+        "사람의 행동으로 시작된 불이에요.",
+        "땅을 개간하려고 식물을 태우면",
+        "주변으로 불이 번질 수 있어요."
+      ]
+    },
+    {
+      "id": "cause-2-wrong",
+      "pages": [
+        15
+      ],
+      "lines": [
+        "사람의 행동으로 시작된 불이에요.",
+        "담배꽁초의 불씨가 주변의",
+        "마른 풀에 옮겨 붙을 수 있어요."
+      ]
+    },
+    {
+      "id": "cause-4-correct",
+      "pages": [
+        19
+      ],
+      "lines": [
+        "불을 지켜보지 않고 두면 주변의",
+        "마른 연료로 번질 수 있어요.",
+        "산불은 사람의 행동이나",
+        "자연 현상으로 시작될 수 있어요.",
+        "불이 나기 전에 예방하는 것이",
+        "가장 좋아요."
+      ]
+    },
+    {
+      "id": "cause-4-wrong",
+      "pages": [
+        18
+      ],
+      "lines": [
+        "사람의 행동으로 시작된 불이에요.",
+        "불을 지켜보지 않고 두면 주변의",
+        "마른 연료로 번질 수 있어요.",
+        "산불은 사람의 행동이나",
+        "자연 현상으로 시작될 수 있어요.",
+        "불이 나기 전에 예방하는 것이",
+        "가장 좋아요."
+      ]
+    }
+  ],
+  "referenceOnlyPages": [
+    8,
+    16
+  ],
+  "pendingAudio": "Owner: record now, regenerate Korean voices later; existing MP3 files retained."
+}

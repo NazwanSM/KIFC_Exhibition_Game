@@ -1,0 +1,9 @@
+00:00 +0: loading D:/KIFC Game Exhibition/fire_prevention_challenge/output/client-review/2026-11-05/korean-full-pdf-validated/audit_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: audit Korean word wrapping Size(360.0, 640.0)
+00:17 +1: audit Korean word wrapping Size(411.0, 731.0)
+00:40 +2: audit Korean word wrapping Size(720.0, 1280.0)
+01:00 +3: audit Korean word wrapping Size(1080.0, 1920.0)
+01:23 +4: audit Korean word wrapping Size(2160.0, 3840.0)
+02:28 +5: (tearDownAll)
+02:28 +5: All tests passed!

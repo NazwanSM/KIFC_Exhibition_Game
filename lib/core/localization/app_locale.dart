@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'korean_pdf_copy.dart';
+import 'korean_pdf_layout.dart';
 
 enum AppLocale { indonesian, english, korean }
 
@@ -48,14 +50,14 @@ abstract final class AppCopy {
           0,
           source.length - summary.length - 1,
         );
-        return '${translate(explanation)} ${translate(summary)}';
+        return '${translate(explanation)}\n${translate(summary)}';
       }
     }
     for (final prefix in const <String, String>{
-      'Yang ini dipicu aktivitas manusia. ': '사람의 행동으로 시작된 불이에요. ',
-      'Yang ini dipicu faktor alam. ': '자연 현상으로 시작된 불이에요. ',
-      'The answer is human activity. ': '사람의 행동으로 시작된 불이에요. ',
-      'The answer is a natural factor. ': '자연 현상으로 시작된 불이에요. ',
+      'Yang ini dipicu aktivitas manusia. ': '사람의 행동으로 시작된 불이에요.\n',
+      'Yang ini dipicu faktor alam. ': '자연 현상으로 시작된 불이에요.\n',
+      'The answer is human activity. ': '사람의 행동으로 시작된 불이에요.\n',
+      'The answer is a natural factor. ': '자연 현상으로 시작된 불이에요.\n',
       'Correct. ': '맞아요. ',
     }.entries) {
       if (source.startsWith(prefix.key)) {
@@ -252,21 +254,34 @@ class _WrappedLocalizedText extends Text {
   final bool joinWords;
 
   @override
-  Widget build(BuildContext context) => Text(
-    joinWords ? AppCopy.keepKoreanWordBreaks(data!) : data!,
-    style: style,
-    strutStyle: strutStyle,
-    textAlign: textAlign,
-    textDirection: textDirection,
-    locale: locale,
-    softWrap: softWrap,
-    overflow: overflow,
-    textScaler: textScaler,
-    maxLines: maxLines,
-    semanticsLabel: semanticsLabel,
-    textWidthBasis: textWidthBasis,
-    textHeightBehavior: textHeightBehavior,
-  ).build(context);
+  Widget build(BuildContext context) {
+    if (joinWords && (koreanPdfBlocks.contains(data) || data!.contains('\n'))) {
+      return KoreanPdfLayout(
+        text: AppCopy.keepKoreanWordBreaks(data!),
+        style: style,
+        textScaler: textScaler,
+        builder: (fittedStyle) => _render(context, fittedStyle, false),
+      );
+    }
+    return _render(context, style, softWrap);
+  }
+
+  Widget _render(BuildContext context, TextStyle? fittedStyle, bool? wrap) =>
+      Text(
+        joinWords ? AppCopy.keepKoreanWordBreaks(data!) : data!,
+        style: fittedStyle,
+        strutStyle: strutStyle,
+        textAlign: textAlign,
+        textDirection: textDirection,
+        locale: locale,
+        softWrap: wrap,
+        overflow: overflow,
+        textScaler: textScaler,
+        maxLines: maxLines,
+        semanticsLabel: semanticsLabel,
+        textWidthBasis: textWidthBasis,
+        textHeightBehavior: textHeightBehavior,
+      ).build(context);
 }
 
 const Map<String, String> _korean = <String, String>{
@@ -300,9 +315,9 @@ const Map<String, String> _korean = <String, String>{
   'Fire can reignite.': '불이 다시 붙을 수 있어요.',
   'Api dapat menyala kembali.': '불이 다시 붙을 수 있어요.',
   'All three can happen in peatland fires. Ready to explore their impacts?':
-      '이탄지 화재에는 이 세 가지 특징이 있어요. 이제 그 영향도 알아볼까요?',
+      '이탄지 화재에는 이 세 가지\n특징이 있어요.\n이제 그 영향도 알아볼까요?',
   'Ketiganya bisa terjadi pada kebakaran gambut. Yuk, kenali dampaknya juga.':
-      '이탄지 화재에는 이 세 가지 특징이 있어요. 이제 그 영향도 알아볼까요?',
+      '이탄지 화재에는 이 세 가지\n특징이 있어요.\n이제 그 영향도 알아볼까요?',
   'Take your time. You can turn each card over again.':
       '천천히 읽어 보세요. 카드를 다시 뒤집어 볼 수 있어요.',
   'Baca pelan-pelan, ya. Kamu bisa membalik kartunya lagi.':
@@ -351,41 +366,41 @@ const Map<String, String> _korean = <String, String>{
   'Not a fire impact': '화재의 영향이 아니에요',
   'Bukan dampak kebakaran': '화재의 영향이 아니에요',
   'No impacts were selected. The four impacts are haze, ecosystem damage, high carbon emissions, and subsidence.':
-      '선택한 영향이 없어요. 네 가지 영향은 연무, 생태계 훼손, 많은 탄소 배출, 지반 침하예요.',
+      '선택한 영향이 없어요. 네 가지 영향은\n연무, 생태계 훼손, 많은 탄소 배출,\n지반 침하예요.',
   'Belum ada dampak yang dipilih. Empat dampaknya adalah kabut asap, kerusakan ekosistem, emisi karbon tinggi, dan subsidens.':
-      '선택한 영향이 없어요. 네 가지 영향은 연무, 생태계 훼손, 많은 탄소 배출, 지반 침하예요.',
+      '선택한 영향이 없어요. 네 가지 영향은\n연무, 생태계 훼손, 많은 탄소 배출,\n지반 침하예요.',
   'You found all four impacts. Fire damages ecosystems and releases carbon stored in peat.':
-      '네 가지 영향을 모두 찾았어요. 화재는 생태계를 훼손하고 이탄에 저장된 탄소를 방출해요.',
+      '네 가지 영향을 모두 찾았어요.\n화재는 생태계를 훼손하고 이탄에\n저장된 탄소를 방출해요.',
   'Keempat dampak sudah kamu temukan. Kebakaran merusak ekosistem dan melepaskan karbon yang tersimpan dalam gambut.':
-      '네 가지 영향을 모두 찾았어요. 화재는 생태계를 훼손하고 이탄에 저장된 탄소를 방출해요.',
+      '네 가지 영향을 모두 찾았어요.\n화재는 생태계를 훼손하고 이탄에\n저장된 탄소를 방출해요.',
   'Fire worsens air quality and reduces peat carbon stores. Neither improvement is an impact of fire.':
-      '화재는 대기 질을 악화시키고 이탄의 탄소 저장량을 줄여요. 두 가지 증가나 개선은 화재의 영향이 아니에요.',
+      '화재는 대기 질을 악화시키고\n이탄의 탄소 저장량을 줄여요.\n두 가지 증가나 개선은 화재의 영향이\n아니에요.',
   'Kebakaran memperburuk kualitas udara dan mengurangi cadangan karbon gambut. Kedua peningkatan itu bukan dampaknya.':
-      '화재는 대기 질을 악화시키고 이탄의 탄소 저장량을 줄여요. 두 가지 증가나 개선은 화재의 영향이 아니에요.',
+      '화재는 대기 질을 악화시키고\n이탄의 탄소 저장량을 줄여요.\n두 가지 증가나 개선은 화재의 영향이\n아니에요.',
   'Smoke worsens air quality. Cleaner air is not an impact of fire. Check the missed impacts too.':
-      '연기는 대기 질을 악화시켜요. 더 깨끗한 공기는 화재의 영향이 아니에요. 놓친 영향도 확인해 보세요.',
+      '연기는 대기 질을 악화시켜요. 더 깨끗한 공기는\n화재의 영향이 아니에요.\n놓친 영향도 확인해 보세요.',
   'Asap memperburuk kualitas udara. Udara yang lebih bersih bukan dampak kebakaran. Cermati juga dampak yang terlewat.':
-      '연기는 대기 질을 악화시켜요. 더 깨끗한 공기는 화재의 영향이 아니에요. 놓친 영향도 확인해 보세요.',
+      '연기는 대기 질을 악화시켜요. 더 깨끗한 공기는\n화재의 영향이 아니에요.\n놓친 영향도 확인해 보세요.',
   'Fire releases stored carbon, so peat carbon stores decrease. Check the missed impacts too.':
-      '화재로 저장된 탄소가 방출되면 이탄의 탄소 저장량이 줄어들어요. 놓친 영향도 확인해 보세요.',
+      '화재로 저장된 탄소가 방출되면\n이탄의 탄소 저장량이 줄어들어요.\n놓친 영향도 확인해 보세요.',
   'Kebakaran melepaskan karbon yang tersimpan, sehingga cadangan karbon gambut berkurang. Cermati juga dampak yang terlewat.':
-      '화재로 저장된 탄소가 방출되면 이탄의 탄소 저장량이 줄어들어요. 놓친 영향도 확인해 보세요.',
+      '화재로 저장된 탄소가 방출되면\n이탄의 탄소 저장량이 줄어들어요.\n놓친 영향도 확인해 보세요.',
   'Smoke from peat fires creates haze and worsens air quality. This impact was missed.':
-      '이탄 화재의 연기는 연무를 만들고 대기 질을 악화시켜요. 이 영향을 놓쳤어요.',
+      '이탄 화재의 연기는 연무를\n만들고 대기 질을 악화시켜요.\n이 영향을 놓쳤어요.',
   'Asap kebakaran gambut menimbulkan kabut asap dan memperburuk kualitas udara. Dampak ini masih terlewat.':
-      '이탄 화재의 연기는 연무를 만들고 대기 질을 악화시켜요. 이 영향을 놓쳤어요.',
+      '이탄 화재의 연기는 연무를\n만들고 대기 질을 악화시켜요.\n이 영향을 놓쳤어요.',
   'Fire damages vegetation and habitats in peatland ecosystems. This impact was missed.':
-      '화재는 이탄지 생태계의 식물과 서식지를 훼손해요. 이 영향을 놓쳤어요.',
+      '화재는 이탄지 생태계의 식물과\n서식지를 훼손해요.\n이 영향을 놓쳤어요.',
   'Kebakaran merusak vegetasi dan habitat pada ekosistem gambut. Dampak ini masih terlewat.':
-      '화재는 이탄지 생태계의 식물과 서식지를 훼손해요. 이 영향을 놓쳤어요.',
+      '화재는 이탄지 생태계의 식물과\n서식지를 훼손해요.\n이 영향을 놓쳤어요.',
   'Burning peat releases stored carbon into the atmosphere. This impact was missed.':
-      '이탄이 타면 저장된 탄소가 대기로 방출돼요. 이 영향을 놓쳤어요.',
+      '이탄이 타면 저장된 탄소가\n대기로 방출돼요.\n이 영향을 놓쳤어요.',
   'Gambut yang terbakar melepaskan karbon tersimpan ke atmosfer. Dampak ini masih terlewat.':
-      '이탄이 타면 저장된 탄소가 대기로 방출돼요. 이 영향을 놓쳤어요.',
+      '이탄이 타면 저장된 탄소가\n대기로 방출돼요.\n이 영향을 놓쳤어요.',
   'Loss of peat can lower the ground surface. This is called subsidence, another impact to recognize.':
-      '이탄층이 사라지면 지표면이 낮아질 수 있어요. 이것을 지반 침하라고 해요.',
+      '이탄층이 사라지면 지표면이\n낮아질 수 있어요.\n이것을 지반 침하라고 해요.',
   'Hilangnya lapisan gambut dapat menurunkan permukaan tanah. Inilah subsidens, salah satu dampak yang perlu dikenali.':
-      '이탄층이 사라지면 지표면이 낮아질 수 있어요. 이것을 지반 침하라고 해요.',
+      '이탄층이 사라지면 지표면이\n낮아질 수 있어요.\n이것을 지반 침하라고 해요.',
   'Sentuh di mana saja untuk lanjut.': '화면 어디든 터치하면 계속해요.',
   'Tap anywhere to continue.': '화면 어디든 터치하면 계속해요.',
   'Api Dapat Muncul Saat Tiga Unsur Bertemu': '세 요소가 만나면 불이 날 수 있어요',
@@ -395,9 +410,9 @@ const Map<String, String> _korean = <String, String>{
   'Fire can occur anywhere when sufficient heat, fuel, and oxygen meet.':
       '충분한 열, 연료, 산소가 만나면 어디서든 불이 날 수 있어요.',
   'Kebakaran dapat terjadi ketika panas yang cukup, bahan bakar, dan oksigen bertemu. Aktivitas manusia dapat mempertemukan ketiga unsur tersebut. Karena itu, pencegahan penting dilakukan agar kebakaran tidak terjadi.':
-      '충분한 열, 연료, 산소가 만나면 불이 날 수 있어요. 사람의 활동으로 이 세 요소가 한곳에 모일 수 있어요. 그래서 불이 나지 않도록 미리 예방하는 것이 중요해요.',
+      '충분한 열, 연료, 산소가 만나면 불이 날 수 있어요.\n사람의 활동으로 이 세 가지 요소가 한 곳에 모일 수 있어요.\n그래서 불이 나지 않도록 미리 예방하는 것이 중요해요.',
   'Fire can occur when sufficient heat, fuel, and oxygen meet. Human activity can bring these three elements together. Prevention helps keep a fire from starting.':
-      '충분한 열, 연료, 산소가 만나면 불이 날 수 있어요. 사람의 활동으로 이 세 요소가 한곳에 모일 수 있어요. 그래서 불이 나지 않도록 미리 예방하는 것이 중요해요.',
+      '충분한 열, 연료, 산소가 만나면 불이 날 수 있어요.\n사람의 활동으로 이 세 가지 요소가 한 곳에 모일 수 있어요.\n그래서 불이 나지 않도록 미리 예방하는 것이 중요해요.',
   'Choose three elements.': '산불의 세 가지 요소를 고르세요.',
   'Pilih tiga unsur api.': '산불의 세 가지 요소를 고르세요.',
   'Forest area for dropping fire elements': '불의 요소를 놓는 숲 영역',
@@ -418,8 +433,8 @@ const Map<String, String> _korean = <String, String>{
   'Seret setiap foto ke unsur yang sesuai.': '각 사진을 알맞은 요소로 드래그하세요.',
   'Find all three elements to start the fire.': '불이 붙는 데 필요한 세 가지 요소를 찾아보세요.',
   'Temukan ketiga unsur agar api menyala.': '불이 붙는 데 필요한 세 가지 요소를 찾아보세요.',
-  'That fits. Find the remaining elements.': '잘 맞혔어요. 나머지 요소도 찾아보세요.',
-  'Sudah cocok. Temukan unsur lainnya.': '잘 맞혔어요. 나머지 요소도 찾아보세요.',
+  'That fits. Find the remaining elements.': '잘 맞혔어요.\n나머지 요소도 찾아보세요.',
+  'Sudah cocok. Temukan unsur lainnya.': '잘 맞혔어요.\n나머지 요소도 찾아보세요.',
   'Water is not one of the elements of the fire triangle.':
       '물은 불의 삼요소 중 하나가 아니에요.',
   'Air bukan salah satu unsur dalam Segitiga Api.': '물은 불의 삼요소 중 하나가 아니에요.',
@@ -439,9 +454,9 @@ const Map<String, String> _korean = <String, String>{
   'Oksigen ada dalam udara, meski tidak ada angin. Letakkan pada unsur Oksigen.':
       '바람이 불지 않아도 공기에는 산소가 있어요. 산소 칸에 놓아보세요.',
   'Correct! Fire can start when sufficient heat, fuel, and oxygen meet. These three elements form the fire triangle. Reducing any one of them can help control fire.':
-      '맞아요! 충분한 열과 연료, 산소가 만나면 불이 붙을 수 있어요. 이 세 가지를 불의 삼요소라고 해요. 그중 하나를 줄이면 불을 통제하는 데 도움이 돼요.',
+      '맞아요! 충분한 열과 연료, 산소가 만나면 불이 붙을 수 있어요.\n이 세 가지를 불의 3 요소라고 해요. 그 중 하나를 줄이면\n불을 통제하는 데 도움이 돼요.',
   'Tepat! Api dapat menyala ketika panas yang cukup, bahan bakar, dan oksigen bertemu. Ketiga unsur ini disebut Segitiga Api. Mengurangi salah satu unsur dapat membantu mengendalikan api.':
-      '맞아요! 충분한 열과 연료, 산소가 만나면 불이 붙을 수 있어요. 이 세 가지를 불의 삼요소라고 해요. 그중 하나를 줄이면 불을 통제하는 데 도움이 돼요.',
+      '맞아요! 충분한 열과 연료, 산소가 만나면 불이 붙을 수 있어요.\n이 세 가지를 불의 3 요소라고 해요. 그 중 하나를 줄이면\n불을 통제하는 데 도움이 돼요.',
   'Choose one answer.': '답을 하나 골라 보세요.',
   'Pilih satu jawaban.': '답을 하나 골라 보세요.',
   'Fire beneath the ground': '땅속에서 타는 불',
@@ -451,9 +466,9 @@ const Map<String, String> _korean = <String, String>{
   'Hutan gambut dan aliran air': '이탄지 숲과 물길',
   'Fire Prevention\nChallenge': '산불 예방\n챌린지',
   'Hello! Discover how fires start and what we can do to protect the forest.':
-      '안녕하세요! 산불이 어떻게 시작되는지 알아보고 숲을 지키는 방법을 함께 배워 봐요.',
+      '안녕하세요!\n산불의 원인을 알아보고\n숲을 지키는 방법을\n함께 배워봐요.',
   'Halo! Yuk, kenali penyebab kebakaran dan cari tahu cara menjaga hutan dari api.':
-      '안녕하세요! 산불의 원인을 알아보고 숲을 지키는 방법을 함께 배워 봐요.',
+      '안녕하세요!\n산불의 원인을 알아보고\n숲을 지키는 방법을\n함께 배워봐요.',
   'Start Challenge': '도전 시작',
   'Mulai Tantangan': '도전 시작',
   'Tap to begin': '눌러서 시작하기',
@@ -481,13 +496,13 @@ const Map<String, String> _korean = <String, String>{
   'Start Quiz': '퀴즈 시작',
   'Mulai Kuis': '퀴즈 시작',
   'Tepat! Kebakaran di hutan rawa gambut yang mengering sulit dipadamkan karena api dapat membara di bawah permukaan tanah. Bara sulit terdeteksi dan dapat memicu api kembali meskipun api di permukaan sudah padam.':
-      '맞아요! 메마른 이탄습지 숲의 화재는 불씨가 지표면 아래에서 타들어 갈 수 있어 진압하기 어려워요. 땅속의 불씨는 발견하기 어렵고, 지표면의 불이 꺼진 뒤에도 다시 불길을 일으킬 수 있어요.',
+      '맞아요! 메마른 이탄습지 숲의\n화재는 불씨가 지표면 아래에서\n타들어 갈 수 있어 진압하기\n어려워요. 땅속의 불씨는\n발견하기 어렵고, 지표면의 불이\n꺼진 뒤에도 다시 불길을\n일으킬 수 있어요.',
   'Correct! Fires in dried-out peat swamp forests are difficult to extinguish because fire can smolder beneath the ground surface. Embers are hard to detect and can rekindle flames even after the surface fire is out.':
-      '맞아요! 메마른 이탄습지 숲의 화재는 불씨가 지표면 아래에서 타들어 갈 수 있어 진압하기 어려워요. 땅속의 불씨는 발견하기 어렵고, 지표면의 불이 꺼진 뒤에도 다시 불길을 일으킬 수 있어요.',
+      '맞아요! 메마른 이탄습지 숲의\n화재는 불씨가 지표면 아래에서\n타들어 갈 수 있어 진압하기\n어려워요. 땅속의 불씨는\n발견하기 어렵고, 지표면의 불이\n꺼진 뒤에도 다시 불길을\n일으킬 수 있어요.',
   'Belum tepat. Coba ingat jenis hutan yang memiliki lapisan tanah organik tebal. Api dapat membara di dalam lapisan tersebut sehingga sulit dipadamkan.':
-      '아직 아니에요. 유기물 토양층이 두껍게 쌓인 숲 유형을 떠올려 보세요. 불길이 그 층 안에서 타들어가 진압하기 어려워요.',
+      '아직 아니에요. 유기물 토양층이\n두껍게 쌓인 숲 유형을 떠올려보세요.\n불길이 그 층 안에서 타 들어가\n진압하기 어려워져요.',
   'Not quite. Think about the forest type with a thick organic soil layer. Fire can smolder inside that layer, making it difficult to extinguish.':
-      '아직 아니에요. 유기물 토양층이 두껍게 쌓인 숲 유형을 떠올려 보세요. 불길이 그 층 안에서 타들어가 진압하기 어려워요.',
+      '아직 아니에요. 유기물 토양층이\n두껍게 쌓인 숲 유형을 떠올려보세요.\n불길이 그 층 안에서 타 들어가\n진압하기 어려워져요.',
   'Jawaban yang tepat adalah hutan rawa gambut. Api dapat membara di dalam lapisan tanah organik tebal di bawah permukaan sehingga sulit dipadamkan.':
       '정답은 이탄습지 숲이에요. 지표면 아래 두꺼운 유기물 층에서 불씨가 타들어 갈 수 있어 진압하기 어려워요.',
   'The correct answer is peat swamp forest. Fire can smolder beneath the ground in thick organic soil, making it hard to extinguish.':
@@ -513,9 +528,9 @@ const Map<String, String> _korean = <String, String>{
   'Mengapa Kebakaran Hutan Bisa Terjadi?': '산불은 왜 일어날까요?',
   'Why Do Forest Fires Happen?': '산불은 왜 일어날까요?',
   'Kebakaran hutan dapat terjadi ketika tiga unsur api bertemu.':
-      '불의 세 요소가 만나면 산불이 발생할 수 있어요.',
+      '산불의 세 가지 요소가 만나면 불이 발생할 수 있어요.',
   'A forest fire can occur when the three elements of fire meet.':
-      '불의 세 요소가 만나면 산불이 발생할 수 있어요.',
+      '산불의 세 가지 요소가 만나면 불이 발생할 수 있어요.',
   'Mengapa Kebakaran Hutan Perlu Kita Cegah?': '산불을 왜 예방해야 할까요?',
   'Why Must We Prevent Forest Fires?': '산불을 왜 예방해야 할까요?',
   'Kebakaran hutan adalah peristiwa terbakarnya vegetasi dan bahan organik di kawasan hutan, dengan api yang menyebar secara bebas dan tidak terkendali.':
@@ -523,13 +538,13 @@ const Map<String, String> _korean = <String, String>{
   'A forest fire is the burning of vegetation and organic matter in a forest area, with flames spreading freely and uncontrollably.':
       '산불은 산림에서 식생과 유기물이 타는 현상으로, 불길이 자유롭고 통제할 수 없게 번져 나가는 것을 말해요.',
   'Kebakaran hutan dapat terjadi ketika panas yang cukup, bahan bakar, dan oksigen bertemu dalam kondisi yang memungkinkan api menyala. Aktivitas manusia dapat mempertemukan ketiga unsur tersebut sehingga meningkatkan risiko kebakaran.':
-      '산불은 충분한 열, 연료, 산소가 불이 붙을 수 있는 조건에서 만날 때 발생해요. 사람의 활동은 이 세 요소를 만나게 하여 산불 위험을 높일 수 있어요.',
+      '산불은 불이 붙기 위한 세 가지 요소인\n\'열, 연료, 산소\'가 서로 만날 때 발생해요.\n사람들의 행동이 이 요소들을 결합하게 만들어\n산불 위험을 높이곤 합니다.',
   'A forest fire can occur when sufficient heat, fuel, and oxygen meet under conditions that allow fire to ignite. Human activities can bring these three elements together, increasing the risk of fire.':
-      '산불은 충분한 열, 연료, 산소가 불이 붙을 수 있는 조건에서 만날 때 발생해요. 사람의 활동은 이 세 요소를 만나게 하여 산불 위험을 높일 수 있어요.',
+      '산불은 불이 붙기 위한 세 가지 요소인\n\'열, 연료, 산소\'가 서로 만날 때 발생해요.\n사람들의 행동이 이 요소들을 결합하게 만들어\n산불 위험을 높이곤 합니다.',
   'Kebakaran hutan merusak lingkungan dan menimbulkan kerugian ekologis, ekonomi, sosial budaya, serta politik. Kerusakan tersebut mengganggu kemampuan hutan untuk menjalankan fungsinya dengan baik.':
-      '산불은 환경을 파괴하고 생태적, 경제적, 사회문화적, 정치적 피해를 일으켜요. 이러한 피해는 숲이 제 기능을 제대로 수행하는 능력을 방해해요.',
+      '산불은 환경을 파괴하고 생태적,\n경제적, 사회문화적, 정치적 피해를\n일으켜요. 이러한 피해는 숲이\n제 기능을 제대로 수행하지 못 하게 해요.',
   'Forest fires damage the environment and cause ecological, economic, socio-cultural, and political losses. Such damage disrupts the forest’s ability to perform its functions properly.':
-      '산불은 환경을 파괴하고 생태적, 경제적, 사회문화적, 정치적 피해를 일으켜요. 이러한 피해는 숲이 제 기능을 제대로 수행하는 능력을 방해해요.',
+      '산불은 환경을 파괴하고 생태적,\n경제적, 사회문화적, 정치적 피해를\n일으켜요. 이러한 피해는 숲이\n제 기능을 제대로 수행하지 못 하게 해요.',
   'Mencegah Kebakaran Lebih Baik daripada Memadamkan.': '화재 예방이 진압보다 낫습니다.',
   'Preventing Fires Is Better Than Fighting Them.': '화재 예방이 진압보다 낫습니다.',
   'What is a forest fire?': '산불이란 무엇일까요?',
@@ -664,13 +679,13 @@ const Map<String, String> _korean = <String, String>{
   ' Keep ignition sources away from dry plants and wood.':
       ' 불씨를 마른 풀과 나무에서 멀리하세요.',
   'Vegetation is burned to clear land while conditions are dry.':
-      '건조한 날씨에 땅을 개간하려고 풀과 나무를 태워요.',
+      '건조한 날씨에 땅을 개간하려고\n풀과 나무를 태워요.',
   'Tanaman dibakar untuk membuka lahan saat cuaca kering.':
-      '건조한 날씨에 땅을 개간하려고 풀과 나무를 태워요.',
+      '건조한 날씨에 땅을 개간하려고\n풀과 나무를 태워요.',
   'Burning vegetation to clear land is a human activity.':
-      '땅을 개간하려고 식물을 태우는 것은 사람의 행동이에요.',
+      '땅을 개간하려고 식물을 태우면\n주변으로 불이 번질 수 있어요.',
   'Membakar tanaman untuk membuka lahan bisa membuat api merambat ke sekitarnya.':
-      '땅을 개간하려고 식물을 태우면 주변으로 불이 번질 수 있어요.',
+      '땅을 개간하려고 식물을 태우면\n주변으로 불이 번질 수 있어요.',
   'A lit cigarette butt is thrown into dry grass.':
       '불이 꺼지지 않은 담배꽁초를 마른 풀밭에 버렸어요.',
   'Puntung rokok yang masih menyala dibuang ke rerumputan kering.':
@@ -678,21 +693,21 @@ const Map<String, String> _korean = <String, String>{
   'A lit cigarette carries heat that can ignite dry vegetation.':
       '불씨가 남은 담배꽁초는 마른 식물에 불을 붙일 수 있어요.',
   'Bara pada puntung rokok bisa menyulut rumput kering di sekitarnya.':
-      '담배꽁초의 불씨가 주변의 마른 풀에 옮겨붙을 수 있어요.',
+      '담배꽁초의 불씨가 주변의\n마른 풀에 옮겨 붙을 수 있어요.',
   'Lightning strikes very dry vegetation.': '번개가 바싹 마른 식물에 떨어졌어요.',
   'Petir menyambar tanaman yang sudah kering.': '번개가 바싹 마른 식물에 떨어졌어요.',
   'Lightning is a natural ignition source that can ignite dry vegetation.':
-      '번개는 마른 식물에 불을 붙일 수 있는 자연 발화 원인이에요.',
+      '번개는 마른 식물에 불을 붙일 수\n있는 자연 발화 원인이에요.',
   'Sambaran petir membawa panas yang bisa menyulut tanaman kering.':
-      '번개는 마른 식물에 불을 붙일 수 있는 자연 발화 원인이에요.',
+      '번개는 마른 식물에 불을 붙일 수\n있는 자연 발화 원인이에요.',
   'A small fire is left unattended near dry land.':
-      '작은 불을 마른 땅 근처에 피워 두고 자리를 비웠어요.',
+      '작은 불을 마른 땅 근처에 피워두고\n자리를 비웠어요.',
   'Api kecil dibiarkan tanpa pengawasan di dekat lahan kering.':
-      '작은 불을 마른 땅 근처에 피워 두고 자리를 비웠어요.',
+      '작은 불을 마른 땅 근처에 피워두고\n자리를 비웠어요.',
   'Leaving a fire unattended is a human action that can allow it to spread.':
       '불을 지켜보지 않고 두면 주변으로 번질 수 있어요.',
   'Api yang dibiarkan menyala bisa merambat ke bahan kering di sekitarnya.':
-      '불을 지켜보지 않고 두면 주변의 마른 연료로 번질 수 있어요.',
+      '불을 지켜보지 않고 두면 주변의\n마른 연료로 번질 수 있어요.',
   'Sun heat': '햇볕의 열',
   'Panas matahari': '햇볕의 열',
   'Oxygen from air': '공기 중 산소',
@@ -714,9 +729,9 @@ const Map<String, String> _korean = <String, String>{
   'Karhutla adalah kebakaran hutan dan lahan. Api membakar rumput, daun, atau pepohonan dan bisa menjalar ke sekitarnya jika tidak terkendali.':
       '산불은 풀과 낙엽, 나무 같은 식물을 태워요. 불길이 걷잡을 수 없이 번지면 주변 지역까지 피해를 줄 수 있어요.',
   'You have seen how fire starts. What happens when it spreads?':
-      '불이 어떻게 시작되는지 살펴봤어요. 불길이 번지면 어떤 일이 생길까요?',
+      '불이 어떻게 시작되는지 살펴봤어요.\n불길이 번지면 어떤 일이 생길까요?',
   'Tadi kamu melihat api menyala. Bagaimana jika api itu menjalar?':
-      '불이 어떻게 시작되는지 살펴봤어요. 불길이 번지면 어떤 일이 생길까요?',
+      '불이 어떻게 시작되는지 살펴봤어요.\n불길이 번지면 어떤 일이 생길까요?',
   'Fire can damage habitats, and smoke can affect nearby communities. Preventing fires helps protect both forests and people.':
       '불은 야생동물의 보금자리를 망가뜨리고 연기는 주변 주민에게 피해를 줄 수 있어요. 산불 예방은 숲과 사람을 함께 지켜요.',
   'Api bisa merusak tempat hidup satwa, sementara asapnya mengganggu warga. Mencegah karhutla berarti menjaga hutan sekaligus melindungi kehidupan di sekitarnya.':
@@ -766,9 +781,9 @@ const Map<String, String> _korean = <String, String>{
   'Ketiga unsur sudah kamu coba. Sekarang kita lihat bagaimana karhutla bisa terjadi.':
       '세 요소를 모두 확인했어요. 이제 현장에서 불이 어떻게 시작되는지 살펴봐요.',
   'Risk can come from people or nature. The best prevention happens before there is a flame.':
-      '산불은 사람의 행동이나 자연 현상으로 시작될 수 있어요. 불이 나기 전에 예방하는 것이 가장 좋아요.',
+      '산불은 사람의 행동이나\n자연 현상으로 시작될 수 있어요.\n불이 나기 전에 예방하는 것이\n가장 좋아요.',
   'Kebakaran bisa dipicu manusia maupun alam. Mencegahnya lebih baik daripada memadamkannya.':
-      '산불은 사람의 행동이나 자연 현상으로 시작될 수 있어요. 불이 나기 전에 예방하는 것이 가장 좋아요.',
+      '산불은 사람의 행동이나\n자연 현상으로 시작될 수 있어요.\n불이 나기 전에 예방하는 것이\n가장 좋아요.',
   'What most likely triggered this risk?': '무엇이 산불 위험을 일으켰을까요?',
   'Apa penyebabnya?': '무엇이 산불 위험을 일으켰을까요?',
   'Read the situation, then choose where the trigger came from.':
@@ -799,7 +814,7 @@ const Map<String, String> _korean = <String, String>{
   'Drop here': '여기에 놓기',
   'Taruh di sini': '여기에 놓기',
   'Do not approach a real fire. Report it and follow trained personnel.':
-      '실제 화재에 가까이 가지 마세요. 신고하고 훈련된 담당자의 안내를 따르세요.',
+      '실제 화재에 가까이 가지 마세요. 신고하고 담당자의 안내를 따르세요.',
   'Jika melihat kebakaran, jaga jarak. Laporkan kepada petugas dan ikuti arahannya.':
       '실제 화재에 가까이 가지 마세요. 신고하고 담당자의 안내를 따르세요.',
   'Waktu habis.': '시간이 끝났어요.',
@@ -868,7 +883,7 @@ const Map<String, String> _korean = <String, String>{
       '불씨를 마른 연료에서 멀리하세요. 불을 발견하면 신고하고 담당자의 안내를 따르세요.',
   'Protect Forests.\nProtect Lives.': '숲을 지키고\n생명을 지켜요.',
   'Thanks for playing! Keep fire away from dry vegetation. If you see a fire, report it to trained personnel.':
-      '함께해 줘서 고마워요! 불씨를 마른 식물에서 멀리하세요. 불을 발견하면 담당자에게 알려 주세요.',
+      '함께 해줘서 고마워요!\n불씨를 마른 식물에서 멀리 하세요.\n불을 발견하면 담당자에게 알려 주세요.',
   'Cooperation, knowledge and innovation for forest and land fire prevention.':
       '협력과 지식, 혁신으로 산불을 예방합니다.',
   'Explore the Exhibition': '전시 둘러보기',
@@ -985,7 +1000,7 @@ const Map<String, String> _korean = <String, String>{
   '3/4 poin di babak akhir = 0,75 poin bonus': '마지막 도전 3/4점 · 보너스 +0.75점',
   'Jaga Hutan,\nJaga Kehidupan.': '숲을 지키고\n생명을 지켜요.',
   'Terima kasih sudah bermain! Jauhkan sumber api dari bahan kering. Jika melihat kebakaran, segera laporkan kepada petugas.':
-      '함께해 줘서 고마워요! 불씨를 마른 식물에서 멀리하세요. 불을 발견하면 담당자에게 알려 주세요.',
+      '함께 해줘서 고마워요!\n불씨를 마른 식물에서 멀리 하세요.\n불을 발견하면 담당자에게 알려 주세요.',
   'Kerja sama, pengetahuan, dan inovasi untuk mencegah kebakaran hutan dan lahan.':
       '협력과 지식, 혁신으로 산불을 예방합니다.',
   'The safe action is to separate the fuel.': '안전한 방법은 연료를 분리하는 거예요.',

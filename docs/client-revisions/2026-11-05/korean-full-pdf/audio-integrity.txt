@@ -1,0 +1,4 @@
+python test/reading_timing_integrity_test.py
+Ran 1 test: OK
+All 9 narration entries: matching bundled audio SHA-256, ordered cue times within recorded duration, final cue at display-text length.
+No MP3 files changed. New Korean scripts remain pending regeneration.

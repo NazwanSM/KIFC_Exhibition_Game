@@ -1,0 +1,19 @@
+00:00 +0: loading D:/KIFC Game Exhibition/fire_prevention_challenge/output/client-review/2026-11-05/korean-full-pdf-validated/locale_capture_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: review F03 Size(360.0, 640.0) indonesian
+00:01 +1: review F03 Size(360.0, 640.0) english
+00:02 +2: review F03 Size(360.0, 640.0) korean
+00:02 +3: review F03 Size(411.0, 731.0) indonesian
+00:03 +4: review F03 Size(411.0, 731.0) english
+00:04 +5: review F03 Size(411.0, 731.0) korean
+00:04 +6: review F03 Size(720.0, 1280.0) indonesian
+00:05 +7: review F03 Size(720.0, 1280.0) english
+00:06 +8: review F03 Size(720.0, 1280.0) korean
+00:06 +9: review F03 Size(1080.0, 1920.0) indonesian
+00:07 +10: review F03 Size(1080.0, 1920.0) english
+00:08 +11: review F03 Size(1080.0, 1920.0) korean
+00:08 +12: review F03 Size(2160.0, 3840.0) indonesian
+00:10 +13: review F03 Size(2160.0, 3840.0) english
+00:11 +14: review F03 Size(2160.0, 3840.0) korean
+00:12 +15: (tearDownAll)
+00:12 +15: All tests passed!

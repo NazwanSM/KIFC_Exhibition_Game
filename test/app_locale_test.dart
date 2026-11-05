@@ -48,15 +48,15 @@ void main() {
         'Kebakaran bisa dipicu manusia maupun alam. Mencegahnya lebih baik daripada memadamkannya.';
     expect(
       AppCopy.translate('Yang ini dipicu aktivitas manusia. $reason'),
-      '사람의 행동으로 시작된 불이에요. 땅을 개간하려고 식물을 태우면 주변으로 불이 번질 수 있어요.',
+      '사람의 행동으로 시작된 불이에요.\n땅을 개간하려고 식물을 태우면\n주변으로 불이 번질 수 있어요.',
     );
     expect(
       AppCopy.translate('Yang ini dipicu faktor alam. $reason $summary'),
-      '자연 현상으로 시작된 불이에요. ${AppCopy.translate(reason)} ${AppCopy.translate(summary)}',
+      '자연 현상으로 시작된 불이에요.\n${AppCopy.translate(reason)}\n${AppCopy.translate(summary)}',
     );
     expect(
       AppCopy.translate('$reason $summary'),
-      '${AppCopy.translate(reason)} ${AppCopy.translate(summary)}',
+      '${AppCopy.translate(reason)}\n${AppCopy.translate(summary)}',
     );
     const englishReason =
         'Burning vegetation to clear land is a human activity.';
@@ -66,7 +66,7 @@ void main() {
     );
     expect(
       AppCopy.translate('The answer is human activity. $englishReason'),
-      '사람의 행동으로 시작된 불이에요. ${AppCopy.translate(englishReason)}',
+      '사람의 행동으로 시작된 불이에요.\n${AppCopy.translate(englishReason)}',
     );
   });
 
@@ -115,13 +115,13 @@ void main() {
         AppCopy.translate(
           'Kebakaran hutan dapat terjadi ketika tiga unsur api bertemu.',
         ),
-        '불의 세 요소가 만나면 산불이 발생할 수 있어요.',
+        '산불의 세 가지 요소가 만나면 불이 발생할 수 있어요.',
       );
       expect(
         AppCopy.translate(
           'A forest fire can occur when the three elements of fire meet.',
         ),
-        '불의 세 요소가 만나면 산불이 발생할 수 있어요.',
+        '산불의 세 가지 요소가 만나면 불이 발생할 수 있어요.',
       );
       expect(
         AppCopy.translate('Mengapa Kebakaran Hutan Perlu Kita Cegah?'),
