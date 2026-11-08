@@ -1,0 +1,22 @@
+{
+  "source_build_id": "final_20261108",
+  "marker": "PDF-revised Korean Chapter 3 title",
+  "libraries": [
+    {
+      "abi": "lib/arm64-v8a/libapp.so",
+      "sha256": "3b6d5e7965ccddf6144c93a8f79ecd6270cc2566f43cef87cfdce2570ac6be66",
+      "korean_pdf_title_present_utf16": true
+    },
+    {
+      "abi": "lib/armeabi-v7a/libapp.so",
+      "sha256": "99b9dbf1471b553404d34f6bc52b5d0c693b79b11071800a5d5929b4a8900410",
+      "korean_pdf_title_present_utf16": true
+    },
+    {
+      "abi": "lib/x86_64/libapp.so",
+      "sha256": "dff7ef35084cacfdfef816b6a039cc90f2ff0e457bd1f1ff481a780c8daec317",
+      "korean_pdf_title_present_utf16": true
+    }
+  ],
+  "installed_runtime_checked": false
+}

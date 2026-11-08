@@ -42,7 +42,12 @@ with zipfile.ZipFile(apk) as bundle:
             failures.append("Missing asset: " + asset)
         elif hashlib.sha256(bundle.read(packed)).digest() != hashlib.sha256(source.read_bytes()).digest():
             failures.append("Stale asset: " + asset)
-    raw_video = [name for name in names if name.lower().endswith(".mp4")]
+    # Only undeclared MP4s are unexpected. The optimized, silent forest loop
+    # is a declared runtime asset; the owner's raw source footage is not.
+    declared_assets = {"assets/flutter_assets/" + path.relative_to(root).as_posix()
+                       for path in expected}
+    raw_video = [name for name in names
+                 if name.lower().endswith(".mp4") and name not in declared_assets]
     if raw_video:
         failures.append("Unexpected raw video: " + ", ".join(raw_video))
     kernel = "assets/flutter_assets/kernel_blob.bin"

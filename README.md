@@ -7,11 +7,11 @@
 **Kenali penyebab api. Pahami risiko karhutla. Jaga ekosistem gambut.**
 
 Game edukasi interaktif untuk ruang pamer **Korea–Indonesia Forest Center (KIFC), Zona 1**.
-Dibuat untuk layar sentuh Android portrait, dengan versi web untuk peninjauan.
+Dibuat untuk layar sentuh portrait. Target pameran adalah Samsung QM43B-T (Tizen 6.5); kompatibilitas dan instalasi pada unit fisik masih perlu diverifikasi.
 
 [![Deploy web](https://github.com/NazwanSM/KIFC_Exhibition_Game/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/NazwanSM/KIFC_Exhibition_Game/actions/workflows/deploy-pages.yml) ![Flutter 3.35.5](https://img.shields.io/badge/Flutter-3.35.5-02569B?logo=flutter&logoColor=white) ![Dart 3.9.2](https://img.shields.io/badge/Dart-3.9.2-0175C2?logo=dart&logoColor=white) ![Bahasa ID EN KO](https://img.shields.io/badge/Bahasa-ID%20%7C%20EN%20%7C%20KO-24634E)
 
-[**Mainkan di web**](https://nazwansm.github.io/KIFC_Exhibition_Game/) · [Cara menjalankan](#menjalankan-proyek) · [Hasil pengujian](#pengujian-dan-status) · [Tracker revisi](design/quick-specs/kifc-screen-revision-tracker-2026-10-23.md)
+[**Mainkan di web**](https://nazwansm.github.io/KIFC_Exhibition_Game/) · [Panduan serah terima TV](docs/release/2026-11-08/README.md) · [Cara menjalankan](#menjalankan-proyek) · [Hasil pengujian](#pengujian-dan-status) · [Tracker revisi](design/quick-specs/kifc-revision-tracker-2026-10-30.md)
 
 </div>
 
@@ -69,15 +69,15 @@ Screenshot penyusunan unsur, penjelasan Segitiga Api dan bacaan Karhutla berasal
 5. **Babak 4 — Gambut dan dampaknya.** Buka tiga kartu informasi, kemudian pilih semua dampak yang sesuai dalam **30 detik**. Pilihan tetap netral selama tantangan; tekan **Selesai Memilih** untuk membuka ulasan lebih awal, atau tunggu waktu habis.
 6. **Lihat hasil dan bermain lagi.** Skor maksimum **8 poin**: unsur api 3, penyebab 4, dan bonus tantangan dampak hingga 1. Kartu informasi tidak menambah skor.
 
-Feedback yang sudah selesai dan halaman hasil memberi waktu baca **15 detik**, atau dapat dilanjutkan lebih cepat dengan menyentuh konten/latar layar. Penutup terakhir memiliki waktu 30 detik. Kartu bacaan dan kartu informasi dilanjutkan secara manual. Tombol navigasi, kartu, serta pengaturan suara tetap menjalankan fungsinya sendiri.
+Feedback yang sudah selesai dan halaman hasil memberi waktu baca **15 detik**, atau dapat dilanjutkan lebih cepat dengan menyentuh konten/latar layar. Penutup terakhir memiliki waktu 30 detik. Tiga kartu bacaan Babak 2 lanjut otomatis sekitar satu detik setelah narasi selesai, dan dapat dilanjutkan manual lebih awal. Kartu informasi gambut dilanjutkan secara manual. Tombol navigasi, kartu, serta pengaturan suara tetap menjalankan fungsinya sendiri.
 
 ## Fitur utama
 
 - **Dirancang untuk sentuhan portrait.** Target pameran adalah TV sentuh 42 inci; komposisi web dipertahankan dalam bingkai 9:16 saat ukuran browser berubah.
-- **Maskot sebagai pemandu.** Petunjuk, kesempatan mencoba lagi, dan feedback memakai dialog serta pose yang mengikuti konteks.
+- **Maskot sebagai pemandu.** Maskot 3D GLB memakai animasi sesuai konteks dengan gambar cadangan saat renderer tidak tersedia. Petunjuk dan feedback memakai dialog yang mengikuti konteks.
 - **Visual hutan dan api.** Foto dengan proporsi terjaga, enam titik api terpisah, animasi transparan dari rekaman yang muncul ketika ketiga unsur lengkap.
 - **Interaksi dan transisi.** Drag-and-drop, kartu flip, respons tombol, kemunculan feedback, serta countdown melingkar yang berubah warna mendekati akhir waktu.
-- **Audio yang dapat diatur.** Musik, suasana hutan, dan efek interaksi memiliki kontrol terpisah serta mute. Audio dimulai setelah interaksi dan dijeda saat aplikasi tidak aktif. Tidak ada sulih suara maskot.
+- **Audio yang dapat diatur.** Musik, suasana hutan, dan efek interaksi memiliki kontrol terpisah serta mute. Audio dimulai setelah interaksi dan dijeda saat aplikasi tidak aktif. Narasi maskot tersedia untuk welcome, tiga bacaan Babak 2, dan penutup dalam tiga bahasa; teks bacaan Babak 2 muncul mengikuti narasi.
 - **Aset lokal dan tiga bahasa.** Font Hangul ikut dibundel; APK tidak memerlukan akun, server aplikasi, atau unduhan aset saat bermain.
 
 ## Tech stack
@@ -182,7 +182,7 @@ flutter test --concurrency=1
 
 Angka di atas merupakan hasil pengujian yang dicatat, bukan counter pengujian langsung atau jumlah tes yang dijumlahkan antar-review. Ukuran portrait yang diperiksa mencakup **360 × 640, 411 × 731, 720 × 1280, 1080 × 1920, dan 2160 × 3840**.
 
-Uji jangkauan dan keterbacaan di TV fisik 42 inci, kenyamanan speaker, performa jangka panjang pada perangkat target, signing produksi, serta persetujuan naskah Korea oleh klien/penutur masih perlu dituntaskan. Status implementasi dan persetujuan dipisahkan dalam [tracker revisi](design/quick-specs/kifc-screen-revision-tracker-2026-10-23.md).
+Pemasangan dan uji pada Samsung QM43B-T fisik, penandatanganan WGT, dukungan WebGL, respons sentuh, suara, dan performa sesi panjang masih perlu dituntaskan. [Panduan serah terima dan status hasil terkini](docs/release/2026-11-08/README.md). Status implementasi dan persetujuan dipisahkan dalam [tracker revisi](design/quick-specs/kifc-screen-revision-tracker-2026-10-23.md).
 
 Untuk QA native lanjutan, lihat [panduan Android review](tool/android/README.md). Skripnya memakai ADB/UIAutomator dan memerlukan penyesuaian SDK/perangkat lokal; pemeriksaan aset tersedia melalui `python tool/verify_apk.py <path-ke-apk>`.
 

@@ -1,0 +1,9 @@
+{
+  "sdk": "Samsung TV Web Simulator 10.0.6; desktop NW.js, not Tizen OS",
+  "candidate_install": "success via simulator API, no device certificate",
+  "smoke": "incomplete",
+  "initial_attempt": "automatic three drags produced 2/3; timed out awaiting 3/3",
+  "manual_scripted_retry": "drag remaining heat produced 3/3",
+  "full_journey_retry": "SDK debug Runtime.evaluate timeout; no complete journey pass",
+  "target_tv_tested": false
+}

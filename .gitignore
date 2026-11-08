@@ -34,6 +34,15 @@ migrate_working_dir/
 /coverage/
 .figma/
 
+# Local review runs and original voice exports (preserved outside Git).
+/.playwright-cli/
+/output/
+/assets/audio/narration/incoming/*.mp3
+# Additional locally generated review captures; committed evidence remains tracked.
+/docs/client-revisions/2026-11-03/feedback-docking-resize/widget/impact-play-*
+/docs/client-revisions/2026-11-03/feedback-docking-resize/widget/impact-score-*
+/docs/client-revisions/2026-11-03/feedback-docking-resize/widget/impact-selected-*
+
 # Symbolication related
 app.*.symbols
 

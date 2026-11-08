@@ -1,0 +1,37 @@
+{
+  "source_commit": "ac88d33dd4d323f2302baa2dffdcc00a1e66f132",
+  "build_id": "final_20261108",
+  "items": {
+    "KIFC-Tizen-6.5-CANDIDATE-UNSIGNED.wgt": {
+      "sha256": "f001334f21bb274399a70b06bb5251a010186786888c9d258c9bf7bf4d880d23",
+      "bytes": 53581389,
+      "entries": 117,
+      "required_version": "6.5",
+      "signed": false,
+      "asset_checks": "passed",
+      "target_compatibility": "not verified"
+    },
+    "KIFC-Tizen-10-SIMULATOR-UNSIGNED.wgt": {
+      "sha256": "dac22a4e6bc0891bb215295c716766b8c91a0daa18028bc2477037084ca89b45",
+      "bytes": 53581389,
+      "entries": 117,
+      "required_version": "10.0",
+      "signed": false,
+      "asset_checks": "passed",
+      "target_compatibility": "not verified"
+    },
+    "KIFC-Android-REVIEW-DEBUG-SIGNED.apk": {
+      "sha256": "56cbabf9acdfa4c6f857d215b53f54efc2c5c88c34e05ad9b21af145989d51dd",
+      "bytes": 92762627,
+      "signing": "debug; review only",
+      "asset_checks": "82 passed",
+      "device_test": "deferred"
+    },
+    "KIFC-Web-LOCAL-EXTERNAL-PC.zip": {
+      "sha256": "67cfb57556ca32142a1e3739d261142fc03429207d63b3bbe7bd6fb05ab6da76",
+      "bytes": 53588138,
+      "web_resources": "local; serve by HTTP; requires a supported browser",
+      "tv_compatibility": "not verified"
+    }
+  }
+}

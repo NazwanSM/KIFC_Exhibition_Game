@@ -13,7 +13,13 @@ import zipfile
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--web-dir', type=Path, default=Path('build/web'))
 parser.add_argument('--output', type=Path, default=Path('build/tizen/KIFC-1.0.10-unsigned.wgt'))
+parser.add_argument('--required-version', choices=['6.5', '10.0'], default='10.0',
+                    help='Declared minimum Tizen version; this does not verify device compatibility.')
+parser.add_argument('--orientation', choices=['landscape', 'portrait'], default='landscape')
+parser.add_argument('--app-version', default='1.0.10')
 args = parser.parse_args()
+if not re.fullmatch(r'\d{1,3}\.\d{1,3}\.\d{1,5}', args.app_version):
+    parser.error('app-version must use the x.y.z numeric format')
 root = args.web_dir.resolve()
 for name in ['index.html', 'flutter_bootstrap.js', 'main.dart.js', 'canvaskit/canvaskit.wasm']:
     if not (root / name).is_file():
@@ -27,17 +33,17 @@ if not re.search(r'"useLocalCanvasKit"\s*:\s*true', bootstrap):
     raise SystemExit('Rebuild with --no-web-resources-cdn before packaging')
 config = '''<?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets"
- id="https://kifc.local/fire-prevention" version="1.0.10" viewmodes="maximized">
- <tizen:application id="KIFCGameTV.FirePrevention" package="KIFCGameTV" required_version="10.0"/>
+ id="https://kifc.local/fire-prevention" version="{app_version}" viewmodes="maximized">
+ <tizen:application id="KIFCGameTV.FirePrevention" package="KIFCGameTV" required_version="{required_version}"/>
  <content src="index.html"/>
  <name>KIFC Fire Prevention</name>
  <icon src="icons/Icon-192.png"/>
  <tizen:profile name="tv-samsung"/>
- <tizen:setting screen-orientation="landscape" context-menu="disable"
+ <tizen:setting screen-orientation="{orientation}" context-menu="disable"
   background-support="disable" encryption="disable" install-location="auto" hwkey-event="enable"/>
  <tizen:content-security-policy>default-src 'self' data: blob:; script-src 'self' 'unsafe-eval' 'wasm-unsafe-eval' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self' data: blob:; media-src 'self' data: blob:; font-src 'self' data:; worker-src 'self' blob:</tizen:content-security-policy>
 </widget>
-'''
+'''.format(app_version=args.app_version, required_version=args.required_version, orientation=args.orientation)
 args.output.parent.mkdir(parents=True, exist_ok=True)
 entries = []
 with zipfile.ZipFile(args.output, 'w', zipfile.ZIP_DEFLATED, compresslevel=6) as archive:
@@ -56,6 +62,8 @@ with zipfile.ZipFile(args.output, 'w', zipfile.ZIP_DEFLATED, compresslevel=6) as
     archive.writestr('config.xml', config)
 manifest = {'package': str(args.output), 'signed': False,
             'target': 'Samsung TV Web application; compatibility candidate',
+            'required_version': args.required_version, 'orientation': args.orientation,
+            'compatibility_verified': False,
             'build_requires': '--no-web-resources-cdn',
             'sha256': hashlib.sha256(args.output.read_bytes()).hexdigest(),
             'bytes': args.output.stat().st_size, 'files': entries}

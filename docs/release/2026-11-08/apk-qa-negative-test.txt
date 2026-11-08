@@ -1,0 +1,1 @@
+Undeclared MP4 injected into a scratch APK copy: verifier rejected it as expected. Scratch copy removed; source APK unchanged.
